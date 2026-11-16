@@ -1,0 +1,50 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C140CD4 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C140CDC (not taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "03"
+   }
+  },
+  {
+   "about": "directed: flips 0C140CE4 (not taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "04"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C140CD8 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "02"
+   }
+  },
+  {
+   "about": "directed: flips 0C140EB4 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "02",
+    "0000001C": "0100"
+   }
+  }
+ ]
+}

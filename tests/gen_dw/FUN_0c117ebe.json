@@ -1,0 +1,71 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C117EDA (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "0a"
+   }
+  },
+  {
+   "about": "directed: flips 0C117EF2 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "02"
+   }
+  },
+  {
+   "about": "directed: flips 0C117F3A (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "0b"
+   }
+  },
+  {
+   "about": "directed: flips 0C117F4A (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "0d"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C117F14 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C117F1A (not taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "fe"
+   }
+  },
+  {
+   "about": "directed: flips 0C117F42 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "0c"
+   }
+  },
+  {
+   "about": "directed: flips 0C1182E6 (taken)",
+   "regs": {},
+   "poke": {
+    "00000014": "02",
+    "00000020": "0f00"
+   }
+  }
+ ]
+}

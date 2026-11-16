@@ -1,0 +1,34 @@
+{
+ "dev": [
+  {
+   "about": "rescue: flips 0C05CBDC",
+   "regs": {},
+   "poke": {
+    "0C541F42": "01"
+   }
+  },
+  {
+   "about": "rescue: flips 0C05CBDC",
+   "regs": {},
+   "poke": {
+    "0C541F42": "fe"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: flips 0C05CBDC",
+   "regs": {},
+   "poke": {
+    "0C541F42": "02"
+   }
+  },
+  {
+   "about": "rescue: flips 0C05CBDC",
+   "regs": {},
+   "poke": {
+    "0C541F42": "ff"
+   }
+  }
+ ]
+}

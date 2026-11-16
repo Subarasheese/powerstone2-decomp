@@ -1,0 +1,98 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C0C7ACA (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7B56 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "00000016": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BB0 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "0000001C": "0e00"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BB8 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "0000001C": "0e00",
+    "00000131": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BC0 (not taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "0000001C": "0e00",
+    "00000131": "01",
+    "0000041F": "01"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C0C7AD4 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "03"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BA0 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "00000044": "e27ad43f"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7B5A (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "00000016": "02"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BE2 (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "00000016": "01",
+    "0000001C": "0200"
+   }
+  },
+  {
+   "about": "directed: flips 0C0C7BEC (taken)",
+   "regs": {},
+   "poke": {
+    "00000015": "02",
+    "00000016": "01",
+    "0000001C": "0200",
+    "0C5324AF": "02"
+   }
+  }
+ ]
+}

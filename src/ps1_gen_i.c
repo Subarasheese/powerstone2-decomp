@@ -1,0 +1,307 @@
+/* Library code: C that behaves like this game's own bytes. */
+/* Straight-line functions with calls and guards (batch gen_i): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+int kdGetDeviceInfo(int);
+int kdGetDevice(int);
+struct o0_float { float v; };
+struct o0_int { int v; };
+struct o0_short { short v; };
+struct o0_uchar { unsigned char v; };
+struct o0_ushort { unsigned short v; };
+struct o1_uchar { char p[0x1]; unsigned char v; };
+struct o10_float { char p[0x10]; float v; };
+struct o102_uchar { char p[0x102]; unsigned char v; };
+struct o105_uchar { char p[0x105]; unsigned char v; };
+struct o107_uchar { char p[0x107]; unsigned char v; };
+struct o10B_uchar { char p[0x10B]; unsigned char v; };
+struct o10F4_int { char p[0x10F4]; int v; };
+struct o118_uint { char p[0x118]; unsigned int v; };
+struct o14_float { char p[0x14]; float v; };
+struct o18_float { char p[0x18]; float v; };
+struct o19_uchar { char p[0x19]; unsigned char v; };
+struct o1A_uchar { char p[0x1A]; unsigned char v; };
+struct o1B_uchar { char p[0x1B]; unsigned char v; };
+struct o1C_float { char p[0x1C]; float v; };
+struct o1C_uchar { char p[0x1C]; unsigned char v; };
+struct o1D_uchar { char p[0x1D]; unsigned char v; };
+struct o1E_uchar { char p[0x1E]; unsigned char v; };
+struct o1F_uchar { char p[0x1F]; unsigned char v; };
+struct o2_uchar { char p[0x2]; unsigned char v; };
+struct o20_float { char p[0x20]; float v; };
+struct o20_short { char p[0x20]; short v; };
+struct o20_ushort { char p[0x20]; unsigned short v; };
+struct o24_float { char p[0x24]; float v; };
+struct o274_float { char p[0x274]; float v; };
+struct o28_float { char p[0x28]; float v; };
+struct o2C_uchar { char p[0x2C]; unsigned char v; };
+struct o2D_uchar { char p[0x2D]; unsigned char v; };
+struct o2D4_float { char p[0x2D4]; float v; };
+struct o2D9_uchar { char p[0x2D9]; unsigned char v; };
+struct o2DA_uchar { char p[0x2DA]; unsigned char v; };
+struct o2E0_int { char p[0x2E0]; int v; };
+struct o3_uchar { char p[0x3]; unsigned char v; };
+struct o308_uint { char p[0x308]; unsigned int v; };
+struct o30D_uchar { char p[0x30D]; unsigned char v; };
+struct o30E_uchar { char p[0x30E]; unsigned char v; };
+struct o31_uchar { char p[0x31]; unsigned char v; };
+struct o38_float { char p[0x38]; float v; };
+struct o4_float { char p[0x4]; float v; };
+struct o4_int { char p[0x4]; int v; };
+struct o4_uchar { char p[0x4]; unsigned char v; };
+struct o4_ushort { char p[0x4]; unsigned short v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o4C_float { char p[0x4C]; float v; };
+struct o50_float { char p[0x50]; float v; };
+struct o54_float { char p[0x54]; float v; };
+struct o58_float { char p[0x58]; float v; };
+struct o5C_float { char p[0x5C]; float v; };
+struct o6_uchar { char p[0x6]; unsigned char v; };
+struct o60_float { char p[0x60]; float v; };
+struct o64_float { char p[0x64]; float v; };
+struct o68_float { char p[0x68]; float v; };
+struct o710B_uchar { char p[0x710B]; unsigned char v; };
+struct o710C_uchar { char p[0x710C]; unsigned char v; };
+struct o71A8_uchar { char p[0x71A8]; unsigned char v; };
+struct o71A9_uchar { char p[0x71A9]; unsigned char v; };
+struct o71BC_uchar { char p[0x71BC]; unsigned char v; };
+struct o71D4_short { char p[0x71D4]; short v; };
+struct o71E4_float { char p[0x71E4]; float v; };
+struct o71E8_float { char p[0x71E8]; float v; };
+struct o72A4_short { char p[0x72A4]; short v; };
+struct o72A4_ushort { char p[0x72A4]; unsigned short v; };
+struct o72AC_uchar { char p[0x72AC]; unsigned char v; };
+struct o8_float { char p[0x8]; float v; };
+struct o8_int { char p[0x8]; int v; };
+struct o80_uint { char p[0x80]; unsigned int v; };
+struct o8C_uint { char p[0x8C]; unsigned int v; };
+struct o9C_int { char p[0x9C]; int v; };
+struct oC_float { char p[0xC]; float v; };
+struct oC_int { char p[0xC]; int v; };
+struct oEC_short { char p[0xEC]; short v; };
+struct oEC_ushort { char p[0xEC]; unsigned short v; };
+struct oEE_ushort { char p[0xEE]; unsigned short v; };
+struct oF2_ushort { char p[0xF2]; unsigned short v; };
+int opt_game_settings_queue_row(int, int, int);
+int FUN_0c019a06(int);
+int opt_game_settings_queue_cursor(int, int);
+int FUN_0c01f164(int);
+int vmu_menu_state_load(int, int, int, int);
+int FUN_0c01f350(int, int, int, int);
+int vmu_menu_step_notice_wait_ok_flag(int, int, int, int);
+int FUN_0c01f48c(int, int);
+int FUN_0c01f874(int);
+int vmu_menu_scan_port_masks(void);
+int FUN_0c01fd48(void);
+extern int vmu_menu_update_objs();
+int vmu_menu_pad_pressed(int);
+int FUN_0c01fe52(int);
+int FUN_0c0210f4(int, int, int);
+int math_dir_xz_normalized(int, float, float, float, float);
+float math_interval_overlap(float, float, float, float);
+int hit_find_part_entry(int, int, int, int);
+int ui_draw_text_stub(void);
+int ui_hud_slide_text(int, int, int, int);
+int fx_spawn_effect_at_point(int, int);
+int fx_spawn_burst_slot(int, int, int, int, int, int);
+int ai_clear_op_state(void);
+int obj_create(int, int, int);
+int part_free0(int);
+int part_free1(int);
+int part_free2(int);
+int item_init_hold_pose(int);
+int math_vec3_sub(int, int, int);
+float math_vec3_length(int);
+int math_vec3_normalize(int, float);
+int math_mat_transform_vector(int, int);
+int math_mat_get_translate(int, int);
+int obj_part_set_model(int, int, int);
+int mdl_vtx_iter_begin(int, int);
+int mdl_vtx_iter_next(void);
+int mdl_vtx_get_pos(int);
+int mdl_vtx_set_pos(int);
+int ai_dist_class(int);
+int ai_roll_chance(void);
+int pl_update_hitstop_shake(int);
+int pl_hitreact_escape_input(int);
+int sys_return_zero_098c82(void);
+int pl_start_motion(int, int, int);
+int pl_step_motion(int);
+int pl_apply_velocity(int);
+int pl_apply_acceleration(int);
+int pl_angle_to_opponent(int);
+int FUN_0c0a022e(int, float);
+int pl_set_velocity_forward(int, int, float);
+int bgm_play_stage_select(void);
+int snd_play_side_se(int, int);
+int FUN_0c0a3e64(int, int);
+int menu_stage_select_spawn_ui(void);
+int menu_ui_spawn_28(void);
+int stage_obj_load_layout_pos(int);
+float FUN_0c0d5bc0(void);
+int cam_force_mode_23(int);
+float math_signed_sqrt(float);
+float math_rand_float(void);
+float math_sin_angle16(int);
+int snd_send_command(int);
+int _divls(void);
+int _modlu(void);
+int _quick_odd_mvn(void);
+int FUN_0c0ff8aa(void);
+int FUN_0c0ff8b4(int, int);
+int FUN_0c10ab20(int, int, int);
+int FUN_0c10ab3c(int, int, int);
+int mpdrv_timeout(int);
+int mpdrv_swapmode(int);
+int mpdrv_nopcount(int);
+int mpdrv_speed(int);
+int mpdrv_debugmode(int);
+int mpdrv_dreqcount(int);
+int mpdrv_optimize(int);
+int mpdrv_get_lastsendaddr(int);
+int mpdrv_get_rootplay(int);
+int FUN_0c111c9c(int);
+int adxf_ChkPrmGfr(int, int);
+int memset(int, int, int);
+int thunk_math_mat_get_translate(int, int);
+int fx_spawn_03c3ca(int a4, int a5);
+int FUN_0c042980(int a4, int a5);
+int ai_op85_set_goal_stage_table(void);
+int item_attach_to_hand(int a4);
+int FUN_0c0647f0(int a4, int a5);
+int vmu_menu_spawn_message(int a4);
+int FUN_0c0209c6(int a4, float f4);
+int hit_offset_point_by_owner(int a4, int a5, int a6);
+int ui_hud_combo_message(int a4, int a5, int a6, int a7);
+int FUN_0c0447bc(int a4);
+int FUN_0c0a10b6(int a4, int a5, float f4);
+int FUN_0c0d6ef6(int a4);
+int FUN_0c10ac40(int a4, int a5);
+int FUN_0c0193b2(int a4, int a5);
+int FUN_0c01e6b4(int a4);
+int FUN_0c01eee0(int a4, int a5, int a6, int a7);
+int FUN_0c02018e(int a4, int a5, int a6, int a7);
+int FUN_0c02545c(int a4, int a5, int a6);
+int FUN_0c03cc48(int a4);
+int obj_destroy(int a4, int a5, int a6, int a7);
+int FUN_0c05ed92(int a4, int a5, int a6, int a7);
+int FUN_0c05deec(int a4);
+int FUN_0c0648d4(int a4);
+int pl_hitreact_step(int a4, int a5, int a6, int a7);
+int stage_spawn_type12(int a4);
+int FUN_0c0f5898(int a4, int a5, int a6, int a7);
+int opt_game_settings_draw(int a4, int a5);
+int fx_spawn_03a024(int a4);
+int fx_spawn_03d254(int a4, int a5);
+float FUN_0c059c44(int a4, int a5, float f4);
+int menu_stage_select_open(int a4);
+int FUN_0c100196(int a4, int a5);
+int kdSetDriverMode(int a4, int a5);
+int FUN_0c01b788(int a4);
+int hit_cylinders_overlap(int a4, int a5, int a6, int a7);
+int FUN_0c0228ac(int a4, int a5, int a6, int a7);
+int FUN_0c0b13c8(int a4, int a5);
+int FUN_0c0fa8c0(int a4);
+int ai_reaction_check_3(int a4, int a5);
+int FUN_0c0a519c(int a4, int a5);
+int FUN_0c0e6bc4(int a4, int a5, int a6);
+int mpdrv_exit(void);
+
+
+int FUN_0c100196(int a4, int a5)
+{
+    int stk[2];
+    register int t2;
+    register int t3;
+    int t4;
+    register int t6;
+    register int t5;
+    register int t15;
+    int t16;
+
+    *(unsigned char *)(((int)stk + 0)) = (*(signed char *)(((*(int *)0xC843924) + 0xFB0)));
+    t2 = 0xFB0;
+    t3 = a4;
+    t4 = a5;
+    t6 = 0x0;
+    for (;;) {
+        if ((int)t6 >= (int)0x4) {
+            t2 = 0x0;
+            return t2;
+        }
+        if ((((int)0x1 << (int)t6) & (unsigned char)(*(signed char *)(((int)stk + 0)))) != 0) {
+            t3 = 0xC15B050;
+            t3 = (t3 + t6);
+            *(unsigned int *)(((int)stk + 4)) = t3;
+            t3 = (*(signed char *)((t3 + 0x0)));
+            t3 = (unsigned char)t3;
+            t2 = (kdGetDevice(t3));
+            t3 = (*(int *)(((int)stk + 4)));
+            t5 = t2;
+            t3 = (*(signed char *)((t3 + 0x0)));
+            t3 = (unsigned char)t3;
+            t2 = (kdGetDeviceInfo(t3));
+            t3 = t2;
+            t2 = t6;
+            *(unsigned char *)((0xC805784 + t2)) = (*(signed char *)((0xC805788 + t2)));
+            if ((((*(int *)((t3 + 0x0))) & 0x80) != 0) && ((t15 = *(signed char *)((t5 + 0x2)), t2 = t15, t2 == 0) && (t16 = *(signed char *)((t5 + 0x4)), t2 = t16, t2 = (unsigned char)t2, t2 == 8))) {
+                t3 = (*(int *)((t5 + 0x8)));
+                t2 = (*(signed char *)((t3 + 0x8)));
+                t2 = (t2 & 0x4);
+                t3 = t2;
+                t2 = t6;
+                *(unsigned char *)((0xC805788 + t2)) = t3;
+                t4 = (*(signed char *)((0xC805784 + t2)));
+                t4 = (t4 ^ t3);
+                t3 = (unsigned char)t3;
+                if ((t3 == 0) && (t4 = (unsigned char)t4, t4 != 0)) {
+                    break;
+                }
+                t6 = (t6 + 0x1);
+                continue;
+            }
+            t6 = (t6 + 0x1);
+            continue;
+        }
+        t6 = (t6 + 0x1);
+    }
+    return (t6 + 0x1);
+}
+
+
+int mpdrv_exit(void)
+{
+    register int t0;
+    register int t1;
+    register int t2;
+
+    t0 = FUN_0c0ff8aa();
+    for (;;) {
+        if (((*(int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x18))) & 0x1) == 0) {
+            break;
+        }
+        t1 = FUN_0c0ff8aa();
+        t2 = FUN_0c0ff8b4(t0, t1);
+        if ((int)t2 <= (int)0x186A0) continue;
+        break;
+    }
+    *(unsigned int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x18)) = 0x0;
+    *(unsigned int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x14)) = 0x0;
+    *(unsigned int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x10)) = 0x0;
+    (((struct o8C_uint *)(((((struct o10F4_int *)((*(int *)0xC843924)))->v))))->v) = 0x6155404F;
+    (((struct o80_uint *)(((((struct o10F4_int *)((*(int *)0xC843924)))->v))))->v) = 0xC3500000;
+    *(unsigned int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x4)) = 0xCFF0000;
+    t0 = FUN_0c0ff8aa();
+    for (;;) {
+        if (((*(int *)((((((struct o10F4_int *)((*(int *)0xC843924)))->v)) + 0x18))) & 0x1) == 0) {
+            break;
+        }
+        t1 = FUN_0c0ff8aa();
+        t2 = FUN_0c0ff8b4(t0, t1);
+        if ((int)t2 <= (int)0x4268) continue;
+        break;
+    }
+    return 0x0;
+}

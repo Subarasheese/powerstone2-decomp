@@ -1,0 +1,26 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C16BE1E (taken)",
+   "regs": {
+    "r4": "80000000"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C16BE54 (taken)",
+   "regs": {
+    "r7": "00000001"
+   }
+  }
+ ]
+}

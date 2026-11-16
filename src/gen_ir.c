@@ -1,0 +1,80 @@
+/* Straight-line functions with calls and guards (batch gen_ir): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o168_float { char p[0x168]; float v; };
+struct o20_ushort { char p[0x20]; unsigned short v; };
+struct o28_float { char p[0x28]; float v; };
+struct o2C_float { char p[0x2C]; float v; };
+struct o30_float { char p[0x30]; float v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o70_float { char p[0x70]; float v; };
+struct oA9_uchar { char p[0xA9]; unsigned char v; };
+struct oAC_ushort { char p[0xAC]; unsigned short v; };
+struct oC0_int { char p[0xC0]; int v; };
+struct oC8_int { char p[0xC8]; int v; };
+int FUN_0c03744a(int, int, int, int);
+int FUN_0c03f444(int, int, int);
+int FUN_0c064d24(int, int, int, int, int, int, int, int);
+int FUN_0c07e2f4(int, int);
+int FUN_0c187798(void);
+float math_cos_angle16(int);
+float math_sin_angle16(int);
+int FUN_0c1272a8(int a4, int a5);
+
+int FUN_0c1272a8(int a4, int a5)
+{
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+    register float u0;
+
+    t0 = FUN_0c03f444(0x1, 0x0, 0x2);
+    t1 = t0;
+    if (t0 == 0) {
+    } else {
+        t2 = 0x0;
+        for (;;) {
+            if ((int)t2 >= (int)((((struct oC0_int *)(t0))->v))) {
+                break;
+            }
+            FUN_0c03744a((*(int *)((((t2 << 2) + (0xC4 + t0)) + 0x0))), t2, 0x0, (*(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)))));
+            t2 = (t2 + 0x1);
+        }
+        *(unsigned int *)((t0 + 0x4)) = 0xC127448;
+        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
+        *(unsigned char *)((t0 + 0x2)) = (*(signed char *)((a4 + 0x2)));
+        (((struct o20_ushort *)(t0))->v) = a5;
+        (((struct oAC_ushort *)(t0))->v) = 0x1F;
+        (((struct oA9_uchar *)(t0))->v) = 0x21;
+        *(unsigned int *)((t0 + 0x10)) = a4;
+        FUN_0c187798();
+        FUN_0c187798();
+        t2 = *(int *)((t0 + 0x38));
+        t3 = *(int *)(((a5 << 2) + 0xC201BD4));
+        u0 = ((((struct o28_float *)(t0))->v));
+        u0 = u0 + (*(float *)(((0xC201BEC + (a5 << 2)) + 0x0))) * (math_cos_angle16((((-t2) + t3) + 0x14000)));
+        (((struct o28_float *)(t0))->v) = u0;
+        u0 = ((((struct o30_float *)(t0))->v));
+        u0 = u0 + (*(float *)(((0xC201BEC + (a5 << 2)) + 0x0))) * (math_sin_angle16((((-t2) + t3) + 0x14000)));
+        (((struct o30_float *)(t0))->v) = u0;
+        (((struct o2C_float *)(t0))->v) = (((((struct o2C_float *)(t0))->v)) + 300.0f);
+        u0 = *(float *)(((a5 << 2) + 0xC201BA4));
+        (((struct o48_float *)(t0))->v) = u0;
+        (((struct o44_float *)(t0))->v) = u0;
+        (((struct o40_float *)(t0))->v) = u0;
+        (((struct o70_float *)(((((struct oC8_int *)(t0))->v))))->v) = (((((struct o168_float *)(a4))->v)) - ((((struct o2C_float *)(t0))->v)));
+        t2 = 0x62;
+        if (a5 != 0) {
+            t2 = 0x69;
+        }
+        FUN_0c07e2f4(t0, t2);
+        (((struct o48_float *)(t0))->v) = 1.0f;
+        (((struct o44_float *)(t0))->v) = 1.0f;
+        (((struct o40_float *)(t0))->v) = 1.0f;
+        t1 = (FUN_0c064d24(t0, 0x1, 0x40, 0x0, 0x100, (~((int)0x1 << (int)(*(signed char *)((t0 + 0x1))))), 0x0, 0xFFFFFFF0));
+    }
+    return t1;
+}

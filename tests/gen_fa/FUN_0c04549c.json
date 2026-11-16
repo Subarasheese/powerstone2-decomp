@@ -1,0 +1,138 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C0454E6 (taken)",
+   "regs": {},
+   "poke": {
+    "0C40F7F9": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455B4 (not taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002"
+   }
+  },
+  {
+   "about": "directed: flips 0C04572C (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0008"
+   }
+  },
+  {
+   "about": "directed: flips 0C045780 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0010"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455DA (not taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "3C53FB68": "000c"
+   }
+  },
+  {
+   "about": "directed: flips 0C04578C (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0010",
+    "0C541F50": "0700"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455FE (not taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0100",
+    "3C53FB68": "000c"
+   }
+  },
+  {
+   "about": "directed: flips 0C045620 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0200",
+    "3C53FB68": "0004"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C045530 (taken)",
+   "regs": {},
+   "poke": {
+    "0C40F7FA": "01"
+   }
+  },
+  {
+   "about": "directed: flips 0C045712 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0004"
+   }
+  },
+  {
+   "about": "directed: flips 0C04575C (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0020"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455C0 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0100"
+   }
+  },
+  {
+   "about": "directed: flips 0C045720 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB68": "0004",
+    "0C541F4E": "0300"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455C4 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0200"
+   }
+  },
+  {
+   "about": "directed: flips 0C0455C8 (taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0300"
+   }
+  },
+  {
+   "about": "directed: flips 0C04566E (not taken)",
+   "regs": {},
+   "poke": {
+    "3C53FB64": "0002",
+    "0C541F4E": "0200",
+    "3C53FB68": "0008"
+   }
+  }
+ ]
+}

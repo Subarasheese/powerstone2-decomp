@@ -1,0 +1,90 @@
+/* Straight-line functions with calls and guards (batch gen_ou): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o0_float { float v; };
+struct o118_int { char p[0x118]; int v; };
+struct o16_uchar { char p[0x16]; unsigned char v; };
+struct o18_float { char p[0x18]; float v; };
+struct o22_short { char p[0x22]; short v; };
+struct o22_ushort { char p[0x22]; unsigned short v; };
+struct o3768_int { char p[0x3768]; int v; };
+struct o376C_int { char p[0x376C]; int v; };
+struct o3850_short { char p[0x3850]; short v; };
+struct o8C_float { char p[0x8C]; float v; };
+int FUN_0c037bf6(int, int, int);
+int FUN_0c059df2(int, int);
+int FUN_0c07e79c(int, int, int, int, int, int, int);
+int FUN_0c081dfc(int, int, int, int);
+int FUN_0c081ee8(int, int);
+int FUN_0c085d0c(int);
+int FUN_0c0c3010(int, int, int);
+int FUN_0c0c30a8(int, int, int);
+int FUN_0c072672(int a4, int a5, int a6);
+
+int FUN_0c072672(int a4, int a5, int a6)
+{
+    int stk[5];
+
+    register int R2;
+    register int R3;
+    register int R7;
+    register int R8;
+    register int R12;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    v0_1 = a4;
+    v0_3 = a5;
+    v0_4 = a6;
+    v0_2 = (unsigned char)(FUN_0c037bf6(v0_1, v0_3, v0_4)) == 0;
+    v0_0 = (v0_1);
+    if (v0_2) goto L_C0726DC;
+    *(int *)((int)stk + 8) = 0x1;
+    *(int *)((int)stk + 4) = 0x2;
+    *(int *)((int)stk + 0) = 0xFFFFFFFF;
+    FUN_0c07e79c(v0_0, 0xFFFFFFFF, 0x2, 0x1, 0xFFFFFFFF, 0x2, 0x1);
+    if ((((((struct o376C_int *)(v0_0))->v)) == 0)) goto L_C0726B2;
+    FUN_0c0c3010(((((struct o376C_int *)(v0_0))->v)), (*(signed char *)((v0_0 + 0x1))), 0x0);
+    L_C0726B2:;
+    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x16))) + 0x1);
+    return 0x16;
+    L_C0726DC:;
+    if ((((((struct o0_float *)0xC0727FC)->v)) > ((((struct o8C_float *)(((((struct o118_int *)(v0_0))->v))))->v)))) goto L_C07273A;
+    if ((((((struct o22_short *)(v0_0))->v)) != 0)) goto L_C07273A;
+    v0_2 = (0x3768);
+    if ((((((struct o3768_int *)(v0_0))->v)) == 0)) goto L_C072732;
+    v0_1 = (FUN_0c0c30a8((*(int *)((v0_0 + v0_2))), 0x3, v0_0)) == 0;
+    if (v0_1) goto L_C072722;
+    FUN_0c081ee8(v0_0, ((((struct o3768_int *)(v0_0))->v)));
+    FUN_0c059df2((*(signed char *)((v0_0 + 0x1))), 0x2F);
+    L_C072732:;
+    (((struct o22_ushort *)(v0_0))->v) = (((((struct o22_short *)(v0_0))->v)) + 0x1);
+    L_C07273A:;
+    v0_2 = (0x8C);
+    if ((!(((((struct o8C_float *)(((((struct o118_int *)(v0_0))->v))))->v)) > ((((struct o18_float *)0xC0727FC)->v))))) goto L_C07277C;
+    v0_1 = *(short *)((v0_0 + 0x1C));
+    v0_2 = (v0_1);
+    if ((v0_1 == 0)) goto L_C07277C;
+    v0_3 = *(int *)((v0_0 + 0x38));
+    v0_4 = (((struct o3850_short *)(v0_0))->v);
+    v0_2 = ((*(short *)((v0_0 + 0x1C))));
+    v0_1 = ((unsigned short)(v0_4 - v0_3));
+    if (((0x8000 & (unsigned short)(v0_4 - v0_3)) == 0)) goto L_C072766;
+    v0_3 = (0xFFFF0000);
+    v0_1 = ((v0_1 | 0xFFFF0000));
+    L_C072766:;
+    *(unsigned int *)((v0_0 + 0x38)) = (unsigned short)((*(int *)((v0_0 + 0x38))) + ((int)((int)v0_1 / (int)v0_2)));
+    v0_1 = *(short *)((v0_0 + 0x1C));
+    *(unsigned short *)((v0_0 + 0x1C)) = (v0_1 - 1);
+    v0_2 = ((v0_1 - 1));
+    L_C07277C:;
+    return v0_2;
+    L_C072722:;
+    FUN_0c081dfc(v0_0, v0_3, v0_4, R7);
+    return FUN_0c085d0c(v0_0);
+}

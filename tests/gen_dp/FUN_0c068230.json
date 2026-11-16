@@ -1,0 +1,28 @@
+{
+ "dev": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C06824C (taken)",
+   "regs": {},
+   "poke": {
+    "00000002": "0c"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "rescue: empty case",
+   "regs": {}
+  },
+  {
+   "about": "directed: flips 0C06825A (taken)",
+   "regs": {},
+   "poke": {
+    "00000002": "0d"
+   }
+  }
+ ]
+}
