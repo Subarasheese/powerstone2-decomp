@@ -456,6 +456,7 @@ def callee_pops(fname):
     _POPS[fname]=n
     return n
 
+SLOT_READ_WRAPPERS=set()
 def callee_arity(fname):
     """(integer arguments, float arguments) a function reads before it writes them, from a straight scan of its code up to its
     first return: r4-r7 and fr4-fr11. None when the code cannot be read. A guess for the prototype, not a proof: the call is
@@ -522,7 +523,12 @@ def callee_arity(fname):
             if dest: wrote.add(dest)
             slot=next((re.match(r'([0-9a-f]{8}) ([0-9a-f]{4})\s+(\S+)\s*(.*)',x) for x in out[out.index(l)+1:] if re.match(r'[0-9a-f]{8} ',x)),None)
             slot_w=set(re.findall(r',\s*(r[4-7])\s*$',slot.group(4).split(';')[0])) if slot else set()      # the delay slot runs before the call: an argument it sets is the wrapper's own
-            if mn in ('jsr','bsr','bsrf','jmp','braf') and maxi<0 and maxf<0 and not ({'r4','r5','r6','r7'}&(wrote|slot_w)) and SPANS.get(fname,(0,99))[1]<=32:
+            slot_ops=slot.group(4).split(';')[0].strip() if slot else ''
+            slot_ra=[x.strip() for x in re.split(r',(?![^(]*\))',slot_ops)] if slot_ops else []
+            if slot and slot.group(3).startswith('mov') and len(slot_ra)>=2 and re.fullmatch(r'r\d+',slot_ra[-1]): slot_ra=slot_ra[:-1]
+            slot_r=set(re.findall(r'\b(r[4-7])\b',' '.join(slot_ra)))      # the slot reads an argument register (bsr f / mov.l r4,@-r15): not a plain pass-through
+            if slot_r and mn in ('jsr','bsr','bsrf','jmp','braf') and maxi<0 and maxf<0 and not ({'r4','r5','r6','r7'}&(wrote|slot_w)) and SPANS.get(fname,(0,99))[1]<=32: SLOT_READ_WRAPPERS.add(fname)
+            if mn in ('jsr','bsr','bsrf','jmp','braf') and maxi<0 and maxf<0 and not ({'r4','r5','r6','r7'}&(wrote|slot_w|slot_r)) and SPANS.get(fname,(0,99))[1]<=32:
                 tgt_=None                # a call before it has read or written any argument register: a wrapper passing its arguments on
                 cm=l.split(';',1)[1].strip() if ';' in l else ''
                 if mn in ('bsr','bra') and re.fullmatch(r'\w+',cm): tgt_=cm

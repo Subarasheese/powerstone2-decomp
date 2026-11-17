@@ -1,0 +1,102 @@
+/* game/unsorted: functions 0C0ED5E4-0C0EDE44, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o128_ushort { char p[0x128]; unsigned short v; };
+struct o12E_ushort { char p[0x12E]; unsigned short v; };
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o15_uchar { char p[0x15]; unsigned char v; };
+struct o16_uchar { char p[0x16]; unsigned char v; };
+struct oA4_uint { char p[0xA4]; unsigned int v; };
+struct oA8_uchar { char p[0xA8]; unsigned char v; };
+int FUN_0c03f346(int, int, int, int);
+int FUN_0c0ed620(int);
+int FUN_0c0ed6ba(int);
+int FUN_0c0ed78c(int);
+int FUN_0c0eda58(int);
+int FUN_0c0edd2c(int a4, int a5, int a6, int a7);
+
+int FUN_0c0edd2c(int a4, int a5, int a6, int a7)
+{
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R5;
+    register int R6;
+    register int R12;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    v0_2 = a4;
+    v0_0 = (v0_2);
+    v0_2 = (0xC540978);
+    if (((int)(*(signed char *)0xC54098D) < (int)0xE)) goto L_C0EDD48;
+    return FUN_0c03f346(v0_0, R5, R6, a7);
+    L_C0EDD48:;
+    v0_3 = *(signed char *)((v0_0 + 0x14));
+    v0_1 = (v0_3);
+    if ((v0_3 == 0)) goto L_C0EDD68;
+    if ((v0_1 == 1)) goto L_C0EDDC8;
+    L_C0EDE3E:;
+    return v0_1;
+    L_C0EDDC8:;
+    v0_2 = *(signed char *)((v0_0 + 0x15));
+    v0_1 = (v0_2);
+    if ((v0_2 == 1)) goto L_C0EDDE0;
+    if ((v0_1 == 2)) goto L_C0EDDE8;
+    if ((v0_1 == 3)) goto L_C0EDDF0;
+    if ((v0_1 == 0)) goto L_C0EDDF8;
+    L_C0EDDF8:;
+    FUN_0c0ed620(v0_0);
+    v0_2 = *(signed char *)((0x15 + (*(int *)((v0_0 + 0x10)))));
+    v0_1 = (v0_2);
+    if ((v0_2 == 4)) goto L_C0EDE3E;
+    if ((v0_1 == 5)) goto L_C0EDE3E;
+    if ((v0_1 == 6)) goto L_C0EDE3E;
+    if ((v0_1 == 7)) goto L_C0EDE3E;
+    if ((v0_1 == 99)) goto L_C0EDE22;
+    if ((v0_1 == 8)) goto L_C0EDE2A;
+    if ((v0_1 == 9)) goto L_C0EDE32;
+    goto L_C0EDE3E;
+    L_C0EDE32:;
+    (((struct o15_uchar *)(v0_0))->v) = 0x2;
+    L_C0EDE38:;
+    (((struct o16_uchar *)(v0_0))->v) = 0x0;
+    v0_1 = (0x16);
+    goto L_C0EDE3E;
+    L_C0EDE2A:;
+    (((struct o15_uchar *)(v0_0))->v) = 0x1;
+    goto L_C0EDE38;
+    L_C0EDE22:;
+    (((struct o15_uchar *)(v0_0))->v) = 0x3;
+    goto L_C0EDE38;
+    L_C0EDDF0:;
+    return FUN_0c0ed6ba(v0_0);
+    L_C0EDDE8:;
+    return FUN_0c0eda58(v0_0);
+    L_C0EDDE0:;
+    return FUN_0c0ed78c(v0_0);
+    L_C0EDD68:;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    (((struct oA8_uchar *)(v0_0))->v) = 0x1;
+    v0_1 = (0x1B);
+    if (((int)(*(signed char *)((v0_0 + 0x1B))) < 0)) goto L_C0EDDA0;
+    (((struct oA4_uint *)(v0_0))->v) = ((*(int *)(((((*(signed char *)((v0_0 + v0_1))) << 2) + (0x41C + v0_2)) + 0x0))) + 0x64);
+    *(unsigned int *)((v0_0 + 0x10)) = (*(int *)(((((*(signed char *)((v0_0 + 0x1B))) << 2) + (0x41C + v0_2)) + 0x0)));
+    L_C0EDDA0:;
+    (((struct o128_ushort *)(v0_0))->v) = 0x40;
+    (((struct o12E_ushort *)(v0_0))->v) = 0xFFFFFFEF;
+    v0_2 = (0x0);
+    R5 = (0x1F);
+    R6 = (0x20);
+    L_C0EDDC4:;
+    if (((unsigned int)v0_2 < (unsigned int)R6)) goto L_C0EDDB4;
+    goto L_C0EDDC8;
+    L_C0EDDB4:;
+    *(unsigned short *)(((*(int *)((((0xC4 + v0_0) + v0_2) + 0x0))) + 0x6)) = R5;
+    v0_2 = ((v0_2 + 0x4));
+    goto L_C0EDDC4;
+}

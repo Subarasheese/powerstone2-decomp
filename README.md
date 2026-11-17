@@ -1,6 +1,6 @@
 # Power Stone 2 decomp
 
-![decomp progress](badges/progress.svg?p=66.4&b=75.4&m=0.0&a=37&s=0)
+![decomp progress](badges/progress.svg?p=66.5&b=75.6&m=0.0&a=37&s=0)
 
 A decompilation of the Dreamcast game **Power Stone 2** (USA), in progress. It rebuilds the game's executable
 `1ST_READ.BIN` byte for byte, and holds C for the game's own code that behaves like the original.
@@ -23,20 +23,20 @@ alone, except where they matched Power Stone 1.
 
 | | |
 |---|---|
-| Game code (`0C010000`-`0C1769D0`) | **5,594 of 5,617 functions Equivalent (99.6%)**, 1.25 MB of 1.28 MB |
-| Whole executable | 66.4% of functions, 75.4% of code bytes (the libraries count as not done) |
+| Game code (`0C010000`-`0C1769D0`) | **5,593 of 5,617 functions Equivalent (99.6%)**, 1.25 MB of 1.28 MB |
+| Whole executable | 66.5% of functions, 75.6% of code bytes (the libraries count as not done) |
 | Test evidence | the cases run about half of the proven game code's instructions: a function is only as proven as its cases |
 | Byte-matching C | none; the executable is rebuilt from assembly (`bash build.sh` prints `MATCH`) |
 | Builds from C (`make c`) | not attempted yet (`status.txt`) |
 
-Where the C of the 5,594 came from: 5,450 written by the generator (`tools/5-generated/gen_equiv`, checked on
-generated cases), 128 written by hand (`src/hand_*.c`), and 15 ported from Power Stone 1 and re-proven here (one more
-is defined in a file I could not attribute). The generated C is plain and mechanical.
+Where the C of the 5,593 came from: 5,449 written by the generator (`tools/5-generated/gen_equiv`, checked on
+generated cases), 129 written by hand (`hand_*.c`), and 15 ported from Power Stone 1 and re-proven here. The generated C is plain and mechanical.
 
-**Left (23 functions, 28.6 KB):** 20 large functions of 380 to 3,700 bytes (state machines, parsers, boot code) and 3
-fragments with no C form (a cache-line loop and two bare branches into other routines). `FUN_0c0100a2` (the file
-loader) has C but its cases reach only 49 of 137 instructions, because its wait loop needs an interrupt, so it is not
-counted as done.
+**Left (24 functions, 29.1 KB):** 21 large functions of 340 to 3,700 bytes (state machines, parsers, boot code) and 3
+fragments with no C form (a cache-line loop and two bare branches into other routines). Five of the 21 have C that is
+not counted as done: three pass on too few cases (`FUN_0c0d2a1c`, `FUN_0c0e48b8`, `FUN_0c10e0c2`), `FUN_0c160dac` still
+differs on one case, and the cases of `sys_load_file_adx` (the file loader) reach only 49 of its 137 instructions,
+because its wait loop needs an interrupt.
 
 ### Things worth knowing
 
@@ -45,7 +45,7 @@ counted as done.
   structures starts with `/* @runtime _quick_odd_mvn=0C187798 */`: `tools/equiv.py` then runs the helper for real on
   both sides. The address is deliberately not named in `symbols.txt`: naming it makes the checker run it for real in
   every file that calls it as an ordinary function, and about 3% of those proofs stop agreeing. The generated files
-  (`src/gen_*.c`) still call `FUN_0c187798` as a plain function; that proves what they call and with what, not what
+  (`gen_*.c`) still call `FUN_0c187798` as a plain function; that proves what they call and with what, not what
   the copy moves.
 - **A signature bug was fixed along the way.** The generator's argument scan counted a call as overwriting `r4`-`r7`
   before the call's delay slot ran, so a function that saves `r4` in the slot of its first `bsr` was given no integer
@@ -66,7 +66,7 @@ echo 'SDK_PATH="/path/to/katana-sdk"' > .env      # where your SDK is (not commi
 # put your disc's 1ST_READ.BIN here, then split it and build:
 python3 tools/1-2-baseline/split_asm.py 1ST_READ.BIN "$(cat BASE)" functions.txt .
 bash build.sh                                     # should end with MATCH
-python3 tools/equiv.py src/hand_6.c               # check C against the original
+python3 tools/equiv.py src/game/unsorted/hand_6.c  # check C against the original
 python3 tools/progress.py                         # the numbers above
 ```
 
@@ -90,7 +90,8 @@ Other releases are different builds.
 |---|---|
 | [functions.txt](functions.txt) | every function: address, size, name (`FUN_<addr>` = not named yet). The source of truth for boundaries |
 | [symbols.txt](symbols.txt), [globals.txt](globals.txt), [sdk.txt](sdk.txt) | addresses the C uses, and the library range |
-| [src/](src/) | the C: `gen_*.c` (generated), `hand_*.c` (hand-written), `ps1_*.c` (ported from Power Stone 1). None of it is built into the executable yet |
+| [src/](src/README.md) | the C, by subsystem (`src/game/<subsystem>/`, `src/lib/<library>/`, as in the Power Stone 1 decomp): `gen_*.c` (generated, one per original source file), `hand_*.c` (hand-written), `ps1_*.c` (ported from Power Stone 1). None of it is built into the executable yet |
+| [docs/sourcetree.tsv](docs/sourcetree.tsv) | the game code's original source files (cells) and the folder each was given, with the evidence |
 | `tests/<file>/<function>.json` | the test cases of each function; `tests/equivalent.txt` lists the Equivalent ones |
 | [docs/equivalent.md](docs/equivalent.md) | the evidence for each Equivalent function |
 | [tools/](tools/README.md) | the SH-4 simulator and disassembler, the Equivalent check, the generator, the cross-match tools (`tools/4-boosts/`, including `fuzzy_pairs.py`) |

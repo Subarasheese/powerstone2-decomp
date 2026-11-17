@@ -25,7 +25,6 @@ DFB00C18 pl_ayame_play_motion_sounds
 0C17AF44 FUN_0c0e0fe4
 0C17B1A0 nlLoadMatrix
 0C17B240 nlLUDecompose
-0C17B4B0 nlSelectMatrixStack
 0C17B620 FUN_0c0e16c0
 0C17B860 FUN_0c0e1900
 0C17C070 nlTranslate

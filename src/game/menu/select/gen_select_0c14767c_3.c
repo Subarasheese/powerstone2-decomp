@@ -1,0 +1,108 @@
+/* game/menu/select: functions 0C14767C-0C147F54, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o14_uchar { char p[0x14]; unsigned char v; };
+int FUN_0c03f346(int, int, int);
+int FUN_0c058adc(int, int, int);
+int FUN_0c1478b8(int, int, int);
+int FUN_0c147c10(int, int);
+float math_cos_angle16(int);
+int FUN_0c179ac0(void);
+float math_sin_angle16(int);
+extern int FUN_0c187798();
+int FUN_0c147c60(int a4, int a5, int a6);
+
+int FUN_0c147c60(int a4, int a5, int a6)
+{
+    int stk[13];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    int R13;
+    register float F0;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int FPUL_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    register float w0_3;
+    v0_3 = a4;
+    v0_5 = a5;
+    v0_1 = a6;
+    v0_0 = ((int (*)(int, int, int))(FUN_0c187798))(v0_3, v0_5, v0_1);
+    FUN_0c058adc((((int)stk + 4) + 0x24), (((int)stk + 4) + 0x24), (((short)(*(signed char *)((v0_3 + 0x2))) * (short)0x3938) + 0xC532E38));
+    v0_0 = ((int (*)(void))(FUN_0c187798))();
+    v0_2 = *(signed char *)((v0_3 + 0x14));
+    v0_4 = (v0_2);
+    v0_0 = (v0_3);
+    if ((v0_2 == 0)) goto L_C147CBC;
+    if ((v0_4 == 1)) goto L_C147CCE;
+    v0_4 = ((FUN_0c03f346(v0_0, v0_5, v0_1)));
+    L_C147E5E:;
+    return v0_4;
+    L_C147CCE:;
+    *(unsigned int *)(((int)stk + 8)) = 0x0;
+    *(unsigned int *)(((int)stk + 20)) = 0xC2A2714;
+    *(unsigned int *)(((int)stk + 16)) = (((int)stk + 4) + 0x18);
+    *(unsigned int *)(((int)stk + 12)) = ((((int)stk + 4) + 0x18) + 0x4);
+    *(unsigned int *)(((int)stk + 4)) = ((((int)stk + 4) + 0x18) + 0x8);
+    *(unsigned int *)(((int)stk + 24)) = 0xC2A270C;
+    v0_4 = (0xC147D38);
+    v0_1 = (0xC2A2710);
+    v0_2 = (0xC179AC0);
+    v0_2 = (0x168);
+    R13 = (0xFFFF);
+    v0_3 = (((((int)stk + 4) + 0x18) + 0x8));
+    v0_5 = (0xC2A270C);
+    v0_3 = (0xC179BF0);
+    v0_3 = (0xC2A2718);
+    w0_0 = (0.5f);
+    w0_1 = (360.0f);
+    w0_2 = (65536.0f);
+    L_C147E46:;
+    if (((int)(*(int *)(((int)stk + 8))) >= (int)(*(int *)(((*(int *)(((int)stk + 20))) + 0x0))))) goto L_C147E54;
+    v0_4 = (*(int *)(((int)stk + 16)));
+    *(int *)((int)stk + 0) = v0_4;
+    v0_5 = *(int *)((v0_1 + 0x0));
+    *(unsigned int *)((v0_4 + 0x0)) = ((int)((int)(((int)((int)(FUN_0c179ac0()) % (int)v0_5)) * v0_2) / (int)v0_5));
+    v0_4 = (*(int *)(((int)stk + 12)));
+    *(int *)((int)stk + 0) = v0_4;
+    v0_5 = *(int *)((v0_1 + 0x0));
+    *(unsigned int *)((v0_4 + 0x0)) = ((int)((int)(((int)((int)(FUN_0c179ac0()) % (int)v0_5)) * v0_2) / (int)v0_5));
+    v0_4 = (*(int *)(((int)stk + 4)));
+    *(int *)((int)stk + 0) = v0_4;
+    v0_5 = *(int *)((v0_1 + 0x0));
+    *(unsigned int *)((v0_4 + 0x0)) = ((int)((int)(((int)((int)(FUN_0c179ac0()) % (int)v0_5)) * v0_2) / (int)v0_5));
+    w0_3 = math_cos_angle16(((int)(((((float)(*(int *)(((*(int *)(((int)stk + 16))) + 0x0))) * w0_2) / w0_1)) + w0_0) & R13));
+    *(float *)(((int)stk + 40)) = (w0_3 * (*(float *)((v0_3 + 0x0))));
+    w0_3 = math_sin_angle16(((int)(((((float)(*(int *)(((*(int *)(((int)stk + 12))) + 0x0))) * w0_2) / w0_1)) + w0_0) & R13));
+    *(float *)(((int)stk + 44)) = (w0_3 * (*(float *)((v0_3 + 0x0))));
+    w0_3 = math_sin_angle16(((int)(((((float)(*(int *)(((*(int *)(((int)stk + 4))) + 0x0))) * w0_2) / w0_1)) + w0_0) & R13));
+    *(float *)(((int)stk + 48)) = (w0_3 * (*(float *)((v0_3 + 0x0))));
+    FUN_0c1478b8((*(signed char *)((v0_0 + 0x1))), (*(signed char *)((v0_0 + 0x2))), (((int)stk + 4) + 0x24));
+    v0_5 = *(short *)((v0_0 + 0x1C));
+    *(unsigned short *)((v0_0 + 0x1C)) = (v0_5 + 0x1);
+    v0_4 = ((short)(v0_5 + 0x1));
+    if (((int)(short)(v0_5 + 0x1) <= (int)(*(int *)(((*(int *)(((int)stk + 24))) + 0x0))))) goto L_C147E40;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    v0_4 = (0x14);
+    L_C147E40:;
+    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
+    goto L_C147E46;
+    L_C147E54:;
+    goto L_C147E5E;
+    L_C147CBC:;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    FUN_0c147c10((*(signed char *)((v0_0 + 0x1))), (*(signed char *)((v0_0 + 0x2))));
+    goto L_C147CCE;
+}

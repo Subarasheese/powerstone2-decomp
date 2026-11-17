@@ -1,0 +1,106 @@
+/* game/unsorted: functions 0C169524-0C16AC2C, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o15_uchar { char p[0x15]; unsigned char v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct oAC_short { char p[0xAC]; short v; };
+struct oAC_ushort { char p[0xAC]; unsigned short v; };
+int FUN_0c03f346(int, int, int, int);
+int FUN_0c059e0e(int, int, int);
+extern int FUN_0c16a6e0();
+int FUN_0c16a7e4(int, int, int, int, int, int);
+extern int FUN_0c16a8b6();
+int FUN_0c16a968(int);
+int FUN_0c16aa54(int);
+int FUN_0c16aa88(int a4, int a5, int a6, int a7);
+
+int FUN_0c16aa88(int a4, int a5, int a6, int a7)
+{
+    int stk[2];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R9;
+    register int R12;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int FPUL_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register float w0_0;
+    register float w0_1;
+    v0_0 = a4;
+    v0_1 = a5;
+    v0_2 = a6;
+    v0_4 = *(signed char *)((v0_0 + 0x14));
+    v0_3 = (v0_4);
+    v0_0 = (v0_0);
+    if ((v0_4 == 0)) goto L_C16AAA2;
+    if ((v0_3 == 1)) goto L_C16AABE;
+    if ((v0_3 == 2)) goto L_C16AB56;
+    return FUN_0c03f346(v0_0, v0_1, v0_2, a7);
+    L_C16AB56:;
+    (((struct o44_float *)(v0_0))->v) = (((((struct o44_float *)(v0_0))->v)) + 0.0500000007f);
+    (((struct o48_float *)(v0_0))->v) = (((((struct o48_float *)(v0_0))->v)) - 0.100000001f);
+    w0_0 = (((struct o48_float *)(v0_0))->v);
+    v0_3 = (0x48);
+    w0_1 = (w0_0);
+    w0_1 = (0.0f);
+    FPUL_ = (0x3DCCCCCD);
+    if ((w0_0 > 0.0f)) goto L_C16AB84;
+    *(float *)((v0_0 + v0_3)) = w0_1;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    L_C16AB84:;
+    (((struct o40_float *)(v0_0))->v) = ((((struct o48_float *)(v0_0))->v));
+    v0_3 = (0x40);
+    return v0_3;
+    L_C16AABE:;
+    v0_4 = *(signed char *)((v0_0 + 0x15));
+    v0_3 = (v0_4);
+    if ((v0_4 == 0)) goto L_C16AAD2;
+    if ((v0_3 == 1)) goto L_C16AADE;
+    if (!((v0_3 == 2))) goto L_C16AADE;
+    v0_4 = *(signed char *)((v0_0 + 0x2));
+    v0_3 = (v0_4);
+    if ((v0_4 == 0)) goto L_C16AAF4;
+    if ((v0_3 == 1)) goto L_C16AAFC;
+    FUN_0c16a968(v0_0);
+    goto L_C16AB1C;
+    L_C16AADE:;
+    v0_3 = ((int (*)(int, int, int, int))(FUN_0c16a6e0))(v0_0, v0_1, v0_2, a7);
+    L_C16AB1C:;
+    if (((int)(*(signed char *)((v0_0 + 0x15))) < (int)0x1)) goto L_C16AB4E;
+    v0_3 = (FUN_0c16aa54(v0_0)) == 0;
+    if (v0_3) goto L_C16AB4E;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    (((struct oAC_ushort *)(v0_0))->v) = (((((struct oAC_short *)(v0_0))->v)) | 0x10);
+    (((struct o48_float *)(v0_0))->v) = 1.0f;
+    (((struct o44_float *)(v0_0))->v) = 1.0f;
+    (((struct o40_float *)(v0_0))->v) = 1.0f;
+    L_C16AB4E:;
+    return ((int (*)(int, int, int, int))(0xC16A618))(v0_0, v0_1, v0_2, a7);
+    L_C16AAFC:;
+    v0_3 = ((int (*)(int, int, int, int, int, int))(FUN_0c16a8b6))(v0_0, v0_1, v0_2, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4));
+    goto L_C16AB1C;
+    L_C16AAF4:;
+    FUN_0c16a7e4(v0_0, v0_1, v0_2, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4));
+    goto L_C16AB1C;
+    L_C16AAD2:;
+    (((struct o15_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x15))) + 0x1);
+    *(unsigned short *)((v0_0 + 0x1C)) = 0x258;
+    goto L_C16AADE;
+    L_C16AAA2:;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    (((struct o15_uchar *)(v0_0))->v) = 0x0;
+    FUN_0c059e0e((*(signed char *)((v0_0 + 0x1))), 0x6D, (v0_0 + 0x28));
+    goto L_C16AABE;
+}

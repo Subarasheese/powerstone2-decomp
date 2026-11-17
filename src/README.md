@@ -1,43 +1,58 @@
 # src/: the C, by subsystem
 
-No path of Capcom's sources survives in the executable (no assert strings, no debug file names), so this tree cannot be their
-folder layout. It follows the next best evidence, the **original link order**: the linker placed each source file's code where the
-makefile listed it, and that order runs subsystem by subsystem (save, endings, menus, hit boxes, demo, HUD, effects, AI, game flow,
-items, resources, the shared fighter code, then each character in roster order, stages, debug tools, camera; then the NAOMI
-library, the Katana SDK, CRI middleware and the C runtime). `tools/srctree.py` holds the rules and files every C file;
-`docs/sourcetree.csv` (the original's 911 source files and their layers) decides which code is library code.
+Nothing of the original source paths survives in the executable, so this tree is built from the code's own evidence, in two
+steps.
 
-A file is known by its **stem** (name without folder), unique across the tree: its cases are `tests/<stem>/`, and the tools find it
-with `tools/srcfiles.py`. A tool that writes a new file puts it at the top of `src/`; `python3 tools/srctree.py --apply` files it.
+**1. The original source files (cells).** `tools/srcmap.py` splits the link order into cells: runs of functions that
+must come from one source file, because one reads a literal-pool word placed in another (SHC shares a pool among a
+file's functions), calls it with `bsr` (which only reaches its own file) or branches into it. A cell is at most one
+original file: two cells next to each other may still be one. The game code (`0C010000`-`0C1769D0`) has 1,342 cells.
+They are listed, with their folder and the evidence for it, in `docs/sourcetree.tsv`.
 
-| folder | what |
+**2. The subsystem of each cell.** Most cells were given a folder by the Power Stone 1 decomp
+([pwrstn-decomp](https://github.com/Subarasheese/pwrstn-decomp)), whose tree is laid out by subsystem:
+- a function with the same code (and name) in Power Stone 1, or a near-identical one (`tools/4-boosts/fuzzy_pairs.py`,
+  similarity 0.75 or more), votes for the folder of its Power Stone 1 file;
+- a few cells are placed by the strings they print (the network lobby, debug screens, the sound test, the boot screens);
+- a cell with no vote of its own takes the folder of its neighbours when the nearest voted cells on both sides agree
+  (the original was linked subsystem by subsystem: `0C068ACC`-`0C0BB090` is fighter code, `0C0BB994`-`0C0C1D6C` AI,
+  `0C122714`-`0C1535B0` effects, ...).
+
+A cell with no evidence goes to `game/unsorted`; it is not guessed. That is about 45% of the game's functions: code with
+no Power Stone 1 counterpart close enough to match, and code whose neighbours disagree. A folder found later by reading the code goes into `docs/sourcetree.tsv`;
+`python3 tools/srctree.py --apply` then moves the files.
+
+| folder | what (from the Power Stone 1 functions and strings that placed it) |
 |---|---|
-| `game/system` | pad input, file-system directory, system init, small runtime helpers |
-| `game/save` | VMU save data (pack, image, load/save state machines) |
-| `game/flow` | game mode machine, round flow, difficulty, screen modes |
-| `game/demo` | attract demo, logos, boot screens, ranking, endings, staff roll |
-| `game/menu`, `menu/select`, `menu/option` | menus: VMU menu, test mode, results; character/stage select; options and key config |
-| `game/ui` | HUD, hit counter, win marks, sprite queue, fades |
-| `game/draw`, `game/math` | frame drawing, lighting, model utilities, view setup; vector math |
-| `game/resource` | resource loader (common, per player) |
-| `game/object` | object pool, scene objects, actor objects and their motion sounds |
-| `game/effect`, `effect/impact`, `effect/player`, `effect/special` | effect objects: general, impacts, player effects, per-character special-move effects |
-| `game/ai` | CPU fighter AI (script interpreter and its ops) |
-| `game/item` | items and weapons |
-| `game/hit` | hit boxes, hit records, hit reactions, damage |
-| `game/player`, `player/state` | shared fighter code: setup, motion, physics, utilities; the state machine (enter, update, control) |
-| `game/player/chara/<name>` | one folder per character, in roster order: falcon, ryoma, wangtang, jack, gunrock, garuda, ayame, rouge, kraken, valgas |
-| `game/stage`, `stage/gimmick` | stage objects and layout; stage gimmicks |
-| `game/camera`, `game/sound`, `game/debug` | camera modes; sound and BGM; debug text, motion/attack editors, key debug |
-| `lib/naomi` | NAOMI-style library: layers, object put, textures, screen math, the `nl_objasm_*` renderer |
-| `lib/katana` | Katana SDK: crt0, GD-ROM file system, VMU (bu/vmsfs), Kamui, RTC, peripherals |
-| `lib/cri` | CRI ADX / Sofdec middleware |
-| `lib/libc` | C runtime: mem/str functions, printf core, compiler math helpers |
-| `lib/mixed` | generated library C whose functions come from several libraries (written by the generator in batches, not by source file) |
+| `game/system` | file loading, system init and shutdown, small helpers |
+| `game/save` | VMU save data and its state machines |
+| `game/network` | the online lobby: connection, plaza and room messages (new in Power Stone 2) |
+| `game/flow` | game mode machine, rounds |
+| `game/demo` | boot screens, attract demo, endings, staff roll |
+| `game/menu`, `menu/select`, `menu/option` | menus and test mode; character and stage select; options |
+| `game/ui` | HUD |
+| `game/draw`, `game/math` | drawing helpers; vector and matrix math |
+| `game/resource` | resource loading |
+| `game/object` | the object pool and scene objects |
+| `game/effect` | effect objects |
+| `game/ai` | the CPU fighter's script interpreter and its ops |
+| `game/item` | items |
+| `game/hit` | hit boxes, hit reactions, damage |
+| `game/player` | the fighters: shared code, states and the characters (not split by character: the roster differs from Power Stone 1's and the code does not say which character is which yet) |
+| `game/stage` | stages and their gimmicks |
+| `game/camera`, `game/sound`, `game/debug` | camera; sound and BGM; debug displays and menus |
+| `game/unsorted` | game code not placed yet |
+| `lib/naomi`, `lib/libc`, `lib/katana`, `lib/cri` | library code ported from Power Stone 1: the NAOMI-style library, the C runtime, the Katana SDK, CRI middleware |
 
-Headers: `game/game.h` holds the types the modules share (Vec3, Fighter); a module converted to the header form has its
-own header (`game/camera/camera.h`, `game/ui/ui.h`: types, data and every function of the module declared once) and one C file per original
-source file. Include them from `src` (`#include "game/camera/camera.h"`; the build passes `-include=src`).
+## The files
 
-File names: `m_<start>[_<what>].c` are byte-matching units (built); `gen_*.c` generated Equivalent C; `fy_`, `fx_`, `hx_`, `hand_`
-hand-written Equivalent C; `_alt` / `_equiv` files hold a module's Equivalent-only functions apart from its matching unit.
+- `gen_<folder>_<address>.c`: generated C (`tools/5-generated/gen_equiv`), one per cell, named by the cell's first
+  address. When two functions of a cell were generated with different prototypes for the same callee they cannot share a
+  file (the checker compares each call on the prototype the file declares), so the cell has more files: `..._2.c`,
+  `..._3.c`. The `gen_` prefix is what the tools go by (`consistency.py`, `--regen`, `--retest` treat it as generated).
+- `hand_<n>.c`: written by hand. `ps1_<name>.c`: ported from Power Stone 1 and proven here. Each is filed whole, by the
+  folder of most of its functions.
+
+A file is known by its **stem** (its name without folder), unique across the tree: its cases are in `tests/<stem>/`, and
+the tools find it with `tools/srcfiles.py`. A tool that writes a new file puts it at the top of `src/`;
+`python3 tools/srctree.py --apply` files it.

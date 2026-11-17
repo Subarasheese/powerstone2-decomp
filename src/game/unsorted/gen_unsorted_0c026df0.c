@@ -1,0 +1,140 @@
+/* game/unsorted: functions 0C026DF0-0C027000, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o0_uint { unsigned int v; };
+struct o10_uchar { char p[0x10]; unsigned char v; };
+struct o1E_uchar { char p[0x1E]; unsigned char v; };
+int FUN_0c022050(void);
+int FUN_0c0220c4(int, int, int);
+int FUN_0c0222a4(int, int, int);
+int FUN_0c02aa9e(void);
+int FUN_0c1864e0(int, int, int);
+int FUN_0c186740(int, int, int);
+int FUN_0c026df0(void);
+int FUN_0c026f8a(void);
+
+int FUN_0c026df0(void)
+{
+    int stk[36];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R6;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    v0_0 = FUN_0c022050();
+    v0_1 = (v0_0);
+    if ((v0_0 != 0)) goto L_C026E12;
+    L_C026F74:;
+    return v0_1;
+    L_C026E12:;
+    FUN_0c0220c4((((int)stk + 0) + 0xC), (((int)stk + 0) + 0x4), ((int)stk + 0));
+    v0_4 = *(signed char *)(((int)stk + 12));
+    v0_1 = (0x3);
+    v0_0 = ((((int)stk + 0) + 0x10));
+    v0_2 = (0xC1864E0);
+    v0_2 = (0xC309994);
+    v0_5 = (v0_4);
+    v0_3 = (0x0);
+    v0_6 = (0xC186740);
+    if ((v0_4 != 102)) goto L_C026E64;
+    if (((*(signed char *)(((int)stk + 0))) != 1)) goto L_C026E64;
+    v0_4 = (0xC30A34C);
+    L_C026E42:;
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), v0_4, 0x1);
+    v0_5 = (int)(v0_3 + 0x1) < (int)0x6;
+    v0_4 = ((v0_4 + 0x1));
+    v0_3 = ((v0_3 + 0x1));
+    if (v0_5) goto L_C026E42;
+    *(unsigned char *)((v0_0 + 0x0)) = 0x76;
+    *(unsigned int *)(((int)stk + 8)) = (v0_0 + 0x1);
+    *(unsigned char *)(((v0_0 + 0x1) + 0x0)) = v0_1;
+    v0_1 = (0x2);
+    L_C026ED2:;
+    *(unsigned char *)((v0_0 + 0x2)) = v0_1;
+    v0_1 = ((FUN_0c186740((*(int *)((v0_2 + 0x0))), v0_0, (*(signed char *)(((*(int *)(((int)stk + 8))) + 0x0))))));
+    goto L_C026F74;
+    L_C026E64:;
+    v0_4 = ((*(int *)((v0_2 + 0x0))));
+    if ((v0_5 != 102)) goto L_C026F54;
+    if (((*(signed char *)(((int)stk + 0))) != 2)) goto L_C026EB0;
+    FUN_0c1864e0(v0_4, (((int)stk + 0) + 0x4), 0x1);
+    *(unsigned int *)(((int)stk + 8)) = 0xC30A354;
+    v0_4 = (v0_3);
+    L_C026E90:;
+    if (((int)v0_4 < (int)(unsigned char)(*(signed char *)(((int)stk + 4))))) goto L_C026E84;
+    *(unsigned char *)((v0_4 + 0xC30A354)) = v0_3;
+    *(unsigned char *)((v0_0 + 0x0)) = 0x76;
+    *(unsigned int *)(((int)stk + 8)) = (v0_0 + 0x1);
+    *(unsigned char *)(((v0_0 + 0x1) + 0x0)) = v0_1;
+    v0_1 = (v0_1);
+    goto L_C026ED2;
+    L_C026E84:;
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), ((*(int *)(((int)stk + 8))) + v0_4), 0x1);
+    v0_4 = ((v0_4 + 0x1));
+    goto L_C026E90;
+    L_C026EB0:;
+    if ((v0_5 != 102)) goto L_C026F54;
+    if (((*(signed char *)(((int)stk + 0))) != 3)) goto L_C026F04;
+    FUN_0c1864e0(v0_4, 0xC30A3E6, 0x1);
+    *(unsigned char *)((v0_0 + 0x0)) = 0x76;
+    *(unsigned int *)(((int)stk + 8)) = (v0_0 + 0x1);
+    *(unsigned char *)(((v0_0 + 0x1) + 0x0)) = v0_1;
+    v0_1 = (0x4);
+    goto L_C026ED2;
+    L_C026F04:;
+    if ((v0_5 != 102)) goto L_C026F54;
+    if (((*(signed char *)(((int)stk + 0))) != 4)) goto L_C026F54;
+    FUN_0c1864e0(v0_4, 0xC30A3E8, 0x1);
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), 0xC30A3E9, 0x1);
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), 0xC30A3EA, 0x1);
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), 0xC30A3EB, 0x1);
+    FUN_0c1864e0((*(int *)((v0_2 + 0x0))), 0xC30A3EC, 0x1);
+    v0_0 = FUN_0c1864e0((*(int *)((v0_2 + 0x0))), 0xC30A3ED, 0x1);
+    *(unsigned char *)0xC30985A = ((*(signed char *)0xC30985A) + 0x1);
+    (((struct o1E_uchar *)0xC3053F8)->v) = v0_3;
+    (((struct o0_uint *)0xC3053F8)->v) = 0x258;
+    v0_1 = (v0_0);
+    goto L_C026F74;
+    L_C026F54:;
+    if (((*(signed char *)0xC30AF9A) == 0)) goto L_C026F66;
+    v0_1 = ((FUN_0c02aa9e()));
+    goto L_C026F74;
+    L_C026F66:;
+    v0_1 = ((FUN_0c0222a4((((int)stk + 0) + 0xC), (((int)stk + 0) + 0x4), ((int)stk + 0))));
+    goto L_C026F74;
+}
+
+int FUN_0c026f8a(void)
+{
+    int stk[36];
+    register int t4;
+    register int t11;
+
+    (((struct o10_uchar *)(((int)stk + 0)))->v) = 0x75;
+    *(unsigned int *)(((int)stk + 12)) = ((((int)stk + 0) + 0x10) + 0x1);
+    *(unsigned char *)((((((int)stk + 0) + 0x10) + 0x1) + 0x0)) = 0x4;
+    *(unsigned char *)(((((int)stk + 0) + 0x10) + 0x2)) = 0x8;
+    *(unsigned char *)(((((int)stk + 0) + 0x10) + 0x3)) = 0x1;
+    FUN_0c186740((*(int *)0xC309994), (((int)stk + 0) + 0x10), (*(signed char *)(((*(int *)(((int)stk + 12))) + 0x0))));
+    *(unsigned char *)0xC30985A = 0x3;
+    t4 = FUN_0c022050();
+    t11 = t4;
+    if (t4 != 0) {
+        FUN_0c0220c4(((int)stk + 0), (((int)stk + 0) + 0x4), (((int)stk + 0) + 0x8));
+        if ((*(signed char *)0xC30AF9A) != 0) {
+            t11 = (FUN_0c02aa9e());
+        } else {
+            t11 = (FUN_0c0222a4(((int)stk + 0), (((int)stk + 0) + 0x4), (((int)stk + 0) + 0x8)));
+        }
+    }
+    return t11;
+}

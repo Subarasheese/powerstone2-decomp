@@ -6,7 +6,6 @@ ADXT_Finish
 ADXT_GetErrCode
 ADXT_SetLpFlg
 BCDtoDEC
-FUN_0c010220
 FUN_0c0102c4
 FUN_0c0102da
 FUN_0c010444
@@ -475,7 +474,6 @@ FUN_0c02d104
 FUN_0c02d16c
 FUN_0c02d1e8
 FUN_0c02d208
-FUN_0c02d240
 FUN_0c02d294
 FUN_0c02d2a8
 FUN_0c02d446
@@ -484,7 +482,6 @@ FUN_0c02d498
 FUN_0c02d4c4
 FUN_0c02d4dc
 FUN_0c02d54c
-FUN_0c02d854
 FUN_0c02d88a
 FUN_0c02d944
 FUN_0c02d9f2
@@ -740,7 +737,6 @@ FUN_0c03b3fc
 FUN_0c03b40a
 FUN_0c03b424
 FUN_0c03b580
-FUN_0c03b604
 FUN_0c03b6ac
 FUN_0c03b800
 FUN_0c03b964
@@ -1084,7 +1080,6 @@ FUN_0c04e986
 FUN_0c04ea10
 FUN_0c04eaa4
 FUN_0c04efc8
-FUN_0c04f098
 FUN_0c04f0c4
 FUN_0c04f148
 FUN_0c04f20c
@@ -1117,7 +1112,6 @@ FUN_0c051b8c
 FUN_0c051bb6
 FUN_0c051bfe
 FUN_0c051c48
-FUN_0c052080
 FUN_0c0520f8
 FUN_0c052114
 FUN_0c052168
@@ -1130,7 +1124,6 @@ FUN_0c052364
 FUN_0c052370
 FUN_0c052378
 FUN_0c0523ce
-FUN_0c052404
 FUN_0c0524bc
 FUN_0c05253c
 FUN_0c05258e
@@ -1222,11 +1215,8 @@ FUN_0c057a48
 FUN_0c057cb4
 FUN_0c057cd8
 FUN_0c057cfa
-FUN_0c057de0
-FUN_0c057f34
 FUN_0c058090
 FUN_0c058270
-FUN_0c0582ac
 FUN_0c0582de
 FUN_0c058328
 FUN_0c058390
@@ -1337,7 +1327,6 @@ FUN_0c05aeac
 FUN_0c05aec8
 FUN_0c05af1a
 FUN_0c05af44
-FUN_0c05af54
 FUN_0c05af8a
 FUN_0c05af9a
 FUN_0c05afc8
@@ -2055,7 +2044,6 @@ FUN_0c07d440
 FUN_0c07d4b4
 FUN_0c07d4ec
 FUN_0c07d536
-FUN_0c07d666
 FUN_0c07d6cc
 FUN_0c07d720
 FUN_0c07d774
@@ -3014,9 +3002,7 @@ FUN_0c0bb6e0
 FUN_0c0bb70c
 FUN_0c0bb73e
 FUN_0c0bb922
-FUN_0c0bb994
 FUN_0c0bb9f2
-FUN_0c0bba3e
 FUN_0c0bbad0
 FUN_0c0bbb16
 FUN_0c0bbbd8
@@ -3032,11 +3018,9 @@ FUN_0c0bc104
 FUN_0c0bc154
 FUN_0c0bc15c
 FUN_0c0bc25a
-FUN_0c0bc25e
 FUN_0c0bc2c0
 FUN_0c0bc420
 FUN_0c0bd4ac
-FUN_0c0bd53c
 FUN_0c0bd5f2
 FUN_0c0bd654
 FUN_0c0bd6f2
@@ -3336,6 +3320,7 @@ FUN_0c0d2480
 FUN_0c0d24d0
 FUN_0c0d263c
 FUN_0c0d2880
+FUN_0c0d2a1c
 FUN_0c0d2f38
 FUN_0c0d3004
 FUN_0c0d30ea
@@ -3606,6 +3591,7 @@ FUN_0c0e3ccc
 FUN_0c0e455e
 FUN_0c0e46fc
 FUN_0c0e4828
+FUN_0c0e48b8
 FUN_0c0e4a80
 FUN_0c0e4ce8
 FUN_0c0e4dac
@@ -3949,7 +3935,6 @@ FUN_0c0f81a8
 FUN_0c0f821a
 FUN_0c0f8298
 FUN_0c0f8430
-FUN_0c0f84c0
 FUN_0c0f886e
 FUN_0c0f8920
 FUN_0c0f89a6
@@ -4318,6 +4303,7 @@ FUN_0c10dd92
 FUN_0c10de48
 FUN_0c10de72
 FUN_0c10df44
+FUN_0c10e0c2
 FUN_0c10e490
 FUN_0c10e716
 FUN_0c10e7e4
@@ -5067,6 +5053,7 @@ FUN_0c145dd2
 FUN_0c145eb2
 FUN_0c145f1a
 FUN_0c14607c
+FUN_0c1460cc
 FUN_0c1463b8
 FUN_0c146408
 FUN_0c1464ce
@@ -5229,7 +5216,6 @@ FUN_0c15046c
 FUN_0c150684
 FUN_0c1507f4
 FUN_0c150a2c
-FUN_0c150a58
 FUN_0c150aae
 FUN_0c150be8
 FUN_0c150c68
@@ -5392,7 +5378,6 @@ FUN_0c160a42
 FUN_0c160c38
 FUN_0c160c7c
 FUN_0c160d32
-FUN_0c160dac
 FUN_0c160f02
 FUN_0c160f66
 FUN_0c161128
@@ -5647,11 +5632,20 @@ FUN_0c1766e6
 FUN_0c176890
 FUN_0c176996
 SJRBF_Reset
+ai_calc_angle_to_target
+ai_calc_gap_to_target
+ai_clear_op_state
+ai_script_branch
+bgm_stop_slot
 boot_advance_to_version_screen
 buCalcCRC
+cam_init_records
+cam_set_view_matrix
 check_caps
 check_file_correct
 dbg_set_cell_size
+draw_project_point_sprite
+draw_project_point_sprite_z01
 fmMngBit2Num
 fmMngChkEmptyData
 fmMngClearBuf
@@ -5722,6 +5716,7 @@ kmiReadRegister
 kmiWriteRegister
 math_angle3_delta
 math_angle3_delta_scaled
+math_angle_between_points_xz
 math_angle_delta16
 math_atan2_angle16
 math_atan_angle16
@@ -5734,6 +5729,7 @@ math_mat_get_translate
 math_mat_row0_length
 math_mat_row1_length
 math_mat_row2_length
+math_mat_transform_vector
 math_pow_float
 math_rsqrt_float
 math_signed_sqrt
@@ -5808,6 +5804,7 @@ nlUnitMatrix
 nl_texture_slot_free
 obj_release_all_but_class
 obj_release_class
+obj_step_pos_vel_acc
 p2_cache_set
 pdVmsLcdIsReady
 pl_falcon_special2_phase4
@@ -5821,6 +5818,7 @@ res_model_release
 res_pl_textures_release_all
 search_fat_free_xross
 search_subst_fat_top
+staffroll_create
 stage_type02_update
 syCfgConvLang
 syHwInit2
@@ -5830,6 +5828,9 @@ syRtcCompareDate
 syRtcGetAndCheckCount
 syRtcGetCountForce
 syRtcGetDate
+sys_load_file
+sys_shutdown_all
+sys_vsync_handler_install
 thunk_FUN_0c0167cc
 thunk_FUN_0c0385e0
 thunk_FUN_0c03e08c
@@ -5868,4 +5869,5 @@ vmu_defrag_disk
 vmu_lcd_refresh
 vmu_load_vmgame_data
 vmu_menu_tick_message
+vmu_write_save_file
 write_fat

@@ -1,0 +1,194 @@
+/* game/stage: functions 0C0AE6DC-0C0B0668, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o118_int { char p[0x118]; int v; };
+struct o15_uchar { char p[0x15]; unsigned char v; };
+struct o22_short { char p[0x22]; short v; };
+struct o22_ushort { char p[0x22]; unsigned short v; };
+struct o28_float { char p[0x28]; float v; };
+struct o2C_float { char p[0x2C]; float v; };
+struct o30_float { char p[0x30]; float v; };
+struct o3760_int { char p[0x3760]; int v; };
+struct o3780_float { char p[0x3780]; float v; };
+struct o8C_float { char p[0x8C]; float v; };
+struct o94_float { char p[0x94]; float v; };
+struct o98_float { char p[0x98]; float v; };
+struct o9C_float { char p[0x9C]; float v; };
+struct oA0_float { char p[0xA0]; float v; };
+extern int FUN_0c037bf6();
+int FUN_0c064f80(int);
+int FUN_0c07d1fc(int);
+int FUN_0c07daea(int, int, int);
+int FUN_0c07e79c(int, int, int, int, int, int, int);
+int FUN_0c07ecc6(int, int, int);
+int FUN_0c085cac(int, int, int);
+int FUN_0c0ae6dc(int, int, int);
+int FUN_0c0ae710(int, int, int);
+int FUN_0c0ae748(int);
+int FUN_0c1415e0(int, int, int, int);
+int FUN_0c142a58(int, int, int, int, int);
+int math_vec3_accumulate(int, int);
+int FUN_0c0ae750(int a4, int a5);
+int FUN_0c0aed00(int a4, int a5, int a6);
+
+int FUN_0c0ae750(int a4, int a5)
+{
+    int stk[4];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    register int v0_7;
+    v0_5 = a4;
+    v0_2 = a5;
+    v0_2 = *(int *)(((v0_2 << 2) + 0xC25D558));
+    v0_3 = (0x22);
+    v0_0 = (v0_2);
+    v0_1 = (v0_5);
+    if ((!(0.0f > (*(float *)(((((((((struct o22_short *)(v0_5))->v)) << 2) << 2) + v0_2) + 0x0)))))) goto L_C0AE77E;
+    L_C0AE8C4:;
+    return v0_3;
+    L_C0AE77E:;
+    v0_3 = (0x22);
+    if ((!(0.0f > (*(float *)(((((((((struct o22_short *)(v0_1))->v)) << 2) << 2) + v0_0) + 0x0)))))) goto L_C0AE794;
+    goto L_C0AE8C4;
+    L_C0AE794:;
+    v0_2 = !((*(float *)((((((*(short *)((v0_1 + v0_3))) << 2) << 2) + v0_0) + 0x0))) > ((((struct o8C_float *)(((((struct o118_int *)(v0_1))->v))))->v)));
+    v0_3 = (0x8C);
+    if (v0_2) goto L_C0AE7AE;
+    goto L_C0AE8C4;
+    L_C0AE7AE:;
+    v0_6 = *(int *)(((((((((struct o22_short *)(v0_1))->v)) << 2) << 2) + v0_0) + 0x4));
+    v0_3 = (v0_6);
+    v0_2 = (0xC142A58);
+    v0_2 = (0xC1415E0);
+    v0_7 = (0x0);
+    v0_5 = (0x360);
+    v0_2 = (0x240);
+    v0_4 = (0x1);
+    if ((v0_6 == 0)) goto L_C0AE818;
+    if ((v0_3 == 1)) goto L_C0AE832;
+    if ((v0_3 == 2)) goto L_C0AE852;
+    if ((v0_3 == 3)) goto L_C0AE85C;
+    if ((v0_3 == 4)) goto L_C0AE866;
+    if ((v0_3 == 5)) goto L_C0AE872;
+    if ((v0_3 == 6)) goto L_C0AE87E;
+    if (!((v0_3 == 7))) goto L_C0AE8BA;
+    FUN_0c0ae710(v0_1, ((int)stk + 4), v0_4);
+    goto L_C0AE8A0;
+    L_C0AE8BA:;
+    (((struct o22_ushort *)(v0_1))->v) = (((((struct o22_short *)(v0_1))->v)) + 0x1);
+    goto L_C0AE77E;
+    L_C0AE8A0:;
+    v0_2 = v0_7;
+    *(int *)((int)stk + 0) = v0_2;
+    v0_3 = *(int *)(((((((((struct o22_short *)(v0_1))->v)) << 2) << 2) + v0_0) + 0x8));
+    *(unsigned int *)(((int)stk + 0)) = v0_2;
+    v0_2 = (0x1);
+    v0_4 = (v0_3);
+    v0_3 = ((((int)stk + 0) + 0x4));
+    L_C0AE8B4:;
+    FUN_0c142a58(v0_1, v0_2, v0_4, v0_3, *(int *)((int)stk + 0));
+    goto L_C0AE8BA;
+    L_C0AE87E:;
+    FUN_0c0ae710(v0_1, ((int)stk + 4), v0_4);
+    L_C0AE884:;
+    v0_2 = v0_7;
+    *(int *)((int)stk + 0) = v0_2;
+    v0_3 = *(int *)(((((((((struct o22_short *)(v0_1))->v)) << 2) << 2) + v0_0) + 0x8));
+    *(unsigned int *)(((int)stk + 0)) = v0_2;
+    v0_2 = (0x0);
+    v0_4 = (v0_3);
+    v0_3 = ((((int)stk + 0) + 0x4));
+    goto L_C0AE8B4;
+    L_C0AE872:;
+    FUN_0c0ae6dc(v0_1, 0x1, ((int)stk + 4));
+    goto L_C0AE8A0;
+    L_C0AE866:;
+    FUN_0c0ae6dc(v0_1, 0x0, ((int)stk + 4));
+    goto L_C0AE884;
+    L_C0AE85C:;
+    *(unsigned char *)(((v0_5 + (0x468 + v0_1)) + 0x0)) = v0_4;
+    goto L_C0AE8BA;
+    L_C0AE852:;
+    *(unsigned char *)(((v0_2 + (0x468 + v0_1)) + 0x0)) = v0_4;
+    goto L_C0AE8BA;
+    L_C0AE832:;
+    *(unsigned char *)(((v0_5 + (0x468 + v0_1)) + 0x0)) = v0_7;
+    v0_3 = (((struct o22_short *)(v0_1))->v);
+    v0_5 = ((v0_5 + (0x468 + v0_1)));
+    v0_2 = (0x1);
+    v0_4 = ((*(int *)(((((v0_3 << 2) << 2) + v0_0) + 0x8))));
+    v0_3 = ((*(int *)(((((v0_3 << 2) << 2) + v0_0) + 0xC))));
+    L_C0AE84A:;
+    FUN_0c1415e0(v0_1, v0_2, v0_4, v0_3);
+    goto L_C0AE8BA;
+    L_C0AE818:;
+    *(unsigned char *)(((v0_2 + (0x468 + v0_1)) + 0x0)) = v0_7;
+    v0_3 = (((struct o22_short *)(v0_1))->v);
+    v0_2 = (0x0);
+    v0_4 = ((*(int *)(((((v0_3 << 2) << 2) + v0_0) + 0x8))));
+    v0_3 = ((*(int *)(((((v0_3 << 2) << 2) + v0_0) + 0xC))));
+    goto L_C0AE84A;
+}
+
+int FUN_0c0aed00(int a4, int a5, int a6)
+{
+    register int t0;
+    register int t1;
+    register float u0;
+    register float u1;
+    float u2;
+
+    FUN_0c037bf6(a4, a5, a6);
+    t1 = FUN_0c064f80(((((struct o3760_int *)(a4))->v)));
+    if ((t1 != 0) && ((t0 = (((struct o3760_int *)(a4))->v), u0 = (((struct o2C_float *)(a4))->v), u1 = (((struct o2C_float *)(t0))->v), u0 > u1) && (u2 = (((struct o3780_float *)(a4))->v), 200.0f > u2))) {
+        (((struct o28_float *)(a4))->v) = (((((struct o28_float *)(a4))->v)) + ((((((struct o28_float *)(((((struct o3760_int *)(a4))->v))))->v)) - ((((struct o28_float *)(a4))->v))) / 6.0f));
+        (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) + ((((((struct o30_float *)(((((struct o3760_int *)(a4))->v))))->v)) - ((((struct o30_float *)(a4))->v))) / 6.0f));
+    }
+    if ((*(signed char *)((a4 + 0x131))) != 0) {
+        t0 = FUN_0c07d1fc(a4);
+        if (t0 != 0) {
+            t0 = *(signed char *)((a4 + 0x1));
+            FUN_0c07e79c(a4, t0, 0x2, 0x5, (t0), 0x2, 0x5);
+            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
+            return FUN_0c0ae748(a4);
+        }
+    }
+    t0 = FUN_0c07ecc6(a4, 0x0, 0x0);
+    if (t0 != 0) {
+        if (t0 == 2) {
+            return FUN_0c085cac(a4, 0x6, 0x0);
+        }
+        t0 = *(signed char *)((a4 + 0x1));
+        FUN_0c07e79c(a4, t0, 0x2, 0x7, (t0), 0x2, 0x7);
+        t0 = *(int *)(((0x118 + a4) + 0x4));
+        t1 = (((struct o118_int *)(a4))->v);
+        (((struct oA0_float *)(t0))->v) = 1.0f;
+        (((struct o9C_float *)(t0))->v) = 1.0f;
+        (((struct oA0_float *)(t1))->v) = 1.0f;
+        (((struct o9C_float *)(t1))->v) = 1.0f;
+        t0 = *(int *)(((0x118 + a4) + 0x4));
+        t1 = (((struct o118_int *)(a4))->v);
+        (((struct o98_float *)(t0))->v) = 1.0f;
+        (((struct o98_float *)(t1))->v) = 1.0f;
+        (((struct o94_float *)(t0))->v) = 1.0f;
+        (((struct o94_float *)(t1))->v) = 1.0f;
+        FUN_0c07daea(a4, t1, t0);
+        (((struct o15_uchar *)(a4))->v) = 0x4;
+        return 0x15;
+    }
+    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
+    return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
+}

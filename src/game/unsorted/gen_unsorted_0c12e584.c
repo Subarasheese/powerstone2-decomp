@@ -1,0 +1,146 @@
+/* game/unsorted: functions 0C12E584-0C12E7A0, one cell of the original link order (tools/srcmap.py: code tied by a shared pool,
+   a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
+   or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o0_int { int v; };
+struct o10_int { char p[0x10]; int v; };
+struct o14_float { char p[0x14]; float v; };
+struct o18_int { char p[0x18]; int v; };
+struct o1B_uchar { char p[0x1B]; unsigned char v; };
+struct o20_int { char p[0x20]; int v; };
+struct o20_ushort { char p[0x20]; unsigned short v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o4C_float { char p[0x4C]; float v; };
+struct o50_float { char p[0x50]; float v; };
+struct o54_float { char p[0x54]; float v; };
+struct o58_float { char p[0x58]; float v; };
+struct o5C_float { char p[0x5C]; float v; };
+struct o60_float { char p[0x60]; float v; };
+struct o74_float { char p[0x74]; float v; };
+struct o84_float { char p[0x84]; float v; };
+struct o88_float { char p[0x88]; float v; };
+struct o8C_float { char p[0x8C]; float v; };
+struct o8_int { char p[0x8]; int v; };
+struct oA8_uchar { char p[0xA8]; unsigned char v; };
+struct oA9_uchar { char p[0xA9]; unsigned char v; };
+struct oAC_ushort { char p[0xAC]; unsigned short v; };
+struct oC4_int { char p[0xC4]; int v; };
+struct oC8_int { char p[0xC8]; int v; };
+struct oCC_int { char p[0xCC]; int v; };
+struct oD0_int { char p[0xD0]; int v; };
+struct oD4_int { char p[0xD4]; int v; };
+int FUN_0c03744a(int, int, int, int);
+int FUN_0c03f444(int, int, int);
+int FUN_0c064d24(int, int, int, int, int, int, int, int);
+int FUN_0c07e2f4(int, int);
+int FUN_0c187798(void);
+int FUN_0c12e584(int a4, int a5);
+
+int FUN_0c12e584(int a4, int a5)
+{
+    int stk[5];
+    register int t0;
+    register int t50;
+    int t4;
+    register int t6;
+    register int t9;
+    register int t11;
+    register int t18;
+    register int t20;
+    register int t26;
+    register int t28;
+    register int t34;
+    register int t36;
+    register int t42;
+    register int t44;
+
+    *(unsigned char *)(((int)stk + 16)) = a5;
+    t0 = FUN_0c03f444(0x1, 0x0, 0x5);
+    t50 = t0;
+    if (t0 != 0) {
+        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
+        *(unsigned int *)((t0 + 0x4)) = 0xC12E7D0;
+        FUN_0c187798();
+        (((struct o4C_float *)(t0))->v) = 0.0f;
+        (((struct o50_float *)(t0))->v) = -40.0f;
+        (((struct o54_float *)(t0))->v) = 0.0f;
+        (((struct o58_float *)(t0))->v) = 0.0f;
+        (((struct o5C_float *)(t0))->v) = -1.0f;
+        (((struct o60_float *)(t0))->v) = 0.0f;
+        (((struct o48_float *)(t0))->v) = 1.0f;
+        (((struct o44_float *)(t0))->v) = 1.0f;
+        (((struct o40_float *)(t0))->v) = 1.0f;
+        *(unsigned int *)((t0 + 0x34)) = 0x4000;
+        *(unsigned int *)((t0 + 0x38)) = 0x0;
+        *(unsigned int *)((t0 + 0x3C)) = 0x0;
+        *(unsigned int *)((t0 + 0x10)) = a4;
+        (((struct o1B_uchar *)(t0))->v) = (*(signed char *)(((int)stk + 16)));
+        t4 = *(signed char *)(((int)stk + 16));
+        t6 = 0x60;
+        if (((int)t4 >= (int)0x5) && ((0x1 & t4) == 0)) {
+            t6 = 0x61;
+        }
+        FUN_0c07e2f4(t0, t6);
+        *(int *)((int)stk + 12) = 0x0;
+        *(int *)((int)stk + 8) = 0x0;
+        *(int *)((int)stk + 4) = 0x0;
+        *(int *)((int)stk + 0) = 0x100;
+        FUN_0c064d24(t0, 0x1, 0x40, 0x0, 0x100, 0x0, 0x0, 0x0);
+        (((struct oA8_uchar *)(t0))->v) = 0x0;
+        (((struct oAC_ushort *)(t0))->v) = 0x1F;
+        (((struct oA9_uchar *)(t0))->v) = 0x21;
+        t9 = (((struct oC4_int *)(t0))->v);
+        t11 = *(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)));
+        *(unsigned int *)(((int)stk + 16)) = 0xC201D54;
+        FUN_0c03744a(t9, (*(int *)(((*(int *)(((int)stk + 16))) + 0x0))), ((((struct o0_int *)0xC201D58)->v)), t11);
+        *(unsigned short *)((t9 + 0x6)) = 0x41F;
+        (((struct o14_float *)(t9))->v) = 1.0f;
+        (((struct o8C_float *)(t9))->v) = 1.0f;
+        *(unsigned short *)((t0 + 0x1C)) = ((unsigned char)(*(signed char *)((0xC2A1264 + (*(signed char *)((t0 + 0x1B)))))) + 0xA);
+        t18 = (((struct oC8_int *)(t0))->v);
+        t20 = *(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)));
+        *(unsigned int *)(((int)stk + 16)) = 0xC201D5C;
+        FUN_0c03744a(t18, (*(int *)(((*(int *)(((int)stk + 16))) + 0x0))), ((((struct o8_int *)0xC201D58)->v)), t20);
+        *(unsigned short *)((t18 + 0x6)) = 0x41F;
+        (((struct o14_float *)(t18))->v) = 1.0f;
+        (((struct o74_float *)(t18))->v) = (((((struct o74_float *)(t18))->v)) + 200.0f);
+        (((struct o8C_float *)(t18))->v) = 0.0f;
+        (((struct o88_float *)(t18))->v) = 0.0f;
+        (((struct o84_float *)(t18))->v) = 0.0f;
+        t26 = (((struct oCC_int *)(t0))->v);
+        t28 = *(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)));
+        *(unsigned int *)(((int)stk + 16)) = 0xC201D64;
+        FUN_0c03744a(t26, (*(int *)(((*(int *)(((int)stk + 16))) + 0x0))), ((((struct o10_int *)0xC201D58)->v)), t28);
+        *(unsigned short *)((t26 + 0x6)) = 0x41F;
+        (((struct o14_float *)(t26))->v) = 1.0f;
+        (((struct o74_float *)(t26))->v) = (((((struct o74_float *)(t26))->v)) + 50.0f);
+        (((struct o8C_float *)(t26))->v) = 0.0f;
+        (((struct o88_float *)(t26))->v) = 0.0f;
+        (((struct o84_float *)(t26))->v) = 0.0f;
+        *(unsigned short *)((t0 + 0x1E)) = 0xA;
+        (((struct o20_ushort *)(t0))->v) = 0x0;
+        t34 = (((struct oD0_int *)(t0))->v);
+        t36 = *(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)));
+        *(unsigned int *)(((int)stk + 16)) = 0xC201D6C;
+        FUN_0c03744a(t34, (*(int *)(((*(int *)(((int)stk + 16))) + 0x0))), ((((struct o18_int *)0xC201D58)->v)), t36);
+        *(unsigned short *)((t34 + 0x6)) = 0x41F;
+        (((struct o14_float *)(t34))->v) = 1.0f;
+        (((struct o74_float *)(t34))->v) = (((((struct o74_float *)(t34))->v)) - 100.0f);
+        (((struct o8C_float *)(t34))->v) = 1.0f;
+        (((struct o88_float *)(t34))->v) = 1.0f;
+        (((struct o84_float *)(t34))->v) = 1.0f;
+        t42 = (((struct oD4_int *)(t0))->v);
+        t44 = *(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)));
+        *(unsigned int *)(((int)stk + 16)) = 0xC201D74;
+        FUN_0c03744a(t42, (*(int *)(((*(int *)(((int)stk + 16))) + 0x0))), ((((struct o20_int *)0xC201D58)->v)), t44);
+        *(unsigned short *)((t42 + 0x6)) = 0x1F;
+        (((struct o74_float *)(t42))->v) = (((((struct o74_float *)(t42))->v)) - 0.0f);
+        (((struct o8C_float *)(t42))->v) = 1.0f;
+        (((struct o88_float *)(t42))->v) = 1.0f;
+        (((struct o84_float *)(t42))->v) = 1.0f;
+        t50 = 0x84;
+    }
+    return t50;
+}
