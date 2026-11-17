@@ -1,0 +1,55 @@
+{
+ "dev": [
+  {
+   "about": "one line, aligned",
+   "regs": {
+    "r4": "0C400000",
+    "r5": "00000020"
+   }
+  },
+  {
+   "about": "unaligned start, 3 lines",
+   "regs": {
+    "r4": "0C40001C",
+    "r5": "00000060"
+   }
+  },
+  {
+   "about": "size not a multiple of 32: 0x7F -> 3 lines",
+   "regs": {
+    "r4": "0C400040",
+    "r5": "0000007F"
+   }
+  },
+  {
+   "about": "64 lines",
+   "regs": {
+    "r4": "0C500000",
+    "r5": "00000800"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "unaligned, 2 lines",
+   "regs": {
+    "r4": "0C600005",
+    "r5": "00000040"
+   }
+  },
+  {
+   "about": "100 lines",
+   "regs": {
+    "r4": "0C601000",
+    "r5": "00000C80"
+   }
+  },
+  {
+   "about": "P2 address",
+   "regs": {
+    "r4": "AC700000",
+    "r5": "00000040"
+   }
+  }
+ ]
+}

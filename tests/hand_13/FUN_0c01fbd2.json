@@ -1,0 +1,41 @@
+{
+ "dev": [
+  {
+   "about": "poll the connection",
+   "regs": {},
+   "poke": {
+    "0C305430": "78560000"
+   },
+   "calls": [
+    {
+     "r0": "00000001"
+    }
+   ]
+  },
+  {
+   "about": "poll, handle 0",
+   "regs": {},
+   "calls": [
+    {
+     "r0": "00000000"
+    }
+   ]
+  }
+ ],
+ "holdout": [
+  {
+   "about": "poll, other handle",
+   "regs": {
+    "r4": "11111111"
+   },
+   "poke": {
+    "0C305430": "01000000"
+   },
+   "calls": [
+    {
+     "r0": "FFFFFFFF"
+    }
+   ]
+  }
+ ]
+}

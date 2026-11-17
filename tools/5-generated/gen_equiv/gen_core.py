@@ -1342,7 +1342,7 @@ def _run(name,passthru=False,frame=False,flat=False):
     try: CALLC=call_constants(ins,addr2idx)        # a callee loaded into a register in another block
     except Exception: CALLC={}
     def ind_variadic_hint(fname):
-        return fname in ('nlPrintf','printf','sprintf','nlSprintf')
+        return fname in ('nlPrintf','printf','sprintf','nlSprintf','dbg_printf')
     def note_span(n,d,sr):
         # a block copy reads n bytes from its source and writes n to its destination, but only their first addresses appear in the C:
         # the stack words counted from the C would stop at the first (hudFontNumPut, Virtua Tennis: a 12-byte point copied from the caller's area)

@@ -1,0 +1,1027 @@
+{
+ "dev": [
+  {
+   "about": "file system starts at once, stereo",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400000"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "01000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ]
+  },
+  {
+   "about": "file system starts at once, mono",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400010"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "00000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ]
+  },
+  {
+   "about": "two retries (error -1, -5), then starts",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFB"
+    },
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400020"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "01000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ]
+  },
+  {
+   "about": "retries with errors 3 and -2 then starts, mono, interrupts masked at entry",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "00000003"
+    },
+    {
+     "r0": "FFFFFFFE"
+    },
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400030"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "00000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ],
+   "sr": "400000F0"
+  }
+ ],
+ "holdout": [
+  {
+   "about": "255 retries then starts",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "FFFFFFFF"
+    },
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400040"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "02000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ]
+  },
+  {
+   "about": "one retry, sound mode 5",
+   "regs": {},
+   "calls": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+     "r0": "00000007"
+    },
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "0C400050"
+    },
+    {},
+    {},
+    {},
+    {
+     "poke_arg": {
+      "r4": "05000000"
+     }
+    },
+    {},
+    {},
+    {},
+    {},
+    {}
+   ]
+  }
+ ]
+}

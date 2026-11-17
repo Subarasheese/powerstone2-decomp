@@ -70,7 +70,7 @@ int FUN_0c10dd92(int a4);
 int FUN_0c10de48(int a4);
 int FUN_0c10de72(int a4, int a5, int a6, int a7);
 int FUN_0c10df44(int a4, int a5, int a6, int a7);
-int FUN_0c10e0c2(int a4);
+void FUN_0c10e0c2(int a4);
 int FUN_0c10e490(int a4, int a5, int a6, int a7);
 int FUN_0c10e716(int a4);
 
@@ -698,7 +698,7 @@ int FUN_0c10df44(int a4, int a5, int a6, int a7)
     return (FUN_0c117944(0xE4));
 }
 
-int FUN_0c10e0c2(int a4)
+void FUN_0c10e0c2(int a4)
 {
     int stk[13];
 
@@ -730,7 +730,7 @@ int FUN_0c10e0c2(int a4)
     if (((int)v0_1 >= 0)) goto L_C10E460;
     *(unsigned char *)((v0_0 + v0_10)) = 0x27;
     L_C10E46E:;
-    return v0_10;
+    return;
     L_C10E460:;
     v0_1 = (int)((int)R4 % (int)0x28);
     (((struct o18_uchar *)(v0_0))->v) = v0_1;

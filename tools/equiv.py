@@ -521,7 +521,7 @@ def orig_reads(addr):
     return _READS[addr]
 
 
-PRINTF_NAMES = ('nlPrintf',)      # callees whose first stack word is a format string: only the words it consumes are arguments
+PRINTF_NAMES = ('nlPrintf', 'dbg_printf')      # callees whose first stack word is a format string: only the words it consumes are arguments
 FMT_EXE = [None, 0]               # [the executable's bytes, its base], set by main: where the format strings are read
 
 

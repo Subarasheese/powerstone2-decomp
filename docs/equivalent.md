@@ -322,6 +322,17 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 91
 - the cases run 12 of 12 instructions
 
+### FUN_0c0100b0 (`0C02D0E8`, 28 bytes, `src/game/system/hand_10.c`)
+- equivalent on 4 development and 3 holdout cases, in `tests/hand_10/FUN_0c0100b0.json`
+- one line, aligned
+- unaligned start, 3 lines
+- size not a multiple of 32: 0x7F -> 3 lines
+- 64 lines
+- unaligned, 2 lines
+- 100 lines
+- P2 address
+- the cases run 14 of 14 instructions
+
 ### FUN_0c0102c4 (`0C0102C4`, 22 bytes, `src/game/system/gen_system_0c0100a2.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_system_0c0100a2/FUN_0c0102c4.json`
 - case 0
@@ -7257,6 +7268,225 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 62
 - the cases run 3 of 3 instructions
 
+### FUN_0c01ea38 (`0C01EA38`, 38 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01ea38.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 19 of 19 instructions
+
+### FUN_0c01ea5e (`0C01EA5E`, 662 bytes, `src/game/menu/option/hand_20.c`)
+- equivalent on 4 development and 3 holdout cases, in `tests/hand_20/FUN_0c01ea5e.json`
+- set 0, tone, user "ab cd", prefix "9,"
+- set 1, pulse, user with a comma
+- set 0, pulse, no separator in the user name
+- empty user name (strlen 0)
+- set 1, tone, prefix ",,"
+- user ends with a space
+- one-letter user
+- the cases run 247 of 247 instructions
+
+### FUN_0c01ecf4 (`0C01ECF4`, 86 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 14 development and 18 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01ecf4.json`
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 17
+- case 18
+- case 21
+- case 23
+- case 25
+- case 29
+- case 30
+- case 34
+- case 35
+- case 55
+- case 71
+- case 117
+- case 118
+- case 66
+- case 44
+- case 95
+- case 104
+- case 39
+- case 50
+- case 72
+- case 102
+- case 53
+- case 73
+- case 61
+- case 101
+- case 69
+- case 87
+- the cases run 12 of 42 instructions
+
+### FUN_0c01ed4a (`0C01ED4A`, 182 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01ed4a.json`
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 12
+- case 13
+- case 14
+- case 16
+- case 17
+- case 18
+- case 20
+- case 21
+- case 22
+- case 23
+- case 65
+- case 75
+- case 62
+- case 97
+- case 93
+- case 59
+- case 40
+- case 38
+- case 39
+- case 81
+- case 45
+- case 103
+- case 50
+- case 66
+- case 43
+- case 101
+- case 98
+- case 69
+- the cases run 17 of 59 instructions
+
+### FUN_0c01ee00 (`0C01EE00`, 452 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01ee00.json`
+- case 0
+- case 12
+- case 2
+- case 1
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 121
+- case 149
+- case 36
+- case 89
+- case 67
+- case 73
+- case 130
+- case 48
+- case 157
+- case 97
+- case 127
+- case 59
+- case 80
+- case 109
+- case 108
+- case 124
+- case 77
+- case 93
+- the cases run 61 of 204 instructions
+
+### FUN_0c01efc4 (`0C01EFC4`, 72 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01efc4.json`
+- case 8
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 79
+- case 41
+- case 101
+- case 86
+- case 57
+- case 93
+- case 89
+- case 42
+- case 94
+- case 74
+- case 66
+- case 87
+- case 36
+- case 50
+- case 58
+- case 112
+- case 63
+- case 104
+- the cases run 14 of 14 instructions
+
+### FUN_0c01f00c (`0C01F00C`, 112 bytes, `src/game/menu/option/gen_option_0c01ea00_3.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_option_0c01ea00_3/FUN_0c01f00c.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 56 of 56 instructions
+
+### FUN_0c01f07c (`0C01F07C`, 14 bytes, `src/game/menu/option/gen_option_0c01ea00_4.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_option_0c01ea00_4/FUN_0c01f07c.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 18
+- case 19
+- case 20
+- case 54
+- case 148
+- case 83
+- case 85
+- case 42
+- case 86
+- case 146
+- case 60
+- case 55
+- case 142
+- case 131
+- case 121
+- case 149
+- case 137
+- case 43
+- case 94
+- case 108
+- case 123
+- the cases run 7 of 7 instructions
+
 ### FUN_0c01f08a (`0C01F08A`, 88 bytes, `src/game/menu/option/gen_option_0c01ea00.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_option_0c01ea00/FUN_0c01f08a.json`
 - case 8
@@ -7844,6 +8074,13 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 11 sel=255 w=1000
 - the cases run 111 of 111 instructions
 
+### FUN_0c01fbd2 (`0C01FBD2`, 10 bytes, `src/game/hit/hand_13.c`)
+- equivalent on 2 development and 1 holdout cases, in `tests/hand_13/FUN_0c01fbd2.json`
+- poll the connection
+- poll, handle 0
+- poll, other handle
+- the cases run 5 of 5 instructions
+
 ### FUN_0c01fbdc (`0C01FBDC`, 4 bytes, `src/game/hit/gen_hit_0c01faa0.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_hit_0c01faa0/FUN_0c01fbdc.json`
 - case 0
@@ -8063,6 +8300,23 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - a58 negative
 - a58=2 a3fc=7
 - the cases run 118 of 118 instructions
+
+### FUN_0c01fe38 (`0C01FE38`, 816 bytes, `src/game/hit/hand_13.c`)
+- equivalent on 6 development and 7 holdout cases, in `tests/hand_13/FUN_0c01fe38.json`
+- s command: reply ATZ sent (copied to the echo buffer, CRLF added), written in two parts
+- w command: wait for OK, receive timer 300
+- dial, pulse, with prefix 9
+- receive OK<CR> while waiting for OK: accepted
+- receive an echo of the command: kept waiting
+- receive NO CARRIER: the script fails
+- dial, tone, no prefix
+- dial skipped (already dialled), next state
+- timer runs out: the script fails
+- nothing to read: wait
+- control bytes skipped, LF on an empty line, then a match
+- a line continued from the last call, then LF
+- s command with an empty reply
+- the cases run 276 of 276 instructions
 
 ### FUN_0c020168 (`0C020168`, 450 bytes, `src/game/hit/gen_hit_0c01faa0_2.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_hit_0c01faa0_2/FUN_0c020168.json`
@@ -10715,6 +10969,35 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 40 of 200 instructions
+
+### FUN_0c0298c8 (`0C0298C8`, 982 bytes, `src/game/unsorted/hand_15.c`)
+- equivalent on 13 development and 12 holdout cases, in `tests/hand_15/FUN_0c0298c8.json`
+- state 0: start, waits in state 1
+- state 1: key 13 pressed, timer reaches 32: on to state 2, no link yet, modem fails -> retry
+- state 2: link info read, link up, wait 0 -> state 3
+- state 2: link up, wait set -> connected, reset
+- state 3 -> 4: online, timer starts
+- state 4: offline, timer 15 -> 16, tone
+- state 4: offline, timer 35 -> 36: next
+- state 5 online: 600 frames, then state 6 sends
+- state 7
+- state 8: wait runs out
+- state 9: ready
+- state 10 offline: carrier lost -> -11
+- state 11: times out -> -9
+- state 1: still waiting, online flag
+- state 2: no link, modem ok -> connected
+- state 4: online
+- state 5 offline then 6
+- state 8: still waiting
+- state 9: not ready
+- state 10 online, carrier -> 11
+- state 10 online, no carrier
+- state 10 offline, still waiting
+- state 11: counting
+- state 12: nothing
+- state 0, key 1
+- the cases run 376 of 376 instructions
 
 ### FUN_0c029c9e (`0C029C9E`, 12 bytes, `src/game/unsorted/gen_unsorted_0c0298c8.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_unsorted_0c0298c8/FUN_0c029c9e.json`
@@ -13711,6 +13994,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 67 of 67 instructions
+
+### FUN_0c02d630 (`0C02D630`, 548 bytes, `src/game/system/hand_12.c`)
+- equivalent on 4 development and 2 holdout cases, in `tests/hand_12/FUN_0c02d630.json`
+- file system starts at once, stereo
+- file system starts at once, mono
+- two retries (error -1, -5), then starts
+- retries with errors 3 and -2 then starts, mono, interrupts masked at entry
+- 255 retries then starts
+- one retry, sound mode 5
+- the cases run 188 of 203 instructions
 
 ### FUN_0c02d88a (`0C02D88A`, 46 bytes, `src/game/unsorted/hand_0.c`)
 - equivalent on 3 development and 2 holdout cases, in `tests/hand_0/FUN_0c02d88a.json`
@@ -34055,6 +34348,16 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 109
 - the cases run 3 of 3 instructions
 
+### FUN_0c056fc8 (`0C056FC8`, 916 bytes, `src/game/unsorted/hand_14.c`)
+- equivalent on 4 development and 2 holdout cases, in `tests/hand_14/FUN_0c056fc8.json`
+- switched off
+- no tasks, idle frame
+- three tasks, colours 0-2
+- a task past the frame: clipped at the bottom
+- one task, colour 1, small counters
+- five tasks, the counters overflow the bar
+- the cases run 407 of 408 instructions
+
 ### FUN_0c057384 (`0C057384`, 10 bytes, `src/game/unsorted/gen_unsorted_0c057384.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_unsorted_0c057384/FUN_0c057384.json`
 - case 0
@@ -47943,6 +48246,18 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - hand mask case 9
 - the cases run 191 of 191 instructions
 
+### FUN_0c067a58 (`0C067A58`, 1790 bytes, `src/game/unsorted/hand_22.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/hand_22/FUN_0c067a58.json`
+- demo mode: pads copied, AI for two fighters
+- play: human fighters with dash bits, CPU fighter AI
+- play while moving: fighter 2 stopped (speed 0), lock, timers
+- fighters down (state 3): drawn in the second pass
+- mode 3: nothing but timers
+- play: CPU fighters, AI says no
+- demo, no fighters active
+- moving mode, inactive CPU
+- the cases run 726 of 814 instructions
+
 ### FUN_0c06817c (`0C06817C`, 176 bytes, `src/game/unsorted/gen_unsorted_0c06817c.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_unsorted_0c06817c/FUN_0c06817c.json`
 - rescue: empty case
@@ -50823,6 +51138,64 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 59
 - case 119
 - the cases run 30 of 60 instructions
+
+### FUN_0c06dcfc (`0C06DCFC`, 2042 bytes, `src/game/player/hand_24.c`)
+- equivalent on 36 development and 18 holdout cases, in `tests/hand_24/FUN_0c06dcfc.json`
+- 0.0 still on floor
+- 0.0 left floor
+- 1.0.0 high fall starts
+- 1.0.0 not yet
+- 1.0.1 air
+- 1.1.0 lands hard
+- 1.1.1 anim done
+- 1.1.1 anim
+- 2.0 spin ends
+- 2.1 next
+- 3 bounce, on floor
+- 3 over 60
+- 5.0 falling, lands
+- 4.1 up done
+- 6.1 anim
+- 7.0 squash
+- 7.1
+- 8
+- 10
+- 11.0 wait
+- 11.1 lands, sparks
+- 11.1 air
+- 12.0 drop in
+- 12.0 drop done
+- 12.1 lands on hit
+- 12.1 air
+- 13.0 wait
+- 13.1 lands
+- 13.1 wait
+- 14
+- 15.1
+- 16 timer
+- 16 air
+- 17.0 squash
+- 18: next
+- -1: next
+- 0.0 timer runs out: fly off
+- 0.1 flying
+- 1.0.1 lands
+- 1.1.0 air
+- 2.0 spinning
+- 3 early
+- 4.0 rising
+- 6.0 falling, air
+- 7.0 squash ends
+- 9
+- 11.0 done
+- 11.2
+- 12.1 lands
+- 13.0
+- 13.1 air
+- 15.0
+- 16 lands
+- 17.1
+- the cases run 857 of 874 instructions
 
 ### FUN_0c06e4f6 (`0C06E4F6`, 70 bytes, `src/game/player/gen_player_0c06d13c_4.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_player_0c06d13c_4/FUN_0c06e4f6.json`
@@ -89497,6 +89870,251 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 142
 - the cases run 22 of 22 instructions
 
+### FUN_0c0cd8b4 (`0C0CD8B4`, 3394 bytes, `src/game/player/hand_26.c`)
+- equivalent on 121 development and 120 holdout cases, in `tests/hand_26/FUN_0c0cd8b4.json`
+- kind 0
+- kind 2
+- kind 4
+- kind 6
+- kind 8
+- kind 10
+- kind 12
+- kind 14
+- kind 16
+- kind 18
+- kind 20
+- kind 22
+- fuzz: 52 new instructions
+- fuzz: 165 new instructions
+- fuzz: 24 new instructions
+- fuzz: 23 new instructions
+- fuzz: 7 new instructions
+- fuzz: 18 new instructions
+- fuzz: 18 new instructions
+- fuzz: 17 new instructions
+- fuzz: 18 new instructions
+- fuzz: 7 new instructions
+- fuzz: 7 new instructions
+- fuzz: 2 new instructions
+- kind 0, draws from 0 by 1
+- kind 1, draws from 99 by -3
+- kind 1, draws from 50 by 17
+- kind 2, draws from 0 by 1
+- kind 3, draws from 99 by -3
+- kind 3, draws from 50 by 17
+- kind 4, draws from 0 by 1
+- kind 5, draws from 99 by -3
+- kind 5, draws from 50 by 17
+- kind 6, draws from 0 by 1
+- kind 7, draws from 99 by -3
+- kind 7, draws from 50 by 17
+- kind 8, draws from 0 by 1
+- kind 9, draws from 99 by -3
+- kind 9, draws from 50 by 17
+- kind 10, draws from 0 by 1
+- kind 11, draws from 99 by -3
+- kind 11, draws from 50 by 17
+- kind 12, draws from 0 by 1
+- kind 13, draws from 99 by -3
+- kind 13, draws from 50 by 17
+- kind 14, draws from 0 by 1
+- kind 15, draws from 99 by -3
+- kind 15, draws from 50 by 17
+- kind 16, draws from 0 by 1
+- kind 17, draws from 99 by -3
+- kind 17, draws from 50 by 17
+- kind 18, draws from 0 by 1
+- kind 19, draws from 99 by -3
+- kind 19, draws from 50 by 17
+- kind 20, draws from 0 by 1
+- kind 21, draws from 99 by -3
+- kind 21, draws from 50 by 17
+- kind 22, draws from 0 by 1
+- kind 23, draws from 99 by -3
+- kind 23, draws from 50 by 17
+- kind 24, draws from 0 by 1
+- kind 25, draws from 99 by -3
+- kind 25, draws from 50 by 17
+- kind 26, draws from 0 by 1
+- kind 27, draws from 99 by -3
+- kind 27, draws from 50 by 17
+- kind 28, draws from 0 by 1
+- kind 29, draws from 99 by -3
+- kind 29, draws from 50 by 17
+- kind 30, draws from 0 by 1
+- kind 31, draws from 99 by -3
+- kind 31, draws from 50 by 17
+- kind 32, draws from 0 by 1
+- kind 33, draws from 99 by -3
+- kind 33, draws from 50 by 17
+- kind 34, draws from 0 by 1
+- kind 35, draws from 99 by -3
+- kind 35, draws from 50 by 17
+- kind 36, draws from 0 by 1
+- kind 37, draws from 99 by -3
+- kind 37, draws from 50 by 17
+- kind 38, draws from 0 by 1
+- kind 39, draws from 99 by -3
+- kind 39, draws from 50 by 17
+- kind 40, draws from 0 by 1
+- kind 41, draws from 99 by -3
+- kind 41, draws from 50 by 17
+- kind 42, draws from 0 by 1
+- kind 43, draws from 99 by -3
+- kind 43, draws from 50 by 17
+- kind 44, draws from 0 by 1
+- kind 45, draws from 99 by -3
+- kind 45, draws from 50 by 17
+- kind 46, draws from 0 by 1
+- kind 47, draws from 99 by -3
+- kind 47, draws from 50 by 17
+- kind 48, draws from 0 by 1
+- kind 49, draws from 99 by -3
+- kind 49, draws from 50 by 17
+- kind 50, draws from 0 by 1
+- kind 51, draws from 99 by -3
+- kind 51, draws from 50 by 17
+- kind 52, draws from 0 by 1
+- kind 53, draws from 99 by -3
+- kind 53, draws from 50 by 17
+- kind 54, draws from 0 by 1
+- kind 55, draws from 99 by -3
+- kind 55, draws from 50 by 17
+- kind 56, draws from 0 by 1
+- kind 57, draws from 99 by -3
+- kind 57, draws from 50 by 17
+- kind 58, draws from 0 by 1
+- kind 59, draws from 99 by -3
+- kind 59, draws from 50 by 17
+- kind 60, draws from 0 by 1
+- kind 61, draws from 99 by -3
+- kind 61, draws from 50 by 17
+- kind 62, draws from 0 by 1
+- kind 63, draws from 99 by -3
+- kind 63, draws from 50 by 17
+- fuzz: 8 new instructions
+- kind 1, other draws
+- kind 3, other draws
+- kind 5, other draws
+- kind 7, other draws
+- kind 9, other draws
+- kind 11, other draws
+- kind 13, other draws
+- kind 15, other draws
+- kind 17, other draws
+- kind 19, other draws
+- kind 21, other draws
+- kind 23, other draws
+- fuzz: 4 new instructions
+- fuzz: 32 new instructions
+- fuzz: 19 new instructions
+- fuzz: 2 new instructions
+- fuzz: 24 new instructions
+- fuzz: 2 new instructions
+- fuzz: 2 new instructions
+- fuzz: 7 new instructions
+- fuzz: 2 new instructions
+- fuzz: 3 new instructions
+- fuzz: 23 new instructions
+- kind 0, draws from 99 by -3
+- kind 0, draws from 50 by 17
+- kind 1, draws from 0 by 1
+- kind 2, draws from 99 by -3
+- kind 2, draws from 50 by 17
+- kind 3, draws from 0 by 1
+- kind 4, draws from 99 by -3
+- kind 4, draws from 50 by 17
+- kind 5, draws from 0 by 1
+- kind 6, draws from 99 by -3
+- kind 6, draws from 50 by 17
+- kind 7, draws from 0 by 1
+- kind 8, draws from 99 by -3
+- kind 8, draws from 50 by 17
+- kind 9, draws from 0 by 1
+- kind 10, draws from 99 by -3
+- kind 10, draws from 50 by 17
+- kind 11, draws from 0 by 1
+- kind 12, draws from 99 by -3
+- kind 12, draws from 50 by 17
+- kind 13, draws from 0 by 1
+- kind 14, draws from 99 by -3
+- kind 14, draws from 50 by 17
+- kind 15, draws from 0 by 1
+- kind 16, draws from 99 by -3
+- kind 16, draws from 50 by 17
+- kind 17, draws from 0 by 1
+- kind 18, draws from 99 by -3
+- kind 18, draws from 50 by 17
+- kind 19, draws from 0 by 1
+- kind 20, draws from 99 by -3
+- kind 20, draws from 50 by 17
+- kind 21, draws from 0 by 1
+- kind 22, draws from 99 by -3
+- kind 22, draws from 50 by 17
+- kind 23, draws from 0 by 1
+- kind 24, draws from 99 by -3
+- kind 24, draws from 50 by 17
+- kind 25, draws from 0 by 1
+- kind 26, draws from 99 by -3
+- kind 26, draws from 50 by 17
+- kind 27, draws from 0 by 1
+- kind 28, draws from 99 by -3
+- kind 28, draws from 50 by 17
+- kind 29, draws from 0 by 1
+- kind 30, draws from 99 by -3
+- kind 30, draws from 50 by 17
+- kind 31, draws from 0 by 1
+- kind 32, draws from 99 by -3
+- kind 32, draws from 50 by 17
+- kind 33, draws from 0 by 1
+- kind 34, draws from 99 by -3
+- kind 34, draws from 50 by 17
+- kind 35, draws from 0 by 1
+- kind 36, draws from 99 by -3
+- kind 36, draws from 50 by 17
+- kind 37, draws from 0 by 1
+- kind 38, draws from 99 by -3
+- kind 38, draws from 50 by 17
+- kind 39, draws from 0 by 1
+- kind 40, draws from 99 by -3
+- kind 40, draws from 50 by 17
+- kind 41, draws from 0 by 1
+- kind 42, draws from 99 by -3
+- kind 42, draws from 50 by 17
+- kind 43, draws from 0 by 1
+- kind 44, draws from 99 by -3
+- kind 44, draws from 50 by 17
+- kind 45, draws from 0 by 1
+- kind 46, draws from 99 by -3
+- kind 46, draws from 50 by 17
+- kind 47, draws from 0 by 1
+- kind 48, draws from 99 by -3
+- kind 48, draws from 50 by 17
+- kind 49, draws from 0 by 1
+- kind 50, draws from 99 by -3
+- kind 50, draws from 50 by 17
+- kind 51, draws from 0 by 1
+- kind 52, draws from 99 by -3
+- kind 52, draws from 50 by 17
+- kind 53, draws from 0 by 1
+- kind 54, draws from 99 by -3
+- kind 54, draws from 50 by 17
+- kind 55, draws from 0 by 1
+- kind 56, draws from 99 by -3
+- kind 56, draws from 50 by 17
+- kind 57, draws from 0 by 1
+- kind 58, draws from 99 by -3
+- kind 58, draws from 50 by 17
+- kind 59, draws from 0 by 1
+- kind 60, draws from 99 by -3
+- kind 60, draws from 50 by 17
+- kind 61, draws from 0 by 1
+- kind 62, draws from 99 by -3
+- kind 62, draws from 50 by 17
+- kind 63, draws from 0 by 1
+- fuzz: 23 new instructions
+- the cases run 1044 of 1529 instructions
+
 ### FUN_0c0ce60c (`0C0CE60C`, 190 bytes, `src/game/player/gen_player_0c0ce60c.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_player_0c0ce60c/FUN_0c0ce60c.json`
 - case 36
@@ -91604,10 +92222,27 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 97 of 183 instructions
 
 ### FUN_0c0d2a1c (`0C0D2A1C`, 1308 bytes, `src/game/unsorted/gen_unsorted_0c0d2880.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_unsorted_0c0d2880/FUN_0c0d2a1c.json`
+- equivalent on 10 development and 9 holdout cases, in `tests/gen_unsorted_0c0d2880/FUN_0c0d2a1c.json`
 - rescue: empty case
+- directed: flips 0C0D2A58 (taken)
+- directed: flips 0C0D2A5C (taken)
+- directed: flips 0C0D2E30 (taken)
+- fuzz: 11 new instructions
+- fuzz: 27 new instructions
+- fuzz: 7 new instructions
+- fuzz: 31 new instructions
+- fuzz: 4 new instructions
+- fuzz: 49 new instructions
 - rescue: empty case
-- the cases run 142 of 580 instructions
+- directed: flips 0C0D2A84 (taken)
+- directed: flips 0C0D2F16 (taken)
+- directed: flips 0C0D2E3C (taken)
+- fuzz: 21 new instructions
+- fuzz: 33 new instructions
+- fuzz: 6 new instructions
+- fuzz: 63 new instructions
+- fuzz: 80 new instructions
+- the cases run 551 of 595 instructions
 
 ### FUN_0c0d2f38 (`0C0D2F38`, 168 bytes, `src/game/unsorted/gen_unsorted_0c0d2f38.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_unsorted_0c0d2f38/FUN_0c0d2f38.json`
@@ -100056,10 +100691,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 51 of 63 instructions
 
 ### FUN_0c0e48b8 (`0C0E48B8`, 1060 bytes, `src/game/unsorted/gen_unsorted_0c0e48b8.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_unsorted_0c0e48b8/FUN_0c0e48b8.json`
+- equivalent on 10 development and 8 holdout cases, in `tests/gen_unsorted_0c0e48b8/FUN_0c0e48b8.json`
 - rescue: empty case
+- directed: flips 0C0E48DA (taken)
+- directed: flips 0C0E48E0 (taken)
+- directed: flips 0C0E4BCE (taken)
+- directed: flips 0C0E4C06 (not taken)
+- directed: flips 0C0E4BD8 (taken)
+- fuzz: 12 new instructions
+- fuzz: 4 new instructions
+- fuzz: 31 new instructions
+- fuzz: 2 new instructions
 - rescue: empty case
-- the cases run 77 of 450 instructions
+- directed: flips 0C0E491C (taken)
+- directed: flips 0C0E48E4 (not taken)
+- directed: flips 0C0E4BD4 (taken)
+- fuzz: 68 new instructions
+- fuzz: 2 new instructions
+- fuzz: 51 new instructions
+- fuzz: 13 new instructions
+- the cases run 384 of 462 instructions
 
 ### FUN_0c0e4a80 (`0C17DC40`, 32 bytes, `src/lib/katana/ps1_gen_ar.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/ps1_gen_ar/FUN_0c0e4a80.json`
@@ -110183,6 +110834,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 21 of 49 instructions
 
+### FUN_0c0f84c0 (`0C0F84C0`, 942 bytes, `src/game/flow/hand_11.c`)
+- equivalent on 6 development and 5 holdout cases, in `tests/hand_11/FUN_0c0f84c0.json`
+- limit reached: hands over to FUN_0c03f346 with r5 = 1 (the pass-through)
+- first frame of path 0: key 0 copied in, then mid-segment
+- path 0 reaches key 1 (flags 0: accelerate to it)
+- path 1 reaches key 1 (flags 5: steady velocity, bob 5.0)
+- path 1 reaches key 2 (flags 3: velocity, angles from b)
+- path 2 reaches key 1 (flags 11: fade alpha)
+- path 0 reaches key 2, odd frame
+- path 2 reaches key 2 (flags 10), alpha runs out
+- path 2 mid key 3 (flags 11), frame 0x40 bob
+- first frame of path 2, limit not reached
+- limit reached, path 1
+- the cases run 441 of 449 instructions
+
 ### FUN_0c0f886e (`0C0F886E`, 114 bytes, `src/game/flow/gen_flow_0c0f8430.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_flow_0c0f8430/FUN_0c0f886e.json`
 - rescue: empty case
@@ -110858,6 +111524,30 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 148
 - case 159
 - the cases run 16 of 16 instructions
+
+### FUN_0c0fa178 (`0C0FA178`, 994 bytes, `src/game/flow/hand_16.c`)
+- equivalent on 11 development and 9 holdout cases, in `tests/hand_16/FUN_0c0fa178.json`
+- init: count 3
+- steady, digit idle
+- count changes 3->4: digit starts rolling, flash starts
+- wrap 8 -> 0: dial kick -0x8000; rolling
+- wrap 0 -> 8, flash ends (b18 1): pop sound
+- roll stage 2: new digit model, value 5
+- roll stage 2: digit 9 clamped to 8, model 15 replaced (FUN_0c02da2e 0)
+- stage 3: settle, s1c 8 -> 9 -> done
+- blink start (stage 16)
+- blink stage 17, last frame
+- other state: hand over
+- init, other layout, count 0
+- idle with blink request
+- other layout: wrap 7 -> 0
+- stage 3 with blink request
+- stage 3, count moved on again
+- stage 17 mid blink
+- stage 2 with model 15 kept (FUN_0c02da2e 1)
+- stage 5: nothing
+- flash counting down
+- the cases run 426 of 428 instructions
 
 ### FUN_0c0fa55a (`0C0FA55A`, 32 bytes, `src/game/flow/gen_flow_0c0f94cc.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_flow_0c0f94cc/FUN_0c0fa55a.json`
@@ -120489,6 +121179,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 120
 - the cases run 21 of 21 instructions
 
+### FUN_0c10d68c (`0C10D68C`, 1068 bytes, `src/game/menu/select/hand_17.c`)
+- equivalent on 8 development and 8 holdout cases, in `tests/hand_17/FUN_0c10d68c.json`
+- parent ends (state 5): object ends
+- state 0: set up 16 models, parent not ready
+- state 0, parent at 2: next state
+- state 1, parent at 2
+- state 2: reload
+- state 3 first frame
+- state 3 frame 30: done growing
+- state 5 shrinking, some models already 0
+- state 4, parent elsewhere
+- state 3 frame 12
+- state 3 sub 2: idle
+- state 5 first frame
+- state 5 frame 31: back to state 2
+- state 5 sub 3: nothing
+- state 7: nothing
+- state 1, parent not ready
+- the cases run 482 of 482 instructions
+
 ### FUN_0c10dab8 (`0C10DAB8`, 42 bytes, `src/game/menu/select/gen_select_0c10caec.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_select_0c10caec/FUN_0c10dab8.json`
 - case 0
@@ -120951,10 +121661,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - the cases run 39 of 151 instructions
 
 ### FUN_0c10e0c2 (`0C10E0C2`, 960 bytes, `src/game/menu/select/gen_select_0c10caec.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_select_0c10caec/FUN_0c10e0c2.json`
+- equivalent on 7 development and 6 holdout cases, in `tests/gen_select_0c10caec/FUN_0c10e0c2.json`
 - rescue: empty case
+- directed: flips 0C10E458 (taken)
+- fuzz: 24 new instructions
+- fuzz: 123 new instructions
+- fuzz: 5 new instructions
+- fuzz: 1 new instructions
+- fuzz: 18 new instructions
 - rescue: empty case
-- the cases run 40 of 454 instructions
+- fuzz: 148 new instructions
+- fuzz: 4 new instructions
+- fuzz: 29 new instructions
+- fuzz: 23 new instructions
+- fuzz: 15 new instructions
+- the cases run 433 of 459 instructions
 
 ### FUN_0c10e490 (`0C10E490`, 646 bytes, `src/game/menu/select/gen_select_0c10caec.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_select_0c10caec/FUN_0c10e490.json`
@@ -127069,6 +127790,32 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 145
 - the cases run 16 of 19 instructions
 
+### FUN_0c118810 (`0C118810`, 1386 bytes, `src/game/unsorted/hand_19.c`)
+- equivalent on 12 development and 10 holdout cases, in `tests/hand_19/FUN_0c118810.json`
+- id 7 (model 9)
+- id 35: part count from the loader
+- id 73: six-part model
+- id 75
+- id 101
+- id 50: a whole model
+- id 120
+- id 144
+- id 130
+- id 147
+- id 155
+- id 200: unknown, falls back
+- id 8
+- id 106: loader says 0
+- id 119: six-part model
+- id 145
+- id 1
+- id 143
+- id 158
+- id 159: unknown
+- id 0
+- id 35: 25 parts reported
+- the cases run 631 of 631 instructions
+
 ### FUN_0c118d7a (`0C118D7A`, 282 bytes, `src/game/unsorted/gen_unsorted_0c118810.c`)
 - equivalent on 19 development and 18 holdout cases, in `tests/gen_unsorted_0c118810/FUN_0c118d7a.json`
 - case 2
@@ -128131,6 +128878,23 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 29 of 62 instructions
+
+### FUN_0c11bb5e (`0C11BB5E`, 1240 bytes, `src/game/menu/select/hand_18.c`)
+- equivalent on 8 development and 5 holdout cases, in `tests/hand_18/FUN_0c11bb5e.json`
+- set-up: rand 13, 7, 21; then first frame
+- set-up with negative rands
+- frame 0: rand 0 turns the wobble back
+- frame 30, speed 60
+- frame 100
+- frame 200, speed 30
+- last frame: next state
+- other state: hand over
+- frame 60, speed 90
+- frame 150, wobble back
+- frame 10, speed 120
+- frame 250
+- set-up, rands 0
+- the cases run 534 of 534 instructions
 
 ### FUN_0c11c036 (`0C11C036`, 82 bytes, `src/game/menu/select/gen_select_0c11b708_3.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_select_0c11b708_3/FUN_0c11c036.json`
@@ -137219,6 +137983,29 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 130
 - case 92
 - the cases run 28 of 28 instructions
+
+### FUN_0c13831c (`0C13831C`, 1710 bytes, `src/game/unsorted/hand_21.c`)
+- equivalent on 11 development and 8 holdout cases, in `tests/hand_21/FUN_0c13831c.json`
+- set-up and first path frame
+- path, second segment
+- path ends: starts homing, rand 3 / 4 -> sound 38
+- fighter hit: leaves
+- homing, frame 30: turns right, climbs
+- homing, frame 30: target behind, close: dives
+- fast bird (+2), frame 10
+- diving, frame 299: leaves
+- cruising after frame 70, bank easing, flap sparkle
+- other state
+- fuzz: 8 new instructions
+- set-up, then path frame 0
+- path ends: rand -1 / -1: no sound
+- fighter hit flag word
+- fast bird, frame 6, target exactly ahead (x 0)
+- homing, frame 69, left turn
+- cruising, bank positive easing, frame 100
+- diving with odd frame: wing shape
+- fuzz: 5 new instructions
+- the cases run 712 of 754 instructions
 
 ### FUN_0c138a00 (`0C138A00`, 148 bytes, `src/game/unsorted/gen_unsorted_0c137f74_2.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_unsorted_0c137f74_2/FUN_0c138a00.json`
@@ -149629,6 +150416,48 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 16 of 32 instructions
 
+### FUN_0c160dac (`0C160DAC`, 342 bytes, `src/game/unsorted/gen_unsorted_0c160dac_3.c`)
+- equivalent on 19 development and 19 holdout cases, in `tests/gen_unsorted_0c160dac_3/FUN_0c160dac.json`
+- case 83
+- case 78
+- case 86
+- case 1
+- case 2
+- case 3
+- case 4
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 14
+- case 15
+- case 16
+- case 17
+- directed: flips 0C160E60 (not taken)
+- case 75
+- case 106
+- case 149
+- case 125
+- case 119
+- case 93
+- case 88
+- case 138
+- case 47
+- case 158
+- case 81
+- case 62
+- case 52
+- case 65
+- case 60
+- case 69
+- case 72
+- case 141
+- directed: flips 0C160E9A (taken)
+- the cases run 98 of 148 instructions
+
 ### FUN_0c160f02 (`0C160F02`, 100 bytes, `src/game/unsorted/gen_unsorted_0c160dac_2.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_unsorted_0c160dac_2/FUN_0c160f02.json`
 - case 26
@@ -154241,6 +155070,24 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 107
 - the cases run 2 of 2 instructions
 
+### FUN_0c16e17c (`0C16E17C`, 1888 bytes, `src/game/unsorted/hand_23.c`)
+- equivalent on 9 development and 5 holdout cases, in `tests/hand_23/FUN_0c16e17c.json`
+- move changed: ends
+- set-up, hanging, falls
+- hanging, stretched past 100
+- hanging, holder grabs (parent move 4)
+- hanging, parent at 7: starts swinging
+- swinging, growing
+- swinging, at 250
+- swinging, parent let go: shrinks
+- swinging, shrink ends
+- state 2: nothing
+- swinging, target down (b23 2)
+- hanging, holder at move 5 but chain above
+- hanging, below the floor
+- one link only
+- the cases run 786 of 839 instructions
+
 ### FUN_0c16e8f0 (`0C16E8F0`, 186 bytes, `src/game/unsorted/hand_4.c`)
 - equivalent on 6 development and 4 holdout cases, in `tests/hand_4/FUN_0c16e8f0.json`
 - total 0 e C900000
@@ -155822,6 +156669,32 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 78
 - case 95
 - the cases run 11 of 11 instructions
+
+### FUN_0c17244a (`0C17244A`, 3702 bytes, `src/game/debug/hand_25.c`)
+- equivalent on 12 development and 10 holdout cases, in `tests/hand_25/FUN_0c17244a.json`
+- page 0, state
+- page 0, moves
+- page 0, sound
+- page 0, AI
+- page 0, items: then the item page
+- page 1, cursor 0
+- page 1, cursor 4, switch 0
+- page 1, cursor 9 (none)
+- page 2
+- page 3
+- page 4, pad 8
+- page 5: nothing
+- page 0, state, fighter 2, switch on
+- page 0, sub 7: header only
+- page 1, cursor 8, type 11
+- page 1, cursor 4 switch 2: nothing
+- page 2, mode 3, switch 0
+- page 2, mode 10
+- page 3, switches off
+- page 4, pad 128
+- page 4, pad 1
+- page 1 cursor 1, type 20
+- the cases run 1435 of 1544 instructions
 
 ### FUN_0c173304 (`0C173304`, 108 bytes, `src/game/unsorted/gen_unsorted_0c173304.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_unsorted_0c173304/FUN_0c173304.json`
@@ -162664,6 +163537,21 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 34 of 54 instructions
+
+### sys_load_file_adx (`0C0100A2`, 382 bytes, `src/game/system/hand_9.c`)
+- equivalent on 6 development and 5 holdout cases, in `tests/hand_9/sys_load_file_adx.json`
+- open fails: result 1
+- file over 2 MB (0x401 sectors): result 3
+- one vsync, done: result 0
+- one vsync, error: result 2
+- three vsyncs reading, then done
+- a vsync lost: the spin count reaches 0x600000 (counter read as 0x5FFFFF), interrupts are enabled again (SR.IMASK 15 -> 0)
+- reset check off (flag set), two passes, done
+- state 5 (busy) then error
+- size exactly 2 MB (0x400 sectors) is allowed; done at once
+- open fails, other name
+- spin count passes 0x600000 on the second spin, then done
+- the cases run 131 of 142 instructions
 
 ### sys_shutdown_all (`0C02D854`, 54 bytes, `src/game/system/gen_system_0c02cbcc.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_system_0c02cbcc/sys_shutdown_all.json`

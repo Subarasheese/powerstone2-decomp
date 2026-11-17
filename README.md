@@ -1,6 +1,6 @@
 # Power Stone 2 decomp
 
-![decomp progress](badges/progress.svg?p=66.5&b=75.6&m=0.0&a=37&s=0)
+![decomp progress](badges/progress.svg?p=66.7&b=76.9&m=0.0&a=38&s=0)
 
 A decompilation of the Dreamcast game **Power Stone 2** (USA), in progress. It rebuilds the game's executable
 `1ST_READ.BIN` byte for byte, and holds C for the game's own code that behaves like the original.
@@ -23,20 +23,23 @@ alone, except where they matched Power Stone 1.
 
 | | |
 |---|---|
-| Game code (`0C010000`-`0C1769D0`) | **5,593 of 5,617 functions Equivalent (99.6%)**, 1.25 MB of 1.28 MB |
-| Whole executable | 66.5% of functions, 75.6% of code bytes (the libraries count as not done) |
+| Game code (`0C010000`-`0C1769D0`) | **all 5,623 functions Equivalent (100%)**, 1.28 MB |
+| Whole executable | 66.7% of functions, 76.9% of code bytes (the libraries count as not done) |
 | Test evidence | the cases run about half of the proven game code's instructions: a function is only as proven as its cases |
 | Byte-matching C | none; the executable is rebuilt from assembly (`bash build.sh` prints `MATCH`) |
 | Builds from C (`make c`) | not attempted yet (`status.txt`) |
 
-Where the C of the 5,593 came from: 5,449 written by the generator (`tools/5-generated/gen_equiv`, checked on
-generated cases), 129 written by hand (`hand_*.c`), and 15 ported from Power Stone 1 and re-proven here. The generated C is plain and mechanical.
+Where the C of the 5,623 came from: 5,460 written by the generator (`tools/5-generated/gen_equiv`, checked on
+generated cases), 148 written by hand (`hand_*.c`), and 15 ported from Power Stone 1 and re-proven here. The generated C is plain and mechanical.
 
-**Left (24 functions, 29.1 KB):** 21 large functions of 340 to 3,700 bytes (state machines, parsers, boot code) and 3
-fragments with no C form (a cache-line loop and two bare branches into other routines). Five of the 21 have C that is
-not counted as done: three pass on too few cases (`FUN_0c0d2a1c`, `FUN_0c0e48b8`, `FUN_0c10e0c2`), `FUN_0c160dac` still
-differs on one case, and the cases of `sys_load_file_adx` (the file loader) reach only 49 of its 137 instructions,
-because its wait loop needs an interrupt.
+**The last ones** were written by hand: state machines (the network connection and its modem chat script, a
+fighter's thrown states), the per-frame fighter loop, effects (a homing bird, a whip), HUD objects, debug pages and the
+file loader. The largest, `FUN_0c0cd8b4` (an AI plan builder built without optimisation), is a direct lift of its code
+into C. Some of them are only partly covered by their cases: `equiv.py` prints how many instructions each one's cases run,
+and a hang path (`for (;;);` after a fatal error) cannot be run at all. Along the way `functions.txt` was corrected: two
+entries were words inside literal pools, one function was missing (`FUN_0c01fbd2`), and `FUN_0c01ea38` was eight functions
+(a table of state handlers at `0C20E348`), so the game now has 5,623 functions. `dbg_printf` is now a printf-style callee
+for the checker and the generator (only the words its format consumes are compared).
 
 ### Things worth knowing
 
@@ -54,7 +57,7 @@ because its wait loop needs an interrupt.
   decomp's functions (exact masked code only), not from the SDK libraries, which this repo does not have.
 - Total test coverage is the weak spot. `gen_equiv --direct` (cases aimed at branches no case has taken) was run once
   on the functions under 60% coverage and raised it from 45.5% to 49.4% (it also exposed the signature bug above).
-  `gen_equiv --retest` has not been run.
+  `gen_equiv --retest` was run on 309 of the 450 generated files it covers before its time limit.
 
 ## Build
 
