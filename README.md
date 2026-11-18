@@ -26,7 +26,7 @@ alone, except where they matched Power Stone 1.
 | Game code (`0C010000`-`0C1769D0`) | **all 5,623 functions Equivalent (100%)**, 1.28 MB |
 | Whole executable | 66.7% of functions, 76.9% of code bytes (the libraries count as not done) |
 | Test evidence | the cases run about half of the proven game code's instructions: a function is only as proven as its cases |
-| Byte-matching C | none; the executable is rebuilt from assembly (`bash build.sh` prints `MATCH`) |
+| Byte-matching C | 18 small units (19 functions, 192 bytes) linked from C; the rest is rebuilt from assembly (`bash build.sh` prints `MATCH`) |
 | Builds from C (`make c`) | not attempted yet (`status.txt`) |
 
 Where the C of the 5,623 came from: 5,460 written by the generator (`tools/5-generated/gen_equiv`, checked on
