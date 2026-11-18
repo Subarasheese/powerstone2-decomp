@@ -697,18 +697,7 @@ int FUN_0c1010ee(int a4, int a5)
 
 
 /* nlStoreMatrix8(m): XMTRX to the 16 floats at m (8-aligned: moved in pairs, in order); 0: the stack's top. Returns m */
-int nlStoreMatrix8(int a4)
-{
-    float *m = (float *)(a4 == 0 ? *(int *)0xC7FCCBC : a4);
-    float x[16];
-    int i;
 
-    _builtin_st_ext((float (*)[4])x);
-    for (i = 0; i < 16; i++) {
-        m[i] = x[i];
-    }
-    return (int)m;
-}
 
 
 float nlRotateXSC(float f4, float f5)
@@ -821,17 +810,7 @@ int syRtcAicaSetWriteFlag(void)
 }
 
 
-int gdFsGetDrvStatG(int a4, int a5, int a6, int a7)
-{
-    int stk[3];
-    register int t3;
 
-    t3 = ((int (*)(int, int, int, int, int, int, int, int, int, int, int))((*(int *)(((*(int *)(((*(int *)0xC346BD8) + 0xC))) + 0x20)))))(((int)stk + 0), a5, a6, a7, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24));
-    if (t3 == 0) {
-        return 0xFFFFFFFF;
-    }
-    return (*(int *)(((int)stk + 0)));
-}
 
 
 int gdFsGetLE4(int a4)

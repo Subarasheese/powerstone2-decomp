@@ -26,29 +26,6 @@ int FUN_0c187798(int);
 int FUN_0c1070c4(int a4, int a5, int a6, int a7);
 int FUN_0c107346(void);
 
-int FUN_0c1070c4(int a4, int a5, int a6, int a7)
-{
-    int stk[2];
-    register int t0;
-    register int t1;
-    register int t3;
-    register int t4;
-
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    t1 = ((int (*)(void))(FUN_0c187798))();
-    FUN_0c115120(0x8, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
-    t3 = (((struct o0_int *)0xC5325B0)->v);
-    (((struct o98_float *)(t3))->v) = 8.0f;
-    (((struct o94_float *)(t3))->v) = 8.0f;
-    t4 = (((struct o4_int *)0xC5325B0)->v);
-    (((struct o98_float *)(t4))->v) = 8.0f;
-    (((struct o94_float *)(t4))->v) = 8.0f;
-    FUN_0c056e44(0x23, 0x6);
-    (((struct o1C_uint *)0xC473CE0)->v) = 0x0;
-    (((struct o0_uint *)0xC473CE0)->v) = 0x0;
-    (((struct o10_uint *)0xC473CE0)->v) = 0x0;
-    return ((int (*)(int, int, int, int))(0xC107084))(0x0, a5, a6, a7);
-}
 
 int FUN_0c107346(void)
 {

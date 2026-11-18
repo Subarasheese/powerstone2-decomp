@@ -243,21 +243,6 @@ int FUN_0c025564(void)
     return t44;
 }
 
-int FUN_0c02568a(int a4, int a5, int a6)
-{
-    int stk[15];
-
-    FUN_0c187798(a4, a5, a6);
-    FUN_0c02b50c(0.75f);
-    FUN_0c02b502(0x7);
-    FUN_0c02b3ba((((short)(*(signed char *)0xC30A34B) * (short)0x86) + 0xC309E10), (*(float *)((((int)stk + 8) + 0x0))), ((((struct o4_float *)(((int)stk + 8)))->v)), ((((struct o8_float *)(((int)stk + 8)))->v)));
-    *(int *)((int)stk + 4) = ((*(short *)((((short)(*(signed char *)0xC30A34B) * (short)0x86) + 0xC309E0E))));
-    *(int *)((int)stk + 0) = 0xC1A8C64;
-    FUN_0c187cac((((int)stk + 0) + 0x2C), 0x0, 0x0, 0x0, 0xC1A8C64);
-    FUN_0c02b3ba((((int)stk + 0) + 0x2C), ((((struct oC_float *)(((int)stk + 8)))->v)), ((((struct o4_float *)((((int)stk + 8) + 0xC)))->v)), ((((struct o8_float *)((((int)stk + 8) + 0xC)))->v)));
-    FUN_0c02b3ba(0xC1A8C68, ((((struct o18_float *)(((int)stk + 8)))->v)), ((((struct o4_float *)((((int)stk + 8) + 0x18)))->v)), ((((struct o8_float *)((((int)stk + 8) + 0x18)))->v)));
-    return (FUN_0c02b50c(1.0f));
-}
 
 int FUN_0c025c46(int a4, int a5, int a6)
 {
@@ -465,3 +450,5 @@ int FUN_0c02610c(int a4)
     }
     return t65;
 }
+
+

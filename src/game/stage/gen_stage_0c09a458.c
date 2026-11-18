@@ -133,59 +133,6 @@ int FUN_0c09a5ac(int a4, int a5, int a6, int a7)
     return 0x15;
 }
 
-int FUN_0c09a738(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-
-    if (((((struct o3770_int *)(a4))->v)) == 0) {
-        return FUN_0c085d0c(a4, a5, a6, a7);
-    }
-    FUN_0c037bf6(((((struct o3770_int *)(a4))->v)));
-    FUN_0c038362(((((struct o3770_int *)(a4))->v)));
-    FUN_0c037bf6(a4);
-    FUN_0c038362(a4);
-    t0 = (((struct o20_short *)(a4))->v);
-    (((struct o20_ushort *)(a4))->v) = (t0 - 1);
-    if ((short)(t0 - 1) == 0) {
-        t0 = *(signed char *)((a4 + 0x1));
-        FUN_0c07e79c(a4, t0, 0x5, 0x3, (t0), 0x5, 0x3);
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t1 = (((struct o118_int *)(a4))->v);
-        (((struct oA0_float *)(t0))->v) = 1.0f;
-        (((struct o9C_float *)(t0))->v) = 1.0f;
-        (((struct oA0_float *)(t1))->v) = 1.0f;
-        (((struct o9C_float *)(t1))->v) = 1.0f;
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t1 = (((struct o118_int *)(a4))->v);
-        (((struct o98_float *)(t0))->v) = 1.0f;
-        (((struct o98_float *)(t1))->v) = 1.0f;
-        (((struct o94_float *)(t0))->v) = 1.0f;
-        (((struct o94_float *)(t1))->v) = 1.0f;
-        FUN_0c07e79c(((((struct o3770_int *)(a4))->v)), 0xFFFFFFFF, 0x5, 0x5, 0xFFFFFFFF, 0x5, 0x5);
-        t0 = (((struct o3770_int *)(a4))->v);
-        t1 = *(int *)(((t0 + 0x118) + 0x4));
-        t2 = (((struct o118_int *)(t0))->v);
-        (((struct oA0_float *)(t1))->v) = 1.0f;
-        (((struct o9C_float *)(t1))->v) = 1.0f;
-        (((struct oA0_float *)(t2))->v) = 1.0f;
-        (((struct o9C_float *)(t2))->v) = 1.0f;
-        t0 = (((struct o3770_int *)(a4))->v);
-        t1 = *(int *)(((t0 + 0x118) + 0x4));
-        t2 = (((struct o118_int *)(t0))->v);
-        (((struct o98_float *)(t1))->v) = 1.0f;
-        (((struct o98_float *)(t2))->v) = 1.0f;
-        (((struct o94_float *)(t1))->v) = 1.0f;
-        (((struct o94_float *)(t2))->v) = 1.0f;
-        (((struct o445_uchar *)(((((struct o3770_int *)(a4))->v))))->v) = 0x1;
-        *(volatile int *)((a4 + 0x3770));
-        FUN_0c187798(t2, t1, (t0 + 0x118));
-        (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-    }
-    (((struct o374B_uchar *)(((((struct o3770_int *)(a4))->v))))->v) = 0x1;
-    return 0x374B;
-}
 
 int FUN_0c09ab14(int a4, int a5, int a6, int a7)
 {

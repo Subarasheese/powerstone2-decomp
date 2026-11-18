@@ -27,42 +27,6 @@ extern int FUN_0c187798();
 int FUN_0c127068(int a4);
 int FUN_0c12711e(int a4);
 
-int FUN_0c127068(int a4)
-{
-    register int t0;
-    register int t15;
-    register int t1;
-    register float u12;
-
-    t0 = FUN_0c03f444(0x1, 0x0, 0x2);
-    t15 = t0;
-    if (t0 != 0) {
-        t1 = 0x0;
-        for (;;) {
-            if ((int)t1 >= (int)((((struct oC0_int *)(t0))->v))) {
-                break;
-            }
-            FUN_0c03744a((*(int *)((((t1 << 2) + (0xC4 + t0)) + 0x0))), t1, 0x0, (*(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)))));
-            t1 = (t1 + 0x1);
-        }
-        *(unsigned int *)((t0 + 0x4)) = 0xC12711E;
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned char *)((t0 + 0x2)) = (*(signed char *)((a4 + 0x2)));
-        (((struct oAC_ushort *)(t0))->v) = 0x1F;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        *(unsigned int *)((t0 + 0x10)) = a4;
-        FUN_0c187798();
-        FUN_0c187798();
-        (((struct o2C_float *)(t0))->v) = (((((struct o2C_float *)(t0))->v)) + 300.0f);
-        u12 = (((struct o0_float *)0xC1271B8)->v);
-        (((struct o48_float *)(t0))->v) = u12;
-        (((struct o44_float *)(t0))->v) = u12;
-        (((struct o40_float *)(t0))->v) = u12;
-        (((struct o70_float *)(((((struct oC8_int *)(t0))->v))))->v) = ((((struct o4_float *)0xC1271B8)->v));
-        t15 = 0x70;
-    }
-    return t15;
-}
 
 int FUN_0c12711e(int a4)
 {

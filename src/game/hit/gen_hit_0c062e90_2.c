@@ -18,37 +18,6 @@ int FUN_0c063ea0(int a4, float f4);
 int FUN_0c063f24(void);
 int FUN_0c064cbc(int a4, int a5, int a6, float f4);
 
-int FUN_0c063ea0(int a4, float f4)
-{
-    register int t1;
-    register float u5;
-    int t0;
-    register int t9;
-    register float u6;
-
-    t1 = a4;
-    for (;;) {
-        if (t1 == 0) {
-            break;
-        }
-        t0 = 0x12E;
-        if ((*(short *)((t1 + t0))) != 0) {
-            t0 = (FUN_0c0e2390((0x178 + t1), (t1 + 0x28), (0x178 + t1)));
-            t0 = 0x17C;
-            u5 = *(float *)((t1 + t0));
-            if ((u5 > 0.0f) && (t0 = 0xC063F94, u6 = *(float *)((t0 + 0x0)), u6 > u5)) {
-                t0 = 0x17C;
-                *(float *)((t1 + t0)) = 0.0f;
-            }
-        } else {
-            t9 = a4;
-        }
-        t0 = 0xC;
-        t0 = (FUN_0c187798(t9));
-        t1 = (*(int *)((t1 + 0xC)));
-    }
-    return t0;
-}
 
 int FUN_0c063f24(void)
 {
@@ -106,3 +75,5 @@ int FUN_0c064cbc(int a4, int a5, int a6, float f4)
     }
     return t1;
 }
+
+

@@ -17,7 +17,7 @@ struct o8_uint { char p[0x8]; unsigned int v; };
 int FUN_0c02cd20(int, ...);
 int FUN_0c02cdcc(int);
 int FUN_0c02cf88(void);
-int FUN_0c02d16c(void);
+int FUN_0c02d16c(int);
 int FUN_0c02d208(void);
 int sys_vsync_handler_install(void);
 int FUN_0c02d630(void);
@@ -64,7 +64,7 @@ float FUN_0c02d2a8(void)
     syHwInit();
     FUN_0c02d208();
     *(volatile int *)0xC5421D0;
-    FUN_0c02d16c();
+    FUN_0c02d16c(*(int *)(0xC541F3C + 0x294));  /* manual: the original passes g_game_work[0x294] (the video mode FUN_0c02d208 set) in r4 */
     FUN_0c2b15c8(0xC33A880, 0x80000);
     FUN_0c2ae992();
     FUN_0c183074(0x0);
@@ -122,3 +122,4 @@ float FUN_0c02d2a8(void)
     }
     return FUN_0c02d88a();
 }
+

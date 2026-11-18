@@ -23,62 +23,6 @@ int FUN_0c0e2e64(void);
 int FUN_0c0e2e9a(void);
 void FUN_0c0e33ae(void);
 
-int FUN_0c0e2cdc(void)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-
-    if ((*(signed char *)0xC54223C) == 0) {
-        t1 = *(int *)((((*(signed char *)0xC54098E) << 2) + 0xC1CB974));
-        t2 = (((((t1 << 1) + t1) << 2) << 2) + 0xC1CB8B4);
-        t3 = (((t1 << 2) << 2) + 0xC1CB9B4);
-        t1 = 0x0;
-        t4 = 0x0;
-        for (;;) {
-            FUN_0c187798(t2, 0xC1CB8B4, 0x0);
-            t2 = (*(int *)((t3 + 0x0)));
-            t3 = (t3 + 0x4);
-            t2 = (t2 << 2);
-            t2 = (t2 + (0xC288050 + (((*(signed char *)0xC54098E) << 2) << 2)));
-            t2 = (*(int *)((((*(int *)((t2 + 0x0))) << 2) + 0xC1CB9A4)));
-            t6 = *(int *)((((t2 << 2) + 0xC540D94) + 0x0));
-            t5 = 0xC1CB9A4;
-            if (t6 != 0) {
-                t7 = 0x6F0;
-                t7 = (t7 + 0xC540978);
-                t7 = (t7 + t1);
-                t2 = t7;
-                t5 = (FUN_0c17c130(t2, t7, (t6 + 0x28)));
-            } else {
-                t6 = t2;
-            }
-            t4 = (t4 + 0xC);
-            t2 = t6;
-            t1 = (t1 + 0xC);
-            if ((unsigned int)t4 >= (unsigned int)0x30) {
-                break;
-            }
-        }
-        t1 = t5;
-    } else {
-        t2 = 0x0;
-        for (;;) {
-            t3 = FUN_0c187798(t2, 0xC1CB8B4, 0x90);
-            t2 = (t0 + 0xC);
-            if ((unsigned int)t2 >= (unsigned int)0x30) {
-                break;
-            }
-        }
-        t1 = t3;
-    }
-    return t1;
-}
 
 int FUN_0c0e2dae(int a4)
 {

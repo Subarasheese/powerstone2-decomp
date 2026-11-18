@@ -30,54 +30,6 @@ int FUN_0c187798(void);
 void FUN_0c05e87c(void);
 int FUN_0c05ea98(void);
 
-void FUN_0c05e87c(void)
-{
-    int stk[12];
-    register int t7;
-    register int t16;
-
-    if ((*(signed char *)0xC5421E1) == 0) {
-        FUN_0c03eff6();
-        (((struct o0_uchar *)0xC542237)->v) = 0x6;
-        (((struct o5_uchar *)0xC542237)->v) = 0x1;
-        FUN_0c06780e(0x7);
-        *(unsigned int *)(((int)stk + 8)) = 0xC532498;
-        *(unsigned char *)0xC53249A = 0x0;
-        *(unsigned int *)(((int)stk + 4)) = 0xC535DD0;
-        *(unsigned char *)0xC535DD2 = 0x0;
-        *(unsigned int *)(((int)stk + 12)) = 0xC539708;
-        *(unsigned char *)0xC53970A = 0xD;
-        *(unsigned char *)0xC542363 = 0x2;
-        FUN_0c036de8(0x5, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-        FUN_0c06785c();
-        FUN_0c036de8(0x7, 0x0, 0x0, 0x0, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24), *(int *)((int)stk + 4 + 28));
-        t7 = (*(signed char *)0xC53D042);
-        *(int *)((int)stk + 0) = t7;
-        FUN_0c05a2b8((*(signed char *)0xC542237), (*(signed char *)(((*(int *)(((int)stk + 8))) + 0x2))), (*(signed char *)(((*(int *)(((int)stk + 4))) + 0x2))), (*(signed char *)(((*(int *)(((int)stk + 12))) + 0x2))), t7);
-        t16 = 0x0;
-        for (;;) {
-            if ((*(signed char *)((((t16 * 0x3938) + 0xC532498) + 0x3714))) != 0) {
-                FUN_0c0674f4(t16);
-                FUN_0c187798();
-            }
-            t16 = (t16 + 0x1);
-            if ((int)t16 >= (int)0x4) {
-                break;
-            }
-        }
-        FUN_0c0cf944((*(signed char *)0xC542237));
-        (((struct o0_uchar *)0xC54098C)->v) = 0x1;
-        (((struct o1_uchar *)0xC54098C)->v) = 0x7;
-        (((struct o18_uint *)0xC540A20)->v) = 0x0;
-        (((struct o0_uchar *)0xC540A20)->v) = 0x0;
-        (((struct o8_uint *)0xC542440)->v) = 0xFF000000;
-        (((struct o4_uint *)0xC542440)->v) = 0xFF000000;
-        (((struct o0_uint *)0xC542440)->v) = 0xFF000000;
-        thunk_FUN_0c06494c();
-        FUN_0c052c00(0x0, 0xAAA, 0x1);
-    return;
-    }
-}
 
 int FUN_0c05ea98(void)
 {

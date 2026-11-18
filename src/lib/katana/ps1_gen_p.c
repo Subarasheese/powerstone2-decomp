@@ -259,77 +259,7 @@ int gdFsWaitCompleteReq(int a4, int a5, int a6, int a7)
 }
 
 
-int gdFsReqDrvStatG(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-
-    t0 = gdFsReopenHn((*(int *)(((*(int *)0xC346BD8) + 0x14))), 0x0, 0x0, 0x0);
-    t1 = 0xFFFFFFF3;
-    if (t0 != 0) {
-        t2 = _builtin_get_imask();
-        _builtin_set_imask(0xF);
-        t3 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)0xC346BD8) + 0xC))) + 0x3C)))))(0x1, 0xE, ((*(int *)0xC346BD8) + 0x40), a7);
-        if (t3 != 0) {
-            *(unsigned int *)((t0 + 0x3C)) = t3;
-            (((struct o50_ushort *)(t0))->v) = 0x4;
-            (((struct o48_ushort *)(t0))->v) = 0xA;
-            *(unsigned int *)(((*(int *)((t0 + 0x0))) + 0x1C)) = t0;
-            t0 = ((int (*)(void))(((((struct o40_int *)((*(int *)(((*(int *)0xC346BD8) + 0xC)))))->v))))();
-        }
-        _builtin_set_imask(((unsigned int)(((t2 & 0xF) << 2) << 2) >> 4));
-        t0 = 0x0;
-        if (t3 == 0) {
-            t0 = 0xFFFFFFF3;
-        }
-        t1 = t0;
-    }
-    return t1;
-}
 
 
-int check_file_correct(int a4, int a5)
-{
-    int stk[11];
-    register int t0;
-    register int t20;
-    register int t5;
-    register int t6;
-    register int t8;
-    int t12;
-    register int t13;
 
-    t0 = FUN_0c104962(a4, a5, ((int)stk + 0));
-    t20 = 0xFFFFFF05;
-    if ((int)t0 >= 0) {
-        direntry(a4, t0);
-        t5 = *(int *)(((int)stk + 12));
-        if ((int)t5 < (int)(*(int *)(((*(int *)((((a4 * 0x148) + 0xC80DBC8) + 0x1C))) + 0x30)))) {
-            t6 = 0x0;
-            for (;;) {
-                if ((int)t6 >= (int)(*(int *)(((int)stk + 40)))) {
-                    return 0x0;
-                }
-                t8 = get_fat(a4, t5);
-                if (t6 == ((*(int *)(((int)stk + 40))) - 1)) {
-                    if ((unsigned short)t8 != 0xFFFA) {
-                        break;
-                    }
-                    t6 = (t6 + 0x1);
-                    t5 = (unsigned short)t8;
-                    continue;
-                }
-                if (((unsigned short)t8 != t5) && (((unsigned short)t8 != 0xFFFA) && (((unsigned short)t8 != 0xFFFC) && (((unsigned short)t8 != 0xFFFF) && (t12 = *(int *)((((a4 * 0x148) + 0xC80DBC8) + 0x1C)), t13 = *(int *)((t12 + 0x30)), (int)(unsigned short)t8 < (int)t13))))) {
-                    t6 = (t6 + 0x1);
-                    t5 = (unsigned short)t8;
-                    continue;
-                }
-                return 0xFFFFFF41;
-            }
-        }
-        t20 = 0xFFFFFF41;
-    }
-    return t20;
-}
+

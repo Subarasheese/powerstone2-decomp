@@ -197,32 +197,7 @@ int pl_wangtang_attack_kind68(int a4, int a5, int a6, int a7);
 
 
 
-int gdFsGetTocG(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
 
-    t0 = gdFsReopenHn((*(int *)(((*(int *)0xC346BD8) + 0x14))), 0x0, 0x0, 0x0);
-    if (t0 == 0) {
-        return 0xFFFFFFF3;
-    }
-    t1 = _builtin_get_imask();
-    _builtin_set_imask(0xF);
-    t2 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)0xC346BD8) + 0xC))) + 0x38)))))(a4, a5, a6, a7);
-    if (t2 != 0) {
-        *(unsigned int *)((t0 + 0x3C)) = t2;
-        (((struct o50_ushort *)(t0))->v) = 0x4;
-        *(unsigned int *)(((*(int *)((t0 + 0x0))) + 0x1C)) = t0;
-    }
-    _builtin_set_imask(((unsigned int)(((t1 & 0xF) << 2) << 2) >> 4));
-    t1 = 0xFFFFFFF3;
-    if (t2 == 0) {
-    } else {
-        t1 = (gdFsWaitCompleteReq(t0));
-    }
-    return t1;
-}
 
 
 int gdDcfRead_(int a4, int a5, int a6, int a7)

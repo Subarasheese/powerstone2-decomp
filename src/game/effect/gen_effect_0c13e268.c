@@ -38,51 +38,6 @@ int FUN_0c13e268(int a4, int a5);
 int FUN_0c13e35a(int a4);
 int FUN_0c13e3d8(int a4, int a5, int a6, int a7, float f4);
 
-int FUN_0c13e268(int a4, int a5)
-{
-    int stk[5];
-    register int t0;
-    register int t24;
-    register float u5;
-    register int t13;
-
-    *(unsigned char *)(((int)stk + 16)) = a5;
-    t0 = FUN_0c03f444(0x1, 0x0, 0x1);
-    t24 = t0;
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC13E3D8;
-        FUN_0c187798();
-        *(unsigned char *)((t0 + 0x2)) = (*(signed char *)(((int)stk + 16)));
-        FUN_0c187798();
-        u5 = *(float *)0xC13E3BC;
-        (((struct o48_float *)(t0))->v) = u5;
-        (((struct o44_float *)(t0))->v) = u5;
-        (((struct o40_float *)(t0))->v) = u5;
-        (((struct oA8_uchar *)(t0))->v) = 0x0;
-        (((struct oAC_ushort *)(t0))->v) = 0x231;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        (((struct oBC_float *)(t0))->v) = 1.0f;
-        (((struct oB8_float *)(t0))->v) = 1.0f;
-        (((struct oB4_float *)(t0))->v) = 1.0f;
-        FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0x4, (*(int *)((((*(signed char *)((t0 + 0x1))) << 2) + 0xC4B40FC))));
-        *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x1;
-        *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0xF;
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        if ((*(signed char *)(((int)stk + 16))) != 0) {
-            *(int *)((int)stk + 12) = 0xF0;
-            *(int *)((int)stk + 8) = 0x0;
-            t13 = *(signed char *)((t0 + 0x1));
-            *(int *)((int)stk + 4) = (~((int)0x1 << (int)t13));
-            *(int *)((int)stk + 0) = 0x100;
-            FUN_0c064d24(t0, 0x1, 0x32, 0x2, 0x100, (~((int)0x1 << (int)t13)), 0x0, 0xF0);
-            FUN_0c07e2f4(t0, 0x63);
-        }
-        t24 = thunk_FUN_0c058310(((*(int *)((((short)(*(signed char *)((t0 + 0x1))) * (short)0x3938) + 0xC53256C))) + 0x28), (t0 + 0x28));
-        *(unsigned int *)((t0 + 0x10)) = a4;
-    }
-    return t24;
-}
 
 int FUN_0c13e35a(int a4)
 {

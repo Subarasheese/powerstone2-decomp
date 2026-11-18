@@ -1,0 +1,256 @@
+/* Library code: C that behaves like this game's own bytes. */
+/* Straight-line functions with calls and guards (batch gen_do): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o0_float { float v; };
+struct o0_uchar { unsigned char v; };
+struct o0_uint { unsigned int v; };
+struct o1_uchar { char p[0x1]; unsigned char v; };
+struct o10_float { char p[0x10]; float v; };
+struct o105_uchar { char p[0x105]; unsigned char v; };
+struct o106_uchar { char p[0x106]; unsigned char v; };
+struct o107_uchar { char p[0x107]; unsigned char v; };
+struct o10C4_int { char p[0x10C4]; int v; };
+struct o11_uchar { char p[0x11]; unsigned char v; };
+struct o118_uint { char p[0x118]; unsigned int v; };
+struct o12_uchar { char p[0x12]; unsigned char v; };
+struct o13_uchar { char p[0x13]; unsigned char v; };
+struct o170_float { char p[0x170]; float v; };
+struct o174_int { char p[0x174]; int v; };
+struct o174_uint { char p[0x174]; unsigned int v; };
+struct o178_int { char p[0x178]; int v; };
+struct o178_uint { char p[0x178]; unsigned int v; };
+struct o17C_int { char p[0x17C]; int v; };
+struct o18_float { char p[0x18]; float v; };
+struct o19_uchar { char p[0x19]; unsigned char v; };
+struct o1A_uchar { char p[0x1A]; unsigned char v; };
+struct o1B_uchar { char p[0x1B]; unsigned char v; };
+struct o2_uchar { char p[0x2]; unsigned char v; };
+struct o20_float { char p[0x20]; float v; };
+struct o24_float { char p[0x24]; float v; };
+struct o274_float { char p[0x274]; float v; };
+struct o28_float { char p[0x28]; float v; };
+struct o2C_uchar { char p[0x2C]; unsigned char v; };
+struct o2D4_float { char p[0x2D4]; float v; };
+struct o2DC_int { char p[0x2DC]; int v; };
+struct o2E0_int { char p[0x2E0]; int v; };
+struct o2E4_int { char p[0x2E4]; int v; };
+struct o2E4_uint { char p[0x2E4]; unsigned int v; };
+struct o3_uchar { char p[0x3]; unsigned char v; };
+struct o304_int { char p[0x304]; int v; };
+struct o308_uint { char p[0x308]; unsigned int v; };
+struct o32_uchar { char p[0x32]; unsigned char v; };
+struct o33_uchar { char p[0x33]; unsigned char v; };
+struct o38_float { char p[0x38]; float v; };
+struct o3C_float { char p[0x3C]; float v; };
+struct o4_float { char p[0x4]; float v; };
+struct o4_int { char p[0x4]; int v; };
+struct o4_uchar { char p[0x4]; unsigned char v; };
+struct o4_ushort { char p[0x4]; unsigned short v; };
+struct o40_float { char p[0x40]; float v; };
+struct o40_int { char p[0x40]; int v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o48_int { char p[0x48]; int v; };
+struct o48_ushort { char p[0x48]; unsigned short v; };
+struct o4C_float { char p[0x4C]; float v; };
+struct o4C_short { char p[0x4C]; short v; };
+struct o5_uchar { char p[0x5]; unsigned char v; };
+struct o50_float { char p[0x50]; float v; };
+struct o50_short { char p[0x50]; short v; };
+struct o50_ushort { char p[0x50]; unsigned short v; };
+struct o54_float { char p[0x54]; float v; };
+struct o58_float { char p[0x58]; float v; };
+struct o6_uchar { char p[0x6]; unsigned char v; };
+struct o60_float { char p[0x60]; float v; };
+struct o64_float { char p[0x64]; float v; };
+struct o68_float { char p[0x68]; float v; };
+struct o6C_uint { char p[0x6C]; unsigned int v; };
+struct o7_uchar { char p[0x7]; unsigned char v; };
+struct o70_short { char p[0x70]; short v; };
+struct o70_uchar { char p[0x70]; unsigned char v; };
+struct o70_ushort { char p[0x70]; unsigned short v; };
+struct o719E_short { char p[0x719E]; short v; };
+struct o71A8_uchar { char p[0x71A8]; unsigned char v; };
+struct o71A9_uchar { char p[0x71A9]; unsigned char v; };
+struct o71CC_uint { char p[0x71CC]; unsigned int v; };
+struct o7236_uchar { char p[0x7236]; unsigned char v; };
+struct o74_ushort { char p[0x74]; unsigned short v; };
+struct o8_float { char p[0x8]; float v; };
+struct o90_uint { char p[0x90]; unsigned int v; };
+struct oA_uchar { char p[0xA]; unsigned char v; };
+struct oB_uchar { char p[0xB]; unsigned char v; };
+struct oC_float { char p[0xC]; float v; };
+struct oEC_short { char p[0xEC]; short v; };
+struct oEC_ushort { char p[0xEC]; unsigned short v; };
+struct oEE_short { char p[0xEE]; short v; };
+struct oEE_ushort { char p[0xEE]; unsigned short v; };
+struct oF0_short { char p[0xF0]; short v; };
+struct oF0_ushort { char p[0xF0]; unsigned short v; };
+struct oF2_ushort { char p[0xF2]; unsigned short v; };
+struct o76_ushort { char p[0x76]; unsigned short v; };
+int keycfg_menu_init(void);
+int keycfg_menu_main(void);
+int keycfg_settings_changed(void);
+int hit_load_box_world(int, int, int);
+int hit_load_cylinder_world(int, int, int);
+int hit_load_sphere_world(int, int, int);
+int math_dir_xz_normalized(int, float, float, float, float);
+float math_interval_overlap(float, float, float, float);
+int hit_find_part_entry(int, int, int, int);
+int hit_get_sphere_entry(int, int, int);
+int hit_get_cylinder_entry(int, int, int);
+int hit_get_box_entry(int, int, int);
+int hit_dispatch_shape_pair(int, int, int, int);
+int hit_test_part_vs_slot(int, int, int, int);
+int logo_spawn_overlay(float);
+int fx_spawn_double_ring(int, int);
+int fx_spawn_spark_rings(int, int, float, float);
+int ai_clear_op_state(void);
+int game_reset_objects(void);
+int obj_create(int, int, int);
+int obj_destroy(int, int, int, int);
+int FUN_0c0593e0(int);
+int obj_tick_class(int);
+int obj_part_set_model(int, int, int);
+int FUN_0c0623a6(int, int, int);
+int obj_force_owner_state27(int, int);
+int obj_set_owner_hit_record(int, int);
+int pl_start_motion(int, int, int);
+int pl_step_motion(int);
+int pl_step_motion_owner(int);
+extern int pl_get_held_item_class();
+int pl_get_hit_count_of_opponent(int);
+int hit_find_contact_direction(int);
+int hit_probe_step_first(int, int, float);
+int pl_apply_velocity(int);
+int pl_apply_acceleration(int);
+int pl_apply_motion_translation(int);
+int pl_landed(int);
+int FUN_0c0a18f8(int, int, int);
+int pl_try_start_pickup_touched(int);
+int obj_set_record(int, int);
+int pl_try_grab_target_object(int);
+int pl_change_state(int, int, int, int);
+int FUN_0c0a3062(int);
+int snd_play_char_voice(int, int);
+int FUN_0c0a3d5c(int, int);
+int stage_obj_on_break(int);
+float math_signed_sqrt(float);
+float math_cos_angle16(int);
+float math_rand_float(void);
+float math_sin_angle16(int);
+int snd_driver_memmove_start(int, int, int);
+int snd_driver_memmove_busy(void);
+int snd_send_command(int);
+int _modlu(void);
+int _quick_odd_mvn(void);
+int FUN_0c0ff8aa(void);
+int FUN_0c0ff8b4(int, int);
+extern int _builtin_get_imask(void);
+extern void _builtin_set_imask(int);
+int gdFsGetLE4(int);
+int gdFsGetTokenSize(int, int, int);
+int gdFsMemcpy(int, int, int);
+int gdFsReadWG(int, int, int);
+int gdFsStrncmpi(int, int, int);
+int gdFsWaitCompleteReq(int);
+int memcpy(int, int, int);
+int memset(int, int, int);
+int syCfgSetSoundMode(int, int, int);
+int thunk_math_mat_get_translate(int, int);
+int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8);
+int FUN_0c0265de(int a4);
+int snd_bank_unload(int a4);
+int fx_spawn_03f2c8(int a4);
+int pl_mode08_09_phase1(int a4);
+int pl_try_dual_button_action(int a4, int a5, int a6);
+int pl_valgas_special_id4(int a4);
+int menu_ui_task_10(int a4, int a5, int a6, int a7);
+int fx_spawn_34(int a4, int a5);
+int menu_option_item_sound_mode(int a4, int a5, int a6);
+int FUN_0c024ea6(int a4, int a5, int a6);
+int stage_gimmick_20_spawn(void);
+int fx_spawn_19(int a4, int a5);
+int cam_apply_shake(int a4, int a5, int a6, int a7);
+int FUN_0c101b58(int a4, int a5, int a6);
+int FUN_0c1128ee(int a4, int a5, int a6);
+int ai_op11_return(void);
+int fx_tick_03c3ca(int a4, int a5, int a6, int a7);
+int stage_gimmick_26_update_b(int a4, int a5, int a6, int a7);
+int FUN_0c0f1c72(int a4, int a5, int a6, int a7);
+int FUN_0c04c0ea(void);
+
+
+
+
+
+
+int FUN_0c0f1c72(int a4, int a5, int a6, int a7)
+{
+    int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+    int t4;
+    int t5;
+    register int t6;
+
+    t1 = 0xFFFFFFF6;
+    if ((a4 != 0) && (t0 = (((struct o4C_short *)(a4))->v), t0 != 0)) {
+        t0 = (((struct o50_short *)(a4))->v);
+        if ((t0 != 2) && (t0 != 4)) {
+            (((struct o50_ushort *)(a4))->v) = 0x0;
+            t0 = 0x0;
+        } else {
+            t2 = 0xFFFFFFF3;
+            if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) != a4) {
+            } else {
+                t3 = FUN_0c0ff8aa();
+                for (;;) {
+                    if (((((struct o40_int *)(a4))->v)) == 1) {
+                        t4 = FUN_0c0ff8aa();
+                        for (;;) {
+                            t5 = FUN_0c0ff8aa();
+                            t6 = FUN_0c0ff8b4(t4, t5);
+                            if ((unsigned int)t6 >= (unsigned int)0x61B) {
+                                break;
+                            }
+                        }
+                        t4 = _builtin_get_imask();
+                        _builtin_set_imask(0xF);
+                        t5 = (((struct o50_short *)(a4))->v);
+                        if ((t5 != 2) && (t5 != 4)) {
+                            (((struct o50_ushort *)(a4))->v) = 0x0;
+                            _builtin_set_imask(((unsigned int)(((t4 & 0xF) << 2) << 2) >> 4));
+                            return 0x0;
+                        }
+                        if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) != a4) {
+                            _builtin_set_imask(((unsigned int)(((t4 & 0xF) << 2) << 2) >> 4));
+                            return 0xFFFFFFF3;
+                        }
+                        t5 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)((a4 + 0x0))) + 0xC))) + 0x14)))))((*(int *)((a4 + 0x3C))), 0xFFFFFFF3, a6, a7);
+                        (((struct o48_ushort *)(a4))->v) = 0x3;
+                        _builtin_set_imask(((unsigned int)(((t4 & 0xF) << 2) << 2) >> 4));
+                        return (gdFsWaitCompleteReq(a4));
+                    }
+                    t4 = (((struct o50_short *)(a4))->v);
+                    if ((t4 != 2) && (t4 != 4)) {
+                        break;
+                    }
+                    t4 = FUN_0c0ff8aa();
+                    t5 = FUN_0c0ff8b4(t3, t4);
+                    if ((unsigned int)t5 > (unsigned int)0xEE6B28) {
+                        return 0xFFFFFFEB;
+                    }
+                    t4 = ((int (*)(int, int, int, int))(((((struct o48_int *)((*(int *)(((*(int *)((a4 + 0x0))) + 0x3C)))))->v))))(t5, 0xEE6B28, a6, a7);
+                }
+                (((struct o50_ushort *)(a4))->v) = 0x0;
+                t2 = 0x0;
+            }
+            t0 = t2;
+        }
+        t1 = t0;
+    }
+    return t1;
+}

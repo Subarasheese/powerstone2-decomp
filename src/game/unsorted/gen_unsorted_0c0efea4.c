@@ -345,28 +345,6 @@ int FUN_0c0f02c4(int a4)
     return t1;
 }
 
-int FUN_0c0f06c8(int a4, int a5)
-{
-    int stk[2];
-    register int t1;
-    register int t2;
-
-    *(unsigned int *)(((int)stk + 0)) = a4;
-    *(unsigned int *)(((int)stk + 4)) = a5;
-    t1 = FUN_0c037320(0x91, (*(int *)0xC4B410C));
-    t2 = FUN_0c03f444(0x9, 0x0, t1);
-    if (t2 != 0) {
-        FUN_0c03733c(t2, 0x91, (*(int *)0xC4B410C));
-        *(unsigned int *)((t2 + 0x4)) = 0xC0F0370;
-        *(unsigned char *)((t2 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t2))->v) = 0xF;
-        (((struct oA9_uchar *)(t2))->v) = 0x21;
-        *(unsigned char *)((t2 + 0x2)) = (*(signed char *)(((int)stk + 4)));
-        *(volatile int *)(((int)stk + 0));
-        FUN_0c187798();
-    }
-    return t2;
-}
 
 int FUN_0c0f0728(int a4)
 {
@@ -456,31 +434,5 @@ int FUN_0c0f076c(int a4, int a5, int a6)
     goto L_C0F0790;
 }
 
-int FUN_0c0f085c(int a4, int a5)
-{
-    int stk[2];
-    register int t0;
 
-    *(unsigned int *)(((int)stk + 0)) = a4;
-    *(unsigned int *)(((int)stk + 4)) = a5;
-    t0 = FUN_0c03f444(0x5, 0x0, 0x1);
-    if (t0 != 0) {
-        *(unsigned int *)((t0 + 0x4)) = 0xC0F076C;
-        *(unsigned char *)((t0 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t0))->v) = 0x31;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        *(unsigned char *)((t0 + 0x2)) = (*(signed char *)(((int)stk + 4)));
-        *(volatile int *)(((int)stk + 0));
-        FUN_0c187798();
-        (((struct o2C_float *)(t0))->v) = (((((struct o2C_float *)(t0))->v)) + 100.0f);
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 0.100000001f;
-        (((struct o40_float *)(t0))->v) = 0.100000001f;
-        FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0xC3, (*(int *)0xC4B410C));
-        *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x1;
-        *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0xF;
-        *(volatile int *)((t0 + 0xC4));
-        FUN_0c187798();
-    }
-    return t0;
-}
+

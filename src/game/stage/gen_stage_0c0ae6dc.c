@@ -116,23 +116,7 @@ int FUN_0c0b02f6(int a4);
 int FUN_0c0b046c(int a4);
 int FUN_0c0b04e8(int a4);
 
-int FUN_0c0ae6dc(int a4, int a5, int a6)
-{
-    FUN_0c187798(a4, a5, a6);
-    return math_mat_transform_vector(a6, ((*(int *)(((((*(int *)(((a5 << 2) + 0xC1C6574))) << 2) + (0xC4 + a4)) + 0x0))) + 0x28));
-}
 
-float FUN_0c0ae710(int a4, int a5, int a6)
-{
-    register float t4;
-
-    FUN_0c187798(a4, a5, a6);
-    (((struct o8_float *)(a5))->v) = (math_cos_angle16((*(int *)((a4 + 0x38)))));
-    t4 = math_sin_angle16((*(int *)((a4 + 0x38))));
-    *(float *)((a5 + 0x0)) = t4;
-    (((struct o4_float *)(a5))->v) = 0.0f;
-    return t4;
-}
 
 int FUN_0c0ae748(int a4)
 {
@@ -1013,3 +997,6 @@ int FUN_0c0b04e8(int a4)
     }
     return t63;
 }
+
+
+

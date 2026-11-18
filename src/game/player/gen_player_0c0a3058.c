@@ -420,23 +420,4 @@ int FUN_0c0a3b08(int a4)
     return 0x15;
 }
 
-int FUN_0c0a3bd6(int a4)
-{
-    register int t9;
 
-    if ((*(signed char *)((a4 + 0x371C))) != 0) {
-        FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x2, 0x11);
-        FUN_0c187798();
-        FUN_0c187798();
-        (((struct o50_float *)(a4))->v) = 20.0f;
-        t9 = 0x50;
-    } else {
-        FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x2, 0x3);
-        FUN_0c187798();
-        FUN_0c187798();
-        (((struct o50_float *)(a4))->v) = 20.0f;
-        (((struct o5C_float *)(a4))->v) = -2.79999995f;
-        t9 = 0x5C;
-    }
-    return t9;
-}

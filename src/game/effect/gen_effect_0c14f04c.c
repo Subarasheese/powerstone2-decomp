@@ -51,38 +51,6 @@ int FUN_0c14f04c(int a4, int a5, int a6, int a7)
     return t1;
 }
 
-int FUN_0c14f0c2(int a4, int a5)
-{
-    register int t0;
-    register int t9;
-    register int t5;
-    register int t6;
-    register float u8;
-
-    t0 = FUN_0c03f444(0x5, 0x0, 0x1);
-    t9 = t0;
-    if (t0 != 0) {
-        FUN_0c03744a(((((struct oC4_int *)(t0))->v)), 0x0, 0x3, (*(int *)0xC4B40CC));
-        *(unsigned char *)((t0 + 0x1)) = 0xFFFFFFFF;
-        *(unsigned int *)((t0 + 0x4)) = 0xC14F04C;
-        *(unsigned char *)((t0 + 0x2)) = a4;
-        (((struct oAC_ushort *)(t0))->v) = 0x38;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        FUN_0c187798();
-        t5 = FUN_0c179ac0();
-        t6 = ((~(((~t5) + 0x1) & 0x3F)) + 0x1);
-        if ((int)t5 >= 0) {
-            t6 = (t5 & 0x3F);
-        }
-        *(unsigned int *)((t0 + 0x3C)) = ((t6 << 8) << 2);
-        u8 = *(float *)(((a4 << 2) + 0xC202D20));
-        (((struct o48_float *)(t0))->v) = u8;
-        (((struct o44_float *)(t0))->v) = u8;
-        (((struct o40_float *)(t0))->v) = u8;
-        t9 = 0x40;
-    }
-    return t9;
-}
 
 void FUN_0c14f178(int a4, int a5)
 {
@@ -206,3 +174,5 @@ void FUN_0c14f238(int a4, int a5, int a6, int a7)
         return;
     }
 }
+
+

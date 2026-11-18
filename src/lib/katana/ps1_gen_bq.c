@@ -530,16 +530,7 @@ float FUN_0c0e1e20(float f4, float f5)
 }
 
 
-int gdFsExecServerG(void)
-{
-    register int t3;
 
-    t3 = ((int (*)(void))(((((struct o40_int *)((*(int *)(((*(int *)0xC346BD8) + 0xC)))))->v))))();
-    if ((*(int *)(((*(int *)0xC346BD8) + 0x1C))) != 0) {
-        return gdFsGetStatG();
-    }
-    return t3;
-}
 
 
 int FUN_0c0f26f6(int a4)

@@ -453,10 +453,6 @@ int FUN_0c02d104(void)
     return ((int (*)(void))(0xAC02D130))();
 }
 
-int FUN_0c02d16c(void)
-{
-    return FUN_0c1779a0();
-}
 
 int FUN_0c02d1e8(int a4, int a5)
 {

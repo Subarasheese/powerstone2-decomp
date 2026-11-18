@@ -539,22 +539,13 @@ int vmsfs_getword_big(int a4, int a5)
 }
 
 
-int gdFsGetGlobalErrG(void)
-{
-    return (*(int *)(((*(int *)0xC346BD8) + 0x30)));
-}
 
 
-int gdFsGetSysHnG(void)
-{
-    return (*(int *)(((*(int *)0xC346BD8) + 0x14)));
-}
 
 
-int gdFsGetWorkHnG(void)
-{
-    return (*(int *)(((*(int *)0xC346BD8) + 0x1C)));
-}
+
+
+
 
 
 int vmsfs_getword_little(int a4, int a5)

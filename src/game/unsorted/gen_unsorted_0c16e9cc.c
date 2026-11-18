@@ -129,41 +129,6 @@ int FUN_0c16ea1e(int a4)
     return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
 }
 
-int FUN_0c16eb2c(int a4, int a5)
-{
-    register int t0;
-    register int t5;
-    register float u6;
-
-    t0 = FUN_0c03f444(0x1, 0x0, 0x1);
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC16EA1E;
-        FUN_0c187798();
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        *(unsigned int *)((t0 + 0x3C)) = 0x0;
-        *(unsigned int *)((t0 + 0x34)) = 0x0;
-        *(unsigned int *)((t0 + 0x38)) = a5;
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        t5 = (int)((int)((int)((int)(FUN_0c179ac0()) % (int)0x3C)) / (int)0x64);
-        u6 = (((struct o0_float *)0xC16EC58)->v);
-        (((struct o4C_float *)(t0))->v) = ((math_sin_angle16((*(int *)((t0 + 0x38))))) * ((float)t5 + u6));
-        (((struct o54_float *)(t0))->v) = ((math_cos_angle16((*(int *)((t0 + 0x38))))) * ((float)t5 + u6));
-        (((struct o5C_float *)(t0))->v) = ((((struct oC_float *)0xC16EC58)->v));
-        *(unsigned short *)((t0 + 0x1C)) = ((int)((int)((int)((int)(FUN_0c179ac0()) % (int)0x64)) % (int)0x7));
-        *(unsigned short *)((t0 + 0x1E)) = 0x0;
-        (((struct o20_ushort *)(t0))->v) = 0x64;
-        FUN_0c16e9cc(t0);
-        FUN_0c0c2ab6(t0, 0x47);
-        FUN_0c07e3ae(t0, 0xA5);
-        return FUN_0c059df2((*(signed char *)((t0 + 0x1))), 0x4A);
-    }
-    return t0;
-}
 
 int FUN_0c16ece6(int a4)
 {

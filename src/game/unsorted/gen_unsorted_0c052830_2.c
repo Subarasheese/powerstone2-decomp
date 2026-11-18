@@ -34,18 +34,6 @@ int thunk_FUN_0c056b68(int a4, int a5, int a6, int a7);
 int FUN_0c0534ee(int a4, float f4);
 int FUN_0c0537d4(int a4);
 
-int FUN_0c0528f4(int a4, int a5, int a6)
-{
-    register int t0;
-
-    *(unsigned char *)((a4 + 0xA)) = ((*(signed char *)((a4 + 0xA))) + 0x1);
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    t0 = ((int (*)(void))(FUN_0c187798))();
-    (((struct o180_uint *)(a4))->v) = 0x0;
-    (((struct o240_uint *)(a4))->v) = 0xC2414B4;
-    (((struct o244_uint *)(a4))->v) = 0xC2414C0;
-    return FUN_0c052364((*(signed char *)((a4 + 0x0))), 0xFFFFFFFF);
-}
 
 int FUN_0c052b72(int a4, int a5, int a6, int a7)
 {

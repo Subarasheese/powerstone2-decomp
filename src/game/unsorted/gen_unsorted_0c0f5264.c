@@ -36,34 +36,6 @@ int FUN_0c187798(void);
 int FUN_0c0f5264(int a4);
 int FUN_0c0f5314(int a4, int a5, int a6, int a7);
 
-int FUN_0c0f5264(int a4)
-{
-    int stk[9];
-    register float u2;
-    register float u3;
-    register int t4;
-    register int t15;
-
-    math_mat_get_translate((((((struct oC4_int *)(a4))->v)) + 0x28), ((int)stk + 0));
-    u2 = (((struct o0_float *)0xC0F5344)->v);
-    u3 = (((struct o4_float *)0xC0F5344)->v);
-    t4 = 0x0;
-    for (;;) {
-        FUN_0c187798();
-        *(float *)(((int)stk + 24)) = ((*(float *)(((int)stk + 24))) + ((float)t4 + ((((struct oC_float *)0xC0F5344)->v))));
-        *(float *)(((int)stk + 28)) = ((*(float *)(((int)stk + 28))) + ((((struct o10_float *)0xC0F5344)->v)));
-        *(float *)(((int)stk + 32)) = ((*(float *)(((int)stk + 32))) - u2);
-        *(float *)(((int)stk + 12)) = 0.0f;
-        *(float *)(((int)stk + 16)) = 1.0f;
-        *(float *)(((int)stk + 20)) = ((((struct o54_float *)(a4))->v));
-        t15 = FUN_0c150160((((int)stk + 0) + 0x18), (((int)stk + 0) + 0xC), ((((struct o1C_float *)0xC0F5344)->v)), ((((struct o18_float *)0xC0F5344)->v)), ((((struct o14_float *)0xC0F5344)->v)), u3);
-        t4 = (t4 + 0x6F);
-        if ((int)t4 >= (int)0x456) {
-            break;
-        }
-    }
-    return t15;
-}
 
 int FUN_0c0f5314(int a4, int a5, int a6, int a7)
 {
@@ -240,3 +212,5 @@ int FUN_0c0f5314(int a4, int a5, int a6, int a7)
     }
     return t0;
 }
+
+

@@ -25,16 +25,6 @@ int FUN_0c056f40(void);
 int FUN_0c056f70(void);
 int FUN_0c056f76(void);
 
-int FUN_0c056e44(int a4, int a5, int a6)
-{
-    int stk[5];
-    register int t3;
-
-    *(volatile int *)(((a4 << 2) + 0xC241B54));
-    FUN_0c187798(a4, a5, a6);
-    *(unsigned char *)(((int)stk + 9)) = ((*(signed char *)(((int)stk + 9))) + t3);
-    return (FUN_0c0522be(((int)stk + 0)));
-}
 
 void FUN_0c056e78(void)
 {
@@ -118,3 +108,5 @@ int FUN_0c056f76(void)
 {
     return (*(int *)0xC40FA34);
 }
+
+

@@ -1,0 +1,6 @@
+# raw calls into code no function in functions.txt starts at, known when tools/8-build/rawcalls.py was
+# introduced: target, calling function, file. Each one is C still to write; the list only shrinks.
+0c0167c2 FUN_0c01678e src/game/unsorted/gen_dk.c
+0c03e086 FUN_0c03e08c src/game/effect/gen_effect_0c03dfe4.c
+0c2ba374 stringEquals src/lib/naomi/gen_bi.c
+0c2c2150 copyBytes src/lib/katana/gen_bj.c

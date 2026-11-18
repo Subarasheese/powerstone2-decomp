@@ -222,36 +222,7 @@ int FUN_0c0e2450(int a4, int a5, int a6, int a7)
 }
 
 
-int gdFsDaGetInfoG(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
 
-    t0 = gdFsReopenHn((*(int *)(((*(int *)0xC346BD8) + 0x14))), 0x0, 0x0, 0x0);
-    t1 = 0xFFFFFFF3;
-    if (t0 != 0) {
-        t2 = _builtin_get_imask();
-        _builtin_set_imask(0xF);
-        t3 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)(((*(int *)0xC346BD8) + 0xC))) + 0x3C)))))(0x0, 0x64, ((*(int *)0xC346BD8) + 0x40), a7);
-        if (t3 != 0) {
-            *(unsigned int *)((t0 + 0x3C)) = t3;
-            (((struct o50_ushort *)(t0))->v) = 0x4;
-            (((struct o48_ushort *)(t0))->v) = 0x7;
-            *(unsigned int *)((t0 + 0x8)) = a4;
-            *(unsigned int *)(((*(int *)((t0 + 0x0))) + 0x1C)) = t0;
-            t0 = ((int (*)(void))(((((struct o40_int *)((*(int *)(((*(int *)0xC346BD8) + 0xC)))))->v))))();
-        }
-        _builtin_set_imask(((unsigned int)(((t2 & 0xF) << 2) << 2) >> 4));
-        t0 = 0x0;
-        if (t3 == 0) {
-            t0 = 0xFFFFFFF3;
-        }
-        t1 = t0;
-    }
-    return t1;
-}
 
 
 int nlGetNormalCalcMatrix(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7)

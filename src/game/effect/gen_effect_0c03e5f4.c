@@ -100,39 +100,7 @@ int FUN_0c03e6b2(int a4, int a5)
     return FUN_0c03e5f4((a4 + 0x1), (*(float *)((0xC1B767C + (((*(signed char *)((0x371A + ((a4 * 0x3938) + 0xC532498)))) & 0x1) << 2)))));
 }
 
-int FUN_0c03e7b6(void)
-{
-    int stk[3];
-    register int t0;
-    register int t3;
-    register int t7;
 
-    t0 = *(signed char *)0xC542237;
-    t3 = *(signed char *)((((*(signed char *)0xC54223C) + (0xC1B75BC + ((t0 << 1) + t0))) + 0x0));
-    FUN_0c03e642(0x0, (*(int *)((((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x0))), (((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x4), (*(int *)((((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x10))), 1.0f);
-    t7 = *(signed char *)0xC542237;
-    FUN_0c03e5f4(0x0, (*(float *)(((((*(signed char *)0xC54223C) << 2) + (0xC1B7684 + (((t7 << 1) + t7) << 2))) + 0x0))));
-    FUN_0c187798();
-    FUN_0c17c450(((int)stk + 0));
-    FUN_0c0dccb0(((int)stk + 0));
-    return (FUN_0c03e642(0x6, (*(int *)((((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x0))), (((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x4), (*(int *)((((((t3 << 2) + t3) << 2) + 0xC1B742C) + 0x10))), 1.0f));
-}
-
-int FUN_0c03e874(int a4)
-{
-    int stk[4];
-    register int t0;
-
-    *(unsigned int *)(((int)stk + 0)) = a4;
-    t0 = *(signed char *)((a4 + 0xC1B76FC));
-    FUN_0c03e642(0x0, (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x0))), (((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x4), (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x10))), 1.0f);
-    FUN_0c03e5f4(0x0, (*(float *)((((*(int *)(((int)stk + 0))) << 2) + 0xC1B7704))));
-    FUN_0c03e642(0x7, (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x0))), (((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x4), (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x10))), 1.0f);
-    FUN_0c187798();
-    FUN_0c17c450((((int)stk + 0) + 0x4));
-    FUN_0c0dccb0((((int)stk + 0) + 0x4));
-    return (FUN_0c03e642(0x6, (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x0))), (((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x4), (*(int *)((((((t0 << 2) + t0) << 2) + 0xC1B742C) + 0x10))), 1.0f));
-}
 
 int FUN_0c03e8f0(void)
 {
@@ -277,3 +245,6 @@ int FUN_0c03ea04(int a4, int a5)
     FUN_0c03e792(0x1);
     return FUN_0c03e958(((((struct o8_int *)0xC1B7960)->v)), ((((struct o0_float *)0xC1B7960)->v)), ((((struct o4_float *)0xC1B7960)->v)));
 }
+
+
+

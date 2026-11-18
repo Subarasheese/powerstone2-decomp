@@ -13,32 +13,6 @@ int FUN_0c03f4d4(void);
 int FUN_0c03f546(int a4);
 int FUN_0c03f566(int a4, int a5);
 
-int FUN_0c03f4d4(void)
-{
-    register int t0;
-    register int t1;
-    register int t6;
-    register int t7;
-
-    t0 = 0xC3F2A74;
-    t1 = 0xC3DC274;
-    for (;;) {
-        memset(t1, 0x0, 0x90);
-        *(unsigned char *)((t1 + 0x0)) = (*(signed char *)0xC1B7A22);
-        *(unsigned short *)((t1 + 0x6)) = ((((struct o4_short *)0xC1B7A1C)->v));
-        (((struct o24_float *)(t1))->v) = ((((struct o0_float *)0xC1B7A1C)->v));
-        t6 = FUN_0c187798();
-        t7 = t1;
-        t1 = (t1 + 0x90);
-        *(unsigned int *)((t0 + 0x0)) = t7;
-        t0 = (t0 + 0x4);
-        if ((unsigned int)t1 >= (unsigned int)0xC3F2A74) {
-            break;
-        }
-    }
-    *(unsigned int *)0xC3F3474 = 0x280;
-    return t6;
-}
 
 int FUN_0c03f546(int a4)
 {
@@ -87,3 +61,32 @@ int FUN_0c03f566(int a4, int a5)
     }
     return t9;
 }
+
+int FUN_0c03f4d4(void)
+{
+    register int t0;
+    register int t1;
+    register int t6;
+    register int t7;
+
+    t0 = 0xC3F2A74;
+    t1 = 0xC3DC274;
+    for (;;) {
+        memset(t1, 0x0, 0x90);
+        *(unsigned char *)((t1 + 0x0)) = (*(signed char *)0xC1B7A22);
+        *(unsigned short *)((t1 + 0x6)) = ((((struct o4_short *)0xC1B7A1C)->v));
+        (((struct o24_float *)(t1))->v) = ((((struct o0_float *)0xC1B7A1C)->v));
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x84)) = *(struct mv3 *)(0xC1B7A10); }  /* manual: _quick_odd_mvn r0 12, r1 t1 + 0x84, r2 0x0C1B7A10 */
+        t6 = *(int *)0xC1B7A10;  /* the helper leaves r0 holding the first word it copied */
+        t7 = t1;
+        t1 = (t1 + 0x90);
+        *(unsigned int *)((t0 + 0x0)) = t7;
+        t0 = (t0 + 0x4);
+        if ((unsigned int)t1 >= (unsigned int)0xC3F2A74) {
+            break;
+        }
+    }
+    *(unsigned int *)0xC3F3474 = 0x280;
+    return t6;
+}
+

@@ -52,32 +52,4 @@ int FUN_0c0cb310(int a4, int a5, int a6, int a7)
     return FUN_0c03f346(a4, (((short)t0 * (short)0x3938) + 0xC532498), a6, a7);
 }
 
-int FUN_0c0cb38a(int a4)
-{
-    register int t0;
-    register int t5;
 
-    t0 = FUN_0c03f444(0x2, 0x0, 0x0);
-    t5 = t0;
-    if (t0 != 0) {
-        *(unsigned int *)((t0 + 0x4)) = 0xC0CB310;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x40;
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x10)) = a4;
-        FUN_0c187798();
-        (((struct oA8_uchar *)(t0))->v) = 0x0;
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 0.100000001f;
-        FUN_0c064d5a(t0, 0xC278958);
-        (((struct o12E_ushort *)(t0))->v) = 0xF0;
-        (((struct o12A_ushort *)(t0))->v) = 0x0;
-        (((struct o12C_ushort *)(t0))->v) = 0x0;
-        *(unsigned short *)((t0 + 0x1C)) = 0x0;
-        *(unsigned short *)((t0 + 0x1E)) = 0x0;
-        (((struct o38E6_ushort *)(a4))->v) = ((((struct o24_short *)(t0))->v));
-        t5 = 0x38E6;
-    }
-    return t5;
-}

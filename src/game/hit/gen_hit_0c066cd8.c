@@ -311,62 +311,6 @@ void FUN_0c066fbe(int a4)
     *(unsigned int *)(((a4 + 0x444) + 0x1C)) = 0x4;
 }
 
-int FUN_0c067294(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t39;
-    register int t1;
-    register int t2;
-    register int t8;
-    register int t9;
-    register int t12;
-    register float u23;
-    register int t10;
-    register int t11;
-    int t25;
-    register int t28;
-    int t34;
-
-    t0 = *(signed char *)((a4 + 0x2));
-    t39 = t0;
-    if (t0 == 14) {
-    } else {
-        t1 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-        t2 = ((int (*)(void))(FUN_0c187798))();
-        FUN_0c03733c(a4, 0x0, (*(int *)(((((*(signed char *)(((0x371A + a4) + 0x0))) << 2) + (0xC4B40DC + (((*(signed char *)((a4 + 0x1))) << 2) << 1))) + 0x0))));
-        t8 = ((int (*)(void))(FUN_0c187798))();
-        t9 = ((int (*)(void))(FUN_0c187798))();
-        t12 = 0x0;
-        for (;;) {
-            if ((int)t12 >= (int)((((struct o114_int *)(a4))->v))) {
-                break;
-            }
-            t11 = 0x118;
-            t11 = (t11 + a4);
-            t10 = (*(int *)((((t12 << 2) + t11) + 0x0)));
-            t12 = (t12 + 0x1);
-            (((struct o88_float *)(t10))->v) = ((*(float *)((((*(signed char *)(((0x371A + a4) + 0x0))) << 2) + ((((*(signed char *)((a4 + 0x2))) << 2) << 1) + 0xC1C59CC)))));
-        }
-        u23 = *(float *)(((((*(signed char *)(((0x371A + a4) + 0x0))) << 2) + (0xC1C594C + (((*(signed char *)((a4 + 0x2))) << 2) << 1))) + 0x0));
-        (((struct o48_float *)(a4))->v) = u23;
-        (((struct o44_float *)(a4))->v) = u23;
-        (((struct o40_float *)(a4))->v) = u23;
-        (((struct o378C_float *)(a4))->v) = u23;
-        if (((*(signed char *)((a4 + 0x2))) == 1) && (t25 = *(signed char *)((a4 + 0x371A)), t25 != 0)) {
-            t28 = (((((struct oAC_short *)(a4))->v)) | 0x800);
-        } else {
-            t28 = (((((struct oAC_short *)(a4))->v)) & 0xF7FF);
-        }
-        (((struct oAC_ushort *)(a4))->v) = t28;
-        FUN_0c0676ce((*(signed char *)((a4 + 0x1))));
-        FUN_0c0392bc(a4);
-        if (((*(signed char *)((a4 + 0x2))) == 7) && (t34 = *(signed char *)((a4 + 0x371A)), t34 != 0)) {
-            FUN_0c133aec(a4);
-        }
-        t39 = (FUN_0c03e6b2((*(signed char *)((a4 + 0x1))), 0x0));
-    }
-    return t39;
-}
 
 void FUN_0c0673ca(int a4)
 {

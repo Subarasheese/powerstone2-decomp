@@ -17,28 +17,3 @@ int FUN_0c175898(void)
     return FUN_0c1736e8(0x3);
 }
 
-int FUN_0c1758d4(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    register int t3;
-    register int t14;
-
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    t1 = ((int (*)(void))(FUN_0c187798))();
-    *(unsigned int *)0xC542260 = ((*(int *)0xC542260) + 0x1);
-    t3 = *(signed char *)0xC541F44;
-    if ((unsigned char)t3 != 0) {
-        t14 = (unsigned char)t3;
-        if ((unsigned char)t3 != 1) {
-        } else {
-            t14 = (FUN_0c175898());
-        }
-    } else {
-        t14 = (FUN_0c173558());
-    }
-    if ((*(signed char *)0xC475DBE) != 0) {
-        t14 = (FUN_0c172168());
-    }
-    return t14;
-}

@@ -36,60 +36,6 @@ int FUN_0c187798(void);
 int FUN_0c0de874(int a4, int a5, int a6, int a7);
 int FUN_0c0dea08(int a4);
 
-int FUN_0c0de874(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register float u0;
-
-    t0 = 0x5;
-    if (a6 != 0) {
-        t0 = 0x1;
-    }
-    t1 = FUN_0c03f444(t0, 0x0, 0x1);
-    t0 = t1;
-    if (t1 == 0) {
-    } else {
-        t2 = (((struct oC4_int *)(t1))->v);
-        FUN_0c03744a(t2, 0x0, 0x9, (*(int *)0xC4B40CC));
-        *(unsigned char *)((t1 + 0x1)) = 0xFFFFFFFF;
-        *(unsigned char *)((t1 + 0x2)) = a6;
-        *(unsigned int *)((t1 + 0x4)) = 0xC0DE728;
-        (((struct oAC_ushort *)(t1))->v) = 0x1;
-        (((struct oA9_uchar *)(t1))->v) = 0x21;
-        if (a6 != 0) {
-            FUN_0c07e420(t1, 0x3);
-            FUN_0c064d24(t1, 0x3, 0x9, 0x0, 0x100, 0xF, 0x0, 0xFFFFFFF0);
-        }
-        FUN_0c187798();
-        *(unsigned int *)((t1 + 0x38)) = a5;
-        (((struct o54_float *)(t1))->v) = ((float)a7 * (math_cos_angle16(a5)));
-        (((struct o4C_float *)(t1))->v) = ((float)a7 * (math_sin_angle16(a5)));
-        (((struct o50_float *)(t1))->v) = -1.0f;
-        u0 = ((((struct o4C_float *)(t1))->v));
-        u0 *= -0.0333333351f;
-        (((struct o58_float *)(t1))->v) = u0;
-        (((struct o5C_float *)(t1))->v) = 0.100000001f;
-        u0 = ((((struct o54_float *)(t1))->v));
-        u0 *= -0.0333333351f;
-        (((struct o60_float *)(t1))->v) = u0;
-        (((struct o48_float *)(t1))->v) = 1.0f;
-        (((struct o44_float *)(t1))->v) = 1.0f;
-        (((struct o40_float *)(t1))->v) = 1.0f;
-        *(unsigned short *)((t2 + 0x6)) = 0x239;
-        t1 = (int)((int)(FUN_0c179ac0()) % (int)0x14);
-        (((struct o80_uint *)(t2))->v) = (int)(((float)((((t1 << 2) << 1) + t1) << 1) * 65536.0f) / 360.0f);
-        (((struct o8C_float *)(t2))->v) = 1.0f;
-        (((struct o88_float *)(t2))->v) = 1.0f;
-        (((struct o84_float *)(t2))->v) = 1.0f;
-        (((struct o18_float *)(t2))->v) = 0.0f;
-        (((struct o1C_float *)(t2))->v) = 0.0f;
-        (((struct o20_float *)(t2))->v) = 0.0f;
-        t0 = 0x20;
-    }
-    return t0;
-}
 
 int FUN_0c0dea08(int a4)
 {

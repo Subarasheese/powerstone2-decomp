@@ -128,24 +128,4 @@ int FUN_0c0b551e(int a4)
     return thunk_FUN_0c0385e0(a4);
 }
 
-int FUN_0c0b5b8e(int a4, int a5, int a6)
-{
-    int stk[6];
-    register int t0;
-    register int t3;
 
-    t0 = 0xF4;
-    if (a5 == 0) {
-        t0 = 0xE4;
-    }
-    t3 = *(int *)((a4 + t0));
-    FUN_0c187798(a4, a5, a6);
-    *(int *)((int)stk + 8) = 0x0;
-    FUN_0c14c1b4(a4, (t3 + 0x28), (((int)stk + 8) + 0x4), ((0x38F8 + a4) + 0x1C), 0x0);
-    *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) + 50.0f);
-    *(int *)((int)stk + 4) = 0x1;
-    FUN_0c14c1b4(a4, (t3 + 0x28), (((int)stk + 4) + 0x8), ((0x38F8 + a4) + 0x1C), 0x1);
-    *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) - 130.0f);
-    *(int *)((int)stk + 0) = 0x2;
-    return (FUN_0c14c1b4(a4, (t3 + 0x28), (((int)stk + 0) + 0xC), ((0x38F8 + a4) + 0x1C), 0x2));
-}

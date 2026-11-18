@@ -38,65 +38,7 @@ int FUN_0c14f824(int a4, int a5, int a6);
 int FUN_0c14f8aa(int a4, int a5, int a6);
 float FUN_0c151000(int a4, int a5, int a6, int a7, float f4);
 
-int FUN_0c14f824(int a4, int a5, int a6)
-{
-    int stk[6];
-    register int t1;
-    register int t5;
-    register int t8;
-    register int t13;
-    register int t11;
-    register int t12;
 
-    *(unsigned char *)(((int)stk + 8)) = a4;
-    FUN_0c187798(a4, a5, a6);
-    t1 = *(int *)0xC542260;
-    FUN_0c17c130((((int)stk + 8) + 0x4), (((int)stk + 8) + 0x4), (((((0x7 & ((unsigned int)t1 >> 1)) << 1) + (0x7 & ((unsigned int)t1 >> 1))) << 2) + 0xC202DA8));
-    t5 = *(int *)0xC542260;
-    *(int *)((int)stk + 4) = (((((t5 & 0x3) << 1) + (t5 & 0x3)) << 2) + 0xC202E08);
-    *(int *)((int)stk + 0) = 0x0;
-    t8 = FUN_0c1502e8((*(signed char *)(((int)stk + 8))), 0x1, 0x1, (((int)stk + 0) + 0xC), 0x0, (((((t5 & 0x3) << 1) + (t5 & 0x3)) << 2) + 0xC202E08));
-    t13 = t8;
-    if (t8 != 0) {
-        *(volatile int *)((t8 + 0xC4));
-        FUN_0c18778c(t8, (0x41C + t8));
-        (((struct o4_float *)(t11))->v) = 1.0f;
-        *(unsigned short *)((t12 + 0x1E)) = 0x0;
-        t13 = 0x0;
-    }
-    return t13;
-}
-
-int FUN_0c14f8aa(int a4, int a5, int a6)
-{
-    int stk[7];
-    register int t1;
-    register int t5;
-    register int t8;
-    register int t14;
-    register int t12;
-    register int t13;
-
-    *(unsigned char *)(((int)stk + 12)) = a4;
-    *(unsigned int *)(((int)stk + 8)) = a6;
-    FUN_0c187798(a4, a5, a6);
-    t1 = *(int *)0xC542260;
-    FUN_0c17c130((((int)stk + 8) + 0x8), (((int)stk + 8) + 0x8), (((((0x7 & ((unsigned int)t1 >> 1)) << 1) + (0x7 & ((unsigned int)t1 >> 1))) << 2) + 0xC202DA8));
-    t5 = *(int *)0xC542260;
-    *(int *)((int)stk + 4) = (((((t5 & 0x3) << 1) + (t5 & 0x3)) << 2) + 0xC202E08);
-    *(int *)((int)stk + 0) = 0x0;
-    t8 = FUN_0c1502e8((*(signed char *)(((int)stk + 12))), 0x1, 0x1, (((int)stk + 0) + 0x10), 0x0, (((((t5 & 0x3) << 1) + (t5 & 0x3)) << 2) + 0xC202E08));
-    t14 = t8;
-    if (t8 != 0) {
-        *(volatile int *)(((int)stk + 8));
-        *(volatile int *)((t8 + 0xC4));
-        FUN_0c18778c(t8, (0x41C + t8));
-        (((struct o4_float *)(t12))->v) = 1.0f;
-        *(unsigned short *)((t13 + 0x1E)) = 0x0;
-        t14 = 0x0;
-    }
-    return t14;
-}
 
 float FUN_0c151000(int a4, int a5, int a6, int a7, float f4)
 {
@@ -261,3 +203,6 @@ float FUN_0c151000(int a4, int a5, int a6, int a7, float f4)
     v0_4 = (((~(((~v0_4) + 0x1) & 0xF)) + 0x1));
     goto L_C151076;
 }
+
+
+

@@ -57,41 +57,6 @@ int FUN_0c112d0c(int a4)
     return 0x0;
 }
 
-int FUN_0c112d40(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)((a4 + 0x14));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 80) {
-                t1 = t0;
-                if (t0 != 99) {
-                } else {
-                    (((struct o14_uchar *)(a4))->v) = 0x50;
-                    t1 = 0x14;
-                }
-                return t1;
-            }
-            return FUN_0c03f346(a4, a5, a6, a7);
-        }
-    } else {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-        (((struct oA8_uchar *)(a4))->v) = 0x1;
-        (((struct oAC_ushort *)(a4))->v) = 0x1F;
-        (((struct oA9_uchar *)(a4))->v) = 0x21;
-        FUN_0c1171f0(a4);
-        FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0x7, 0x3, (*(int *)0xC4B410C));
-        FUN_0c187798(((((struct oC4_int *)(a4))->v)));
-    }
-    t0 = (((struct oC4_int *)(a4))->v);
-    t1 = 0xC291520;
-    if ((*(signed char *)((a4 + 0x2))) == 1) {
-        t1 = 0xC29152C;
-    }
-    return FUN_0c17c130((t0 + 0x6C), (0x90 + t0), t1);
-}
 
 int FUN_0c112df2(void)
 {

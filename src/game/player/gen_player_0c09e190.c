@@ -145,55 +145,6 @@ int FUN_0c09e38c(int a4, int a5, int a6, int a7)
     return FUN_0c09e190(a4);
 }
 
-int FUN_0c09e6f0(int a4)
-{
-    register int t0;
-    register int t1;
-
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-    *(volatile int *)((a4 + 0x3770));
-    FUN_0c187798();
-    (((struct o374B_uchar *)(a4))->v) = 0x2;
-    (((struct o374B_uchar *)(((((struct o3770_int *)(a4))->v))))->v) = 0x2;
-    (((struct o374A_uchar *)(a4))->v) = 0x1;
-    t0 = *(short *)((a4 + 0x1C));
-    *(unsigned short *)((a4 + 0x1C)) = (t0 - 1);
-    if ((short)(t0 - 1) == 0) {
-        t0 = FUN_0c179ac0();
-        t1 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
-        if ((int)t0 >= 0) {
-            t1 = (t0 & 0x1);
-        }
-        *(unsigned short *)((a4 + 0x1C)) = (t1 + 0x1);
-        FUN_0c12ebe4(a4, 0x1);
-    }
-    t0 = 0x50;
-    if (0.0f > ((((struct o50_float *)(a4))->v))) {
-        t1 = FUN_0c07ecc6(a4, 0x0, 0x0);
-        t0 = t1;
-        if (t1 != 0) {
-            FUN_0c059dae((*(signed char *)((((((struct o3770_int *)(a4))->v)) + 0x1))), 0x3);
-            FUN_0c073566(a4, 0x33);
-            FUN_0c05258e(0x2, 0x14, 0x100, 0x1E, 0x0);
-            FUN_0c12ebe4(a4, 0x2);
-            FUN_0c12ebe4(a4, 0x3);
-            FUN_0c12ebe4(a4, 0x7);
-            FUN_0c14fed8((*(signed char *)((a4 + 0x1))), (a4 + 0x28), 1.0f, 200.0f);
-            FUN_0c059f20((*(signed char *)((a4 + 0x1))), (*(signed char *)((a4 + 0x135))));
-            FUN_0c059e60(a4, 0x2);
-            FUN_0c059e60(a4, 0x24);
-            FUN_0c07bdd0(a4, 0x24);
-            (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
-            t1 = (((struct o3770_int *)(a4))->v);
-            (((struct o18_uchar *)(t1))->v) = ((*(signed char *)((t1 + 0x18))) + 0x1);
-            *(unsigned short *)((a4 + 0x1C)) = 0x1;
-            *(unsigned short *)((a4 + 0x1E)) = 0x27;
-            t0 = 0x27;
-        }
-    }
-    return t0;
-}
 
 int FUN_0c09e8de(int a4, int a5, int a6, int a7)
 {

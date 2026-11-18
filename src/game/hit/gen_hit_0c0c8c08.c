@@ -243,11 +243,4 @@ int FUN_0c0c8f2e(int a4)
     return (t0 - 1);
 }
 
-int FUN_0c0c8f70(int a4, int a5, int a6)
-{
-    int stk[2];
 
-    FUN_0c187798(a4, a5, a6);
-    *(float *)(((int)stk + 0)) = ((*(float *)(((int)stk + 0))) + 400.0f);
-    return (FUN_0c16516e((*(signed char *)((a4 + 0x1)))));
-}

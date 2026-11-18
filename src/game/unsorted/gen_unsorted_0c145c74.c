@@ -130,31 +130,6 @@ int FUN_0c145d1c(int a4, int a5)
     return 0x24;
 }
 
-int FUN_0c145eb2(int a4, int a5, int a6)
-{
-    register float u1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-
-    FUN_0c187798(0x0, a5, a6);
-    u1 = *(float *)0xC145F3C;
-    t2 = 0xC145F3C;
-    t3 = 0x0;
-    t4 = 0x0;
-    t5 = 0xC2A23CC;
-    for (;;) {
-        if (!(u1 > (*(float *)((((((t4 << 2) + t4) << 2) + 0xC2A23CC) + 0x0))))) {
-            break;
-        }
-        t2 = (FUN_0c145dd2(a4, a4, a6, t5));
-        t5 = (t5 + 0x14);
-        t4 = (t4 + 0x1);
-        t3 = (t3 | t2);
-    }
-    return t3;
-}
 
 int FUN_0c146408(int a4, int a5, int a6, int a7)
 {
@@ -278,3 +253,5 @@ int FUN_0c147222(int a4, int a5, int a6, float f4)
     }
     return t11;
 }
+
+

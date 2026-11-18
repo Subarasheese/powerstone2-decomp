@@ -19,33 +19,6 @@ int FUN_0c1371a0(int a4, int a5, int a6);
 int FUN_0c137258(int a4, int a5, int a6, int a7);
 int FUN_0c1373e2(int a4);
 
-int FUN_0c1371a0(int a4, int a5, int a6)
-{
-    int stk[7];
-    register int t0;
-
-    *(unsigned char *)(((int)stk + 24)) = a4;
-    *(unsigned int *)(((int)stk + 16)) = a5;
-    *(unsigned int *)(((int)stk + 20)) = a6;
-    t0 = FUN_0c03f444(0x1, 0x0, 0x3);
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)(((int)stk + 24)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC136FF4;
-        *(unsigned int *)((t0 + 0x10)) = (*(int *)(((int)stk + 20)));
-        *(volatile int *)((t0 + 0xCC));
-        *(volatile int *)(((int)stk + 16));
-        FUN_0c187798();
-        FUN_0c187798();
-        FUN_0c07e3ae(t0, 0x31);
-        *(int *)((int)stk + 12) = 0xF0;
-        *(int *)((int)stk + 8) = 0x0;
-        *(int *)((int)stk + 4) = 0x0;
-        *(int *)((int)stk + 0) = 0x100;
-        FUN_0c064d24(t0, 0x3, 0x9, 0x0, 0x100, 0x0, 0x0, 0xF0);
-        return t0;
-    }
-    return 0x0;
-}
 
 int FUN_0c137258(int a4, int a5, int a6, int a7)
 {
@@ -156,3 +129,5 @@ int FUN_0c1373e2(int a4)
     }
     return t2;
 }
+
+

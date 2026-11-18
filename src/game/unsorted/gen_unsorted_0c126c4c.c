@@ -39,36 +39,6 @@ int FUN_0c187798(void);
 int FUN_0c126c4c(int a4);
 int FUN_0c126cdc(int a4, int a5, int a6, int a7, float f4);
 
-int FUN_0c126c4c(int a4)
-{
-    register int t0;
-    register int t11;
-    register int t1;
-
-    t0 = FUN_0c03f444(0x5, 0x1, 0x4);
-    t11 = t0;
-    if (t0 != 0) {
-        t1 = 0x0;
-        for (;;) {
-            if ((int)t1 >= (int)((((struct oC0_int *)(t0))->v))) {
-                break;
-            }
-            FUN_0c03744a((*(int *)((((t1 << 2) + (0xC4 + t0)) + 0x0))), (t1 + 0x1), 0xE, (*(int *)((0xC4B40FC + ((*(signed char *)((a4 + 0x1))) << 2)))));
-            t1 = (t1 + 0x1);
-        }
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = (*(signed char *)((a4 + 0xA9)));
-        *(unsigned int *)((t0 + 0x10)) = a4;
-        *(unsigned int *)((t0 + 0x4)) = 0xC126CDC;
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        FUN_0c187798();
-        FUN_0c187798();
-        *(unsigned short *)((t0 + 0x1C)) = 0x50;
-        t11 = 0x50;
-    }
-    return t11;
-}
 
 int FUN_0c126cdc(int a4, int a5, int a6, int a7, float f4)
 {
@@ -261,3 +231,5 @@ int FUN_0c126cdc(int a4, int a5, int a6, int a7, float f4)
     v0_3 = (v0_3);
     goto L_C126D84;
 }
+
+

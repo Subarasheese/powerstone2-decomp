@@ -1004,15 +1004,7 @@ int FUN_0c01d094(void)
     return 0x750;
 }
 
-int FUN_0c01d262(void)
-{
-    return FUN_0c187a88(0xC30AFA0, 0xC83BBD4, 0x754);
-}
 
-int FUN_0c01d26e(void)
-{
-    return FUN_0c187a88(0xC83BBD4, 0xC30AFA0, 0x754);
-}
 
 int FUN_0c01d27a(void)
 {
@@ -2625,15 +2617,7 @@ int FUN_0c01e96a(int a4, int a5, int a6, int a7)
     return t0;
 }
 
-int FUN_0c01e988(void)
-{
-    return FUN_0c187a88(0xC30AB2E, 0xC83C61C, 0x44);
-}
 
-int FUN_0c01e992(void)
-{
-    return FUN_0c187a88(0xC83C660, 0xC30AA34, 0x44);
-}
 
 int FUN_0c01e99c(void)
 {

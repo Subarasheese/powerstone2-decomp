@@ -25,55 +25,6 @@ int FUN_0c187798(void);
 int FUN_0c0cf2f4(int a4, int a5, int a6, int a7, int a8, int a9);
 int FUN_0c0cf440(int a4, int a5, int a6);
 
-int FUN_0c0cf2f4(int a4, int a5, int a6, int a7, int a8, int a9)
-{
-    int stk[5];
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t24;
-    register int t4;
-    register int t6;
-
-    *(unsigned int *)(((int)stk + 4)) = a5;
-    *(unsigned int *)(((int)stk + 0)) = a6;
-    *(unsigned int *)(((int)stk + 8)) = a7;
-    *(unsigned char *)(((int)stk + 16)) = (*(signed char *)(((a4 * 0x34) + 0xC2738B9)));
-    t1 = *(signed char *)(((int)stk + 16));
-    t2 = *(int *)0xC4B40CC;
-    *(unsigned int *)(((int)stk + 12)) = t1;
-    t3 = FUN_0c037320(t1, t2);
-    t24 = 0x0;
-    if ((int)t3 >= 0) {
-        t4 = FUN_0c03f444(0x9, 0x0, 0x1);
-        t24 = 0x0;
-        if (t4 != 0) {
-            t6 = (((struct oC4_int *)(t4))->v);
-            FUN_0c03744a(t6, (0xFFFFFF7F + a4), (*(int *)(((int)stk + 12))), (*(int *)0xC4B40CC));
-            *(unsigned char *)((t6 + 0x0)) = 0x1;
-            *(unsigned short *)((t6 + 0x6)) = 0xF;
-            (((struct o80_uint *)(t6))->v) = 0xFFFFF1C8;
-            FUN_0c0c25c4(t4);
-            *(unsigned int *)((t4 + 0x4)) = 0xC0CF280;
-            (((struct oAC_ushort *)(t4))->v) = 0xF;
-            (((struct oA9_uchar *)(t4))->v) = 0x40;
-            (((struct o41D_uchar *)(t4))->v) = 0x0;
-            (((struct o41C_uchar *)(t4))->v) = a4;
-            (((struct o424_uchar *)(t4))->v) = (*(int *)(((int)stk + 4)));
-            (((struct o1B_uchar *)(t4))->v) = (*(int *)(((int)stk + 0)));
-            FUN_0c0c2ab6(t4, (*(signed char *)((((unsigned short)(unsigned char)(*(signed char *)((t4 + 0x41C))) * (unsigned short)0x34) + 0xC2738CA))));
-            (((struct o420_ushort *)(t4))->v) = 0x12C;
-            FUN_0c0c212c(t4);
-            *(volatile int *)(((int)stk + 8));
-            FUN_0c187798();
-            *(unsigned int *)((t4 + 0x38)) = a9;
-            FUN_0c0c2aa2(t4, a8);
-            FUN_0c0c241a(t4);
-            t24 = t4;
-        }
-    }
-    return t24;
-}
 
 int FUN_0c0cf440(int a4, int a5, int a6)
 {

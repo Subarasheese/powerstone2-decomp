@@ -139,63 +139,6 @@ int FUN_0c06c096(int a4)
     return t1;
 }
 
-int FUN_0c06c134(int a4, int a5, int a6)
-{
-    int stk[3];
-    register int t4;
-    register float u8;
-    register float u12;
-    register int t15;
-    register float u19;
-    register float u23;
-    register int t29;
-    register int t63;
-    register int t33;
-    register int t40;
-    register int t1;
-    register int t2;
-    int t3;
-
-    if (((*(signed char *)((a4 + 0x2))) == 8) && ((t1 = *(signed char *)((a4 + 0x371C)), t1 != 0) && ((t2 = *(signed char *)((a4 + 0x3721)), t2 == 0) && (t3 = *(int *)0xC542260, (t3 & 3) == 0)))) {
-        t4 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-        u8 = (*(float *)(((int)stk + 0)));
-        u8 = u8 + 40.0f * (math_sin_angle16(((*(int *)((a4 + 0x38))) + 0x4000)));
-        *(float *)(((int)stk + 0)) = u8;
-        u12 = (*(float *)(((int)stk + 8)));
-        u12 = u12 + 40.0f * (math_cos_angle16(((*(int *)((a4 + 0x38))) + 0x4000)));
-        *(float *)(((int)stk + 8)) = u12;
-        FUN_0c14f8aa((*(signed char *)((a4 + 0x1))), ((int)stk + 0), 0x2);
-        t15 = ((int (*)(void))(FUN_0c187798))();
-        u19 = (*(float *)(((int)stk + 0)));
-        u19 = u19 + 40.0f * (math_sin_angle16(((*(int *)((a4 + 0x38))) - 16384)));
-        *(float *)(((int)stk + 0)) = u19;
-        u23 = (*(float *)(((int)stk + 8)));
-        u23 = u23 + 40.0f * (math_cos_angle16(((*(int *)((a4 + 0x38))) - 16384)));
-        *(float *)(((int)stk + 8)) = u23;
-        FUN_0c14f8aa((*(signed char *)((a4 + 0x1))), ((int)stk + 0), 0x2);
-    }
-    t29 = *(signed char *)((a4 + 0x3715));
-    t63 = t29;
-    if (t29 == 1) {
-        t33 = *(signed char *)((a4 + 0x2));
-        t63 = t33;
-        if (t33 == 11) {
-            t63 = 0x371C;
-            if ((*(signed char *)((a4 + 0x371C))) != 0) {
-                t63 = 0x3721;
-                if ((*(signed char *)((a4 + 0x3721))) == 0) {
-                    t40 = (int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0x28);
-                    t63 = t40;
-                    if (t40 == 0) {
-                        FUN_0c15f394(a4, 0xF);
-                        t63 = (FUN_0c15f394(a4, 0x12));
-                    }
-                }
-            }
-        }
-    }
-    return t63;
-}
 
 int FUN_0c06c394(int a4)
 {
@@ -258,7 +201,3 @@ int FUN_0c06c3f8(int a4)
     return FUN_0c085cac(a4, 0x0, 0x0);
 }
 
-int FUN_0c06c4d6(int a4)
-{
-    return FUN_0c037bf6(a4);
-}

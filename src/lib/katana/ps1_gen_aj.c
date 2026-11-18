@@ -312,30 +312,7 @@ int FUN_0c0f2d9e(int a4, int a5)
 }
 
 
-int mpdrv_dpf(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
-{
-    int stk[14];
-    register int t10;
-    register int t2;
-    register int t5;
 
-    stk[3] = a8;
-    stk[4] = a9;
-    stk[5] = a10;
-    t10 = 0x10C8;
-    if (((((struct o10C8_int *)((*(int *)0xC843924)))->v)) != 0) {
-        t2 = ((((int)stk + 4) + 0x8) + 0x4);
-        if ((0x3 & ((((int)stk + 4) + 0x8) + 0x4)) != 0) {
-            t2 = ((((int)stk + 4) + 0x8) + 0x8);
-        }
-        t5 = *(int *)0xC3476EC;
-        t10 = (vsprintf(0xC842728, a8, t2));
-        if (t5 != 0) {
-            t10 = (((int (*)(int, int, int, int, int, int, int, int, int, int, int))(t5))(0xC842728, a5, a6, a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24)));
-        }
-    }
-    return t10;
-}
 
 
 int search_fat_free_xross(int a4, int a5, int a6, int a7)

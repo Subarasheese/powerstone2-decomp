@@ -22,49 +22,6 @@ int FUN_0c053da0(int a4);
 int FUN_0c053efe(int a4, int a5, int a6);
 int FUN_0c053f16(int a4, int a5, int a6, int a7);
 
-int FUN_0c053ccc(int a4, int a5, int a6, int a7, int a8)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-
-    FUN_0c0522be(0xC241508);
-    t2 = 0xC5410FC;
-    for (;;) {
-        (((struct o1A0_uint *)(t2))->v) = a4;
-        (((struct o19C_uint *)(t2))->v) = a5;
-        t3 = (0x1FC + t2);
-        t2 = (t2 + 0x2F8);
-        *(unsigned int *)((t3 + 0x4)) = a6;
-        *(unsigned int *)((t3 + 0x0)) = a6;
-        if ((unsigned int)t2 >= (unsigned int)0xC541CDC) {
-            break;
-        }
-    }
-    *(unsigned int *)0xC40F834 = a7;
-    t2 = 0x19C;
-    if ((int)a7 > 0) {
-        t4 = a8;
-        t5 = 0xC40F838;
-        t6 = 0x0;
-        for (;;) {
-            t4 = (t4 + 0xC);
-            t7 = FUN_0c187798(t5, t6, t3);
-            t6 = (t0 + 0x1);
-            t5 = (t1 + 0xC);
-            if ((int)t6 >= (int)a7) {
-                break;
-            }
-        }
-        t2 = t7;
-    }
-    return t2;
-}
 
 int FUN_0c053d32(int a4)
 {
@@ -180,3 +137,5 @@ int FUN_0c053f16(int a4, int a5, int a6, int a7)
     }
     return t0;
 }
+
+

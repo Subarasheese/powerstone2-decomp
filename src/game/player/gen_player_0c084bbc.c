@@ -42,55 +42,6 @@ int FUN_0c085204(int a4, float f4);
 int FUN_0c085256(int a4, int a5);
 int FUN_0c085398(int a4, int a5, int a6, int a7);
 
-int FUN_0c084bbc(int a4, int a5, int a6, int a7)
-{
-    int stk[4];
-    register int t0;
-    register int t7;
-    register float u8;
-    register float u9;
-    register float u10;
-    register float u11;
-    register float u14;
-    register int t24;
-    register int t25;
-    register int t1;
-    register int t2;
-
-    *(unsigned char *)(((int)stk + 12)) = a5;
-    (((struct o3715_uchar *)(a4))->v) = 0x1E;
-    t0 = (((struct o3768_int *)(a4))->v);
-    if ((t0 != 0) && ((t1 = *(signed char *)((t0 + 0x41C)), (unsigned char)t1 == 72) || (t2 = *(signed char *)((t0 + 0x41C)), (unsigned char)t2 == 70))) {
-        FUN_0c081dfc(a4, a5, a6, a7);
-        (((struct o15_uchar *)(a4))->v) = (*(signed char *)(((int)stk + 12)));
-        *(volatile int *)((a4 + 0x3768));
-        FUN_0c187798();
-        (((struct o50_float *)(a4))->v) = 30.0f;
-        (((struct o5C_float *)(a4))->v) = -2.5f;
-        t7 = math_angle_between_points_xz((a4 + 0x28), (0x37C4 + a4));
-        u8 = (((struct o37C4_float *)(a4))->v);
-        u9 = (((struct o28_float *)(a4))->v);
-        u10 = (((struct o37CC_float *)(a4))->v);
-        u11 = (((struct o30_float *)(a4))->v);
-        u14 = ((u11 - u10) * (u11 - u10));
-        u14 = u14 + ((u9 - u8)) * ((u9 - u8));
-        (((struct o3790_float *)(a4))->v) = (math_signed_sqrt(u14));
-        *(unsigned short *)((a4 + 0x1C)) = (int)((((((struct o50_float *)(a4))->v)) / ((((struct o5C_float *)(a4))->v))) * (1.0f + 1.0f));
-        (((struct o3790_float *)(a4))->v) = (((((struct o3790_float *)(a4))->v)) / (float)(*(short *)((a4 + 0x1C))));
-        (((struct o60_float *)(a4))->v) = 0.0f;
-        (((struct o58_float *)(a4))->v) = 0.0f;
-        (((struct o4C_float *)(a4))->v) = (-((math_sin_angle16(t7)) * ((((struct o3790_float *)(a4))->v))));
-        (((struct o54_float *)(a4))->v) = (-((math_cos_angle16(t7)) * ((((struct o3790_float *)(a4))->v))));
-        *(int *)((int)stk + 8) = 0x8;
-        *(int *)((int)stk + 4) = 0x0;
-        t24 = *(signed char *)((a4 + 0x1));
-        *(unsigned int *)(((int)stk + 12)) = t24;
-        t25 = t24;
-        *(int *)((int)stk + 0) = t25;
-        return (FUN_0c07e79c(a4, t24, 0x0, 0x8, t25, 0x0, 0x8));
-    }
-    return FUN_0c085d0c(a4, a5, a6, a7);
-}
 
 int FUN_0c08515a(int a4, int a5)
 {

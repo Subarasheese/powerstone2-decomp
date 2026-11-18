@@ -51,33 +51,6 @@ int FUN_0c083440(int a4, int a5, int a6, int a7);
 int FUN_0c083582(int a4, int a5);
 int FUN_0c08358e(int a4, int a5);
 
-int FUN_0c083384(int a4, int a5)
-{
-    int stk[6];
-    register int t34;
-
-    t34 = 0x0;
-    if (((((struct o376C_int *)(a4))->v)) != 0) {
-        *(float *)(((int)stk + 12)) = ((((struct o28_float *)(((((struct o376C_int *)(a4))->v))))->v));
-        *(float *)(((int)stk + 16)) = ((((struct o2C_float *)(((((struct o376C_int *)(a4))->v))))->v));
-        *(float *)(((int)stk + 20)) = ((((struct o30_float *)(((((struct o376C_int *)(a4))->v))))->v));
-        t34 = 0x0;
-        if (((((struct oA4_int *)(((((struct o376C_int *)(a4))->v))))->v)) != 0) {
-            math_mat_get_translate(((((struct oA4_int *)(((((struct o376C_int *)(a4))->v))))->v)), (((int)stk + 0) + 0xC));
-            *(volatile int *)((a4 + 0x376C));
-            FUN_0c187798();
-            math_mat_transform_vector(((int)stk + 0), ((((struct oA4_int *)(((((struct o376C_int *)(a4))->v))))->v)));
-            *(float *)(((int)stk + 12)) = ((*(float *)(((int)stk + 12))) + (*(float *)(((int)stk + 0))));
-            *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 16))) + (*(float *)(((int)stk + 4))));
-            *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) + (*(float *)(((int)stk + 8))));
-            *(float *)((a5 + 0x0)) = (*(float *)(((int)stk + 12)));
-            (((struct o4_float *)(a5))->v) = (*(float *)(((int)stk + 16)));
-            (((struct o8_float *)(a5))->v) = (*(float *)(((int)stk + 20)));
-            t34 = 0x1;
-        }
-    }
-    return t34;
-}
 
 int FUN_0c083440(int a4, int a5, int a6, int a7)
 {

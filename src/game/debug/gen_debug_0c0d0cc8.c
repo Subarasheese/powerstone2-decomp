@@ -13,10 +13,6 @@ int FUN_0c0d0e68(int a4);
 int FUN_0c0d0e88(void);
 int FUN_0c0d0e8c(void);
 
-int FUN_0c0d0d00(int a4, int a5, int a6)
-{
-    return (FUN_0c187798(a4, a5, a6));
-}
 
 int FUN_0c0d0d26(void)
 {
@@ -103,3 +99,5 @@ int FUN_0c0d0e8c(void)
     }
     return 0x0;
 }
+
+

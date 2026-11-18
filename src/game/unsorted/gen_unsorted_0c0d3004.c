@@ -61,28 +61,4 @@ int FUN_0c0d3004(int a4, int a5)
     return 0xC;
 }
 
-int FUN_0c0d30ea(int a4, int a5, int a6)
-{
-    int stk[6];
-    register float u1;
-    register int t11;
-    register int t12;
-    register float u5;
 
-    *(unsigned int *)(((int)stk + 4)) = a5;
-    FUN_0c187798(a4, a5, a6);
-    u1 = (((struct o0_float *)0xC0D31E4)->v);
-    if ((*(signed char *)((a4 + 0x2))) != 0) {
-        u5 = ((*(float *)(((int)stk + 12))) - u1);
-    } else {
-        u5 = ((*(float *)(((int)stk + 12))) + u1);
-    }
-    *(float *)(((int)stk + 12)) = u5;
-    *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 16))) + u1);
-    *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) - ((((struct o4_float *)0xC0D31E4)->v)));
-    t11 = (*(int *)(((int)stk + 4)));
-    *(int *)((int)stk + 0) = t11;
-    t12 = *(signed char *)((a4 + 0x2));
-    *(unsigned int *)(((int)stk + 8)) = (0xC1C7F0C + ((((t12 << 1) + t12) << 2) << 1));
-    return (FUN_0c15d386(0x1, (((int)stk + 0) + 0xC), (*(int *)(((int)stk + 8))), ((0xC1C7F0C + ((((t12 << 1) + t12) << 2) << 1)) + 0xC), t11));
-}

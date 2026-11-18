@@ -30,56 +30,6 @@ int FUN_0c187798(void);
 int FUN_0c12d070(int a4, int a5);
 int FUN_0c12d170(int a4, int a5, int a6, int a7, float f4);
 
-int FUN_0c12d070(int a4, int a5)
-{
-    int stk[1];
-    register int t0;
-    register int t30;
-    register int t4;
-    register int t17;
-    register int t19;
-
-    *(unsigned char *)(((int)stk + 0)) = a5;
-    t0 = FUN_0c03f444(0x5, 0x0, 0x1);
-    t30 = t0;
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC12D170;
-        FUN_0c187798();
-        (((struct o54_float *)(t0))->v) = 0.0f;
-        (((struct o50_float *)(t0))->v) = 0.0f;
-        (((struct o4C_float *)(t0))->v) = 0.0f;
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0x21;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        (((struct o14_uchar *)(t0))->v) = (*(signed char *)(((int)stk + 0)));
-        (((struct o15_uchar *)(t0))->v) = 0x0;
-        t4 = *(signed char *)(((int)stk + 0));
-        t30 = t4;
-        if (t4 == 0) {
-            FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0x1, (*(int *)((((*(signed char *)((t0 + 0x1))) << 2) + 0xC4B40FC))));
-            *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x0;
-            *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0x21F;
-            (((struct o18_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-            (((struct o1C_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-            (((struct o20_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-            (((struct o84_float *)(((((struct oC4_int *)(t0))->v))))->v) = 0.0f;
-            (((struct o88_float *)(((((struct oC4_int *)(t0))->v))))->v) = 0.0f;
-            (((struct o8C_float *)(((((struct oC4_int *)(t0))->v))))->v) = 0.0f;
-            t17 = (((struct oC4_int *)(t0))->v);
-            (((struct o70_float *)(t17))->v) = (((((struct o70_float *)(t17))->v)) + 150.0f);
-            t19 = (((struct oC4_int *)(t0))->v);
-            (((struct o74_float *)(t19))->v) = (((((struct o74_float *)(t19))->v)) + 200.0f);
-            *(unsigned int *)((t0 + 0x10)) = a4;
-            *(unsigned short *)((t0 + 0x1C)) = 0x4;
-            t30 = 0x4;
-        }
-    }
-    return t30;
-}
 
 int FUN_0c12d170(int a4, int a5, int a6, int a7, float f4)
 {

@@ -198,24 +198,6 @@ float FUN_0c052378(int a4)
     return t13;
 }
 
-int cam_set_view_matrix(int a4, int a5, int a6)
-{
-    int stk[6];
-    register int t0;
-    register int t1;
-
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    t1 = ((int (*)(void))(FUN_0c187798))();
-    FUN_0c052640(a4, (((int)stk + 0) + 0xC), ((int)stk + 0));
-    (((struct o2EC_uint *)(a4))->v) = (math_atan2_angle16(((*(float *)(((int)stk + 12))) - (*(float *)(((int)stk + 0)))), ((*(float *)(((int)stk + 20))) - (*(float *)(((int)stk + 8))))));
-    nlSelectMatrixStack(0x2);
-    nlUnitMatrix();
-    nlLookAt((((int)stk + 0) + 0xC), ((int)stk + 0), ((((struct o180_int *)(a4))->v)));
-    nlStoreMatrix((a4 + 0x78));
-    nlStoreMatrix((a4 + 0x38));
-    nlInvertMatrix((a4 + 0x78));
-    return (nlSelectMatrixStack(0x1));
-}
 
 int FUN_0c05253c(int a4, int a5, int a6, int a7, int a8, int a9)
 {

@@ -1,0 +1,126 @@
+{
+ "dev": [
+  {
+   "about": "endless case 0",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000000",
+    "r7": "00000001"
+   }
+  },
+  {
+   "about": "endless case 1",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000001",
+    "r7": "00000002"
+   }
+  },
+  {
+   "about": "endless case 2",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000002",
+    "r7": "00000004"
+   }
+  },
+  {
+   "about": "endless case 3",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000004",
+    "r7": "00000008"
+   }
+  },
+  {
+   "about": "endless case 4",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000008",
+    "r7": "0C900000"
+   }
+  },
+  {
+   "about": "endless case 5",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "0C900000",
+    "r7": "0C910000"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "endless case 6",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "0C910000",
+    "r7": "FFFFFFFF"
+   }
+  },
+  {
+   "about": "endless case 7",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "FFFFFFFF",
+    "r7": "00000010"
+   }
+  },
+  {
+   "about": "endless case 8",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000010",
+    "r7": "00000040"
+   }
+  },
+  {
+   "about": "endless case 9",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000040",
+    "r7": "0C920040"
+   }
+  },
+  {
+   "about": "endless case 10",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "0C920040",
+    "r7": "00000003"
+   }
+  },
+  {
+   "about": "endless case 11",
+   "poke": {},
+   "endless": true,
+   "steps": 20000,
+   "regs": {
+    "r6": "00000003",
+    "r7": "00000000"
+   }
+  }
+ ]
+}

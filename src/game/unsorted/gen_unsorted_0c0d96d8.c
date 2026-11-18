@@ -23,50 +23,6 @@ int FUN_0c187798(void);
 int FUN_0c0d96d8(int a4);
 int FUN_0c0d97ca(int a4, int a5, int a6, int a7);
 
-int FUN_0c0d96d8(int a4)
-{
-    register int t0;
-    register int t14;
-    register float u1;
-    register int t2;
-    register int t4;
-    register int t10;
-
-    t0 = FUN_0c03f444(0x5, 0x0, 0x6);
-    t14 = t0;
-    if (t0 != 0) {
-        *(unsigned int *)((t0 + 0x4)) = 0xC0D97CA;
-        *(unsigned char *)((t0 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        u1 = (((struct o0_float *)0xC0D9838)->v);
-        t2 = 0x0;
-        for (;;) {
-            t4 = *(int *)((((t2 << 2) + (0xC4 + t0)) + 0x0));
-            FUN_0c03744a(t4, 0x0, 0x22, (*(int *)0xC4B410C));
-            *(unsigned char *)((t4 + 0x0)) = 0x1;
-            *(unsigned short *)((t4 + 0x6)) = 0x31;
-            (((struct o6C_float *)(t4))->v) = (float)((int)((int)(FUN_0c179ac0()) % (int)0x85));
-            (((struct o70_float *)(t4))->v) = 0.0f;
-            t10 = t2;
-            t2 = (t2 + 0x1);
-            (((struct o74_float *)(t4))->v) = ((float)((int)((int)(FUN_0c179ac0()) % (int)0xC8)) - (((float)t10 * u1)));
-            if ((int)t2 >= (int)0x6) {
-                break;
-            }
-        }
-        FUN_0c187798();
-        (((struct o30_float *)(t0))->v) = ((((struct o18_float *)0xC0D9838)->v));
-        *(unsigned int *)((t0 + 0x38)) = 0x0;
-        *(unsigned int *)((t0 + 0x3C)) = 0x0;
-        *(unsigned int *)((t0 + 0x34)) = 0x0;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        t14 = 0x40;
-    }
-    return t14;
-}
 
 int FUN_0c0d97ca(int a4, int a5, int a6, int a7)
 {

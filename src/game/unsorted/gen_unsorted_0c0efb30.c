@@ -39,31 +39,6 @@ int FUN_0c0efb30(int a4, int a5);
 int FUN_0c0efc04(int a4, int a5, int a6, int a7);
 int FUN_0c0efdda(int a4, int a5);
 
-int FUN_0c0efb30(int a4, int a5)
-{
-    register int t2;
-    register int t3;
-
-    t2 = FUN_0c037320((*(int *)(((a5 << 2) + 0xC1CD264))), (*(int *)0xC4B410C));
-    t3 = FUN_0c03f444(0x2, 0x0, t2);
-    if (t3 != 0) {
-        FUN_0c03733c(t3, (*(int *)(((a5 << 2) + 0xC1CD264))), (*(int *)0xC4B410C));
-        *(unsigned int *)((t3 + 0x4)) = 0xC0EFAD4;
-        *(unsigned char *)((t3 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t3))->v) = 0xF;
-        (((struct oA9_uchar *)(t3))->v) = 0x21;
-        *(unsigned char *)((t3 + 0x2)) = a5;
-        FUN_0c07e420(t3, 0x2);
-        (((struct o48_float *)(t3))->v) = 1.0f;
-        (((struct o44_float *)(t3))->v) = 1.0f;
-        (((struct o40_float *)(t3))->v) = 1.0f;
-        FUN_0c064d24(t3, 0x2, 0x12, 0x0, 0x40, 0x0, 0x0, 0xF0);
-        FUN_0c187798();
-        (((struct oAA_uchar *)(t3))->v) = 0x1;
-        (((struct oAB_uchar *)(t3))->v) = 0x1;
-    }
-    return t3;
-}
 
 int FUN_0c0efc04(int a4, int a5, int a6, int a7)
 {
@@ -147,24 +122,5 @@ int FUN_0c0efc04(int a4, int a5, int a6, int a7)
     return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
 }
 
-int FUN_0c0efdda(int a4, int a5)
-{
-    register int t0;
 
-    t0 = FUN_0c03f444(0x1, 0x0, 0x1);
-    if (t0 != 0) {
-        FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0xE0, (*(int *)0xC4B410C));
-        *(unsigned int *)((t0 + 0x4)) = 0xC0EFC04;
-        *(unsigned char *)((t0 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        *(unsigned char *)((t0 + 0x2)) = a5;
-        FUN_0c07e420(t0, 0x6);
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        FUN_0c064d24(t0, 0x2, 0x10, 0x0, 0x100, 0xFFFFFFAF, 0x0, 0x0);
-        FUN_0c187798();
-    }
-    return t0;
-}
+

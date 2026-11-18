@@ -46,40 +46,6 @@ int FUN_0c16afb6(int a4, float f4);
 int FUN_0c16b01e(int a4, int a5, int a6, int a7, float f4);
 int FUN_0c16b224(int a4, int a5, int a6, int a7);
 
-int FUN_0c16ac5c(int a4)
-{
-    register int t0;
-    register int t2;
-    register int t3;
-    register int t10;
-
-    t0 = 0x0;
-    for (;;) {
-        t2 = FUN_0c037320(0x44, (*(int *)0xC4B40CC));
-        t3 = FUN_0c03f444(0x1, 0x0, t2);
-        t10 = t3;
-        if (t3 != 0) {
-            *(unsigned int *)((t3 + 0x4)) = 0xC16AD22;
-            *(unsigned char *)((t3 + 0x1)) = 0xFFFFFFFF;
-            *(unsigned char *)((t3 + 0x2)) = t0;
-            FUN_0c03733c(t3, 0x44, (*(int *)0xC4B40CC));
-            (((struct oA8_uchar *)(t3))->v) = 0x1;
-            (((struct oAC_ushort *)(t3))->v) = 0x1F;
-            (((struct oA9_uchar *)(t3))->v) = 0x21;
-            (((struct o48_float *)(t3))->v) = 1.0f;
-            (((struct o44_float *)(t3))->v) = 1.0f;
-            (((struct o40_float *)(t3))->v) = 1.0f;
-            FUN_0c187798();
-            FUN_0c07e3ae(t3, (*(signed char *)0xC274836));
-            t10 = (FUN_0c064d24(t3, 0x3, 0x11, 0x0, 0x100, 0xF, 0xF, 0xFFFFFFF0));
-        }
-        t0 = (t0 + 0x1);
-        if ((int)t0 >= (int)0x3) {
-            break;
-        }
-    }
-    return t10;
-}
 
 int FUN_0c16ad22(int a4, int a5, int a6, int a7)
 {

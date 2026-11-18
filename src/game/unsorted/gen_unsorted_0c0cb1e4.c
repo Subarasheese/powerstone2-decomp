@@ -50,33 +50,4 @@ int FUN_0c0cb1e4(int a4, int a5)
     return t6;
 }
 
-int FUN_0c0cb266(int a4, int a5)
-{
-    register int t0;
-    register int t5;
 
-    t0 = FUN_0c03f444(0x9, 0x0, 0x0);
-    t5 = t0;
-    if (t0 != 0) {
-        *(unsigned int *)((t0 + 0x4)) = 0xC0CB12E;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x40;
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        (((struct o41C_uchar *)(t0))->v) = (*(signed char *)((a4 + 0x41C)));
-        *(unsigned int *)((t0 + 0x10)) = a4;
-        FUN_0c187798();
-        (((struct oA8_uchar *)(t0))->v) = 0x0;
-        (((struct o41D_uchar *)(t0))->v) = 0x1;
-        (((struct o422_uchar *)(t0))->v) = 0x0;
-        *(unsigned char *)((t0 + 0x2)) = a5;
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        FUN_0c0c2ab6(t0, 0x0);
-        (((struct o12A_ushort *)(t0))->v) = 0x0;
-        *(unsigned short *)((t0 + 0x1C)) = 0x0;
-        *(unsigned short *)((t0 + 0x1E)) = 0x0;
-        t5 = 0x0;
-    }
-    return t5;
-}

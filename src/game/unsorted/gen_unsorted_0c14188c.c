@@ -26,48 +26,6 @@ int FUN_0c187798(void);
 int FUN_0c14188c(int a4, int a5);
 int FUN_0c14199c(int a4);
 
-int FUN_0c14188c(int a4, int a5)
-{
-    int stk[5];
-    register int t2;
-    register int t3;
-    register int t30;
-    register int t21;
-    register float u23;
-    register float u26;
-    register float u27;
-
-    *(unsigned int *)(((int)stk + 0)) = a5;
-    t2 = FUN_0c037320(0x2, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-    t3 = FUN_0c03f444(0x5, 0x0, t2);
-    t30 = t3;
-    if (t3 != 0) {
-        FUN_0c03733c(t3, 0x2, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-        (((struct oAC_ushort *)(t3))->v) = 0x1F;
-        (((struct oA9_uchar *)(t3))->v) = (*(signed char *)((a4 + 0xA9)));
-        *(unsigned short *)((((((struct oC4_int *)(t3))->v)) + 0x6)) = 0xF;
-        *(unsigned int *)((t3 + 0x4)) = 0xC14199C;
-        *(unsigned char *)((t3 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned char *)((t3 + 0x2)) = (*(int *)(((int)stk + 0)));
-        *(unsigned int *)((t3 + 0x10)) = a4;
-        FUN_0c187798();
-        thunk_FUN_0c058310(((*(int *)((((short)(*(signed char *)((a4 + 0x1))) * (short)0x3938) + 0xC5325A4))) + 0x28), (t3 + 0x28));
-        FUN_0c0e2390((((int)stk + 0) + 0x8), (t3 + 0x28), (a4 + 0x28));
-        *(float *)(((int)stk + 12)) = 0.0f;
-        FUN_0c17c450((((int)stk + 0) + 0x8));
-        FUN_0c187798();
-        *(unsigned int *)((t3 + 0x38)) = (math_atan2_angle16((*(float *)(((int)stk + 8))), (*(float *)(((int)stk + 16)))));
-        t21 = *(int *)(((int)stk + 0));
-        *(unsigned int *)(((int)stk + 4)) = (0xC20230C + ((t21 << 2) << 1));
-        u23 = *(float *)(((0xC20230C + ((t21 << 2) << 1)) + 0x0));
-        math_vec3_mul_xyz((((int)stk + 0) + 0x8), u23, u23, u23);
-        u26 = *(float *)0xC1419F0;
-        u27 = (((struct o4_float *)((*(int *)(((int)stk + 4)))))->v);
-        math_vec3_mul_xyz((t3 + 0x4C), (u27 / u26), (u27 / u26), (u27 / u26));
-        t30 = (FUN_0c17c130((t3 + 0x28), (t3 + 0x28), (((int)stk + 0) + 0x8)));
-    }
-    return t30;
-}
 
 int FUN_0c14199c(int a4)
 {

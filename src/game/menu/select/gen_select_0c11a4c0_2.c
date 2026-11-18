@@ -41,218 +41,6 @@ int FUN_0c11a89a(int a4, int a5, int a6, int a7);
 int FUN_0c11ab30(int a4, int a5, int a6, int a7);
 int FUN_0c11af18(int a4, int a5, int a6, int a7);
 
-int FUN_0c11a89a(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register float u0;
-    register float u1;
-    register float u2;
-
-    if ((*(signed char *)((0x14 + (*(int *)((a4 + 0x10)))))) == 80) {
-        (((struct o14_uchar *)(a4))->v) = 0x63;
-    }
-    t0 = *(signed char *)((a4 + 0x14));
-    if (t0 != 0) {
-        if (t0 == 1) {
-            t1 = *(short *)((a4 + 0x1C));
-            if (((int)t1 >= 0) && ((int)t1 <= (int)0xA)) {
-                FUN_0c058a6e((0xB0 + a4), 0xC2A0CA0, 0xC2A0C90, (*(short *)((a4 + 0x1C))), 0xA, 0x0);
-                FUN_0c0588bc((a4 + 0x40), 0xC291EF8, 0xC291EEC, (*(short *)((a4 + 0x1C))), 0xA, 0x0);
-            }
-            t1 = *(short *)((a4 + 0x1C));
-            if (((int)t1 >= (int)0xA) && ((int)t1 <= (int)0x14)) {
-                FUN_0c058a6e((0xB0 + a4), 0xC2A0C90, 0xC2A0CA0, (*(short *)((a4 + 0x1C))), 0x14, 0xA);
-                FUN_0c0588bc((a4 + 0x40), 0xC291F04, 0xC291EF8, (*(short *)((a4 + 0x1C))), 0x14, 0xA);
-            }
-            t1 = *(short *)((a4 + 0x1C));
-            *(unsigned short *)((a4 + 0x1C)) = (t1 + 0x1);
-            t2 = (short)(t1 + 0x1);
-            if ((int)(short)(t1 + 0x1) > (int)0x14) {
-                (((struct o14_uchar *)(a4))->v) = 0x63;
-                t2 = 0x14;
-            }
-            return t2;
-        }
-        if (t0 == 99) {
-            return FUN_0c03f346(a4, a5, a6, a7);
-        }
-        return t0;
-    }
-    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-    FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0x0, 0x32, (*(int *)0xC4B410C));
-    (((struct oA8_uchar *)(a4))->v) = 0x1;
-    (((struct oAC_ushort *)(a4))->v) = 0x21F;
-    (((struct oA9_uchar *)(a4))->v) = 0x21;
-    *(volatile int *)((a4 + 0x10));
-    FUN_0c187798();
-    t0 = FUN_0c179ac0();
-    t1 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
-    if ((int)t0 >= 0) {
-        t1 = (t0 & 0xF);
-    }
-    t0 = FUN_0c179ac0();
-    t2 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
-    if ((int)t0 >= 0) {
-        t2 = (t0 & 0xF);
-    }
-    u0 = (((float)t2 * 360.0f) / 16.0f);
-    u1 = ((u0 * 65536.0f) / 360.0f);
-    u0 = (((float)t1 * 50.0f) / 16.0f);
-    u2 = ((((struct o28_float *)(a4))->v));
-    u2 = u2 + u0 * (math_cos_angle16(((int)(u1 + 0.5f) & 0xFFFF)));
-    (((struct o28_float *)(a4))->v) = u2;
-    u0 = (((float)t1 * 50.0f) / 16.0f);
-    u2 = ((((struct o2C_float *)(a4))->v));
-    u2 = u2 + u0 * (math_sin_angle16(((int)(u1 + 0.5f) & 0xFFFF)));
-    (((struct o2C_float *)(a4))->v) = u2;
-    t0 = FUN_0c179ac0();
-    t2 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
-    if ((int)t0 >= 0) {
-        t2 = (t0 & 0xF);
-    }
-    u0 = (((float)t2 * 360.0f) / 16.0f);
-    u1 = math_sin_angle16((0xFFFF & (int)((((u0 * 65536.0f) / 360.0f)) + 0.5f)));
-    u0 = (((float)t1 * 50.0f) / 16.0f);
-    u2 = ((((struct o30_float *)(a4))->v));
-    u2 = u2 + u0 * u1;
-    (((struct o30_float *)(a4))->v) = u2;
-    t0 = *(short *)((a4 + 0x1C));
-    if (((int)t0 >= 0) && ((int)t0 <= (int)0xA)) {
-        FUN_0c058a6e((0xB0 + a4), 0xC2A0CA0, 0xC2A0C90, (*(short *)((a4 + 0x1C))), 0xA, 0x0);
-        FUN_0c0588bc((a4 + 0x40), 0xC291EF8, 0xC291EEC, (*(short *)((a4 + 0x1C))), 0xA, 0x0);
-    }
-    t0 = *(short *)((a4 + 0x1C));
-    if (((int)t0 >= (int)0xA) && ((int)t0 <= (int)0x14)) {
-        FUN_0c058a6e((0xB0 + a4), 0xC2A0C90, 0xC2A0CA0, (*(short *)((a4 + 0x1C))), 0x14, 0xA);
-        FUN_0c0588bc((a4 + 0x40), 0xC291F04, 0xC291EF8, (*(short *)((a4 + 0x1C))), 0x14, 0xA);
-    }
-    t0 = *(short *)((a4 + 0x1C));
-    *(unsigned short *)((a4 + 0x1C)) = (t0 + 0x1);
-    t1 = (short)(t0 + 0x1);
-    if ((int)(short)(t0 + 0x1) > (int)0x14) {
-        (((struct o14_uchar *)(a4))->v) = 0x63;
-        t1 = 0x14;
-    }
-    return t1;
-}
-
-int FUN_0c11ab30(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register float u0;
-    register float u1;
-    register float u2;
-
-    t2 = *(int *)0xC473D00;
-    t3 = 0x3;
-    if (t2 != 0) {
-        t4 = 0x9;
-        if (t2 != 1) {
-            if (t2 != 2) {
-            } else {
-                t2 = 0x0;
-            }
-            t4 = t2;
-        }
-        t3 = t4;
-    }
-    if (((*(short *)(((*(int *)((a4 + 0x10))) + 0x1C))) == ((*(signed char *)((a4 + 0x2))) + 0x1)) && (t0 = *(signed char *)((a4 + 0x14)), (int)t0 < (int)0xA)) {
-        (((struct o14_uchar *)(a4))->v) = 0x63;
-    }
-    t0 = *(signed char *)((a4 + 0x14));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 == 2) {
-                *(unsigned short *)((a4 + 0x1E)) = ((*(short *)((a4 + 0x1E))) + 0x200);
-                t2 = (((struct o41C_short *)(a4))->v);
-                t4 = *(signed char *)((a4 + 0x2));
-                u0 = ((*(float *)(((((t2 << 1) + t2) << 2) + 0xC29FA30))) + ((((struct o4_float *)((0xC291F10 + (((((((t4 << 1) + t4) + t3) + 0x1) << 1) + ((((t4 << 1) + t4) + t3) + 0x1)) << 2))))->v)));
-                u0 = u0 + ((((struct o4_float *)0xC291FC4)->v)) * (math_sin_angle16((*(short *)((a4 + 0x1E)))));
-                (((struct o2C_float *)(a4))->v) = u0;
-                t2 = (((struct o20_short *)(a4))->v);
-                t4 = ((~(((~t2) + 0x1) & 0x1)) + 0x1);
-                if ((int)t2 >= 0) {
-                    t4 = (t2 & 0x1);
-                }
-                if (t4 == 0) {
-                    FUN_0c11a4c0(a4, ((((struct o22_short *)(a4))->v)));
-                    (((struct o22_ushort *)(a4))->v) = ((-((((struct o22_short *)(a4))->v))) + 0x1);
-                }
-                (((struct o20_ushort *)(a4))->v) = (((((struct o20_short *)(a4))->v)) + 0x1);
-                return 0x20;
-            }
-            if (t0 == 80) {
-                t2 = *(short *)((a4 + 0x1E));
-                if (((int)t2 >= 0) && ((int)t2 <= (int)0x1E)) {
-                    t2 = *(signed char *)((a4 + 0x2));
-                    FUN_0c0588bc((a4 + 0x28), ((((((((t2 << 1) + t2) + t3) + 0x2) << 1) + ((((t2 << 1) + t2) + t3) + 0x2)) << 2) + 0xC291F10), (a4 + 0x4C), (*(short *)((a4 + 0x1E))), 0x1E, 0x0);
-                    u0 = (((float)(*(short *)((a4 + 0x1E))) * 180.0f) / 30.0f);
-                    u1 = math_sin_angle16(((int)((((u0 * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF));
-                    u0 = ((((struct o2C_float *)(a4))->v));
-                    u0 = u0 + u1 * ((((struct o8_float *)0xC291FC4)->v));
-                    (((struct o2C_float *)(a4))->v) = u0;
-                    t2 = *(short *)((a4 + 0x1E));
-                    *(unsigned short *)((a4 + 0x1E)) = (t2 + 0x1);
-                    return (t2 + 0x1);
-                }
-                return FUN_0c03f346(a4, a5, a6, a7);
-            }
-            t2 = t0;
-            if (t0 == 99) {
-                *(unsigned short *)((a4 + 0x1E)) = 0x0;
-                t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-                (((struct o14_uchar *)(a4))->v) = 0x50;
-                t2 = 0x14;
-            }
-            return t2;
-        }
-        if (((*(short *)((a4 + 0x1E))) == 20) && (t1 = *(signed char *)((a4 + 0x2)), t1 == 0)) {
-            FUN_0c05a080(0x0, 0x0);
-        }
-        t0 = *(short *)((a4 + 0x1E));
-        if (((int)t0 >= 0) && ((int)t0 <= (int)0x1E)) {
-            t0 = *(signed char *)((a4 + 0x2));
-            FUN_0c0588bc((a4 + 0x28), ((((((((t0 << 1) + t0) + t3) + 0x1) << 1) + ((((t0 << 1) + t0) + t3) + 0x1)) << 2) + 0xC291F10), (((((((t0 << 1) + t0) + t3) << 1) + (((t0 << 1) + t0) + t3)) << 2) + 0xC291F10), (*(short *)((a4 + 0x1E))), 0x1E, 0x0);
-            t0 = (((struct o41C_short *)(a4))->v);
-            u0 = *(float *)(((0xC29FA30 + (((t0 << 1) + t0) << 2)) + 0x0));
-            u1 = (((float)(*(short *)((a4 + 0x1E))) * 180.0f) / 30.0f);
-            u2 = math_sin_angle16(((int)((((u1 * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF));
-            u1 = u0;
-            u1 = u1 + u2 * ((((struct o0_float *)0xC291FC4)->v));
-            (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)(a4))->v)) + u1);
-            t0 = *(short *)((a4 + 0x1E));
-            if (((int)t0 >= 0) && ((int)t0 <= (int)0x1E)) {
-                FUN_0c0588bc((a4 + 0x40), (a4 + 0x4C), 0xC2A0C78, (*(short *)((a4 + 0x1E))), 0x1E, 0x0);
-            }
-        }
-        t0 = *(short *)((a4 + 0x1E));
-        *(unsigned short *)((a4 + 0x1E)) = (t0 + 0x1);
-        t1 = (short)(t0 + 0x1);
-        if ((int)(short)(t0 + 0x1) <= (int)0x1E) {
-        } else {
-            (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-            *(unsigned short *)((a4 + 0x1E)) = 0x0;
-            t1 = 0x0;
-        }
-        return t1;
-    }
-    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    (((struct o40_float *)(a4))->v) = 0.699999988f;
-    (((struct o44_float *)(a4))->v) = 0.699999988f;
-    (((struct o48_float *)(a4))->v) = 0.699999988f;
-    *(volatile short *)(((0x41C + a4) + 0x0));
-    t0 = ((int (*)(void))(FUN_0c187798))();
-    FUN_0c118810(a4, ((((struct o41C_short *)(a4))->v)));
-    return (((int (*)(void))(FUN_0c187798))());
-}
-
 int FUN_0c11af18(int a4, int a5, int a6, int a7)
 {
     int stk[14];
@@ -347,8 +135,8 @@ int FUN_0c11af18(int a4, int a5, int a6, int a7)
                 t44 = *(short *)((a4 + 0x1C));
                 *(unsigned short *)((a4 + 0x1C)) = (t44 + 0x1);
                 if ((short)(t44 + 0x1) == 30) {
-                    *(volatile int *)((0xC473CCC + ((*(signed char *)((a4 + 0x2))) << 2)));
-                    t48 = ((int (*)(int, int))(FUN_0c187798))(t42, t43);
+                    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x34)) = *(struct mv3 *)(0xC29F12C + 12 * (*(int *)((0xC473CCC + ((*(signed char *)((a4 + 0x2))) << 2))))); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (a4) + 52, r2 0x0C29F12C + 12 * the word at r11 (0x0C473CCC) + 4 * the byte at a4 + 2 */
+                    t48 = 0;
                     (((struct o40_float *)(a4))->v) = 0.699999988f;
                     (((struct o44_float *)(a4))->v) = 0.699999988f;
                     (((struct o48_float *)(a4))->v) = 0.699999988f;
@@ -403,7 +191,8 @@ int FUN_0c11af18(int a4, int a5, int a6, int a7)
             t112 = t15;
             if (t15 == 99) {
                 *(unsigned short *)((a4 + 0x1E)) = 0x0;
-                t111 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
+                { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x4C)) = *(struct mv3 *)((a4 + 0x28)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (a4) + 76, r2 r14 + 40 */
+                t111 = 0;
                 (((struct o14_uchar *)(a4))->v) = 0x50;
                 t112 = 0x14;
             }
@@ -449,15 +238,17 @@ int FUN_0c11af18(int a4, int a5, int a6, int a7)
         return t161;
     }
     (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-    t165 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x40)) = *(struct mv3 *)(0xC2A0C84); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (a4) + 64, r2 0x0C2A0C84 */
+    t165 = 0;
     (((struct o40_float *)(a4))->v) = 0.699999988f;
     (((struct o44_float *)(a4))->v) = 0.699999988f;
     (((struct o48_float *)(a4))->v) = 0.699999988f;
     *(unsigned int *)(((int)stk + 8)) = 0xC473CD8;
-    *(volatile int *)0xC473CD8;
-    t168 = ((int (*)(void))(FUN_0c187798))();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x34)) = *(struct mv3 *)(0xC29F12C + 12 * (*(int *)0xC473CD8)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (a4) + 52, r2 0x0C29F12C + 12 * the word at r11 + 12 (0x0C473CD8) */
+    t168 = 0;
     FUN_0c118810(a4, (*(int *)(((*(int *)(((int)stk + 8))) + 0x0))));
-    t172 = ((int (*)(void))(FUN_0c187798))();
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x4C)) = *(struct mv3 *)((a4 + 0x40)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (a4) + 76, r2 r14 + 64 */
+    t172 = 0;
     if (((*(short *)((a4 + 0x1C))) == 20) && (t174 = *(signed char *)((a4 + 0x2)), t174 == 0)) {
         FUN_0c05a080(0x2, 0x0);
     }
@@ -497,3 +288,4 @@ int FUN_0c11af18(int a4, int a5, int a6, int a7)
     }
     return t210;
 }
+

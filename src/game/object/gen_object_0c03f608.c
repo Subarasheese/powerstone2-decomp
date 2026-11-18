@@ -14,19 +14,6 @@ int FUN_0c03f6be(int a4);
 int FUN_0c03f6de(int a4, int a5);
 int FUN_0c03f78a(int a4);
 
-int FUN_0c03f608(int a4)
-{
-    register int t1;
-
-    memset(a4, 0x0, 0x90);
-    t1 = *(int *)0xC3F3474;
-    *(unsigned int *)0xC3F3474 = (t1 + 0x1);
-    *(unsigned int *)(((((t1 + 0x1) - 1) << 2) + 0xC3F2A74)) = a4;
-    *(unsigned char *)((a4 + 0x0)) = (*(signed char *)0xC1B7A22);
-    *(unsigned short *)((a4 + 0x6)) = ((((struct o4_short *)0xC1B7A1C)->v));
-    (((struct o24_float *)(a4))->v) = ((((struct o0_float *)0xC1B7A1C)->v));
-    return (FUN_0c187798(0xC3F3474));
-}
 
 int FUN_0c03f6be(int a4)
 {
@@ -76,16 +63,5 @@ int FUN_0c03f6de(int a4, int a5)
     return t9;
 }
 
-int FUN_0c03f78a(int a4)
-{
-    register int t1;
 
-    memset(a4, 0x0, 0xA8);
-    t1 = *(int *)0xC3F8A78;
-    *(unsigned int *)0xC3F8A78 = (t1 + 0x1);
-    *(unsigned int *)(((((t1 + 0x1) - 1) << 2) + 0xC3F8878)) = a4;
-    *(unsigned char *)((a4 + 0x0)) = (*(signed char *)0xC1B7A22);
-    *(unsigned short *)((a4 + 0x6)) = ((((struct o4_short *)0xC1B7A1C)->v));
-    (((struct o24_float *)(a4))->v) = ((((struct o0_float *)0xC1B7A1C)->v));
-    return (FUN_0c187798(0xC3F8A78));
-}
+

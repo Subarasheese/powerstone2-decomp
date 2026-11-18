@@ -195,40 +195,7 @@ int FUN_0c0a7320(int a4, int a5, int a6, int a7);
 
 
 
-int gdFsDaPauseG(void)
-{
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
 
-    t2 = gdFsReopenHn((*(int *)(((*(int *)0xC346BD8) + 0x14))), 0x0, 0x0, 0x0);
-    t3 = 0xFFFFFFF3;
-    if (t2 != 0) {
-        t4 = _builtin_get_imask();
-        _builtin_set_imask(0xF);
-        t5 = ((int (*)(void))((*(int *)(((*(int *)(((*(int *)0xC346BD8) + 0xC))) + 0x30)))))();
-        if (t5 != 0) {
-            *(unsigned int *)((t2 + 0x3C)) = t5;
-            (((struct o50_ushort *)(t2))->v) = 0x4;
-            if ((((((struct o3A_short *)((*(int *)0xC346BD8)))->v)) != 0) && (t3 = *(int *)0xC346BD8, t1 = *(int *)((t3 + 0x2C)), (int)t1 >= (int)0x10001)) {
-                *(unsigned int *)((t2 + 0x4)) = 0xC7FE6FC;
-                (((struct o48_ushort *)(t2))->v) = 0x8;
-            } else {
-                (((struct o48_ushort *)(t2))->v) = 0x6;
-            }
-            *(unsigned int *)(((*(int *)((t2 + 0x0))) + 0x1C)) = t2;
-            t3 = ((int (*)(void))(((((struct o40_int *)((*(int *)(((*(int *)0xC346BD8) + 0xC)))))->v))))();
-        }
-        _builtin_set_imask(((unsigned int)(((t4 & 0xF) << 2) << 2) >> 4));
-        t3 = 0x0;
-        if (t5 == 0) {
-            t3 = 0xFFFFFFF3;
-        }
-    }
-    return t3;
-}
 
 
 int gdDcfRepStat_(int a4, int a5)

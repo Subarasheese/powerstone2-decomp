@@ -63,21 +63,4 @@ int FUN_0c120e24(int a4, int a5, float f4)
     return t0;
 }
 
-int FUN_0c120e9e(int a4, int a5)
-{
-    register int t0;
-    register int t5;
 
-    t0 = FUN_0c03f444(0x5, 0x0, 0x1);
-    t5 = t0;
-    if (t0 != 0) {
-        FUN_0c03744a(((((struct oC4_int *)(t0))->v)), 0x0, 0xA0, (*(int *)0xC4B410C));
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = 0x80;
-        *(unsigned char *)((t0 + 0x1)) = 0xFFFFFFFF;
-        *(unsigned int *)((t0 + 0x4)) = 0xC120E24;
-        t5 = (FUN_0c187798());
-    }
-    return t5;
-}

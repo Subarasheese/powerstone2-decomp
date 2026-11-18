@@ -68,19 +68,6 @@ int FUN_0c115292(int a4, int a5, int a6, float f4)
     return t13;
 }
 
-int FUN_0c11563c(int a4, int a5, int a6, float f4)
-{
-    int stk[4];
-    register float t6;
-    register int t1;
-
-    *(float *)(((int)stk + 0)) = f4;
-    FUN_0c187798(a4, a5, a6);
-    *(float *)(((int)stk + 4)) = (((((struct o0_float *)0xC473CA8)->v)) - ((((struct o28_float *)(t1))->v)));
-    *(float *)(((int)stk + 12)) = (((((struct o8_float *)0xC473CA8)->v)) - ((((struct o30_float *)(t1))->v)));
-    t6 = FUN_0c0e2340((((int)stk + 0) + 0x4));
-    return ((((*(float *)(((int)stk + 0))) > t6)) ? 1 : 0);
-}
 
 int FUN_0c115cc6(int a4, int a5, int a6, int a7, float f4)
 {
@@ -126,3 +113,5 @@ int FUN_0c115cc6(int a4, int a5, int a6, int a7, float f4)
     FUN_0c038566();
     return (res_cockpit_faces_release_all());
 }
+
+

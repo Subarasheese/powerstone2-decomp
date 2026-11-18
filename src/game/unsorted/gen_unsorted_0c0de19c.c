@@ -244,43 +244,4 @@ int FUN_0c0de19c(int a4, int a5, int a6, int a7, float f4)
     return t2;
 }
 
-int FUN_0c0de442(int a4, int a5, int a6)
-{
-    int stk[8];
-    register int t0;
-    register int t1;
-    register int t3;
-    register int t4;
-    register int t17;
 
-    *(unsigned int *)(((int)stk + 24)) = a4;
-    *(unsigned int *)(((int)stk + 20)) = a5;
-    *(unsigned int *)(((int)stk + 28)) = a6;
-    t0 = *(int *)(((int)stk + 20));
-    t1 = *(int *)0xC4B410C;
-    *(unsigned int *)(((int)stk + 16)) = (t0 << 2);
-    t3 = FUN_0c037320((*(int *)(((t0 << 2) + 0xC1CA2AC))), t1);
-    t4 = FUN_0c03f444(0x1, 0x0, t3);
-    t17 = t4;
-    if (t4 != 0) {
-        FUN_0c03733c(t4, (*(int *)(((*(int *)(((int)stk + 16))) + 0xC1CA2AC))), (*(int *)0xC4B410C));
-        *(unsigned int *)((t4 + 0x4)) = 0xC0DE19C;
-        *(unsigned char *)((t4 + 0x1)) = 0xFFFFFFFF;
-        (((struct oAC_ushort *)(t4))->v) = 0xF;
-        (((struct oA9_uchar *)(t4))->v) = 0x21;
-        *(unsigned char *)((t4 + 0x2)) = (*(signed char *)(((int)stk + 20)));
-        *(unsigned char *)((t4 + 0x3)) = (*(signed char *)(((int)stk + 28)));
-        FUN_0c07e420(t4, 0x4);
-        (((struct o48_float *)(t4))->v) = 1.0f;
-        (((struct o44_float *)(t4))->v) = 1.0f;
-        (((struct o40_float *)(t4))->v) = 1.0f;
-        *(int *)((int)stk + 12) = 0x0;
-        *(int *)((int)stk + 8) = 0x0;
-        *(int *)((int)stk + 4) = 0x0;
-        *(int *)((int)stk + 0) = 0x100;
-        FUN_0c064d24(t4, 0x2, (*(int *)(((*(int *)(((int)stk + 16))) + 0xC1CA2B4))), 0x1, 0x100, 0x0, 0x0, 0x0);
-        *(volatile int *)(((int)stk + 24));
-        t17 = (FUN_0c187798());
-    }
-    return t17;
-}

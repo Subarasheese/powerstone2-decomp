@@ -191,50 +191,6 @@ int res_model_release(int a4)
     return 0x0;
 }
 
-int FUN_0c035ca4(int a4, int a5)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-
-    t0 = (FUN_0c176b90(a5));
-    t1 = 0x0;
-    t2 = 0x0;
-    for (;;) {
-        if ((int)t2 >= (int)(*(int *)((a4 + 0xC)))) {
-            break;
-        }
-        t3 = a4;
-        t3 = (t3 + 0x10);
-        t3 = (t3 + (((t2 << 2) << 2) << 1));
-        t4 = 0x0;
-        t5 = (((t2 << 2) << 2) << 1);
-        for (;;) {
-            if ((int)t4 >= (int)(*(int *)((t3 + 0x18)))) {
-                break;
-            }
-            t5 = (*(int *)((t3 + 0x1C)));
-            t6 = (t4 * 0x3C);
-            t5 = (t5 + t6);
-            if ((*(int *)((t5 + 0x0))) != 0) {
-                t5 = 0xC17E260;
-                *(volatile int *)((((*(int *)((t3 + 0x1C))) + t6) + 0x0));
-                t0 = (FUN_0c17e260());
-                t1 = (t1 + t0);
-            } else {
-                t6 = t5;
-            }
-            t4 = (t4 + 0x1);
-            t5 = t6;
-        }
-        t2 = (t2 + 0x1);
-    }
-    return t1;
-}
 
 int res_model_register(int a4)
 {
@@ -319,50 +275,6 @@ int FUN_0c035e24(int a4)
     return 0x0;
 }
 
-int FUN_0c035e46(int a4, int a5)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-
-    t0 = (FUN_0c176b90(a5));
-    t1 = 0x0;
-    t2 = 0x0;
-    for (;;) {
-        if ((int)t2 >= (int)(*(int *)((a4 + 0xC)))) {
-            break;
-        }
-        t3 = a4;
-        t3 = (t3 + 0x10);
-        t3 = (t3 + (((t2 << 2) << 2) << 1));
-        t4 = 0x0;
-        t5 = (((t2 << 2) << 2) << 1);
-        for (;;) {
-            if ((int)t4 >= (int)(*(int *)((t3 + 0x18)))) {
-                break;
-            }
-            t5 = (*(int *)((t3 + 0x1C)));
-            t6 = (t4 * 0x3C);
-            t5 = (t5 + t6);
-            if ((*(int *)((t5 + 0x0))) != 0) {
-                t5 = 0xC17E0F0;
-                *(volatile int *)((((*(int *)((t3 + 0x1C))) + t6) + 0x0));
-                t0 = (FUN_0c17e0f0());
-                t1 = (t1 + t0);
-            } else {
-                t6 = t5;
-            }
-            t4 = (t4 + 0x1);
-            t5 = t6;
-        }
-        t2 = (t2 + 0x1);
-    }
-    return t1;
-}
 
 int FUN_0c036024(int a4)
 {

@@ -560,26 +560,3 @@ int FUN_0c116c12(int a4, int a5)
     return 0x0;
 }
 
-int FUN_0c116c2e(int a4, int a5, int a6)
-{
-    register int t0;
-
-    t0 = *(signed char *)(((a4 + 0x41C) + 0x2));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return t0;
-        }
-        t0 = ((int (*)(int, int, int))(FUN_0c037bf6))(0xC539708, a5, a6);
-    } else {
-        t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-        t0 = ((int (*)(void))(FUN_0c187798))();
-        t0 = *(signed char *)0xC539709;
-        FUN_0c07e79c(0xC539708, t0, 0x0, 0x14, (t0), 0x0, 0x14);
-        *(unsigned char *)(((a4 + 0x41C) + 0x2)) = ((*(signed char *)(((a4 + 0x41C) + 0x2))) + 0x1);
-        t0 = ((int (*)(int))(FUN_0c037bf6))(0xC539708);
-    }
-    if ((unsigned char)t0 != 0) {
-        return FUN_0c116c12(a4, 0x1);
-    }
-    return (unsigned char)t0;
-}

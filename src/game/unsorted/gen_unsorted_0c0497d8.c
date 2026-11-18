@@ -67,90 +67,6 @@ int FUN_0c04a408(void);
 int FUN_0c04a556(int a4, int a5, int a6, int a7);
 int FUN_0c04a5c4(int a4, int a5);
 
-int FUN_0c0497d8(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-    register int t8;
-    register int t9;
-    register int t10;
-    register int t11;
-    register int t12;
-    register int t13;
-
-    t0 = 0xC532498;
-    t1 = 0x0;
-    for (;;) {
-        if ((unsigned int)t0 >= (unsigned int)0xC540978) {
-            break;
-        }
-        t2 = (*(signed char *)((t0 + (0x3714))));
-        t0 = (t0 + 0x3938);
-        if (t2 != 0) {
-            t1 = (t1 + 0x1);
-        }
-    }
-    t0 = 0x0;
-    if (t1 != 1) {
-        t2 = 0x1;
-        if (t1 != 2) {
-            t3 = 0x3;
-            if (t1 != 3) {
-                t3 = 0x6;
-            }
-            t2 = t3;
-        }
-        t0 = t2;
-    }
-    t2 = t1;
-    t3 = 0xC1B7C64;
-    t4 = t0;
-    t5 = t0;
-    t6 = t1;
-    t1 = 0x0;
-    t7 = ((((t0 << 1) + t0) << 2) + 0xC1B7C64);
-    t0 = 0xC532498;
-    t8 = 0xC532498;
-    for (;;) {
-        if ((unsigned int)t0 >= (unsigned int)0xC540978) {
-            break;
-        }
-        t2 = 0x3714;
-        t3 = (*(signed char *)((t0 + t2)));
-        if (t3 != 0) {
-            t6 = 0x1D;
-            t1 = 0x0;
-            t5 = t8;
-            t2 = (FUN_0c085cac(t5, t6, t1, a7));
-            t4 = 0xC187798;
-            t3 = t7;
-            t2 = 0xC;
-            t2 = (FUN_0c187798());
-            t7 = (t7 + 0xC);
-            *(unsigned int *)((t8 + 0x38)) = 0x8000;
-        } else {
-            t9 = t3;
-            t10 = t4;
-            t11 = t5;
-            t12 = t6;
-            t13 = t1;
-        }
-        t0 = (t0 + 0x3938);
-        t3 = t9;
-        t4 = t10;
-        t5 = t11;
-        t6 = t12;
-        t1 = t13;
-        t8 = (t8 + 0x3938);
-    }
-    return t2;
-}
 
 int FUN_0c04987e(void)
 {
@@ -976,3 +892,5 @@ int FUN_0c04a5c4(int a4, int a5)
     (((struct o2_uchar *)0xC54235E)->v) = a5;
     return (*(int *)(((int)stk + 0)));
 }
+
+

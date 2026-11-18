@@ -1,0 +1,59 @@
+/* Library code: C that behaves like this game's own bytes. */
+/* NAOMI library and Katana glue, small functions (batch a). */
+
+extern float _builtin_sqrtf(float);
+
+extern void kmGetFreeTextureMem(int *a, int *b);
+extern void nlInitPalette(int a, int b);
+extern void kmSetPaletteMode(int m);
+extern void nlFogTableSet(float *t);   /* the NAOMI library's stub that jumps to kmSetFogTable */
+extern void nlPushMatrix(int a);
+extern void nlInvLightVector(int a);
+extern void nlMultiMatrixRevOrder8(void *a);
+extern void nlobjput_sub(void *a);
+extern void nlstripSetVertexContext(void *a);
+
+extern char gPaletteMode;
+extern int gPaletteModeTable[];
+extern short gNlPaletteCount;
+extern int gNlPaletteTable;
+extern unsigned int gNlPrintTileClipFlags;
+extern char gNlObjectMatrix[];
+
+
+
+void nlOuterProduct(float *a, float *b, float *out)
+{
+    out[2] = a[0] * b[1] - a[1] * b[0];
+    out[1] = a[2] * b[0] - a[0] * b[2];
+    out[0] = a[1] * b[2] - a[2] * b[1];
+}
+
+
+
+void nlObjPut(int *obj)
+{
+    if (!(obj[1] & 2))
+        nlInvLightVector(obj[1]);
+    nlPushMatrix(0);
+    nlMultiMatrixRevOrder8(gNlObjectMatrix);
+    nlobjput_sub(obj);
+}
+
+
+
+char *nlsndStreamGetHdInfo(char *p, int *out)
+{
+    *out = (unsigned char)p[7] << 4;
+    return p;
+}
+
+
+
+void nlsndStreamSetHdGain(char *p, int g)
+{
+    int i;
+
+    for (i = 0; i < 4; i++)
+        p[48 + 4 * i] = (char)g;
+}

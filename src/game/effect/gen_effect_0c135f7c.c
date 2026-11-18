@@ -26,38 +26,6 @@ int FUN_0c187798(void);
 int FUN_0c135f7c(int a4);
 int FUN_0c136098(int a4);
 
-int FUN_0c135f7c(int a4)
-{
-    register int t0;
-    register float u4;
-
-    t0 = FUN_0c03f444(0x5, 0x0, 0x1);
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC135D78;
-        FUN_0c187798();
-        FUN_0c187798();
-        u4 = *(float *)0xC1360F0;
-        (((struct o48_float *)(t0))->v) = u4;
-        (((struct o44_float *)(t0))->v) = u4;
-        (((struct o40_float *)(t0))->v) = u4;
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0x1F;
-        (((struct oA9_uchar *)(t0))->v) = 0x21;
-        thunk_FUN_0c058310(((*(int *)((((short)(*(signed char *)((a4 + 0x1))) * (short)0x3938) + 0xC53258C))) + 0x28), (t0 + 0x28));
-        FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0x2, (*(int *)((((*(signed char *)((t0 + 0x1))) << 2) + 0xC4B40FC))));
-        *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x1;
-        *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0x23F;
-        (((struct o84_float *)(((((struct oC4_int *)(t0))->v))))->v) = ((((struct o40_float *)(t0))->v));
-        (((struct o88_float *)(((((struct oC4_int *)(t0))->v))))->v) = ((((struct o44_float *)(t0))->v));
-        (((struct o8C_float *)(((((struct oC4_int *)(t0))->v))))->v) = ((((struct o48_float *)(t0))->v));
-        (((struct o18_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-        (((struct o1C_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-        (((struct o20_float *)(((((struct oC4_int *)(t0))->v))))->v) = 1.0f;
-        *(unsigned int *)((t0 + 0x10)) = a4;
-    }
-    return t0;
-}
 
 int FUN_0c136098(int a4)
 {

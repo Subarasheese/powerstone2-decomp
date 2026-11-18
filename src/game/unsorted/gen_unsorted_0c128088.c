@@ -17,30 +17,6 @@ int FUN_0c187798(void);
 int FUN_0c128088(int a4);
 int FUN_0c128112(int a4, int a5, int a6, int a7);
 
-int FUN_0c128088(int a4)
-{
-    register int t0;
-    register int t6;
-
-    t0 = FUN_0c03f258(0x1, 0x1);
-    t6 = t0;
-    if (t0 != 0) {
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC128112;
-        FUN_0c187798();
-        (((struct oAC_ushort *)(t0))->v) = 0x1F;
-        (((struct oA9_uchar *)(t0))->v) = 0x0;
-        (((struct o48_float *)(t0))->v) = 0.0f;
-        (((struct o44_float *)(t0))->v) = 0.0f;
-        (((struct o40_float *)(t0))->v) = 0.0f;
-        FUN_0c07e2f4(t0, 0x68);
-        (((struct o48_float *)(t0))->v) = 1.0f;
-        (((struct o44_float *)(t0))->v) = 1.0f;
-        (((struct o40_float *)(t0))->v) = 1.0f;
-        t6 = (FUN_0c064d24(t0, 0x1, 0x43, 0x1, 0x100, (~((int)0x1 << (int)(*(signed char *)((t0 + 0x1))))), 0x0, 0x0));
-    }
-    return t6;
-}
 
 int FUN_0c128112(int a4, int a5, int a6, int a7)
 {
@@ -91,3 +67,5 @@ int FUN_0c128112(int a4, int a5, int a6, int a7)
     *(unsigned short *)((v0_0 + 0x1C)) = 0xA;
     goto L_C12812E;
 }
+
+

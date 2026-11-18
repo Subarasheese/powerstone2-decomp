@@ -445,62 +445,6 @@ int FUN_0c0669cc(int a4, int a5)
     return t0;
 }
 
-int FUN_0c066a14(int a4, int a5, int a6)
-{
-    int stk[7];
-    register int t0;
-    register int t2;
-    register int t10;
-    register float t11;
-    register float t32;
-    register float t53;
-    register int t3;
-    register int t67;
-
-    *(unsigned int *)(((int)stk + 0)) = a4;
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(a4, a5, a6);
-    *(volatile int *)(((int)stk + 0));
-    t2 = ((int (*)(void))(FUN_0c187798))();
-    *(float *)(((int)stk + 4)) = (((((struct o8_float *)(t3))->v)) - ((((struct o8_float *)(a5))->v)));
-    *(float *)(((int)stk + 12)) = (((((struct o8_float *)((t3 + 0x8)))->v)) - ((((struct o8_float *)((a5 + 0x8)))->v)));
-    *(float *)(((int)stk + 8)) = (((((struct o4_float *)((t3 + 0x8)))->v)) - ((((struct o4_float *)((a5 + 0x8)))->v)));
-    t10 = *(signed char *)((a5 + 0x1));
-    if (t10 != 0) {
-        if (t10 != 1) {
-            t67 = t10;
-            if (t10 != 2) {
-            } else {
-                t11 = FUN_0c0e2340((((int)stk + 0) + 0x4));
-                if (t11 != 0.0f) {
-                    FUN_0c17c4d0((((int)stk + 0) + 0x4));
-                    *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 4))) * ((((struct o14_float *)(a5))->v)));
-                    *(float *)(((int)stk + 24)) = ((*(float *)(((int)stk + 12))) * ((((struct o14_float *)(a5))->v)));
-                    *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 8))) * ((((struct o18_float *)(a5))->v)));
-                }
-                t67 = (math_vec3_accumulate((*(int *)(((int)stk + 0))), (((int)stk + 0) + 0x10)));
-            }
-        } else {
-            t32 = FUN_0c0e2340((((int)stk + 0) + 0x4));
-            if (t32 != 0.0f) {
-                FUN_0c17c4d0((((int)stk + 0) + 0x4));
-                *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 4))) * ((((struct o14_float *)(a5))->v)));
-                *(float *)(((int)stk + 24)) = ((*(float *)(((int)stk + 12))) * ((((struct o1C_float *)(a5))->v)));
-                *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 8))) * ((((struct o18_float *)(a5))->v)));
-            }
-            t67 = (math_vec3_accumulate((*(int *)(((int)stk + 0))), (((int)stk + 0) + 0x10)));
-        }
-    } else {
-        t53 = FUN_0c0e2340((((int)stk + 0) + 0x4));
-        if (t53 != 0.0f) {
-            FUN_0c17c4d0((((int)stk + 0) + 0x4));
-            *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 4))) * ((((struct o14_float *)(a5))->v)));
-            *(float *)(((int)stk + 24)) = ((*(float *)(((int)stk + 12))) * ((((struct o14_float *)(a5))->v)));
-            *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 8))) * ((((struct o14_float *)(a5))->v)));
-        }
-        t67 = (math_vec3_accumulate((*(int *)(((int)stk + 0))), (((int)stk + 0) + 0x10)));
-    }
-    return t67;
-}
 
 int FUN_0c066b5c(int a4, int a5, int a6, int a7, int a8)
 {

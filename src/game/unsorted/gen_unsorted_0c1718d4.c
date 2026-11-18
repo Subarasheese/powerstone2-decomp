@@ -33,27 +33,6 @@ int FUN_0c171962(int a4, int a5, int a6, int a7);
 int FUN_0c171984(int a4, int a5, int a6, int a7, float f4);
 int FUN_0c171ebe(int a4);
 
-int FUN_0c1718d4(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    int t4;
-    register int t2;
-    register int t3;
-    register int t10;
-    register int t6;
-    register int t8;
-
-    t0 = ((int (*)(int, int, int, int))(FUN_0c18778c))(a4, a5, a6, (((short)(signed char)a5 * (short)0x58) + 0xC475DC8));
-    t1 = ((int (*)(void))(FUN_0c18778c))();
-    t4 = *(signed char *)((t3 + 0x1));
-    if ((t4 != 6) && ((t4 != 7) && (t4 != 8))) {
-        t10 = (FUN_0c187798(t6, t2, ((((signed char)t2 << 1) + (signed char)t2) << 2)));
-    } else {
-        t10 = (FUN_0c187798(t8, t2, ((((signed char)t2 << 1) + (signed char)t2) << 2)));
-    }
-    return t10;
-}
 
 int FUN_0c171962(int a4, int a5, int a6, int a7)
 {
@@ -385,3 +364,5 @@ int FUN_0c171ebe(int a4)
     }
     return t2;
 }
+
+

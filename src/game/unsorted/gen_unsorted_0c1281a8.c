@@ -28,47 +28,6 @@ int FUN_0c187798(void);
 int FUN_0c1281a8(int a4, int a5);
 int FUN_0c12825a(int a4, int a5, int a6, int a7);
 
-int FUN_0c1281a8(int a4, int a5)
-{
-    int stk[1];
-    register int t2;
-    register int t3;
-    register int t20;
-    register int t7;
-    register int t8;
-    register int t18;
-    register float u13;
-    register int t16;
-
-    *(unsigned char *)(((int)stk + 0)) = a5;
-    t2 = FUN_0c037320(0x2, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-    t3 = FUN_0c03f444(0x5, 0x0, t2);
-    t20 = t3;
-    if (t3 != 0) {
-        *(unsigned int *)((t3 + 0x4)) = 0xC12825A;
-        *(unsigned char *)((t3 + 0x1)) = 0xFFFFFFFF;
-        *(unsigned int *)((t3 + 0x10)) = a4;
-        FUN_0c03733c(t3, 0x2, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-        (((struct oA8_uchar *)(t3))->v) = 0x1;
-        (((struct oAC_ushort *)(t3))->v) = 0xF;
-        (((struct oA9_uchar *)(t3))->v) = 0x21;
-        t7 = ((int (*)(int))(FUN_0c187798))(0x1);
-        t8 = ((int (*)(void))(FUN_0c187798))();
-        if ((*(signed char *)(((int)stk + 0))) == 0) {
-            u13 = ((((struct o0_float *)0xC1282B4)->v));
-        } else {
-            u13 = ((((struct o4_float *)0xC1282B4)->v));
-        }
-        *(unsigned char *)((((((struct oC4_int *)(t3))->v)) + 0x0)) = t16;
-        *(unsigned short *)((((((struct oC4_int *)(t3))->v)) + 0x6)) = 0x1F;
-        t18 = (((struct oC4_int *)(t3))->v);
-        (((struct o88_float *)(t18))->v) = u13;
-        (((struct o84_float *)(t18))->v) = u13;
-        (((struct o8C_float *)(((((struct oC4_int *)(t3))->v))))->v) = 0.0f;
-        t20 = 0x8C;
-    }
-    return t20;
-}
 
 int FUN_0c12825a(int a4, int a5, int a6, int a7)
 {

@@ -133,53 +133,6 @@ float FUN_0c07035a(int a4, float f4, float f5, float f6, float f7)
     return (u2 * (u1 / u0));
 }
 
-float FUN_0c07043c(int a4, int a5, int a6, float f4, float f5, float f6, float f7)
-{
-    int stk[5];
-    register float t5;
-    register float u9;
-    register float u12;
-    register float u14;
-    register float u15;
-    register float u17;
-    register float u19;
-    register float u24;
-    register float t28;
-
-    *(float *)(((int)stk + 0)) = f6;
-    FUN_0c187798(a4, a5, a6);
-    *(float *)(((int)stk + 8)) = ((*(float *)(((int)stk + 8))) - ((((struct o28_float *)(a4))->v)));
-    *(float *)(((int)stk + 12)) = 0.0f;
-    *(float *)(((int)stk + 16)) = ((*(float *)(((int)stk + 16))) - ((((struct o30_float *)(a4))->v)));
-    t5 = FUN_0c0e2340((((int)stk + 0) + 0x8));
-    u9 = t5;
-    if ((*(signed char *)((a4 + 0x2))) == 4) {
-        u9 = (t5 + (*(float *)0xC0705A8));
-    }
-    u12 = u9;
-    if (!(u9 > f7)) {
-        u12 = f7;
-    }
-    u14 = *(float *)(((int)stk + 0));
-    u15 = u12;
-    if (!(u14 > u12)) {
-        u15 = u14;
-    }
-    u17 = (f5 * (-(f4 / f5)));
-    u19 = (u17 * (-(f4 / f5)));
-    (((struct o3790_float *)(a4))->v) = (((((f4 * (-(f4 / f5)))) - u19) / (1.0f + 1.0f)) + _builtin_fabsf((((((struct o2C_float *)(a4))->v)) - ((((struct o3810_float *)(a4))->v)))));
-    *(unsigned int *)(((int)stk + 4)) = (0x3790 + a4);
-    (((struct o4_float *)((0x3790 + a4)))->v) = ((math_signed_sqrt(((((((struct o3790_float *)(a4))->v)) * (1.0f + 1.0f)) / (-f5)))) + (-(f4 / f5)));
-    u24 = (((struct o3794_float *)(a4))->v);
-    (((struct o4C_float *)(a4))->v) = ((math_sin_angle16((*(int *)((a4 + 0x38))))) * (u15 / u24));
-    t28 = math_cos_angle16((*(int *)((a4 + 0x38))));
-    (((struct o54_float *)(a4))->v) = (t28 * (u15 / u24));
-    (((struct o50_float *)(a4))->v) = f4;
-    (((struct o5C_float *)(a4))->v) = f5;
-    (((struct o60_float *)(a4))->v) = 0.0f;
-    (((struct o58_float *)(a4))->v) = 0.0f;
-    return (t28 * (u15 / u24));
-}
 
 float FUN_0c07053a(int a4, int a5, float f4)
 {

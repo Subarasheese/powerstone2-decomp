@@ -1023,14 +1023,7 @@ int FUN_0c110ea8(void)
 }
 
 
-int mpdrv_set_end_ns(void)
-{
-    register int t1;
 
-    t1 = (((struct oFCC_int *)((*(int *)0xC843924)))->v);
-    *(unsigned int *)((t1 + 0x0)) = ((*(int *)((t1 + 0x0))) | 0x80000000);
-    return 0x0;
-}
 
 
 void fmMngClearBuf(int a4, int a5)
@@ -1187,10 +1180,7 @@ int gdDcfDaPause_(void)
 }
 
 
-int mpdrv_get_timeout(void)
-{
-    return (unsigned short)(short)((unsigned int)((((struct o10C0_int *)((*(int *)0xC843924)))->v)) >> 16);
-}
+
 
 
 int mpdrv_recognize(int a4)

@@ -338,22 +338,7 @@ int FUN_0c0f2486(int a4, int a5)
 }
 
 
-int FUN_0c1059ac(int a4, int a5, int a6)
-{
-    int stk[2];
-    register int t1;
-    register int t2;
-    register int t3;
 
-    *(unsigned int *)(((int)stk + 0)) = (FUN_0c0eb6cc(a4, a5, a6));
-    t1 = FUN_0c0ed9c0(0x1A05E, (((int)stk + 0) + 0x4), 0x2);
-    if ((t1 == 0) && ((t2 = *(signed char *)(((((int)stk + 0) + 0x4) + 0x0)), (unsigned char)t2 != 0xFF) || (t3 = *(signed char *)(((((int)stk + 0) + 0x4) + 0x1)), (unsigned char)t3 != 0xFF))) {
-        (((struct o0_uchar *)0x8C000070)->v) = (*(signed char *)(((((int)stk + 0) + 0x4) + 0x0)));
-        (((struct o1_uchar *)0x8C000070)->v) = (*(signed char *)(((((int)stk + 0) + 0x4) + 0x1)));
-        cache_writeback_range(0x8C000070, 0x2);
-    }
-    return (*(int *)(((int)stk + 0)));
-}
 
 
 int mpdrv_clear_deviceinfo(int a4)
@@ -493,22 +478,7 @@ int fmMngNum2Bit(int a4, int a5, int a6)
 }
 
 
-int syRtcGetDate(int a4)
-{
-    register int t1;
 
-    if ((((((struct o4_int *)0xC7FD0C8)->v)) & 0x1) == 1) {
-        t1 = syRtcGetCountForce();
-        syRtcCountToDate(t1, a4);
-        (((struct o0_uint *)0xC7FD0C8)->v) = t1;
-    } else {
-        syRtcCountToDate(((((struct o0_int *)0xC7FD0C8)->v)), a4);
-    }
-    *(volatile signed char *)((a4 + 0x3));
-    *(unsigned char *)((a4 + 0x7)) = (syRtcMakeDayOfWeek((*(short *)((a4 + 0x0))), (*(signed char *)((a4 + 0x2)))));
-    *(unsigned char *)((a4 + 0x8)) = (syRtcMakeAgeOfMoon());
-    return ((((struct o4_int *)0xC7FD0C8)->v));
-}
 
 
 int gdFsSeek(int a4, int a5, int a6)

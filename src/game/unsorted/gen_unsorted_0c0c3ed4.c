@@ -27,20 +27,6 @@ int FUN_0c187798(int, int, int);
 int FUN_0c0c3ed4(int a4, int a5, int a6);
 int FUN_0c0c3f22(int a4, int a5, int a6);
 
-int FUN_0c0c3ed4(int a4, int a5, int a6)
-{
-    int stk[3];
-
-    FUN_0c187798(a4, a5, a6);
-    if (((((struct oA4_int *)(a4))->v)) != 0) {
-        math_mat_get_translate(((((struct oA4_int *)(a4))->v)), ((int)stk + 0));
-    }
-    if ((*(float *)0xC541098) > (*(float *)(((int)stk + 4)))) {
-        FUN_0c0c2d56(a4, 0xB, 0x0);
-        return 0x1;
-    }
-    return 0x0;
-}
 
 int FUN_0c0c3f22(int a4, int a5, int a6)
 {
@@ -96,3 +82,5 @@ int FUN_0c0c3f22(int a4, int a5, int a6)
     }
     return t0;
 }
+
+

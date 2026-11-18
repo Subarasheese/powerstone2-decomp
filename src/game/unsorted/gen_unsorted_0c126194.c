@@ -22,34 +22,6 @@ int FUN_0c187798(void);
 int FUN_0c126194(int a4);
 int FUN_0c126220(int a4, int a5, int a6);
 
-int FUN_0c126194(int a4)
-{
-    register int t0;
-    register int t1;
-    register float u0;
-
-    t0 = FUN_0c037320(0xA, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-    t1 = FUN_0c03f444(0x1, 0x0, t0);
-    t0 = t1;
-    if (t1 != 0) {
-        FUN_0c03733c(t1, 0xA, (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-        *(unsigned char *)((t1 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        (((struct oAC_ushort *)(t1))->v) = 0x235;
-        (((struct oA9_uchar *)(t1))->v) = 0x21;
-        *(unsigned int *)((t1 + 0x4)) = 0xC126220;
-        u0 = *(float *)0xC1262B8;
-        (((struct o48_float *)(t1))->v) = u0;
-        (((struct o44_float *)(t1))->v) = u0;
-        (((struct o40_float *)(t1))->v) = u0;
-        (((struct oBC_float *)(t1))->v) = 1.0f;
-        (((struct oB8_float *)(t1))->v) = 1.0f;
-        (((struct oB4_float *)(t1))->v) = 1.0f;
-        (((struct o22_ushort *)(t1))->v) = 0x0;
-        t0 = FUN_0c187798();
-        *(unsigned int *)((t1 + 0x38)) = 0x8000;
-    }
-    return t0;
-}
 
 int FUN_0c126220(int a4, int a5, int a6)
 {
@@ -149,3 +121,5 @@ int FUN_0c126220(int a4, int a5, int a6)
     (((struct oA8_uchar *)(v0_0))->v) = 0x1;
     goto L_C126246;
 }
+
+

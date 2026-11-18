@@ -25,60 +25,6 @@ int FUN_0c187798(void);
 int FUN_0c126618(int a4);
 int FUN_0c126708(int a4, int a5, int a6, int a7);
 
-int FUN_0c126618(int a4)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register float u0;
-    register float u1;
-
-    t0 = FUN_0c03f444(0x5, 0x1, 0x2);
-    t1 = t0;
-    if (t0 != 0) {
-        u0 = (((struct o0_float *)0xC126750)->v);
-        u1 = (((struct o4_float *)0xC126750)->v);
-        t2 = 0x0;
-        for (;;) {
-            if ((int)t2 >= (int)((((struct oC0_int *)(t0))->v))) {
-                break;
-            }
-            t3 = t2;
-            t3 = (t3 << 2);
-            t4 = t2;
-            t3 = (t3 + (0xC4 + t0));
-            t4 = (t4 << 2);
-            t4 = (t4 << 1);
-            t4 = (t4 + 0xC201B00);
-            t3 = (*(int *)((t3 + 0x0)));
-            FUN_0c03744a(t3, (*(int *)((t4 + 0x0))), (*(int *)((t4 + 0x4))), (*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC))));
-            t4 = t2 == 0;
-            t2 = (t2 + 0x1);
-            if (t4) {
-                t4 = 0x468;
-                t4 = (t4 + a4);
-                (((struct o68_uint *)(t3))->v) = (((((short)(*(signed char *)((a4 + 0x371A))) * (short)(0x10E0)) + t4) + 0x2D0) + 0x28);
-            } else {
-                (((struct o74_float *)(t3))->v) = u0;
-                (((struct o90_float *)(t3))->v) = 0.0f;
-                (((struct o94_float *)(t3))->v) = u1;
-                (((struct o98_float *)(t3))->v) = 1.0f;
-            }
-        }
-        (((struct oA8_uchar *)(t0))->v) = 0x1;
-        (((struct oAC_ushort *)(t0))->v) = 0xF;
-        (((struct oA9_uchar *)(t0))->v) = (*(signed char *)((a4 + 0xA9)));
-        *(unsigned char *)((t0 + 0x1)) = (*(signed char *)((a4 + 0x1)));
-        *(unsigned int *)((t0 + 0x4)) = 0xC126708;
-        FUN_0c187798();
-        t2 = FUN_0c187798();
-        *(unsigned int *)((t0 + 0x10)) = a4;
-        t1 = t2;
-    }
-    return t1;
-}
 
 int FUN_0c126708(int a4, int a5, int a6, int a7)
 {

@@ -443,17 +443,7 @@ int FUN_0c0fdea0(int a4);
 
 
 /* nlLoadMatrix8(m): XMTRX from the 16 floats at m (8-aligned: moved in pairs, in order); 0: the stack's top */
-void nlLoadMatrix8(int a4)
-{
-    float *m = (float *)(a4 == 0 ? *(int *)0xC7FCCBC : a4);
-    float x[16];
-    int i;
 
-    for (i = 0; i < 16; i++) {
-        x[i] = m[i];
-    }
-    _builtin_ld_ext((float (*)[4])x);
-}
 
 
 int mpdrv_set_ft4ctrl_ns(int a4, int a5)

@@ -336,16 +336,7 @@ int FUN_0c011a70(void);
 
 
 
-int gdFsReadWG(int a4, int a5, int a6)
-{
-    register int t3;
 
-    t3 = gdFsReopenHn((*(int *)(((*(int *)0xC346BD8) + 0x14))), 0x0, a4, (((a5 << 8) << 2) << 1));
-    if (t3 == 0) {
-        return 0xFFFFFFF3;
-    }
-    return (gdFsRead(t3, a5, a6));
-}
 
 
 float FUN_0c0e22e0(int a4, int a5, float f4)

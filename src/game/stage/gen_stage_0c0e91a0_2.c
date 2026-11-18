@@ -34,10 +34,6 @@ int FUN_0c187798(int, int, int);
 int FUN_0c0e9220(int a4, int a5, int a6);
 void FUN_0c0e9596(int a4, int a5, int a6);
 
-int FUN_0c0e9220(int a4, int a5, int a6)
-{
-    return (FUN_0c187798(a4, a5, a6));
-}
 
 void FUN_0c0e9596(int a4, int a5, int a6)
 {
@@ -490,3 +486,5 @@ void FUN_0c0e9596(int a4, int a5, int a6)
         }
     }
 }
+
+

@@ -152,21 +152,6 @@ int FUN_0c07a0f4(int a4)
     return t40;
 }
 
-int FUN_0c07a208(int a4)
-{
-    thunk_FUN_0c058310(((*(int *)((((short)(*(signed char *)((a4 + 0x1))) * (short)0x3938) + 0xC532564))) + 0x28), (a4 + 0x28));
-    FUN_0c074602(a4);
-    (((struct o5C_float *)(a4))->v) = (((((struct o5C_float *)(a4))->v)) / 10.0f);
-    FUN_0c07e79c(a4, 0xFFFFFFFF, 0x4, 0x30, 0xFFFFFFFF, 0x4, 0x30);
-    FUN_0c037bf6(a4);
-    (((struct o372C_uchar *)(a4))->v) = 0x0;
-    (((struct o3726_uchar *)(a4))->v) = 0x0;
-    *(unsigned short *)((a4 + 0x1C)) = 0x78;
-    *(unsigned short *)((a4 + 0x1E)) = 0x3;
-    FUN_0c187798(0x0);
-    (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
-    return 0x16;
-}
 
 int FUN_0c07a286(int a4)
 {
@@ -536,3 +521,5 @@ int FUN_0c07ac3a(int a4, int a5, int a6)
     }
     return FUN_0c07aa24(a4);
 }
+
+

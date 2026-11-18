@@ -8,10 +8,6 @@ int FUN_0c187798(int, int, int);
 int FUN_0c137f74(int a4, int a5, int a6);
 int FUN_0c1382ba(int a4);
 
-int FUN_0c137f74(int a4, int a5, int a6)
-{
-    return (FUN_0c187798(a4, a5, a6));
-}
 
 int FUN_0c1382ba(int a4)
 {
@@ -30,3 +26,5 @@ int FUN_0c1382ba(int a4)
     }
     return t4;
 }
+
+

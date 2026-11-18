@@ -100,11 +100,6 @@ int FUN_0c0d60f8(int a4)
     return 0xC472A80;
 }
 
-int FUN_0c0d613e(int a4, int a5, int a6)
-{
-    *(volatile signed char *)0xC54223C;
-    return (FUN_0c187798(a4, (((a5 << 1) + a5) << 2), a6));
-}
 
 int FUN_0c0d6176(void)
 {
@@ -763,3 +758,5 @@ void FUN_0c0d6d7a(void)
 {
     
 }
+
+

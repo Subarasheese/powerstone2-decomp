@@ -284,55 +284,6 @@ int FUN_0c0f8c10(int a4)
     return t0;
 }
 
-int FUN_0c0f8ca0(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register float u0;
-
-    t1 = a5;
-    if ((*(signed char *)((a4 + 0x14))) == 0) {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-        (((struct o15_uchar *)(a4))->v) = 0x0;
-        (((struct oBC_float *)(a4))->v) = 0.0f;
-        (((struct oB8_float *)(a4))->v) = 0.0f;
-        (((struct oB4_float *)(a4))->v) = 0.0f;
-        *(unsigned short *)((a4 + 0x1C)) = (*(short *)((0xC1FB528 + ((*(signed char *)((a4 + 0x2))) << 1))));
-        *(unsigned short *)((a4 + 0x1E)) = 0x0;
-        t1 = 0x0;
-    }
-    t2 = *(signed char *)((a4 + 0x15));
-    if (t2 != 0) {
-        if (t2 != 1) {
-            return t2;
-        }
-        (((struct oBC_float *)(a4))->v) = (((((struct oBC_float *)(a4))->v)) - 0.0500000007f);
-        if (!(((((struct oBC_float *)(a4))->v)) > 0.0f)) {
-            return FUN_0c03f346(a4, t1, a6, a7);
-        }
-        u0 = (((struct oBC_float *)(a4))->v);
-        (((struct oB8_float *)(a4))->v) = u0;
-        (((struct oB4_float *)(a4))->v) = u0;
-        return 0xB4;
-    }
-    t2 = *(short *)((a4 + 0x1C));
-    *(unsigned short *)((a4 + 0x1C)) = (t2 - 1);
-    if ((int)(short)(t2 - 1) <= 0) {
-        (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-        (((struct oBC_float *)(a4))->v) = 1.0f;
-        (((struct oB8_float *)(a4))->v) = 1.0f;
-        (((struct oB4_float *)(a4))->v) = 1.0f;
-        *(volatile signed char *)((a4 + 0x2));
-        FUN_0c187798(a4, t1, a6);
-        t1 = 0x2;
-        if ((*(signed char *)((t0 + 0x2))) != 0) {
-            t1 = 0x1;
-        }
-        return thunk_FUN_0c05abb2(t1, 0x0);
-    }
-    return (short)(t2 - 1);
-}
 
 int FUN_0c0f8d64(int a4)
 {

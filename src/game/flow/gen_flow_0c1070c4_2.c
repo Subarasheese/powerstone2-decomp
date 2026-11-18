@@ -15,25 +15,6 @@ int FUN_0c187798(void);
 int FUN_0c10726e(void);
 int FUN_0c107310(int a4, int a5, int a6);
 
-int FUN_0c10726e(void)
-{
-    int stk[2];
-    register int t4;
-    register int t5;
-
-    bgm_stop_slot(0x0);
-    FUN_0c187798();
-    FUN_0c187798();
-    FUN_0c115120(0x8, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
-    t4 = (((struct o0_int *)0xC5325B0)->v);
-    (((struct o98_float *)(t4))->v) = 8.0f;
-    (((struct o94_float *)(t4))->v) = 8.0f;
-    t5 = (((struct o4_int *)0xC5325B0)->v);
-    (((struct o98_float *)(t5))->v) = 8.0f;
-    (((struct o94_float *)(t5))->v) = 8.0f;
-    FUN_0c056e44(0x23, 0x7);
-    return FUN_0c106510();
-}
 
 int FUN_0c107310(int a4, int a5, int a6)
 {
@@ -57,3 +38,5 @@ int FUN_0c107310(int a4, int a5, int a6)
     }
     return FUN_0c1070c4(a4, a5, a6);
 }
+
+

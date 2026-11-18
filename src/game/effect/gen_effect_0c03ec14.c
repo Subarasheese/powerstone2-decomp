@@ -18,21 +18,6 @@ extern int FUN_0c187798();
 int FUN_0c03ec14(int a4, int a5, int a6);
 int FUN_0c03ec80(int a4, int a5, int a6);
 
-int FUN_0c03ec14(int a4, int a5, int a6)
-{
-    int stk[6];
-    register int t0;
-    register int t2;
-    register int t1;
-
-    (((struct o2C_float *)(a4))->v) = 1.0f;
-    t0 = ((int (*)(int, int, int))(FUN_0c187798))(((a5 * 0x2F8) + 0xC5410FC), a5, a6);
-    t2 = ((int (*)(int))(FUN_0c187798))(t1);
-    FUN_0c0e2390((a4 + 0x4), (((int)stk + 0) + 0xC), ((int)stk + 0));
-    FUN_0c17c450((a4 + 0x4));
-    (((struct o4_float *)((a4 + 0x4)))->v) = (((((struct o4_float *)((a4 + 0x4)))->v)) + ((((struct o14_float *)(a4))->v)));
-    return (FUN_0c17c450((a4 + 0x4)));
-}
 
 int FUN_0c03ec80(int a4, int a5, int a6)
 {

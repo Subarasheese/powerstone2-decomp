@@ -41,6 +41,7 @@ int FUN_0c05a68a(float f4);
 void FUN_0c05a7f8(void);
 int FUN_0c05aa9c(int a4);
 int FUN_0c05aab2(void);
+int FUN_0c05a820(int a4, int a5, int a6, int a7);
 int FUN_0c05aab6(int a4, int a5);
 int FUN_0c05aad0(int a4, int a5, int a6);
 int FUN_0c05aae4(int a4, int a5);

@@ -52,17 +52,6 @@ int FUN_0c058514(int a4, int a5)
     return t0;
 }
 
-int FUN_0c058542(int a4, int a5, int a6, float f4)
-{
-    int stk[3];
-
-    FUN_0c187798(a4, a5, a6);
-    *(float *)(((int)stk + 8)) = f4;
-    nlUnitMatrix();
-    nlRotateAY((*(int *)((a4 + 0x38))));
-    nlRotateAX((*(int *)((a4 + 0x34))));
-    return (nlCalcPoint(((int)stk + 0), (a4 + 0x4C)));
-}
 
 int FUN_0c058716(int a4, int a5)
 {
@@ -96,3 +85,5 @@ void FUN_0c05883a(int a4, int a5, int a6, float f4, float f5, float f6)
 {
     *(float *)((a4 + 0x0)) = (((((f6 - (float)a6) * (f4 - f5)) / ((float)a5 - (float)a6))) + f5);
 }
+
+

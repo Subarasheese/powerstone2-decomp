@@ -195,22 +195,6 @@ int FUN_0c1155b6(void)
     return FUN_0c11e1e0(0xC532498, (*(signed char *)0xC532499), 0x6, 0x38);
 }
 
-int FUN_0c1155d0(int a4, int a5, int a6, float f4)
-{
-    int stk[4];
-    register float u3;
-    register float u4;
-    register int t6;
-
-    *(float *)(((int)stk + 0)) = f4;
-    FUN_0c187798(a4, a5, a6);
-    (((struct o4_float *)(((int)stk + 0)))->v) = (((((struct o0_float *)0xC473CA8)->v)) - ((((struct o28_float *)(a4))->v)));
-    u3 = (((struct o30_float *)(a4))->v);
-    u4 = (((struct o8_float *)0xC473CA8)->v);
-    (((struct o8_float *)((((int)stk + 0) + 0x4)))->v) = (u4 - u3);
-    t6 = math_atan2_angle16(0xC473CA8, ((((struct o4_float *)(((int)stk + 0)))->v)), (u4 - u3));
-    return (FUN_0c058854((a4 + 0x38), t6, (*(int *)((a4 + 0x38))), ((int)(((((*(float *)(((int)stk + 0))) * ((((struct o0_float *)0xC115700)->v))) / ((((struct o4_float *)0xC115700)->v)))) + ((((struct o8_float *)0xC115700)->v))) & 0xFFFF)));
-}
 
 int FUN_0c115976(void)
 {
@@ -293,3 +277,5 @@ int FUN_0c115d96(void)
     }
     return 0x0;
 }
+
+
