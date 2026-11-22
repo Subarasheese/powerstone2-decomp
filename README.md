@@ -1,6 +1,6 @@
 # Power Stone 2 decomp
 
-![decomp progress](badges/progress.svg?p=99.0&b=98.7&m=0.0&a=53&s=0)
+![decomp progress](badges/progress.svg?p=99.5&b=99.3&m=0.0&a=54&s=0)
 
 A decompilation of the Dreamcast game **Power Stone 2** (USA), in progress. It rebuilds the game's executable
 `1ST_READ.BIN` byte for byte, and holds C for the game's own code that behaves like the original.

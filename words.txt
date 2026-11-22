@@ -1,0 +1,310 @@
+# Words pointers.py takes for addresses that are numbers: P <addr> or N <addr> (tools/1-2-baseline/pointers.py overrides).
+# These 304 hold byte, halfword or packed data (byte tables, 16-bit colours, packed structs) whose value happens to fall inside
+# the game code, at no function start, with no address of a listed function next to them. The comment gives the value and where
+# it lands: odd (no instruction starts there), on bytes no code reaches (a literal pool, padding), or on code mid-function.
+# Only words in the data are listed: a word inside the game code that points into its own function stays an address (0C02D168 is
+# loaded by code no listed entry reaches, 0C02D160, and jumps back into FUN_0c02d104).
+N 0C1C6EF0   # 0C140D0A FUN_0c140cc0+74, mid-function
+N 0C1C701C   # 0C031E1A FUN_0c031cc2+344, mid-function
+N 0C1C7030   # 0C161412 FUN_0c1612a4+366, mid-function
+N 0C1C7040   # 0C0A0100 FUN_0c0a00d4+44, mid-function
+N 0C1C70A0   # 0C031E1E FUN_0c031cc2+348, mid-function
+N 0C1C70C4   # 0C0A0000 FUN_0c09ffce+50, mid-function
+N 0C1C70F0   # 0C0A0000 FUN_0c09ffce+50, mid-function
+N 0C1C710C   # 0C0E1012 FUN_0c0e0fec+38, mid-function
+N 0C1C711C   # 0C0A030A FUN_0c0a027c+142, no code reaches it
+N 0C1C91C8   # 0C0DA3BC FUN_0c0d9ebc+1280, no code reaches it
+N 0C1C91E4   # 0C0DA3BC FUN_0c0d9ebc+1280, no code reaches it
+N 0C1C9200   # 0C0DA3BC FUN_0c0d9ebc+1280, no code reaches it
+N 0C1C921C   # 0C0DA4FC FUN_0c0d9ebc+1600, no code reaches it
+N 0C1C9254   # 0C0DA4FC FUN_0c0d9ebc+1600, no code reaches it
+N 0C1C9388   # 0C0DA598 FUN_0c0d9ebc+1756, no code reaches it
+N 0C1C93A4   # 0C0DA598 FUN_0c0d9ebc+1756, no code reaches it
+N 0C1CE2E4   # AC03FFAC FUN_0c03fef2+186, mid-function
+N 0C1D55AC   # 8C0A9C8C FUN_0c0a9c46+70, mid-function
+N 0C1D57AC   # 8C0A9C8C FUN_0c0a9c46+70, mid-function
+N 0C1D59AC   # 8C0A9C8C FUN_0c0a9c46+70, mid-function
+N 0C1D5BAC   # 8C0A9C8C FUN_0c0a9c46+70, mid-function
+N 0C1DD9B8   # 0C021484 FUN_0c021470+20, mid-function
+N 0C1E07B4   # 8C0F9470 FUN_0c0f9468+8, mid-function
+N 0C1E72FC   # 8C109471 FUN_0c108d12+1887, odd: no instruction address
+N 0C1EE3A4   # 8C108C31 FUN_0c108bf8+57, odd: no instruction address
+N 0C212718   # 0C10313C FUN_0c1030c0+124, mid-function
+N 0C21344C   # 0C152258 FUN_0c152246+18, mid-function
+N 0C214468   # 0C172206 FUN_0c172204+2, mid-function
+N 0C216C00   # AC120000 FUN_0c11ff8a+118, mid-function
+N 0C218F84   # 8C0B0000 FUN_0c0affa8+88, mid-function
+N 0C219580   # AC08BEEF FUN_0c08bec2+45, odd: no instruction address
+N 0C21958C   # 8C083E25 FUN_0c083e00+37, odd: no instruction address
+N 0C21ACBC   # 0C08F7FF FUN_0c08f780+127, odd: no instruction address
+N 0C21CB00   # 8C140000 FUN_0c13ffc4+60, mid-function
+N 0C21CB24   # 0C120000 FUN_0c11ff8a+118, mid-function
+N 0C21D808   # 0C070000 FUN_0c06ffc6+58, mid-function
+N 0C2222DC   # 0C1722A0 FUN_0c172204+156, mid-function
+N 0C2229B0   # 0C08313C FUN_0c082fc0+380, mid-function
+N 0C222A48   # 0C10313C FUN_0c1030c0+124, mid-function
+N 0C2233B4   # 8C11841D FUN_0c118412+11, odd: no instruction address
+N 0C2233F8   # 0C152258 FUN_0c152246+18, mid-function
+N 0C228BC0   # 0C0100AC sys_load_file_adx+10, mid-function
+N 0C22AE94   # 0C06CC07 pl_falcon_special2_phase4+17, odd: no instruction address
+N 0C22EB78   # 8C020055 FUN_0c01fe38+541, odd: no instruction address
+N 0C22EF98   # 8C120050 FUN_0c120018+56, a branch target
+N 0C22F0D0   # AC02A81D FUN_0c02a6b8+357, odd: no instruction address
+N 0C2322DC   # 0C1722A0 FUN_0c172204+156, mid-function
+N 0C2329B0   # 0C08313C FUN_0c082fc0+380, mid-function
+N 0C232A48   # 0C10313C FUN_0c1030c0+124, mid-function
+N 0C2333B4   # 8C11841D FUN_0c118412+11, odd: no instruction address
+N 0C2333F8   # 0C152258 FUN_0c152246+18, mid-function
+N 0C238BC0   # 0C0100AC sys_load_file_adx+10, mid-function
+N 0C23AE94   # 0C06CC07 pl_falcon_special2_phase4+17, odd: no instruction address
+N 0C23EB78   # 8C020055 FUN_0c01fe38+541, odd: no instruction address
+N 0C23EF98   # 8C120050 FUN_0c120018+56, a branch target
+N 0C23F0D0   # AC02A81D FUN_0c02a6b8+357, odd: no instruction address
+N 0C251434   # 0C01AB02 FUN_0c01aa02+256, mid-function
+N 0C2514E4   # 0C10A903 FUN_0c10a506+1021, odd: no instruction address
+N 0C2516E4   # 0C14A903 FUN_0c14a878+139, odd: no instruction address
+N 0C253124   # 0C0CAA03 FUN_0c0ca928+219, odd: no instruction address
+N 0C253624   # 0C10A9FF FUN_0c10a506+1273, odd: no instruction address
+N 0C253824   # 0C14A9FF FUN_0c14a9d8+39, odd: no instruction address
+N 0C255624   # 0C04A907 FUN_0c04a868+159, odd: no instruction address
+N 0C255824   # 0C04AB07 FUN_0c04a99c+363, odd: no instruction address
+N 0C255924   # 0C05A9FF FUN_0c05a820+479, odd: no instruction address
+N 0C255B24   # 0C05AB07 FUN_0c05ab04+3, odd: no instruction address
+N 0C255C24   # 0C06A9FF FUN_0c06a4b4+1355, odd: no instruction address
+N 0C255E24   # 0C06AB07 FUN_0c06aafa+13, odd: no instruction address
+N 0C255F24   # 0C07A907 FUN_0c07a85e+169, odd: no instruction address
+N 0C256124   # 0C07AB07 FUN_0c07aabc+75, odd: no instruction address
+N 0C256224   # 0C08A907 FUN_0c08a862+165, odd: no instruction address
+N 0C256424   # 0C08AB07 FUN_0c08aab0+87, odd: no instruction address
+N 0C256524   # 0C09A9FF FUN_0c09a9f0+15, odd: no instruction address
+N 0C256724   # 0C09ABFF FUN_0c09ab14+235, odd: no instruction address
+N 0C256824   # 0C0AA9FF FUN_0c0aa9f4+11, odd: no instruction address
+N 0C256A24   # 0C0AAB07 FUN_0c0aaa46+193, odd: no instruction address
+N 0C257564   # 0C0EA901 FUN_0c0ea80c+245, odd: no instruction address
+N 0C2595CC   # 0C086AD4 FUN_0c086a94+64, no code reaches it
+N 0C25D96C   # 0C081616 FUN_0c08159c+122, mid-function
+N 0C25F538   # 0C080408 FUN_0c080364+164, mid-function
+N 0C260A44   # 0C080408 FUN_0c080364+164, mid-function
+N 0C261F68   # 0C080408 FUN_0c080364+164, mid-function
+N 0C263474   # 0C080408 FUN_0c080364+164, mid-function
+N 0C264988   # 0C080408 FUN_0c080364+164, mid-function
+N 0C265E94   # 0C080408 FUN_0c080364+164, mid-function
+N 0C2673A0   # 0C080408 FUN_0c080364+164, mid-function
+N 0C2688B0   # 0C080408 FUN_0c080364+164, mid-function
+N 0C269DC0   # 0C080408 FUN_0c080364+164, mid-function
+N 0C26C7F4   # 0C080408 FUN_0c080364+164, mid-function
+N 0C26DD1C   # 0C080408 FUN_0c080364+164, mid-function
+N 0C26F22C   # 0C080408 FUN_0c080364+164, mid-function
+N 0C27073C   # 0C080408 FUN_0c080364+164, mid-function
+N 0C271C4C   # 0C080408 FUN_0c080364+164, mid-function
+N 0C27315C   # 0C080408 FUN_0c080364+164, mid-function
+N 0C273A98   # 0C0C0704 FUN_0c0c0636+206, no code reaches it
+N 0C274CA4   # 0C040700 FUN_0c04055c+420, mid-function
+N 0C277E0C   # 8C03FF8C FUN_0c03fef2+154, mid-function
+N 0C277E14   # 8C03FF8C FUN_0c03fef2+154, mid-function
+N 0C277E24   # 8C03FF8C FUN_0c03fef2+154, mid-function
+N 0C2883B4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2883B8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2883BC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2883CC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2883D0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2883D4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288420   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288424   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288428   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288454   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288468   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28848C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288490   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288494   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288498   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884AC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884B0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884B4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884B8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884BC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884C0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884C4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884C8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884CC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884D0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884D4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884D8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884DC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884E0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884E4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884E8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884EC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884F0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884F4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884F8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2884FC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288500   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288504   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288508   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28850C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288510   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288514   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288518   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28851C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288520   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288524   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288528   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28852C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288530   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288534   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288538   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28853C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288540   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288544   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288548   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28854C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288550   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288554   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288558   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28855C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288560   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288564   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288568   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28856C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288570   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288574   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288578   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28857C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288580   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288584   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288588   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28858C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288590   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288594   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C288598   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C28859C   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2885A0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2885A4   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2885A8   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2885AC   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2885B0   # 0C0F2FE8 FUN_0c0f2edc+268, no code reaches it
+N 0C2A69D4   # 0C058D20 FUN_0c058cdc+68, mid-function
+N 0C2A69D8   # 0C047FC2 FUN_0c047b98+1066, no code reaches it
+N 0C2A69E0   # 0C07AD0C FUN_0c07aca0+108, mid-function
+N 0C2A6A48   # 0C168D02 FUN_0c168c20+226, mid-function
+N 0C2A6ACC   # 0C0A1FC2 FUN_0c0a1f74+78, mid-function
+N 0C2A6AD0   # 0C0A01D2 FUN_0c0a015c+118, mid-function
+N 0C2A6B48   # 0C0A07C2 FUN_0c0a0702+192, mid-function
+N 0C2A6B8C   # 0C0E10C2 FUN_0c0e10a8+26, mid-function
+N 0C2A6CC4   # 0C168D00 FUN_0c168c20+224, mid-function
+N 0C2A6CF0   # 0C0704D2 FUN_0c07043c+150, mid-function
+N 0C2A6D38   # 0C088D0C FUN_0c088ca0+108, mid-function
+N 0C2A6DBC   # 0C0506C2 FUN_0c0502ca+1016, mid-function
+N 0C2A6DC0   # 0C0761D2 FUN_0c0761a4+46, mid-function
+N 0C2A6DC4   # 0C0A04D2 FUN_0c0a0318+442, mid-function
+N 0C2A6DDC   # 0C0A8D00 FUN_0c0a8cea+22, mid-function
+N 0C2A6DE0   # 0C0704D2 FUN_0c07043c+150, mid-function
+N 0C2A6DE4   # 0C0904D2 FUN_0c090414+190, mid-function
+N 0C2A6DE8   # 0C0408D2 FUN_0c040838+154, mid-function
+N 0C2A6DEC   # 0C0B10D2 FUN_0c0b10a2+48, mid-function
+N 0C2A6E14   # 0C03AD1B thunk_FUN_0c2b2456+91, odd: no instruction address
+N 0C2A7058   # 0C0BAD0C FUN_0c0bac72+154, mid-function
+N 0C2A7400   # 0C1302D2 FUN_0c13022a+168, no code reaches it
+N 0C2A7488   # 0C0480C2 FUN_0c047b98+1322, no code reaches it
+N 0C2A748C   # 0C1302D2 FUN_0c13022a+168, no code reaches it
+N 0C2A74CC   # 0C118D00 FUN_0c118810+1264, mid-function
+N 0C2A7584   # 0C1302D2 FUN_0c13022a+168, no code reaches it
+N 0C2A75B4   # 0C12E20C FUN_0c12e10c+256, mid-function
+N 0C2A75E4   # 0C12F20C FUN_0c12ed48+1220, mid-function
+N 0C2A7858   # 0C1302D2 FUN_0c13022a+168, no code reaches it
+N 0C2A7910   # 0C0744C2 FUN_0c07434c+374, mid-function
+N 0C2A7A40   # 0C0940C2 FUN_0c0940b0+18, mid-function
+N 0C2A7A48   # 0C0A1FC2 FUN_0c0a1f74+78, mid-function
+N 0C2A7A4C   # 0C0A02D2 FUN_0c0a027c+86, mid-function
+N 0C2A7A50   # 0C0A40C2 FUN_0c0a4004+190, no code reaches it
+N 0C2A7B2C   # 0C168D04 FUN_0c168c20+228, mid-function
+N 0C2A7B5C   # 0C168D06 FUN_0c168c20+230, mid-function
+N 0C2A7BA0   # 0C0A07C2 FUN_0c0a0702+192, mid-function
+N 0C2A7BA4   # 0C0A00D2 FUN_0c09ffce+260, no code reaches it
+N 0C2A7C3C   # 0C168D06 FUN_0c168c20+230, mid-function
+N 0C2A7CD0   # 0C0802D2 FUN_0c07fea4+1070, mid-function
+N 0C2A7CD4   # 0C0940C2 FUN_0c0940b0+18, mid-function
+N 0C2A7D88   # 0C16ADFB FUN_0c16ad22+217, odd: no instruction address
+N 0C2A7DB0   # 0C168D60 FUN_0c168c20+320, no code reaches it
+N 0C2A7EE4   # 0C1210D2 FUN_0c12105e+116, mid-function
+N 0C2A8408   # 0C0E10D2 FUN_0c0e10a8+42, mid-function
+N 0C2A8424   # 0C0802C2 FUN_0c07fea4+1054, a branch target
+N 0C2A8428   # 0C0704C2 FUN_0c07043c+134, mid-function
+N 0C2A842C   # 0C0440D2 FUN_0c044034+158, mid-function
+N 0C2A8430   # 0C0502D2 FUN_0c0502ca+8, mid-function
+N 0C2A8478   # 0C168D00 FUN_0c168c20+224, mid-function
+N 0C2A84B4   # 0C0710D2 FUN_0c071094+62, mid-function
+N 0C2A84B8   # 0C0A1FC2 FUN_0c0a1f74+78, mid-function
+N 0C2A84BC   # 0C0A0BD2 FUN_0c0a0b0a+200, mid-function
+N 0C2A84C0   # 0C0A40C2 FUN_0c0a4004+190, no code reaches it
+N 0C2A84DC   # 0C168D05 FUN_0c168c20+229, odd: no instruction address
+N 0C2A8510   # 0C0940C2 FUN_0c0940b0+18, mid-function
+N 0C2A856C   # 0C0A07C2 FUN_0c0a0702+192, mid-function
+N 0C2A8570   # 0C0A01D2 FUN_0c0a015c+118, mid-function
+N 0C2A858C   # 0C0940C2 FUN_0c0940b0+18, mid-function
+N 0C2A8594   # 0C018DC3 FUN_0c018ccc+247, odd: no instruction address
+N 0C2A865C   # 0C0A07C2 FUN_0c0a0702+192, mid-function
+N 0C2A8660   # 0C0A00D2 FUN_0c09ffce+260, no code reaches it
+N 0C2A8820   # 0C1207C2 FUN_0c120654+366, mid-function
+N 0C2A8968   # 0C168D06 FUN_0c168c20+230, mid-function
+N 0C2A89A0   # 0C168D06 FUN_0c168c20+230, mid-function
+N 0C2A8A20   # 0C15FFC2 FUN_0c15fe00+450, no code reaches it
+N 0C2A8A24   # 0C14FBC2 FUN_0c14fb3c+134, mid-function
+N 0C2A8A28   # 0C1408D2 FUN_0c140464+1134, mid-function
+N 0C2A8A2C   # 0C1580D2 FUN_0c158014+190, mid-function
+N 0C2A8A30   # 0C14E0D2 FUN_0c14e040+146, mid-function
+N 0C2A8A34   # 0C14F21B FUN_0c14f178+163, odd: no instruction address
+N 0C2A8A40   # 8C0C168E FUN_0c0c14a6+488, mid-function
+N 0C2A8C6C   # 0C081AD2 FUN_0c081a94+62, mid-function
+N 0C2A8D28   # 0C168DF1 FUN_0c168c20+465, odd: no instruction address
+N 0C2A8D4C   # 0C081AC2 FUN_0c081a94+46, a branch target
+N 0C2A8DA4   # 0C098D00 FUN_0c098cae+82, mid-function
+N 0C2A8DBC   # 0C0E10C2 FUN_0c0e10a8+26, mid-function
+N 0C2A8DC0   # 0C0F40C2 FUN_0c0f4070+82, mid-function
+N 0C2A9110   # 0C0AFEC2 FUN_0c0afe10+178, mid-function
+N 0C2A93CC   # 0C0404C2 FUN_0c0403bc+262, no code reaches it
+N 0C2A93D0   # 0C0420D2 FUN_0c041f28+426, mid-function
+N 0C2A93D4   # 0C0604D2 FUN_0c060454+126, mid-function
+N 0C2A9428   # 0C16ADFB FUN_0c16ad22+217, odd: no instruction address
+N 0C2A94E8   # 0C16ADFB FUN_0c16ad22+217, odd: no instruction address
+N 0C2A9554   # 0C16AD06 FUN_0c16ac5c+170, mid-function
+N 0C2A95B4   # 0C0E10C2 FUN_0c0e10a8+26, mid-function
+N 0C2A95B8   # 0C0F40C2 FUN_0c0f4070+82, mid-function
+N 0C2A95F4   # 0C018D0E FUN_0c018ccc+66, mid-function
+N 0C2A962C   # 0C0401C2 FUN_0c040158+106, mid-function
+N 0C2A9820   # 0C138D61 FUN_0c138c84+221, odd: no instruction address
+N 0C2A990C   # 0C1202D2 FUN_0c1202bc+22, no code reaches it
+N 0C2A9914   # 0C118D0C FUN_0c118810+1276, mid-function
+N 0C2A991C   # 0C1202C2 FUN_0c1202bc+6, no code reaches it
+N 0C2A9D60   # 0C1210D2 FUN_0c12105e+116, mid-function
+N 0C2A9DB0   # 0C1202D2 FUN_0c1202bc+22, no code reaches it
+N 0C2A9DB8   # 0C118D0C FUN_0c118810+1276, mid-function
+N 0C2A9EE8   # 8C012C8D FUN_0c012c34+89, odd: no instruction address
+N 0C2AA16C   # 8C024820 FUN_0c0247a0+128, mid-function
+N 0C2AA34C   # 0C078D00 FUN_0c078cee+18, mid-function
+N 0C2AA36C   # 0C0B8D61 FUN_0c0b8cba+167, odd: no instruction address
+N 0C2AAA7C   # 8C118100 FUN_0c117ebe+578, mid-function
+N 0C2AAA88   # 8C0710C3 FUN_0c071094+47, odd: no instruction address
+N 0C2AAC98   # 0C0720C0 FUN_0c0720b4+12, mid-function
+N 0C2AAE24   # 8C072100 FUN_0c0720f8+8, mid-function
+N 0C2AAE38   # 0C070920 FUN_0c0708a6+122, no code reaches it
+N 0C2AAE44   # 0C070120 FUN_0c0700b0+112, mid-function
+N 0C2AAED0   # 0C0B0002 FUN_0c0affa8+90, mid-function
+N 0C2AAF70   # 0C072100 FUN_0c0720f8+8, mid-function
+N 0C2AAF74   # 0C072C00 FUN_0c072bd4+44, mid-function
+N 0C2AAF80   # 0C0714C0 FUN_0c0714a2+30, mid-function
+N 0C2AB360   # 8C0E0000 FUN_0c0dffcc+52, a branch target
+N 0C2AB508   # 8C071001 FUN_0c070ff8+9, odd: no instruction address
+N 0C2AB544   # 8C071400 FUN_0c071334+204, mid-function
+N 0C2AB7D0   # 8C0B0000 FUN_0c0affa8+88, mid-function
+N 0C2ABA98   # 0C072100 FUN_0c0720f8+8, mid-function
+N 0C2AC1A8   # 0C072500 FUN_0c072260+672, mid-function
+N 0C2AC258   # 8C072100 FUN_0c0720f8+8, mid-function
+N 0C2AC394   # 8C072100 FUN_0c0720f8+8, mid-function
+N 0C2AC4CC   # 0C070900 FUN_0c0708a6+90, mid-function
+N 0C2AC5E8   # 0C072000 FUN_0c071fd8+40, mid-function
+N 0C2FE510   # 0C010080 FUN_0c2fe2e0+-3072608, no code reaches it
+N 0C2FECF0   # 0C0C0C0C FUN_0c0c0bf0+28, mid-function
+N 0C2FEE28   # 0C0C0C0C FUN_0c0c0bf0+28, mid-function
+N 0C302CA0   # 0C020200 FUN_0c020168+152, mid-function

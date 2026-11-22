@@ -822,16 +822,3 @@ int FUN_0c1766e6(void)
     return (unsigned short)t0;
 }
 
-int FUN_0c176996(void)
-{
-    register int t0;
-
-    t0 = *(signed char *)0xC541F44;
-    if ((unsigned char)t0 != 0) {
-        if ((unsigned char)t0 != 1) {
-            return (unsigned char)t0;
-        }
-        return FUN_0c176890();
-    }
-    return FUN_0c17594c();
-}

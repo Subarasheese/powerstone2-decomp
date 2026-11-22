@@ -669,19 +669,3 @@ int FUN_0c0b8416(int a4)
     return (unsigned char)t0;
 }
 
-int FUN_0c0b8438(int a4)
-{
-    register int t0;
-
-    t0 = *(signed char *)((a4 + 0x16));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 2) {
-                return t0;
-            }
-            return FUN_0c0b8416(a4);
-        }
-        return FUN_0c0b8370(a4);
-    }
-    return FUN_0c0b825e(a4);
-}

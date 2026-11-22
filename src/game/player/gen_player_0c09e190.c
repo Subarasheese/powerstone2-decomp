@@ -146,29 +146,6 @@ int FUN_0c09e38c(int a4, int a5, int a6, int a7)
 }
 
 
-int FUN_0c09e8de(int a4, int a5, int a6, int a7)
-{
-    int t0;
-    register int t1;
-
-    if ((((int)(*(signed char *)((a4 + 0x16))) >= (int)0x3) && (t0 = *(short *)((a4 + 0x1C)), t0 != 1)) || (t1 = (((struct o3770_int *)(a4))->v), t1 != 0)) {
-        t0 = *(signed char *)((a4 + 0x16));
-        if (t0 != 0) {
-            if (t0 != 1) {
-                if (t0 != 2) {
-                    if (t0 != 3) {
-                        return t0;
-                    }
-                    return FUN_0c09e84c(a4);
-                }
-                return FUN_0c09e6f0(a4);
-            }
-            return ((int (*)(int, int, int, int))(0xC09E5A0))(a4, a5, a6, a7);
-        }
-        return ((int (*)(int, int, int, int))(0xC09E3FC))(a4, a5, a6, a7);
-    }
-    return FUN_0c085d0c(a4, a5, a6, a7);
-}
 
 int FUN_0c09e980(int a4)
 {
