@@ -124,60 +124,7 @@ int FUN_0c021998(void)
     return FUN_0c02b182(0x0);
 }
 
-int FUN_0c021a70(void)
-{
-    register int t5;
 
-    *(unsigned char *)0xC309860 = ((*(signed char *)0xC309860) + 0x1);
-    FUN_0c018e74(0x2B);
-    FUN_0c01cb7c();
-    (((struct o0_ushort *)0xC30540C)->v) = 0x258;
-    (((struct o2_ushort *)0xC30540C)->v) = 0x3C;
-    FUN_0c0573c0(0x0, 0x0, 0x14);
-    FUN_0c059c54(0x13);
-    t5 = FUN_0c05b048();
-    *(unsigned char *)0xC30EFA5 = 0x1;
-    return t5;
-}
-
-int FUN_0c021ab4(void)
-{
-
-    register int R0;
-    register int R2;
-    register int R3;
-    register int R5;
-    register int R6;
-    register int R14;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    v0_1 = R14;
-    v0_0 = ((((struct o2_short *)0xC30540C)->v)) == 0;
-    v0_1 = (0xC30540E);
-    if (v0_0) goto L_C021ACC;
-    v0_0 = *(short *)((v0_1 + 0x0));
-    *(unsigned short *)((v0_1 + 0x0)) = (v0_0 - 1);
-    if (((short)(v0_0 - 1) != 0)) goto L_C021B14;
-    L_C021ACC:;
-    v0_0 = (((struct o0_short *)0xC30540C)->v);
-    (((struct o0_ushort *)0xC30540C)->v) = (v0_0 - 1);
-    R14 = (0xC30540C);
-    if (((short)(v0_0 - 1) == 0)) goto L_C021AE8;
-    v0_0 = FUN_0c01cd2c(0x141);
-    R0 = ((short)v0_0);
-    if (((short)v0_0 == 0)) goto L_C021B14;
-    L_C021AE8:;
-    *(unsigned char *)0xC309860 = ((*(signed char *)0xC309860) + 0x1);
-    FUN_0c0573cc(0x0, 0x0, 0x14);
-    *(unsigned short *)((R14 + 0x0)) = 0x28;
-    FUN_0c05aca8(0x1, 0x0);
-    v0_0 = FUN_0c05b05c();
-    *(unsigned char *)0xC30EFA5 = 0x0;
-    R0 = (v0_0);
-    L_C021B14:;
-    return R0;
-}
 
 void FUN_0c021b1a(int a4, int a5, int a6, int a7)
 {

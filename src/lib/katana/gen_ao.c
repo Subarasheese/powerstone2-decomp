@@ -1293,46 +1293,6 @@ int buInit(int a4, int a5, int a6, int a7)
     return t2;
 }
 
-int fmMngFormat(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    register int t3;
-    register int t4;
-
-    t0 = *(int *)0xC303D78;
-    t1 = 0xFFFFFFF5;
-    if (t0 == 0) {
-    } else {
-        t1 = 0xFFFFFFFA;
-        if ((a4 == 0) || (a4 == 1)) {
-            t3 = FUN_0c2db908((*(int *)((t0 + 0x4))), a5, a6);
-            t0 = 0xFFFFFFFD;
-            if (t3 != 0) {
-            } else {
-                t3 = *(int *)0xC303D78;
-                thunk_FUN_0c2c2156();
-                *(unsigned short *)(((*(int *)0xC303D78) + 0x2)) = a4;
-                (((struct o11_uchar *)((t3 + 0x34)))->v) = a4;
-                (((struct o10_uchar *)((t3 + 0x34)))->v) = (*(signed char *)(((*(int *)0xC303D78) + 0x0)));
-                t4 = FUN_0c2db8f4((*(int *)(((*(int *)0xC303D78) + 0x4))), (t3 + 0x34), 0x12);
-                t3 = 0xFFFFFFFE;
-                if (t4 != 18) {
-                } else {
-                    fmMngClearBuf((*(int *)(((*(int *)0xC303D78) + 0xC))), (*(int *)(((*(int *)0xC303D78) + 0x8))));
-                    t4 = fmMngReadSctAllData((*(int *)0xC303D78));
-                    t3 = 0x0;
-                    if (t4 != 0) {
-                        t3 = t4;
-                    }
-                }
-                t0 = t3;
-            }
-            t1 = t0;
-        }
-    }
-    return t1;
-}
 
 int mwRnaSetPlaySw(int a4, int a5, int a6, int a7)
 {
@@ -2023,32 +1983,6 @@ int FUN_0c2b36a4(int a4, int a5, int a6)
     return 0x18;
 }
 
-int mwRnaSetNumChan(int a4, int a5, int a6, int a7)
-{
-    register int t4;
-    register int t7;
-
-    if (a4 == 0) {
-        return (FUN_0c2dc1ae(0xC2FFEE8));
-    }
-    if ((int)a5 > (int)(unsigned char)(*(signed char *)((a4 + 0x2)))) {
-        return (FUN_0c2dc1ae(0xC2FFF8C));
-    }
-    *(unsigned char *)((a4 + 0x3)) = a5;
-    t4 = *(int *)((a4 + 0x38));
-    t7 = ((int (*)(int, int, int, int))((*(int *)(((*(int *)((t4 + 0x0))) + 0x1C)))))(t4, (signed char)a5, a6, a7);
-    if (a5 == 1) {
-        (((struct o64_uint *)(a4))->v) = 0x0;
-        (((struct o68_uint *)(a4))->v) = 0x0;
-    } else {
-        (((struct o64_uint *)(a4))->v) = 0xFFFFFFF1;
-        (((struct o68_uint *)(a4))->v) = 0xF;
-    }
-    *(volatile int *)(((a4 + 0x64) + 0x0));
-    mwRnaSetOutPan(a4, 0x0);
-    *(volatile int *)((a4 + 0x68));
-    return mwRnaSetOutPan(a4, 0x1);
-}
 
 int kmtex_TextureSize_smallVQ(int a4)
 {

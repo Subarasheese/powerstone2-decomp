@@ -281,6 +281,8 @@ int FUN_0c04882c(int a4, int a5)
 
 int FUN_0c0f26e8(int a4, int a5, int a6, int a7, float f4)
 {
+    /* manual: the table at 0x0C1CE000 stays in r13 for the whole function; the generated C kept it in v0_4, which the
+       state-1 path reuses for two bytes, so the table uses below name the table */
     int stk[1];
 
     register int R1;
@@ -347,8 +349,8 @@ int FUN_0c0f26e8(int a4, int a5, int a6, int a7, float f4)
     return ((int (*)(int, int, int, int))(FUN_0c0c4b76))(v0_0, v0_1, v0_2, v0_3);
     L_C0F287A:;
     v0_1 = *(signed char *)((v0_0 + 0x2));
-    *(unsigned int *)(((int)stk + 0)) = (v0_4 + ((((v0_1 << 1) + v0_1) << 2) << 1));
-    return FUN_0c0d41dc(v0_0, (*(int *)(((int)stk + 0))), (*(int *)(((v0_4 + ((((v0_1 << 1) + v0_1) << 2) << 1)) + 0xC))), 0x258);
+    *(unsigned int *)(((int)stk + 0)) = (0xC1CE000 + ((((v0_1 << 1) + v0_1) << 2) << 1));
+    return FUN_0c0d41dc(v0_0, (*(int *)(((int)stk + 0))), (*(int *)(((0xC1CE000 + ((((v0_1 << 1) + v0_1) << 2) << 1)) + 0xC))), 0x258);
     L_C0F286C:;
     return ((int (*)(int, int, int, int))(FUN_0c0d409c))(v0_0, v0_1, v0_2, v0_3);
     L_C0F291A:;
@@ -357,7 +359,7 @@ int FUN_0c0f26e8(int a4, int a5, int a6, int a7, float f4)
     (((struct oA8_uchar *)(v0_0))->v) = 0x1;
     (((struct o41C_uchar *)(v0_0))->v) = 0xC3;
     v0_5 = *(signed char *)((v0_0 + 0x2));
-    (((struct o424_uchar *)(v0_0))->v) = (*(int *)(((((((v0_5 << 1) + v0_5) << 2) << 1) + v0_4) + 0x10)));
+    (((struct o424_uchar *)(v0_0))->v) = (*(int *)(((((((v0_5 << 1) + v0_5) << 2) << 1) + 0xC1CE000) + 0x10)));
     FUN_0c0c2d56(v0_0, 0x0, (*(signed char *)((v0_0 + 0x1))));
     *(unsigned short *)((v0_0 + 0x1C)) = 0x0;
     FUN_0c0c2ab6(v0_0, (*(signed char *)((((unsigned short)(unsigned char)(*(signed char *)((v0_0 + 0x41C))) * (unsigned short)0x34) + 0xC2738CA))));
@@ -367,9 +369,9 @@ int FUN_0c0f26e8(int a4, int a5, int a6, int a7, float f4)
     (((struct o420_ushort *)(v0_0))->v) = (int)(float)v0_5;
     (((struct o423_uchar *)(v0_0))->v) = 0xFFFFFFFF;
     v0_6 = *(signed char *)((v0_0 + 0x2));
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)((v0_4 + ((((v0_6 << 1) + v0_6) << 2) << 1))); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)((0xC1CE000 + ((((v0_6 << 1) + v0_6) << 2) << 1))); }
     v0_6 = *(signed char *)((v0_0 + 0x2));
-    *(unsigned int *)((v0_0 + 0x38)) = (*(int *)(((((((v0_6 << 1) + v0_6) << 2) << 1) + v0_4) + 0xC)));
+    *(unsigned int *)((v0_0 + 0x38)) = (*(int *)(((((((v0_6 << 1) + v0_6) << 2) << 1) + 0xC1CE000) + 0xC)));
     (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
     (((struct o126_uchar *)(v0_0))->v) = 0x0;
     (((struct oAA_uchar *)(v0_0))->v) = 0x1;

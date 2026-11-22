@@ -1153,28 +1153,6 @@ int FUN_0c041340(void)
     return t56;
 }
 
-int FUN_0c041792(void)
-{
-    register int t2;
-
-    (((struct o0_uchar *)0xC5421FA)->v) = ((*(signed char *)0xC5421FA) + 0x1);
-    (((struct o1_uchar *)0xC5421FA)->v) = 0x0;
-    bgm_stop_slot(0x0);
-    t2 = *(signed char *)0xC542239;
-    if (((t2 & 0xF0) != 0) && (((t2 & 0xF0) != 48) && ((t2 & 0xF0) != 16))) {
-        if (((t2 & 0xF0) == 32) || ((t2 & 0xF0) == 64)) {
-            *(unsigned int *)0xC542204 = 0x0;
-        }
-        return (t2 & 0xF0);
-    }
-    *(unsigned int *)0xC542204 = 0x3C;
-    *(unsigned char *)0xC54225E = 0x1;
-    FUN_0c052364(0x0, 0xFFFFFFFF);
-    FUN_0c052364(0x1, 0xFFFFFFFF);
-    FUN_0c052364(0x2, 0xFFFFFFFF);
-    FUN_0c052364(0x3, 0xFFFFFFFF);
-    return FUN_0c05b0a0();
-}
 
 int FUN_0c04182c(void)
 {
@@ -1305,52 +1283,6 @@ int FUN_0c04193c(void)
     return t37;
 }
 
-int FUN_0c041a04(void)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-
-    t0 = *(signed char *)0xC5421FB;
-    if (t0 != 0) {
-        t1 = t0;
-        if (t0 != 1) {
-        } else {
-            t2 = *(int *)0xC542210;
-            *(unsigned int *)0xC542210 = (t2 - 1);
-            t3 = t0;
-            if ((int)(t2 - 1) <= 0) {
-                (((struct o0_uchar *)0xC5421F9)->v) = ((*(signed char *)0xC5421F9) + 0x1);
-                (((struct o1_uchar *)0xC5421F9)->v) = 0x0;
-                (((struct o2_uchar *)0xC5421F9)->v) = 0x0;
-                t3 = 0x0;
-            }
-            t1 = t3;
-        }
-        t0 = t1;
-    } else {
-        (((struct o2_uchar *)0xC5421F9)->v) = ((*(signed char *)0xC5421FB) + 0x1);
-        *(unsigned int *)0xC542210 = 0x3C;
-        t1 = *(signed char *)0xC542239;
-        if (((t1 & 0xF0) != 32) && ((t1 & 0xF0) != 64)) {
-            t1 = (FUN_0c05b0b4());
-        } else {
-            t1 = (FUN_0c05b052());
-        }
-        t2 = *(int *)0xC542210;
-        *(unsigned int *)0xC542210 = (t2 - 1);
-        t3 = t1;
-        if ((int)(t2 - 1) <= 0) {
-            (((struct o0_uchar *)0xC5421F9)->v) = ((*(signed char *)0xC5421F9) + 0x1);
-            (((struct o1_uchar *)0xC5421F9)->v) = 0x0;
-            (((struct o2_uchar *)0xC5421F9)->v) = 0x0;
-            t3 = 0x0;
-        }
-        t0 = t3;
-    }
-    return t0;
-}
 
 int FUN_0c041aa0(int a4, int a5, int a6, int a7)
 {

@@ -42,6 +42,14 @@ _STARTS=sorted(FUNCS)
 ENDS={}          # where the code and literal pool of a function end: the next function's start (the pool after its last rts is in the gap, outside its listed size)
 for _i,_a in enumerate(_STARTS):
     ENDS[FUNCS[_a]]=max(_STARTS[_i+1] if _i+1<len(_STARTS) else _a+SPANS[FUNCS[_a]][1],_a+SPANS[FUNCS[_a]][1])
+# compiler runtime helpers functions.txt still lists as FUN_ (their callers' C names them so): the generator knows them by
+# their runtime names, which say how they take their operands (r0-r2, not r4-r7). Without this a call to one became a call
+# with no arguments and the copy it made was lost (Power Stone 2's block copies at 0x0C18778C and 0x0C187798)
+HELPER_ALIASES={'FUN_0c18778c':'_quick_evn_mvn','FUN_0c187798':'_quick_odd_mvn','FUN_0c187990':'_slow_strcpy'}
+def helper_name(n): return HELPER_ALIASES.get(n,n)
+for _a,_n in list(FUNCS.items()):
+    if _n in HELPER_ALIASES and SPANS.get(_n) and SPANS[_n][0]==_a:
+        FUNCS[_a]=HELPER_ALIASES[_n]; SPANS[FUNCS[_a]]=SPANS[_n]; ENDS[FUNCS[_a]]=ENDS[_n]
 
 def fbits(f): return struct.unpack('<I',struct.pack('<f',f))[0]
 def ffmt(bits):
@@ -248,7 +256,9 @@ def reg_liveness(ins,addr2idx,jumps=None,call_reads=None):
                     m2=re.search(r';\s*=\s*[0-9a-fA-F]+\s+([A-Za-z_]\w*)',oj or '')
                     nm=m2.group(1) if (m2 and mj.startswith('mov')) else None
                     break
+        nm=helper_name(nm)
         if nm in ('_quick_mvn','_quick_odd_mvn','_quick_evn_mvn','_slow_mvn'): return {'r0','r1','r2'}
+        if nm=='_slow_strcpy': return {'r0','r1'}
         if nm in ('_divls','_divlu','_modls','_modlu','_divws'): return {'r0','r1'}
         if call_reads and nm and not nm.startswith('_'):
             rs=call_reads(nm)
@@ -700,7 +710,7 @@ def run(name,passthru=False):
     _FLOATRET.clear()
     form=os.environ.get('GEN_FORM','')      # 'flat' or 'structured' forces one form (tools/7-reduction/shrink.py compiles both and keeps the smaller)
     if form=='flat':
-        for _ in range(10):
+        for _ in range(40):      # a conflict per pass: a function calling many callees conflicting (Power Stone 2, FUN_0c0d4344: 10+) needs more
             try: return _run(name,passthru,True,True)
             except Conflict as e: _CONFLICTS.add(e.fname)
             except Restart: continue
@@ -721,14 +731,14 @@ def run(name,passthru=False):
         except Skip as e:
             if not any(k in str(e) for k in FLATTY): raise
             break
-    for _ in range(10):
+    for _ in range(40):
         try: return _run(name,passthru,True,True)
         except Conflict as e: _CONFLICTS.add(e.fname)
         except Restart: continue        # two sites give one callee different arguments: a cast at every site
     raise Skip('proto conflict: %s'%', '.join(sorted(_CONFLICTS)))
 def _run_structured(name,passthru=False):
     _CONFLICTS.clear(); _IJOIN[0]=False
-    for _ in range(10):
+    for _ in range(40):
         try:
             try: return _run(name,passthru,False)
             except Skip as e:

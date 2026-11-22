@@ -21,7 +21,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 ALLOWED = os.path.join(ROOT, 'tests', 'rawcalls_allowed.txt')
-CALL = re.compile(r'\)\s*\(\s*(0x[cC]0[0-9a-fA-F]{5})\s*\)\s*\)\s*\(')
+CALL = re.compile(r'\)\s*\(\s*(0x[cC][0-3][0-9a-fA-F]{5})\s*\)\s*\)\s*\(')   # the whole image: game, NAOMI, Katana (0x0C010000-0x0C3FFFFF)
 DEF = re.compile(r'^[A-Za-z_][\w \t\*]*?\b(\w+)\s*\([^;{]*\)\s*\{', re.M)
 
 

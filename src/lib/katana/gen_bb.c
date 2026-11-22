@@ -85,7 +85,7 @@ int FUN_0c183480(int, int, int);
 int FUN_0c18353e(int, int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c187cac(int, int, int, int, int);
-int FUN_0c188260(void);
+int FUN_0c188260(int, int);
 int FUN_0c188262(int, int, float);
 int FUN_0c18dd2a(int, int, int);
 int FUN_0c18e584(int);
@@ -593,31 +593,6 @@ int FUN_0c19aaac(int a4, int a5)
     return 0x0;
 }
 
-int FUN_0c19c678(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-
-    t0 = 0x0;
-    if (a4 != 0) {
-        t1 = 0x6;
-        t2 = a4;
-        t3 = 0x0;
-        for (;;) {
-            t1 = (t1 - 0x1);
-            t3 = (t3 + (unsigned short)(((unsigned char)(*(signed char *)((t2 + 0x0))) << 8) + (unsigned char)(*(signed char *)((t2 + 0x1)))));
-            t2 = (t2 + 0x2);
-            if (t1 == 0) {
-                break;
-            }
-        }
-        t0 = t3;
-    }
-    t1 = FUN_0c18dd2a(t0, a5, a6);
-    return (~((((unsigned int)t1 >> 16) + (unsigned short)t1) + ((unsigned int)(((unsigned int)t1 >> 16) + (unsigned short)t1) >> 16)));
-}
 
 int memcpy(int a4, int a5, int a6, int a7)
 {
@@ -1035,24 +1010,6 @@ int mpdrv_frame_recv_pre(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int mwSbGetTrnsStat(int a4, int a5)
-{
-    register int t1;
-    register int t11;
-
-    t1 = FUN_0c181b6a((*(int *)((((a5 << 2) + (a4 + 0x2C)) + 0x0))));
-    t11 = 0x1;
-    if (t1 == 0x100) {
-    } else {
-        t11 = 0x2;
-        if (t1 == 0x101) {
-        } else {
-            FUN_0c2dc1ae(0xC300DD0);
-            t11 = 0x0;
-        }
-    }
-    return t11;
-}
 
 int FUN_0c2e638e(void)
 {
@@ -1167,11 +1124,11 @@ int nlobjput_sub(int a4)
 
     t0 = *(int *)((a4 + 0x0));
     if ((t0 == 0)) {
-        FUN_0c188260();
+        FUN_0c188260(a4, 0xC8A6C68);  /* manual: r4 as it came, r5 the pool word 0x0C8A6C68 (the generated call passed none) */
         return (nlPopMatrix(0x1));
     }
     if (t0 == 1) {
-        FUN_0c188260();
+        FUN_0c188260(a4, 0xC8A6C68);  /* manual: r4 as it came, r5 the pool word 0x0C8A6C68 (the generated call passed none) */
         return (nlPopMatrix(0x1));
     }
     return (nlPopMatrix(0x1));
@@ -2396,6 +2353,19 @@ int FUN_0c2faa70(void)
     return 0x0;
 }
 
+int gfx_set_fog_color(int a4)
+{
+    int stk[2];
+    register int t1;
+
+    *(unsigned char *)((((int)stk + 4) + 0x3)) = (signed char)((unsigned int)((unsigned int)a4 >> 16) >> 8);
+    *(unsigned char *)((((int)stk + 4) + 0x2)) = (short)((unsigned int)a4 >> 16);
+    *(unsigned char *)((((int)stk + 4) + 0x1)) = ((int)a4 >> 8);
+    *(unsigned char *)((((int)stk + 4) + 0x0)) = a4;
+    t1 = (*(int *)((((int)stk + 4) + 0x0)));
+    *(int *)((int)stk + 0) = t1;
+    return (kmSetFogTableColor(t1));
+}
 
 int nl_action_PixelClipping(void)
 {

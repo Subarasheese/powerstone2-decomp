@@ -60,6 +60,25 @@ int FUN_0c131fac(int a4, int a5, int a6, int a7);
 int FUN_0c0e6e78(int a4, int a5, int a6, int a7, float f4);
 int FUN_0c16b5a6(int a4, int a5, int a6, int a7, float f4);
 
+/* manual: the loop both branches of FUN_0c131fac run over the five pieces (obj+0xC8..0xD4): each axis of the
+   piece's offset (0x0C2A156C - 0x0C2A15B4) times the sine of the frame counter (obj+0x1C, x12 degrees), as a 16-bit
+   angle in the piece's words +0x78/+0x7C/+0x80. The original pushes the word's address before each sine call and
+   pops it for the store; the generated C rebuilt it from the counter instead and stored at 0x78 + counter. */
+static void FUN_0c131fac_spin(int a4)
+{
+    int i, j, k;
+    for (i = 4, j = 0xC; (unsigned int)i < 0x18; i += 4, j += 0xC) {
+        float *a = (float *)(0xC2A156C + j), *b = (float *)(0xC2A15B4 + j);
+        for (k = 0; k < 3; k++) {
+            int p = *(int *)(a4 + 0xC4 + i);
+            int w = *(short *)(a4 + 0x1C);
+            float d = a[k] - b[k];
+            float s = math_sin_angle16(((int)((((float)(w * 12) * 65536.0f) / 360.0f) + 0.5f)) & 0xFFFF);
+            *(unsigned int *)(p + 0x78 + 4 * k) = ((int)((((d * s) * 65536.0f) / 360.0f) + 0.5f)) & 0xFFFF;
+        }
+    }
+}
+
 int FUN_0c131fac(int a4, int a5, int a6, int a7)
 {
     int stk[3];
@@ -132,60 +151,7 @@ int FUN_0c131fac(int a4, int a5, int a6, int a7)
                 t18 = 0xC;
                 t19 = 0x4;
                 u20 = (u14 + 3.72881365f);
-                for (;;) {
-                    if ((unsigned int)t19 >= (unsigned int)0x18) {
-                        break;
-                    }
-                    t17 = 0xC2A156C;
-                    t16 = (*(int *)((((0xC4 + a4) + t19) + 0x0)));
-                    t17 = (t17 + t18);
-                    *(int *)((int)stk + 0) = (0x78 + t16);
-                    *(unsigned int *)(((int)stk + 4)) = (0xC2A15B4 + t18);
-                    t23 = *(short *)((a4 + 0x1C));
-                    t16 = t23;
-                    u21 = ((*(float *)((t17 + 0x0))) - (*(float *)(((0xC2A15B4 + t18) + 0x0))));
-                    u20 = (math_sin_angle16(((int)(((((float)(((t23 << 1) + t16) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-                    u21 = (u21 * u20);
-                    t15 = (0x78 + t16);
-                    u21 = (u21 * 65536.0f);
-                    u21 = (u21 / 360.0f);
-                    u21 = (u21 + 0.5f);
-                    t16 = (int)u21;
-                    t16 = (t16 & 0xFFFF);
-                    *(unsigned int *)((t15 + 0x0)) = t16;
-                    t16 = (*(int *)((((0xC4 + a4) + t19) + 0x0)));
-                    *(int *)((int)stk + 0) = (0x7C + t16);
-                    t15 = (*(int *)(((int)stk + 4)));
-                    t33 = *(short *)((a4 + 0x1C));
-                    t16 = t33;
-                    u21 = (((((struct o4_float *)(t17))->v)) - ((((struct o4_float *)(t15))->v)));
-                    u20 = (math_sin_angle16(((int)(((((float)(((t33 << 1) + t16) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-                    u21 = (u21 * u20);
-                    t15 = (0x7C + t16);
-                    u21 = (u21 * 65536.0f);
-                    u21 = (u21 / 360.0f);
-                    u21 = (u21 + 0.5f);
-                    t16 = (int)u21;
-                    t16 = (t16 & 0xFFFF);
-                    *(unsigned int *)((t15 + 0x0)) = t16;
-                    t16 = (*(int *)((((0xC4 + a4) + t19) + 0x0)));
-                    *(int *)((int)stk + 0) = (0x80 + t16);
-                    t15 = (*(int *)(((int)stk + 4)));
-                    t42 = *(short *)((a4 + 0x1C));
-                    t16 = t42;
-                    u21 = (((((struct o8_float *)(t17))->v)) - ((((struct o8_float *)(t15))->v)));
-                    u20 = (math_sin_angle16(((int)(((((float)(((t42 << 1) + t16) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-                    u21 = (u21 * u20);
-                    t15 = (0x80 + t16);
-                    t19 = (t19 + 0x4);
-                    t18 = (t18 + 0xC);
-                    u21 = (u21 * 65536.0f);
-                    u21 = (u21 / 360.0f);
-                    u21 = (u21 + 0.5f);
-                    t16 = (int)u21;
-                    t16 = (t16 & 0xFFFF);
-                    *(unsigned int *)((t15 + 0x0)) = t16;
-                }
+                FUN_0c131fac_spin(a4);
                 t47 = *(short *)((a4 + 0x1C));
                 *(unsigned short *)((a4 + 0x1C)) = (t47 + 0x1);
                 t49 = (short)(t47 + 0x1);
@@ -205,61 +171,7 @@ int FUN_0c131fac(int a4, int a5, int a6, int a7)
         t57 = 0xC;
         t58 = 0x4;
         u59 = (u54 + 2.0181818f);
-        for (;;) {
-            if ((unsigned int)t58 >= (unsigned int)0x18) {
-                break;
-            }
-            t55 = 0xC2A156C;
-            t56 = (*(int *)((((0xC4 + a4) + t58) + 0x0)));
-            t55 = (t55 + t57);
-            *(int *)((int)stk + 0) = (0x78 + t56);
-            *(unsigned int *)(((int)stk + 8)) = t55;
-            *(unsigned int *)(((int)stk + 4)) = (0xC2A15B4 + t57);
-            t62 = *(short *)((a4 + 0x1C));
-            t56 = t62;
-            u60 = ((*(float *)((t55 + 0x0))) - (*(float *)(((0xC2A15B4 + t57) + 0x0))));
-            u59 = (math_sin_angle16(((int)(((((float)(((t62 << 1) + t56) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-            u60 = (u60 * u59);
-            t55 = (0x78 + t56);
-            u60 = (u60 * 65536.0f);
-            u60 = (u60 / 360.0f);
-            u60 = (u60 + 0.5f);
-            t56 = (int)u60;
-            t56 = (t56 & 0xFFFF);
-            *(unsigned int *)((t55 + 0x0)) = t56;
-            t56 = (*(int *)((((0xC4 + a4) + t58) + 0x0)));
-            *(int *)((int)stk + 0) = (0x7C + t56);
-            t55 = (*(int *)(((int)stk + 8)));
-            t73 = *(short *)((a4 + 0x1C));
-            t56 = t73;
-            u60 = (((((struct o4_float *)(t55))->v)) - ((((struct o4_float *)((*(int *)(((int)stk + 4)))))->v)));
-            u59 = (math_sin_angle16(((int)(((((float)(((t73 << 1) + t56) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-            u60 = (u60 * u59);
-            t55 = (0x7C + t56);
-            u60 = (u60 * 65536.0f);
-            u60 = (u60 / 360.0f);
-            u60 = (u60 + 0.5f);
-            t56 = (int)u60;
-            t56 = (t56 & 0xFFFF);
-            *(unsigned int *)((t55 + 0x0)) = t56;
-            t56 = (*(int *)((((0xC4 + a4) + t58) + 0x0)));
-            *(int *)((int)stk + 0) = (0x80 + t56);
-            t55 = (*(int *)(((int)stk + 8)));
-            t82 = *(short *)((a4 + 0x1C));
-            t56 = t82;
-            u60 = (((((struct o8_float *)(t55))->v)) - ((((struct o8_float *)((*(int *)(((int)stk + 4)))))->v)));
-            u59 = (math_sin_angle16(((int)(((((float)(((t82 << 1) + t56) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
-            u60 = (u60 * u59);
-            t55 = (0x80 + t56);
-            t58 = (t58 + 0x4);
-            t57 = (t57 + 0xC);
-            u60 = (u60 * 65536.0f);
-            u60 = (u60 / 360.0f);
-            u60 = (u60 + 0.5f);
-            t56 = (int)u60;
-            t56 = (t56 & 0xFFFF);
-            *(unsigned int *)((t55 + 0x0)) = t56;
-        }
+        FUN_0c131fac_spin(a4);
         t86 = *(short *)((a4 + 0x1C));
         *(unsigned short *)((a4 + 0x1C)) = (t86 + 0x1);
         t96 = (short)(t86 + 0x1);

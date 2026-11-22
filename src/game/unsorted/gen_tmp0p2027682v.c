@@ -12,4 +12,54 @@ int FUN_0c148d64(int, int, int);
 int FUN_0c187798(int, int, int);
 void FUN_0c1490ba(int a4);
 
+void FUN_0c1490ba(int a4)
+{
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+
+    t3 = *(signed char *)((a4 + 0x16));
+    if (t3 != 0) {
+        if (t3 != 1) {
+            return;
+        }
+        if (((*(short *)((a4 + 0x1C))) & 4) != 0) {
+            (((struct oA8_uchar *)(a4))->v) = 0x0;
+        } else {
+            (((struct oA8_uchar *)(a4))->v) = 0x1;
+        }
+        t3 = *(short *)((a4 + 0x1C));
+        *(unsigned short *)((a4 + 0x1C)) = (t3 - 1);
+        if ((int)(short)(t3 - 1) <= 0) {
+            (((struct oA8_uchar *)(a4))->v) = 0x1;
+            FUN_0c148d64(a4, 0x3, 0x0);
+    return;
+        }
+        return;
+    }
+    (((struct oA8_uchar *)(a4))->v) = 0x1;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x28)) = *(struct mv3 *)(0xC2029D8 + (*(signed char *)((a4 + 0x2))) * 12); }  /* manual: _quick_odd_mvn r0 12, r1 r4 + 40, r2 0x0C2029D8 + 12 * the byte at r4 + 2 */
+    (((struct o48_float *)(t2))->v) = 1.0f;
+    (((struct o44_float *)(t2))->v) = 1.0f;
+    (((struct o40_float *)(t2))->v) = 1.0f;
+    (((struct o7C_uint *)(((((struct oC8_int *)(t2))->v))))->v) = t0;
+    (((struct o78_uint *)(((((struct oC8_int *)(t2))->v))))->v) = t0;
+    (((struct o78_uint *)(((((struct oCC_int *)(t2))->v))))->v) = t0;
+    *(unsigned short *)((t2 + 0x1C)) = 0x1E;
+    (((struct o16_uchar *)(t2))->v) = ((*(signed char *)((t2 + 0x16))) + 0x1);
+    if (((*(short *)((t2 + 0x1C))) & 4) != 0) {
+        (((struct oA8_uchar *)(t2))->v) = t0;
+    } else {
+        (((struct oA8_uchar *)(t2))->v) = t1;
+        t0 = t1;
+    }
+    t1 = *(short *)((t2 + 0x1C));
+    *(unsigned short *)((t2 + 0x1C)) = (t1 - 1);
+    if ((int)(short)(t1 - 1) <= 0) {
+        (((struct oA8_uchar *)(t2))->v) = t0;
+        FUN_0c148d64(t2, 0x3, 0x0);
+    return;
+    }
+}
 

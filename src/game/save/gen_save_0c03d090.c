@@ -11,10 +11,6 @@ int buMountDisk(int, int, int);
 int FUN_0c03d090(int a4);
 int FUN_0c03d0bc(int a4);
 
-int FUN_0c03d090(int a4)
-{
-    return buDeleteFile(a4);
-}
 
 int FUN_0c03d0bc(int a4)
 {

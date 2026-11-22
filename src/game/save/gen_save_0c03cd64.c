@@ -12,7 +12,7 @@ int FUN_0c03a70a(void);
 int vmu_lcd_refresh(int);
 int FUN_0c03b3fc(void);
 int buUnmount(int);
-int FUN_0c2b2c98(int, int);
+int buGetFileSize(int, int);
 int buLoadFile(int, int, int, int);
 int buMountDisk(int, int, int);
 int FUN_0c0f3d20(int, int);
@@ -131,7 +131,7 @@ int FUN_0c03ce84(int a4)
     register int t0;
     register int t3;
 
-    t0 = FUN_0c2b2c98(a4, 0xC1B7228);
+    t0 = buGetFileSize(a4, 0xC1B7228);
     t3 = t0;
     if ((int)t0 >= 0) {
         t3 = (buLoadFile(a4, 0xC1B7228, 0xC3CBA20, t0));

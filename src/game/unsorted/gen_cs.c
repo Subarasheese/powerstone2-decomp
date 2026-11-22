@@ -225,37 +225,6 @@ int FUN_0c079f48(int a4)
     return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
 }
 
-int FUN_0c0a71e2(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-
-    (((struct o374B_uchar *)(a4))->v) = 0x1;
-    t0 = FUN_0c037bf6(a4, a5, a6);
-    t1 = (unsigned char)t0;
-    if ((unsigned char)t0 != 0) {
-        FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x2, 0x17);
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t2 = (((struct o118_int *)(a4))->v);
-        (((struct oA0_float *)(t0))->v) = 1.0f;
-        (((struct o9C_float *)(t0))->v) = 1.0f;
-        (((struct oA0_float *)(t2))->v) = 1.0f;
-        (((struct o9C_float *)(t2))->v) = 1.0f;
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t2 = (((struct o118_int *)(a4))->v);
-        (((struct o98_float *)(t0))->v) = 1.0f;
-        (((struct o98_float *)(t2))->v) = 1.0f;
-        (((struct o94_float *)(t0))->v) = 1.0f;
-        (((struct o94_float *)(t2))->v) = 1.0f;
-        FUN_0c07ce58(a4, ((((short)(*(signed char *)((a4 + 0x2))) * (short)0x78) + 0xC25B194) + 0x30));
-        *(unsigned int *)((a4 + 0x38)) = (FUN_0c07d774(a4));
-        FUN_0c07043c(a4, ((((struct o8_float *)0xC0A7338)->v)), ((((struct o4_float *)0xC0A7338)->v)), ((((struct o0_float *)0xC0A7338)->v)), 1.0f);
-        (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-        t1 = 0x15;
-    }
-    return t1;
-}
 
 int FUN_0c07810c(int a4)
 {

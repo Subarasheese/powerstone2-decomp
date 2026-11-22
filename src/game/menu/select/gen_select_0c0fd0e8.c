@@ -638,36 +638,6 @@ int FUN_0c0fe000(int a4)
     return t1;
 }
 
-int FUN_0c0fe02a(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)((a4 + 0x14));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return t0;
-        }
-    } else {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-        FUN_0c0fddea(a4);
-        FUN_0c0fd0e8(a4);
-        FUN_0c0fe000(a4);
-    }
-    *(unsigned short *)((a4 + 0x1C)) = (FUN_0c105384((*(short *)((a4 + 0x1C)))));
-    t0 = FUN_0c05f22c(0x101);
-    if (t0 != 0) {
-        t1 = *(short *)((a4 + 0x1C));
-        if (t1 == 2) {
-            FUN_0c05aab6(0x0, 0x3);
-            FUN_0c05add4(0x1);
-            FUN_0c059ce8(0x75);
-            return FUN_0c0fb9a6();
-        }
-        return t1;
-    }
-    return t0;
-}
 
 int FUN_0c0fe0b2(void)
 {

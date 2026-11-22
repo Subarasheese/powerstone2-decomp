@@ -139,65 +139,6 @@ int FUN_0c0e09ec(int a4);
 int FUN_0c08bf94(int a4, int a5, int a6, int a7);
 int FUN_0c08da68(int a4, int a5, int a6, int a7);
 
-int FUN_0c070aa8(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    float u0;
-    register float u1;
-
-    FUN_0c037bf6(a4, a5, a6);
-    if ((*(signed char *)((((((struct o377C_int *)(a4))->v)) + 0x0))) == 0) {
-        t0 = FUN_0c064f80(((((struct o377C_int *)(a4))->v)));
-        if ((t0 != 0) && (u0 = (((struct o3810_float *)(a4))->v), u1 = (((struct o2C_float *)(a4))->v), u1 > u0)) {
-            u0 = ((((((struct o30_float *)(a4))->v)) - ((((struct o3814_float *)(a4))->v))) * (((((struct o30_float *)(a4))->v)) - ((((struct o3814_float *)(a4))->v))));
-            u0 = u0 + ((((((struct o28_float *)(a4))->v)) - ((((struct o380C_float *)(a4))->v)))) * ((((((struct o28_float *)(a4))->v)) - ((((struct o380C_float *)(a4))->v))));
-            u1 = math_signed_sqrt(u0);
-            if (200.0f > u1) {
-                (((struct o28_float *)(a4))->v) = (((((struct o28_float *)(a4))->v)) + ((((((struct o380C_float *)(a4))->v)) - ((((struct o28_float *)(a4))->v))) / 6.0f));
-                (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) + ((((((struct o3814_float *)(a4))->v)) - ((((struct o30_float *)(a4))->v))) / 6.0f));
-            }
-        }
-    }
-    if ((*(signed char *)((a4 + 0x131))) != 0) {
-        t0 = FUN_0c07d1fc(a4);
-        if (t0 != 0) {
-            t0 = *(signed char *)((a4 + 0x1));
-            FUN_0c07e79c(a4, t0, 0x2, 0x5, (t0), 0x2, 0x5);
-            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-            return 0x15;
-        }
-    }
-    t0 = FUN_0c07ecc6(a4, 0x0, 0x0);
-    if (t0 != 0) {
-        if (t0 == 2) {
-            return FUN_0c085cac(a4, 0x6, 0x0);
-        }
-        t0 = 0x9;
-        if ((*(signed char *)((a4 + 0x2))) != 15) {
-            t0 = 0x7;
-        }
-        t1 = *(signed char *)((a4 + 0x1));
-        FUN_0c07e79c(a4, t1, 0x2, t0, (t1), 0x2, (t0));
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t1 = (((struct o118_int *)(a4))->v);
-        (((struct oA0_float *)(t0))->v) = 1.0f;
-        (((struct o9C_float *)(t0))->v) = 1.0f;
-        (((struct oA0_float *)(t1))->v) = 1.0f;
-        (((struct o9C_float *)(t1))->v) = 1.0f;
-        t0 = *(int *)(((0x118 + a4) + 0x4));
-        t1 = (((struct o118_int *)(a4))->v);
-        (((struct o98_float *)(t0))->v) = 1.0f;
-        (((struct o98_float *)(t1))->v) = 1.0f;
-        (((struct o94_float *)(t0))->v) = 1.0f;
-        (((struct o94_float *)(t1))->v) = 1.0f;
-        FUN_0c07daea(a4, t1, t0);
-        (((struct o15_uchar *)(a4))->v) = 0x5;
-        return 0x15;
-    }
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-}
 
 int FUN_0c06b028(int a4)
 {
@@ -1056,8 +997,8 @@ int FUN_0c0eb758(int a4, int a5, int a6, float f4)
                     if ((int)(short)(t5 - 1) <= 0) {
                         (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
                         (((struct o20_ushort *)(a4))->v) = 0x3C;
-                        *(volatile int *)((a4 + 0xCC));
-                        t6 = (FUN_0c18778c(0xC1CCC80, 0xC1CCC60, t4, 10.0f));
+                        { struct mv4 { int w[4]; }; *(struct mv4 *)((*(int *)((a4 + 0xCC))) + 0x14) = *(struct mv4 *)(0xC1CCC80); }  /* manual: _quick_evn_mvn r0 16, r1 the word at r14 (a4) + 0xCC, + 20, r2 r5 (0x0C1CCC60) + 32 */
+                        t6 = 0;
                     }
                     t3 = t6;
                 }
@@ -1077,8 +1018,8 @@ int FUN_0c0eb758(int a4, int a5, int a6, float f4)
                 if ((int)(short)(t5 - 1) <= 0) {
                     (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
                     (((struct o20_ushort *)(a4))->v) = 0x3C;
-                    *(volatile int *)((a4 + 0xCC));
-                    t6 = (FUN_0c18778c(0xC1CCC80, 0xC1CCC60, t3, 10.0f));
+                    { struct mv4 { int w[4]; }; *(struct mv4 *)((*(int *)((a4 + 0xCC))) + 0x14) = *(struct mv4 *)(0xC1CCC80); }  /* manual: _quick_evn_mvn r0 16, r1 the word at r14 (a4) + 0xCC, + 20, r2 r5 (0x0C1CCC60) + 32 */
+                    t6 = 0;
                 }
                 t4 = t6;
             }
@@ -1119,8 +1060,8 @@ int FUN_0c0eb758(int a4, int a5, int a6, float f4)
                 if ((int)(short)(t2 - 1) <= 0) {
                     (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
                     (((struct o20_ushort *)(a4))->v) = 0x3C;
-                    *(volatile int *)((a4 + 0xCC));
-                    t4 = (FUN_0c18778c(0xC1CCC80, 0xC1CCC60, t1, 10.0f));
+                    { struct mv4 { int w[4]; }; *(struct mv4 *)((*(int *)((a4 + 0xCC))) + 0x14) = *(struct mv4 *)(0xC1CCC80); }  /* manual: _quick_evn_mvn r0 16, r1 the word at r14 (a4) + 0xCC, + 20, r2 r5 (0x0C1CCC60) + 32 */
+                    t4 = 0;
                 }
                 t0 = t4;
             }
@@ -1140,8 +1081,8 @@ int FUN_0c0eb758(int a4, int a5, int a6, float f4)
             if ((int)(short)(t2 - 1) <= 0) {
                 (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
                 (((struct o20_ushort *)(a4))->v) = 0x3C;
-                *(volatile int *)((a4 + 0xCC));
-                t4 = (FUN_0c18778c(0xC1CCC80, 0xC1CCC60, t0, 10.0f));
+                { struct mv4 { int w[4]; }; *(struct mv4 *)((*(int *)((a4 + 0xCC))) + 0x14) = *(struct mv4 *)(0xC1CCC80); }  /* manual: _quick_evn_mvn r0 16, r1 the word at r14 (a4) + 0xCC, + 20, r2 r5 (0x0C1CCC60) + 32 */
+                t4 = 0;
             }
             t1 = t4;
         }

@@ -529,7 +529,7 @@ int FUN_0c05cba4(int a4, int a5, int a6)
     register int t71;
     register int t75;
 
-    FUN_0c187798(a4, a5, a6);
+    { struct mv7 { int w[7]; }; *(struct mv7 *)(((int)stk + 24)) = *(struct mv7 *)(0xC1C3C1C); }  /* manual: _quick_odd_mvn r0 28, r1 r15 + 24, r2 0x0C1C3C1C */
     { struct mvb23 { char b[23]; }; *(struct mvb23 *)(((int)stk + 0)) = *(struct mvb23 *)(0xC1C3C38); }
     if ((unsigned char)(*(signed char *)0xC541F42) == 0) {
         (((struct o1_uchar *)0xC541F41)->v) = ((*(signed char *)0xC541F42) + 0x1);

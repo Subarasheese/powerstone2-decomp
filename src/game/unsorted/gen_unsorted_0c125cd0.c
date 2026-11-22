@@ -47,8 +47,8 @@ int FUN_0c125cd0(int a4)
         (((struct oA9_uchar *)(t0))->v) = (*(signed char *)((a4 + 0xA9)));
         *(unsigned int *)((t0 + 0x4)) = 0xC125E4C;
         *(unsigned int *)((t0 + 0x10)) = a4;
-        FUN_0c187798();
-        FUN_0c187798();
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x34)) = *(struct mv3 *)((a4 + 0x34)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 52, r2 r12 (a4) + 52 */
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x28)) = *(struct mv3 *)((a4 + 0x28)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 40, r2 r12 + 40 */
         u0 = 50.0f;
         u0 = u0 + 20.0f * (float)((int)((int)(FUN_0c179ac0()) % (int)0x14));
         (((struct o2C_float *)(t0))->v) = (((((struct o2C_float *)(t0))->v)) + u0);

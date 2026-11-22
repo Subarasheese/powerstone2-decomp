@@ -121,50 +121,15 @@ int FUN_0c0cf7de(int a4, int a5, int a6, int a7, int a8)
             (((struct o12E_ushort *)(t2))->v) = 0x0;
             (((struct o12C_ushort *)(t2))->v) = 0x0;
             (((struct o420_ushort *)(t2))->v) = (*(short *)0xC27603A);
-            t4 = ((int (*)(void))(FUN_0c187798))();
+            { struct mv3 { int w[3]; }; *(struct mv3 *)((t2 + 0x28)) = *(struct mv3 *)(a4); }  /* manual: _quick_odd_mvn r0 12, r1 r14 (t2) + 40, r2 r4 (a4) */
             (((struct o18_uchar *)(t2))->v) = a5;
             (((struct o19_uchar *)(t2))->v) = a6;
             (((struct o1A_uchar *)(t2))->v) = a7;
             (((struct o1B_uchar *)(t2))->v) = a8;
-            if ((int)t0 > 0) {
-                t4 = a5;
-                t5 = a7;
-                t6 = a8;
-                t7 = 0x0;
-                t8 = 0xC273858;
-                for (;;) {
-                    if (t7 != 4) {
-                        t6 = 0xC4;
-                        t4 = t7;
-                        t4 = (t4 << 2);
-                        t5 = t7;
-                        t6 = (t6 + t2);
-                        t4 = (t4 + t6);
-                        t6 = t7;
-                        t5 = (t5 << 1);
-                        t4 = (*(int *)((t4 + 0x0)));
-                        t5 = (t5 + t6);
-                        t6 = 0xC187798;
-                        t5 = (t5 << 2);
-                        t4 = (t4 + 0x6C);
-                        t5 = (t5 + t8);
-                        t9 = ((int (*)(int, int))(FUN_0c187798))(t7, t8);
-                    } else {
-                        t9 = t4;
-                        t10 = t5;
-                        t11 = t6;
-                        t12 = t7;
-                        t13 = t8;
-                    }
-                    t4 = t9;
-                    t5 = t10;
-                    t6 = t11;
-                    t7 = (t12 + 0x1);
-                    t8 = t13;
-                    if ((int)t7 >= (int)t0) {
-                        break;
-                    }
-                }
+            {  /* manual: the loop as the original runs it (the generated loop lost r4-r8 across _quick_odd_mvn) */
+                int i_;
+                for (i_ = 0; i_ < (int)t0; i_++)
+                    if (i_ != 4) { struct mv3 { int w[3]; }; *(struct mv3 *)((*(int *)(t2 + 0xC4 + (i_ << 2))) + 0x6C) = *(struct mv3 *)(0xC273858 + i_ * 12); }
             }
             *(unsigned int *)((t2 + 0x38)) = (unsigned short)((*(short *)0xC5413E8) + 0x8000);
             (((struct o428_uchar *)(t2))->v) = 0x0;

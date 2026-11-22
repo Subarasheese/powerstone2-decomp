@@ -27,19 +27,3 @@ int FUN_0c091f80(int a4)
     return (FUN_0c07e79c(a4, t5, 0x1, 0x21, (t5), 0x1, 0x21));
 }
 
-int FUN_0c091fd6(int a4)
-{
-    register float u4;
-    register int t9;
-
-    (((struct o28_float *)(a4))->v) = (((((struct o28_float *)(a4))->v)) + ((((struct o4C_float *)(a4))->v)));
-    (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) + ((((struct o54_float *)(a4))->v)));
-    u4 = *(float *)0xC092088;
-    (((struct o4C_float *)(a4))->v) = (((((struct o4C_float *)(a4))->v)) - (((((struct o4C_float *)(a4))->v)) / u4));
-    (((struct o54_float *)(a4))->v) = (((((struct o54_float *)(a4))->v)) - (((((struct o54_float *)(a4))->v)) / u4));
-    t9 = FUN_0c037bf6(a4);
-    if ((unsigned char)t9 != 0) {
-        return FUN_0c085d0c(a4);
-    }
-    return FUN_0c038362(a4);
-}

@@ -40,7 +40,7 @@ int FUN_0c05a670(void);
 int FUN_0c05a68a(float f4);
 void FUN_0c05a7f8(void);
 int FUN_0c05aa9c(int a4);
-int FUN_0c05aab2(void);
+int FUN_0c05aab2(int a4, int a5, int a6, int a7);
 int FUN_0c05a820(int a4, int a5, int a6, int a7);
 int FUN_0c05aab6(int a4, int a5);
 int FUN_0c05aad0(int a4, int a5, int a6);
@@ -415,39 +415,39 @@ int FUN_0c05aa9c(int a4)
     return (*(int *)((0xC257758 + (((a4 << 1) + a4) << 2))));
 }
 
-int FUN_0c05aab2(void)
+int FUN_0c05aab2(int a4, int a5, int a6, int a7)
 {
-    return ((int (*)(void))(0xC05AAAE))();
+    return FUN_0c05a820(a4, a5, a6, a7);  /* manual: bra 0x0C05AAAE, bra FUN_0c05a820 with r4-r7 as they came */
 }
 
 int FUN_0c05aab6(int a4, int a5)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC257504, (a4 << 3) + a5, 0, 0);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05aad0(int a4, int a5, int a6)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC250D84, a4, a5, a6);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05aae4(int a4, int a5)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC250D84, a4, 0, a5);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05aaf6(int a4)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC250D84, a4, 0, 0);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05ab04(int a4)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC250D84, a4, 0, 0);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05ab12(int a4, int a5)
 {
-    return FUN_0c05aab2();
+    return FUN_0c05a820(0xC250D84, a4, 0, a5);  /* manual: r4-r7 set, then bra FUN_0c05aab2 */
 }
 
 int FUN_0c05ab24(int a4, int a5, int a6)
@@ -455,11 +455,9 @@ int FUN_0c05ab24(int a4, int a5, int a6)
     int t1;
 
     if (((*(signed char *)0xC5429A8) == 3) && (t1 = *(signed char *)0xC5429AB, t1 == 0)) {
-        *(volatile int *)(((a6 << 2) + 0xC2576D4));
-        return FUN_0c05aab2();
+        return FUN_0c05aab2(*(int *)((a6 << 2) + 0xC2576D4), a4, a5 + 4, 0);  /* manual: r4-r6 set, bra FUN_0c05aab2 (r7 as it came) */
     }
-    *(volatile int *)(((a6 << 2) + 0xC257680));
-    return FUN_0c05aab2();
+    return FUN_0c05aab2(*(int *)((a6 << 2) + 0xC257680), a4, a5 + 4, 0);  /* manual: as above */
 }
 
 void FUN_0c05ab78(int a4)
@@ -471,15 +469,12 @@ int FUN_0c05ab7e(int a4, int a5)
 {
     (((struct o4_uint *)0xC46E198)->v) = (((((struct o4_int *)0xC46E198)->v)) + 0x1);
     (((struct o4_uint *)0xC46E198)->v) = (((((struct o4_int *)0xC46E198)->v)) & 0x1);
-    *(volatile int *)0xC46E19C;
-    *(volatile int *)(((((((struct o0_int *)0xC46E198)->v)) << 2) + 0xC257644));
-    return FUN_0c05aab2();
+    return FUN_0c05aab2(*(int *)(((*(int *)0xC46E198) << 2) + 0xC257644), a4, *(int *)0xC46E19C + 8, a5);  /* manual: r4-r7 set, bra FUN_0c05aab2 */
 }
 
 int FUN_0c05abb2(int a4, int a5)
 {
-    *(volatile int *)((((*(int *)0xC46E198) << 2) + 0xC257644));
-    return FUN_0c05aab2();
+    return FUN_0c05aab2(*(int *)(((*(int *)0xC46E198) << 2) + 0xC257644), a4, 8, a5);  /* manual: r4-r7 set, bra FUN_0c05aab2 */
 }
 
 int FUN_0c05abcc(int a4, int a5)

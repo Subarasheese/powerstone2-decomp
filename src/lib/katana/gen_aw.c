@@ -1906,22 +1906,6 @@ int kdInitSystemEx(int a4, int a5, int a6, int a7)
     return t3;
 }
 
-int ADXSTM_OpenRange(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t3;
-
-    t0 = gdFsDaGetInfo(a4, a5, a6);
-    if (t0 == 0) {
-        FUN_0c2c30aa(0xC2FFD1C);
-        return 0x0;
-    }
-    t3 = ADXSTMF_Create(t0, 0x0, (((a5 << 8) << 2) << 1), a6);
-    if (t3 != 0) {
-        strncpy((t3 + 0x40), 0xC2FFD54, 0x20);
-    }
-    return t3;
-}
 
 int FUN_0c2cfc92(int a4, int a5)
 {

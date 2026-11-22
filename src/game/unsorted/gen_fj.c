@@ -55,7 +55,7 @@ int FUN_0c064f80(int);
 int FUN_0c0659d6(int, int, int);
 int FUN_0c07e2f4(int, int);
 int FUN_0c1171f0(int);
-int FUN_0c1173dc(int, int);
+int FUN_0c1173dc(int, int, int, int);
 int FUN_0c13052c(int, int, int, int, float);
 int FUN_0c13f118(int);
 int FUN_0c14fb3c(int, Stk3, float, float, float, float, float);
@@ -181,8 +181,8 @@ int FUN_0c1195d4(int a4, int a5, int a6, int a7)
             if ((int)(((*(short *)(((0x41C + t0) + 0x8))) - (*(short *)(((0x41C + t0) + 0xC)))) + t2) < (int)t4) {
                 t1 = 0xC4B410C;
                 t5 = *(int *)((((t2 + t7) << 2) + 0xC474410));
-                *(volatile int *)((t1 + 0x0));
-                FUN_0c1173dc(t6, t5);
+                /* manual: r6 = 0 and r7 = the word at 0x0C4B410C go with the call; the generated C read the word and dropped it */
+                FUN_0c1173dc(t6, t5, 0x0, (*(int *)((t1 + 0x0))));
                 *(unsigned short *)((t6 + 0x6)) = 0x21F;
                 t1 = 0xC291DF8;
                 { struct mv3 { int w[3]; }; *(struct mv3 *)((0x84 + t6)) = *(struct mv3 *)(t1); }
@@ -231,8 +231,8 @@ int FUN_0c1195d4(int a4, int a5, int a6, int a7)
         if ((int)(((*(short *)(((0x41C + t0) + 0x8))) - (*(short *)(((0x41C + t0) + 0xC)))) + t2) < (int)t4) {
             t1 = 0xC4B410C;
             t5 = *(int *)((((t2 + t7) << 2) + 0xC474410));
-            *(volatile int *)((t1 + 0x0));
-            FUN_0c1173dc(t6, t5);
+            /* manual: r6 = 0 and r7 = the word at 0x0C4B410C go with the call; the generated C read the word and dropped it */
+            FUN_0c1173dc(t6, t5, 0x0, (*(int *)((t1 + 0x0))));
             *(unsigned short *)((t6 + 0x6)) = 0x21F;
             t1 = 0xC291DF8;
             { struct mv3 { int w[3]; }; *(struct mv3 *)((0x84 + t6)) = *(struct mv3 *)(t1); }

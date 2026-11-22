@@ -183,7 +183,7 @@ int FUN_0c0ca8ac(int a4);
 int FUN_0c115c10(void);
 int FUN_0c0ad52e(int a4);
 int FUN_0c10ade4(int a4);
-int FUN_0c2b2438(void);
+int buExit(void);
 int FUN_0c10676e(int a4);
 int FUN_0c10ee14(int a4, int a5, int a6, int a7);
 int FUN_0c109c58(int a4);
@@ -255,34 +255,6 @@ int FUN_0c0974de(int a4)
     return 0x17;
 }
 
-int FUN_0c0a40dc(int a4)
-{
-    register int t0;
-    register int t1;
-
-    if (0.0f > ((((struct o50_float *)(a4))->v))) {
-        t0 = FUN_0c07ecc6(a4, 0x0, 0x0);
-        if (t0 != 0) {
-            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-            FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x2, 0x8);
-            t0 = *(int *)(((0x118 + a4) + 0x4));
-            t1 = (((struct o118_int *)(a4))->v);
-            (((struct oA0_float *)(t0))->v) = 1.0f;
-            (((struct o9C_float *)(t0))->v) = 1.0f;
-            (((struct oA0_float *)(t1))->v) = 1.0f;
-            (((struct o9C_float *)(t1))->v) = 1.0f;
-            t0 = *(int *)(((0x118 + a4) + 0x4));
-            t1 = (((struct o118_int *)(a4))->v);
-            (((struct o98_float *)(t0))->v) = 1.0f;
-            (((struct o98_float *)(t1))->v) = 1.0f;
-            (((struct o94_float *)(t0))->v) = 1.0f;
-            (((struct o94_float *)(t1))->v) = 1.0f;
-            return FUN_0c07daea(a4, t1, t0);
-        }
-    }
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-}
 
 int FUN_0c0a3c52(int a4, int a5, int a6)
 {
@@ -552,31 +524,6 @@ int FUN_0c0a2220(int a4)
     return 0x0;
 }
 
-int FUN_0c08da84(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)((a4 + 0x1));
-    FUN_0c07e79c(a4, t0, 0x1, 0x12, (t0), 0x1, 0x12);
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct oA0_float *)(t0))->v) = 1.0f;
-    (((struct o9C_float *)(t0))->v) = 1.0f;
-    (((struct oA0_float *)(t1))->v) = 1.0f;
-    (((struct o9C_float *)(t1))->v) = 1.0f;
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct o98_float *)(t0))->v) = 1.0f;
-    (((struct o98_float *)(t1))->v) = 1.0f;
-    (((struct o94_float *)(t0))->v) = 1.0f;
-    (((struct o94_float *)(t1))->v) = 1.0f;
-    FUN_0c123010(a4, 0x0);
-    FUN_0c1238f8(a4, 0x0);
-    FUN_0c1238f8(a4, 0x1);
-    (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-    return 0x15;
-}
 
 int FUN_0c0a6260(int a4, int a5, int a6)
 {
@@ -618,30 +565,6 @@ int FUN_0c0a62d6(int a4, int a5, int a6)
     return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
 }
 
-int FUN_0c08d2f0(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)((a4 + 0x1));
-    FUN_0c07e79c(a4, t0, 0x1, 0x12, (t0), 0x1, 0x12);
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct oA0_float *)(t0))->v) = 1.0f;
-    (((struct o9C_float *)(t0))->v) = 1.0f;
-    (((struct oA0_float *)(t1))->v) = 1.0f;
-    (((struct o9C_float *)(t1))->v) = 1.0f;
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct o98_float *)(t0))->v) = 1.0f;
-    (((struct o98_float *)(t1))->v) = 1.0f;
-    (((struct o94_float *)(t0))->v) = 1.0f;
-    (((struct o94_float *)(t1))->v) = 1.0f;
-    FUN_0c123010(a4, 0x0);
-    FUN_0c1238f8(a4, 0x1);
-    (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-    return 0x15;
-}
 
 int FUN_0c096ef4(int a4, int a5, int a6)
 {
@@ -983,26 +906,6 @@ int FUN_0c09dc7a(int a4, int a5, int a6)
     return t1;
 }
 
-int FUN_0c09db90(int a4, int a5, int a6)
-{
-    register int t2;
-    register int t8;
-
-    FUN_0c037bf6(a4, a5, a6);
-    FUN_0c038362(a4);
-    t2 = *(short *)((a4 + 0x1E));
-    *(unsigned short *)((a4 + 0x1E)) = (t2 - 1);
-    t8 = (short)(t2 - 1);
-    if ((short)(t2 - 1) != 0) {
-        FUN_0c12db58(a4, 0x2);
-        FUN_0c12df3c(a4);
-        FUN_0c12f69c(a4, 0xA);
-        FUN_0c059e60(a4, 0x22);
-        (((struct o17_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x17))) + 0x1);
-        t8 = 0x17;
-    }
-    return t8;
-}
 
 int FUN_0c07a2de(int a4, int a5, int a6)
 {
@@ -1460,7 +1363,7 @@ int FUN_0c10ade4(int a4)
     return FUN_0c109c2a((*(int *)(((int)stk + 4))));
 }
 
-int FUN_0c2b2438(void)
+int buExit(void)
 {
     *(unsigned int *)0xC303700 = 0x0;
     kdSetHandler((*(int *)0xC2FED5C), 0x0);

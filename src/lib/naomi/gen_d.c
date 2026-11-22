@@ -159,7 +159,7 @@ int FUN_0c2eec74(int, int, int);
 extern void _builtin_prefetch(void *);
 float math_cos_angle16(int);
 float math_sin_angle16(int);
-int nlSprPutPosSet(float, float, float, float);
+int nlSprPutPosSet(int, int, int, float, float, float, float);
 int nlSpriteF2C(float);
 int thunk_FUN_0c2d3774(void);
 int thunk_FUN_0c2e3f7c(void);
@@ -1112,7 +1112,7 @@ int nl_sprite_draw(int a4, int a5)
             u57 = (((struct oC_float *)(a4))->v);
             *(float *)(((int)stk + 8)) = (math_sin_angle16((*(int *)((a4 + 0x28)))));
             t61 = math_cos_angle16((*(int *)((a4 + 0x28))));
-            nlSprPutPosSet((u54 * 0.5f), (*(float *)(((int)stk + 4))), (*(float *)(((int)stk + 8))), t61);
+            nlSprPutPosSet(a4, ((int)stk + 44), ((int)stk + 28), (u54 * 0.5f), (*(float *)(((int)stk + 4))), (*(float *)(((int)stk + 8))), t61);  /* manual: r4 r13 (a4), r5 r15 + 44, r6 r15 + 28 (the generated call passed no integers) */
             u65 = (((struct o4_float *)0xC2A6140)->v);
             u66 = (((struct o18_float *)0xC86CBCC)->v);
             u67 = (((struct o0_float *)0xC2A6140)->v);

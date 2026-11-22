@@ -1782,62 +1782,6 @@ int FUN_0c198790(int a4, int a5, int a6, int a7)
     return t38;
 }
 
-int fmMngInit(int a4, int a5, int a6)
-{
-    int stk[3];
-    register int t51;
-    register int t6;
-    register int t8;
-    register int t19;
-    register int t20;
-    register int t21;
-    int t27;
-    register int t34;
-    int t22;
-    register int t23;
-    register int t24;
-
-    *(unsigned int *)(((int)stk + 0)) = a5;
-    t51 = 0xFFFFFFF9;
-    if (((int)a4 >= (int)0x1) && ((int)a4 < (int)0x5)) {
-        *(unsigned int *)0xC303D78 = 0xC8CA910;
-        FUN_0c2db8cc(a4, (((int)stk + 0) + 0x4), a6);
-        *(unsigned short *)(((*(int *)0xC303D78) + 0x0)) = a4;
-        *(unsigned int *)(((*(int *)0xC303D78) + 0x4)) = (*(int *)(((int)stk + 4)));
-        *(unsigned int *)(((*(int *)0xC303D78) + 0x8)) = (*(int *)(((int)stk + 8)));
-        t6 = *(int *)0xC303D78;
-        *(unsigned int *)((t6 + 0x18)) = ((int)((*(int *)((t6 + 0x8))) + 0x7FFF) >> 15);
-        t8 = *(int *)0xC303D78;
-        *(unsigned int *)((t8 + 0x14)) = ((((int)(*(int *)((t8 + 0x8))) >> 6) - (*(int *)((t8 + 0x18)))) - 1);
-        *(unsigned int *)(((*(int *)0xC303D78) + 0xC)) = (*(int *)(((int)stk + 0)));
-        *(unsigned int *)(((*(int *)0xC303D78) + 0x1C)) = 0x0;
-        *(unsigned int *)(((*(int *)0xC303D78) + 0x20)) = 0x0;
-        *(unsigned int *)(((*(int *)0xC303D78) + 0x2C)) = 0x0;
-        t19 = FUN_0c2db8e0((*(int *)(((*(int *)0xC303D78) + 0x4))), ((*(int *)0xC303D78) + 0x34), 0x40);
-        t51 = 0xFFFFFFFF;
-        if (t19 == -1) {
-        } else {
-            t20 = *(int *)0xC303D78;
-            t21 = thunk_FUN_0c2c2124();
-            t51 = 0xFFFFFFF8;
-            if ((t21 != 0) && (t22 = *(int *)0xC303D78, t23 = *(signed char *)(((t20 + 0x34) + 0x10)), t24 = *(short *)((t22 + 0x0)), t24 == t23)) {
-                *(unsigned short *)((t22 + 0x2)) = (*(signed char *)(((t20 + 0x34) + 0x11)));
-                t27 = *(short *)(((*(int *)0xC303D78) + 0x2));
-                t51 = 0xFFFFFFF8;
-                if ((t27 != 0) && (t27 != 1)) {
-                } else {
-                    fmMngClearBuf((*(int *)(((*(int *)0xC303D78) + 0xC))), (*(int *)(((*(int *)0xC303D78) + 0x8))));
-                    t34 = fmMngReadSctAllData((*(int *)0xC303D78));
-                    t51 = 0x0;
-                    if (t34 != 0) {
-                        t51 = t34;
-                    }
-                }
-            }
-        }
-    }
-    return t51;
-}
 
 int FUN_0c2f74a4(int a4, int a5, int a6, int a7)
 {
@@ -2372,56 +2316,6 @@ int FUN_0c2be46c(int a4, int a5, int a6)
     return 0xFFFFFF01;
 }
 
-int FUN_0c2bdfe2(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t5;
-    int t6;
-    register int t19;
-    register int t4;
-
-    *(unsigned int *)0xC8C4600 = 0xC8C45EC;
-    t0 = 0xC8C5044;
-    for (;;) {
-        *(unsigned int *)((t0 + 0x0)) = 0x0;
-        t0 = (t0 + 0x4);
-        if ((unsigned int)t0 >= (unsigned int)0xC8C5064) {
-            break;
-        }
-    }
-    memset(0xC8C45EC, 0x0, 0x14);
-    memset(0xC8C4604, 0x0, 0xA40);
-    vmsfs_setdevicetype(0x0);
-    (((struct o8_uint *)0xC8C9504)->v) = 0x0;
-    t5 = 0x0;
-    t6 = 0x1;
-    for (;;) {
-        t5 = (t5 + 0x1);
-        if ((a5 & t6) != 0) {
-            t4 = ((((struct o8_int *)0xC8C9504)->v));
-            t4 = (t4 + 0x1);
-            (((struct o8_uint *)0xC8C9504)->v) = t4;
-        }
-        t6 = (t6 << 1);
-        if ((int)t5 >= (int)0x8) {
-            break;
-        }
-    }
-    if (a6 != 0) {
-        vmsfs_init_work_normal(a4, a5);
-        *(unsigned int *)(((*(int *)0xC8C4600) + 0x8)) = 0x0;
-    } else {
-        vmsfs_init_work_new(a4);
-        *(unsigned int *)(((*(int *)0xC8C4600) + 0x8)) = 0x1;
-    }
-    (((struct o0_uint *)0xC8C9504)->v) = 0x8;
-    (((struct o4_uint *)0xC8C9504)->v) = 0x0;
-    vmsfs_setretry(0xA);
-    t19 = (((struct o0_int *)0xC8C9504)->v);
-    memset(0xC8C92C4, 0x0, (((((t19 << 2) << 1) + t19) << 2) << 1));
-    FUN_0c2db30c();
-    return 0x0;
-}
 
 int FUN_0c2f7d9c(int a4)
 {

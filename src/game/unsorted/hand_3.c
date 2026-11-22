@@ -149,8 +149,8 @@ int FUN_0c01fbe0(int a4, int a5, int a6)
     int i, j;
     char *buf = (char *)0x0C30A3FC;
 
-    FUN_0c187990(a4, a5, a6);          /* strcpy((char *)0x0C3098E3, p + 0x198 + 40) */
-    FUN_0c187990(a4, a5, a6);          /* strcpy((char *)0x0C309863, p + 0x198 + 80) */
+    for (i = 0; (((char *)0x0C3098E3)[i] = *(char *)(p + 0x198 + 40 + i)) != 0; i++) ;  /* manual: _slow_strcpy r0 0x0C3098E3, r1 p + 0x198 + 40 */
+    for (i = 0; (((char *)0x0C309863)[i] = *(char *)(p + 0x198 + 80 + i)) != 0; i++) ;  /* manual: _slow_strcpy r0 0x0C309863, r1 p + 0x198 + 80 */
     *(char *)0x0C30A401 = (*(int *)p & 0x100) ? 1 : 0;
     *(char *)0x0C30A3FC = 0;
     for (i = 0; i < 5; i++) {

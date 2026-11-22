@@ -238,8 +238,8 @@ int FUN_0c1272a8(int a4, int a5)
         (((struct oAC_ushort *)(t0))->v) = 0x1F;
         (((struct oA9_uchar *)(t0))->v) = 0x21;
         *(unsigned int *)((t0 + 0x10)) = a4;
-        FUN_0c187798();
-        FUN_0c187798();
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x34)) = *(struct mv3 *)((a4 + 0x34)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 52, r2 r13 (a4) + 52 */
+        { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x28)) = *(struct mv3 *)((a4 + 0x28)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 40, r2 r13 + 40 */
         t2 = *(int *)((t0 + 0x38));
         t3 = *(int *)(((a5 << 2) + 0xC201BD4));
         u0 = ((((struct o28_float *)(t0))->v));

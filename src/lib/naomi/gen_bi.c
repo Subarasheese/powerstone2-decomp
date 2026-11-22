@@ -203,7 +203,7 @@ int FUN_0c19f6ca(int a4);
 int FUN_0c1a0e5e(int a4, int a5);
 int _pow5(int a4, int a5);
 int gdFsGetFileFad(int a4, int a5);
-int FUN_0c2b2c08(int a4);
+int buStat(int a4);
 int kmSetWaitVsyncCount(int a4);
 int vmsfs_c_settime(int a4, int a5);
 int direntry_dirty(int a4, int a5);
@@ -1206,7 +1206,7 @@ int gdFsGetFileFad(int a4, int a5)
     return 0x0;
 }
 
-int FUN_0c2b2c08(int a4)
+int buStat(int a4)
 {
     register int t0;
 

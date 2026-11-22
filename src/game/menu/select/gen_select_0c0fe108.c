@@ -348,32 +348,6 @@ int FUN_0c0fe3d0(void)
     return FUN_0c0fe2a6(0x1);
 }
 
-int FUN_0c0fe496(void)
-{
-    int t1;
-
-    FUN_0c05f826();
-    t1 = *(int *)0xC472B50;
-    if ((t1 != 0) && (t1 != 1)) {
-        if (t1 != 2) {
-            if (t1 != 3) {
-                if (t1 != 4) {
-                    if (t1 != 5) {
-                        if (t1 != 6) {
-                            return FUN_0c05f222();
-                        }
-                        return (FUN_0c1213c4(0x0));
-                    }
-                    return (FUN_0c1213c4(0x2));
-                }
-                return (FUN_0c1213c4(0x0));
-            }
-            return FUN_0c05f222();
-        }
-        return FUN_0c05f7a0();
-    }
-    return FUN_0c05f222();
-}
 
 int FUN_0c0fe4ec(int a4)
 {

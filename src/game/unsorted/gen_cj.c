@@ -276,54 +276,6 @@ int FUN_0c088b20(int a4, int a5, int a6)
     return v0_1;
 }
 
-int FUN_0c0a6fb4(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(short *)((a4 + 0x1C));
-    *(unsigned short *)((a4 + 0x1C)) = (t0 - 1);
-    if ((int)(short)(t0 - 1) > 0) {
-        (((struct o374B_uchar *)(a4))->v) = 0x1;
-    }
-    FUN_0c037bf6(a4, a5, a6);
-    if (0.0f > ((((struct o17C_float *)(a4))->v))) {
-        (((struct o50_float *)(a4))->v) = (((((struct o50_float *)(a4))->v)) / (1.0f + 1.0f));
-    }
-    if (!(((((struct o50_float *)(a4))->v)) > 0.0f)) {
-        t0 = FUN_0c07ecc6(a4, 0x0, 0x0);
-        if (t0 != 0) {
-            if ((*(signed char *)((a4 + 0x131))) != 0) {
-                t0 = FUN_0c07d1fc(a4);
-                if (t0 != 0) {
-                    return FUN_0c085cac(a4, 0x6, 0x0);
-                }
-            }
-            if ((*(signed char *)((a4 + 0x2))) != 2) {
-                *(unsigned int *)((a4 + 0x38)) = (unsigned short)((*(int *)((a4 + 0x38))) + 0x8000);
-            }
-            FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x2, 0xB);
-            t0 = *(int *)(((0x118 + a4) + 0x4));
-            t1 = (((struct o118_int *)(a4))->v);
-            (((struct oA0_float *)(t0))->v) = 1.0f;
-            (((struct o9C_float *)(t0))->v) = 1.0f;
-            (((struct oA0_float *)(t1))->v) = 1.0f;
-            (((struct o9C_float *)(t1))->v) = 1.0f;
-            t0 = *(int *)(((0x118 + a4) + 0x4));
-            t1 = (((struct o118_int *)(a4))->v);
-            (((struct o98_float *)(t0))->v) = 1.0f;
-            (((struct o98_float *)(t1))->v) = 1.0f;
-            (((struct o94_float *)(t0))->v) = 1.0f;
-            (((struct o94_float *)(t1))->v) = 1.0f;
-            FUN_0c07daea(a4, t1, t0);
-            (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
-            *(unsigned short *)((a4 + 0x1C)) = 0x23;
-            return 0x23;
-        }
-    }
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    return math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-}
 
 int FUN_0c086bec(int a4, int a5, int a6)
 {

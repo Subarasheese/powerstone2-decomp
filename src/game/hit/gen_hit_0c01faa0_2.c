@@ -335,7 +335,8 @@ int FUN_0c020168(void)
         if ((int)(short)(t2 - 1) < 0) {
             (((struct o0_uchar *)0xC309858)->v) = 0x15;
             (((struct oA_uchar *)0xC309858)->v) = 0xFFFFFFF0;
-            t34 = (((int (*)(void))(FUN_0c187990))());
+            { int k_; for (k_ = 0; (*(char *)(0xC305440 + k_) = *(char *)(0xC1A8940 + k_)) != 0; k_++) ; }  /* manual: _slow_strcpy r0 0x0C305440, r1 0x0C1A8940 */
+            t34 = 0xC305440;
         } else {
             for (;;) {
                 t6 = FUN_0c183480((*(int *)0xC305430), ((int)stk + 0), 0x1);
@@ -352,7 +353,8 @@ int FUN_0c020168(void)
                 }
                 *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
                 if ((*(int *)0xC3054C0) != 0) {
-                    t15 = ((int (*)(int, int, int))(FUN_0c187990))(0xC3054C0, 0x0, 0xC305440);
+                    { int k_; for (k_ = 0; (*(char *)(0xC305244 + k_) = *(char *)(0xC305440 + k_)) != 0; k_++) ; }  /* manual: _slow_strcpy r0 0x0C305244, r1 0x0C305440 */
+                    t15 = 0xC305244;
                 } else {
                     t19 = 0xC3054C0;
                     t20 = 0x0;
@@ -418,7 +420,8 @@ int FUN_0c020168(void)
             }
             *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
             if ((*(int *)0xC3054C0) != 0) {
-                t51 = ((int (*)(int, int, int))(FUN_0c187990))(0xC3054C0, 0x0, 0xC305440);
+                { int k_; for (k_ = 0; (*(char *)(0xC305244 + k_) = *(char *)(0xC305440 + k_)) != 0; k_++) ; }  /* manual: _slow_strcpy r0 0x0C305244, r1 0x0C305440 */
+                t51 = 0xC305244;
             } else {
                 t55 = 0xC3054C0;
                 t56 = 0x0;

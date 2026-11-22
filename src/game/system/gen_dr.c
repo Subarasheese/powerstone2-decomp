@@ -81,7 +81,7 @@ int nlsndStreamGetHdInfo(int, int);
 int search_dir(int, int, int);
 int syRtcCountToDate(int, int);
 int syRtcGetCountForce(void);
-int syRtcMakeAgeOfMoon(void);
+int syRtcMakeAgeOfMoon(int a4);
 int syRtcMakeDayOfWeek(int, int, int);
 int syTmrGetCount(void);
 int vsprintf(int, int, int);
@@ -738,7 +738,7 @@ int syRtcGetDate(int a4)
         syRtcCountToDate(((((struct o0_int *)0xC8B9DD8)->v)), a4);
     }
     *(unsigned char *)((a4 + 0x7)) = (syRtcMakeDayOfWeek((*(short *)((a4 + 0x0))), (*(signed char *)((a4 + 0x2))), (*(signed char *)((a4 + 0x3)))));
-    *(unsigned char *)((a4 + 0x8)) = (syRtcMakeAgeOfMoon());
+    *(unsigned char *)((a4 + 0x8)) = (syRtcMakeAgeOfMoon(a4));   /* manual: the original passes the date (r4 = r14) */
     return ((((struct o4_int *)0xC8B9DD8)->v));
 }
 

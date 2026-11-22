@@ -304,8 +304,8 @@ int FUN_0c179100(void);
 int FUN_0c179130(void);
 float FUN_0c1799f0(float f4);
 float FUN_0c179a00(float f4);
-int nlObjPutLoadTextureOnceGI(void);
-int nlObjPutLoadTextureOnce(void);
+int nlObjPutLoadTextureOnceGI(int a4, int a5, int a6, int a7);
+int nlObjPutLoadTextureOnce(int a4, int a5, int a6, int a7);
 int nlMakeModelProjectMatrix_objput(void);
 int FUN_0c184bfc(int a4, int a5, int a6);
 int FUN_0c184e64(int a4);
@@ -1545,14 +1545,16 @@ float FUN_0c179a00(float f4)
     return (t0 / (*(float *)0xC179A38));
 }
 
-int nlObjPutLoadTextureOnceGI(void)
+int nlObjPutLoadTextureOnceGI(int a4, int a5, int a6, int a7)
 {
-    return (FUN_0c17dcc0(0x1));
+    /* manual: r4-r7 pass through, the fifth argument on the stack */
+    return (FUN_0c17dcc0(a4, a5, a6, a7, 0x1));
 }
 
-int nlObjPutLoadTextureOnce(void)
+int nlObjPutLoadTextureOnce(int a4, int a5, int a6, int a7)
 {
-    return (FUN_0c17dcc0(0x0));
+    /* manual: r4-r7 pass through, the fifth argument on the stack */
+    return (FUN_0c17dcc0(a4, a5, a6, a7, 0x0));
 }
 
 int nlMakeModelProjectMatrix_objput(void)
@@ -2566,11 +2568,17 @@ void FUN_0c2e14e0(int a4)
 
 int FUN_0c184bfc(int a4, int a5, int a6)
 {
-    return (FUN_0c187990(a4, a5, a6));
+    int k_;
+
+    for (k_ = 0; (*(char *)(0xC89BC38 + k_) = *(char *)(a4 + k_)) != 0; k_++) ;  /* manual: _slow_strcpy r0 0x0C89BC38, r1 r4; returns r0 */
+    return 0xC89BC38;
 }
 
 int strcpy(int a4, int a5, int a6)
 {
-    return (FUN_0c187990(a4, a5, a6));
+    int k_;
+
+    for (k_ = 0; (*(char *)(a4 + k_) = *(char *)(a5 + k_)) != 0; k_++) ;  /* manual: _slow_strcpy r0 r4, r1 r5; returns r0 */
+    return a4;
 }
 

@@ -498,56 +498,6 @@ int FUN_0c2b0e34(void)
     return t10;
 }
 
-int gdFsSearchName(int a4, int a5, int a6)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-
-    t0 = *(int *)((a5 + 0x0));
-    t1 = gdFsGetSearchID(a4);
-    t2 = 0x0;
-    if ((int)t0 > 0) {
-        t3 = 0x0;
-        t4 = (a5 + 0x10);
-        for (;;) {
-            if ((unsigned char)(*(signed char *)((t4 + 0x9))) == (unsigned char)t1) {
-                if (a6 == 1) {
-                    t5 = thunk_FUN_0c2ba37c();
-                    if (t5 != 1) {
-                        t3 = (t3 + 0x1);
-                        t4 = (t4 + 0x2C);
-                        if ((int)t3 >= (int)t0) {
-                            return 0x0;
-                        }
-                        continue;
-                    }
-                    break;
-                }
-                t5 = gdFsStrcmpi(a4, (t4 + 0xA));
-                if (t5 == 1) {
-                    break;
-                }
-                t3 = (t3 + 0x1);
-                t4 = (t4 + 0x2C);
-                if ((int)t3 >= (int)t0) {
-                    return 0x0;
-                }
-                continue;
-            }
-            t3 = (t3 + 0x1);
-            t4 = (t4 + 0x2C);
-            if ((int)t3 >= (int)t0) {
-                return 0x0;
-            }
-        }
-        t2 = (t3 + 0x1);
-    }
-    return t2;
-}
 
 int search_dir(int a4, int a5, int a6)
 {

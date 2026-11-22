@@ -200,7 +200,7 @@ int ovSearchLibByUuid(int);
 int strncpy(int, int, int);
 int syIntAdrChk_printh(int);
 int syRtcAicaSetWriteFlag(void);
-int syRtcDateToCount(void);
+int syRtcDateToCount(int a4, int a5);
 int syRtcGetCountForce(void);
 int thunk_FUN_0c2c2156(void);
 int thunk_FUN_0c2ec904(void);
@@ -287,7 +287,7 @@ int FUN_0c19a356(void);
 int FUN_0c19bd58(int a4);
 int FUN_0c19d4ee(int a4);
 void FUN_0c19d9f6(int a4, int a5, int a6, int a7);
-int syRtcSetDate(void);
+int syRtcSetDate(int a4);
 int FUN_0c2b2456(void);
 int FUN_0c2b37f4(int a4);
 int search_fat_backward(int a4, int a5, int a6, int a7);
@@ -1955,25 +1955,6 @@ int mwRnaSetOutPan(int a4, int a5, int a6, int a7)
 }
 
 
-int FUN_0c2d87aa(int a4)
-{
-    register int t0;
-
-    t0 = *(int *)0xC8BFFE8;
-    if ((unsigned char)((*(signed char *)((((*(int *)((t0 + 0x8))) + 0x30) + 0x0))) & 0x1) != 0) {
-        return 0x0;
-    }
-    if ((*(signed char *)(((*(int *)((t0 + 0x8))) + 0x59))) != 0) {
-        (((struct o508_uint *)(a4))->v) = (0x100 + a4);
-        (((struct o504_uint *)(a4))->v) = (0x100 + a4);
-        (((struct o500_ushort *)(a4))->v) = 0x0;
-        (((struct o502_ushort *)(a4))->v) = 0x0;
-        (((struct o50C_uint *)(a4))->v) = 0x0;
-    }
-    (((struct o59_uchar *)((*(int *)(((*(int *)0xC8BFFE8) + 0x8)))))->v) = 0x0;
-    FUN_0c2d88d4(a4);
-    return 0x1;
-}
 
 int FUN_0c2ec304(void)
 {
@@ -2277,7 +2258,7 @@ void FUN_0c19d9f6(int a4, int a5, int a6, int a7)
     }
 }
 
-int syRtcSetDate(void)
+int syRtcSetDate(int a4)
 {
     int stk[1];
     register int t1;
@@ -2287,7 +2268,8 @@ int syRtcSetDate(void)
     register int t6;
     int t8;
 
-    syRtcDateToCount();
+    /* manual: the date (r4, passed through) and the count's slot (r5 = the stack) go to syRtcDateToCount */
+    syRtcDateToCount(a4, (int)stk + 0);
     t1 = syRtcAicaSetWriteFlag();
     t23 = t1;
     if (t1 == 0) {

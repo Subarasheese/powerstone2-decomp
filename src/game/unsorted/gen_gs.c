@@ -1021,7 +1021,7 @@ int FUN_0c131c44(int a4, int a5, int a6, int a7)
                     u11 = ((*(float *)((t5 + 0x0))) - (*(float *)((t7 + 0x0))));
                     u10 = (math_sin_angle16(((int)(((((float)(((t13 << 1) + t6) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
                     u11 = (u11 * u10);
-                    t5 = (0x78 + t6);
+                    t5 = (*(int *)((int)stk + 0)); /* manual: the address saved before the call */
                     u11 = (u11 * 65536.0f);
                     u11 = (u11 / 360.0f);
                     u11 = (u11 + 0.5f);
@@ -1036,7 +1036,7 @@ int FUN_0c131c44(int a4, int a5, int a6, int a7)
                     u11 = (((((struct o4_float *)(t5))->v)) - ((((struct o4_float *)(t7))->v)));
                     u10 = (math_sin_angle16(((int)(((((float)(((t24 << 1) + t6) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
                     u11 = (u11 * u10);
-                    t5 = (0x7C + t6);
+                    t5 = (*(int *)((int)stk + 0)); /* manual: the address saved before the call */
                     u11 = (u11 * 65536.0f);
                     u11 = (u11 / 360.0f);
                     u11 = (u11 + 0.5f);
@@ -1051,7 +1051,7 @@ int FUN_0c131c44(int a4, int a5, int a6, int a7)
                     u11 = (((((struct o8_float *)(t5))->v)) - ((((struct o8_float *)(t7))->v)));
                     u10 = (math_sin_angle16(((int)(((((float)(((t33 << 1) + t6) << 2) * 65536.0f) / 360.0f)) + 0.5f) & 0xFFFF)));
                     u11 = (u11 * u10);
-                    t5 = (0x80 + t6);
+                    t5 = (*(int *)((int)stk + 0)); /* manual: the address saved before the call */
                     t9 = (t9 + 0x4);
                     t8 = (t8 + 0xC);
                     u11 = (u11 * 65536.0f);

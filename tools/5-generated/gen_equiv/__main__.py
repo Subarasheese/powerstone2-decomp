@@ -160,7 +160,16 @@ for l in (subprocess.run(['python3','tools/5-generated/classify.py']+sizes,captu
     p=l.split()
     if len(p)>=4 and p[3]=='ok' and (p[2] in eq if known else p[2] not in eq and p[2] not in defined) and (p[2] not in ver or p[2] in ONLY) and not (p[2].startswith('_') and gen_core._custom_convention(p[2])) and int(p[1])<=maxsize:
         if not ONLY or p[2] in ONLY: tolook.append(p[2])
+def _cap_memory():
+    """a pool worker's address space capped (GEN_MEM_GB, default 4): a function whose reading blows up (Power Stone 2's
+    library: one worker reached 16 GB and the kernel killed it, and the pool then waited forever for its function) gets a
+    MemoryError, recorded as a failure, instead"""
+    import resource
+    lim=int(float(os.environ.get('GEN_MEM_GB','4'))*(1<<30))
+    soft,hard=resource.getrlimit(resource.RLIMIT_AS)
+    if soft==resource.RLIM_INFINITY or soft>lim: resource.setrlimit(resource.RLIMIT_AS,(lim,hard))
 def _read(n):
+    if JOBS>1: _cap_memory()
     signal.alarm(int(max(READ_LIMIT,gen_core.SPANS[n][1]//4)*TIMEF))      # a larger function gets more time: size/4 seconds, at least 300, times GEN_TIME_FACTOR
     try:
         try: gen_core.run(n); return (n,None)
@@ -170,6 +179,7 @@ def _read(n):
     except Timeout: return (n,'timeout')
     except gen_core.Skip as e: return (n,str(e) or '?')
     except Exception as e: return (n,'EXC '+type(e).__name__)
+    except (SystemExit,KeyboardInterrupt,RecursionError,MemoryError) as e: return (n,'EXC '+type(e).__name__)      # in a pool worker these ended the worker, and the pool waited forever for its function (Power Stone 2's library: 7 of 2707)
     finally: signal.alarm(0)
 def stream(fn,names):
     """fn over the names in worker processes (or here with --jobs 1); each result as it finishes, in the order the workers are given the names"""

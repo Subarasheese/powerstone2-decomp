@@ -311,22 +311,6 @@ int FUN_0c0a22e8(int a4)
     return t0;
 }
 
-int FUN_0c09dd1c(int a4)
-{
-    int t2;
-
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-    t2 = FUN_0c07ecc6(a4, 0x0, 0x0);
-    if ((0.0f > ((((struct o50_float *)(a4))->v))) && (t2 != 0)) {
-        FUN_0c07daea(a4);
-        (((struct o50_float *)(a4))->v) = 0.0f;
-        (((struct o5C_float *)(a4))->v) = 0.0f;
-        (((struct o375A_uchar *)(a4))->v) = 0x0;
-        return FUN_0c085cac(a4, 0x6, 0x0);
-    }
-    return 0x50;
-}
 
 int FUN_0c078b96(int a4)
 {

@@ -270,7 +270,7 @@ int FUN_0c2b2838(int a4, int a5, int a6);
 int FUN_0c2b286a(int a4, int a5, int a6);
 int FUN_0c2b28ca(int a4, int a5, int a6);
 int syHwInit(void);
-int FUN_0c2b2bd6(int a4, int a5, int a6);
+int buGetFileInfo(int a4, int a5, int a6);
 int FUN_0c2b33ec(int a4, int a5);
 int ADXT_GetTimeReal(int a4);
 int kmSetPaletteData(int a4);
@@ -356,12 +356,12 @@ int pdGunLeave(void);
 int FUN_0c2b1ed6(int a4);
 int FUN_0c2b280a(int a4, int a5);
 int FUN_0c2b27ae(int a4, int a5);
-int FUN_0c2b2780(int a4, int a5);
+int buGetDiskInfo(int a4, int a5);
 int FUN_0c2b27dc(int a4, int a5);
 int FUN_0c2b289c(int a4, int a5);
 int buGetLastError(int a4);
-int FUN_0c2b2c98(int a4, int a5);
-int FUN_0c2b2ba8(int a4, int a5);
+int buGetFileSize(int a4, int a5);
+int buIsExistFile(int a4, int a5);
 int pdVibMxStart(int a4, int a5);
 int adxf_AllocAdxFs(void);
 int FUN_0c2bb00c(void);
@@ -1406,7 +1406,7 @@ int syHwInit(void)
     return FUN_0c0ff884();
 }
 
-int FUN_0c2b2bd6(int a4, int a5, int a6)
+int buGetFileInfo(int a4, int a5, int a6)
 {
     register int t0;
 
@@ -2377,7 +2377,7 @@ int FUN_0c2b27ae(int a4, int a5)
     return vmsfs_diskfree(a4, a5);
 }
 
-int FUN_0c2b2780(int a4, int a5)
+int buGetDiskInfo(int a4, int a5)
 {
     register int t0;
 
@@ -2421,7 +2421,7 @@ int buGetLastError(int a4)
     return (*(int *)((0xC8C21CC + (a4 << 2))));
 }
 
-int FUN_0c2b2c98(int a4, int a5)
+int buGetFileSize(int a4, int a5)
 {
     register int t0;
 
@@ -2432,7 +2432,7 @@ int FUN_0c2b2c98(int a4, int a5)
     return vmsfs_fgetsize(a4, a5);
 }
 
-int FUN_0c2b2ba8(int a4, int a5)
+int buIsExistFile(int a4, int a5)
 {
     register int t0;
 

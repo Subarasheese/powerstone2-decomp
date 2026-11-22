@@ -438,59 +438,6 @@ void FUN_0c0167cc(int a4, int a5, int a6, int a7)
     ((int (*)(int, int, int, int))(0xC01678E))((a4 + 0x1), a5, t0, a7);
 }
 
-int FUN_0c0169cc(int a4, int a5, int a6)
-{
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t0;
-    int t10;
-    register int t11;
-    register int t12;
-    register int t17;
-    register int t18;
-    register int t19;
-
-    t1 = a4;
-    t2 = a5;
-    t3 = a6;
-    t4 = 0xC304C24;
-    for (;;) {
-        if ((*(signed char *)((t4 + 0x0))) == 0) {
-            break;
-        }
-        t0 = (*(signed char *)((t4 + 0x2)));
-        t2 = (*(signed char *)((t4 + 0x0)));
-        t1 = t0;
-        t3 = (unsigned char)t2;
-        t0 = t3;
-        if (((t0 != 78) && (t10 = (t0 == 78), t0 = t3, t0 != 110)) || ((t11 = (t0 == 78), t0 = (unsigned char)t1, t0 == 89) || (t12 = (t0 == 78), t0 = (unsigned char)t1, t0 == 121))) {
-            t17 = t1;
-            t18 = t2;
-            t19 = t3;
-        } else {
-            t0 = (*(signed char *)((t4 + 0x1)));
-            t3 = 0x2;
-            t0 = (unsigned char)t0;
-            t0 = (t0 - 1);
-            t0 = (t0 << 2);
-            t2 = (*(int *)((0xC20C900 + t0)));
-            t1 = t4;
-            t0 = (strncpy(t1, t2, t3));
-        }
-        t4 = (t4 + 0x2);
-        t1 = t17;
-        t2 = t18;
-        t3 = t19;
-    }
-    thunk_FUN_0c0167cc();
-    FUN_0c017e48(0xC304CA4, 0xC304D24, 0xC304DA4);
-    FUN_0c017ed8(0xC304D24, 0xC304DA4);
-    FUN_0c017e68(0xC304D24, 0xC304DA4);
-    (((struct o4C_uchar *)((*(int *)0xC304BA0)))->v) = 0x1;
-    return 0x4C;
-}
 
 int FUN_0c016b0a(void)
 {

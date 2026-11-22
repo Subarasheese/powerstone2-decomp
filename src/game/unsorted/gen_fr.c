@@ -293,51 +293,6 @@ int FUN_0c143814(int a4, int a5, int a6)
     return t4;
 }
 
-int FUN_0c1118ac(int a4)
-{
-    int t0;
-    register int t1;
-    register int t2;
-
-    if (((int)(*(int *)(((*(int *)0xC4739A4) + 0x38))) >= 0) && (t0 = *(signed char *)((a4 + 0x14)), t0 != 0)) {
-        (((struct o14_uchar *)(a4))->v) = (*(signed char *)(((*(int *)((a4 + 0x10))) + 0x14)));
-    }
-    t0 = *(signed char *)((a4 + 0x14));
-    t1 = *(int *)0xC4739A4;
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 2) {
-                if (t0 != 3) {
-                    if (t0 != 4) {
-                        return t0;
-                    }
-                    t2 = FUN_0c058a6e((0xB0 + a4), 0xC29106C, 0xC29107C, (*(int *)((t1 + 0x38))), ((*(int *)((t1 + 0x3C)))), 0x0);
-                    if ((int)(*(int *)(((*(int *)0xC4739A4) + 0x38))) < 0) {
-                        return FUN_0c03f346(a4);
-                    }
-                    return t2;
-                }
-                return (FUN_0c058a6e((0xB0 + a4), 0xC29106C, 0xC29107C, (*(int *)((t1 + 0x38))), ((*(int *)((t1 + 0x3C)))), 0x0));
-            }
-            return (FUN_0c058a6e((0xB0 + a4), 0xC29106C, 0xC29107C, (*(int *)((t1 + 0x38))), ((*(int *)((t1 + 0x3C)))), 0x0));
-        }
-        return t0;
-    }
-    (((struct oA8_uchar *)(a4))->v) = 0x1;
-    (((struct oAC_ushort *)(a4))->v) = 0x61F;
-    (((struct oA9_uchar *)(a4))->v) = 0x21;
-    (((struct o14_uchar *)(a4))->v) = (*(signed char *)(((*(int *)((a4 + 0x10))) + 0x14)));
-    t0 = 0x0;
-    if ((int)(*(int *)((0xC473C74 + ((*(int *)(((*(int *)0xC4739A4) + 0x34))) << 2)))) >= 0) {
-        t0 = (*(int *)((((*(int *)((0xC473C74 + ((*(int *)(((*(int *)0xC4739A4) + 0x34))) << 2)))) << 2) + 0xC474410)));
-    }
-    *(unsigned short *)((a4 + 0x1C)) = t0;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x28)) = *(struct mv3 *)(0xC291350); }
-    FUN_0c1171f0(a4);
-    t0 = *(short *)((a4 + 0x1C));
-    *(volatile int *)0xC4B410C;
-    return FUN_0c1173dc(((((struct oC4_int *)(a4))->v)), t0);
-}
 
 int FUN_0c117d5a(int a4)
 {

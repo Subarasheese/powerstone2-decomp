@@ -147,7 +147,7 @@ int thunk_FUN_0c2b0ad0(void);
 void FUN_0c2b1b16(int a4);
 int FUN_0c2b1b1c(void);
 int FUN_0c2b260a(void);
-int thunk_FUN_0c2bde1c(int a4);
+int buSetCompleteCallback(int a4);
 int thunk_FUN_0c2c067e(int a4);
 void FUN_0c2b2f74(int a4);
 int thunk_FUN_0c2b3af8(int a4);
@@ -708,7 +708,7 @@ int FUN_0c2b1b1c(void)
 }
 
 
-int thunk_FUN_0c2bde1c(int a4)
+int buSetCompleteCallback(int a4)
 {
     return vmsfs_c_setcompletecallback(a4);
 }

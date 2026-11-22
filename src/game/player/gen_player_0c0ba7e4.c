@@ -112,27 +112,3 @@ int FUN_0c0ba890(int a4)
     return t43;
 }
 
-int FUN_0c0ba952(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)((a4 + 0x1));
-    FUN_0c07e79c(a4, t0, 0x1, 0x12, (t0), 0x1, 0x12);
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct oA0_float *)(t0))->v) = 1.0f;
-    (((struct o9C_float *)(t0))->v) = 1.0f;
-    (((struct oA0_float *)(t1))->v) = 1.0f;
-    (((struct o9C_float *)(t1))->v) = 1.0f;
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct o98_float *)(t0))->v) = 1.0f;
-    (((struct o98_float *)(t1))->v) = 1.0f;
-    (((struct o94_float *)(t0))->v) = 1.0f;
-    (((struct o94_float *)(t1))->v) = 1.0f;
-    FUN_0c123010(a4, 0x0);
-    FUN_0c1238f8(a4, 0x1);
-    (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-    return 0x15;
-}

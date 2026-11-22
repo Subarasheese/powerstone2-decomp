@@ -162,7 +162,7 @@ int ovGetLibTbl(int);
 int ovSearchLibByUuid(int);
 int strncpy(int, int, int);
 int syChainAddHandler(int, int, int, int);
-int syRtcDateToCount(void);
+int syRtcDateToCount(int a4, int a5);
 int thunk_FUN_0c2c4b18(void);
 int thunk_FUN_0c2dc190(int, int);
 int vmsfs_c_getstate(int);
@@ -248,7 +248,7 @@ int FUN_0c194660(int a4);
 int FUN_0c194728(int a4);
 int FUN_0c19a76a(int a4, int a5, int a6);
 int FUN_0c19d208(int a4, int a5);
-int syRtcMakeAgeOfMoon(void);
+int syRtcMakeAgeOfMoon(int a4);
 int kmSetFogTable(int a4);
 int kmBlankScreen(int a4);
 int FUN_0c2d0b9a(int a4);
@@ -1153,6 +1153,7 @@ void FUN_0c2e8a2e(int a4, int a5)
     *(unsigned char *)((a5 + 0x0)) = t2;
 }
 
+
 int FUN_0c2ebfcc(void)
 {
     register int t0;
@@ -1173,7 +1174,8 @@ int FUN_0c2ebfcc(void)
         }
     }
     if ((unsigned char)t2 != 0) {
-        FUN_0c2eb978(0x1);
+        /* manual: r5 (the counter, 0x1E) and r6 (the buffer) are still set at the bsr, and FUN_0c2eb978 passes them on */
+        ((int (*)(int, int, int))FUN_0c2eb978)(0x1, t1, 0xC8D67D3);
         return 0x1;
     }
     t0 = 0x0;
@@ -2121,12 +2123,14 @@ int FUN_0c19d208(int a4, int a5)
     return t8;
 }
 
-int syRtcMakeAgeOfMoon(void)
+int syRtcMakeAgeOfMoon(int a4)
 {
     int stk[1];
     register int t9;
 
-    syRtcDateToCount();
+    /* manual: the date (r4, passed through) and the count's slot (r5 = the stack) go to syRtcDateToCount; the
+       generated C dropped both, and the callee read the date through a leftover register */
+    syRtcDateToCount(a4, (int)stk + 0);
     if ((unsigned int)(*(int *)(((int)stk + 0))) >= (unsigned int)0x5CB417D1) {
         t9 = ((int)((unsigned int)((*(int *)(((int)stk + 0))) + 0xA34BE82F) % (unsigned int)0x26EE7F));
     } else {

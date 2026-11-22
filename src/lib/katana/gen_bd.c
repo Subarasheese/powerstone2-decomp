@@ -191,7 +191,7 @@ int nlScaleUnitVector(int, int, float);
 int nlSetPaletteData(int, int, int);
 extern int nlStoreMatrix8();
 int nlTransposeMatrix(void);
-int nlobjput_sub_trnsl(int);
+int nlobjput_sub_trnsl(int, float);
 int nlsndG2Read(int);
 int ovGetLibTbl(int);
 int ovSearchLibByUuid(int);
@@ -577,40 +577,16 @@ int syIntAdrChk_getchar(int a4, int a5)
 
 int nlObjPutLoadTextureGI(int a4, int a5)
 {
-    int stk[4];
-    register int t0;
-    register int t5;
-
-    *(unsigned int *)(((int)stk + 8)) = a4;
-    *(unsigned int *)(((int)stk + 12)) = a5;
-    *(unsigned int *)(((int)stk + 4)) = 0x0;
-    t0 = 0x0;
-    for (;;) {
-        *(int *)((int)stk + 0) = 0x1;
-        t5 = *(int *)(((int)stk + 4));
-        t0 = (t0 | (FUN_0c17dcc0((*(int *)(((int)stk + 8))), (*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 4))), (((int)stk + 0) + 0x4), 0x1)));
-        if (t5 == 0) {
-            break;
-        }
-    }
-    return t0;
+    /* manual: the callee sets the batch index through its fourth argument; the loop runs while it is not 0 (the
+       generated C read the index before the call, so only the first batch of textures was loaded) */
+    int n = 0;
+    int r = 0;
+    do {
+        r |= FUN_0c17dcc0(a4, a5, n, (int)&n, 0x1);
+    } while (n != 0);
+    return r;
 }
 
-int FUN_0c184cf8(int a4, int a5, int a6)
-{
-    int stk[6];
-
-    *(unsigned int *)(((int)stk + 0)) = a4;
-    *(unsigned short *)(((int)stk + 4)) = a5;
-    *(unsigned short *)(((int)stk + 6)) = a6;
-    *(unsigned char *)(((int)stk + 9)) = 0x0;
-    *(unsigned char *)(((int)stk + 10)) = 0x0;
-    *(unsigned char *)(((int)stk + 11)) = 0x0;
-    *(unsigned short *)(((int)stk + 12)) = 0x0;
-    *(unsigned int *)(((int)stk + 16)) = 0x0;
-    *(unsigned int *)(((int)stk + 20)) = 0x0;
-    return (FUN_0c184000(0x4110, ((int)stk + 0), 0x0));
-}
 
 int FUN_0c18cf5c(int a4)
 {
@@ -1065,23 +1041,14 @@ int FUN_0c17a8f0(int a4, int a5, int a6)
 
 int nlObjPutLoadTexture(int a4, int a5)
 {
-    int stk[4];
-    register int t0;
-    register int t5;
-
-    *(unsigned int *)(((int)stk + 12)) = a4;
-    *(unsigned int *)(((int)stk + 8)) = a5;
-    *(unsigned int *)(((int)stk + 4)) = 0x0;
-    t0 = 0x0;
-    for (;;) {
-        *(int *)((int)stk + 0) = 0x0;
-        t5 = *(int *)(((int)stk + 4));
-        t0 = (t0 | (FUN_0c17dcc0((*(int *)(((int)stk + 12))), (*(int *)(((int)stk + 8))), (*(int *)(((int)stk + 4))), (((int)stk + 0) + 0x4), 0x0)));
-        if (t5 == 0) {
-            break;
-        }
-    }
-    return t0;
+    /* manual: the callee sets the batch index through its fourth argument; the loop runs while it is not 0 (the
+       generated C read the index before the call, so only the first batch of textures was loaded) */
+    int n = 0;
+    int r = 0;
+    do {
+        r |= FUN_0c17dcc0(a4, a5, n, (int)&n, 0x0);
+    } while (n != 0);
+    return r;
 }
 
 int FUN_0c18140e(int a4)
@@ -1205,20 +1172,6 @@ int FUN_0c1921f0(void)
     return t5;
 }
 
-int FUN_0c194178(int a4, int a5, int a6)
-{
-    int stk[5];
-
-    *(unsigned int *)(((int)stk + 0)) = a5;
-    *(unsigned short *)(((int)stk + 4)) = a6;
-    *(unsigned short *)(((int)stk + 6)) = a4;
-    *(unsigned char *)(((int)stk + 9)) = 0x0;
-    *(unsigned char *)(((int)stk + 10)) = 0x0;
-    *(unsigned char *)(((int)stk + 11)) = 0x0;
-    *(unsigned short *)(((int)stk + 12)) = 0x0;
-    *(unsigned int *)(((int)stk + 16)) = 0x0;
-    return (FUN_0c184000(0x4111, ((int)stk + 0), 0x0));
-}
 
 int FUN_0c19a66e(int a4, int a5)
 {
@@ -1519,7 +1472,8 @@ int nlObjPutTrnsl(int a4, float f4)
     }
     nlPushMatrix(0x0);
     nlMultiMatrixRevOrder8(0xC868A50);
-    return nlobjput_sub_trnsl(a4);
+    return nlobjput_sub_trnsl(a4, f4);   /* manual: the original keeps fr4 (the alpha) on its stack across the calls and
+                                            passes it on; the generated call dropped it */
 }
 
 float nlLineClipPoint(int a4, int a5, int a6)

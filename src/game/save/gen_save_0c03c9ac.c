@@ -154,10 +154,6 @@ int FUN_0c03cacc(int a4)
     goto L_C03CB1C;
 }
 
-int FUN_0c03cbf2(int a4)
-{
-    return buDeleteFile(a4);
-}
 
 int FUN_0c03cbfa(int a4)
 {

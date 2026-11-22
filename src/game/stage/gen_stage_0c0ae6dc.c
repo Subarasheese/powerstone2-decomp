@@ -763,33 +763,6 @@ int FUN_0c0b00f4(int a4, int a5)
     return ((((struct o20_short *)(a4))->v));
 }
 
-int FUN_0c0b0204(int a4)
-{
-    register int t0;
-    register int t1;
-
-    FUN_0c0b00f4(a4, 0x1);
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct oA0_float *)(t0))->v) = 1.0f;
-    (((struct o9C_float *)(t0))->v) = 1.0f;
-    (((struct oA0_float *)(t1))->v) = 1.0f;
-    (((struct o9C_float *)(t1))->v) = 1.0f;
-    t0 = *(int *)(((0x118 + a4) + 0x4));
-    t1 = (((struct o118_int *)(a4))->v);
-    (((struct o98_float *)(t0))->v) = 1.0f;
-    (((struct o98_float *)(t1))->v) = 1.0f;
-    (((struct o94_float *)(t0))->v) = 1.0f;
-    (((struct o94_float *)(t1))->v) = 1.0f;
-    FUN_0c07d030(a4, 0x0);
-    *(unsigned short *)((a4 + 0x1C)) = 0x5;
-    *(unsigned short *)((a4 + 0x1E)) = 0x0;
-    (((struct o22_ushort *)(a4))->v) = 0xA;
-    FUN_0c15f394();
-    FUN_0c15f394();
-    (((struct o17_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x17))) + 0x1);
-    return 0x17;
-}
 
 int FUN_0c0b0270(int a4)
 {

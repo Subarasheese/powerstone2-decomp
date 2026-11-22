@@ -575,8 +575,8 @@ int FUN_0c049188(void)
                 FUN_0c03744a(t4, t3, 0x51, (*(int *)0xC4B410C));
                 *(unsigned char *)((t4 + 0x0)) = 0x1;
                 *(unsigned short *)((t4 + 0x6)) = 0x1F;
-                FUN_0c187798();
-                FUN_0c187798();
+                { struct mv3 { int w[3]; }; *(struct mv3 *)((t4 + 0x6C)) = *(struct mv3 *)(0xC240A48); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 108, r2 r10 (0x0C240A48) */
+                { struct mv3 { int w[3]; }; *(struct mv3 *)((t4 + 0x84)) = *(struct mv3 *)(0xC240A54); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 0x84, r2 r10 + 12 */
                 t3 = (t3 + 0x1);
                 (((struct o84_float *)(t4))->v) = (((((struct o84_float *)(t4))->v)) / u0);
                 (((struct o88_float *)(t4))->v) = (((((struct o88_float *)(t4))->v)) / u0);

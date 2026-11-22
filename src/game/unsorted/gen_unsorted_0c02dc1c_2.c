@@ -179,36 +179,6 @@ int FUN_0c02e7c4(void)
     return t27;
 }
 
-int FUN_0c02e90c(void)
-{
-    int stk[8];
-    register int t1;
-    register int t2;
-    register int t3;
-    int t7;
-
-    FUN_0c02e842();
-    t1 = 0x0;
-    t2 = 0xC1A9054;
-    t3 = 0xC532498;
-    for (;;) {
-        FUN_0c056eae((*(int *)((t2 + 0x0))));
-        if (((*(signed char *)((t3 + 0x3714))) != 0) && (t7 = *(signed char *)((t3 + 0xA8)), t7 != 0)) {
-            FUN_0c02e43c(t3, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
-        }
-        FUN_0c07bb70(t3);
-        t3 = (t3 + 0x3938);
-        FUN_0c056eee();
-        t1 = (t1 + 0x1);
-        t2 = (t2 + 0x4);
-        if ((int)(signed char)t1 >= (int)0x4) {
-            break;
-        }
-    }
-    FUN_0c056eae(0x5);
-    FUN_0c02e14a();
-    return (FUN_0c056eee());
-}
 
 int FUN_0c02e9d4(float f4)
 {

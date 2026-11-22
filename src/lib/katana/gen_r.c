@@ -1163,6 +1163,7 @@ int FUN_0c18020e(int a4, int a5)
     register int v0_6;
     v0_3 = a4;
     v0_4 = a5;
+    R12 = a4;  /* manual: the original keeps the driver image in r12 (mov r4,r12) and reads it through r12 below */
     v0_1 = nlsndG2Read((0xC4 + v0_3));
     (((struct o8_uint *)0xC86CC34)->v) = v0_1;
     v0_0 = (v0_4);
@@ -1811,8 +1812,10 @@ int FUN_0c2f2ba8(int a4)
     *(int *)((int)stk + 0) = 0xC302D0C;
     *(unsigned int *)(((int)stk + 44)) = (((int)stk + 0) + 0x3C);
     FUN_0c187cac((((int)stk + 0) + 0x3C), 0x0, 0x0, 0x0, 0xC302D0C);
-    *(volatile int *)(((int)stk + 44));
-    *(volatile int *)(((int)stk + 40));
-    return (FUN_0c187990());
+    {  /* manual: _slow_strcpy r0 = the word at stk + 40, r1 = the word at stk + 44; returns r0 */
+        int d_ = *(int *)(((int)stk + 40)), s_ = *(int *)(((int)stk + 44)), k_;
+        for (k_ = 0; (*(char *)(d_ + k_) = *(char *)(s_ + k_)) != 0; k_++) ;
+        return d_;
+    }
 }
 

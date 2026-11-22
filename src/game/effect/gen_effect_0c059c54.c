@@ -22,13 +22,3 @@ int FUN_0c059c62(int a4, int a5)
     return (FUN_0c05a560(0x1, a5, ((int)stk + 0), 0x1));
 }
 
-int FUN_0c059c7a(int a4, int a5)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(int *)((((((a4 << 2) + a4) << 2) + 0xC1C242C) + 0xC));
-    t1 = *(int *)((((((a4 << 2) + a4) << 2) + 0xC1C242C) + 0x4));
-    *(volatile int *)((((((a4 << 2) + a4) << 2) + 0xC1C242C) + 0x10));
-    return FUN_0c05ae6c(t0, t1);
-}

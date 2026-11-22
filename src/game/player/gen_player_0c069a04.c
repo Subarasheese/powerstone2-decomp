@@ -33,52 +33,6 @@ void FUN_0c069bc4(void);
 int FUN_0c069da2(int a4);
 int FUN_0c06a0f0(int a4, int a5, int a6, int a7);
 
-int FUN_0c069a04(int a4, int a5, int a6, int a7)
-{
-    int stk[2];
-    register int t0;
-    register int t2;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-
-    t0 = *(signed char *)((a4 + 0x15));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return t0;
-        }
-        t2 = FUN_0c07ebe6(a4);
-        if (t2 != 0) {
-            (((struct o3717_uchar *)(a4))->v) = 0x5;
-            (((struct o3718_uchar *)(a4))->v) = 0x6;
-            return ((int (*)(int, int, int))(FUN_0c085cac))(a4, 0x5, 0x6);
-        }
-        return t2;
-    }
-    if ((*(signed char *)((a4 + 0x371D))) == 2) {
-        (((struct o3717_uchar *)(a4))->v) = 0x0;
-        (((struct o3718_uchar *)(a4))->v) = 0x0;
-        return ((int (*)(int, int, int, int))(FUN_0c085cac))(a4, 0x0, 0x0, a7);
-    }
-    t4 = FUN_0c07f18c(a4);
-    if (t4 != 0) {
-        t5 = FUN_0c07fea4(a4, 0x0);
-        if (t5 == 0) {
-            t6 = FUN_0c07d838(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4));
-            if (t6 != 0) {
-                return FUN_0c07d9dc(a4);
-            }
-            return t6;
-        }
-        return t5;
-    }
-    t7 = FUN_0c07d838(a4, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4));
-    if (t7 != 0) {
-        return FUN_0c07d9dc(a4);
-    }
-    return t7;
-}
 
 void FUN_0c069b5c(void)
 {

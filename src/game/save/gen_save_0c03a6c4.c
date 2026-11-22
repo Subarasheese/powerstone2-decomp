@@ -31,12 +31,12 @@ int FUN_0c0f2d38(int, int, int);
 int pdVmsLcdIsReady(int);
 int FUN_0c2b2370(int, int, int, int);
 int FUN_0c2b2456(void);
-int thunk_FUN_0c2bde1c(int);
+int buSetCompleteCallback(int);
 int buUnmount(int);
 int FUN_0c2b27ae(int, int);
 int FUN_0c2b289c(int, int);
-int FUN_0c2b2ba8(int, int);
-int FUN_0c2b2c98(int, int);
+int buIsExistFile(int, int);
+int buGetFileSize(int, int);
 int buLoadFile(int, int, int, int);
 int buSaveFile(int, int, int, int, int, int);
 int buSaveExecFile(int, int, int, int, int, int);
@@ -238,28 +238,28 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     if ((v0_9 == 0)) goto L_C03A9EC;
     goto L_C03AC20;
     L_C03A9EC:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B71E8);
+    v0_7 = buIsExistFile(v0_1, 0xC1B71E8);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03AA02;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03AA14;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x14)) = v0_6;
     goto L_C03AA14;
     L_C03AA14:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7208);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7208);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03AA2A;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03AA3C;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x20)) = v0_6;
     goto L_C03AA3C;
     L_C03AA3C:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7218);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7218);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03AA52;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03AA64;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x24)) = v0_6;
     goto L_C03AA64;
     L_C03AA64:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7228);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7228);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03AA7A;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03AAA8;
@@ -320,7 +320,7 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     *(unsigned int *)((v0_7 + 0x1C)) = v0_6;
     goto L_C03AB58;
     L_C03AB22:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B71F8);
+    v0_7 = buIsExistFile(v0_1, 0xC1B71F8);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03AB38;
     if ((v0_2 == 0xFFFFFF05)) goto L_C03AB42;
@@ -346,14 +346,14 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     if ((v0_2 != 7)) goto L_C03A82C;
     *(unsigned int *)((v0_11 + 0x8)) = v0_9;
     if ((v0_9 != 0)) goto L_C03AC20;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7218);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7218);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03ABC0;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03ABD2;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x24)) = v0_6;
     goto L_C03ABD2;
     L_C03ABD2:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7228);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7228);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03ABE8;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03ABFA;
@@ -380,7 +380,7 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     if ((v0_9 == 0)) goto L_C03A85A;
     goto L_C03AC20;
     L_C03A85A:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B71E8);
+    v0_7 = buIsExistFile(v0_1, 0xC1B71E8);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03A870;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03A882;
@@ -395,21 +395,21 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     v0_7 = (((v0_1 * v0_3) + v0_4));
     goto L_C03A8E8;
     L_C03A8EA:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7208);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7208);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03A900;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03A912;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x20)) = v0_6;
     goto L_C03A912;
     L_C03A912:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7218);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7218);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03A928;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03A93A;
     *(unsigned int *)((((v0_1 * v0_3) + v0_4) + 0x24)) = v0_6;
     goto L_C03A93A;
     L_C03A93A:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B7228);
+    v0_7 = buIsExistFile(v0_1, 0xC1B7228);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03A950;
     if (!((v0_2 == 0xFFFFFF05))) goto L_C03A962;
@@ -437,7 +437,7 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
     *(unsigned int *)((v0_7 + 0x1C)) = v0_6;
     goto L_C03A8EA;
     L_C03A8B4:;
-    v0_7 = FUN_0c2b2ba8(v0_1, 0xC1B71F8);
+    v0_7 = buIsExistFile(v0_1, 0xC1B71F8);
     v0_2 = (v0_7);
     if ((v0_7 == 0)) goto L_C03A8CA;
     if ((v0_2 == 0xFFFFFF05)) goto L_C03A8D4;
@@ -473,7 +473,7 @@ int FUN_0c03a7bc(int a4, int a5, int a6, int a7)
 
 int FUN_0c03ac3a(void)
 {
-    return thunk_FUN_0c2bde1c(0xC03A7BC);
+    return buSetCompleteCallback(0xC03A7BC);
 }
 
 int FUN_0c03ac42(void)
@@ -1785,7 +1785,7 @@ int FUN_0c03b99e(int a4)
     register int t0;
     register int t3;
 
-    t0 = FUN_0c2b2c98(a4, 0xC1B71E8);
+    t0 = buGetFileSize(a4, 0xC1B71E8);
     t3 = t0;
     if ((int)t0 >= 0) {
         t3 = (buLoadFile(a4, 0xC1B71E8, 0xC3CBA20, t0));
@@ -2718,7 +2718,7 @@ int FUN_0c03c7ba(int a4)
     register int t0;
     register int t3;
 
-    t0 = FUN_0c2b2c98(a4, 0xC1B7208);
+    t0 = buGetFileSize(a4, 0xC1B7208);
     t3 = t0;
     if ((int)t0 >= 0) {
         t3 = (buLoadFile(a4, 0xC1B7208, 0xC3CBA20, t0));

@@ -521,10 +521,10 @@ int FUN_0c09fb92(int a4, int a5, int a6)
     (((struct o17_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x17))) + 0x1);
     *(unsigned short *)((v0_0 + 0x1C)) = v0_5;
     (((struct o19C8_uchar *)(v0_0))->v) = v0_5;
-    if (!(((*(signed char *)((v0_0 + 0x375A))) != 0))) goto L_C09FC94;
-    goto L_C09FC94;
     L_C09FC94:;
-    return FUN_0c1328b4(v0_1, v0_2);
+    /* manual: the original passes the object (r4 = r14) and 15 when its byte +0x375A is set, else 11 (r5); the
+       generated C dropped the choice and passed a stale value as the object */
+    return FUN_0c1328b4(v0_0, (*(signed char *)((v0_0 + 0x375A))) != 0 ? 0xF : 0xB);
 }
 
 int FUN_0c096bd0(int a4)

@@ -188,19 +188,6 @@ int FUN_0c07c01c(int a4, int a5, int a6, int a7)
     return t35;
 }
 
-int FUN_0c07c404(int a4)
-{
-    register int t0;
-
-    t0 = *(signed char *)((a4 + 0x1));
-    *(unsigned short *)(((0xC471A9C + (((t0 << 1) + t0) << 2)) + 0x2)) = 0x0;
-    *(unsigned short *)(((0xC471A9C + (((t0 << 1) + t0) << 2)) + 0x0)) = 0x0;
-    t0 = FUN_0c07bcc2(a4);
-    if (t0 != 99) {
-        return pdVibMxStop(t0);
-    }
-    return t0;
-}
 
 int FUN_0c07c462(void)
 {
