@@ -2322,40 +2322,6 @@ int FUN_0c18f92c(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a1
     return t28;
 }
 
-int FUN_0c1937ca(int a4)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-
-    t0 = thunk_FUN_0c191de2();
-    if ((*(int *)0xC8B1664) == 0) {
-        t1 = *(short *)((a4 + 0x4));
-        t2 = t1;
-        t3 = ((short)t1 * (short)0x3E8);
-    } else {
-        t2 = t0;
-        t3 = ((short)(*(short *)(((*(int *)0xC8B1664) + 0x0))) * (short)0x3E8);
-    }
-    t1 = t2;
-    for (;;) {
-        if ((*(int *)0xC2A62C0) != 0) {
-            break;
-        }
-        t1 = (thunk_FUN_0c191de2());
-        t1 = (t1 - t0);
-        if ((unsigned int)t1 <= (unsigned int)t3) {
-            t1 = (FUN_0c191dae());
-            t1 = (thunk_FUN_0c1831d0());
-            t1 = (FUN_0c191d9e());
-            continue;
-        }
-        t1 = 0x0;
-        return t1;
-    }
-    return 0x4;
-}
 
 int FUN_0c1a357c(int a4, int a5, int a6)
 {

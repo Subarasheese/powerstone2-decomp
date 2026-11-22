@@ -4529,8 +4529,10 @@ FUN_0c0eb630
 FUN_0c0eb734
 FUN_0c0eb758
 FUN_0c0eb8ca
+FUN_0c0eb9a2
 FUN_0c0ebc60
 FUN_0c0ebda4
+FUN_0c0ebdf6
 FUN_0c0ebe94
 FUN_0c0ec0f2
 FUN_0c0ec102
@@ -5105,6 +5107,7 @@ FUN_0c10726e
 FUN_0c107310
 FUN_0c107346
 FUN_0c10739c
+FUN_0c10740c
 FUN_0c107654
 FUN_0c107a38
 FUN_0c107c84
@@ -6261,6 +6264,7 @@ FUN_0c158824
 FUN_0c1589d6
 FUN_0c158ca0
 FUN_0c158dc8
+FUN_0c158ed4
 FUN_0c158f5a
 FUN_0c15a104
 FUN_0c15a260
@@ -6627,6 +6631,8 @@ FUN_0c177450
 FUN_0c1777c0
 FUN_0c1777e0
 FUN_0c1779a0
+FUN_0c1779c0
+FUN_0c177a50
 FUN_0c177af0
 FUN_0c177bc0
 FUN_0c177d10
@@ -6817,6 +6823,8 @@ FUN_0c1832a4
 FUN_0c18330c
 FUN_0c183480
 FUN_0c18353e
+FUN_0c183628
+FUN_0c183708
 FUN_0c1837cc
 FUN_0c183858
 FUN_0c1838c6
@@ -6913,6 +6921,7 @@ FUN_0c185d00
 FUN_0c185d28
 FUN_0c185d50
 FUN_0c185d6a
+FUN_0c185dc0
 FUN_0c1862a0
 FUN_0c186380
 FUN_0c186408
@@ -6928,8 +6937,10 @@ FUN_0c186f40
 FUN_0c1870f0
 FUN_0c187220
 FUN_0c187360
+FUN_0c1879e0
 FUN_0c187a88
 FUN_0c187b60
+FUN_0c187b78
 FUN_0c187cac
 FUN_0c187ce8
 FUN_0c187d24
@@ -6966,6 +6977,7 @@ FUN_0c18cfc4
 FUN_0c18d034
 FUN_0c18d0d0
 FUN_0c18d1fa
+FUN_0c18d23c
 FUN_0c18d2c2
 FUN_0c18d320
 FUN_0c18d3d0
@@ -6984,6 +6996,7 @@ FUN_0c18d758
 FUN_0c18d780
 FUN_0c18d7a8
 FUN_0c18d7cc
+FUN_0c18d852
 FUN_0c18d890
 FUN_0c18d914
 FUN_0c18d9cc
@@ -7018,6 +7031,7 @@ FUN_0c18e148
 FUN_0c18e168
 FUN_0c18e1c6
 FUN_0c18e24c
+FUN_0c18e39c
 FUN_0c18e4ba
 FUN_0c18e516
 FUN_0c18e54a
@@ -7226,9 +7240,11 @@ FUN_0c197e54
 FUN_0c197eb4
 FUN_0c198134
 FUN_0c198314
+FUN_0c1983ca
 FUN_0c198478
 FUN_0c1984ce
 FUN_0c1984fc
+FUN_0c198540
 FUN_0c19862e
 FUN_0c19869e
 FUN_0c1986c4
@@ -7360,6 +7376,7 @@ FUN_0c19e4dc
 FUN_0c19e4fa
 FUN_0c19e58a
 FUN_0c19e5b8
+FUN_0c19e64a
 FUN_0c19e678
 FUN_0c19e6f4
 FUN_0c19e784
@@ -7438,18 +7455,22 @@ FUN_0c1a1354
 FUN_0c1a14c0
 FUN_0c1a14dc
 FUN_0c1a1574
+FUN_0c1a15dc
 FUN_0c1a2074
 FUN_0c1a20d4
 FUN_0c1a2120
 FUN_0c1a2138
 FUN_0c1a214e
+FUN_0c1a2210
 FUN_0c1a240c
 FUN_0c1a26d8
+FUN_0c1a2a68
 FUN_0c1a3150
 FUN_0c1a3198
 FUN_0c1a3254
 FUN_0c1a3438
 FUN_0c1a357c
+FUN_0c1a3600
 FUN_0c1a3678
 FUN_0c1a36ac
 FUN_0c1a39f0
@@ -7480,6 +7501,7 @@ FUN_0c2b0de4
 FUN_0c2b0e34
 FUN_0c2b0ea4
 FUN_0c2b0fdc
+FUN_0c2b10c0
 FUN_0c2b12fa
 FUN_0c2b1424
 FUN_0c2b15c8
@@ -7528,6 +7550,7 @@ FUN_0c2b4a1a
 FUN_0c2b4a2e
 FUN_0c2b4a4a
 FUN_0c2b4daa
+FUN_0c2b4ddc
 FUN_0c2b5036
 FUN_0c2b525e
 FUN_0c2b5498
@@ -7783,6 +7806,8 @@ FUN_0c2cfe38
 FUN_0c2cff16
 FUN_0c2cfff8
 FUN_0c2d00f0
+FUN_0c2d01dc
+FUN_0c2d0394
 FUN_0c2d06d0
 FUN_0c2d079c
 FUN_0c2d097e
@@ -8039,6 +8064,7 @@ FUN_0c2d8d8c
 FUN_0c2d8d90
 FUN_0c2d8d9e
 FUN_0c2d8dae
+FUN_0c2d8ef8
 FUN_0c2d8f48
 FUN_0c2d93a0
 FUN_0c2d93dc
@@ -8167,6 +8193,7 @@ FUN_0c2e6978
 FUN_0c2e6cba
 FUN_0c2e6ce6
 FUN_0c2e6d72
+FUN_0c2e6fa2
 FUN_0c2e715e
 FUN_0c2e717e
 FUN_0c2e7200
@@ -8287,6 +8314,7 @@ FUN_0c2ed60e
 FUN_0c2ed658
 FUN_0c2ed6c8
 FUN_0c2ed6f8
+FUN_0c2ed71a
 FUN_0c2ed71e
 FUN_0c2ed9a0
 FUN_0c2eda34
@@ -8375,6 +8403,7 @@ FUN_0c2f2d58
 FUN_0c2f2da4
 FUN_0c2f30bc
 FUN_0c2f3268
+FUN_0c2f344a
 FUN_0c2f3524
 FUN_0c2f354a
 FUN_0c2f35ac
@@ -8515,6 +8544,7 @@ FUN_0c2fb41c
 FUN_0c2fb486
 FUN_0c2fb572
 FUN_0c2fb680
+FUN_0c2fb6a4
 FUN_0c2fb8b2
 FUN_0c2fbc38
 FUN_0c2fbc3e
@@ -8542,6 +8572,7 @@ FUN_0c2fdee4
 FUN_0c2fe108
 FUN_0c2fe21e
 FUN_0c2fe278
+FUN_0c2fe2e0
 Qreset
 SJMEM_Create
 SJMEM_Destroy
@@ -8578,6 +8609,7 @@ _INITSCT
 _allzero
 _app_coss
 _destructFiber
+_div64
 _duchek
 _fmtout_endstr
 _fmtout_outerr
@@ -8763,6 +8795,7 @@ gdFsGetTocG
 gdFsGetTokenSize
 gdFsGetWorkHnG
 gdFsHdlG1DmaEnd
+gdFsInitOvl
 gdFsIsTrayOpenG
 gdFsLoadDir
 gdFsLoadDirFast
@@ -8829,6 +8862,7 @@ kmBeginPass
 kmBeginScene
 kmBlankScreen
 kmChangeDisplayFilterMode
+kmCreateTextureSurface
 kmEndPass
 kmEndScene
 kmFreeTexture
@@ -8853,6 +8887,7 @@ kmSetFatalErrorCallback
 kmSetFogDensity
 kmSetFogTable
 kmSetFogTableColor
+kmSetFogVertexColor
 kmSetHSyncCallback
 kmSetHSyncLine
 kmSetPALEXTCallback
@@ -9137,6 +9172,7 @@ mwRnaGetAutoSw
 mwRnaGetBitPerSmpl
 mwRnaGetDrctLvl
 mwRnaGetFilter
+mwRnaGetFx
 mwRnaGetNumData
 mwRnaGetNumRoom
 mwRnaGetOutPan
@@ -9161,6 +9197,7 @@ mwRnaSetPitch
 mwRnaSetPlaySw
 mwRnaSetSfreq
 mwRnaSetStartSmpl
+mwRnaSetStmHdInfo
 mwRnaSetTransSw
 mwRnaSetupSnd
 mwSbClosePort
@@ -9181,6 +9218,7 @@ mwSbSetVol
 mwSbStop
 mwlRnaAddFlshPos
 mwlRnaAddRdPos
+mwlRnaAddWrPos
 mwlRnaAlloc
 mwlRnaExecSvrHndl
 mwlRnaInsrtSlntDat
@@ -9292,6 +9330,7 @@ nlMultiPushedMatrix
 nlObjPut
 nlObjPutCheckSideCulling
 nlObjPutCheckSideFarCulling
+nlObjPutInit
 nlObjPutLoadTexture
 nlObjPutLoadTextureGI
 nlObjPutLoadTextureOnce
@@ -9535,6 +9574,7 @@ syIntAdrChk_finish
 syIntAdrChk_getchar
 syIntAdrChk_printh
 syIntAdrChk_putchar
+syIntBrkHandler3
 syIntChkDump
 syIntInit
 syMmuAddEntry
@@ -9594,6 +9634,7 @@ thunk_FUN_0c11e28e
 thunk_FUN_0c1831d0
 thunk_FUN_0c1831ec
 thunk_FUN_0c191d46
+thunk_FUN_0c191de2
 thunk_FUN_0c2b0ad0
 thunk_FUN_0c2b2456
 thunk_FUN_0c2b3af8
@@ -9633,6 +9674,7 @@ thunk_FUN_0c2e6fa2
 thunk_FUN_0c2ec8ba
 thunk_FUN_0c2ec904
 thunk_FUN_0c2efc2c
+thunk_thunk_FUN_0c191de2
 trigger
 ui_fade_reset
 vib_port_has_vibration

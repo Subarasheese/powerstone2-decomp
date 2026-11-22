@@ -1,0 +1,48 @@
+{
+ "dev": [
+  {
+   "about": "colour FF000000",
+   "regs": {
+    "r4": "FF000000",
+    "r5": "40200000"
+   }
+  },
+  {
+   "about": "colour 80FF8040",
+   "regs": {
+    "r4": "80FF8040",
+    "r5": "40200001"
+   }
+  },
+  {
+   "about": "colour 00000000",
+   "regs": {
+    "r4": "00000000",
+    "r5": "40200002"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "colour 7FFFFFFF",
+   "regs": {
+    "r4": "7FFFFFFF",
+    "r5": "40200003"
+   }
+  },
+  {
+   "about": "colour 12345678",
+   "regs": {
+    "r4": "12345678",
+    "r5": "40200004"
+   }
+  },
+  {
+   "about": "colour FFFFFFFF",
+   "regs": {
+    "r4": "FFFFFFFF",
+    "r5": "40200005"
+   }
+  }
+ ]
+}

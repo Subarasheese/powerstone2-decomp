@@ -945,38 +945,6 @@ int nlInitInterrupt0(int a4)
 }
 
 
-int FUN_0c193846(int a4, int a5, int a6)
-{
-    int stk[34];
-    register int t2;
-    register int t4;
-    register int t6;
-    register int t8;
-
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    *(unsigned short *)(((int)stk + 0)) = a6;
-    (((struct o0_uint *)0xC8B1614)->v) = (thunk_FUN_0c191de2());
-    (((struct o4_uint *)0xC8B1614)->v) = ((short)(*(short *)(((int)stk + 0))) * (short)0x3E8);
-    t2 = a5;
-    if ((unsigned int)(short)a5 > (unsigned int)0x80) {
-        t2 = 0x80;
-    }
-    t4 = FUN_0c193120((((int)stk + 0) + 0x8), t2);
-    if ((short)t4 == 0) {
-        for (;;) {
-            t6 = FUN_0c191ea4((((int)stk + 0) + 0x8), (*(int *)(((int)stk + 4))), t2);
-            if ((short)t6 == 0) {
-                return 0x0;
-            }
-            memcpy((((int)stk + 0) + 0x8), ((((int)stk + 0) + 0x8) + 0x1), ((short)t2 - 1));
-            t8 = FUN_0c193120((((short)t2 + (((int)stk + 0) + 0x8)) - 1), 0x1);
-            if ((short)t8 != 0) {
-                break;
-            }
-        }
-    }
-    return 0xFFFFFFFF;
-}
 
 int SJRBF_PutChunk(int a4, int a5, int a6, int a7)
 {

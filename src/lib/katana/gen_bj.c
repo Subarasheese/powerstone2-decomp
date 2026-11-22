@@ -1833,10 +1833,6 @@ int FUN_0c18ec6a(void)
     return (*(int *)(((FUN_0c18ea14(0x0)) + 0x2C)));
 }
 
-int FUN_0c191e30(void)
-{
-    return (thunk_FUN_0c191de2());
-}
 
 int FUN_0c191f06(int a4, int a5, int a6, int a7)
 {

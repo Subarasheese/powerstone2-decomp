@@ -518,36 +518,6 @@ float FUN_0c17c450(int a4)
     return _builtin_sqrtf(u5);
 }
 
-int FUN_0c191108(int a4)
-{
-    register int t0;
-    register int t1;
-
-    if (a4 != 0) {
-        t0 = *(signed char *)((a4 + 0x18));
-        t1 = (unsigned char)t0;
-        if ((unsigned char)t0 == 1) {
-            t1 = (FUN_0c19114c(a4));
-        }
-        t0 = t1;
-        if ((*(int *)((a4 + 0x4))) != 0) {
-            t1 = *(int *)((a4 + 0x4));
-            *(unsigned int *)((a4 + 0x8)) = t1;
-            if (t1 == 0) {
-                *(unsigned int *)((a4 + 0x8)) = 0x1;
-            }
-            t1 = thunk_FUN_0c191de2();
-            *(unsigned int *)((a4 + 0xC)) = t1;
-            t0 = t1;
-            if ((*(int *)((a4 + 0x10))) != 0) {
-                (((struct o18_uchar *)(a4))->v) = 0x1;
-                t0 = 0x18;
-            }
-        }
-        t1 = t0;
-    }
-    return t1;
-}
 
 int FUN_0c1920b0(int a4, int a5)
 {
@@ -1476,19 +1446,6 @@ int nlCommonTextureGarbageCollection(void)
     return t2;
 }
 
-int FUN_0c184442(void)
-{
-    int t0;
-
-    if ((((((struct o0_int *)0xC2A62B8)->v)) != 5) && (t0 = (((struct o8_int *)0xC2A62B8)->v), t0 == 0)) {
-        t0 = thunk_FUN_0c191de2();
-        if ((unsigned int)(t0 - ((((struct o18_int *)0xC2A62B8)->v))) <= (unsigned int)((short)(*(short *)(((*(int *)0xC89B610) + 0x4))) * (short)0x3E8)) {
-            return 0x0;
-        }
-        return 0x1;
-    }
-    return 0x1;
-}
 
 int FUN_0c184dec(int a4)
 {

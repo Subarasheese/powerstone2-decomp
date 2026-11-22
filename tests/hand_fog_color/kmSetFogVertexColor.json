@@ -1,0 +1,54 @@
+{
+ "dev": [
+  {
+   "about": "colour FF000000 flags 00000000",
+   "poke": {
+    "0DFFFF00": "000000ff",
+    "0C8D097C": "00000000",
+    "0C8D0980": "00000100"
+   }
+  },
+  {
+   "about": "colour 80FF8040 flags 00000001",
+   "poke": {
+    "0DFFFF00": "4080ff80",
+    "0C8D097C": "01000000",
+    "0C8D0980": "ffffffff"
+   }
+  },
+  {
+   "about": "colour 00000000 flags 00000101",
+   "poke": {
+    "0DFFFF00": "00000000",
+    "0C8D097C": "01010000",
+    "0C8D0980": "00000000"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "colour 7FFFFFFF flags FFFFFFFE",
+   "poke": {
+    "0DFFFF00": "ffffff7f",
+    "0C8D097C": "feffffff",
+    "0C8D0980": "11111111"
+   }
+  },
+  {
+   "about": "colour 12345678 flags 0000FFFF",
+   "poke": {
+    "0DFFFF00": "78563412",
+    "0C8D097C": "ffff0000",
+    "0C8D0980": "80808080"
+   }
+  },
+  {
+   "about": "colour FFFFFFFF flags 80000001",
+   "poke": {
+    "0DFFFF00": "ffffffff",
+    "0C8D097C": "01000080",
+    "0C8D0980": "01000000"
+   }
+  }
+ ]
+}

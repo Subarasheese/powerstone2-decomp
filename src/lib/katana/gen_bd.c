@@ -644,16 +644,6 @@ int FUN_0c191554(void)
     return 0x0;
 }
 
-int FUN_0c191e44(void)
-{
-    register int t0;
-
-    t0 = thunk_FUN_0c191de2();
-    (((struct o0_uint *)0xC2AE764)->v) = ((((t0 << 8) + (t0 << 16)) + ((unsigned int)((unsigned int)t0 >> 2) >> 2)) + t0);
-    (((struct o4_ushort *)0xC2AE764)->v) = ((((t0 << 8) + (t0 << 16)) + ((unsigned int)((unsigned int)t0 >> 2) >> 2)) + t0);
-    (((struct o4_ushort *)0xC2AE764)->v) = (((((struct o4_short *)0xC2AE764)->v)) + 0x350B);
-    return t0;
-}
 
 int FUN_0c192368(int a4, int a5)
 {

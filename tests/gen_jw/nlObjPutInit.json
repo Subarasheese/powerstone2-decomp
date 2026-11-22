@@ -1,0 +1,42 @@
+{
+ "dev": [
+  {
+   "about": "ambience 0",
+   "poke": {
+    "0C2A61D0": "00000000"
+   }
+  },
+  {
+   "about": "ambience 0.5",
+   "poke": {
+    "0C2A61D0": "0000003f"
+   }
+  },
+  {
+   "about": "ambience 0.75",
+   "poke": {
+    "0C2A61D0": "0000403f"
+   }
+  }
+ ],
+ "holdout": [
+  {
+   "about": "ambience 1",
+   "poke": {
+    "0C2A61D0": "0000803f"
+   }
+  },
+  {
+   "about": "ambience 0.25",
+   "poke": {
+    "0C2A61D0": "0000803e"
+   }
+  },
+  {
+   "about": "ambience 2",
+   "poke": {
+    "0C2A61D0": "00000040"
+   }
+  }
+ ]
+}

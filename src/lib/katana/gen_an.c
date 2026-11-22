@@ -415,68 +415,6 @@ int vmsfs_load_file(int a4, int a5, int a6, int a7)
     goto L_C2C18D8;
 }
 
-int FUN_0c193120(int a4, int a5)
-{
-    int stk[3];
-    register int t26;
-    register int t0;
-    register int t3;
-    register int t8;
-    register int t16;
-    int t7;
-    int t15;
-
-    *(unsigned int *)(((int)stk + 4)) = a4;
-    t26 = 0x0;
-    if ((int)(short)a5 > 0) {
-        t0 = 0x0;
-        for (;;) {
-            FUN_0c191af2(((int)stk + 0));
-            if ((*(short *)(((int)stk + 0))) != 0) {
-                t3 = FUN_0c191aaa((((int)stk + 0) + 0x8), 0x1);
-                if ((short)t3 == 0) {
-                    *(unsigned char *)((t0 + (*(int *)(((int)stk + 4))))) = (*(signed char *)(((((int)stk + 0) + 0x8) + 0x0)));
-                    t0 = (t0 + 0x1);
-                    if ((int)t0 >= (int)(short)a5) {
-                        return 0x0;
-                    }
-                    continue;
-                }
-                if (((*(int *)0xC2A62C0) == 0) && (t7 = (((struct o4_int *)0xC8B1614)->v), t7 != 0)) {
-                    t8 = thunk_FUN_0c191de2();
-                    if ((unsigned int)(t8 - ((((struct o0_int *)0xC8B1614)->v))) > (unsigned int)((((struct o4_int *)0xC8B1614)->v))) {
-                        break;
-                    }
-                    FUN_0c191dae();
-                    thunk_FUN_0c1831d0();
-                    FUN_0c191d9e();
-                    if ((int)t0 >= (int)(short)a5) {
-                        return 0x0;
-                    }
-                    continue;
-                }
-                break;
-            }
-            if (((*(int *)0xC2A62C0) == 0) && (t15 = (((struct o4_int *)0xC8B1614)->v), t15 != 0)) {
-                t16 = thunk_FUN_0c191de2();
-                if ((unsigned int)(t16 - ((((struct o0_int *)0xC8B1614)->v))) > (unsigned int)((((struct o4_int *)0xC8B1614)->v))) {
-                    break;
-                }
-                FUN_0c191dae();
-                thunk_FUN_0c1831d0();
-                FUN_0c191d9e();
-                if ((int)t0 >= (int)(short)a5) {
-                    return 0x0;
-                }
-                continue;
-            }
-            break;
-        }
-        (((struct o4_uint *)0xC8B1614)->v) = 0x0;
-        t26 = 0xFFFFFFFF;
-    }
-    return t26;
-}
 
 int FUN_0c197d7c(int a4, int a5)
 {
@@ -2288,3 +2226,67 @@ int FUN_0c2e6874(int a4)
     }
     return 0x1;
 }
+
+int FUN_0c193120(int a4, int a5)
+{
+    int stk[3];
+    register int t26;
+    register int t0;
+    register int t3;
+    register int t8;
+    register int t16;
+    int t7;
+    int t15;
+
+    *(unsigned int *)(((int)stk + 4)) = a4;
+    t26 = 0x0;
+    if ((int)(short)a5 > 0) {
+        t0 = 0x0;
+        for (;;) {
+            FUN_0c191af2(((int)stk + 0));
+            if ((*(short *)(((int)stk + 0))) != 0) {
+                t3 = FUN_0c191aaa((((int)stk + 0) + 0x8), 0x1);
+                if ((short)t3 == 0) {
+                    *(unsigned char *)((t0 + (*(int *)(((int)stk + 4))))) = (*(signed char *)(((((int)stk + 0) + 0x8) + 0x0)));
+                    t0 = (t0 + 0x1);
+                    if ((int)t0 >= (int)(short)a5) {
+                        return 0x0;
+                    }
+                    continue;
+                }
+                if (((*(int *)0xC2A62C0) == 0) && (t7 = (((struct o4_int *)0xC8B1614)->v), t7 != 0)) {
+                    t8 = thunk_FUN_0c191de2();
+                    if ((unsigned int)(t8 - ((((struct o0_int *)0xC8B1614)->v))) > (unsigned int)((((struct o4_int *)0xC8B1614)->v))) {
+                        break;
+                    }
+                    FUN_0c191dae();
+                    thunk_FUN_0c1831d0();
+                    FUN_0c191d9e();
+                    if ((int)t0 >= (int)(short)a5) {
+                        return 0x0;
+                    }
+                    continue;
+                }
+                break;
+            }
+            if (((*(int *)0xC2A62C0) == 0) && (t15 = (((struct o4_int *)0xC8B1614)->v), t15 != 0)) {
+                t16 = thunk_FUN_0c191de2();
+                if ((unsigned int)(t16 - ((((struct o0_int *)0xC8B1614)->v))) > (unsigned int)((((struct o4_int *)0xC8B1614)->v))) {
+                    break;
+                }
+                FUN_0c191dae();
+                thunk_FUN_0c1831d0();
+                FUN_0c191d9e();
+                if ((int)t0 >= (int)(short)a5) {
+                    return 0x0;
+                }
+                continue;
+            }
+            break;
+        }
+        (((struct o4_uint *)0xC8B1614)->v) = 0x0;
+        t26 = 0xFFFFFFFF;
+    }
+    return t26;
+}
+
