@@ -495,7 +495,7 @@ F 0c02d54c 134 FUN_0c02d54c
 F 0c02d630 548 FUN_0c02d630
 F 0c02d854 54 sys_shutdown_all
 F 0c02d88a 46 FUN_0c02d88a
-F 0c02d930 20 ADXT_Finish
+F 0c02d930 20 FUN_0c02d930
 F 0c02d944 174 FUN_0c02d944
 F 0c02d9f2 60 FUN_0c02d9f2
 F 0c02da2e 12 FUN_0c02da2e
@@ -7917,7 +7917,7 @@ F 0c2b3faa 38 pdVibMxStart
 F 0c2b3fd8 34 pdVibMxStop
 F 0c2b4014 26 adxini_rnaerr_cbfn
 F 0c2b402e 76 ADXT_Init
-F 0c2b407e 50 commonSysInit
+F 0c2b407e 50 ADXT_Finish
 F 0c2b4110 100 ADXT_StartAfs
 F 0c2b4174 74 ADXT_StartFname
 F 0c2b420c 202 ADXT_StartMemIdx
@@ -8116,8 +8116,8 @@ F 0c2ba57e 112 gdFsSearchName
 F 0c2ba5ee 256 gdFsSearchPath
 F 0c2ba6ee 342 gdFsSearchPath_dds
 F 0c2ba85c 86 syCacheInit_P2_
-F 0c2ba8c8 606 FUN_0c2ba8c8
-F 0c2bab26 596 syCacheOCBI
+F 0c2ba8c8 606 syCacheOCBI
+F 0c2bab26 596 syCacheOCBP
 F 0c2bad7a 596 FUN_0c2bad7a
 F 0c2bafce 50 FUN_0c2bafce
 F 0c2bb00c 38 FUN_0c2bb00c

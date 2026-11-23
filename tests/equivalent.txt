@@ -123,7 +123,7 @@ ADXT_Destroy
 ADXT_DiscardSmpl
 ADXT_ExecErrChk
 ADXT_ExecServer
-ADXT_Finish
+FUN_0c02d930
 ADXT_GetErrCode
 ADXT_GetNumSctIbuf
 ADXT_GetStat
@@ -7599,7 +7599,7 @@ FUN_0c2ba286
 FUN_0c2ba294
 FUN_0c2ba2d8
 syCacheInit_P2_
-FUN_0c2ba8c8
+syCacheOCBI
 FUN_0c2bad7a
 FUN_0c2bafce
 FUN_0c2bb00c
@@ -8708,7 +8708,7 @@ check_file_correct
 clear_file
 close_file_handle
 cmp_fname
-commonSysInit
+ADXT_Finish
 convert_support
 copyBytes
 copySmallVQToTextureRom
@@ -9540,7 +9540,7 @@ strlen
 strncpy
 syBtCheckDisc
 syBtExit
-syCacheOCBI
+syCacheOCBP
 syCblCheckBroadcast
 syCblCheckCable
 syCblCheckCableType

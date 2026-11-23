@@ -100,7 +100,7 @@ int set_event2(int, int);
 int sprInitPos(int, int, Stk3);
 int sprPutAtAlpha(int, Stk3, float);
 int syBtFlDeleteSct(int, int, int);
-int syCacheOCBI(int, int);
+int syCacheOCBP(int, int);
 int syCacheOCBP(int, int);
 int syCachePurgeAll(int, int, int, int);
 int thunk_nlSprPut(int);

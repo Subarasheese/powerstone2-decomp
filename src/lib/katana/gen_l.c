@@ -160,7 +160,7 @@ int FUN_0c2ef0ee(void);
 int FUN_0c2e4c98(int a4);
 int FUN_0c2eb6fe(int a4, int a5, int a6, int a7, int a8);
 int nlSetPixelClipping(float f4, float f5, float f6, float f7);
-void syCacheOCBI(int a4, int a5, int a6, int a7);
+void syCacheOCBP(int a4, int a5, int a6, int a7);
 void FUN_0c2bad7a(int a4, int a5, int a6, int a7);
 int FUN_0c2b3456(int a4, int a5);
 int FUN_0c2d116e(int a4);
@@ -1431,7 +1431,7 @@ int nlSetPixelClipping(float f4, float f5, float f6, float f7)
     return t0;
 }
 
-void syCacheOCBI(int a4, int a5, int a6, int a7)
+void syCacheOCBP(int a4, int a5, int a6, int a7)
 {
     int stk[2];
     register int t2;

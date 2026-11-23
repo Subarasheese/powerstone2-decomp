@@ -16,7 +16,7 @@ int FUN_0c0283c4(int, int);
 /* 0c05d602 */
 
 /* 0c02d930 */
-int ADXT_Finish(int a)
+int FUN_0c02d930(int a)
 {
     FUN_0c2b12fa(a);
     FUN_0c02feb4(a);

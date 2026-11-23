@@ -2862,8 +2862,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 48 of 49 instructions
 
-### ADXT_Finish (`0C02D930`, 20 bytes, `src/game/unsorted/hand_1.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/hand_1/ADXT_Finish.json`
+### FUN_0c02d930 (`0C02D930`, 20 bytes, `src/game/unsorted/hand_1.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/hand_1/FUN_0c02d930.json`
 - case 0
 - case 2
 - case 4
@@ -216275,8 +216275,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 123
 - the cases run 43 of 43 instructions
 
-### FUN_0c2ba8c8 (`0C2BA8C8`, 606 bytes, `src/gen_k.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_k/FUN_0c2ba8c8.json`
+### syCacheOCBI (`0C2BA8C8`, 606 bytes, `src/gen_k.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_k/syCacheOCBI.json`
 - case 0
 - case 4
 - case 27
@@ -250938,8 +250938,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 100
 - the cases run 37 of 37 instructions
 
-### commonSysInit (`0C2B407E`, 50 bytes, `src/lib/katana/gen_bd.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_bd/commonSysInit.json`
+### ADXT_Finish (`0C2B407E`, 50 bytes, `src/lib/katana/gen_bd.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_bd/ADXT_Finish.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 25 of 25 instructions
@@ -274875,8 +274875,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 108
 - the cases run 21 of 23 instructions
 
-### syCacheOCBI (`0C2BAB26`, 596 bytes, `src/gen_l.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_l/syCacheOCBI.json`
+### syCacheOCBP (`0C2BAB26`, 596 bytes, `src/gen_l.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_l/syCacheOCBP.json`
 - case 0
 - case 2
 - case 40

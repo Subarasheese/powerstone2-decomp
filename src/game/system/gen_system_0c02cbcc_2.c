@@ -22,7 +22,7 @@ int FUN_0c02d208(void);
 int sys_vsync_handler_install(void);
 int FUN_0c02d630(void);
 int FUN_0c02d88a(void);
-int ADXT_Finish(void);
+int FUN_0c02d930(void);
 int FUN_0c056f20(void);
 int FUN_0c056f40(void);
 int FUN_0c05ac14(void);
@@ -79,7 +79,7 @@ float FUN_0c02d2a8(void)
     *(unsigned int *)0xC3BBFF0 = 0x0;
     (((struct o4_uint *)0xC30EFC4)->v) = 0x0;
     for (;;) {
-        ADXT_Finish();
+        FUN_0c02d930();
         t1 = t0;
         if (((((struct o2C_int *)0xC542430)->v)) == 0) {
             t0 = 0xC056F40;

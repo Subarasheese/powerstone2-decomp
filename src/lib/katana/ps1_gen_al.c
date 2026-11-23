@@ -156,7 +156,7 @@ int FUN_0c0f2664(void);
 int FUN_0c0f283e(void);
 int syCfgExit(void);
 int sys_exit_to_bios(void);
-int ADXT_Finish(void);
+int FUN_0c02d930(void);
 int FUN_0c0f4938(int, int);
 int ADXT_StartFname(int);
 int ADXT_SetOutVol(int, int);

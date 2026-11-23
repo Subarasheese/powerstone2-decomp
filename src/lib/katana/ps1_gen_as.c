@@ -262,7 +262,7 @@ int FUN_0c0f1c44(int a4);
 int FUN_0c0f1fa4(void);
 int gdFsGetDrvStat(void);
 int gdFsReqDrvStat(void);
-int ADXT_Finish(int a4, int a5, int a6, int a7);
+int FUN_0c02d930(int a4, int a5, int a6, int a7);
 int kmSetColorClampValue(Stk4 s);
 int kmSetFogDensity(int a4);
 void gdFsMemcpy(int a4, int a5, int a6);
