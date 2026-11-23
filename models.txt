@@ -17,3 +17,72 @@
 #                                                executable that holds the character)
 #   name <file> <offset> <text>   /   table <addr> <group> <label>   /   sound <file> <entry> <text>   /   image <file> <offset> <text>   names (the viewer writes these)
 # Nothing is needed here to start: with no rules the map still lists every model, grouped by the table that holds it.
+
+# Fighters: 19 bones, the records inside each model segment (count in word 10, first record at the offset in word 11, 60 bytes a record:
+# the part at +0, the parent bone at +0x10, the bone offset (3 floats) at +0x24). Segments 0 and 2 are the two forms.
+recordparts Fighter_PL00_form_0 form_0 file=PL00_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL00_form_1 form_1 file=PL00_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL10_form_0 form_0 file=PL10_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL10_form_1 form_1 file=PL10_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL12 form_0 file=PL12_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL12 form_1 file=PL12_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL20_form_0 form_0 file=PL20_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL20_form_1 form_1 file=PL20_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL30_form_0 form_0 file=PL30_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL30_form_1 form_1 file=PL30_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL40_form_0 form_0 file=PL40_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL40_form_1 form_1 file=PL40_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL50_form_0 form_0 file=PL50_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL50_form_1 form_1 file=PL50_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL60_form_0 form_0 file=PL60_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL60_form_1 form_1 file=PL60_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL70_form_0 form_0 file=PL70_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL70_form_1 form_1 file=PL70_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL72 form_0 file=PL72_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL72 form_1 file=PL72_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL80_form_0 form_0 file=PL80_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL80_form_1 form_1 file=PL80_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL90_form_0 form_0 file=PL90_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PL90_form_1 form_1 file=PL90_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLA0_form_0 form_0 file=PLA0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLA0_form_1 form_1 file=PLA0_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLB0_form_0 form_0 file=PLB0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLB0_form_1 form_1 file=PLB0_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLC0_form_0 form_0 file=PLC0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLD0_form_0 form_0 file=PLD0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLE0_form_0 form_0 file=PLE0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLF0_form_0 form_0 file=PLF0_CONNECT.BIN segment=0 count=10 table=11 stride=3c model=0 parent=10 bone=24
+recordparts Fighter_PLF0_form_1 form_1 file=PLF0_CONNECT.BIN segment=2 count=10 table=11 stride=3c model=0 parent=10 bone=24
+
+# Textures: a file with a texture list in each of several model segments. The first list is the file's own; the models of each later one
+# take the set the plugin names for it (segment<n>).
+segmentset PL00_CONNECT.BIN 2 segment2
+segmentset PL00_CONNECT.BIN 5 segment5
+segmentset PL10_CONNECT.BIN 2 segment2
+segmentset PL10_CONNECT.BIN 5 segment5
+segmentset PL12_CONNECT.BIN 2 segment2
+segmentset PL12_CONNECT.BIN 5 segment5
+segmentset PL20_CONNECT.BIN 2 segment2
+segmentset PL20_CONNECT.BIN 5 segment5
+segmentset PL30_CONNECT.BIN 2 segment2
+segmentset PL30_CONNECT.BIN 5 segment5
+segmentset PL40_CONNECT.BIN 2 segment2
+segmentset PL40_CONNECT.BIN 5 segment5
+segmentset PL50_CONNECT.BIN 2 segment2
+segmentset PL50_CONNECT.BIN 5 segment5
+segmentset PL60_CONNECT.BIN 2 segment2
+segmentset PL60_CONNECT.BIN 5 segment5
+segmentset PL70_CONNECT.BIN 2 segment2
+segmentset PL70_CONNECT.BIN 5 segment5
+segmentset PL72_CONNECT.BIN 2 segment2
+segmentset PL72_CONNECT.BIN 5 segment5
+segmentset PL80_CONNECT.BIN 2 segment2
+segmentset PL80_CONNECT.BIN 5 segment5
+segmentset PL90_CONNECT.BIN 2 segment2
+segmentset PL90_CONNECT.BIN 5 segment5
+segmentset PLA0_CONNECT.BIN 2 segment2
+segmentset PLA0_CONNECT.BIN 5 segment5
+segmentset PLB0_CONNECT.BIN 2 segment2
+segmentset PLB0_CONNECT.BIN 5 segment5
+segmentset PLF0_CONNECT.BIN 2 segment2
+segmentset PLF0_CONNECT.BIN 5 segment5
