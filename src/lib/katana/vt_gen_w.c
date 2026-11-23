@@ -105,7 +105,7 @@ int evPackFade(int a4, int a5, int a6);
 int nlPow(float f4, float f5);
 float nlSin(int a4);
 int kmLoadTextureRom(int a4, int a5, int a6);
-int syCacheOCBI(int a4, int a5);
+int syCacheOCBP(int a4, int a5);
 int syCacheOCBP(int a4, int a5);
 int ADXF_Ocbi(int a4, int a5);
 int sysSetVideoMode(int a4);

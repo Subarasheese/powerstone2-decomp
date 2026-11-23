@@ -141,7 +141,7 @@ int FUN_0c17edc0(int a4, int a5, int a6, int a7);
 int FUN_0c178c70(int a4, int a5, int a6, int a7, int a8, int a9);
 int FUN_0c2e64ca(void);
 int FUN_0c2ed71e(void);
-void FUN_0c2ba8c8(int a4, int a5, int a6, int a7);
+void syCacheOCBI(int a4, int a5, int a6, int a7);
 
 int FUN_0c19b6cc(int a4, int a5, int a6, int a7)
 {
@@ -1866,7 +1866,7 @@ int FUN_0c2ed71e(void)
     return t1;
 }
 
-void FUN_0c2ba8c8(int a4, int a5, int a6, int a7)
+void syCacheOCBI(int a4, int a5, int a6, int a7)
 {
     int stk[2];
     register int t2;

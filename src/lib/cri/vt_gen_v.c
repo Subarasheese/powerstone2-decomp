@@ -13,7 +13,7 @@ int ADXSJD_Stop(int);
 int ADXSTM_Seek(int, int);
 int ADXSTM_Start(int);
 int ADXSTM_Stop(int);
-int ADXT_Finish(void);
+int FUN_0c02d930(void);
 int ADXT_SetOutVol(int, int);
 int SJRBF_Lock(void);
 int SJRBF_Unlock(int, int);

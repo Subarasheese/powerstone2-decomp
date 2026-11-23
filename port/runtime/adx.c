@@ -217,8 +217,8 @@ static unsigned char *read_range(const char *path, uint32_t off, uint32_t size, 
 
 void adxt_init(void) __asm__("ADXT_Init");
 void adxt_init(void) { adx_debug = getenv("PORT_DEBUG_ADX") != 0; }
-/* ADXT_Finish: Power Stone 2's library has none (the name sits on a game function, 0x0C02D930, that a short code
-   match gave it); kept for a caller by another name */
+/* every player stopped: kept for a caller by another name. The library's own ADXT_Finish is the function at 0x0C2B407E
+   (named commonSysInit until the symbols.txt audit, like Virtua Tennis's copy in its game code) */
 void adxt_finish(void);
 void adxt_finish(void)
 {

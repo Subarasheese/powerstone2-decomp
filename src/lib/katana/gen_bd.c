@@ -305,7 +305,7 @@ int FUN_0c197d2e(int a4);
 int FUN_0c1a0e2c(int a4, int a5);
 int FUN_0c2b0da8(int a4);
 int FUN_0c2b0de4(int a4);
-int commonSysInit(void);
+int ADXT_Finish(void);
 int adxf_ChkPrmPt(int a4, int a5);
 int vmsfs_ismount(int a4);
 int FUN_0c2d586c(void);
@@ -1955,7 +1955,7 @@ int FUN_0c2b0de4(int a4)
     return 0x0;
 }
 
-int commonSysInit(void)
+int ADXT_Finish(void)
 {
     FUN_0c2c3086();
     FUN_0c2c3238();

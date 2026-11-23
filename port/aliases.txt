@@ -221,7 +221,7 @@
 0c2b3e6e FUN_0c0f449e pdVibEnumerateUnit
 0c2b4014 FUN_0c2b4014 adxini_rnaerr_cbfn
 0c2b402e FUN_0c2b402e ADXT_Init
-0c2b407e FUN_0c2b407e commonSysInit
+0c2b407e FUN_0c2b407e ADXT_Finish
 0c2b4110 FUN_0c2b4110 ADXT_StartAfs
 0c2b4174 FUN_0c2b4174 ADXT_StartFname
 0c2b420c FUN_0c2b420c ADXT_StartMemIdx
@@ -317,7 +317,7 @@
 0c2b9e42 FUN_0c0fdeba bcdtime2fad
 0c2b9e78 FUN_0c0fdef0 gdDecSubcode
 0c2ba37c FUN_0c2ba37c stringEquals
-0c2bab26 FUN_0c2bab26 syCacheOCBI
+0c2bab26 FUN_0c2bab26 syCacheOCBP
 0c2bafce FUN_0c0fefee FUN_0c2bafce
 0c2bb13c FUN_0c0ff15c syChainInit
 0c2bb18c FUN_0c0ff1ac syChainAddHandler

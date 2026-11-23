@@ -76,10 +76,10 @@ NOOP("syBtCfgSet", sy_bt_cfg_set)
 NOOP("FUN_0c02d104", cache_ici)                 /* the game's instruction cache invalidate (CCR.ICI) */
 NOOP("FUN_0c2bb00c", sy_cache_init_arrays)      /* the operand cache's address arrays cleared */
 NOOP("FUN_0c2c4770", cri_cache_flush)
-NOOP("FUN_0c2ba8c8", sy_cache_ocwb_range)
+NOOP("syCacheOCBI", sy_cache_ocbi)
 NOOP("FUN_0c2bad7a", sy_cache_ocp_range)
 NOOP("cache_ocbp", cache_ocbp)                   /* hand_10.c's inline-asm OCBP (an operand cache line written back) */
-NOOP("syCacheOCBI", sy_cache_ocbi)
+NOOP("syCacheOCBP", sy_cache_ocbp)
 NOOP("ADXF_Ocbi", adxf_ocbi)
 
 /* The console's settings (syCfg*), which the library keeps in the flash: the port keeps them here. Sound: 0 stereo,
