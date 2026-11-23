@@ -1,0 +1,2 @@
+# Functions the game reaches by address that functions.txt does not list on their own (counted inside another), with
+# C in src/: native_build.py adds them to the dispatch table. <address> <name>

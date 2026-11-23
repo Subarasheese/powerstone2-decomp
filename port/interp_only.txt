@@ -1,0 +1,15 @@
+# Functions whose C cannot run natively: they take variable arguments the console's way (their va_list is a pointer
+# to the words past their own stack frame, where the SH-4 caller left the arguments past r4-r7). native_build.py
+# leaves their C out and gives them an interpreter stub: the interpreter rebuilds the console's stack layout from the
+# native call, so the original code finds its arguments. Their vsprintf is port_console_vsprintf (port/runtime/shim.c).
+FUN_0c2dc1ae
+FUN_0c2c30aa
+dbg_printf
+vmsfs_dpf
+mpdrv_dpf
+FUN_0c02f644
+FUN_0c02f6da
+FUN_0c01cda2
+# Functions whose C is not proven (not in tests/equivalent.txt) but sits in src/: the original code runs instead
+FUN_0c1490ba
+FUN_0c0d6422
