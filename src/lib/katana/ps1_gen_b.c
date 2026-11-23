@@ -135,7 +135,7 @@ float pl_jack_mode12_phase0(int a4, float f4, float f5);
 int stage_gimmick_23_spawn_b(int a4, int a5);
 int stage_gimmick_24_spawn_b(int a4, int a5);
 int vmsfs_save_exec_file(int a4, int a5, int a6, int a7, int a8, int a9);
-int FUN_0c113890(int a4);
+int fmMngAddData(int a4);
 int fx_spawn_034dd0(int a4, int a5);
 int fx_spawn_03dfd0(int a4, int a5);
 int FUN_0c055686(void);

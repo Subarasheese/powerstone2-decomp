@@ -96,7 +96,7 @@ struct oE_short { char p[0xE]; short v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
 struct oE_ushort { char p[0xE]; unsigned short v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
-int FUN_0c101148(int, int);
+int vmsfs_mediainfo_retry(int, int);
 int FUN_0c184000(int, int, int);
 int FUN_0c18778c(int);
 int FUN_0c187a88(int, int, int);
@@ -129,14 +129,14 @@ int FUN_0c2c3394(int);
 int FUN_0c2c38c2(int);
 int FUN_0c2c6728(void);
 int FUN_0c2c6740(int, int);
-int FUN_0c2c7b68(int);
+int kmyGetFrameBufferSize(int);
 int FUN_0c2c7eb0(int, int);
 int FUN_0c2cb558(int, int, int);
 int FUN_0c2cc2c2(void);
-int FUN_0c2cd240(int);
+int kmiFLWCTRLCheckFinishPacket(int);
 int FUN_0c2cd360(int);
 int FUN_0c2cd580(int);
-int FUN_0c2cd920(int, int);
+int kmiGuaranteeFFModeProcessOver(int, int);
 int FUN_0c2d0c0c(void);
 int FUN_0c2d114a(void);
 int FUN_0c2d487c(int, int, int);
@@ -484,7 +484,7 @@ int kmiAllocateFB(int a4)
     register int t1;
     int t27;
 
-    t1 = FUN_0c2c7b68((*(int *)0xC8BE7C0));
+    t1 = kmyGetFrameBufferSize((*(int *)0xC8BE7C0));
     kmyAllocateFrameBuffer(t1, ((int)stk + 0), (((int)stk + 0) + 0x4));
     kmyReleaseFrameBufferHandle(((((struct o0_int *)0xC8BEF88)->v)));
     kmyReleaseFrameBufferHandle(((((struct o4_int *)0xC8BEF88)->v)));
@@ -528,7 +528,7 @@ int kmiFLWCTRLRotateReadyQueue(int a4)
         t4 = 0x0;
         t5 = t2;
         for (;;) {
-            t2 = FUN_0c2cd240(t5);
+            t2 = kmiFLWCTRLCheckFinishPacket(t5);
             if ((t2 != 0) && (t0 = *(int *)((t5 + 0x14)), (t0 & 0x1) == 0)) {
                 t2 = *(int *)((t5 + 0x14));
                 switch (t2) {
@@ -556,7 +556,7 @@ int kmiFLWCTRLRotateReadyQueue(int a4)
                 break;
             }
         }
-        FUN_0c2cd920(a4, t4);
+        kmiGuaranteeFFModeProcessOver(a4, t4);
         _builtin_set_imask(((unsigned int)(((t3 & 0xF) << 2) << 2) >> 4));
     }
     return 0x0;
@@ -1281,7 +1281,7 @@ int vmsfs_connect(int a4)
     t1 = *(int *)((((a4 * 0x148) + 0xC8C4604) + 0x30));
     *(unsigned int *)((((a4 * 0x148) + 0xC8C4604) + 0x30)) = (t1 + 0x1);
     vmsfs_c_progress(a4, (*(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0xC8C21EC) + 0x8))), ((t1 + 0x1) - 1), t0);
-    t0 = FUN_0c101148(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
+    t0 = vmsfs_mediainfo_retry(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
     if ((int)t0 < 0) {
         *(unsigned char *)((((a4 * 0x148) + 0xC8C4604) + 0x9)) = 0x0;
         *(unsigned char *)((((a4 * 0x148) + 0xC8C4604) + 0x8)) = 0x0;

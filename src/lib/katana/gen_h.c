@@ -171,7 +171,7 @@ int kmiSetNativeBufferInfo(int a4);
 int FUN_0c2f5b8c(void);
 int FUN_0c2cf040(int a4);
 int FUN_0c2f2da4(int a4, int a5, int a6);
-int FUN_0c2f0534(int a4, int a5, int a6, int a7, int a8);
+int adxb_DecodeInfoAiffSub(int a4, int a5, int a6, int a7, int a8);
 
 
 int FUN_0c2f9af8(int a4)
@@ -1638,7 +1638,7 @@ int FUN_0c2f2da4(int a4, int a5, int a6)
     goto L_C2F2EDA;
 }
 
-int FUN_0c2f0534(int a4, int a5, int a6, int a7, int a8)
+int adxb_DecodeInfoAiffSub(int a4, int a5, int a6, int a7, int a8)
 {
     int stk[3];
     register int t4;

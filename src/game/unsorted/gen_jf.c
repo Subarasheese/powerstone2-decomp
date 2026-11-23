@@ -127,7 +127,7 @@ int its(int a4, int a5, int a6, int a7);
 int FUN_0c06b484(int a4);
 int FUN_0c1067fa(int a4);
 int FUN_0c2e83ae(void);
-int FUN_0c2f1804(int a4, int a5, int a6);
+int ADXB_DecodeHeaderWav(int a4, int a5, int a6);
 int kmiSetFBSurfaceDesc(int a4);
 int ADXSJD_Create(int a4, int a5, int a6);
 float FUN_0c134118(int a4);
@@ -663,7 +663,7 @@ int FUN_0c2e83ae(void)
     return (FUN_0c2d6c38(0x6, (*(signed char *)0xC8D6630), (*(signed char *)0xC8D6631), t29, t42, t40, t38, t36, 0x0));
 }
 
-int FUN_0c2f1804(int a4, int a5, int a6)
+int ADXB_DecodeHeaderWav(int a4, int a5, int a6)
 {
     int stk[10];
     register int t2;

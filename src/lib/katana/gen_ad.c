@@ -45,7 +45,7 @@ struct oC_int { char p[0xC]; int v; };
 struct oC_uchar { char p[0xC]; unsigned char v; };
 struct oC_uint { char p[0xC]; unsigned int v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c1777c0(void);
 int FUN_0c177f40(int, int, int, int);
 int FUN_0c183140(int);
@@ -83,7 +83,7 @@ int FUN_0c2d487c(int, int, int);
 int FUN_0c2d52d4(void);
 int FUN_0c2d54a0(int);
 int FUN_0c2d65ae(int);
-int FUN_0c2dee48(int, int, int, int, float, float, float, float, float, float, float, float);
+int kmiExCallBackFunc(int, int, int, int, float, float, float, float, float, float, float, float);
 int FUN_0c2e783e(void);
 int FUN_0c2e7e3e(void);
 int FUN_0c2e93ac(void);
@@ -1058,7 +1058,7 @@ int FUN_0c2c8e20(float f4, float f5, float f6, float f7, float f8, float f9, flo
         (((struct o0_uint *)0xC8D0A34)->v) = t7;
         (((struct o8_uint *)0xA05F6900)->v) = ((int)0x1 << (int)t3);
         *(unsigned int *)0xC8D0C80 = t7;
-        FUN_0c2dee48((*(int *)(((((t7 << 2) << 2) + 0xC8D0A60) + 0x0))), 0xC8D0C80, (*(int *)(((((t7 << 2) << 2) + 0xC8D0A60) + 0xC))), 0xA05F6908, f4, f5, f6, f7, f8, f9, f10, f11);
+        kmiExCallBackFunc((*(int *)(((((t7 << 2) << 2) + 0xC8D0A60) + 0x0))), 0xC8D0C80, (*(int *)(((((t7 << 2) << 2) + 0xC8D0A60) + 0xC))), 0xA05F6908, f4, f5, f6, f7, f8, f9, f10, f11);
     } else {
         t11 = (((struct o14_int *)0xC8D0A34)->v);
         t12 = (((struct o0_int *)0xA05F6900)->v);
@@ -1088,7 +1088,7 @@ int FUN_0c2c8e20(float f4, float f5, float f6, float f7, float f8, float f9, flo
             }
             (((struct o0_uint *)0xA05F6900)->v) = t22;
             *(unsigned int *)0xC8D0C80 = t17;
-            FUN_0c2dee48((*(int *)(((((t17 << 2) << 2) + 0xC8D0A60) + 0x0))), 0xC8D0C80, (*(int *)(((((t17 << 2) << 2) + 0xC8D0A60) + 0xC))), 0xFFA0002C, f4, f5, f6, f7, f8, f9, f10, f11);
+            kmiExCallBackFunc((*(int *)(((((t17 << 2) << 2) + 0xC8D0A60) + 0x0))), 0xC8D0C80, (*(int *)(((((t17 << 2) << 2) + 0xC8D0A60) + 0xC))), 0xFFA0002C, f4, f5, f6, f7, f8, f9, f10, f11);
         }
     }
     (((struct o0_uint *)0xC8D0A34)->v) = t0;

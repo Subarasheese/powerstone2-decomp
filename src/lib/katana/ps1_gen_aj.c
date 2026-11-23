@@ -276,7 +276,7 @@ int FUN_0c0bfe76(int a4);
 int nlSetLightDirection(int a4);
 int FUN_0c0dff60(void);
 int FUN_0c0e0820(float f4);
-int FUN_0c0ffdba(void);
+int copy_device(void);
 int vmu_menu_step_notice_wait_ok_flag(int a4, int a5, int a6, int a7);
 int ai_op87(int a4);
 int FUN_0c05b9a4(int a4);

@@ -18,7 +18,7 @@ int thunk_FUN_0c03e600(void);
 int FUN_0c03ec80(void);
 int cam_init_records(void);
 int FUN_0c0524bc(void);
-int FUN_0c057cb4(void);
+int ui_sprite_queue_reset(void);
 int FUN_0c05a0b8(void);
 int FUN_0c05a812(void);
 int game_reset_objects(void);
@@ -367,7 +367,7 @@ int FUN_0c05b4e4(void)
     FUN_0c05a0b8();
     game_reset_objects();
     FUN_0c05b122((*(signed char *)0xC541F68));
-    FUN_0c057cb4();
+    ui_sprite_queue_reset();
     FUN_0c03ac42();
     if ((unsigned char)(*(signed char *)0xC541F3D) != 7) {
         FUN_0c0300da();

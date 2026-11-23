@@ -1,4 +1,4 @@
-/* Hand-written: FUN_0c1a2210, the C runtime's conversion of a decimal mantissa and exponent to a float. The 8-byte mantissa at
+/* Hand-written: dec_to_float, the C runtime's conversion of a decimal mantissa and exponent to a float. The 8-byte mantissa at
    the first argument loses its leading zero bytes and bits (FUN_0c1a3198 shifts, the rest is copied into an 8-byte buffer); the
    power of ten of the second argument (_power, the exponent at the frame's first halfword) multiplies (mult64) or divides
    (_div64, a negative exponent) it into 12 bytes, which are rounded (FUN_0c1a357c) and shifted up to bit 31 (FUN_0c1a3150), each
@@ -30,7 +30,7 @@ static void set_error(int mode, int c1, int c2, int c3)
     }
 }
 
-float FUN_0c1a2210(int a4, int a5, int a6, int a7)
+float dec_to_float(int a4, int a5, int a6, int a7)
 {
     short exp[2];
     unsigned char buf[8];

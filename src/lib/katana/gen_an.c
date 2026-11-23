@@ -153,7 +153,7 @@ int FUN_0c2e715e(int);
 int FUN_0c2e7200(int);
 int FUN_0c2e732c(void);
 int FUN_0c2ef3bc(void);
-int FUN_0c2f0534(int, int, int, int, int);
+int adxb_DecodeInfoAiffSub(int, int, int, int, int);
 int FUN_0c2f4660(void);
 int FUN_0c2faaac(void);
 int FUN_0c2fb398(void);
@@ -249,10 +249,10 @@ int buFbrCreateServer(int a4);
 int FUN_0c2f6eea(int a4, int a5, int a6, int a7);
 int FUN_0c180b3c(int a4, int a5, int a6, int a7);
 int FUN_0c181308(int a4, int a5);
-int FUN_0c186bb0(int a4);
+int nlDispStripFreeTexture(int a4);
 int FUN_0c192e82(void);
 int FUN_0c2cb558(int a4);
-int FUN_0c112718(int a4, int a5, int a6, int a7);
+int mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7);
 int FUN_0c2ee56c(void);
 int FUN_0c18017c(int a4, int a5, int a6);
 int FUN_0c19a7e0(int a4, int a5, int a6, int a7);
@@ -1630,7 +1630,7 @@ int ADX_DecodeInfoAiff(int a4, int a5, int a6, int a7, int a8, int a9, int a10, 
         return 0xFFFFFFFF;
     }
     *(int *)((int)stk + 0) = (((int)stk + 4) + 0xC);
-    t2 = FUN_0c2f0534((*(int *)(((int)stk + 20))), (((int)stk + 0) + 0x4), (((int)stk + 0) + 0x8), (((int)stk + 0) + 0xC), (((int)stk + 4) + 0xC));
+    t2 = adxb_DecodeInfoAiffSub((*(int *)(((int)stk + 20))), (((int)stk + 0) + 0x4), (((int)stk + 0) + 0x8), (((int)stk + 0) + 0xC), (((int)stk + 4) + 0xC));
     if (t2 != 0) {
         t3 = *(int *)(((int)stk + 20));
         *(unsigned short *)(((*(int *)(((int)stk + 24))) + 0x0)) = (t2 - t3);
@@ -1974,7 +1974,7 @@ int FUN_0c181308(int a4, int a5)
     return t1;
 }
 
-int FUN_0c186bb0(int a4)
+int nlDispStripFreeTexture(int a4)
 {
     register int t0;
     register int t1;
@@ -2057,7 +2057,7 @@ int FUN_0c2cb558(int a4)
     return t0;
 }
 
-int FUN_0c112718(int a4, int a5, int a6, int a7)
+int mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7)
 {
     int t3;
     register int t4;

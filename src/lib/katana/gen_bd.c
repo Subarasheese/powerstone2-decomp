@@ -121,7 +121,7 @@ int FUN_0c2aeb54(int);
 int FUN_0c2b6288(void);
 int FUN_0c2b9b3e(int);
 int FUN_0c2bc7e4(void);
-int FUN_0c2c2874(int, int, int);
+int syBtCfgSet(int, int, int);
 int FUN_0c2c3086(void);
 extern int FUN_0c2c30aa();
 int FUN_0c2c3238(void);
@@ -239,7 +239,7 @@ int FUN_0c2d1062(int a4);
 int FUN_0c2d1956(int a4);
 int FUN_0c2d6804(int a4, int a5);
 int FUN_0c2d67cc(int a4, int a5);
-int FUN_0c2e31e0(int a4, int a5);
+int kmytex_GetfreememEx(int a4, int a5);
 int FUN_0c2e8496(void);
 int FUN_0c2e9536(void);
 int FUN_0c2ee482(int a4);
@@ -272,9 +272,9 @@ int FUN_0c2f4660(int a4);
 int FUN_0c2f8472(int a4);
 int FUN_0c2fb8b2(int a4);
 int FUN_0c0eadd0(int a4, int a5);
-int FUN_0c177da0(void);
+int nlSysUseLatency2V(void);
 int FUN_0c0df210(float f4);
-int FUN_0c0e3510(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
+int nl_set_cnv_proj_pers(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
 int nlObjPutTrnsl(int a4, float f4);
 float nlLineClipPoint(int a4, int a5, int a6);
 int FUN_0c18d464(int a4);
@@ -306,7 +306,7 @@ int FUN_0c1a0e2c(int a4, int a5);
 int FUN_0c2b0da8(int a4);
 int FUN_0c2b0de4(int a4);
 int commonSysInit(void);
-int FUN_0c2b4daa(int a4, int a5);
+int adxf_ChkPrmPt(int a4, int a5);
 int vmsfs_ismount(int a4);
 int FUN_0c2d586c(void);
 int FUN_0c2daf5a(int a4, int a5, int a6, int a7, int a8);
@@ -320,7 +320,7 @@ int FUN_0c18e0c2(int a4);
 int FUN_0c1914ec(void);
 int FUN_0c1a0cc6(int a4, int a5);
 int FUN_0c1a0d78(int a4);
-int FUN_0c2b5f20(int a4);
+int kmyEnableASyncCopy(int a4);
 int mwRnaGetOutPan(int a4, int a5);
 void kmyiInitializeCallback(int a4);
 int FUN_0c2d7d12(int a4);
@@ -866,7 +866,7 @@ int FUN_0c2d67cc(int a4, int a5)
     return t1;
 }
 
-int FUN_0c2e31e0(int a4, int a5)
+int kmytex_GetfreememEx(int a4, int a5)
 {
     register int t0;
     register int t1;
@@ -1236,7 +1236,7 @@ int syCfgSetSoundMode(int a4, int a5, int a6)
             return 0xFFFFFFFF;
         }
         *(unsigned char *)0x8C00007E = a4;
-        t2 = FUN_0c2c2874(0x2, (*(int *)0xC303724), a6);
+        t2 = syBtCfgSet(0x2, (*(int *)0xC303724), a6);
         if (t2 == -1) {
             return 0xFFFFFFFF;
         }
@@ -1418,7 +1418,7 @@ int FUN_0c0eadd0(int a4, int a5)
     return t2;
 }
 
-int FUN_0c177da0(void)
+int nlSysUseLatency2V(void)
 {
     register int t1;
 
@@ -1443,7 +1443,7 @@ int FUN_0c0df210(float f4)
     return (((-t0) + 0x4000) & 0xFFFF);
 }
 
-int FUN_0c0e3510(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
+int nl_set_cnv_proj_pers(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11)
 {
     register int t0;
 
@@ -1967,7 +1967,7 @@ int commonSysInit(void)
     return ADXF_Finish();
 }
 
-int FUN_0c2b4daa(int a4, int a5)
+int adxf_ChkPrmPt(int a4, int a5)
 {
     register int t0;
 
@@ -2162,7 +2162,7 @@ int FUN_0c1a0d78(int a4)
     return 0x0;
 }
 
-int FUN_0c2b5f20(int a4)
+int kmyEnableASyncCopy(int a4)
 {
     register int t0;
 

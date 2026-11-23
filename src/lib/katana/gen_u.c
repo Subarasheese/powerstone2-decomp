@@ -73,7 +73,7 @@ struct oB0_short { char p[0xB0]; short v; };
 struct oC_float { char p[0xC]; float v; };
 struct oC_int { char p[0xC]; int v; };
 struct oC_uint { char p[0xC]; unsigned int v; };
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c185560(int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18da58(void);
@@ -98,11 +98,11 @@ int FUN_0c1a0388(int, int);
 int FUN_0c1a0e90(int);
 int FUN_0c1a0ea2(int);
 int FUN_0c1a1188(int, int, int);
-int FUN_0c2b5f20(int);
-int FUN_0c2b6860(int);
-int FUN_0c2b6900(int);
+int kmyEnableASyncCopy(int);
+int kmRenderRect(int);
+int kmRender(int);
 int FUN_0c2b9760(int, int, int, int);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2d0f58(void);
 int FUN_0c2d0f6a(void);
 int FUN_0c2d0f7c(int);
@@ -268,7 +268,7 @@ int kmBeginPass(int a4)
                 break;
             }
         }
-        FUN_0c2b5f20(0x0);
+        kmyEnableASyncCopy(0x0);
     }
     t11 = 0x0;
     for (;;) {
@@ -944,7 +944,7 @@ int FUN_0c179140(int a4)
         if (a4 == 1) {
             t0 = 0x0;
         }
-        FUN_0c2b6900(t0);
+        kmRender(t0);
         (((struct o0_uint *)0xC2A60B0)->v) = 0xFFFFFFFF;
     } else {
         t0 = (((struct o0_short *)0xC8A6CA8)->v);
@@ -985,7 +985,7 @@ int FUN_0c179140(int a4)
         if (a4 == 1) {
             t0 = 0x0;
         }
-        (((struct o0_uint *)0xC2A60B0)->v) = (FUN_0c2b6860(t0));
+        (((struct o0_uint *)0xC2A60B0)->v) = (kmRenderRect(t0));
         (((struct o20_uint *)0xC2A6114)->v) = 0x0;
     }
     *(unsigned int *)0xC83CFE4 = 0x0;

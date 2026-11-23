@@ -101,10 +101,10 @@ int write_dir(int);
 int FUN_0c2d7df8(int a4, int a5);
 int vmsfs_fsettime(int a4, int a5, int a6);
 int vmsfs_frename(int a4, int a5, int a6);
-int FUN_0c103e50(int a4, int a5, int a6, int a7);
+int vmsfs_fsetattr(int a4, int a5, int a6, int a7);
 int FUN_0c0304e8(int a4, int a5);
 int calcnpw(int a4, int a5, int a6, int a7);
-int FUN_0c113890(int a4);
+int fmMngAddData(int a4);
 int FUN_0c103d56(int a4, int a5, int a6);
 int FUN_0c1848e8(void);
 int FUN_0c0f5264(int a4);
@@ -341,7 +341,7 @@ int vmsfs_frename(int a4, int a5, int a6)
     return t33;
 }
 
-int FUN_0c103e50(int a4, int a5, int a6, int a7)
+int vmsfs_fsetattr(int a4, int a5, int a6, int a7)
 {
     int stk[15];
     register int t0;
@@ -551,7 +551,7 @@ int calcnpw(int a4, int a5, int a6, int a7)
     return (FUN_0c187a88((*(int *)(((int)stk + 12))), (((int)stk + 0) + 0x14), 0x8));
 }
 
-int FUN_0c113890(int a4)
+int fmMngAddData(int a4)
 {
     register int t0;
     register int t3;

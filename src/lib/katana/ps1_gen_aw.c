@@ -142,7 +142,7 @@ float math_cos_angle16(int);
 float math_rand_float(void);
 float math_sin_angle16(int);
 int nlMultiMatrix(int);
-int FUN_0c0e3510(void);
+int nl_set_cnv_proj_pers(void);
 int _modlu(void);
 int _quick_odd_mvn(void);
 int FUN_0c0eb5dc(int, int);
@@ -189,7 +189,7 @@ int pl_kraken_mode13_update_v1(int a4);
 int cam_request_mode_19(int a4, int a5);
 int stage_gimmick_21_update_b(int a4, int a5, int a6, int a7);
 int stage_type11_update(int a4, int a5, int a6, int a7);
-void FUN_0c0f1aec(int a4, int a5, int a6, int a7);
+void gdFsTrans32(int a4, int a5, int a6, int a7);
 int staffroll_task_update(int a4, int a5, int a6, int a7);
 int FUN_0c0a7320(int a4, int a5, int a6, int a7);
 
@@ -296,7 +296,7 @@ int gdDcfRepStat_(int a4, int a5)
 }
 
 
-void FUN_0c0f1aec(int a4, int a5, int a6, int a7)
+void gdFsTrans32(int a4, int a5, int a6, int a7)
 {
     int t0;
     register int t1;

@@ -1,11 +1,11 @@
 /* Straight-line functions with calls and guards (batch gen_av): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int get_fat(int, int);
-int FUN_0c1045b4(int a4);
+int read_dir(int a4);
 
-int FUN_0c1045b4(int a4)
+int read_dir(int a4)
 {
     register int t0;
     register int t1;
@@ -25,7 +25,7 @@ int FUN_0c1045b4(int a4)
         t5 = t2;
         t2 = t0;
         for (;;) {
-            t0 = FUN_0c10121c(a4, (unsigned short)t5, t2);
+            t0 = vmsfs_read_retry(a4, (unsigned short)t5, t2);
             if ((int)t0 < 0) {
                 break;
             }

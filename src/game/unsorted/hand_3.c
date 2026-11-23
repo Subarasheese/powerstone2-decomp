@@ -128,13 +128,13 @@ int game_mode_handler_6(int a, int b, int c, int d)
 
 void mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
-void FUN_0c0379b6(int, int);
+void mdl_vtx_set_uv(int, int);
 
 void FUN_0c0cff2e(int a, int dst)
 {
     mdl_vtx_iter_begin(a, a);
     while (mdl_vtx_iter_next() == 0) {
-        FUN_0c0379b6(dst, dst + 4);
+        mdl_vtx_set_uv(dst, dst + 4);
         dst += 8;
     }
 }

@@ -132,7 +132,7 @@ int FUN_0c0e6834(int, int, int);
 int _quick_odd_mvn(int, int, int, int);
 int FUN_0c0ed9d4(int, int, int);
 int FUN_0c0fddbe(int, int, int);
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int vmsfs_c_progress(int, int, int, int);
 int vmsfs_unmount(int);
 int FUN_0c103874(int, int);

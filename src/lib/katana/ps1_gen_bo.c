@@ -252,7 +252,7 @@ int pl_garuda_victim_phase8(int a4);
 int FUN_0c0dab5e(int a4, int a5, int a6);
 int FUN_0c0eadd0(int a4, int a5);
 void gdFsEntryErrFuncAllG(int a4, int a5);
-int FUN_0c0f27c4(int a4);
+int pdGunSetTrigger(int a4);
 int gdFsIsTrayOpenG(int a4, int a5, int a6, int a7);
 int pl_ryoma_attack_kind3_phase0(int a4);
 int FUN_0c06f52e(int a4);
@@ -479,7 +479,7 @@ int kdDevGetTimerInfo(int a4, int a5)
 }
 
 
-int FUN_0c0f27c4(int a4)
+int pdGunSetTrigger(int a4)
 {
     register int t0;
     register int t1;

@@ -57,8 +57,8 @@ int ADXB_DecodeHeaderAdx(int, int, int);
 int ADXB_DecodeHeaderAiff(int, int, int);
 int ADXB_DecodeHeaderAu(int, int, int);
 int ADXB_DecodeHeaderSpsd(int, int, int);
-int FUN_0c0e3510(void);
-int FUN_0c0e4a80(int);
+int nl_set_cnv_proj_pers(void);
+int nlSynchFunction(int);
 int FUN_0c180d72(int);
 int FUN_0c18558a(int);
 int FUN_0c187a88(int, int, int);
@@ -92,7 +92,7 @@ int FUN_0c2d63ba(void);
 int FUN_0c2d7806(int);
 int FUN_0c2d7df8(int, int);
 int FUN_0c2d8590(int, int);
-int FUN_0c2e31e0(int, int);
+int kmytex_GetfreememEx(int, int);
 int FUN_0c2e715e(int);
 int FUN_0c2e7200(int);
 int FUN_0c2e732c(void);
@@ -109,7 +109,7 @@ int FUN_0c2ef364(void);
 int FUN_0c2ef3bc(void);
 int FUN_0c2ef3c8(void);
 int FUN_0c2f0816(int);
-int FUN_0c2f1804(int, int, int);
+int ADXB_DecodeHeaderWav(int, int, int);
 int FUN_0c2f1c20(int);
 int FUN_0c2f2926(int);
 int FUN_0c2fa4cc(int, int, int);
@@ -151,7 +151,7 @@ int FUN_0c18eba8(int a4, int a5, int a6);
 int FUN_0c2d0f7c(int a4);
 int FUN_0c19aaf0(int a4, int a5);
 int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7);
-int FUN_0c2bd8b4(int a4, int a5, int a6);
+int vmsfs_write_retry(int a4, int a5, int a6);
 int FUN_0c2bf4d2(int a4, int a5, int a6);
 int FUN_0c2edab8(void);
 int FUN_0c2f64d2(void);
@@ -168,12 +168,12 @@ int nlInitInterrupt0(int a4);
 int FUN_0c1848e8(void);
 int FUN_0c193846(int a4, int a5, int a6);
 int SJRBF_PutChunk(int a4, int a5, int a6, int a7);
-int FUN_0c2dbb7e(int a4, int a5, int a6);
+int ADXB_DecodeHeader(int a4, int a5, int a6);
 int FUN_0c1849d8(int a4);
 int FUN_0c18d914(int a4, int a5, int a6, int a7);
 int vmsfs_fdelete(int a4, int a5);
 int vmsfs_xfind(int a4, int a5, int a6);
-int FUN_0c2c6c60(int a4, int a5, int a6);
+int kmyAllocateArea(int a4, int a5, int a6);
 int FUN_0c2d7d42(int a4, int a5, int a6);
 int FUN_0c2d7b34(int a4, int a5, int a6);
 int FUN_0c2eef70(void);
@@ -410,7 +410,7 @@ int kmtex_ConvertSmallVQToMem(int a4, int a5, int a6, int a7)
     return FUN_0c2c70c0((a4 + 0x800), (a5 + t7), t6, 0x0);
 }
 
-int FUN_0c2bd8b4(int a4, int a5, int a6)
+int vmsfs_write_retry(int a4, int a5, int a6)
 {
     int t0;
     register int t1;
@@ -930,7 +930,7 @@ int nlInitInterrupt0(int a4)
             break;
         }
     }
-    FUN_0c0e4a80(0x0);
+    nlSynchFunction(0x0);
     kmSetEORCallback(0xC17D7A0, 0x0);
     (((struct o0_uint *)0xC868B48)->v) = (syChainAddHandler(0x900, 0xC17D7C0, 0x58, 0x0));
     (((struct o4_uint *)0xC868B48)->v) = (syChainAddHandler(0x920, 0xC17D7E0, 0x0, 0x0));
@@ -997,7 +997,7 @@ int SJRBF_PutChunk(int a4, int a5, int a6, int a7)
     return FUN_0c2c631c(a4, t0);
 }
 
-int FUN_0c2dbb7e(int a4, int a5, int a6)
+int ADXB_DecodeHeader(int a4, int a5, int a6)
 {
     register int t0;
 
@@ -1011,7 +1011,7 @@ int FUN_0c2dbb7e(int a4, int a5, int a6)
     }
     t0 = FUN_0c2f1c20(a5);
     if (t0 != 0) {
-        return FUN_0c2f1804(a4, a5, a6);
+        return ADXB_DecodeHeaderWav(a4, a5, a6);
     }
     t0 = FUN_0c2f0816(a5);
     if (t0 != 0) {
@@ -1109,7 +1109,7 @@ int FUN_0c18d914(int a4, int a5, int a6, int a7)
 
 
 
-int FUN_0c2c6c60(int a4, int a5, int a6)
+int kmyAllocateArea(int a4, int a5, int a6)
 {
     int stk[2];
     register int t0;
@@ -1126,7 +1126,7 @@ int FUN_0c2c6c60(int a4, int a5, int a6)
             t21 = (kmytex_TXalloc(t0, a5, a6, 0x0));
         }
     } else {
-        FUN_0c2e31e0(((int)stk + 0), (((int)stk + 0) + 0x4));
+        kmytex_GetfreememEx(((int)stk + 0), (((int)stk + 0) + 0x4));
         if ((unsigned int)(*(int *)(((int)stk + 0))) < (unsigned int)(*(int *)(((int)stk + 4)))) {
             if ((a4 & 0x1) != 0) {
                 t21 = (kmytex_TXalloc2(t0, a5, a6, 0x1));
@@ -1335,7 +1335,7 @@ int nlFrustum(float f4, float f5, float f6, float f7, float f8, float f9)
     (((struct o1C_float *)0xC8A6C74)->v) = f9;
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f8);
     nlMultiMatrix(((int)stk + 0));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 int FUN_0c180bec(int a4, int a5, int a6)

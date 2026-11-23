@@ -50,7 +50,7 @@ struct oC_ushort { char p[0xC]; unsigned short v; };
 struct oC18_int { char p[0xC18]; int v; };
 struct oE_short { char p[0xE]; short v; };
 struct oE_ushort { char p[0xE]; unsigned short v; };
-int FUN_0c102556(int, int);
+int search_fat_dir(int, int);
 int FUN_0c1826a0(int, int, int, int);
 int FUN_0c184ddc(void);
 int FUN_0c184f9a(int, int, int, int);
@@ -69,7 +69,7 @@ int FUN_0c2af1e0(void);
 int FUN_0c2af91c(int, int, int, int);
 int FUN_0c2b176e(int, int);
 int FUN_0c2ba2d8(void);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2c1016(int);
 int FUN_0c2c14a8(void);
 int FUN_0c2d53e8(void);
@@ -204,7 +204,7 @@ int write_dir(int a4, int a5, int a6, int a7)
         if ((*(signed char *)((((((a4 * 0x148) + 0xC8C4604) + 0x48) + t4) + 0x0))) != 0) {
             *(unsigned int *)(((int)stk + 0)) = ((t4 << 8) << 1);
             for (;;) {
-                t18 = FUN_0c2bd8b4(a4, t7, ((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x28))) + (*(int *)(((int)stk + 0)))));
+                t18 = vmsfs_write_retry(a4, t7, ((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x28))) + (*(int *)(((int)stk + 0)))));
                 if (t18 == 0) {
                     break;
                 }
@@ -212,7 +212,7 @@ int write_dir(int a4, int a5, int a6, int a7)
                     *(unsigned int *)(((int)stk + 8)) = 0x1;
                     t5 = (unsigned short)(((int (*)(int, int))(get_fat))(a4, t7));
                     set_fat(a4, t7);
-                    t6 = (FUN_0c102556(a4, 0xFFFC));
+                    t6 = (search_fat_dir(a4, 0xFFFC));
                     if ((int)t6 < 0) {
                         return 0xFFFFFF04;
                     }

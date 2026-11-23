@@ -75,8 +75,8 @@ struct oFD8_int { char p[0xFD8]; int v; };
 struct oFD8_uint { char p[0xFD8]; unsigned int v; };
 struct oFDC_int { char p[0xFDC]; int v; };
 struct oFDC_uint { char p[0xFDC]; unsigned int v; };
-int FUN_0c177450(void);
-int FUN_0c177da0(void);
+int nlWaitVSync(void);
+int nlSysUseLatency2V(void);
 int FUN_0c180d72(int);
 int FUN_0c181b6a(int);
 int FUN_0c183280(void);
@@ -86,7 +86,7 @@ int FUN_0c18353e(int, int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c187cac(int, int, int, int, int);
 int FUN_0c188260(int, int);
-int FUN_0c188262(int, int, float);
+int displaypolygondata_sidx_trnsl(int, int, float);
 int FUN_0c18dd2a(int, int, int);
 int FUN_0c18e584(int);
 int FUN_0c18ea14(int);
@@ -131,7 +131,7 @@ int FUN_0c2b9d7e(int, int);
 int FUN_0c2bca16(int);
 int FUN_0c2c6030(void);
 int FUN_0c2c6048(int, int);
-int FUN_0c2cbee0(void);
+int kmWaitVBlank(void);
 int FUN_0c2cc2c2(void);
 int FUN_0c2cfc76(int);
 int FUN_0c2cfc7e(int);
@@ -231,13 +231,13 @@ int FUN_0c197cec(int a4);
 int FUN_0c19c898(int a4, int a5);
 int FUN_0c1a03de(int a4, int a5, int a6);
 int FUN_0c2b5ea0(int a4, int a5, int a6);
-int FUN_0c0ffdba(void);
+int copy_device(void);
 int VQAllocEntry(void);
 int mpdrv_frame_recv_pre(int a4, int a5, int a6, int a7);
 int mwSbGetTrnsStat(int a4, int a5);
 int FUN_0c2e638e(void);
 int FUN_0c2efa6e(void);
-int FUN_0c178ef0(int a4);
+int nlSysMultiPassMode(int a4);
 int nlPopMatrix(int a4);
 int nlobjput_sub(int a4);
 int nlobjput_sub_trnsl(int a4, float f4);
@@ -907,7 +907,7 @@ int FUN_0c2b5ea0(int a4, int a5, int a6)
     return 0x0;
 }
 
-int FUN_0c0ffdba(void)
+int copy_device(void)
 {
     register int t1;
     register int t2;
@@ -1019,13 +1019,13 @@ int FUN_0c2efa6e(void)
     return 0x74;
 }
 
-int FUN_0c178ef0(int a4)
+int nlSysMultiPassMode(int a4)
 {
     register int t0;
     register int t1;
     register int t2;
 
-    t0 = FUN_0c177da0();
+    t0 = nlSysUseLatency2V();
     *(unsigned int *)0xC83CFE0 = 0x1;
     *(unsigned int *)0xC83CDC0 = a4;
     if ((int)a4 > 0) {
@@ -1110,11 +1110,11 @@ int nlobjput_sub_trnsl(int a4, float f4)
 
     t0 = *(int *)((a4 + 0x0));
     if ((t0 == 0)) {
-        FUN_0c188262(a4, 0xC8A6C68, f4);
+        displaypolygondata_sidx_trnsl(a4, 0xC8A6C68, f4);
         return (nlPopMatrix(0x1));
     }
     if (t0 == 1) {
-        FUN_0c188262(a4, 0xC8A6C68, f4);
+        displaypolygondata_sidx_trnsl(a4, 0xC8A6C68, f4);
         return (nlPopMatrix(0x1));
     }
     return (nlPopMatrix(0x1));
@@ -1940,7 +1940,7 @@ int FUN_0c183140(int a4, int a5, int a6, int a7)
             if ((*(int *)0xC2A62A8) != 0) {
                 t1 = (((int (*)(int, int, int, int))((*(int *)0xC2A62A8)))(a4, a5, a6, a7));
             } else {
-                t1 = (FUN_0c177450());
+                t1 = (nlWaitVSync());
             }
             t0 = (t0 + 0x1);
             if ((int)t0 >= (int)a4) {
@@ -2068,10 +2068,10 @@ int kmEndScene(int a4)
     *(unsigned int *)0xC8BE7F4 = ((*(int *)0xC8BE7F4) & 0xFFFFFFFC);
     if (a4 != 0) {
         if ((((*(int *)((a4 + 0x4))) & 32) == 0) && (t0 = *(int *)0xC8BF100, t0 == 0)) {
-            FUN_0c2cbee0();
+            kmWaitVBlank();
             t0 = kmiFLWCTRLCheckFreeNBuf();
             if (t0 == 0) {
-                FUN_0c2cbee0();
+                kmWaitVBlank();
             }
         }
     }

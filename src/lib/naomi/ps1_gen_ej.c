@@ -176,7 +176,7 @@ int fx_spawn_0454b4(int a4, int a5);
 int pl_ryoma_attack_kind2_phase2(int a4);
 int stage_gimmick_40_spawn(int a4);
 int fx_spawn_14(int a4, int a5);
-void FUN_0c0f1a0e(int a4, int a5, int a6, int a7);
+void gdFsReqGdRd(int a4, int a5, int a6, int a7);
 int FUN_0c0f4202(int a4, int a5, int a6);
 int FUN_0c0f09f6(int a4, int a5, int a6, int a7);
 int FUN_0c1098e0(int a4);
@@ -229,7 +229,7 @@ int nlLookAtUp(int a4, int a5, int a6)
 }
 
 
-void FUN_0c0f1a0e(int a4, int a5, int a6, int a7)
+void gdFsReqGdRd(int a4, int a5, int a6, int a7)
 {
     int t0;
     register int t1;

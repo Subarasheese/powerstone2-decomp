@@ -5,7 +5,7 @@ int ADXF_GetNumReadSct(int);
 int ADXF_GetStat(int);
 int ADXF_ReadNw(int, int, int, int);
 int ADXSTM_ExecServer(void);
-int FUN_0c0f1fe8(int);
+int gdFsExecServer(int);
 int adxf_wait_1ms(void);
 int FUN_0c2b4ddc(int a4, int a5, int a6, int a7);
 
@@ -19,7 +19,7 @@ int FUN_0c2b4ddc(int a4, int a5, int a6, int a7)
     for (;;) {
         t2 = ADXF_ReadNw(a4, a5, a6, a7);
         if ((int)t2 <= 0) {
-            FUN_0c0f1fe8(t2);
+            gdFsExecServer(t2);
             ADXSTM_ExecServer();
             ADXF_ExecServer();
             adxf_wait_1ms();
@@ -36,7 +36,7 @@ int FUN_0c2b4ddc(int a4, int a5, int a6, int a7)
     }
     t0 = 0x0;
     for (;;) {
-        FUN_0c0f1fe8(t1);
+        gdFsExecServer(t1);
         ADXSTM_ExecServer();
         ADXF_ExecServer();
         t2 = ADXF_GetStat(a4);

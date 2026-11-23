@@ -90,7 +90,7 @@ struct oE_uchar { char p[0xE]; unsigned char v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
 struct oF8_int { char p[0xF8]; int v; };
 struct oFC_int { char p[0xFC]; int v; };
-int FUN_0c0e3510(void);
+int nl_set_cnv_proj_pers(void);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18d3d0(int, int, int, int);
 int FUN_0c18dae8(int, int, int);
@@ -550,7 +550,7 @@ int FUN_0c17c970(int a4, float f4, float f5, float f6)
     (((struct o1C_float *)0xC8A6C74)->v) = (*(float *)(((int)stk + 0)));
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f5);
     nlMultiMatrix((((int)stk + 0) + 0x18));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 int FUN_0c17c6f0(int a4, float f4, float f5, float f6)
@@ -673,7 +673,7 @@ int FUN_0c17c6f0(int a4, float f4, float f5, float f6)
     (((struct o1C_float *)0xC8A6C74)->v) = f6;
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f5);
     nlMultiMatrix((((int)stk + 0) + 0x18));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 int FUN_0c19bdaa(int a4, int a5, int a6, int a7)

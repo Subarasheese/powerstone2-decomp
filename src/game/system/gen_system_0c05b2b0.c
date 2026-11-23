@@ -15,7 +15,7 @@ int FUN_0c06148a(void);
 int game_reset_objects(void);
 int FUN_0c05f7fa(void);
 int FUN_0c07c436(void);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int gfx_set_background_color(int, int, int);
 int FUN_0c05b2b0(void);
 int FUN_0c05b2da(void);
@@ -27,9 +27,9 @@ int FUN_0c05b2b0(void)
 {
     game_reset_objects();
     gfx_set_background_color(0x0, 0x0, 0x0);
-    FUN_0c177450();
-    FUN_0c177450();
-    FUN_0c177450();
+    nlWaitVSync();
+    nlWaitVSync();
+    nlWaitVSync();
     return FUN_0c07c436();
 }
 

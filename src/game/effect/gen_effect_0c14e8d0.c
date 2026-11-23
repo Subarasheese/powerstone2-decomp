@@ -10,8 +10,8 @@ struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03744a(int, int, int, int);
 int mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
-int FUN_0c03796e(int, int);
-int FUN_0c0379b6(int, int);
+int mdl_vtx_get_uv(int, int);
+int mdl_vtx_set_uv(int, int);
 int FUN_0c03f444(int, int, int);
 int FUN_0c187798(int, int, int);
 int memset(int, int, int);
@@ -34,9 +34,9 @@ int FUN_0c14ea40(int a4)
         if (t8 != 0) {
             break;
         }
-        FUN_0c03796e(((int)stk + 0), (((int)stk + 0) + 0x4));
+        mdl_vtx_get_uv(((int)stk + 0), (((int)stk + 0) + 0x4));
         *(float *)(((int)stk + 0)) = ((*(float *)(((int)stk + 0))) + ((((struct o41C_float *)(a4))->v)));
-        FUN_0c0379b6(((int)stk + 0), (((int)stk + 0) + 0x4));
+        mdl_vtx_set_uv(((int)stk + 0), (((int)stk + 0) + 0x4));
     }
     return t8;
 }

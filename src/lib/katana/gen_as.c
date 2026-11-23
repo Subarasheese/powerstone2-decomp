@@ -117,12 +117,12 @@ int FUN_0c19e882(int);
 int FUN_0c1a027c(int);
 int FUN_0c1a02cc(int, int, int);
 int FUN_0c1a21bc(int, int);
-float FUN_0c1a2210(int, int, int);
+float dec_to_float(int, int, int);
 int FUN_0c1a240c(int, int, int);
 int FUN_0c2aeaa0(int, int);
 int FUN_0c2bca16(int);
-int FUN_0c2bd8b4(int, int, int);
-int FUN_0c2c4eac(int);
+int vmsfs_write_retry(int, int, int);
+int mwRnaStop(int);
 int FUN_0c2c6030(void);
 int FUN_0c2c6048(int, int);
 int FUN_0c2c70c0(int, int, int, int);
@@ -145,7 +145,7 @@ int FUN_0c2ed60e(void);
 int FUN_0c2ed658(void);
 int FUN_0c2ed6c8(void);
 int FUN_0c2ed6f8(void);
-int FUN_0c2ed71a(void);
+int get_stack_pointer(void);
 int FUN_0c2ee482(int);
 int FUN_0c2ee530(void);
 int FUN_0c2f36de(void);
@@ -241,11 +241,11 @@ int FUN_0c19aee6(int a4, int a5);
 int FUN_0c19d114(int a4);
 int FUN_0c2aeb0a(void);
 int gdFsOpenRangeG(int a4, int a5);
-int FUN_0c0ffcda(void);
+int kdExecGun(void);
 int vmsfs_fread(int a4, int a5, int a6);
 int FUN_0c2c4e36(int a4);
 int SJMEM_GetChunk(int a4, int a5, int a6, int a7);
-int FUN_0c2cbee0(void);
+int kmWaitVBlank(void);
 int FUN_0c2d1abc(int a4, int a5, int a6);
 int kmyInitializeBGPlane(int a4);
 int FUN_0c18ceb0(int a4, int a5, int a6, int a7, int a8, int a9);
@@ -286,7 +286,7 @@ float FUN_0c1a042c(int a4, int a5, int a6, int a7)
             }
         }
     }
-    t10 = FUN_0c1a2210((((int)stk + 0) + 0x8), t1, (*(signed char *)(((int)stk + 4))));
+    t10 = dec_to_float((((int)stk + 0) + 0x8), t1, (*(signed char *)(((int)stk + 4))));
     return (t10 * (float)(*(int *)(((int)stk + 0))));
 }
 
@@ -302,7 +302,7 @@ int write_fat_1(int a4)
     if ((int)t1 > 0) {
         t2 = 0x0;
         for (;;) {
-            t7 = FUN_0c2bd8b4(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x24)))));
+            t7 = vmsfs_write_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x24)))));
             if ((int)t7 < 0) {
                 break;
             }
@@ -1593,7 +1593,7 @@ int FUN_0c2ed196(int a4)
             t1 = FUN_0c2ed6f8();
             t0 = 0x3;
             if ((signed char)t1 != 0) {
-                t0 = (FUN_0c2ed71a());
+                t0 = (get_stack_pointer());
             }
         }
         t1 = t0;
@@ -1909,7 +1909,7 @@ int gdFsOpenRangeG(int a4, int a5)
     return t12;
 }
 
-int FUN_0c0ffcda(void)
+int kdExecGun(void)
 {
     int stk[3];
     register int t0;
@@ -1981,7 +1981,7 @@ int FUN_0c2c4e36(int a4)
     }
     FUN_0c2dc160(((int)stk + 4));
     if ((*(signed char *)((a4 + 0x1))) != 0) {
-        FUN_0c2c4eac(a4);
+        mwRnaStop(a4);
     }
     *(unsigned char *)((a4 + 0x1)) = 0x4;
     (((struct o40_uint *)(a4))->v) = ((((struct o44_int *)(a4))->v));
@@ -2021,7 +2021,7 @@ int SJMEM_GetChunk(int a4, int a5, int a6, int a7)
     return FUN_0c2c6048(a4, t0);
 }
 
-int FUN_0c2cbee0(void)
+int kmWaitVBlank(void)
 {
     int stk[3];
     register int t0;

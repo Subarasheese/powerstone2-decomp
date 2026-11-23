@@ -30,7 +30,7 @@ struct oC0_uint { char p[0xC0]; unsigned int v; };
 struct oC_uint { char p[0xC]; unsigned int v; };
 int mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
-int FUN_0c0379b6(int, int);
+int mdl_vtx_set_uv(int, int);
 int FUN_0c03ea04(int, int);
 int FUN_0c042fe0(void);
 int FUN_0c0522be(int);
@@ -227,7 +227,7 @@ int FUN_0c0d634c(void)
         t2 = (t2 << 2);
         t2 = (t2 << 1);
         t2 = (t2 + 0xC286F3C);
-        FUN_0c0379b6(t2, (t2 + 0x4));
+        mdl_vtx_set_uv(t2, (t2 + 0x4));
         t1 = (t1 + 0x1);
     }
     t1 = *(int *)(((*(int *)((((t0 + 0x10) + 0x440) + 0x1C))) + 0x0));
@@ -243,7 +243,7 @@ int FUN_0c0d634c(void)
         t1 = (t1 << 2);
         t1 = (t1 << 1);
         t1 = (t1 + 0xC286F5C);
-        FUN_0c0379b6(t1, (t1 + 0x4));
+        mdl_vtx_set_uv(t1, (t1 + 0x4));
         t2 = (t2 + 0x1);
     }
     t1 = *(int *)(((*(int *)((((t0 + 0x10) + 0x1280) + 0x1C))) + 0x0));
@@ -259,7 +259,7 @@ int FUN_0c0d634c(void)
         t0 = (t0 << 2);
         t0 = (t0 << 1);
         t0 = (t0 + 0xC286F7C);
-        FUN_0c0379b6(t0, (t0 + 0x4));
+        mdl_vtx_set_uv(t0, (t0 + 0x4));
         t1 = (t1 + 0x1);
     }
     return t2;

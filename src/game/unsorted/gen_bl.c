@@ -6,8 +6,8 @@ struct oA4_int { char p[0xA4]; int v; };
 int FUN_0c0bb5a6(int);
 int FUN_0c1777e0(int, int, int, int);
 int FUN_0c17edc0(int, int, int, int);
-int FUN_0c17f260(int, int, int, int);
-int FUN_0c188262(int, int, float);
+int nlSpriteFreeTextureOnce_Sub(int, int, int, int);
+int displaypolygondata_sidx_trnsl(int, int, float);
 int FUN_0c2d3774(void);
 int FUN_0c2d5f2e(int);
 int FUN_0c2d636a(void);
@@ -402,7 +402,7 @@ int FUN_0c17f040(int a4, int a5, int a6)
 
 int FUN_0c17f380(int a4, int a5, int a6)
 {
-    return FUN_0c17f260(a4, a5, a6, 0x0);
+    return nlSpriteFreeTextureOnce_Sub(a4, a5, a6, 0x0);
 }
 
 int FUN_0c181bb0(int a4, int a5, int a6)
@@ -900,5 +900,5 @@ int FUN_0c2fa4ec(void)
 
 int FUN_0c188260(int a4, int a5)
 {
-    return FUN_0c188262(a4, a5, 1.0f);
+    return displaypolygondata_sidx_trnsl(a4, a5, 1.0f);
 }

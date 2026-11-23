@@ -265,7 +265,7 @@ int nlObjPutTrnsl(int a4, float f4);
 int nlStoreMatrix(int a4);
 float FUN_0c0e2260(int a4, int a5, int a6);
 int nl_set_virtual_screen(float f4, float f5);
-int FUN_0c0e3510(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
+int nl_set_cnv_proj_pers(float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
 int FUN_0c0ed8b0(void);
 int FUN_0c0ed92c(void);
 int FUN_0c0f24d6(int a4, int a5, int a6);

@@ -2,7 +2,7 @@
 
 struct o4C_int { char p[0x4C]; int v; };
 struct o4C_uint { char p[0x4C]; unsigned int v; };
-int FUN_0c2c6be4(int, int, int, int);
+int SJ_SplitChunk(int, int, int, int);
 int FUN_0c2dc1ae(int, int, int, int, int);
 int mwlRnaAddWrPos(int a4, int a5, int a6, int a7);
 
@@ -59,7 +59,7 @@ int mwlRnaAddWrPos(int a4, int a5, int a6, int a7)
         }
         *(unsigned int *)(((int)stk + 20)) = (*(int *)((((a4 + 0x18) + ((t18 << 2) << 1)) + 0x0)));
         *(unsigned int *)(((int)stk + 24)) = (*(int *)(((((t18 << 2) << 1) + (a4 + 0x18)) + 0x4)));
-        FUN_0c2c6be4((((int)stk + 4) + 0x10), ((int)((int)((*(int *)((a4 + 0x3C))) * (*(int *)((a4 + 0x8)))) / (int)0x8)), (((int)stk + 4) + 0x8), ((int)stk + 4));
+        SJ_SplitChunk((((int)stk + 4) + 0x10), ((int)((int)((*(int *)((a4 + 0x3C))) * (*(int *)((a4 + 0x8)))) / (int)0x8)), (((int)stk + 4) + 0x8), ((int)stk + 4));
         t16 = a4;
         t17 = t18;
         t16 = (t16 + 0x10);

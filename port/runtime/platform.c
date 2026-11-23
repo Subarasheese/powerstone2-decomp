@@ -219,7 +219,7 @@ struct pds_peripheral *pdGetPeripheral(uint32_t port)
     int32_t fn(void) __asm__(sym);                                                                                     \
     int32_t fn(void) { return 0; }
 NOOP("pdInitPeripheral", pd_init_peripheral)
-NOOP("FUN_0c2b0fdc", pd_init_peripheral_ex)       /* pdInitPeripheralEx (166 bytes, as Virtua Tennis's): the Maple set-up, kdInitSystemEx */
+NOOP("pdInitPeripheralEx", pd_init_peripheral_ex)       /* pdInitPeripheralEx (166 bytes, as Virtua Tennis's): the Maple set-up, kdInitSystemEx */
 NOOP("pdExecPeripheralServer", pd_exec_server)
 NOOP("FUN_0c2b12fa", pd_exec_server_ps2)         /* pdExecPeripheralServer: the Maple server, once a frame (kdGetDevice, _pd_peripheral_*) */
 NOOP("pdExitPeripheral", pd_exit_peripheral)

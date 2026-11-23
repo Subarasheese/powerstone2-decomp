@@ -52,7 +52,7 @@ struct oC_uint { char p[0xC]; unsigned int v; };
 struct oD0_uint { char p[0xD0]; unsigned int v; };
 struct oD4_uint { char p[0xD4]; unsigned int v; };
 int FUN_0c0df210(float);
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c17b1a0(int);
 int FUN_0c1829f8(int);
 int FUN_0c182a58(int, int);
@@ -76,7 +76,7 @@ int FUN_0c19fad2(int);
 extern int FUN_0c2b97a0();
 int FUN_0c2b9b3e(int);
 int FUN_0c2bd082(void);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2c389e(int);
 int FUN_0c2c38aa(int);
 int FUN_0c2c38da(int);
@@ -227,7 +227,7 @@ int nlSysBeginPass(void);
 int FUN_0c0df2b0(float f4);
 void nl_requset_PixelClipping(float f4, float f5, float f6, float f7);
 int nlMakeModelViewProjectMatrix_objput(void);
-int FUN_0c17f440(float f4, float f5);
+int nlSpriteSetImaginaryScreenSize(float f4, float f5);
 int FUN_0c184d30(int a4);
 int FUN_0c184d48(int a4);
 int FUN_0c184c48(int a4);
@@ -244,7 +244,7 @@ int FUN_0c19dbaa(int a4, int a5);
 int FUN_0c19ecd4(int a4);
 void FUN_0c1a2120(int a4, int a5, int a6);
 void FUN_0c2aeb3c(int a4);
-int FUN_0c0f2044(void);
+int gdFsReqDrvStat(void);
 int FUN_0c2c0ffe(int a4);
 int FUN_0c2c1016(int a4);
 int bufferEquals(int a4, int a5, int a6, int a7);
@@ -1428,7 +1428,7 @@ int nlMakeModelViewProjectMatrix_objput(void)
     return nlMultiPushedMatrix();
 }
 
-int FUN_0c17f440(float f4, float f5)
+int nlSpriteSetImaginaryScreenSize(float f4, float f5)
 {
     (((struct o0_float *)0xC86CBE0)->v) = (1.0f / f4);
     (((struct o4_float *)0xC86CBE0)->v) = (1.0f / f5);
@@ -1626,7 +1626,7 @@ void FUN_0c2aeb3c(int a4)
     _builtin_set_imask(0xF);
 }
 
-int FUN_0c0f2044(void)
+int gdFsReqDrvStat(void)
 {
     register int t0;
     register int t1;
@@ -1641,12 +1641,12 @@ int FUN_0c0f2044(void)
 
 int FUN_0c2c0ffe(int a4)
 {
-    return FUN_0c10121c(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
+    return vmsfs_read_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
 }
 
 int FUN_0c2c1016(int a4)
 {
-    return FUN_0c2bd8b4(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
+    return vmsfs_write_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
 }
 
 int bufferEquals(int a4, int a5, int a6, int a7)

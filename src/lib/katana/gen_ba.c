@@ -65,7 +65,7 @@ int ADXSTM_OpenFname(int, int);
 int ADXT_Stop(int);
 extern int FUN_0c176e50();
 int FUN_0c17edc0(int, int, int, int);
-int FUN_0c17f260(int, int, int, int);
+int nlSpriteFreeTextureOnce_Sub(int, int, int, int);
 int FUN_0c180d72(int);
 int FUN_0c1829f8(int);
 int FUN_0c183140(int);
@@ -74,7 +74,7 @@ int FUN_0c184000(int, int, int);
 int FUN_0c185210(int);
 int FUN_0c185276(int);
 int FUN_0c185284(int, int);
-int FUN_0c1879e0(int, int);
+int libc_strcmp(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18c9ac(int, int, int);
 int FUN_0c18c9fc(int, ...);
@@ -105,12 +105,12 @@ int FUN_0c19e64a(int);
 int FUN_0c1a02cc(int, int, int);
 int FUN_0c1a14dc(int, int, int);
 int FUN_0c1a2074(int, int, int);
-int FUN_0c1a2138(int, int, int);
+int md5_memset(int, int, int);
 int FUN_0c2aeb3c(int);
 int FUN_0c2aeb54(int);
 int FUN_0c2b176e(int);
 int FUN_0c2c280c(void);
-int FUN_0c2c2874(int, int, int);
+int syBtCfgSet(int, int, int);
 int FUN_0c2c2cac(void);
 int FUN_0c2c306c(void);
 int FUN_0c2c30aa(int, ...);
@@ -187,7 +187,7 @@ int FUN_0c198a62(int a4, int a5, int a6);
 void FUN_0c19d06a(int a4);
 int ovLibEntryTbl(int a4);
 void syChainInit(void);
-int FUN_0c2c4eac(int a4);
+int mwRnaStop(int a4);
 int FUN_0c2cf6f6(int a4);
 int FUN_0c2d3370(int a4);
 int FUN_0c2d7612(int a4);
@@ -202,12 +202,12 @@ int syCfgGetSoundMode(int a4, int a5, int a6);
 int search_fat_used(int a4, int a5, int a6, int a7);
 int FUN_0c2d1848(int a4, int a5);
 int FUN_0c2d82d4(int a4);
-int FUN_0c2e3320(int a4);
+int kmiVRightArray(int a4);
 void FUN_0c2e8a2e(int a4, int a5);
 int FUN_0c2ebfcc(void);
 int FUN_0c185438(int a4);
 void FUN_0c19ec6e(int a4);
-int FUN_0c1a20d4(int a4, int a5, int a6);
+int md5_decode(int a4, int a5, int a6);
 int adxf_CloseSjStm(int a4, int a5, int a6, int a7);
 int ADXT_Init(void);
 int kmyUpdateFogParameter(void);
@@ -216,7 +216,7 @@ int kmiInitVertexBufferDesc(int a4);
 int FUN_0c2d3fbc(void);
 int FUN_0c2d6dd2(void);
 int FUN_0c2f7e96(int a4);
-void FUN_0c177400(void);
+void sys_init(void);
 int FUN_0c182b8e(int a4, int a5);
 int FUN_0c182f9c(int a4, int a5);
 int FUN_0c183c02(int a4, int a5);
@@ -255,7 +255,7 @@ int FUN_0c2d0b9a(int a4);
 int FUN_0c2d3774(void);
 int FUN_0c2da986(int a4);
 int mwlSbAllocWork(int a4);
-int FUN_0c2e32a0(int a4);
+int kmiHolizontalStripBufferArray(int a4);
 float math_floor_float(float f4);
 int FUN_0c17f060(int a4, int a5);
 int FUN_0c17f0b0(int a4, int a5);
@@ -283,7 +283,7 @@ int FUN_0c1a1574(int a4, int a5)
     FUN_0c1a14dc(a5, 0xC2AE87C, (t3 - (0x3F & ((unsigned int)((unsigned int)t1 >> 2) >> 1))));
     FUN_0c1a14dc(a5, (((int)stk + 0) + 0x4), 0x8);
     FUN_0c1a2074((*(int *)(((int)stk + 0))), a5, 0x10);
-    return (FUN_0c1a2138(a5, 0x0, 0x58));
+    return (md5_memset(a5, 0x0, 0x58));
 }
 
 int FUN_0c2ae9e4(void)
@@ -778,7 +778,7 @@ void syChainInit(void)
     _builtin_set_imask(((unsigned int)((((unsigned short)(*(short *)(((int)stk + 0))) & 0xF) << 2) << 2) >> 4));
 }
 
-int FUN_0c2c4eac(int a4)
+int mwRnaStop(int a4)
 {
     int stk[2];
     register int t2;
@@ -1015,7 +1015,7 @@ int syCfgGetSoundMode(int a4, int a5, int a6)
         *(unsigned int *)((a4 + 0x0)) = 0x0;
         t0 = *(int *)0xC303724;
         if (t0 != 0) {
-            t1 = FUN_0c2c2874(0x0, t0, a6);
+            t1 = syBtCfgSet(0x0, t0, a6);
             if (t1 != -1) {
                 t0 = *(signed char *)0x8C00007E;
                 if ((signed char)t0 == 0) {
@@ -1088,7 +1088,7 @@ int FUN_0c2d82d4(int a4)
     return t8;
 }
 
-int FUN_0c2e3320(int a4)
+int kmiVRightArray(int a4)
 {
     register int t0;
     register int t1;
@@ -1238,7 +1238,7 @@ void FUN_0c19ec6e(int a4)
     }
 }
 
-int FUN_0c1a20d4(int a4, int a5, int a6)
+int md5_decode(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -1431,7 +1431,7 @@ int FUN_0c2f7e96(int a4)
     return t0;
 }
 
-void FUN_0c177400(void)
+void sys_init(void)
 {
     int stk[2];
     register int t0;
@@ -1587,7 +1587,7 @@ int FUN_0c19338e(int a4)
         if ((*(int *)((0xC2AE790 + (t0 << 2)))) == 0) {
             break;
         }
-        t1 = FUN_0c1879e0(a4, (*(int *)((0xC2AE790 + (t0 << 2)))));
+        t1 = libc_strcmp(a4, (*(int *)((0xC2AE790 + (t0 << 2)))));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             continue;
@@ -2273,7 +2273,7 @@ int mwlSbAllocWork(int a4)
     return t0;
 }
 
-int FUN_0c2e32a0(int a4)
+int kmiHolizontalStripBufferArray(int a4)
 {
     register int t0;
     register int t1;
@@ -2379,7 +2379,7 @@ int FUN_0c17f3a0(int a4, int a5)
         if ((*(int *)((t1 + 0x4))) == -1) {
             break;
         }
-        t4 = FUN_0c17f260(a4, a5, t2, 0x0);
+        t4 = nlSpriteFreeTextureOnce_Sub(a4, a5, t2, 0x0);
         t2 = (t2 + 0x1);
         t1 = (t1 + 0x10);
         t0 = (t0 | t4);
@@ -2401,7 +2401,7 @@ int FUN_0c17f3f0(int a4, int a5)
         if ((*(int *)((t1 + 0x4))) == -1) {
             break;
         }
-        t4 = FUN_0c17f260(a4, a5, t2, 0x1);
+        t4 = nlSpriteFreeTextureOnce_Sub(a4, a5, t2, 0x1);
         t2 = (t2 + 0x1);
         t1 = (t1 + 0x10);
         t0 = (t0 | t4);

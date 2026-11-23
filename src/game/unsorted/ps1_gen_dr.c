@@ -98,7 +98,7 @@ int FUN_0c0fb820(int a4, int a5, int a6, int a7);
 int fx_spawn_burst_sprites(int a4);
 int stage_gimmick_19_spawn(int a4);
 int FUN_0c0e17d0(int a4, int a5, int a6);
-float FUN_0c0ef980(int a4);
+float nlObjPutCheapEnvMap(int a4);
 int fx_spawn_034530(int a4);
 int fx_spawn_039424(int a4);
 int FUN_0c03a12c(int a4, int a5, int a6);

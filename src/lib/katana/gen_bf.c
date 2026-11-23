@@ -56,7 +56,7 @@ int ADXCRS_Lock(void);
 int ADXPD_ExecHndl(int);
 int ADXT_ExecServer(void);
 int FUN_0c0f4202(int, int, int);
-int FUN_0c0ff884(void);
+int syTmrInit(void);
 int FUN_0c17ff1e(void);
 int FUN_0c1831d0(int, int, int, int);
 int FUN_0c1831ec(int, int, int, int);
@@ -67,7 +67,7 @@ int FUN_0c184000(int, int, int);
 int FUN_0c1842e8(int, int, int);
 int FUN_0c184e64(int);
 int FUN_0c186f40(int, int, int, int);
-int FUN_0c187220(int, int);
+int nldispstripTexSub(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c187cac(int, int, int, int, int);
 int FUN_0c18c9fc(void);
@@ -113,7 +113,7 @@ int FUN_0c2b3456(int, int);
 int FUN_0c2b477a(int, int, int);
 int FUN_0c2b5498(int, int, int);
 int FUN_0c2b9b3e(int);
-int FUN_0c2ba85c(int);
+int syCacheInit_P2_(int);
 int FUN_0c2bbc84(int, int, int, int, int, int);
 int FUN_0c2bc7e4(void);
 int FUN_0c2cfc92(void);
@@ -249,7 +249,7 @@ int FUN_0c2e6cba(int a4);
 int FUN_0c2e7350(int a4);
 int FUN_0c2efbd8(void);
 int FUN_0c2f998e(void);
-int FUN_0c180f78(void);
+int nlsndDriverSeqStatus(void);
 int FUN_0c18170c(int a4, int a5);
 int FUN_0c181b6a(int a4);
 int FUN_0c183de8(int a4);
@@ -1121,7 +1121,7 @@ int FUN_0c2f998e(void)
     return t5;
 }
 
-int FUN_0c180f78(void)
+int nlsndDriverSeqStatus(void)
 {
     register int t0;
     register int t1;
@@ -1402,8 +1402,8 @@ int syHwInit(void)
     hwInit();
     syIntInit(((((struct o4_int *)0xC2FE9B0)->v)), (*(int *)0xC3036F8));
     sySqInit();
-    FUN_0c2ba85c(((((struct o0_int *)0xC2FE9B0)->v)));
-    return FUN_0c0ff884();
+    syCacheInit_P2_(((((struct o0_int *)0xC2FE9B0)->v)));
+    return syTmrInit();
 }
 
 int buGetFileInfo(int a4, int a5, int a6)
@@ -1642,7 +1642,7 @@ int nlDispStripTexOfs(int a4, int a5, int a6, int a7)
 
     t0 = FUN_0c186f40(0xC2A63A8, a6, a6, a7);
     if (t0 == 0) {
-        return FUN_0c187220(a4, a5);
+        return nldispstripTexSub(a4, a5);
     }
     return t0;
 }

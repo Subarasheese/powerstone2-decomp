@@ -171,7 +171,7 @@ int FUN_0c04ae50(int a4, int a5, int a6, float f4, float f5, float f6);
 int fx_spawn_04a4c4(int a4);
 int FUN_0c092ace(int a4);
 int ADXT_Destroy(int a4, int a5, int a6, int a7);
-int FUN_0c112718(int a4, int a5, int a6, int a7);
+int mpdrv_make_rootdevicedata(int a4, int a5, int a6, int a7);
 int pl_mode10_enter(int a4);
 int gdFsWaitCompleteReq(int a4, int a5, int a6, int a7);
 int vmu_menu_scan_port_masks(int a4, int a5, int a6, int a7);

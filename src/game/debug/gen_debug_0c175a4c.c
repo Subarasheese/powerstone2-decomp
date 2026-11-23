@@ -48,7 +48,7 @@ int dbg_printf(int, ...);
 int FUN_0c180a6c(int, int, int);
 int FUN_0c180b3c(int, int, int, int, int);
 int FUN_0c180bec(int, int, int, int, int, int, int);
-int FUN_0c181050(void);
+int nlsndRemainMem(void);
 int FUN_0c175a4c(void);
 int FUN_0c175cac(void);
 int FUN_0c1760c4(int a4, int a5, int a6);
@@ -793,7 +793,7 @@ int FUN_0c1766e6(void)
                     break;
                 }
             }
-            (((struct o10_uint *)0xC476000)->v) = (FUN_0c181050());
+            (((struct o10_uint *)0xC476000)->v) = (nlsndRemainMem());
         } else {
             t0 = *(int *)0xC2A5C50;
             if ((((((struct o0_int *)0xC476000)->v)) & 0x800) != 0) {

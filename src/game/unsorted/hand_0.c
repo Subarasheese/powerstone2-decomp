@@ -99,7 +99,7 @@ void FUN_0c0f5dc4(void)
 }
 
 int FUN_0c05fa10(void);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int sys_shutdown_all(void);
 int FUN_0c2b3a98(void);
 
@@ -107,7 +107,7 @@ int FUN_0c02d88a(void)
 {
     *(int *)0x0C46E1D8 = 0;
     while (FUN_0c05fa10() == 0)
-        FUN_0c177450();
+        nlWaitVSync();
     sys_shutdown_all();
     return FUN_0c2b3a98();
 }

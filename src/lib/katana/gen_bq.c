@@ -60,7 +60,7 @@ int vmsfs_getinfo(int a4, int a5);
 int vmsfs_frename(int a4, int a5, int a6);
 int vmsfs_fsettime(int a4, int a5, int a6);
 int vmsfs_fgetinfo(int a4, int a5, int a6);
-int FUN_0c103e50(int a4, int a5, int a6, int a7);
+int vmsfs_fsetattr(int a4, int a5, int a6, int a7);
 int vmsfs_sysdiskfree(int a4);
 int FUN_0c103d56(int a4, int a5, int a6);
 int vmsfs_fisexist(int a4, int a5);

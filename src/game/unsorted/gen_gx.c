@@ -62,7 +62,7 @@ int FUN_0c1211b0(void);
 int FUN_0c145c74(int, int);
 int FUN_0c145d1c(int, int);
 int FUN_0c158824(int);
-int FUN_0c1879e0(int, int);
+int libc_strcmp(int, int);
 int FUN_0c187cac(int, int, int, int, int);
 int math_atan2_angle16(float, float);
 int nlAddVector3op(int, int, int);
@@ -444,7 +444,7 @@ int FUN_0c0214e0(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
     if (((int)(unsigned short)v0_0 < (int)v0_3)) goto L_C021558;
     goto L_C0217A2;
     L_C021558:;
-    v0_5 = FUN_0c1879e0(v0_2, v0_8);
+    v0_5 = libc_strcmp(v0_2, v0_8);
     v0_4 = (v0_5);
     v0_0 = ((v0_0 + 0x1));
     if ((v0_5 != 0)) goto L_C021568;

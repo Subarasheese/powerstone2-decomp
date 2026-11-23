@@ -82,7 +82,7 @@ struct oC_ushort { char p[0xC]; unsigned short v; };
 struct oD_uchar { char p[0xD]; unsigned char v; };
 int ADXCRS_Lock(void);
 int ADXCRS_Unlock(void);
-int FUN_0c0e3510(void);
+int nl_set_cnv_proj_pers(void);
 int FUN_0c17ffea(int, int);
 int FUN_0c180a6c(int, int, int);
 int FUN_0c1828fe(int);
@@ -111,7 +111,7 @@ int FUN_0c1a21bc(int, int);
 int FUN_0c1a2a68(int, int, int);
 int FUN_0c1a3af0(int, int);
 extern int FUN_0c2b16a0();
-int FUN_0c2b5f20(int);
+int kmyEnableASyncCopy(int);
 int FUN_0c2b9b0c(int);
 int FUN_0c2c389e(int);
 int FUN_0c2c38b6(int);
@@ -201,7 +201,7 @@ int mwRnaAdjustBuf(int a4, int a5, int a6, int a7);
 float FUN_0c198314(int a4);
 int FUN_0c19c948(int a4);
 int pdVibSetStopTime(int a4, int a5, int a6, int a7);
-int FUN_0c10121c(int a4, int a5, int a6);
+int vmsfs_read_retry(int a4, int a5, int a6);
 int ADXAMP_Create(int a4, int a5, int a6);
 int SJRBF_UngetChunk(int a4, int a5, int a6, int a7);
 int FUN_0c2e380e(void);
@@ -217,7 +217,7 @@ int syIntAdrChk_putchar(int a4, int a5);
 int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9);
 void FUN_0c18d320(int a4, int a5);
 int FUN_0c19c774(int a4, int a5, int a6);
-int FUN_0c101148(int a4, int a5);
+int vmsfs_mediainfo_retry(int a4, int a5);
 int FUN_0c2d8824(int a4);
 int mpdrv_check_port(int a4);
 int FUN_0c2eafb4(int a4, int a5);
@@ -623,7 +623,7 @@ int pdVibSetStopTime(int a4, int a5, int a6, int a7)
     return t23;
 }
 
-int FUN_0c10121c(int a4, int a5, int a6)
+int vmsfs_read_retry(int a4, int a5, int a6)
 {
     int t0;
     register int t1;
@@ -961,9 +961,9 @@ int nlLoadTextureMem(int a4, int a5, int a6, int a7)
         if ((((((struct o0_int *)0xC83CFE0)->v)) != 0) && (t0 = (((struct o4_int *)0xC83CFE0)->v), t0 != 1)) {
             kmLoadTextureRom(((*(int *)0xC8A64D8) + (a5 * 0x3C)), t3);
         } else {
-            FUN_0c2b5f20(0x1);
+            kmyEnableASyncCopy(0x1);
             kmLoadTextureRom(((*(int *)0xC8A64D8) + (a5 * 0x3C)), t3);
-            FUN_0c2b5f20(0x0);
+            kmyEnableASyncCopy(0x0);
             for (;;) {
                 t0 = kmQueryFinishLastTextureDMA();
                 if (t0 == 0) {
@@ -1261,7 +1261,7 @@ int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9)
     (((struct o1C_float *)0xC8A6C74)->v) = f9;
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f8);
     nlMultiMatrix(((int)stk + 0));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 void FUN_0c18d320(int a4, int a5)
@@ -1386,7 +1386,7 @@ int FUN_0c19c774(int a4, int a5, int a6)
     return 0x0;
 }
 
-int FUN_0c101148(int a4, int a5)
+int vmsfs_mediainfo_retry(int a4, int a5)
 {
     int t0;
     register int t1;

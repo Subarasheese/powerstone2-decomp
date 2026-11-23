@@ -3,7 +3,7 @@
 
 struct o0_uchar { unsigned char v; };
 struct o9_uchar { char p[0x9]; unsigned char v; };
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2e3400(void);
 int FUN_0c2e7248(int, int);
 int FUN_0c2e7e3e(void);

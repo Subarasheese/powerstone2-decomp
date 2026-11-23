@@ -87,7 +87,7 @@ int FUN_0c184000(int, int, int);
 int FUN_0c1842e8(int, int, int);
 int FUN_0c184f70(int);
 int FUN_0c187990(int, int, int);
-int FUN_0c1879e0(int, int);
+int libc_strcmp(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18cbc8(int);
 int FUN_0c18dfb0(int, int, int, int);
@@ -108,7 +108,7 @@ int FUN_0c19d2b4(int, int, int, int);
 int FUN_0c19da48(int, int, int, int);
 int FUN_0c19fad2(int);
 int FUN_0c2b6280(void);
-int FUN_0c2c4eac(int);
+int mwRnaStop(int);
 int FUN_0c2cfda6(void);
 int FUN_0c2d3dc4(void);
 int FUN_0c2d3e10(void);
@@ -180,7 +180,7 @@ int thunk_FUN_0c191de2(void);
 int FUN_0c1984fc(int a4);
 int FUN_0c1a0d60(void);
 int gdFsDaGetInfo(void);
-int FUN_0c0f202c(void);
+int gdFsGetDrvStat(void);
 int FUN_0c2c6030(void);
 int FUN_0c2c6304(void);
 int FUN_0c2c6728(void);
@@ -199,7 +199,7 @@ void FUN_0c2ecdec(int a4, int a5, int a6);
 int kmyAllocateAreaWithAddress(int a4, int a5, int a6);
 int FUN_0c2f2d58(int a4);
 int FUN_0c177380(int a4);
-int FUN_0c1790e0(void);
+int nlSysBeginScene(void);
 int math_cos_float(float f4);
 float math_rand_float(void);
 void FUN_0c1831ba(int a4);
@@ -210,7 +210,7 @@ int FUN_0c193b80(void);
 int FUN_0c197c58(int a4, int a5, int a6, int a7);
 int FUN_0c19a640(int a4);
 int FUN_0c19c082(int a4);
-void FUN_0c1a2138(int a4, int a5, int a6);
+void md5_memset(int a4, int a5, int a6);
 void FUN_0c2aeb54(int a4);
 int gdFsGetNumRd(int a4);
 int gdFsReinit(void);
@@ -218,7 +218,7 @@ int gdFsCreateHn(void);
 int gdFsLoadDir(void);
 int gdFsLoadDirFast(void);
 int gdFsGetSysHn(void);
-void FUN_0c0f1fe8(void);
+void gdFsExecServer(void);
 void gdFsEntryErrFuncAll(void);
 int FUN_0c2b9720(int a4, int a5, int a6, int a7);
 int FUN_0c2b9760(int a4, int a5, int a6, int a7);
@@ -247,7 +247,7 @@ void FUN_0c2f7f3a(void);
 int nlSysSetVertexBufferBaseAddress(int a4);
 int FUN_0c1787c0(void);
 int FUN_0c1787e0(void);
-int FUN_0c181050(void);
+int nlsndRemainMem(void);
 int FUN_0c190f66(int a4);
 int FUN_0c19126a(void);
 int FUN_0c19222a(int a4, int a5, int a6, int a7);
@@ -496,7 +496,7 @@ int gdFsDaGetInfo(void)
     return 0x0;
 }
 
-int FUN_0c0f202c(void)
+int gdFsGetDrvStat(void)
 {
     register int t0;
     register int t1;
@@ -677,7 +677,7 @@ int FUN_0c177380(int a4)
     return kmSetPaletteMode((*(int *)(((a4 << 2) + 0xC205914))));
 }
 
-int FUN_0c1790e0(void)
+int nlSysBeginScene(void)
 {
     *(unsigned int *)0xC83CFE4 = 0x1;
     kmBeginScene(0xC83CD8C);
@@ -759,7 +759,7 @@ int FUN_0c19c082(int a4)
     return ((*(int *)((a4 + 0x8))) + (*(int *)((a4 + 0x18))));
 }
 
-void FUN_0c1a2138(int a4, int a5, int a6)
+void md5_memset(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -859,7 +859,7 @@ int gdFsGetSysHn(void)
     return 0x0;
 }
 
-void FUN_0c0f1fe8(void)
+void gdFsExecServer(void)
 {
     register int t0;
 
@@ -1123,7 +1123,7 @@ int FUN_0c1787e0(void)
     return nlSysMetricsScaleTime(t2);
 }
 
-int FUN_0c181050(void)
+int nlsndRemainMem(void)
 {
     register int t0;
 
@@ -1427,7 +1427,7 @@ int vmsfs_c_exit(void)
 
 int FUN_0c2c3112(int a4)
 {
-    FUN_0c2c4eac(a4);
+    mwRnaStop(a4);
     return mwRnaDestroy(a4);
 }
 
@@ -1825,7 +1825,7 @@ int FUN_0c185276(int a4)
 
 int FUN_0c187d60(int a4, int a5)
 {
-    return (FUN_0c1879e0(a4, a5));
+    return (libc_strcmp(a4, a5));
 }
 
 int FUN_0c18ec6a(void)

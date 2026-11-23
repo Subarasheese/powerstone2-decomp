@@ -155,7 +155,7 @@ int _quick_odd_mvn(void);
 int FUN_0c0f7b60(int, int, int, int);
 int FUN_0c0f94a0(int, int, int, int);
 int FUN_0c0f9a20(int, int);
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c1012f4(int, int, int);
 int FUN_0c104006(int, int);
 int FUN_0c1042ba(int);

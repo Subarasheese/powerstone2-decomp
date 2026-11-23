@@ -27,7 +27,7 @@ int FUN_0c056f20(void);
 int FUN_0c056f40(void);
 int FUN_0c05ac14(void);
 int FUN_0c0fb6a6(void);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int FUN_0c17d980(void);
 int sys_set_exception_area(int);
 int FUN_0c183074(int);
@@ -98,7 +98,7 @@ float FUN_0c02d2a8(void)
                 (((struct o0_uint *)0xC542430)->v) = 0x1;
             }
             if (((((struct o4_int *)0xC542430)->v)) != 0) {
-                FUN_0c177450();
+                nlWaitVSync();
                 if (((((struct o2C_int *)0xC542430)->v)) == 0) {
                     FUN_0c056f20();
                 }
@@ -106,7 +106,7 @@ float FUN_0c02d2a8(void)
         } else {
             (((struct o0_uint *)0xC542430)->v) = 0x1;
             if (((((struct o4_int *)0xC542430)->v)) != 0) {
-                FUN_0c177450();
+                nlWaitVSync();
             }
             if (((((struct o2C_int *)0xC542430)->v)) == 0) {
                 FUN_0c056f20();

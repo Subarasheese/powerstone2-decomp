@@ -34,7 +34,7 @@ int FUN_0c02d05c(void);
 int FUN_0c0573c0(int, int, int);
 int FUN_0c0573cc(int, int, int);
 int FUN_0c18589e(int, int);
-int FUN_0c185dc0(int, int, int, int, int);
+int net_select(int, int, int, int, int);
 int FUN_0c1864e0(int, int, int);
 int FUN_0c186740(int, int, int);
 int FUN_0c187a88(int, int, int);
@@ -60,7 +60,7 @@ int FUN_0c022050(void)
     *(unsigned int *)(((((unsigned int)((unsigned int)((unsigned int)t0 >> 2) >> 2) >> 1) << 2) + 0xC305390)) = ((*(int *)(((((unsigned int)((unsigned int)((unsigned int)t0 >> 2) >> 2) >> 1) << 2) + 0xC305390))) | ((int)0x1 << (int)((*(int *)0xC309994) & 0x1F)));
     (((struct o0_uint *)0xC3053B0)->v) = 0x0;
     (((struct o4_uint *)0xC3053B0)->v) = 0x0;
-    t0 = FUN_0c185dc0(((*(int *)0xC309994) + 0x1), 0xC305390, 0x0, 0x0, 0xC3053B0);
+    t0 = net_select(((*(int *)0xC309994) + 0x1), 0xC305390, 0x0, 0x0, 0xC3053B0);
     if ((int)t0 > 0) {
         if (((*(int *)(((((unsigned int)((unsigned int)((unsigned int)(*(int *)0xC309994) >> 2) >> 2) >> 1) << 2) + 0xC305390))) & ((int)0x1 << (int)((*(int *)0xC309994) & 0x1F))) != 0) {
             return 0x1;

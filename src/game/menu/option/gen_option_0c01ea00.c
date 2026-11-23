@@ -28,7 +28,7 @@ int FUN_0c02e9d4(void);
 int FUN_0c0573c0(int, int, int);
 int FUN_0c0573cc(int, int, int);
 int FUN_0c05b05c(int, int);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int FUN_0c183074(int);
 int FUN_0c18422a(void);
 int pl_ayame_frame_hook(int, int, int, int);
@@ -72,7 +72,7 @@ int FUN_0c01ea00(int a4, int a5, int a6, int a7)
         FUN_0c02e9d4();
         FUN_0c02b182(0x1);
     }
-    return FUN_0c177450();
+    return nlWaitVSync();
 }
 
 int FUN_0c01ea2c(void)
