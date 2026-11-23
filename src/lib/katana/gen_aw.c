@@ -65,8 +65,8 @@ int ADXSTMF_Create(int, int, int, int);
 int ADXSTM_ExecServer(void);
 int ADXT_Stop(int);
 int BCDtoDEC(int);
-int FUN_0c0ffdba(void);
-int FUN_0c113890(int);
+int copy_device(void);
+int fmMngAddData(int);
 int FUN_0c17da50(void);
 int FUN_0c17ff38(int, int, int);
 int FUN_0c18004c(int, int, int, int);
@@ -112,10 +112,10 @@ int FUN_0c1a357c(int, int, int);
 int FUN_0c1a39f0(int, int);
 int FUN_0c2b525e(int, int);
 int FUN_0c2b5992(int, int, int, int);
-int FUN_0c2b6900(int);
+int kmRender(int);
 int FUN_0c2bc7e4(void);
 int FUN_0c2bca16(int);
-int FUN_0c2c2874(int, int, int);
+int syBtCfgSet(int, int, int);
 int FUN_0c2c30aa(int, ...);
 int FUN_0c2c4724(int);
 int FUN_0c2d0e80(int, int);
@@ -129,7 +129,7 @@ int FUN_0c2d63b6(void);
 int FUN_0c2d63c8(void);
 int FUN_0c2d9748(int, int, int, int);
 int FUN_0c2db908(int, int, int);
-int FUN_0c2e3040(int, int);
+int kmytex_GetSmallVQprofile(int, int);
 int FUN_0c2e4330(int);
 int FUN_0c2e6310(void);
 int FUN_0c2e638e(void);
@@ -223,11 +223,11 @@ int pdVibMxSetStopTime(int a4, int a5);
 int ADXT_StartAfs(int a4, int a5, int a6);
 int ADXT_ExecServer(void);
 int check_fat_xross(int a4, int a5, int a6, int a7);
-int FUN_0c2c6d40(int a4, int a5, int a6);
+int kmyAllocateSmallVQArea(int a4, int a5, int a6);
 int Qreset(void);
 int FUN_0c2d19fa(int a4, int a5, int a6);
 int FUN_0c2ea256(int a4, int a5);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int nlSetIntrFunction(int a4, int a5, int a6, int a7);
 int FUN_0c17ffea(int a4, int a5);
 int FUN_0c18ecb4(void);
@@ -237,7 +237,7 @@ int FUN_0c1947d0(int a4, int a5, int a6, int a7);
 int FUN_0c19db48(int a4, int a5);
 int FUN_0c1a1126(int a4, int a5, int a6);
 float FUN_0c1a3254(int a4, int a5);
-int FUN_0c2af6f8(void);
+int gdFsFinishG(void);
 int kmSetBackGroundPlane(int a4, int a5);
 int get_vmstime(int a4, int a5);
 int SJMEM_Create(int a4, int a5);
@@ -720,7 +720,7 @@ int check_fat_xross(int a4, int a5, int a6, int a7)
     return 0xFFFFFFFF;
 }
 
-int FUN_0c2c6d40(int a4, int a5, int a6)
+int kmyAllocateSmallVQArea(int a4, int a5, int a6)
 {
     int stk[12];
     register int t3;
@@ -732,7 +732,7 @@ int FUN_0c2c6d40(int a4, int a5, int a6)
 
     *(unsigned int *)(((int)stk + 24)) = a4;
     *(unsigned int *)(((int)stk + 20)) = a6;
-    FUN_0c2e3040((((int)stk + 20) + 0x8), a5);
+    kmytex_GetSmallVQprofile((((int)stk + 20) + 0x8), a5);
     if (((*(int *)(((int)stk + 24))) & 1) != 0) {
         t3 = *(int *)(((((int)stk + 20) + 0x8) + 0x4));
         *(unsigned int *)(((int)stk + 0)) = (*(int *)(((((int)stk + 20) + 0x8) + 0x0)));
@@ -888,14 +888,14 @@ int FUN_0c2ea256(int a4, int a5)
     return t1;
 }
 
-int FUN_0c177450(void)
+int nlWaitVSync(void)
 {
     register int t0;
     register int t1;
 
     kmEndPass(0xC8A2E90);
     nl_action_PixelClipping();
-    FUN_0c2b6900(0x0);
+    kmRender(0x0);
     t0 = (((struct o0_int *)0xC2A6090)->v);
     if (t0 != 0) {
         t1 = ((int (*)(void))(t0))();
@@ -1215,7 +1215,7 @@ float FUN_0c1a3254(int a4, int a5)
     return (*(float *)(((int)stk + 0)));
 }
 
-int FUN_0c2af6f8(void)
+int gdFsFinishG(void)
 {
     register int t0;
     register int t1;
@@ -1622,7 +1622,7 @@ int fmMngWriteData(int a4, int a5, int a6)
         }
         t1 = t0;
     } else {
-        t0 = FUN_0c113890(a4);
+        t0 = fmMngAddData(a4);
         t2 = t0;
         if (t0 == -10) {
             *(unsigned int *)((a4 + 0x24)) = 0x1;
@@ -1868,7 +1868,7 @@ int syCfgGetLanguage(int a4, int a5, int a6)
         *(unsigned int *)((a4 + 0x0)) = 0x0;
         t0 = *(int *)0xC303724;
         if (t0 != 0) {
-            t1 = FUN_0c2c2874(0x0, t0, a6);
+            t1 = syBtCfgSet(0x0, t0, a6);
             if (t1 == -1) {
                 return 0xFFFFFFFF;
             }
@@ -1900,7 +1900,7 @@ int kdInitSystemEx(int a4, int a5, int a6, int a7)
     *(unsigned int *)0xC2DB268 = ((*(int *)0xC2DB268) | 0xA0000000);
     init_sub();
     t3 = FUN_0c2d9748(a4, a5, a6, a7);
-    FUN_0c0ffdba();
+    copy_device();
     *(unsigned int *)0xC8C2148 = 0x1;
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
     return t3;

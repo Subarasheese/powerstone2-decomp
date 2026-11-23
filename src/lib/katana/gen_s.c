@@ -100,7 +100,7 @@ struct oC20_uint { char p[0xC20]; unsigned int v; };
 struct oD_uchar { char p[0xD]; unsigned char v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
-int FUN_0c0e3510(void);
+int nl_set_cnv_proj_pers(void);
 int FUN_0c1772e0(int, int);
 int FUN_0c184ddc(void);
 int FUN_0c185054(int);
@@ -126,7 +126,7 @@ int FUN_0c18f8b2(int, int);
 int FUN_0c18fdb0(void);
 int FUN_0c190c66(void);
 int FUN_0c19c678(int, int, int);
-int FUN_0c2b5f20(int);
+int kmyEnableASyncCopy(int);
 extern int FUN_0c2b9b0c();
 int FUN_0c2cc0a0(void);
 int FUN_0c2cf6f6(int);
@@ -501,7 +501,7 @@ int kmSetSystemConfiguration(int a4)
     if (((*(int *)((a4 + 0x4))) & 0x100000) != 0) {
         t13 = 0x1;
     }
-    FUN_0c2b5f20(t13);
+    kmyEnableASyncCopy(t13);
     if (((*(int *)((a4 + 0x4))) & 2) != 0) {
         (((struct o4_uint *)0xC8BE7D0)->v) = 0x1;
         t18 = 0x1;
@@ -733,7 +733,7 @@ int nlPerspective_L_0c079730(int a4, float f4, float f5, float f6)
     (((struct o1C_float *)0xC8A6C74)->v) = f6;
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f5);
     nlMultiMatrix((((int)stk + 0) + 0x10));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 int nlPerspective_L(int a4, float f4, float f5, float f6)
@@ -824,7 +824,7 @@ int nlPerspective_L(int a4, float f4, float f5, float f6)
     (((struct o1C_float *)0xC8A6C74)->v) = f6;
     (((struct o14_float *)0xC8A6C74)->v) = (1.0f / f5);
     nlMultiMatrix((((int)stk + 0) + 0x10));
-    return (FUN_0c0e3510());
+    return (nl_set_cnv_proj_pers());
 }
 
 int FUN_0c2e8b6e(int a4, int a5)

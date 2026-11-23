@@ -59,7 +59,7 @@ struct oFD8_int { char p[0xFD8]; int v; };
 struct oFD8_uint { char p[0xFD8]; unsigned int v; };
 struct oFDC_int { char p[0xFDC]; int v; };
 struct oFDC_uint { char p[0xFDC]; unsigned int v; };
-int FUN_0c0ffdba(void);
+int copy_device(void);
 int FUN_0c185600(void);
 int FUN_0c187990(int);
 int FUN_0c187a88(int, int, int);
@@ -1100,7 +1100,7 @@ int FUN_0c2bc534(int a4, int a5, int a6, int a7)
             t2 = ((int (*)(int, int, int))(FUN_0c2bc7e4))(t5, t6, t7);
             t2 = ((int (*)(void))(mpdrv_frame_send))();
             if ((int)t2 >= 0) {
-                FUN_0c0ffdba();
+                copy_device();
             } else {
                 if (((((struct o38_int *)0xC8C1EC8)->v)) != 0) {
                     t0 = ((int (*)(int, int, int, int))(((((struct o38_int *)0xC8C1EC8)->v))))(0x1, 0xFFFFFFFA, ((((struct o8_int *)0xC8C1EC8)->v)), t2);
@@ -1113,7 +1113,7 @@ int FUN_0c2bc534(int a4, int a5, int a6, int a7)
                 (((struct o30_uint *)0xC8C2148)->v) = 0x0;
                 *(unsigned short *)((((((((struct o4_int *)0xC8C2148)->v)) << 1) + 0xC8C1EFC) + 0x0)) = 0x0;
                 *(unsigned short *)((((((((struct o4_int *)0xC8C2148)->v)) << 1) + 0xC8C1EF4) + 0x0)) = ((*(int *)0xA05F810C) & 0x3FF);
-                FUN_0c0ffdba();
+                copy_device();
                 (((struct o0_uint *)0xC8C1EC8)->v) = (((((struct o0_int *)0xC8C1EC8)->v)) + 0x1);
             } else {
                 t1 = ((int (*)(void))(FUN_0c2bc7e4))();

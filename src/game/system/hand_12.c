@@ -6,7 +6,7 @@ extern void _builtin_set_imask(int);
 
 int FUN_0c177d90(int);
 int FUN_0c178450(void);
-int FUN_0c177da0(void);
+int nlSysUseLatency2V(void);
 int FUN_0c1784d0(void);
 int gfx_set_display_mode(int);
 int FUN_0c02d54c(void);
@@ -16,10 +16,10 @@ int FUN_0c17c6f0(int, float, float, float);
 int FUN_0c0359c8(void);
 int FUN_0c057384(void);
 int FUN_0c16f61c(void);
-int FUN_0c2b0fdc(int, int, int, int, int);
+int pdInitPeripheralEx(int, int, int, int, int);
 int FUN_0c02fe7c(void);
 int thunk_FUN_0c2b0ad0(int, int, int, int);    /* gdFsInit: max open files, work area, directory records, directory buffer */
-int FUN_0c2b1424(void);
+int pdExitPeripheral(void);
 int FUN_0c2ae9e4(void);
 int FUN_0c2b1622(void);
 int FUN_0c1789b0(void);
@@ -45,7 +45,7 @@ void FUN_0c02d630(void)
 
     FUN_0c177d90(0x100000);
     FUN_0c178450();
-    FUN_0c177da0();
+    nlSysUseLatency2V();
     FUN_0c1784d0();
     gfx_set_display_mode(0);
     FUN_0c02d54c();
@@ -62,7 +62,7 @@ void FUN_0c02d630(void)
     FUN_0c16f61c();
     _builtin_set_imask(14);
     tries = 0;
-    FUN_0c2b0fdc(tries, 0x0C1A8EBC, 0x0C20EA4C, 0x0C315180, 12);
+    pdInitPeripheralEx(tries, 0x0C1A8EBC, 0x0C20EA4C, 0x0C315180, 12);
     FUN_0c02fe7c();
     work = ALIGN32(0x0C3232E0);
     dirbuf = ALIGN32(0x0C3246E0);
@@ -70,7 +70,7 @@ void FUN_0c02d630(void)
         tries++;
         if (GDFS_ERR == -23 || GDFS_ERR == -33 || tries > 256) {
             _builtin_set_imask(0);
-            FUN_0c2b1424();
+            pdExitPeripheral();
             FUN_0c2ae9e4();
             FUN_0c2b1622();
             FUN_0c1789b0();

@@ -4,9 +4,9 @@
 
 struct o18_float { char p[0x18]; float v; };
 struct o1C_float { char p[0x1C]; float v; };
-int FUN_0c0379b6(int a4, int a5);
+int mdl_vtx_set_uv(int a4, int a5);
 
-int FUN_0c0379b6(int a4, int a5)
+int mdl_vtx_set_uv(int a4, int a5)
 {
     register int t4;
 

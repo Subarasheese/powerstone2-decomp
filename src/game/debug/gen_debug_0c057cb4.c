@@ -5,9 +5,9 @@
 struct o0_uint { unsigned int v; };
 struct o4_uint { char p[0x4]; unsigned int v; };
 int memset(int, int, int);
-int FUN_0c057cb4(void);
+int ui_sprite_queue_reset(void);
 
-int FUN_0c057cb4(void)
+int ui_sprite_queue_reset(void)
 {
     (((struct o4_uint *)0xC40FAB0)->v) = 0x0;
     (((struct o0_uint *)0xC40FAB0)->v) = 0x0;

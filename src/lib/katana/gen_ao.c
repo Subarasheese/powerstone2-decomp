@@ -103,7 +103,7 @@ struct oC_ushort { char p[0xC]; unsigned short v; };
 struct oD8_uint { char p[0xD8]; unsigned int v; };
 int ADXB_Destroy(int);
 int ADXPD_Create(void);
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c180d72(int);
 extern int FUN_0c183708();
 int FUN_0c184000(int, int, int);
@@ -151,7 +151,7 @@ int FUN_0c2b16a0(int, int);
 int FUN_0c2b372a(int);
 int FUN_0c2bd998(int);
 int FUN_0c2bdfe2(int, int, int);
-int FUN_0c2c4eac(int);
+int mwRnaStop(int);
 int FUN_0c2d487c(int, int, int);
 int FUN_0c2d6272(void);
 int FUN_0c2d62c8(int, int, int, int, int, int, int, int, int, int, int, int);
@@ -220,7 +220,7 @@ int FUN_0c2b905e(int a4, int a5, int a6, int a7);
 void FUN_0c2d097e(int a4, int a5, int a6, int a7);
 int FUN_0c2d2c54(void);
 int FUN_0c2d8cfc(int a4);
-int FUN_0c186b20(int a4, int a5);
+int nlDispStripLoadTexture(int a4, int a5);
 int copySmallVQToTextureRom(int a4, int a5, int a6, int a7);
 int FUN_0c1945a0(int a4, int a5, int a6);
 int vmsfs_getvolume(int a4, int a5);
@@ -270,7 +270,7 @@ int mwRnaFinish(void)
     for (;;) {
         if ((unsigned char)(*(signed char *)((t2 + 0x0))) == 1) {
             t0 = t1;
-            FUN_0c2c4eac(t0);
+            mwRnaStop(t0);
         } else {
             t3 = t0;
         }
@@ -1009,7 +1009,7 @@ int FUN_0c2d8cfc(int a4)
     return a4;
 }
 
-int FUN_0c186b20(int a4, int a5)
+int nlDispStripLoadTexture(int a4, int a5)
 {
     register int t0;
     register int t1;
@@ -1640,7 +1640,7 @@ int vmsfs_read_disk_image(int a4, int a5)
         if ((int)t1 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x0))) + 0x1)) {
             return 0x0;
         }
-        t2 = FUN_0c10121c(a4, t1, t0);
+        t2 = vmsfs_read_retry(a4, t1, t0);
         if ((int)t2 < 0) {
             break;
         }

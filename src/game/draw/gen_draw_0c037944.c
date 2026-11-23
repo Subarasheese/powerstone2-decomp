@@ -4,9 +4,9 @@
 
 struct o18_float { char p[0x18]; float v; };
 struct o1C_float { char p[0x1C]; float v; };
-int FUN_0c03796e(int a4, int a5);
+int mdl_vtx_get_uv(int a4, int a5);
 
-int FUN_0c03796e(int a4, int a5)
+int mdl_vtx_get_uv(int a4, int a5)
 {
     *(float *)((a4 + 0x0)) = ((((struct o18_float *)((*(int *)0xC3BD860)))->v));
     *(float *)((a5 + 0x0)) = ((((struct o1C_float *)((*(int *)0xC3BD860)))->v));

@@ -149,7 +149,7 @@ int FUN_8c09c646(float f4);
 int nlSetUserTileClip(int a4, int a5, int a6, int a7, int a8);
 int gdDcfTrans32_(int a4, int a5, int a6);
 int nlChangeDisplayFilterMode(int a4);
-void FUN_0c2ba85c(int a4, int a5, int a6, int a7);
+void syCacheInit_P2_(int a4, int a5, int a6, int a7);
 int syTmrGenCountToMicro(int a4, int a5);
 int FUN_8c0d0b5c(void);
 int ADXT_StartMem(int a4, int a5);
@@ -345,7 +345,7 @@ int mwSbGetExPrm(int a4, int a5, int a6, int a7)
 }
 
 
-void FUN_0c2ba85c(int a4, int a5, int a6, int a7)
+void syCacheInit_P2_(int a4, int a5, int a6, int a7)
 {
     int stk[4];
 

@@ -95,7 +95,7 @@ struct oE_uchar { char p[0xE]; unsigned char v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
 int ADXSTMF_Create(int, int, int, int);
 int FUN_0c0f4328(int, int, int, int, int, int);
-int FUN_0c0ffcda(void);
+int kdExecGun(void);
 float FUN_0c179e20(int, float);
 int FUN_0c17ff38(int, int, int);
 int FUN_0c18004c(int, int, int, int);
@@ -132,10 +132,10 @@ int FUN_0c2b0da8(int);
 int FUN_0c2b6288(void);
 int FUN_0c2bc7e4(int, int, int, int);
 int FUN_0c2bca16(int);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2c30aa(int, ...);
-int FUN_0c2c4eac(int);
-int FUN_0c2c7b68(int);
+int mwRnaStop(int);
+int kmyGetFrameBufferSize(int);
 int FUN_0c2cc756(float, float, float, float, float, float, float);
 int FUN_0c2ccfa0(int, int, int, int);
 int FUN_0c2cfc84(void);
@@ -261,9 +261,9 @@ void FUN_0c2eb9a8(void);
 int FUN_0c2fb41c(int a4);
 int FUN_0c1851a4(int a4, int a5, int a6);
 int gdFsSetDirG(int a4);
-int FUN_0c2b6860(int a4);
-int FUN_0c2b6900(int a4);
-void FUN_0c0ffc72(int a4, int a5, int a6, int a7);
+int kmRenderRect(int a4);
+int kmRender(int a4);
+void kdDmaEndHandler0(int a4, int a5, int a6, int a7);
 int FUN_0c2d5f2e(int a4);
 int FUN_0c2d66d4(int a4);
 int FUN_0c2e621e(void);
@@ -274,7 +274,7 @@ int FUN_0c1807d6(int a4);
 int FUN_0c180dee(int a4, int a5);
 int FUN_0c184e74(int a4, int a5);
 int FUN_0c19c0dc(int a4);
-int FUN_0c102556(int a4, int a5);
+int search_fat_dir(int a4, int a5);
 int kmiFLWCTRLCheckTimeOut(float f4, float f5, float f6, float f7, float f8, float f9, float f10);
 int FUN_0c2d60d6(int a4);
 int FUN_0c2f3c9c(int a4, int a5);
@@ -575,7 +575,7 @@ int mwRnaDestroy(int a4, int a5, int a6, int a7)
     }
     FUN_0c2dc160(((int)stk + 4));
     if ((*(signed char *)((a4 + 0x1))) != 0) {
-        FUN_0c2c4eac(a4);
+        mwRnaStop(a4);
     }
     *(unsigned char *)((a4 + 0x0)) = 0x0;
     t8 = 0x0;
@@ -979,7 +979,7 @@ void kmiRegisterPhIntHandler(int a4)
 int kmiCalculateWorkSize(int a4)
 {
     (((struct o4_uint *)0xC8BEFA0)->v) = (*(int *)((a4 + 0x14)));
-    (((struct oC_uint *)0xC8BEFA0)->v) = ((FUN_0c2c7b68((*(int *)0xC8BE7C0))) * (((*(int *)((a4 + 0xC))) + 0x1) & 0xFFFFFFFE));
+    (((struct oC_uint *)0xC8BEFA0)->v) = ((kmyGetFrameBufferSize((*(int *)0xC8BE7C0))) * (((*(int *)((a4 + 0xC))) + 0x1) & 0xFFFFFFFE));
     if ((unsigned int)(((((struct o4_int *)0xC8BEFA0)->v)) + ((((struct oC_int *)0xC8BEFA0)->v))) >= (unsigned int)((((struct o0_int *)0xC8BEFA0)->v))) {
         (((struct o4_uint *)0xC8BEFA0)->v) = ((((((struct o0_int *)0xC8BEFA0)->v)) - ((((struct oC_int *)0xC8BEFA0)->v))) + 0xFFFC0000);
     }
@@ -1258,7 +1258,7 @@ int vmsfs_write_disk_image(int a4, int a5)
         if ((int)t1 >= (int)((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x0))) + 0x1)) {
             return 0x0;
         }
-        t2 = FUN_0c2bd8b4(a4, t1, t0);
+        t2 = vmsfs_write_retry(a4, t1, t0);
         if ((int)t2 < 0) {
             break;
         }
@@ -1884,7 +1884,7 @@ int gdFsSetDirG(int a4)
     return t1;
 }
 
-int FUN_0c2b6860(int a4)
+int kmRenderRect(int a4)
 {
     register int t0;
     register int t1;
@@ -1908,7 +1908,7 @@ int FUN_0c2b6860(int a4)
     return t0;
 }
 
-int FUN_0c2b6900(int a4)
+int kmRender(int a4)
 {
     register int t0;
     register int t1;
@@ -1932,7 +1932,7 @@ int FUN_0c2b6900(int a4)
     return t0;
 }
 
-void FUN_0c0ffc72(int a4, int a5, int a6, int a7)
+void kdDmaEndHandler0(int a4, int a5, int a6, int a7)
 {
     register int t0;
     register int t1;
@@ -1945,7 +1945,7 @@ void FUN_0c0ffc72(int a4, int a5, int a6, int a7)
     if (((((struct o0_int *)0xC8C2178)->v)) == 0) {
         *(unsigned int *)0xC8C1ED4 = ((*(int *)0xC8C1ED4) + 0x1);
         FUN_0c2bc7e4(0xC8C2178, a5, a6, a7);
-        FUN_0c0ffcda();
+        kdExecGun();
         t0 = 0xC8C1C08;
         t1 = 0xC8C1C08;
         t2 = 0xC8C1C08;
@@ -2248,7 +2248,7 @@ int FUN_0c19c0dc(int a4)
     return 0xFFFFFFFF;
 }
 
-int FUN_0c102556(int a4, int a5)
+int search_fat_dir(int a4, int a5)
 {
     int stk[2];
     register int t1;

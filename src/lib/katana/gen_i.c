@@ -66,7 +66,7 @@ struct oC_int { char p[0xC]; int v; };
 struct oC_short { char p[0xC]; short v; };
 struct oC_uint { char p[0xC]; unsigned int v; };
 struct oC_ushort { char p[0xC]; unsigned short v; };
-int FUN_0c101148(int, int);
+int vmsfs_mediainfo_retry(int, int);
 int FUN_0c185560(int);
 int FUN_0c18558a(int);
 int FUN_0c185600(void);
@@ -84,7 +84,7 @@ int FUN_0c19c916(int);
 int FUN_0c19c926(int);
 int FUN_0c1a02a6(int);
 int FUN_0c1a02cc(int, int, int);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2c1016(int);
 int FUN_0c2cb558(int, int, int);
 int FUN_0c2cc400(int);
@@ -370,14 +370,14 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
             if ((*(signed char *)((((*(int *)(((int)stk + 4))) + 0xC8C4604) + 0x8))) == 0) {
             } else {
                 memset((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))), 0x0, 0x200);
-                t22 = FUN_0c2bd8b4(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
+                t22 = vmsfs_write_retry(a4, (*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0x8))), (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x20))));
                 if ((int)t22 < 0) {
                     t182 = 0xFFFFFF81;
                     if (t22 != 0xFFFFFF40) {
                         t182 = 0xFFFFFF01;
                     }
                 } else {
-                    t26 = FUN_0c101148(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
+                    t26 = vmsfs_mediainfo_retry(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
                     t174 = 0xFFFFFF01;
                     if ((int)t26 < 0) {
                     } else {
@@ -475,7 +475,7 @@ int vmsfs_format(int a4, int a5, int a6, int a7, int a8)
                                 }
                                 t161 = 0x0;
                                 if (a8 != 0) {
-                                    t122 = (FUN_0c2bd8b4(a4, t123, (((a4 << 8) << 1) + 0xC8C9510)));
+                                    t122 = (vmsfs_write_retry(a4, t123, (((a4 << 8) << 1) + 0xC8C9510)));
                                     t161 = t122;
                                 }
                                 t122 = t161;

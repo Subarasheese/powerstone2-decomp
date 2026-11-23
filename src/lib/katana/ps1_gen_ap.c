@@ -371,7 +371,7 @@ int pdVibMxStart(int a4, int a5);
 int FUN_0c0f271a(void);
 int gdFsGetTokenSize(int a4, int a5, int a6);
 int gdFsGetSearchID(int a4);
-int FUN_0c0ff884(void);
+int syTmrInit(void);
 int kdSetResetPattern(void);
 int vmsfs_c_execcallback(int a4, int a5, int a6);
 int ADXSTM_GetCurOfst(int a4, int a5);
@@ -885,7 +885,7 @@ int gdFsGetSearchID(int a4)
 }
 
 
-int FUN_0c0ff884(void)
+int syTmrInit(void)
 {
     register int t1;
 

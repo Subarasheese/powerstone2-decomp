@@ -98,7 +98,7 @@ int FUN_0c173454(int);
 int FUN_0c17c450(int);
 int FUN_0c2c6728(void);
 int FUN_0c2c6740(int, int);
-int FUN_0c2c6be4(int, int, int);
+int SJ_SplitChunk(int, int, int);
 float math_cos_angle16(int);
 int math_mat_get_translate(int, int);
 float math_sin_angle16(int);
@@ -1123,7 +1123,7 @@ int SJUNI_GetChunk(int a4, int a5, int a6, int a7)
                 *(unsigned int *)((a4 + 0x14)) = t3;
             } else {
                 if ((*(signed char *)((a4 + 0x5))) == 1) {
-                    FUN_0c2c6be4((((int)stk + 0) + 0x10), (*(int *)(((int)stk + 0))), (((int)stk + 0) + 0x10));
+                    SJ_SplitChunk((((int)stk + 0) + 0x10), (*(int *)(((int)stk + 0))), (((int)stk + 0) + 0x10));
                     { struct mv2 { int w[2]; }; *(struct mv2 *)(a7) = *(struct mv2 *)((((int)stk + 0) + 0x10)); }
                     { struct mv2 { int w[2]; }; *(struct mv2 *)((t3 + 0x8)) = *(struct mv2 *)((((int)stk + 0) + 0x8)); }
                 } else {

@@ -2,7 +2,7 @@
 /* Straight-line functions with calls and guards (batch gen_z): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 struct o0_float { float v; };
 struct o0_uchar { unsigned char v; };
 struct o0_uint { unsigned int v; };

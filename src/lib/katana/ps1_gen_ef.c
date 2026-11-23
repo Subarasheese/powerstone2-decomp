@@ -207,7 +207,7 @@ int thunk_math_mat_get_translate(int, int);
 int vmsfs_unmount(int);
 int vmsio_ismount(int);
 int vmsio_isready(int);
-int FUN_0c111310(int a4, int a5, int a6);
+int mpdrv_init(int a4, int a5, int a6);
 int opt_page1_spawn_cursor_pulse(int a4);
 int fx_spawn_03b1ec(int a4, int a5);
 int fx_tick_041820(int a4);

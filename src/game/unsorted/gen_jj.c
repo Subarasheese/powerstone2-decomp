@@ -73,7 +73,7 @@ int FUN_0c0b7f88(int);
 int FUN_0c0b81e4(int);
 int FUN_0c0c224c(int, int);
 int FUN_0c0c3010(int, int, int);
-int FUN_0c177450(void);
+int nlWaitVSync(void);
 int ai_clear_op_state(void);
 int ai_script_branch(int, int);
 int dbg_printf(int, ...);
@@ -623,7 +623,7 @@ int FUN_0c010080(int a4, int a5, int a6)
 {
     nlLocate();
     dbg_printf(0xC1A3DA8, ((*(int *)(((a6 << 2) + 0xC20AF40)))), a6);
-    return FUN_0c177450();
+    return nlWaitVSync();
 }
 
 int FUN_0c0be1c0(int a4)

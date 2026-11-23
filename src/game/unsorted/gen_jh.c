@@ -100,7 +100,7 @@ int FUN_0c19daa0(int, int, int, int);
 int MD5Transform(int, int, int, int, int, int, int, int, int, int, int, int);
 int FUN_0c1a2120(int, int, int);
 int FUN_0c2c30aa(int, int, int, int, int);
-int FUN_0c2e3040(int, int);
+int kmytex_GetSmallVQprofile(int, int);
 int FUN_0c2e55bc(void);
 int FUN_0c2e715e(int);
 int FUN_0c2e7200(int);
@@ -153,17 +153,17 @@ int nlInitMatrix(int a4, int a5);
 int nlSelectMatrixStack(int a4);
 int FUN_0c1a3198(int a4, int a5, int a6);
 int FUN_0c19e46e(int a4);
-int FUN_0c2b1424(int a4);
+int pdExitPeripheral(int a4);
 int FUN_0c05b9f4(int a4, int a5, int a6, int a7);
 int FUN_0c18d890(int a4, int a5, int a6, int a7);
-int FUN_0c2c7da0(int a4, int a5);
+int kmyFreeSmallVQArea(int a4, int a5);
 int FUN_0c19f672(int a4);
 int FUN_0c187cac(int a4, Stk3 s);
 int FUN_0c187ce8(int a4, Stk3 s);
-int FUN_0c2b48a8(int a4, int a5, int a6, int a7);
+int ADXT_SetOutPan(int a4, int a5, int a6, int a7);
 int FUN_0c2d93a0(void);
 int FUN_0c2d95f0(void);
-void FUN_0c2c6be4(int a4, int a5, int a6, int a7);
+void SJ_SplitChunk(int a4, int a5, int a6, int a7);
 int nlMakeFastModelProjectMatrixVM(void);
 int vsprintf(int a4, int a5, int a6);
 int FUN_0c2eba12(int a4, int a5, int a6);
@@ -904,7 +904,7 @@ int FUN_0c19e46e(int a4)
     return 0x34;
 }
 
-int FUN_0c2b1424(int a4)
+int pdExitPeripheral(int a4)
 {
     register int t7;
     register int t8;
@@ -968,7 +968,7 @@ int FUN_0c18d890(int a4, int a5, int a6, int a7)
     return 0x0;
 }
 
-int FUN_0c2c7da0(int a4, int a5)
+int kmyFreeSmallVQArea(int a4, int a5)
 {
     int stk[12];
     register int t3;
@@ -976,7 +976,7 @@ int FUN_0c2c7da0(int a4, int a5)
 
     *(unsigned int *)(((int)stk + 24)) = a4;
     *(unsigned int *)(((int)stk + 20)) = a5;
-    FUN_0c2e3040((((int)stk + 20) + 0x8), (*(int *)(((int)stk + 24))));
+    kmytex_GetSmallVQprofile((((int)stk + 20) + 0x8), (*(int *)(((int)stk + 24))));
     t3 = *(int *)(((((int)stk + 20) + 0x8) + 0x4));
     *(unsigned int *)(((int)stk + 0)) = (*(int *)(((((int)stk + 20) + 0x8) + 0x0)));
     *(unsigned int *)(((int)stk + 4)) = t3;
@@ -1034,7 +1034,7 @@ int FUN_0c187ce8(int a4, Stk3 s)
     return (FUN_0c194d80(0x1, 0x0, (*(int *)(((int)stk + 8))), s.w[0], t2));
 }
 
-int FUN_0c2b48a8(int a4, int a5, int a6, int a7)
+int ADXT_SetOutPan(int a4, int a5, int a6, int a7)
 {
     *(unsigned short *)((((a5 << 1) + (a4 + 0x42)) + 0x0)) = a6;
     if ((int)a5 < (int)(*(signed char *)((a4 + 0x3)))) {
@@ -1077,7 +1077,7 @@ int FUN_0c2d95f0(void)
     return 0x0;
 }
 
-void FUN_0c2c6be4(int a4, int a5, int a6, int a7)
+void SJ_SplitChunk(int a4, int a5, int a6, int a7)
 {
     { struct mv2 { int w[2]; }; *(struct mv2 *)(a6) = *(struct mv2 *)(a4); }
     *(unsigned int *)((a7 + 0x4)) = (*(int *)((a6 + 0x4)));

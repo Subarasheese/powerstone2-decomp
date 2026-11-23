@@ -67,7 +67,7 @@ struct oC1C_uint { char p[0xC1C]; unsigned int v; };
 struct oC20_uint { char p[0xC20]; unsigned int v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
 int DECtoBCD(int);
-int FUN_0c1045b4(int);
+int read_dir(int);
 int FUN_0c17fe3c(void);
 int FUN_0c17feb6(int, int, int);
 int FUN_0c17ff38(int, int, int);
@@ -240,7 +240,7 @@ int nlstripSetVertexContext(int a4, int a5, int a6, int a7);
 int FUN_0c18f92c(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12);
 int FUN_0c1937ca(int a4);
 int FUN_0c1a357c(int a4, int a5, int a6);
-int FUN_0c177d10(int a4);
+int nl_system_config_init(int a4);
 int nlsndPackLoadLockBG(int a4, int a5, int a6, int a7);
 int FUN_0c18cd6e(int a4);
 int FUN_0c2d683c(int a4);
@@ -1074,7 +1074,7 @@ int check_cache(int a4)
     if (((int)v0_4 < 0)) goto L_C2C1418;
     L_C2C1408:;
     if (((*(signed char *)((v0_1 + 0xC))) != 0)) goto L_C2C142A;
-    v0_3 = FUN_0c1045b4(v0_3);
+    v0_3 = read_dir(v0_3);
     v0_2 = (v0_3);
     if (((int)v0_3 >= 0)) goto L_C2C142A;
     L_C2C1418:;
@@ -2368,7 +2368,7 @@ int FUN_0c1a357c(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_0c177d10(int a4)
+int nl_system_config_init(int a4)
 {
     (((struct o0_uint *)0xC83CD8C)->v) = 0x1F8;
     (((struct o4_uint *)0xC83CD8C)->v) = 0x0;

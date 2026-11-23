@@ -47,10 +47,10 @@ int FUN_0c090e12(int a)
 
 /* 0c0581c4 */
 
-int FUN_0c0f2044(int);
+int gdFsReqDrvStat(int);
 int FUN_0c0f1fd2(int);
 int FUN_0c0f1c44(int);
-int FUN_0c0f202c(int);
+int gdFsGetDrvStat(int);
 int FUN_0c187798(int, int, int);
 int FUN_0c18778c(int, int, int);
 
@@ -67,7 +67,7 @@ int FUN_0c06148a(void)
         return 0;
     *cnt = 0;
     if (*state == 0) {
-        if (FUN_0c0f2044((int)cnt) == 0)
+        if (gdFsReqDrvStat((int)cnt) == 0)
             *state = 1;
         return 0;
     }
@@ -75,7 +75,7 @@ int FUN_0c06148a(void)
     r = FUN_0c0f1c44(*(int *)0x0C33A840);
     if (r != 4)
         *state = 0;
-    r = FUN_0c0f202c(r);
+    r = gdFsGetDrvStat(r);
     if (r == 6 || r == 7) {
         *(int *)0x0C31F2A8 = 1;
         return 1;

@@ -45,7 +45,7 @@ struct oC_uchar { char p[0xC]; unsigned char v; };
 struct oD0_int { char p[0xD0]; int v; };
 struct oDB_uchar { char p[0xDB]; unsigned char v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
-int FUN_0c103e50(int, int, int, int);
+int vmsfs_fsetattr(int, int, int, int);
 int FUN_0c1772e0(int, int);
 int FUN_0c180d72(int);
 int FUN_0c187a88(int, int, int);
@@ -563,7 +563,7 @@ void FUN_0c2bdadc(int a4, int a5, int a6, int a7, int a8)
     goto L_C2BDD36;
     L_C2BDC56:;
     *(unsigned int *)((v0_3 + 0x10)) = (*(int *)((v0_3 + 0x14)));
-    v0_5 = ((FUN_0c103e50((*(int *)((v0_3 + 0x14))), (v0_3 + 0x2C), (*(int *)((v0_3 + 0x1C))), (*(int *)((v0_3 + 0x20))))));
+    v0_5 = ((vmsfs_fsetattr((*(int *)((v0_3 + 0x14))), (v0_3 + 0x2C), (*(int *)((v0_3 + 0x1C))), (*(int *)((v0_3 + 0x20))))));
     goto L_C2BDD36;
     L_C2BDC40:;
     *(unsigned int *)((v0_3 + 0x10)) = (*(int *)((v0_3 + 0x14)));

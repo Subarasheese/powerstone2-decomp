@@ -1,7 +1,7 @@
 /* Straight-line functions with calls and guards (batch gen_bt): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int direntry(int, int);
 int get_fat(int, int);
 int search_fat(int, int);
@@ -48,7 +48,7 @@ int vmsfs_fwrite1(int a4, int a5)
                     t5 = search_fat_free_xross(t3);
                     t6 = 0xFFFFFF04;
                     if ((int)t5 >= 0) {
-                        t7 = FUN_0c2bd8b4(t3, t5, a5);
+                        t7 = vmsfs_write_retry(t3, t5, a5);
                         if ((int)t7 < 0) {
                             t8 = t7;
                             if (t7 == 0xFFFFFF01) {
@@ -60,7 +60,7 @@ int vmsfs_fwrite1(int a4, int a5)
                                     if ((int)t7 < 0) {
                                         break;
                                     }
-                                    t9 = FUN_0c2bd8b4(t3, t7, a5);
+                                    t9 = vmsfs_write_retry(t3, t7, a5);
                                     if (t9 == 0) {
                                         set_fat(t3, t7);
                                         if ((*(int *)((a4 + 0x38))) == 0xFFFF) {
@@ -132,7 +132,7 @@ int vmsfs_xwrite1(int a4, int a5)
                     t10 = get_fat(t9, t7);
                     t5 = 0xFFFFFF04;
                     if (((unsigned short)t10 == 0xFFFC) && (t0 = *(int *)((a4 + 0x30)), t5 = *(int *)((((t3 * 0x148) + 0xC8C4604) + 0x1C)), t2 = *(int *)((t5 + 0x38)), (int)t0 < (int)t2)) {
-                        t0 = FUN_0c2bd8b4(t9, t7, a5);
+                        t0 = vmsfs_write_retry(t9, t7, a5);
                         t5 = t0;
                         if ((int)t0 < 0) {
                         } else {

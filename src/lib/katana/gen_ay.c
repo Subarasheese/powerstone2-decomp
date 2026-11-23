@@ -66,9 +66,9 @@ struct oD4_int { char p[0xD4]; int v; };
 struct oDB_uchar { char p[0xDB]; unsigned char v; };
 struct oF8_int { char p[0xF8]; int v; };
 struct oFC_int { char p[0xFC]; int v; };
-int FUN_0c0ffdba(void);
-int FUN_0c10121c(int, int, int);
-int FUN_0c111310(int, int, int);
+int copy_device(void);
+int vmsfs_read_retry(int, int, int);
+int mpdrv_init(int, int, int);
 int FUN_0c1828e0(void);
 int FUN_0c1829f8(int);
 int FUN_0c183140(int);
@@ -221,7 +221,7 @@ int FUN_0c2ec71a(void);
 int FUN_0c2ee4ba(int a4);
 int FUN_0c2ee708(void);
 int FUN_0c2ef822(void);
-int FUN_0c2f0024(int a4, int a5, int a6);
+int syIntAdrChk_dumpline(int a4, int a5, int a6);
 int FUN_0c2fdd80(void);
 int nlCommonTextureReloadA(int a4, int a5);
 int nlObjPutSetPaletteOffset(int a4, int a5, int a6, int a7);
@@ -233,7 +233,7 @@ int pdLcdGetDirection(int a4);
 int kdInitSystem(int a4, int a5);
 int kdSetSetConditionEx(int a4, int a5, int a6, int a7, int a8);
 int mwRnaInit(void);
-int FUN_0c2c7b68(int a4);
+int kmyGetFrameBufferSize(int a4);
 int FUN_0c2ef9c0(void);
 int FUN_0c2f8080(int a4, int a5, int a6);
 int nlSetUserTileClip(int a4, int a5, int a6, int a7, int a8);
@@ -660,7 +660,7 @@ int FUN_0c2ef822(void)
     return FUN_0c2d78a8(t13, t14, t15);
 }
 
-int FUN_0c2f0024(int a4, int a5, int a6)
+int syIntAdrChk_dumpline(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -915,8 +915,8 @@ int kdInitSystem(int a4, int a5)
     _builtin_set_imask(0xF);
     *(unsigned int *)0xC2DB268 = ((*(int *)0xC2DB268) | 0xA0000000);
     init_sub();
-    t3 = FUN_0c111310(a5, 0xC000, a4);
-    FUN_0c0ffdba();
+    t3 = mpdrv_init(a5, 0xC000, a4);
+    copy_device();
     *(unsigned int *)0xC8C2148 = 0x1;
     _builtin_set_imask(((unsigned int)(((t0 & 0xF) << 2) << 2) >> 4));
     return t3;
@@ -973,7 +973,7 @@ int mwRnaInit(void)
     return mwRnaErrEntryFunc(0x0, 0x0);
 }
 
-int FUN_0c2c7b68(int a4)
+int kmyGetFrameBufferSize(int a4)
 {
     int stk[9];
     register int t0;
@@ -1321,7 +1321,7 @@ int read_fat(int a4)
     if ((int)t1 > 0) {
         t2 = 0x0;
         for (;;) {
-            t7 = FUN_0c10121c(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x24)))));
+            t7 = vmsfs_read_retry(a4, ((*(int *)(((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))) + 0xC))) + t2), (((t2 << 8) << 1) + (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x24)))));
             if ((int)t7 < 0) {
                 break;
             }

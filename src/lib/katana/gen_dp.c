@@ -72,7 +72,7 @@ int FUN_0c2c30aa(int, int, int, int, int);
 int FUN_0c2c390a(int);
 int FUN_0c2c3916(int);
 int FUN_0c2c3922(int);
-int FUN_0c2c6be4(int, int, int);
+int SJ_SplitChunk(int, int, int);
 int FUN_0c2dc1ae(int, int, int, int, int);
 int SJMEM_Create(int, int);
 extern void _builtin_ftrv(float *, float *);
@@ -122,7 +122,7 @@ int adxstmf_stat_exec(int a4, int a5, int a6, int a7);
 int gdFsSearchPath_dds(int a4, int a5, int a6, int a7, int a8);
 int FUN_0c1127bc(int a4, int a5, int a6, int a7, int a8);
 int gdFsStopRd(int a4, int a5, int a6, int a7);
-float FUN_0c0ef980(int a4);
+float nlObjPutCheapEnvMap(int a4);
 int gdFsDaReleaseG(int a4, int a5, int a6, int a7);
 int gdFsLoadDirG(int a4, int a5);
 int ADXB_ExecOneAuUlaw(int a4, int a5, int a6, int a7);
@@ -557,7 +557,7 @@ int adxstmf_stat_exec(int a4, int a5, int a6, int a7)
         t3 = gdFsGetStat((*(int *)((a4 + 0x8))));
         if (t3 == 1) {
             t4 = *(int *)((a4 + 0x20));
-            FUN_0c2c6be4((a4 + 0x24), (((t4 << 8) << 2) << 1), (((int)stk + 4) + 0xC));
+            SJ_SplitChunk((a4 + 0x24), (((t4 << 8) << 2) << 1), (((int)stk + 4) + 0xC));
             t9 = ((int (*)(int, int, int, int, int, int, int, int, int, int, int))((*(int *)(((*(int *)((t1 + 0x0))) + 0x20)))))(t1, 0x1, (((int)stk + 4) + 0xC), a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24));
             t12 = ((int (*)(int, int, int, int, int, int, int, int, int, int, int))((*(int *)(((*(int *)((t1 + 0x0))) + 0x1C)))))(t1, 0x0, (((int)stk + 4) + 0x4), a7, *(int *)((int)stk + 4), *(int *)((int)stk + 4 + 4), *(int *)((int)stk + 4 + 8), *(int *)((int)stk + 4 + 12), *(int *)((int)stk + 4 + 16), *(int *)((int)stk + 4 + 20), *(int *)((int)stk + 4 + 24));
             t13 = ADXSTM_Tell(a4);
@@ -892,7 +892,7 @@ int gdFsStopRd(int a4, int a5, int a6, int a7)
     return t1;
 }
 
-float FUN_0c0ef980(int a4)
+float nlObjPutCheapEnvMap(int a4)
 {
     float u38;
     float u83;

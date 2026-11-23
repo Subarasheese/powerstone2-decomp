@@ -136,8 +136,8 @@ struct oD_uchar { char p[0xD]; unsigned char v; };
 struct oE_ushort { char p[0xE]; unsigned short v; };
 int ADXSJD_Create(int, int, int);
 int ADXT_Destroy(int);
-int FUN_0c177400(void);
-int FUN_0c177d10(int);
+int sys_init(void);
+int nl_system_config_init(int);
 int FUN_0c187990(void);
 int FUN_0c187cac(int, int, int, int, int);
 int FUN_0c187d98(int, int, int);
@@ -1418,7 +1418,7 @@ void FUN_0c1777e0(int a4, int a5, int a6, int a7)
         (((struct o0_uint *)0xC83CF94)->v) = 0x0;
     }
     _builtin_set_gbr((void *)(0xC8B85C0));
-    FUN_0c177400();
+    sys_init();
     (((struct o18_ushort *)0xC8A6C94)->v) = 0x0;
     (((struct o1A_ushort *)0xC8A6C94)->v) = 0x0;
     if ((0x80 & a5) != 0) {
@@ -1456,7 +1456,7 @@ void FUN_0c1777e0(int a4, int a5, int a6, int a7)
     (((struct o0_uint *)0xFF000038)->v) = 0xC;
     (((struct o4_uint *)0xFF000038)->v) = 0xC;
     (((struct o14_uint *)0xC83CFE0)->v) = a6;
-    FUN_0c177d10(0x200000);
+    nl_system_config_init(0x200000);
     nlSetFatalErrorMode(0x0);
     (((struct o34_uint *)0xC83CFE0)->v) = 0x0;
     (((struct o4_uint *)0xC83CF94)->v) = 0x68;

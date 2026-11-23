@@ -70,7 +70,7 @@ struct oD8_uint { char p[0xD8]; unsigned int v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
 int FUN_0c0ed7e4(int);
 int FUN_0c0ed8f4(int, int);
-int FUN_0c1790e0(void);
+int nlSysBeginScene(void);
 int FUN_0c179100(void);
 int FUN_0c179130(void);
 int FUN_0c179140(int);
@@ -83,7 +83,7 @@ int FUN_0c1965cc(int, int, int);
 int FUN_0c198894(int);
 int FUN_0c1988f2(int);
 int FUN_0c19c678(int, int, int);
-int FUN_0c2b5f20(int);
+int kmyEnableASyncCopy(int);
 int FUN_0c2b6700(int, int, int, int);
 int FUN_0c2ccce0(int);
 int FUN_0c2d4768(int, int);
@@ -100,7 +100,7 @@ int FUN_0c2d86e2(int);
 int FUN_0c2d93a0(void);
 int FUN_0c2d95f0(void);
 int FUN_0c2dc1ae(int, ...);
-int FUN_0c2e31e0(int, int);
+int kmytex_GetfreememEx(int, int);
 int FUN_0c2e93ac(void);
 int FUN_0c2ea256(int, int);
 int FUN_0c2ec410(int, int);
@@ -235,7 +235,7 @@ int VQalloc(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, in
                     t57 = (kmytex_TXalloc(0x4, t38, (t32 + 0x8), 0x0));
                 }
             } else {
-                FUN_0c2e31e0(((int)stk + 4), (((int)stk + 4) + 0x4));
+                kmytex_GetfreememEx(((int)stk + 4), (((int)stk + 4) + 0x4));
                 if ((unsigned int)(*(int *)(((int)stk + 4))) < (unsigned int)(*(int *)(((int)stk + 8)))) {
                     if (a4 != 0) {
                         t57 = (kmytex_TXalloc2(0x4, t38, (t32 + 0x8), 0x1));
@@ -566,7 +566,7 @@ int FUN_0c178ac0(int a4, int a5)
         nlSetWindowSize(0.0f, 0.0f, (float)t2, (float)(short)t1);
     }
     if (((((struct o0_int *)0xC83CFE0)->v)) == 0) {
-        FUN_0c1790e0();
+        nlSysBeginScene();
         nlSysBeginPass();
     }
     return t0;
@@ -1286,7 +1286,7 @@ int kmEndPass(int a4)
     if (((*(int *)0xC8BEF78) == 0)) goto L_C2B6D9A;
     L_C2B6EBA:;
     if ((((*(int *)(((*(int *)((v0_1 + 0x8))) + 0x18))) & 4) == 0)) goto L_C2B6EC8;
-    FUN_0c2b5f20(0x1);
+    kmyEnableASyncCopy(0x1);
     L_C2B6EC8:;
     return (*(int *)(((int)stk + 8)));
     L_C2B6D9A:;

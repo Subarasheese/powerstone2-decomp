@@ -37,7 +37,7 @@ DFB00C18 pl_ayame_play_motion_sounds
 0C17C2F0 FUN_0c0e2390
 0C17C450 math_vec3_normalize_fast
 0C17D700 FUN_0c0e34d0
-0C17D740 FUN_0c0e3510
+0C17D740 nl_set_cnv_proj_pers
 0C2AE9E4 syRtcFinish
 0C18778C _quick_evn_mvn
 0C17A7B0 FUN_0c0eb0c0
@@ -110,10 +110,10 @@ DFB00C18 pl_ayame_play_motion_sounds
 0C2BB3CE FUN_0c0ff3ee
 0C2BB620 FUN_0c0ff640
 0C2BB7F8 FUN_0c0ff7e0
-0C2BBE28 FUN_0c0ff884
+0C2BBE28 syTmrInit
 0C2BBE4E FUN_0c0ff8aa
 0C2BBF84 FUN_0c0ff9e0
-C2BA0C2B FUN_0c0ffc72
+C2BA0C2B kdDmaEndHandler0
 C2C20C2B FUN_0c0ffd90
 1F000C2B FUN_0c0ffd98
 0C2BC47C FUN_0c0fff10
@@ -130,14 +130,14 @@ C2C20C2B FUN_0c0ffd90
 0C2BD65E FUN_0c1010c2
 0C2BD68A FUN_0c1010ee
 0C2BD6B6 FUN_0c10111a
-0C2BD708 FUN_0c101148
-0C2BD7DC FUN_0c10121c
+0C2BD708 vmsfs_mediainfo_retry
+0C2BD7DC vmsfs_read_retry
 0C2BD8B4 FUN_0c1012f4
 0C2BDAC4 FUN_0c101502
 0C2BDE70 vmsfs_c_getstate
 0C2BE3C0 vmsfs_exit
 0C2BE700 vmsfs_fgetinfo
-0C2BEB16 FUN_0c102556
+0C2BEB16 search_fat_dir
 0C2BEBA0 FUN_0c1025e0
 0C2BEEF0 vmsfs_fopen
 0C2C052C FUN_0c103f6c
@@ -388,7 +388,6 @@ BB7E0C2D ADXB_Stop
 0C177670 nlSysInitStripContextVtx
 0C177710 nlSysInitStripContextBG
 0C1777B0 resetBackColorZ
-0C177DA0 nlSysUseLatency2V
 0C178860 nlFatalErrorTrap
 0C178920 nlFatalErrorReturn
 0C178930 nlSetFatalErrorMode
@@ -414,7 +413,6 @@ BB7E0C2D ADXB_Stop
 0C17D120 nlSetWindowSize
 0C17D240 nl_action_PixelClipping
 0C17D700 nlLoadRechangeMatrix
-0C17D740 nl_set_cnv_proj_pers
 0C17FD90 nlsndG2Write
 0D720040 nlsndSeqRequest
 0C1812EC nlsndStreamGetHdInfo
@@ -458,7 +456,6 @@ BB7E0C2D ADXB_Stop
 0C188250 nlObjPutLoadTextureCallBack
 0C1A0C20 cos
 0C187B48 strlen
-0C1A37B4 longjmp
 0C1A3828 setjmp
 0C205904 g_0c0d6264
 0C205F4A gNlSoundStreamHeaderTemplate
@@ -475,7 +472,6 @@ BB7E0C2D ADXB_Stop
 0C2B0B78 gdFsGetDirInfo
 0C2B0B8E gdFsOpen
 0C2B0BBC gdFsOpenRange
-0C2B0C00 gdFsExecServer
 0C2B24C8 buExecServer
 0C2B45DE adxt_start_sj
 0C2B463C adxt_start_stm
@@ -490,8 +486,6 @@ BB7E0C2D ADXB_Stop
 0C2C6C2A g_0c2fd43c
 0C2B5C80 kmSetPaletteMode
 0C2B5CA8 kmSetPaletteData
-0C2C6C60 kmyAllocateArea
-0C2B5F20 kmyEnableASyncCopy
 0C2C7C00 kmyFreeArea
 0C2B6280 FUN_8c1e2f60
 0C2B6288 FUN_8c1e2f68
@@ -508,8 +502,6 @@ BB7E0C2D ADXB_Stop
 0C2B6598 FUN_8c1e3278
 0C2B65A0 kmInitDevice
 0C2B6700 kmSetDisplayMode
-0C2B6860 kmRenderRect
-0C2B6900 kmRender
 0C2B69A0 kmBeginPass
 0C2B6B40 kmBeginScene
 0C2B6D60 kmEndPass
@@ -532,7 +524,6 @@ BB7E0C2D ADXB_Stop
 0C2B037E gdFsTell
 0C2B085C gdFsGetStat
 0C2B088A gdFsStopRd
-0C2BA85C syCacheInit_P2_
 0C2BA8C8 syCacheOCBI
 0C2BAB26 syCacheOCBP
 0C2BB00C syCachePurgeAll
@@ -547,12 +538,10 @@ BB7E0C2D ADXB_Stop
 0C2BB7F8 sySqInit
 0C2BB8A6 syMmuDeleteAllEntries
 0C2BBAAC syG2SysInit
-0C2BBE28 syTmrInit
 0C2BBE4E syTmrGetCount
 0C2BBE58 syTmrDiffCount
 0C2BBF84 syTmrInt1Handler
 0C2BC1D4 kdVbInHandler
-0C2BC1E0 kdDmaEndHandler0
 0C2BC2BA kdDmaEndHandler1
 0C2BC2C2 kdVbOverHandler
 0C2BC47C kdInitSystem
@@ -569,14 +558,10 @@ BB7E0C2D ADXB_Stop
 0C2BD6B6 pdVmsLcdBltAsm
 0C2BD6DC syCblCheckCable
 0C2BD700 vmsfs_setretry
-0C2BD708 vmsfs_mediainfo_retry
-0C2BD7DC vmsfs_read_retry
-0C2BD8B4 vmsfs_write_retry
 0C2BD998 vmsfs_c_init
 0C2BDAC4 vmsfs_c_exit
 0C2BDAD6 vmsfs_c_synch
 0C2BDFE2 vmsfs_init
-0C2BEB16 search_fat_dir
 0C2BEBA0 search_fat_backward
 0C2BED0C vmsfs_diskfree
 0C2BF166 vmsfs_fcreate
@@ -594,7 +579,6 @@ BB7E0C2D ADXB_Stop
 0C2C1FE4 gdGdcReqDmaTrans
 0C2C2070 kbCfgIni
 0C2C2100 kbCfgGetId
-0C2C2874 syBtCfgSet
 0C2B3BD2 pdVibStart
 3E000C8B pdVibEnumUnitCallback
 0C2C2A62 ADXAMP_Destroy
@@ -674,8 +658,6 @@ BB7E0C2D ADXB_Stop
 0C2C6722 SJRBF_GetXtrSize
 0C2C6756 SJUNI_Error
 0C2C675A SJUNI_Init
-0C2C6BE4 SJ_SplitChunk
-0C2C6D40 kmyAllocateSmallVQArea
 0C2C6FC0 kmBlankScreen
 0C2C7040 kmyConnectInterrupt
 0C2C70C0 kmyCopyToTexture
@@ -687,8 +669,6 @@ BB7E0C2D ADXB_Stop
 0C2C7916 kmyGetFrameBufferHandle
 0C2C7A60 kmyReleaseFrameBufferHandle
 0C2C7A96 kmySetDisplayFrameBuffer
-0C2C7B68 kmyGetFrameBufferSize
-0C2C7DA0 kmyFreeSmallVQArea
 0C2C7F20 kmyGarbageCollection
 0C2C8380 kmyGetDMAHANDLE
 0C2C8540 kmyGetDefaultFilterMode
@@ -757,8 +737,6 @@ BB7E0C2D ADXB_Stop
 0C2E2FD4 kmytex_FBEnQueueEntry
 0C2E2FF0 kmytex_FBDeQueueEntry
 0C2E3168 kmytex_VQFreeEntry
-0C2E31E0 kmytex_GetfreememEx
-0C2CBEE0 kmWaitVBlank
 0C2CBF80 kmiFLWCTRLOBJOverflowCallback
 0C2CBFC0 kmiFLWCTRLITPOverflowCallback
 0C2CC044 kmiQueryFinishAllPacket
@@ -795,7 +773,6 @@ BB7E0C2D ADXB_Stop
 0C2D9530 syG2DmaResumeAll
 0C2D95AC syG2DmaSuspendAll
 0C2D95F0 syG2FifoWaitEmpty
-0C2D962C mpdrv_init
 0C2D9748 mpdrv_init_ex
 0C2D9A56 mpdrv_frame_send
 0C2D9F88 mpdrv_get_gunmode
@@ -815,7 +792,6 @@ BB7E0C2D ADXB_Stop
 0C2DB98A adxb_DefAddWr
 0C2DB99C ADXB_Create
 0C2DBA28 ADXB_Destroy
-0C2DBB7E ADXB_DecodeHeader
 0C2DBC74 ADXB_EntryGetWrFunc
 0C2DBC88 ADXB_GetPcmBuf
 0C2DBC8C ADXB_GetFormat
@@ -832,7 +808,6 @@ BB7E0C2D ADXB_Stop
 0C2DC190 mwRnaErrEntryFunc
 0C2DC1AE mwRnaErrCallFunc
 0C2DCE24 mwlSbGetWorkTbl
-0C2DEE48 kmiExCallBackFunc
 0C2DEEE0 kmyAllocateFrameBuffer
 0C2DEF60 kmyAllocateNativeCommandBuffer
 0C2DEFE0 kmiCallbackEndOf
@@ -881,8 +856,6 @@ BB7E0C2D ADXB_Stop
 0C2E25A0 kmyiCheckNativeHandle
 0C2E2618 kmyUpdatePalette
 0C2E28E6 kmySetDitherMode
-0C2E32A0 kmiHolizontalStripBufferArray
-0C2E3320 kmiVRightArray
 0C2E33A0 kmResetRenderer
 0C2F00B0 syG2AicaFifoIsEmpty
 0C2F00C4 syG2DmaResume
@@ -906,7 +879,6 @@ BB7E0C2D ADXB_Stop
 0C2F1450 ADXB_DecodeHeaderSpsd
 0C2F1534 ADXB_ExecOneSpsd
 0C2F162A ADXB_CheckSpsd
-0C2F1804 ADXB_DecodeHeaderWav
 0C2F1C20 ADXB_CheckWav
 0C2F1C54 ADXB_ExecOneWav
 0C2F1C96 ADXPD_Create
@@ -917,7 +889,6 @@ BB7E0C2D ADXB_Stop
 0C2F1EC0 kmiGetITPCurrent
 0C2F1F20 kmyAllocateAreaWithAddress
 0C2F1F60 kmyConvertAddress64to32
-0C2FB6A4 syIntAdrChk_init
 0C2FB822 syIntAdrChk_getchar
 0C2FB85C syIntAdrChk_finish
 0C2FB8B2 send_message_in_current_mode

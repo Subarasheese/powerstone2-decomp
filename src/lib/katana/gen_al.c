@@ -78,7 +78,7 @@ struct oD0_int { char p[0xD0]; int v; };
 struct oD4_int { char p[0xD4]; int v; };
 struct oF8_int { char p[0xF8]; int v; };
 struct oFC_int { char p[0xFC]; int v; };
-int FUN_0c17f440(float, float);
+int nlSpriteSetImaginaryScreenSize(float, float);
 int FUN_0c17ffea(int, int);
 int FUN_0c180d72(int);
 int FUN_0c184442(void);
@@ -179,7 +179,7 @@ int nlInitSprite(int a4, int a5, int a6);
 int nlsndPackReloadBG(int a4, int a5, int a6);
 int FUN_0c18ef5c(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11);
 int FUN_0c19e1fc(int a4, int a5, int a6);
-int FUN_0c2b0fdc(int a4, int a5, int a6, int a7, int a8);
+int pdInitPeripheralEx(int a4, int a5, int a6, int a7, int a8);
 int FUN_0c2cfbd0(int a4);
 int FUN_0c2d85e4(int a4, int a5);
 int FUN_0c2f2074(int a4, int a5, int a6);
@@ -613,7 +613,7 @@ int nlInitSprite(int a4, int a5, int a6)
     register int t2;
 
     (((struct o0_uint *)0xC86CBC8)->v) = 0xFFFFFFFF;
-    FUN_0c17f440(((((struct o4_float *)0xC17EF3C)->v)), ((((struct o0_float *)0xC17EF3C)->v)));
+    nlSpriteSetImaginaryScreenSize(((((struct o4_float *)0xC17EF3C)->v)), ((((struct o0_float *)0xC17EF3C)->v)));
     (((struct o8_uint *)0xC86CBC8)->v) = a6;
     (((struct oC_uint *)0xC86CBC8)->v) = a5;
     (((struct o4_uint *)0xC86CBC8)->v) = a4;
@@ -775,7 +775,7 @@ int FUN_0c19e1fc(int a4, int a5, int a6)
     return t24;
 }
 
-int FUN_0c2b0fdc(int a4, int a5, int a6, int a7, int a8)
+int pdInitPeripheralEx(int a4, int a5, int a6, int a7, int a8)
 {
     register int t4;
 

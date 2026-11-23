@@ -5,7 +5,7 @@ struct o0_uchar { unsigned char v; };
 struct o1C_uchar { char p[0x1C]; unsigned char v; };
 struct o40_int { char p[0x40]; int v; };
 struct o40_uint { char p[0x40]; unsigned int v; };
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c2c14a8(void);
 int FUN_0c2f4660(int);
 int FUN_0c2fbc38(void);
@@ -237,7 +237,7 @@ int vmsfs_fread1(int a4, int a5)
     if (((*(int *)((v0_0 + v0_1))) == 0xFFFC)) goto L_C2BF8D6;
     if (!(((*(int *)((v0_0 + v0_1))) != 0xFFFF))) goto L_C2BF8D6;
     v0_1 = *(int *)((v0_0 + v0_1));
-    v0_3 = FUN_0c10121c(v0_2, v0_1, (*(int *)(((int)stk + 0))));
+    v0_3 = vmsfs_read_retry(v0_2, v0_1, (*(int *)(((int)stk + 0))));
     v0_4 = (v0_1);
     v0_1 = (v0_3);
     if (((int)v0_3 >= 0)) goto L_C2BF8F2;

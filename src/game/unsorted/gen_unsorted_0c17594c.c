@@ -9,7 +9,7 @@ struct o4_uint { char p[0x4]; unsigned int v; };
 int FUN_0c059ca0(int);
 int FUN_0c059cb2(int);
 int FUN_0c05a292(int, int, int, int, int);
-int FUN_0c181050(void);
+int nlsndRemainMem(void);
 int memset(int, int, int);
 int FUN_0c17594c(void);
 
@@ -23,7 +23,7 @@ int FUN_0c17594c(void)
     *(unsigned int *)0xC2A5C54 = 0x0;
     memset(0xC476028, 0x0, 0x50);
     memset(0xC476078, 0x0, 0x28);
-    *(unsigned int *)0xC476010 = (FUN_0c181050());
+    *(unsigned int *)0xC476010 = (nlsndRemainMem());
     *(unsigned int *)0xC2A5FCC = 0x9B;
     (((struct o4_uint *)0xC475F54)->v) = (FUN_0c059ca0(((((struct o0_int *)0xC475F54)->v))));
     (((struct o34_uint *)0xC475F54)->v) = (FUN_0c059cb2(((((struct o0_int *)0xC475F54)->v))));

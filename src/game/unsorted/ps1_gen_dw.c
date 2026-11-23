@@ -112,7 +112,7 @@ int FUN_0c0f059e(int);
 int FUN_0c0f9c92(int);
 int FUN_0c0fdda0(int, int, int);
 int FUN_0c1012f4(int, int, int);
-int FUN_0c102556(int, int);
+int search_fat_dir(int, int);
 int FUN_0c103874(int, int);
 int FUN_0c104962(int, int, int);
 int FUN_0c1070a0(int);
@@ -240,7 +240,7 @@ int FUN_0c104622(int a4, int a5, int a6, int a7)
     goto L_C10472E;
     L_C1046C2:;
     set_fat(v0_0, (unsigned short)v0_5, 0xFFFF);
-    v0_5 = ((FUN_0c102556(v0_0, v0_3)));
+    v0_5 = ((search_fat_dir(v0_0, v0_3)));
     goto L_C1046A4;
     L_C1046D6:;
     v0_7 = (v0_1);
@@ -250,7 +250,7 @@ int FUN_0c104622(int a4, int a5, int a6, int a7)
     *(unsigned int *)(((int)stk + 12)) = (unsigned short)v0_5;
     set_fat(v0_0, (unsigned short)v0_5, v0_7);
     if ((v0_2 == (*(int *)(((int)stk + 8))))) goto L_C104702;
-    v0_5 = FUN_0c102556(v0_0, v0_3);
+    v0_5 = search_fat_dir(v0_0, v0_3);
     *(unsigned short *)(((int)stk + 0)) = v0_5;
     set_fat(v0_0, (*(int *)(((int)stk + 12))), v0_5);
     v0_5 = ((*(short *)(((int)stk + 0))));

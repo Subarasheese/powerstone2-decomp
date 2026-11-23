@@ -163,7 +163,7 @@ int FUN_0c2d8afe(int a4);
 int FUN_0c2eadd8(int a4, int a5, int a6, int a7);
 int buExecServer(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
 int vmsio_block_read(int a4, int a5, int a6);
-int FUN_0c1870f0(int a4, int a5, int a6);
+int nldispstripSub(int a4, int a5, int a6);
 int FUN_0c1a0ec4(int a4, int a5, int a6);
 int FUN_0c2b8d2e(int a4, int a5, int a6, int a7);
 int FUN_0c2b9260(int a4, int a5, int a6, int a7);
@@ -172,14 +172,14 @@ int FUN_0c18d0d0(int a4);
 int FUN_0c19f286(int a4, int a5, int a6);
 int FUN_0c2d7968(int a4);
 int FUN_0c2d7bea(int a4, int a5, int a6, int a7);
-int FUN_0c2e3040(int a4, int a5);
-int FUN_0c187360(int a4, int a5);
+int kmytex_GetSmallVQprofile(int a4, int a5);
+int nldispstripTexOfsSub(int a4, int a5);
 int _power(int a4, int a5, int a6);
 int FUN_0c2d3e96(void);
 int FUN_0c2f8b40(int a4);
 int FUN_0c180e54(int a4, int a5, int a6);
 int FUN_0c2eb414(int a4, int a5, int a6, int a7);
-int FUN_0c17f260(int a4, int a5, int a6, int a7);
+int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7);
 int FUN_0c2cfa26(int a4);
 int FUN_0c19a448(int a4, int a5, int a6, int a7);
 
@@ -876,7 +876,7 @@ int vmsio_block_read(int a4, int a5, int a6)
     return t38;
 }
 
-int FUN_0c1870f0(int a4, int a5, int a6)
+int nldispstripSub(int a4, int a5, int a6)
 {
     int stk[11];
     register int t1;
@@ -1452,7 +1452,7 @@ int FUN_0c2d7bea(int a4, int a5, int a6, int a7)
     return t73;
 }
 
-int FUN_0c2e3040(int a4, int a5)
+int kmytex_GetSmallVQprofile(int a4, int a5)
 {
     switch (a5) {
     case 1:
@@ -1512,7 +1512,7 @@ int FUN_0c2e3040(int a4, int a5)
     return 0x1;
 }
 
-int FUN_0c187360(int a4, int a5)
+int nldispstripTexOfsSub(int a4, int a5)
 {
     int stk[10];
     register int t0;
@@ -1846,7 +1846,7 @@ int FUN_0c2eb414(int a4, int a5, int a6, int a7)
     goto L_C2EB51E;
 }
 
-int FUN_0c17f260(int a4, int a5, int a6, int a7)
+int nlSpriteFreeTextureOnce_Sub(int a4, int a5, int a6, int a7)
 {
     int stk[2];
 

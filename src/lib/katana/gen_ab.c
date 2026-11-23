@@ -100,9 +100,9 @@ struct oD_uchar { char p[0xD]; unsigned char v; };
 struct oE_uchar { char p[0xE]; unsigned char v; };
 struct oE_ushort { char p[0xE]; unsigned short v; };
 struct oF_uchar { char p[0xF]; unsigned char v; };
-int FUN_0c101148(int, int);
-int FUN_0c102556(int, int);
-int FUN_0c112718(int, int, int, int);
+int vmsfs_mediainfo_retry(int, int);
+int search_fat_dir(int, int);
+int mpdrv_make_rootdevicedata(int, int, int, int);
 int FUN_0c1127bc(int, int, int, int, int);
 int FUN_0c1826a0(int, int, int, int);
 int FUN_0c183628(Stk3);
@@ -118,7 +118,7 @@ int FUN_0c19d250(int, int);
 int FUN_0c19ddc8(int, int, int, int);
 int FUN_0c1a2184(int, int);
 int FUN_0c2b97fc(void);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2be63c(int, int, int);
 int FUN_0c2c1016(int);
 int FUN_0c2cd580(int);
@@ -191,7 +191,7 @@ int vmsfs_setretry(int);
 int write_fat(int);
 int write_dir_all(int a4, int a5, int a6, int a7);
 int FUN_0c18330c(int a4, int a5, int a6, int a7);
-int FUN_0c187220(int a4, int a5);
+int nldispstripTexSub(int a4, int a5);
 int FUN_0c1936bc(int a4);
 float nl_display_strip_spd(int a4, int a5, int a6);
 int FUN_0c2e4736(int a4);
@@ -209,7 +209,7 @@ int FUN_0c2d71b2(void);
 int FUN_0c198790(int a4, int a5, int a6, int a7);
 int fmMngInit(int a4, int a5, int a6);
 int FUN_0c2f74a4(int a4, int a5, int a6, int a7);
-void FUN_0c2cd920(int a4, int a5, int a6, int a7);
+void kmiGuaranteeFFModeProcessOver(int a4, int a5, int a6, int a7);
 int FUN_0c193a72(void);
 int FUN_0c19c1c8(int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11, int a12, int a13, int a14);
 int frame_make(void);
@@ -268,13 +268,13 @@ int write_dir_all(int a4, int a5, int a6, int a7)
         *(unsigned int *)(((int)stk + 0)) = 0x0;
         t30 = 0x0;
         for (;;) {
-            t34 = FUN_0c2bd8b4(a4, (unsigned short)t31, ((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x28))) + (*(int *)(((int)stk + 0)))));
+            t34 = vmsfs_write_retry(a4, (unsigned short)t31, ((*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x28))) + (*(int *)(((int)stk + 0)))));
             if (t34 != 0) {
                 if (t34 == 0xFFFFFF01) {
                     break;
                 }
                 set_fat(a4, (unsigned short)t31);
-                t31 = (FUN_0c102556(a4, 0xFFFC));
+                t31 = (search_fat_dir(a4, 0xFFFC));
                 continue;
             }
             if (t30 == 0) {
@@ -282,7 +282,7 @@ int write_dir_all(int a4, int a5, int a6, int a7)
                 *(unsigned int *)(((int)stk + 12)) = (unsigned short)t31;
                 set_fat(a4, (unsigned short)t31);
                 if (t30 != (*(int *)(((int)stk + 8)))) {
-                    t39 = FUN_0c102556(a4, 0xFFFC);
+                    t39 = search_fat_dir(a4, 0xFFFC);
                     *(unsigned short *)(((int)stk + 0)) = t39;
                     set_fat(a4, (*(int *)(((int)stk + 12))));
                     t31 = (*(short *)(((int)stk + 0)));
@@ -315,7 +315,7 @@ int write_dir_all(int a4, int a5, int a6, int a7)
             *(unsigned int *)(((int)stk + 12)) = (unsigned short)t31;
             set_fat(a4, (unsigned short)t31);
             if (t30 != (*(int *)(((int)stk + 8)))) {
-                t73 = FUN_0c102556(a4, 0xFFFC);
+                t73 = search_fat_dir(a4, 0xFFFC);
                 *(unsigned short *)(((int)stk + 0)) = t73;
                 set_fat(a4, (*(int *)(((int)stk + 12))));
                 t31 = (*(short *)(((int)stk + 0)));
@@ -416,7 +416,7 @@ int FUN_0c18330c(int a4, int a5, int a6, int a7)
     return t24;
 }
 
-int FUN_0c187220(int a4, int a5)
+int nldispstripTexSub(int a4, int a5)
 {
     int stk[10];
     register int t0;
@@ -1854,7 +1854,7 @@ int FUN_0c2f74a4(int a4, int a5, int a6, int a7)
     return t3;
 }
 
-void FUN_0c2cd920(int a4, int a5, int a6, int a7)
+void kmiGuaranteeFFModeProcessOver(int a4, int a5, int a6, int a7)
 {
     int t0;
     register int t1;
@@ -2186,7 +2186,7 @@ int mpdrv_make_devicedata(int a4, int a5)
     if ((unsigned char)(t3 & 0x1F) != 0) {
         t4 = (FUN_0c1127bc((t3 & 0x1F), (((a5 << 2) << 1) + (t0 + 0x4)), ((t2 + 0x44C) + (a4 * 0x78)), ((t1 + 0x28) + (a4 * 0x2C)), (t5)));
     } else {
-        t4 = (FUN_0c112718(a5, ((t2 + 0x44C) + (a4 * 0x78)), ((t1 + 0x28) + (a4 * 0x2C)), t5));
+        t4 = (mpdrv_make_rootdevicedata(a5, ((t2 + 0x44C) + (a4 * 0x78)), ((t1 + 0x28) + (a4 * 0x2C)), t5));
     }
     if ((*(signed char *)((((t1 + 0x28) + (a4 * 0x2C)) + 0x7))) != 0) {
         t0 = *(int *)0xC8D4D84;
@@ -2294,7 +2294,7 @@ int FUN_0c2be46c(int a4, int a5, int a6)
         t1 = *(int *)((((a4 * 0x148) + 0xC8C4604) + 0x34));
         *(unsigned int *)((((a4 * 0x148) + 0xC8C4604) + 0x30)) = (t0 + 0x1);
         vmsfs_c_progress(a4, (*(int *)(((((((a4 << 2) << 2) << 2) << 1) + 0xC8C21EC) + 0x8))), ((t0 + 0x1) - 1), t1);
-        t0 = FUN_0c101148(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
+        t0 = vmsfs_mediainfo_retry(a4, (*(int *)((((a4 * 0x148) + 0xC8C4604) + 0x1C))));
         if ((int)t0 < 0) {
             *(unsigned char *)((((a4 * 0x148) + 0xC8C4604) + 0x9)) = 0x0;
             *(unsigned char *)((((a4 * 0x148) + 0xC8C4604) + 0x8)) = 0x0;

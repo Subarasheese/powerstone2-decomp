@@ -5,8 +5,8 @@
 struct oC_float { char p[0xC]; float v; };
 int mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
-int FUN_0c03796e(int, int);
-int FUN_0c0379b6(int, int);
+int mdl_vtx_get_uv(int, int);
+int mdl_vtx_set_uv(int, int);
 int FUN_0c03ea04(int, int);
 int FUN_0c052c00(int, int, int);
 int FUN_0c0cfecc(int, int, int);
@@ -105,13 +105,13 @@ int FUN_0c0e2e9a(void)
         if (t20 != 0) {
             break;
         }
-        FUN_0c03796e((((int)stk + 0) + 0xC), ((((int)stk + 0) + 0xC) + 0x4));
+        mdl_vtx_get_uv((((int)stk + 0) + 0xC), ((((int)stk + 0) + 0xC) + 0x4));
         if ((*(signed char *)((0xC1CBBA0 + t19))) == 0) {
             (((struct oC_float *)(((int)stk + 0)))->v) = (u17 + 0.0078125f);
         } else {
             (((struct oC_float *)(((int)stk + 0)))->v) = (u18 + 0.2421875f);
         }
-        FUN_0c0379b6((((int)stk + 0) + 0xC), ((((int)stk + 0) + 0xC) + 0x4));
+        mdl_vtx_set_uv((((int)stk + 0) + 0xC), ((((int)stk + 0) + 0xC) + 0x4));
         t19 = (t19 + 0x1);
         if ((int)t19 < (int)(*(int *)0xC1CBBAC)) continue;
         break;

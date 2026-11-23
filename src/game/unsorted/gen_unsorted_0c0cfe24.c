@@ -16,8 +16,8 @@ int FUN_0c037320(int, int);
 int FUN_0c03733c(int, int, int);
 int mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
-int FUN_0c03796e(int, int);
-int FUN_0c0379b6(int, int);
+int mdl_vtx_get_uv(int, int);
+int mdl_vtx_set_uv(int, int);
 int FUN_0c03f258(int, int);
 int FUN_0c03f444(int, int, int);
 int FUN_0c064d24(int, int, int, int, int, int, int, int);
@@ -140,7 +140,7 @@ int FUN_0c0cff96(int a4, int a5, float f4)
         if (t6 != 0) {
             break;
         }
-        FUN_0c03796e((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
+        mdl_vtx_get_uv((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
         t10 = 0x0;
         t11 = (a5 + 0x10);
         t13 = t12;
@@ -169,7 +169,7 @@ int FUN_0c0cff96(int a4, int a5, float f4)
             t11 = (t11 + 0x4);
             t10 = (t10 + 0x4);
         }
-        FUN_0c0379b6((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
+        mdl_vtx_set_uv((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
     }
     t54 = t6;
     if ((*(int *)(((int)stk + 8))) != 0) {
@@ -195,7 +195,7 @@ int FUN_0c0cff96(int a4, int a5, float f4)
             if (t39 != 0) {
                 break;
             }
-            t41 = (FUN_0c03796e((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4)));
+            t41 = (mdl_vtx_get_uv((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4)));
             t42 = 0x0;
             t43 = (a5 + 0x10);
             for (;;) {
@@ -213,7 +213,7 @@ int FUN_0c0cff96(int a4, int a5, float f4)
                 t43 = (t43 + 0x4);
                 t42 = (t42 + 0x4);
             }
-            FUN_0c0379b6((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
+            mdl_vtx_set_uv((((int)stk + 0) + 0x14), ((((int)stk + 0) + 0x14) + 0x4));
         }
         t54 = t39;
     }

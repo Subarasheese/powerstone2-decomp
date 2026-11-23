@@ -188,10 +188,10 @@ int FUN_0c1a36ac(int a4, int a5, int a6, float f4, float f5);
 int FUN_0c2c1bfc(int a4, int a5, int a6, int a7, int a8, int a9);
 int FUN_0c2cc84e(int a4);
 int ADXF_ReadNw(int a4, int a5, int a6, int a7);
-int FUN_0c111310(int a4, int a5, int a6);
+int mpdrv_init(int a4, int a5, int a6);
 int FUN_0c2ec1b0(int a4);
 int FUN_0c2d2d8c(int a4);
-int FUN_0c103e50(int a4, int a5, int a6, int a7);
+int vmsfs_fsetattr(int a4, int a5, int a6, int a7);
 int fmMngReadSctAllData(int a4);
 int FUN_0c2c93e0(int a4, int a5, int a6, int a7);
 int FUN_0c2d3c22(int a4);
@@ -203,7 +203,7 @@ float in_fmods(int a4, float f4, float f5);
 int FUN_0c1a3438(int a4, int a5);
 int kmInitDevice(int a4);
 int FUN_0c1900d8(int a4, int a5, int a6);
-int FUN_0c2c2874(int a4, int a5, int a6);
+int syBtCfgSet(int a4, int a5, int a6);
 int FUN_0c2cff16(int a4, int a5, int a6, int a7);
 int FUN_0c2d00f0(int a4, int a5);
 int FUN_0c2c8d40(void);
@@ -1222,7 +1222,7 @@ int ADXF_ReadNw(int a4, int a5, int a6, int a7)
     return t63;
 }
 
-int FUN_0c111310(int a4, int a5, int a6)
+int mpdrv_init(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -1970,7 +1970,7 @@ int FUN_0c1900d8(int a4, int a5, int a6)
     goto L_C19012E;
 }
 
-int FUN_0c2c2874(int a4, int a5, int a6)
+int syBtCfgSet(int a4, int a5, int a6)
 {
     int stk[15];
 

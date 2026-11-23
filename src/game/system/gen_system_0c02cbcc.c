@@ -63,7 +63,7 @@ int FUN_0c182b6e(int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c2ae9e4(void);
 int gdFsFinish(void);
-int FUN_0c2b1424(void);
+int pdExitPeripheral(void);
 int FUN_0c2b1622(void);
 int syRtcFinish(void);
 int sys_get_video_standard(void);
@@ -582,7 +582,7 @@ int FUN_0c02d54c(void)
 int sys_shutdown_all(int a4, int a5, int a6, int a7)
 {
     FUN_0c02d294(a4, a5, a6, a7);
-    FUN_0c2b1424();
+    pdExitPeripheral();
     FUN_0c2b407e();
     gdFsFinish();
     syCfgExit();

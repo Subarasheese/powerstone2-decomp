@@ -92,15 +92,15 @@ int FUN_0c19c058(int);
 int FUN_0c19c082(int);
 int FUN_0c19c0a6(int);
 int FUN_0c19c0dc(int);
-int FUN_0c1a37b4(int, int);
+int longjmp(int, int);
 int FUN_0c1a3828(int, int, int, int, float, float, float, float, float, float, float, float);
-int FUN_0c2bd8b4(int, int, int);
+int vmsfs_write_retry(int, int, int);
 int FUN_0c2c14a8(void);
 int FUN_0c2c6304(void);
 int FUN_0c2c631c(int, int);
 int FUN_0c2c6728(void);
 int FUN_0c2c6740(int, int);
-int FUN_0c2c6be4(int, int, int);
+int SJ_SplitChunk(int, int, int);
 int FUN_0c2d28e8(int, int, int);
 int FUN_0c2d4768(int, int);
 int FUN_0c2d487c(int, int, int);
@@ -173,12 +173,12 @@ int SJUNI_GetChunk(int a4, int a5, int a6, int a7);
 void FUN_0c2f5ac0(void);
 int nlObjPutCheckSideCulling(int a4);
 int FUN_0c195acc(int a4, int a5, int a6, int a7);
-int FUN_0c2cd240(int a4, int a5, int a6, int a7);
+int kmiFLWCTRLCheckFinishPacket(int a4, int a5, int a6, int a7);
 void FUN_0c2eb55c(int a4, int a5, int a6, int a7);
 int FUN_0c17e390(int a4);
 int FUN_0c18cde8(int a4, int a5, int a6, int a7);
 int FUN_0c19b006(int a4, int a5, int a6, int a7);
-int FUN_0c113890(int a4);
+int fmMngAddData(int a4);
 void SJUNI_PutChunk(int a4, int a5, int a6, int a7);
 int FUN_0c2d61aa(int a4);
 int FUN_0c2ecd24(int a4, int a5, int a6, int a7);
@@ -756,7 +756,7 @@ int buFbrExecFiberServer(int a4, int a5, int a6, int a7, float f4, float f5, flo
         case 1:
             t3 = (*(int *)((t2 + 0x14)));
             if ((unsigned int)t3 <= (unsigned int)((((struct o204_int *)(a4))->v))) {
-                FUN_0c1a37b4((t2 + 0x18), 0x1);
+                longjmp((t2 + 0x18), 0x1);
             }
             break;
         case 2:
@@ -1133,7 +1133,7 @@ int FUN_0c195acc(int a4, int a5, int a6, int a7)
     return t7;
 }
 
-int FUN_0c2cd240(int a4, int a5, int a6, int a7)
+int kmiFLWCTRLCheckFinishPacket(int a4, int a5, int a6, int a7)
 {
     register int t0;
     int t1;
@@ -1845,7 +1845,7 @@ int vmsfs_rewrite_exec_file(int a4, int a5, int a6, int a7, int a8)
                         t10 = a6;
                         t11 = a7;
                         for (;;) {
-                            t12 = FUN_0c2bd8b4(a4, t11, t10);
+                            t12 = vmsfs_write_retry(a4, t11, t10);
                             if ((int)t12 < 0) {
                                 break;
                             }

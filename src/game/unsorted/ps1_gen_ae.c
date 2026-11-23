@@ -179,16 +179,16 @@ int FUN_0c0ed9e8(int, int, int);
 int FUN_0c0efdee(int);
 int FUN_0c0f0072(int);
 int FUN_0c0f3d20(int, int);
-int FUN_0c0ffdba(void);
+int copy_device(void);
 int FUN_0c0ffdfc(void);
 int kdGetDeviceInfo(int);
-int FUN_0c10121c(int, int, int);
+int vmsfs_read_retry(int, int, int);
 int FUN_0c109c06(int, int);
 int FUN_0c10a47c(int, int, int);
 int kmiRegisterPhIntHandler(int);
 int FUN_0c11142c(int, int, int, int);
 int FUN_0c1137d4(int);
-int FUN_0c113890(int);
+int fmMngAddData(int);
 int FUN_0c11568c(int, int);
 extern int _builtin_get_imask(void);
 extern void _builtin_set_imask(int);
@@ -318,7 +318,7 @@ int FUN_0c1139b0(int a4, int a5, int a6)
         }
         t1 = t0;
     } else {
-        t0 = FUN_0c113890(a4);
+        t0 = fmMngAddData(a4);
         t2 = t0;
         if (t0 == -10) {
             *(unsigned int *)((a4 + 0x24)) = 0x1;

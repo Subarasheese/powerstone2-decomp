@@ -15,7 +15,7 @@ int FUN_0c17e290(int, int);
 int nlObjPut(int);
 int nlObjPutTrnsl(int, float);
 int FUN_0c17e740(int, float, float, float);
-int FUN_0c0ef980(int);
+int nlObjPutCheapEnvMap(int);
 int FUN_0c02e078(int a4, int a5, int a6);
 
 int FUN_0c02e078(int a4, int a5, int a6)
@@ -45,7 +45,7 @@ int FUN_0c02e078(int a4, int a5, int a6)
         if ((((unsigned short)t14 & 0x800) == 0) && (((unsigned short)t7 & 0x800) == 0)) {
             t26 = 0x800;
         } else {
-            FUN_0c0ef980((*(int *)((a5 + 0x8))));
+            nlObjPutCheapEnvMap((*(int *)((a5 + 0x8))));
         }
         if ((0x200 & (unsigned short)t14) != 0) {
             FUN_0c17e740(t26, ((((struct o18_float *)(a5))->v)), ((((struct o1C_float *)(a5))->v)), ((((struct o20_float *)(a5))->v)));

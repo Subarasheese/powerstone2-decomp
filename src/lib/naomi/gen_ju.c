@@ -21,7 +21,7 @@ int FUN_0c2f3668(void);
 int FUN_0c2f384c(int);
 int FUN_0c187b78(int a4, int a5, int a6, int a7);
 int FUN_0c2f344a(void);
-int FUN_0c2fb6a4(void);
+int syIntAdrChk_init(void);
 int FUN_0c18d23c(int a4);
 int FUN_0c1a3600(int a4, int a5, int a6, int a7);
 int FUN_0c1a2a68(int a4, int a5, int a6);
@@ -240,7 +240,7 @@ int FUN_0c2f344a(void)
     return t5;
 }
 
-int FUN_0c2fb6a4(void)
+int syIntAdrChk_init(void)
 {
     int stk[3];
     register int t0;

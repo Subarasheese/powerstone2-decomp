@@ -87,7 +87,7 @@ int FUN_0c117e76(void);
 int FUN_0c1186d4(int);
 int FUN_0c1187ba(void);
 int FUN_0c11e20c(int);
-int FUN_0c1870f0(int, int, int);
+int nldispstripSub(int, int, int);
 int FUN_0c187cac(int, int, int, int, int);
 float math_cos_angle16(int);
 int math_mat_get_translate(int, int);
@@ -876,5 +876,5 @@ int FUN_0c0e08e0(int a4)
 int FUN_0c186d20(int a4, int a5, int a6, int a7)
 {
     nlstripSetVertexContext(0xC2A6344, a5, a6, a7);
-    return FUN_0c1870f0(a4, 0x0, a5);
+    return nldispstripSub(a4, 0x0, a5);
 }

@@ -141,7 +141,7 @@ int _modls(void);
 extern int _quick_odd_mvn();
 int vib_port_has_vibration(int);
 int FUN_0c0f414e(int, int, int, int);
-int FUN_0c101148(int, int);
+int vmsfs_mediainfo_retry(int, int);
 int FUN_0c1062f6(int, int);
 int FUN_0c106302(int, int);
 int FUN_0c107fce(int, int);
