@@ -134,7 +134,7 @@ int FUN_0c2fdddc(void);
 int FUN_0c2fde34(void);
 extern int FUN_0c2fdee4();
 int FUN_0c2fe278(void);
-int FUN_0c2fe2e0(void);
+int syStart(void);
 int kmiWriteFBRegister(void);
 int thunk_FUN_0c2e6fa2(int);
 int FUN_0c2fd598(int a4, int a5, int a6, int a7);
@@ -317,7 +317,7 @@ int FUN_0c2fd598(int a4, int a5, int a6, int a7)
     if (v0_0) goto L_C2FDAC8;
     goto L_C2FDAC0;
     L_C2FDAC8:;
-    v0_1 = ((FUN_0c2fe2e0()));
+    v0_1 = ((syStart()));
     goto L_C2FDD18;
     L_C2FDA8A:;
     (((struct o0_uchar *)0xC8E0B41)->v) = R10;
@@ -360,7 +360,7 @@ int FUN_0c2fd598(int a4, int a5, int a6, int a7)
     goto L_C2FDD18;
     L_C2FDAF4:;
     *(unsigned char *)((v0_0 + 0x0)) = 0x6;
-    FUN_0c2fe2e0();
+    syStart();
     goto L_C2FDAFC;
     L_C2FD5F0:;
     if ((v0_1 != 5)) goto L_C2FD5F8;

@@ -6633,8 +6633,6 @@ FUN_0c177450
 FUN_0c1777c0
 FUN_0c1777e0
 FUN_0c1779a0
-FUN_0c1779c0
-FUN_0c177a50
 FUN_0c177af0
 FUN_0c177bc0
 FUN_0c177d10
@@ -6923,7 +6921,6 @@ FUN_0c185d00
 FUN_0c185d28
 FUN_0c185d50
 FUN_0c185d6a
-FUN_0c185dc0
 FUN_0c1862a0
 FUN_0c186380
 FUN_0c186408
@@ -6939,7 +6936,6 @@ FUN_0c186f40
 FUN_0c1870f0
 FUN_0c187220
 FUN_0c187360
-FUN_0c1879e0
 FUN_0c187a88
 FUN_0c187b60
 FUN_0c187b78
@@ -7457,13 +7453,9 @@ FUN_0c1a1354
 FUN_0c1a14c0
 FUN_0c1a14dc
 FUN_0c1a1574
-FUN_0c1a15dc
 FUN_0c1a2074
-FUN_0c1a20d4
 FUN_0c1a2120
-FUN_0c1a2138
 FUN_0c1a214e
-FUN_0c1a2210
 FUN_0c1a240c
 FUN_0c1a26d8
 FUN_0c1a2a68
@@ -8316,7 +8308,6 @@ FUN_0c2ed60e
 FUN_0c2ed658
 FUN_0c2ed6c8
 FUN_0c2ed6f8
-FUN_0c2ed71a
 FUN_0c2ed71e
 FUN_0c2ed9a0
 FUN_0c2eda34
@@ -8574,7 +8565,7 @@ FUN_0c2fdee4
 FUN_0c2fe108
 FUN_0c2fe21e
 FUN_0c2fe278
-FUN_0c2fe2e0
+MD5Transform
 Qreset
 SJMEM_Create
 SJMEM_Destroy
@@ -8724,6 +8715,7 @@ copySmallVQToTextureRom
 crcchk
 dbg_printf
 dbg_set_cell_size
+dec_to_float
 direntry
 direntry_dirty
 draw_project_point_sprite
@@ -8826,6 +8818,7 @@ gdFsStrncmpi
 gdFsToUpper
 gdFsWaitCompleteReq
 get_fat
+get_stack_pointer
 get_vmstime
 gfx_set_background_color
 gfx_set_background_plane
@@ -8833,6 +8826,8 @@ gfx_set_border_color
 gfx_set_display_mode
 gfx_set_fog_color
 gfx_set_fog_density
+gfx_set_fog_table_color
+gfx_set_fog_vertex_color
 hit_list_reset
 hwInit
 in_fmods
@@ -9074,6 +9069,7 @@ kmytex_FBFreeEntry
 kmytex_TXalloc
 kmytex_TXalloc2
 kmytex_VQFreeEntry
+libc_strcmp
 make_header
 math_angle3_delta
 math_angle3_delta_scaled
@@ -9108,6 +9104,8 @@ math_vec3_mul_xyz
 math_vec3_sub_scaled
 math_vec3i_add
 math_vec3i_sub
+md5_decode
+md5_memset
 mdl_vtx_get_pos
 mdl_vtx_iter_begin
 mdl_vtx_iter_next
@@ -9246,6 +9244,7 @@ mwlSbSetGain
 mwlSbSetPitch
 mwlSbTrnsDat
 mwlSbTrnsEx
+net_select
 nlAddVector3op
 nlCalcPoint
 nlCalcPoint44
@@ -9598,6 +9597,7 @@ syRtcMakeAgeOfMoon
 syRtcMakeDayOfWeek
 syRtcSetDate
 sySqInit
+syStart
 syTmrCountToMicro
 syTmrGenCountToMicro
 syTmrGenSetInt

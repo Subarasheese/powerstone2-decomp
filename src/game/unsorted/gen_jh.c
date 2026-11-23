@@ -97,7 +97,7 @@ int FUN_0c194d80(int, int, int, int, int);
 int FUN_0c197e54(int, int, int, int, int, int);
 int FUN_0c19c348(int, int, int, int);
 int FUN_0c19daa0(int, int, int, int);
-int FUN_0c1a15dc(int, int, int, int, int, int, int, int, int, int, int, int);
+int MD5Transform(int, int, int, int, int, int, int, int, int, int, int, int);
 int FUN_0c1a2120(int, int, int);
 int FUN_0c2c30aa(int, int, int, int, int);
 int FUN_0c2e3040(int, int);
@@ -477,13 +477,13 @@ int FUN_0c1a14dc(int a4, int a5, int a6)
     t16 = 0x0;
     if ((unsigned int)a6 >= (unsigned int)(0x40 - (0x3F & ((unsigned int)((unsigned int)t0 >> 2) >> 1)))) {
         FUN_0c1a2120(((a4 + 0x18) + (0x3F & ((unsigned int)((unsigned int)t0 >> 2) >> 1))), a5, (0x40 - (0x3F & ((unsigned int)((unsigned int)t0 >> 2) >> 1))));
-        FUN_0c1a15dc(a4, (a4 + 0x18), 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
+        MD5Transform(a4, (a4 + 0x18), 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
         t11 = (0x40 - (0x3F & ((unsigned int)((unsigned int)t0 >> 2) >> 1)));
         for (;;) {
             if ((unsigned int)(t11 + 0x3F) >= (unsigned int)a6) {
                 break;
             }
-            FUN_0c1a15dc(a4, (a5 + t11), 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
+            MD5Transform(a4, (a5 + t11), 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
             t11 = (t11 + 0x40);
         }
         t15 = 0x0;

@@ -1,11 +1,11 @@
-/* Hand-written: FUN_0c1a15dc, the MD5 block transform (RFC 1321): the four state words at the first argument absorb the 64-byte
-   block at the second. FUN_0c1a20d4 decodes the block into sixteen little-endian words, 64 steps of the four round functions
-   mix them in, the state words get the results added (in the order the original stores them), and FUN_0c1a2138 clears the
+/* Hand-written: MD5Transform, the MD5 block transform (RFC 1321): the four state words at the first argument absorb the 64-byte
+   block at the second. md5_decode decodes the block into sixteen little-endian words, 64 steps of the four round functions
+   mix them in, the state words get the results added (in the order the original stores them), and md5_memset clears the
    decoded words. The original has the 64 steps unrolled (2712 bytes, more than the generator could read); here they are one
    loop over the step table: the additive constants (floor(|sin(i + 1)| * 2^32)), the rotation of each step, and which decoded
    word it takes. */
-int FUN_0c1a20d4(int a4, int a5, int a6);
-int FUN_0c1a2138(int a4, int a5, int a6);
+int md5_decode(int a4, int a5, int a6);
+int md5_memset(int a4, int a5, int a6);
 
 static const unsigned int md5_k[64] = {
     0xD76AA478U, 0xE8C7B756U, 0x242070DBU, 0xC1BDCEEEU, 0xF57C0FAFU, 0x4787C62AU, 0xA8304613U, 0xFD469501U,
@@ -19,7 +19,7 @@ static const unsigned int md5_k[64] = {
 };
 static const unsigned char md5_r[16] = { 7, 12, 17, 22, 5, 9, 14, 20, 4, 11, 16, 23, 6, 10, 15, 21 };
 
-void FUN_0c1a15dc(unsigned int *state, int block)
+void MD5Transform(unsigned int *state, int block)
 {
     unsigned int x[16];
     unsigned int a, b, c, d, f, t;
@@ -29,7 +29,7 @@ void FUN_0c1a15dc(unsigned int *state, int block)
     b = state[1];
     c = state[2];
     d = state[3];
-    FUN_0c1a20d4((int)x, block, 64);
+    md5_decode((int)x, block, 64);
     for (i = 0; i < 64; i++) {
         if (i < 16) {
             f = (b & c) | (~b & d);
@@ -55,5 +55,5 @@ void FUN_0c1a15dc(unsigned int *state, int block)
     state[1] += b;
     state[2] += c;
     state[3] += d;
-    FUN_0c1a2138((int)x, 0, 64);
+    md5_memset((int)x, 0, 64);
 }

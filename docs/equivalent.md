@@ -186258,26 +186258,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 112
 - the cases run 2 of 2 instructions
 
-### FUN_0c1779c0 (`0C1779C0`, 22 bytes, `src/lib/naomi/hand_fog_color.c`)
-- equivalent on 3 development and 3 holdout cases, in `tests/hand_fog_color/FUN_0c1779c0.json`
-- colour FF000000
-- colour 80FF8040
-- colour 00000000
-- colour 7FFFFFFF
-- colour 12345678
-- colour FFFFFFFF
-- the cases run 11 of 11 instructions
-
-### FUN_0c177a50 (`0C177A50`, 22 bytes, `src/lib/naomi/hand_fog_color.c`)
-- equivalent on 3 development and 3 holdout cases, in `tests/hand_fog_color/FUN_0c177a50.json`
-- colour FF000000
-- colour 80FF8040
-- colour 00000000
-- colour 7FFFFFFF
-- colour 12345678
-- colour FFFFFFFF
-- the cases run 11 of 11 instructions
-
 ### FUN_0c177af0 (`0C177AF0`, 26 bytes, `src/gen_bi.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/FUN_0c177af0.json`
 - case 0
@@ -194984,20 +194964,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 76
 - the cases run 13 of 13 instructions
 
-### FUN_0c185dc0 (`0C185DC0`, 1208 bytes, `src/lib/naomi/hand_FUN_0c185dc0.c`)
-- equivalent on 5 development and 5 holdout cases, in `tests/hand_FUN_0c185dc0/FUN_0c185dc0.json`
-- bad timeout
-- nothing, zero timeout
-- stream state 1 ready
-- write datagram ready
-- negative nfds, nothing set
-- bad descriptor
-- datagram ready
-- stream state 0
-- timeout runs out
-- stream write state 4
-- the cases run 450 of 526 instructions
-
 ### FUN_0c1862a0 (`0C1862A0`, 180 bytes, `src/gen_ai.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_ai/FUN_0c1862a0.json`
 - case 2
@@ -195233,22 +195199,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - rescue: empty case
 - the cases run 63 of 140 instructions
-
-### FUN_0c1879e0 (`0C1879E0`, 168 bytes, `src/lib/libc/hand_FUN_0c1879e0.c`)
-- equivalent on 6 development and 6 holdout cases, in `tests/hand_FUN_0c1879e0/FUN_0c1879e0.json`
-- b'abcdefgh' vs b'abcdefgh'
-- b'abc' vs b'abcdefg'
-- b'' vs b''
-- b'\xf0abc' vs b'\x10abc'
-- b'abcdefghijklmnop' vs b'abcdefghijklmnoq'
-- b'longer string here' vs b'longer string herf'
-- b'abcdefgh' vs b'abcdefgX'
-- b'abcdefg' vs b'abc'
-- b'hello world' vs b'hello there'
-- b'same\x00xx' vs b'same\x00yy'
-- b'x' vs b''
-- b'\x80\x7f' vs b'\x80\x80'
-- the cases run 81 of 81 instructions
 
 ### FUN_0c187a88 (`0C187A88`, 190 bytes, `src/gen_aj.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_aj/FUN_0c187a88.json`
@@ -211390,18 +211340,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - rescue: empty case
 - the cases run 40 of 41 instructions
 
-### FUN_0c1a15dc (`0C1A15DC`, 2712 bytes, `src/lib/libc/hand_FUN_0c1a15dc.c`)
-- equivalent on 4 development and 4 holdout cases, in `tests/hand_FUN_0c1a15dc/FUN_0c1a15dc.json`
-- block 0
-- block 2
-- block 4
-- block 6
-- block 1
-- block 3
-- block 5
-- block 7
-- the cases run 1230 of 1230 instructions
-
 ### FUN_0c1a2074 (`0C1A2074`, 64 bytes, `src/gen_bb.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bb/FUN_0c1a2074.json`
 - case 1
@@ -211441,46 +211379,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 88
 - case 105
 - the cases run 32 of 32 instructions
-
-### FUN_0c1a20d4 (`0C1A20D4`, 76 bytes, `src/lib/katana/gen_ba.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/FUN_0c1a20d4.json`
-- case 0
-- case 1
-- case 2
-- case 7
-- case 8
-- case 9
-- case 10
-- case 13
-- case 14
-- case 15
-- case 17
-- case 18
-- case 19
-- case 20
-- case 21
-- case 22
-- case 23
-- case 25
-- case 146
-- case 148
-- case 81
-- case 91
-- case 90
-- case 133
-- case 85
-- case 128
-- case 141
-- case 57
-- case 65
-- case 62
-- case 111
-- case 152
-- case 126
-- case 59
-- case 63
-- case 123
-- the cases run 38 of 38 instructions
 
 ### FUN_0c1a2120 (`0C1A2120`, 24 bytes, `src/gen_bi.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_bi/FUN_0c1a2120.json`
@@ -211522,65 +211420,11 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 68
 - the cases run 12 of 12 instructions
 
-### FUN_0c1a2138 (`0C1A2138`, 22 bytes, `src/gen_bj.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_bj/FUN_0c1a2138.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 7
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 17
-- case 114
-- case 88
-- case 156
-- case 43
-- case 68
-- case 45
-- case 98
-- case 83
-- case 108
-- case 159
-- case 62
-- case 50
-- case 103
-- case 36
-- case 152
-- case 53
-- case 149
-- case 74
-- the cases run 11 of 11 instructions
-
 ### FUN_0c1a214e (`0C1A214E`, 46 bytes, `src/gen_bf.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_bf/FUN_0c1a214e.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 23 of 23 instructions
-
-### FUN_0c1a2210 (`0C1A2210`, 480 bytes, `src/lib/libc/hand_FUN_0c1a2210.c`)
-- equivalent on 5 development and 5 holdout cases, in `tests/hand_FUN_0c1a2210/FUN_0c1a2210.json`
-- plain
-- normalise twice
-- underflow mode 4
-- overflow mode 3
-- sticky, round up
-- times ten
-- underflow mode 1
-- overflow mode 2
-- exact one
-- overflow mode 5
-- the cases run 195 of 215 instructions
 
 ### FUN_0c1a240c (`0C1A240C`, 148 bytes, `src/gen_ao.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_ao/FUN_0c1a240c.json`
@@ -239420,14 +239264,6 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 48
 - the cases run 17 of 17 instructions
 
-### FUN_0c2ed71a (`0C2ED71A`, 4 bytes, `src/lib/katana/hand_FUN_0c2ed71a.c`)
-- equivalent on 2 development and 2 holdout cases, in `tests/hand_FUN_0c2ed71a/FUN_0c2ed71a.json`
-- case 0
-- case 1
-- case 2
-- case 3
-- the cases run 2 of 2 instructions
-
 ### FUN_0c2ed71e (`0C2ED71E`, 626 bytes, `src/gen_k.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_k/FUN_0c2ed71e.json`
 - case 57
@@ -247624,45 +247460,17 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 61
 - the cases run 26 of 33 instructions
 
-### FUN_0c2fe2e0 (`0C2FE2E0`, 508 bytes, `src/gen_jv.c`)
-- equivalent on 18 development and 18 holdout cases, in `tests/gen_jv/FUN_0c2fe2e0.json`
-- case 7
-- case 20
-- case 0
-- case 1
-- case 2
-- case 3
-- case 4
-- case 5
-- case 6
-- case 8
-- case 9
-- case 10
-- case 11
-- case 12
-- case 13
-- case 14
-- case 15
-- case 16
-- case 47
-- case 155
-- case 53
-- case 67
-- case 99
-- case 59
-- case 101
-- case 105
-- case 123
-- case 151
-- case 80
-- case 121
-- case 109
-- case 76
-- case 143
-- case 39
-- case 124
-- case 137
-- the cases run 118 of 203 instructions
+### MD5Transform (`0C1A15DC`, 2712 bytes, `src/lib/naomi/hand_FUN_0c1a15dc.c`)
+- equivalent on 4 development and 4 holdout cases, in `tests/hand_FUN_0c1a15dc/MD5Transform.json`
+- block 0
+- block 2
+- block 4
+- block 6
+- block 1
+- block 3
+- block 5
+- block 7
+- the cases run 1230 of 1230 instructions
 
 ### Qreset (`0C2C8AF2`, 100 bytes, `src/gen_aw.c`)
 - equivalent on 9 development and 9 holdout cases, in `tests/gen_aw/Qreset.json`
@@ -251246,6 +251054,20 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 38
 - the cases run 5 of 5 instructions
 
+### dec_to_float (`0C1A2210`, 480 bytes, `src/lib/libc/hand_FUN_0c1a2210.c`)
+- equivalent on 5 development and 5 holdout cases, in `tests/hand_FUN_0c1a2210/dec_to_float.json`
+- plain
+- normalise twice
+- underflow mode 4
+- overflow mode 3
+- sticky, round up
+- times ten
+- underflow mode 1
+- overflow mode 2
+- exact one
+- overflow mode 5
+- the cases run 195 of 215 instructions
+
 ### direntry (`0C2C1440`, 24 bytes, `src/vt_vtsdk_b.c`)
 - equivalent on 4 development and 2 holdout cases, in `tests/vt_vtsdk_b/direntry.json`
 - unit 1 entry 3
@@ -254591,6 +254413,14 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 157
 - the cases run 16 of 16 instructions
 
+### get_stack_pointer (`0C2ED71A`, 4 bytes, `src/lib/katana/hand_FUN_0c2ed71a.c`)
+- equivalent on 2 development and 2 holdout cases, in `tests/hand_FUN_0c2ed71a/get_stack_pointer.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- the cases run 2 of 2 instructions
+
 ### get_vmstime (`0C2C163E`, 98 bytes, `src/gen_aw.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_aw/get_vmstime.json`
 - rescue: empty case
@@ -254812,6 +254642,26 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 115
 - case 82
 - the cases run 4 of 4 instructions
+
+### gfx_set_fog_table_color (`0C1779C0`, 22 bytes, `src/lib/naomi/hand_fog_color.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/hand_fog_color/gfx_set_fog_table_color.json`
+- colour FF000000
+- colour 80FF8040
+- colour 00000000
+- colour 7FFFFFFF
+- colour 12345678
+- colour FFFFFFFF
+- the cases run 11 of 11 instructions
+
+### gfx_set_fog_vertex_color (`0C177A50`, 22 bytes, `src/lib/naomi/hand_fog_color.c`)
+- equivalent on 3 development and 3 holdout cases, in `tests/hand_fog_color/gfx_set_fog_vertex_color.json`
+- colour FF000000
+- colour 80FF8040
+- colour 00000000
+- colour 7FFFFFFF
+- colour 12345678
+- colour FFFFFFFF
+- the cases run 11 of 11 instructions
 
 ### hit_list_reset (`0C054A52`, 16 bytes, `src/game/unsorted/hand_3.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/hand_3/hit_list_reset.json`
@@ -261718,6 +261568,22 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 137
 - the cases run 23 of 31 instructions
 
+### libc_strcmp (`0C1879E0`, 168 bytes, `src/lib/naomi/hand_FUN_0c1879e0.c`)
+- equivalent on 6 development and 6 holdout cases, in `tests/hand_FUN_0c1879e0/libc_strcmp.json`
+- b'abcdefgh' vs b'abcdefgh'
+- b'abc' vs b'abcdefg'
+- b'' vs b''
+- b'\xf0abc' vs b'\x10abc'
+- b'abcdefghijklmnop' vs b'abcdefghijklmnoq'
+- b'longer string here' vs b'longer string herf'
+- b'abcdefgh' vs b'abcdefgX'
+- b'abcdefg' vs b'abc'
+- b'hello world' vs b'hello there'
+- b'same\x00xx' vs b'same\x00yy'
+- b'x' vs b''
+- b'\x80\x7f' vs b'\x80\x80'
+- the cases run 81 of 81 instructions
+
 ### make_header (`0C2DA9CE`, 94 bytes, `src/game/system/gen_dr.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/gen_dr/make_header.json`
 - case 0
@@ -262965,6 +262831,86 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 63
 - case 90
 - the cases run 13 of 13 instructions
+
+### md5_decode (`0C1A20D4`, 76 bytes, `src/lib/katana/gen_ba.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_ba/md5_decode.json`
+- case 0
+- case 1
+- case 2
+- case 7
+- case 8
+- case 9
+- case 10
+- case 13
+- case 14
+- case 15
+- case 17
+- case 18
+- case 19
+- case 20
+- case 21
+- case 22
+- case 23
+- case 25
+- case 146
+- case 148
+- case 81
+- case 91
+- case 90
+- case 133
+- case 85
+- case 128
+- case 141
+- case 57
+- case 65
+- case 62
+- case 111
+- case 152
+- case 126
+- case 59
+- case 63
+- case 123
+- the cases run 38 of 38 instructions
+
+### md5_memset (`0C1A2138`, 22 bytes, `src/gen_bj.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_bj/md5_memset.json`
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 7
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 17
+- case 114
+- case 88
+- case 156
+- case 43
+- case 68
+- case 45
+- case 98
+- case 83
+- case 108
+- case 159
+- case 62
+- case 50
+- case 103
+- case 36
+- case 152
+- case 53
+- case 149
+- case 74
+- the cases run 11 of 11 instructions
 
 ### mdl_vtx_get_pos (`0C037944`, 20 bytes, `src/game/unsorted/hand_2.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/hand_2/mdl_vtx_get_pos.json`
@@ -267089,6 +267035,20 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 113
 - case 112
 - the cases run 48 of 65 instructions
+
+### net_select (`0C185DC0`, 1208 bytes, `src/lib/naomi/hand_FUN_0c185dc0.c`)
+- equivalent on 5 development and 5 holdout cases, in `tests/hand_FUN_0c185dc0/net_select.json`
+- bad timeout
+- nothing, zero timeout
+- stream state 1 ready
+- write datagram ready
+- negative nfds, nothing set
+- bad descriptor
+- datagram ready
+- stream state 0
+- timeout runs out
+- stream write state 4
+- the cases run 450 of 526 instructions
 
 ### nlAddVector3op (`0C17C130`, 32 bytes, `src/vt_game_m_2.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/vt_game_m_2/nlAddVector3op.json`
@@ -276516,6 +276476,46 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 71
 - case 77
 - the cases run 24 of 87 instructions
+
+### syStart (`0C2FE2E0`, 508 bytes, `src/gen_jv.c`)
+- equivalent on 18 development and 18 holdout cases, in `tests/gen_jv/syStart.json`
+- case 7
+- case 20
+- case 0
+- case 1
+- case 2
+- case 3
+- case 4
+- case 5
+- case 6
+- case 8
+- case 9
+- case 10
+- case 11
+- case 12
+- case 13
+- case 14
+- case 15
+- case 16
+- case 47
+- case 155
+- case 53
+- case 67
+- case 99
+- case 59
+- case 101
+- case 105
+- case 123
+- case 151
+- case 80
+- case 121
+- case 109
+- case 76
+- case 143
+- case 39
+- case 124
+- case 137
+- the cases run 118 of 203 instructions
 
 ### syTmrCountToMicro (`0C2BBE5E`, 52 bytes, `src/vt_gen_yv.c`)
 - equivalent on 18 development and 18 holdout cases, in `tests/vt_gen_yv/syTmrCountToMicro.json`

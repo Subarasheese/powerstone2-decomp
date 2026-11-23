@@ -117,7 +117,7 @@ int FUN_0c19e882(int);
 int FUN_0c1a027c(int);
 int FUN_0c1a02cc(int, int, int);
 int FUN_0c1a21bc(int, int);
-float FUN_0c1a2210(int, int, int);
+float dec_to_float(int, int, int);
 int FUN_0c1a240c(int, int, int);
 int FUN_0c2aeaa0(int, int);
 int FUN_0c2bca16(int);
@@ -145,7 +145,7 @@ int FUN_0c2ed60e(void);
 int FUN_0c2ed658(void);
 int FUN_0c2ed6c8(void);
 int FUN_0c2ed6f8(void);
-int FUN_0c2ed71a(void);
+int get_stack_pointer(void);
 int FUN_0c2ee482(int);
 int FUN_0c2ee530(void);
 int FUN_0c2f36de(void);
@@ -286,7 +286,7 @@ float FUN_0c1a042c(int a4, int a5, int a6, int a7)
             }
         }
     }
-    t10 = FUN_0c1a2210((((int)stk + 0) + 0x8), t1, (*(signed char *)(((int)stk + 4))));
+    t10 = dec_to_float((((int)stk + 0) + 0x8), t1, (*(signed char *)(((int)stk + 4))));
     return (t10 * (float)(*(int *)(((int)stk + 0))));
 }
 
@@ -1593,7 +1593,7 @@ int FUN_0c2ed196(int a4)
             t1 = FUN_0c2ed6f8();
             t0 = 0x3;
             if ((signed char)t1 != 0) {
-                t0 = (FUN_0c2ed71a());
+                t0 = (get_stack_pointer());
             }
         }
         t1 = t0;

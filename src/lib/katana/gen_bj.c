@@ -87,7 +87,7 @@ int FUN_0c184000(int, int, int);
 int FUN_0c1842e8(int, int, int);
 int FUN_0c184f70(int);
 int FUN_0c187990(int, int, int);
-int FUN_0c1879e0(int, int);
+int libc_strcmp(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18cbc8(int);
 int FUN_0c18dfb0(int, int, int, int);
@@ -210,7 +210,7 @@ int FUN_0c193b80(void);
 int FUN_0c197c58(int a4, int a5, int a6, int a7);
 int FUN_0c19a640(int a4);
 int FUN_0c19c082(int a4);
-void FUN_0c1a2138(int a4, int a5, int a6);
+void md5_memset(int a4, int a5, int a6);
 void FUN_0c2aeb54(int a4);
 int gdFsGetNumRd(int a4);
 int gdFsReinit(void);
@@ -759,7 +759,7 @@ int FUN_0c19c082(int a4)
     return ((*(int *)((a4 + 0x8))) + (*(int *)((a4 + 0x18))));
 }
 
-void FUN_0c1a2138(int a4, int a5, int a6)
+void md5_memset(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -1825,7 +1825,7 @@ int FUN_0c185276(int a4)
 
 int FUN_0c187d60(int a4, int a5)
 {
-    return (FUN_0c1879e0(a4, a5));
+    return (libc_strcmp(a4, a5));
 }
 
 int FUN_0c18ec6a(void)

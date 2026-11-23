@@ -1,4 +1,4 @@
-/* Hand-written: FUN_0c185dc0, the network library's select(nfds, readfds, writefds, exceptfds, timeout). nfds is clamped to
+/* Hand-written: net_select, the network library's select(nfds, readfds, writefds, exceptfds, timeout). nfds is clamped to
    256 (a negative one too); a timeout outside 0-100000000 seconds or 0-999999 microseconds is error 22 (EINVAL, the error word
    at 0C8A2E68) and -1. Every descriptor of the three sets must map to a socket (FUN_0c185560), else error 9 (EBADF) and -1.
    Each pass reads the timer and checks the descriptors: a socket record is at 0C8A2C60 + 52 * its handle (the current one kept
@@ -21,7 +21,7 @@ int FUN_0c183140(int a4, int a5, int a6, int a7);
 #define SOCKET (*(int *)0xC8B57A0)
 #define BIT(set, i) (((unsigned int *)(set))[(unsigned int)(i) >> 5] & (1 << ((i) & 31)))
 
-int FUN_0c185dc0(int nfds, int rfds, int wfds, int efds, int *tv)
+int net_select(int nfds, int rfds, int wfds, int efds, int *tv)
 {
     unsigned int rres[8];
     unsigned int wres[8];

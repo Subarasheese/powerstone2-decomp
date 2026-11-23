@@ -74,7 +74,7 @@ int FUN_0c184000(int, int, int);
 int FUN_0c185210(int);
 int FUN_0c185276(int);
 int FUN_0c185284(int, int);
-int FUN_0c1879e0(int, int);
+int libc_strcmp(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18c9ac(int, int, int);
 int FUN_0c18c9fc(int, ...);
@@ -105,7 +105,7 @@ int FUN_0c19e64a(int);
 int FUN_0c1a02cc(int, int, int);
 int FUN_0c1a14dc(int, int, int);
 int FUN_0c1a2074(int, int, int);
-int FUN_0c1a2138(int, int, int);
+int md5_memset(int, int, int);
 int FUN_0c2aeb3c(int);
 int FUN_0c2aeb54(int);
 int FUN_0c2b176e(int);
@@ -207,7 +207,7 @@ void FUN_0c2e8a2e(int a4, int a5);
 int FUN_0c2ebfcc(void);
 int FUN_0c185438(int a4);
 void FUN_0c19ec6e(int a4);
-int FUN_0c1a20d4(int a4, int a5, int a6);
+int md5_decode(int a4, int a5, int a6);
 int adxf_CloseSjStm(int a4, int a5, int a6, int a7);
 int ADXT_Init(void);
 int kmyUpdateFogParameter(void);
@@ -283,7 +283,7 @@ int FUN_0c1a1574(int a4, int a5)
     FUN_0c1a14dc(a5, 0xC2AE87C, (t3 - (0x3F & ((unsigned int)((unsigned int)t1 >> 2) >> 1))));
     FUN_0c1a14dc(a5, (((int)stk + 0) + 0x4), 0x8);
     FUN_0c1a2074((*(int *)(((int)stk + 0))), a5, 0x10);
-    return (FUN_0c1a2138(a5, 0x0, 0x58));
+    return (md5_memset(a5, 0x0, 0x58));
 }
 
 int FUN_0c2ae9e4(void)
@@ -1238,7 +1238,7 @@ void FUN_0c19ec6e(int a4)
     }
 }
 
-int FUN_0c1a20d4(int a4, int a5, int a6)
+int md5_decode(int a4, int a5, int a6)
 {
     register int t0;
     register int t1;
@@ -1587,7 +1587,7 @@ int FUN_0c19338e(int a4)
         if ((*(int *)((0xC2AE790 + (t0 << 2)))) == 0) {
             break;
         }
-        t1 = FUN_0c1879e0(a4, (*(int *)((0xC2AE790 + (t0 << 2)))));
+        t1 = libc_strcmp(a4, (*(int *)((0xC2AE790 + (t0 << 2)))));
         if (t1 != 0) {
             t0 = (t0 + 0x1);
             continue;

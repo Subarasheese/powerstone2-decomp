@@ -46,7 +46,7 @@ int FUN_0c2f8c72(void);
 int FUN_0c2fe108(int, int);
 int thunk_FUN_0c05abb2(int, int);
 int FUN_0c0eb9a2(int a4);
-int FUN_0c2fe2e0(int a4, int a5);
+int syStart(int a4, int a5);
 int FUN_0c0ebdf6(int a4);
 
 int FUN_0c0eb9a2(int a4)
@@ -193,7 +193,7 @@ int FUN_0c0eb9a2(int a4)
     goto L_C0EBA06;
 }
 
-int FUN_0c2fe2e0(int a4, int a5)
+int syStart(int a4, int a5)
 {
 
     register int R1;
