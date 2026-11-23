@@ -70590,6 +70590,12 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 102
 - the cases run 12 of 13 instructions
 
+### FUN_0c086ad4 (`0C086AD4`, 248 bytes, `src/gen_jz.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_jz/FUN_0c086ad4.json`
+- rescue: empty case
+- rescue: empty case
+- the cases run 46 of 121 instructions
+
 ### FUN_0c086bec (`0C086BEC`, 304 bytes, `src/gen_cj.c`)
 - equivalent on 1 development and 1 holdout cases, in `tests/gen_cj/FUN_0c086bec.json`
 - rescue: empty case
