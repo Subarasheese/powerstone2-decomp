@@ -6,7 +6,7 @@ struct o10_uchar { char p[0x10]; unsigned char v; };
 int FUN_0c042fe0(void);
 int FUN_0c07bc8c(int);
 int FUN_0c07bcc2(int);
-int FUN_0c0f414e(int, int, int, int);
+int pdVibSetStopTime(int, int, int, int);
 int pdVibMxStop(int);
 int FUN_0c07bdd0(int a4, int a5);
 int FUN_0c07bf00(int a4, int a5);
@@ -64,7 +64,7 @@ int FUN_0c07bdd0(int a4, int a5)
                         t23 = 0xFF;
                     }
                     *(unsigned char *)(((((int)stk + 0) + 0x8) + 0x0)) = t23;
-                    FUN_0c0f414e((*(int *)(((int)stk + 4))), (((int)stk + 0) + 0xC), (((int)stk + 0) + 0x8), 0x1);
+                    pdVibSetStopTime((*(int *)(((int)stk + 4))), (((int)stk + 0) + 0xC), (((int)stk + 0) + 0x8), 0x1);
                     t27 = *(signed char *)((a4 + 0x1));
                     *(unsigned short *)((((((t27 << 1) + t27) << 2) + 0xC471A9C) + 0x0)) = 0x2;
                     t29 = *(signed char *)((a4 + 0x1));
@@ -123,7 +123,7 @@ int FUN_0c07bf00(int a4, int a5)
                     t22 = 0xFF;
                 }
                 *(unsigned char *)(((((int)stk + 0) + 0x8) + 0x0)) = t22;
-                FUN_0c0f414e((*(int *)(((int)stk + 4))), (((int)stk + 0) + 0xC), (((int)stk + 0) + 0x8), 0x1);
+                pdVibSetStopTime((*(int *)(((int)stk + 4))), (((int)stk + 0) + 0xC), (((int)stk + 0) + 0x8), 0x1);
                 t26 = *(signed char *)((a4 + 0x1));
                 *(unsigned short *)((((((t26 << 1) + t26) << 2) + 0xC471A9C) + 0x0)) = 0x2;
                 t28 = *(signed char *)((a4 + 0x1));
@@ -175,7 +175,7 @@ int FUN_0c07c01c(int a4, int a5, int a6, int a7)
                 t16 = *(signed char *)((a4 + 0x1));
                 *(unsigned char *)(((0x8 + ((((t16 << 1) + t16) << 2) + 0xC471A9C)) + 0x0)) = 0x0;
                 (((struct o10_uchar *)(((int)stk + 0)))->v) = 0xFF;
-                FUN_0c0f414e((*(int *)(((int)stk + 12))), (((int)stk + 0) + 0x14), (((int)stk + 0) + 0x10), 0x1);
+                pdVibSetStopTime((*(int *)(((int)stk + 12))), (((int)stk + 0) + 0x14), (((int)stk + 0) + 0x10), 0x1);
                 t20 = *(signed char *)((a4 + 0x1));
                 *(unsigned short *)((((((t20 << 1) + t20) << 2) + 0xC471A9C) + 0x0)) = 0x2;
                 t22 = *(signed char *)((a4 + 0x1));

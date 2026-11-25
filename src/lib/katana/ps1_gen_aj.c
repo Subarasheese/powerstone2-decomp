@@ -145,7 +145,7 @@ float math_sin_reduce_quadrant(int, float);
 int nlScale(float, float, float);
 int nlTranslate(float, float, float);
 int nlUnitMatrix(void);
-float FUN_0c0e2240(int, int);
+float nlLength(int, int);
 int syRtcDateToCount(void);
 int FUN_0c0e50ec(void);
 int snd_bank_load(int, int);

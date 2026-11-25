@@ -32,10 +32,10 @@ struct oC_int { char p[0xC]; int v; };
 struct oC_uint { char p[0xC]; unsigned int v; };
 int nlSelectMatrixStack(int);
 int nlUnitMatrix(void);
-int FUN_0c17df90(int, int);
+int nlObjPutLoadTexture(int, int);
 int nlObjPut(int);
 int nlObjPutTrnsl(int, float);
-int FUN_0c17e740(float, float, float);
+int nlObjPutSetFadeColor(float, float, float);
 extern int FUN_0c18778c();
 int FUN_0c187798(void);
 int FUN_0c057384(void);
@@ -48,7 +48,7 @@ int FUN_0c057402(float f4, float f5);
 
 int FUN_0c057384(void)
 {
-    return FUN_0c17df90(0xC1BFA20, 0xC1BFB18);
+    return nlObjPutLoadTexture(0xC1BFA20, 0xC1BFB18);
 }
 
 int FUN_0c05738e(int a4, int a5, int a6, int a7)

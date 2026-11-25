@@ -14,7 +14,7 @@ int FUN_0c03f444(int, int, int);
 int FUN_0c14f824(int, int);
 int FUN_0c150010(int, float, float, float, float);
 int FUN_0c16defa(int, int, int, int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int);
 int FUN_0c16e01c(int a4, int a5, int a6, int a7);
 int FUN_0c16e0f2(int a4);
@@ -38,13 +38,13 @@ int FUN_0c16e01c(int a4, int a5, int a6, int a7)
         t5 = *(short *)((a4 + 0x1E));
         *(unsigned short *)((a4 + 0x1E)) = (t5 - 1);
         if ((short)(t5 - 1) == 0) {
-            *(float *)(((int)stk + 0)) = (((((struct o28_float *)(a4))->v)) + (float)(((int)((int)(FUN_0c179ac0()) % (int)0xC8)) - 100));
-            *(float *)(((int)stk + 4)) = (((((struct o2C_float *)(a4))->v)) + (float)(((int)((int)(FUN_0c179ac0()) % (int)0xC8)) - 100));
-            *(float *)(((int)stk + 8)) = (((((struct o30_float *)(a4))->v)) + (float)(((int)((int)(FUN_0c179ac0()) % (int)0xC8)) - 100));
+            *(float *)(((int)stk + 0)) = (((((struct o28_float *)(a4))->v)) + (float)(((int)((int)(nlRand()) % (int)0xC8)) - 100));
+            *(float *)(((int)stk + 4)) = (((((struct o2C_float *)(a4))->v)) + (float)(((int)((int)(nlRand()) % (int)0xC8)) - 100));
+            *(float *)(((int)stk + 8)) = (((((struct o30_float *)(a4))->v)) + (float)(((int)((int)(nlRand()) % (int)0xC8)) - 100));
             FUN_0c16defa(a4, ((int)stk + 0), 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8));
             FUN_0c14f824((*(signed char *)((a4 + 0x1))), ((int)stk + 0));
             FUN_0c150010(((int)stk + 0), 1.0f, 1.0f, 1.0f, 1.0f);
-            *(unsigned short *)((a4 + 0x1E)) = (((int)((int)(FUN_0c179ac0()) % (int)0x6)) + 0x3);
+            *(unsigned short *)((a4 + 0x1E)) = (((int)((int)(nlRand()) % (int)0x6)) + 0x3);
         }
         t28 = *(short *)((a4 + 0x1C));
         *(unsigned short *)((a4 + 0x1C)) = (t28 - 1);

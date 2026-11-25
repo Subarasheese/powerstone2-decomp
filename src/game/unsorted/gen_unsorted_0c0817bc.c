@@ -35,16 +35,17 @@ int FUN_0c085d0c(int);
 int FUN_0c0817bc(int a4, int a5);
 int FUN_0c081972(int a4, int a5);
 int FUN_0c0819c2(int a4, int a5);
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+
 
 int FUN_0c0817bc(int a4, int a5)
 {
     int stk[8];
-    register int t6;
-    register int t32;
-    register int t36;
-    register int t37;
-    register int t38;
-    register int t39;
+    int t36;
+    int t37;
+    int t38;
+    int t39;
+    int t32;
 
     *(unsigned char *)(((int)stk + 12)) = a5;
     (((struct o3715_uchar *)(a4))->v) = 0x6;
@@ -55,8 +56,7 @@ int FUN_0c0817bc(int a4, int a5)
         FUN_0c07daea(a4);
         return FUN_0c085d0c(a4);
     }
-    t6 = *(signed char *)((a4 + 0x371D));
-    switch (t6) {
+    switch ((*(signed char *)(a4 + 0x371D))) {
     case 2:
         break;
     case 3:
@@ -84,10 +84,10 @@ int FUN_0c0817bc(int a4, int a5)
         (((struct o50_float *)(a4))->v) = 0.0f;
         (((struct o54_float *)(a4))->v) = 0.0f;
         (((struct o4C_float *)(a4))->v) = 0.0f;
-        *(unsigned short *)((a4 + 0x1C)) = 0x4;
+        (((struct o1C_ushort *)(a4))->v) = 0x4;
         (((struct o3724_uchar *)(a4))->v) = 0x0;
         if (((((struct o160_float *)(a4))->v)) == 0.0f) {
-            if ((*(signed char *)((a4 + 0x372C))) == 0) {
+            if ((*(signed char *)(a4 + 0x372C)) == 0) {
                 *(int *)((int)stk + 8) = 0x2A;
                 *(int *)((int)stk + 4) = 0x4;
                 *(int *)((int)stk + 0) = 0xFFFFFFFF;

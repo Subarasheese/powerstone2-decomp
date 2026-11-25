@@ -3,6 +3,14 @@
 
     python3 tools/boundaries.py candidates.txt            report the plan
     python3 tools/boundaries.py candidates.txt --apply    write functions.txt (a copy is kept in build/functions.before-boundaries)
+    python3 tools/boundaries.py --discover               print the candidates the listed code points at: one line per address
+                                                                (a candidates file; `> candidates.txt` and run the two lines above)
+
+--discover names the addresses to ask about: every listed entry is walked, and an address in a gap (inside no listed range) that its code
+`bra`s or `bsr`s to, or reaches with a `jsr` or `jmp` through a register loaded from a pool word, is a candidate (Power Stone 2 0C0B819E, a
+42-byte routine after the 34-byte FUN_0c0b817c that two `bra` of FUN_0c0b857c jump to: unlisted, so the generator wrote the four
+functions it jumps to inline). A forward `bra` into a gap that the function's own branches reach is more of that function, not a candidate.
+The checks below then accept or refuse each one.
 
 candidates.txt: one address per line (hex), optionally followed by a name; # starts a comment. For each address the tool checks
 that it begins a function, by what the code can do rather than by how it looks:
@@ -51,9 +59,17 @@ def entries():
     return sorted(out)
 
 
-def reach(start, stop_at=None):
+_held = {}
+
+
+def reach(start, stop_at=None, tails=(), funcs=None, bra_tails=()):
     """(end, flags): the end of the code reachable from start by its own branches (calls are not followed), the set of reached
-    addresses, and what was seen: 'table' (a jump through a register), 'off' (ran past stop_at or the executable)."""
+    addresses, and what was seen: 'table' (a jump through a register), 'off' (ran past stop_at or the executable).
+    tails: entry addresses a `bra` to is a tail jump into that function, not more of this one (Zombie Revenge 0C04179C ends with
+    `bra FUN_0c041f2a`, a function after it: followed, it ran into that entry and seven functions the C calls stayed unlisted).
+    bra_tails: the same for an unconditional `bra` only (a conditional branch to it stays a branch of this function): the entries and the
+    candidates of the run, when the function walked is a holder (a candidate reached by the holder's `bra` is a tail jump to another
+    routine, not a label of the holder)."""
     seen, todo, flags, end = set(), [start], set(), start
     top = BASE + len(BIN)
     while todo:
@@ -69,9 +85,23 @@ def reach(start, stop_at=None):
             text, pool, psize, target = shdis.decode(w, a)
             m = text.split()[0] if text else ''
             end = max(end, a + 2)
+            if funcs is not None:
+                # data that happens to decode (a table of floats, a model: Zombie Revenge 0C0F4310 and nine more were listed as functions
+                # because the walk reached something like a return; the build then rewrote their bytes as branches and pool loads and
+                # the game stopped with "memory allocation error"): code calls functions, data "calls" anywhere
+                lim = stop_at if stop_at is not None else top
+                if not m or m.startswith('.'):
+                    flags.add('wild')
+                    break
+                if m == 'bsr' and target is not None and target not in funcs and not start <= target < lim:
+                    flags.add('wild')
+                if m == 'bra' and target is not None and target not in funcs and not start <= target < lim:
+                    flags.add('wild')
             if m in ('bt', 'bf'):
                 if target is not None:
-                    if target < start:                 # a conditional branch out of the start backwards: no function does that
+                    if target in tails:                # to another listed function's entry: a conditional tail jump, not more of
+                        pass                           # this one (Zombie Revenge 0C086A44 ends a path with `bt FUN_0c08696c`, before it)
+                    elif target < start:               # a conditional branch out of the start backwards: no function does that
                         flags.add('back')              # (Crazy Taxi FUN_0c089f4c, a table of words whose first word decodes as bt)
                     else:
                         todo.append(target)
@@ -90,8 +120,8 @@ def reach(start, stop_at=None):
             if m == 'bra':
                 seen.add(a + 2)
                 end = max(end, a + 4)
-                if target is not None and target >= start:      # a bra before the start is a tail jump into another function
-                    todo.append(target)
+                if target is not None and target >= start and target not in tails and target not in bra_tails:      # a bra before the start, or to another
+                    todo.append(target)                                                  # entry, is a tail jump into that function
                 break
             if m in ('rts', 'rte'):
                 seen.add(a + 2)
@@ -109,6 +139,52 @@ def reach(start, stop_at=None):
                 continue
             a += 2
     return end, seen, flags
+
+
+_LOAD = re.compile(r'^mov\.l @\(0x[0-9a-f]+,pc\),(r\d+)$')
+_REGJUMP = re.compile(r'^(?:jsr|jmp) @(r\d+)$')
+
+
+def discover():
+    """{address: (kind, function name, where)}: the addresses in a gap (inside no listed range, F entries) that the code of a listed entry
+    jumps or calls to: a `bra` or `bsr`, or a `jsr` / `jmp` through a register that a `mov.l` from a pool word loaded within the last
+    16 bytes. A target the entry's own branches reach (a forward `bra` into the gap it then runs through) is more of that entry; a
+    `bra` back before its start is a tail jump, which is what this finds. Only what the code does counts: a pool word that is read
+    through, or a pointer in a table, names nothing."""
+    import bisect
+    ents = entries()
+    known = {e[0] for e in ents}
+    ranges = sorted((e[0], e[0] + e[1]) for e in ents)
+    first = [r[0] for r in ranges]
+    top = BASE + len(BIN)
+
+    def covered(a):
+        i = bisect.bisect_right(first, a) - 1
+        return i >= 0 and a < ranges[i][1]
+    found = {}
+    for e in ents:
+        end, seen, flags = reach(e[0], tails=known - {e[0]})
+        loads = {}
+        for a in sorted(seen):
+            text, pool, psize, target = shdis.decode(word(a), a)
+            if not text:
+                continue
+            kind, t = None, None
+            m = text.split()[0]
+            if m in ('bra', 'bsr') and target is not None:
+                kind, t = m, mirror(target)
+            else:
+                ld = _LOAD.match(text)
+                if ld and pool is not None and 0 <= mirror(pool) - BASE <= len(BIN) - 4:
+                    loads[ld.group(1)] = (a, struct.unpack_from('<I', BIN, mirror(pool) - BASE)[0])
+                    continue
+                rj = _REGJUMP.match(text)
+                if rj and rj.group(1) in loads and a - loads[rj.group(1)][0] <= 16:
+                    kind, t = 'pool ' + m, mirror(loads[rj.group(1)][1])
+            if t is None or t in seen or t % 2 or not BASE <= t < top or covered(t) or t in found:
+                continue
+            found[t] = (kind, e[2], a)
+    return found
 
 
 def not_an_entry(a, size):
@@ -140,6 +216,10 @@ def name_given(n):
 def main(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
+    if argv[1] == '--discover':
+        for t, (kind, name, a) in sorted(discover().items()):
+            print('%08x  # %s from %s at %08x' % (t, kind, name, a))
+        return
     apply = '--apply' in argv
     cands = []
     for l in open(argv[1]):
@@ -163,15 +243,20 @@ def main(argv):
                 break
         why = []
         if holder:
-            hend, hseen, hflags = reach(holder[0], stop_at=None)
+            if holder[0] not in _held:            # one walk a holding function: a whole-game list asks about the same one many times
+                _held[holder[0]] = reach(holder[0], stop_at=None, bra_tails=(known | set(c for c, _ in cands)) - {holder[0]})
+            hend, hseen, hflags = _held[holder[0]]
             if a in hseen:
                 rows.append((a, 'label inside %s' % holder[2], '', 'reached by its own branches'))
                 continue
         nxt_entry = next((s for s in starts if s > a), BASE + len(BIN))
-        end, seen, flags = reach(a, stop_at=nxt_entry)
+        end, seen, flags = reach(a, stop_at=nxt_entry, tails=set(starts) - {a}, funcs=known | set(c for c, _ in cands))
         size = end - a
         if 'off' in flags:
             rows.append((a, 'not a function', holder[2] if holder else '-', 'runs into the next entry'))
+            continue
+        if 'wild' in flags:
+            rows.append((a, 'not a function', holder[2] if holder else '-', 'calls or jumps to a place that is no function, or holds a word that is no instruction: data'))
             continue
         if 'back' in flags:
             rows.append((a, 'not a function', holder[2] if holder else '-', 'a conditional branch leaves it backwards'))
@@ -187,7 +272,7 @@ def main(argv):
         plan.append((a, size, name or 'FUN_%08x' % a))
         rows.append((a, 'function', holder[2] if holder else '(gap)', 'size %d %s' % (size, note)))
         if holder and a < holder[0] + holder[1]:      # only a start inside its listed size cuts it: one in the gap after it leaves the
-            hend, hseen, hflags = reach(holder[0])    # size alone (Virtua Tennis cpuSglAimTable, 18,398 bytes of jump-table code,
+            hend, hseen, hflags = reach(holder[0], bra_tails=(known | set(c for c, _ in cands)) - {holder[0]})    # size alone (Virtua Tennis cpuSglAimTable, 18,398 bytes of jump-table code,
             cuts[holder[0]] = hend - holder[0]        # would have been cut to the 8,762 its own branches reach)
     kept, inner = [], set()            # a new start inside another new function's reach is a label of it, not a function (Virtua Tennis:
     for a, s, n in sorted(plan):       # state handlers behind one jump table that branch into each other)

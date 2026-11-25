@@ -24,7 +24,7 @@ int FUN_0c03f444(int, int, int);
 int FUN_0c0588bc(int, int, int, int, int, int);
 int FUN_0c058a6e(int, int, int, int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c18778c(int);
 int FUN_0c187798(int);
@@ -69,7 +69,7 @@ int FUN_0c1669c8(int a4, int a5, int a6, int a7)
             if ((int)t5 >= (int)(*(int *)(((*(int *)(((int)stk + 0))) + 0x0)))) {
                 break;
             }
-            t4 = (FUN_0c179ac0());
+            t4 = (nlRand());
             t12 = t4;
             t4 = ((((struct o0_int *)0xC2A3428)->v));
             t4 = ((int)((int)t12 % (int)t4));
@@ -77,7 +77,7 @@ int FUN_0c1669c8(int a4, int a5, int a6, int a7)
             u6 = (u6 * u3);
             u6 = (u6 / (float)((((struct o0_int *)0xC2A3428)->v)));
             *(unsigned int *)(((((int)stk + 0) + 0x10) + 0x0)) = (int)u6;
-            t4 = (FUN_0c179ac0());
+            t4 = (nlRand());
             t18 = t4;
             t4 = (*(int *)(((*(int *)(((int)stk + 4))) + 0x0)));
             t4 = ((int)((int)t18 % (int)t4));

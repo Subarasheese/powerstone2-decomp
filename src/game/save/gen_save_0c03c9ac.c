@@ -14,7 +14,7 @@ int buUnmount(int);
 int buDeleteFile(int);
 int buSaveFile(int, int, int, int, int, int);
 int buMountDisk(int, int, int);
-int FUN_0c2b2fc4(int, int);
+int buMakeBackupFileImage(int, int);
 int FUN_0c03c9ac(void);
 int FUN_0c03c9c8(void);
 int FUN_0c03ca30(int a4);
@@ -44,7 +44,7 @@ int FUN_0c03c9c8(void)
     *(unsigned short *)(((int)stk + 84)) = 0x0;
     *(unsigned int *)(((int)stk + 88)) = 0xC3CB108;
     *(unsigned int *)(((int)stk + 92)) = 0x780;
-    return (FUN_0c2b2fc4(0xC3CBA20, ((int)stk + 0)));
+    return (buMakeBackupFileImage(0xC3CBA20, ((int)stk + 0)));
 }
 
 int FUN_0c03ca30(int a4)

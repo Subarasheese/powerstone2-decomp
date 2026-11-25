@@ -33,7 +33,7 @@ int FUN_0c085cac(int, int, int);
 int FUN_0c085d0c(int);
 int FUN_0c0cb38a(int);
 int FUN_0c150010(int, float, float, float, float);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float FUN_0c0e2340(int);
 int FUN_0c0777ac(int a4);
 int FUN_0c0779ae(int a4, int a5, int a6, int a7);
@@ -190,13 +190,13 @@ int FUN_0c078558(int a4)
     t0 = 0xA;
     for (;;) {
         u6 = ((((struct o28_float *)(a4))->v));
-        u6 = u6 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(FUN_0c179ac0()) % (int)0x78)) - 60));
+        u6 = u6 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(nlRand()) % (int)0x78)) - 60));
         *(float *)(((int)stk + 0)) = u6;
         u12 = ((((struct o30_float *)(a4))->v));
-        u12 = u12 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(FUN_0c179ac0()) % (int)0x78)) - 60));
+        u12 = u12 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(nlRand()) % (int)0x78)) - 60));
         *(float *)(((int)stk + 8)) = u12;
         u18 = ((((struct o2C_float *)(a4))->v));
-        u18 = u18 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(FUN_0c179ac0()) % (int)0x64)) - 50));
+        u18 = u18 + ((((struct o378C_float *)(a4))->v)) * ((float)(((int)((int)(nlRand()) % (int)0x64)) - 50));
         *(float *)(((int)stk + 4)) = (u18 + 50.0f);
         t19 = FUN_0c150010(((int)stk + 0), 1.0f, 1.0f, 1.0f, 1.0f);
         t0 = (t0 - 0x1);

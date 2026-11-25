@@ -1,0 +1,88 @@
+/* Straight-line functions with calls and guards (batch gen_tq): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o0_int { int v; };
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o4_int { char p[0x4]; int v; };
+struct o4_uint { char p[0x4]; unsigned int v; };
+struct oA8_uchar { char p[0xA8]; unsigned char v; };
+struct oA9_uchar { char p[0xA9]; unsigned char v; };
+struct oAC_ushort { char p[0xAC]; unsigned short v; };
+struct oC4_int { char p[0xC4]; int v; };
+int FUN_0c03744a(int, int, int, int);
+int FUN_0c03f346(int, int, int, int);
+int FUN_0c05f22c(int);
+int FUN_0c1171f0(int);
+int FUN_0c118d7a(int a4, int a5, int a6, int a7);
+
+int FUN_0c118d7a(int a4, int a5, int a6, int a7)
+{
+    register int t0;
+    register int t1;
+    register int t2;
+    register int t3;
+
+    t0 = *(signed char *)((a4 + 0x14));
+    if (t0 != 0) {
+    } else {
+        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+        (((struct oA8_uchar *)(a4))->v) = 0x0;
+        (((struct oAC_ushort *)(a4))->v) = 0x1F;
+        (((struct oA9_uchar *)(a4))->v) = 0x21;
+        FUN_0c1171f0(a4);
+    }
+    if ((t0 == 0) || (t0 == 1)) {
+        t1 = FUN_0c05f22c(0x200);
+        if (t1 != 0) {
+            (((struct oA8_uchar *)(a4))->v) = ((-(*(signed char *)((a4 + 0xA8)))) + 0x1);
+            (((struct o4_uint *)0xC473C9C)->v) = (0x1 - ((((struct o4_int *)0xC473C9C)->v)));
+        }
+        if ((unsigned char)(*(signed char *)0xC541F43) == 1) {
+            FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0xD, 0xD, (*(int *)0xC4B410C));
+        }
+        if ((unsigned char)(*(signed char *)0xC541F43) == 2) {
+            t1 = *(signed char *)0xC541F44;
+            t2 = *(int *)0xC4B410C;
+            if ((unsigned char)t1 != 0) {
+                if ((unsigned char)t1 != 1) {
+                    if ((unsigned char)t1 != 2) {
+                        if ((unsigned char)t1 != 3) {
+                            if ((unsigned char)t1 != 4) {
+                            } else {
+                                FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0x5, 0xC, t2);
+                            }
+                        } else {
+                            FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0xE, 0x4, t2);
+                        }
+                    } else {
+                        t1 = 0xD;
+                        t3 = 0xD;
+                        if (((((struct o0_int *)0xC473C9C)->v)) == 1) {
+                            t1 = 0x7;
+                            t3 = 0x9;
+                        }
+                        FUN_0c03744a(((((struct oC4_int *)(a4))->v)), t1, t3, t2);
+                    }
+                } else {
+                    FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0xD, 0xD, t2);
+                }
+            } else {
+                FUN_0c03744a(((((struct oC4_int *)(a4))->v)), 0xD, 0xD, t2);
+            }
+        }
+    } else {
+        if (t0 != 99) {
+        } else {
+            (((struct o4_uint *)0xC473C9C)->v) = 0x0;
+            FUN_0c03f346(a4, a5, a6, a7);
+        }
+    }
+    t0 = *(signed char *)0xC541F44;
+    t1 = (unsigned char)t0;
+    if ((unsigned char)t0 == 5) {
+        (((struct oA8_uchar *)(a4))->v) = 0x0;
+        (((struct o4_uint *)0xC473C9C)->v) = 0x0;
+        t1 = 0xA8;
+    }
+    return t1;
+}

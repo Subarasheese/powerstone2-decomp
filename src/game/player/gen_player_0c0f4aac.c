@@ -7,7 +7,7 @@ struct o15_uchar { char p[0x15]; unsigned char v; };
 struct o50_float { char p[0x50]; float v; };
 struct oA8_uchar { char p[0xA8]; unsigned char v; };
 int FUN_0c03f346(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0f4aac(int a4);
 
 int FUN_0c0f4aac(int a4)
@@ -27,7 +27,7 @@ int FUN_0c0f4aac(int a4)
         *(unsigned short *)((a4 + 0x1C)) = 0x14;
     }
     (((struct o50_float *)(a4))->v) = (((((struct o50_float *)(a4))->v)) + (*(float *)0xC1CE300));
-    FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+    nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
     t0 = *(signed char *)((a4 + 0x15));
     if (t0 != 0) {
         if (t0 != 1) {

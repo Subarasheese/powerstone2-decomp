@@ -2,10 +2,10 @@
    sub-page, +0x3C the cursor) shows one fighter (0C532498 + 14648 * id) at row 19 * id + 4: page 0 its state, model,
    timers and the sub-pages (moves, positions, sound, AI, items), page 1 the object under the cursor, page 2 the input mode,
    page 3 the debug switches (0C475DBC), page 4 the fighter's pad (0C471A9C). FUN_0c172434 marks the cursor's line;
-   FUN_0c17a4c0 places the text and dbg_printf prints it. */
+   nlLocate places the text and dbg_printf prints it. */
 
 int FUN_0c17a550(int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int FUN_0c172434(int, int);
 int FUN_0c172204(int);
 int dbg_printf(int, ...);
@@ -16,17 +16,19 @@ int dbg_printf(int, ...);
 #define F32(o)  (*(float *)(e + (o)))
 #define P8(o)   (*(signed char *)(P + (o)))
 #define DBG     ((signed char *)0x0C475DBC)
-#define CUR(n)  FUN_0c172434(C8(0x3C), (n))
-#define AT(n)   FUN_0c17a4c0(row, (n))
+#define CUR(n)  FUN_0c172434(*cur, (n))
+#define AT(n)   nlLocate(row, (n))
 #define LINE(c, n) (CUR(c), AT(n))
 
 #define dec(v)  ((v) > 0 ? (v) - 1 : (v))
 
+/* manual: the fighter debug page; the cursor byte is read through one pointer held in a register (a call to a function of another unit cannot be a bsr, so the copy `mov r14,r4; add #60,r4` per line went); 89 cases, 1551 of 1551 instructions */
 void FUN_0c17244a(int a4, int a5)
 {
     char *e = (char *)a4;
     char *P = (char *)0x0C532498 + (signed char)a5 * 14648;
     int row = (signed char)a5 * 19 + 4;
+    signed char *cur = (signed char *)(e + 0x3C);
     char *q, *t, *pad;
     float f;
     int v, fmt;

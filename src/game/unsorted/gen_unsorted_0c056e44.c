@@ -5,14 +5,14 @@
 struct o0_float { float v; };
 struct o20_float { char p[0x20]; float v; };
 int FUN_0c0522be(int);
-int FUN_0c177ad0(void);
+int nlVtxBufScanInit(void);
 int FUN_0c177af0(int);
 int FUN_0c178580(void);
 int FUN_0c1785a0(void);
 int nlSysMetricsCpuPowerStart(void);
 int FUN_0c1787c0(void);
 int FUN_0c1787e0(void);
-int FUN_0c17df90(int, int);
+int nlObjPutLoadTexture(int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c056e44(int a4, int a5, int a6);
 void FUN_0c056e78(void);
@@ -38,7 +38,7 @@ void FUN_0c056e7c(void)
 
 int FUN_0c056e80(void)
 {
-    FUN_0c17df90(0xC1BF888, 0xC1BF980);
+    nlObjPutLoadTexture(0xC1BF888, 0xC1BF980);
     (((struct o20_float *)0xC1BF940)->v) = -1.0f;
     (((struct o0_float *)0xC1BF940)->v) = -1.0f;
     (((struct o20_float *)0xC1BF900)->v) = -1.0f;
@@ -83,7 +83,7 @@ int FUN_0c056f20(void)
     *(unsigned int *)0xC40FA38 = (FUN_0c1785a0());
     FUN_0c178580();
     nlSysMetricsCpuPowerStart();
-    return FUN_0c177ad0();
+    return nlVtxBufScanInit();
 }
 
 int FUN_0c056f40(void)

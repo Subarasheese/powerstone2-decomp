@@ -8,7 +8,7 @@ struct o1C_float { char p[0x1C]; float v; };
 struct o20_float { char p[0x20]; float v; };
 struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03f346(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c130c02(int a4);
 
 int FUN_0c130c02(int a4)
@@ -22,7 +22,7 @@ int FUN_0c130c02(int a4)
 
     t2 = *(int *)((a4 + 0x10));
     t3 = *(int *)((a4 + 0x38));
-    u0 = (float)(int)(((float)((int)((int)(FUN_0c179ac0()) % (int)0x1E)) * 65536.0f) / 360.0f);
+    u0 = (float)(int)(((float)((int)((int)(nlRand()) % (int)0x1E)) * 65536.0f) / 360.0f);
     *(unsigned int *)((a4 + 0x38)) = (t3 + (int)((u0 * 65536.0f) / 360.0f));
     t3 = *(signed char *)((a4 + 0x14));
     if (t3 != 0) {

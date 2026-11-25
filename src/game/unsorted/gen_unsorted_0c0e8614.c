@@ -10,7 +10,7 @@ struct oC0_int { char p[0xC0]; int v; };
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c042fe0(void);
 int FUN_0c0d04c4(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0e8614(int a4, int a5, int a6, int a7);
 
 int FUN_0c0e8614(int a4, int a5, int a6, int a7)
@@ -31,7 +31,7 @@ int FUN_0c0e8614(int a4, int a5, int a6, int a7)
     }
     (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
     (((struct oA8_uchar *)(a4))->v) = 0x1;
-    t0 = FUN_0c179ac0();
+    t0 = nlRand();
     t1 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
     if ((int)t0 >= 0) {
         t1 = (t0 & 0xF);

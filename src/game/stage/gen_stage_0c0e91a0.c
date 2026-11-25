@@ -50,8 +50,8 @@ int thunk_FUN_0c05abb2(int, int);
 int FUN_0c0cfecc(int, int, int);
 int FUN_0c0d04b4(int);
 int FUN_0c0e9220(int, int, int);
-int FUN_0c179ac0(void);
-int FUN_0c17c130(int, int, int);
+int nlRand(void);
+int nlAddVector3op(int, int, int);
 extern int FUN_0c187798();
 int FUN_0c0e91a0(int a4, int a5, int a6);
 int FUN_0c0e9246(void);
@@ -91,12 +91,12 @@ int FUN_0c0e9246(void)
     }
     t2 = 0xA;
     for (;;) {
-        t3 = FUN_0c179ac0();
+        t3 = nlRand();
         t4 = ((~(((~t3) + 0x1) & 0x3)) + 0x1);
         if ((int)t3 >= 0) {
             t4 = (t3 & 0x3);
         }
-        t6 = FUN_0c179ac0();
+        t6 = nlRand();
         t7 = ((~(((~t6) + 0x1) & 0x3)) + 0x1);
         if ((int)t6 >= 0) {
             t7 = (t6 & 0x3);

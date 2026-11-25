@@ -28,7 +28,7 @@ int buSaveFile(int a4, int a5, int a6, int a7, int a8, int a9)
 
 
 
-void buSaveExecFile(int a4, int a5, int a6, int a7, int a8, int a9)
+int buSaveExecFile(int a4, int a5, int a6, int a7, int a8, int a9)
 {
     int t0;
 
@@ -38,5 +38,7 @@ void buSaveExecFile(int a4, int a5, int a6, int a7, int a8, int a9)
         vmsfs_c_setparam(a4, a4, a5, a6, a7, a8, a9);
         vmsfs_c_setfname(a4, a5, a5);
         vmsfs_c_settime(a4, a8);
+        return 0x0;
     }
+    return -1;
 }

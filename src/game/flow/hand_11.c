@@ -15,7 +15,7 @@ typedef struct { int time; int flags; V3 pos; int a; int b; } Key;    /* 28 byte
 
 int FUN_0c03f346(int, int, int, int);
 int thunk_FUN_0c05abb2(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 void math_vec3i_add(int, int, int);
 int mdl_vtx_iter_begin(int, int);
 int mdl_vtx_iter_next(void);
@@ -75,8 +75,8 @@ void FUN_0c0f84c0(int a4, int a5, int a6, int a7)
         if (key[S16(0x1C)].flags & 0x10)
             thunk_FUN_0c05abb2(0, 0);
     }
-    FUN_0c17c130((int)(e + 0x4C), (int)(e + 0x4C), (int)(e + 0x58));     /* velocity += acceleration */
-    FUN_0c17c130((int)(e + 0x28), (int)(e + 0x28), (int)(e + 0x4C));     /* position += velocity */
+    nlAddVector3op((int)(e + 0x4C), (int)(e + 0x4C), (int)(e + 0x58));     /* velocity += acceleration */
+    nlAddVector3op((int)(e + 0x28), (int)(e + 0x28), (int)(e + 0x4C));     /* position += velocity */
     math_vec3i_add((int)(e + 0x34), (int)(e + 0x34), (int)(m + 0x78));   /* angles += turn */
     if (key[S16(0x1C)].flags & 2)
         *(int *)(*(int *)(e + 0xC4) + 0x80) += key[S16(0x1C)].b;

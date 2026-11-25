@@ -29,51 +29,5 @@ int FUN_0c063f24(void)
     return FUN_0c056eee();
 }
 
-int FUN_0c064cbc(int a4, int a5, int a6, float f4)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-
-    t0 = *(signed char *)((a6 + 0x1));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            t1 = t0;
-            if (t0 != 2) {
-            } else {
-                t0 = FUN_0c064bd8(a4, (a6 + 0x8), f4);
-                t2 = t0;
-                if (t0 != 0) {
-                    (((struct o40C_uint *)(a4))->v) = a5;
-                    (((struct o410_uint *)(a4))->v) = a6;
-                    t2 = 0x410;
-                }
-                t1 = t2;
-            }
-            t0 = t1;
-        } else {
-            t1 = FUN_0c064b5a(a4, (a6 + 0x8));
-            t2 = t1;
-            if (t1 != 0) {
-                (((struct o40C_uint *)(a4))->v) = a5;
-                (((struct o410_uint *)(a4))->v) = a6;
-                t2 = 0x410;
-            }
-            t0 = t2;
-        }
-        t1 = t0;
-    } else {
-        t0 = FUN_0c064c4a(a4, (a6 + 0x8), f4);
-        t2 = t0;
-        if (t0 == 0) {
-        } else {
-            (((struct o40C_uint *)(a4))->v) = a5;
-            (((struct o410_uint *)(a4))->v) = a6;
-            t2 = 0x410;
-        }
-        t1 = t2;
-    }
-    return t1;
-}
 
 

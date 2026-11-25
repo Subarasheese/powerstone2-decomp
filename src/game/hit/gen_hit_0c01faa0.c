@@ -2,6 +2,9 @@
    a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
+/* @runtime _slow_strcpy=0C187990 */
+/* @runtime _quick_strcpy=0C1878F0 */
+extern char *_builtin_strcpy(char *, const char *);
 struct o0_int { int v; };
 struct o0_short { short v; };
 struct o0_uchar { unsigned char v; };
@@ -51,7 +54,7 @@ int FUN_0c0573c0(int, int, int);
 int FUN_0c059c54(int);
 int FUN_0c05b048(int, int);
 int dbg_set_cell_size(int, int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int FUN_0c17a550(int);
 int dbg_printf(int, ...);
 int FUN_0c183280(void);
@@ -62,8 +65,7 @@ int FUN_0c18353e(int, int, int);
 int FUN_0c1837cc(int, int);
 int FUN_0c1839f8(int, int, int, int);
 int FUN_0c183a4e(void);
-int FUN_0c1878f0(void);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c187d98(int, int, int);
 int FUN_0c01faa0(void);
 void FUN_0c01fbdc(void);
@@ -175,8 +177,8 @@ int FUN_0c02032a(void)
     t16 = t1;
     if ((*(signed char *)0xC30543E) != 0) {
         if ((*(signed char *)0xC3054C4) == 0) {
-            FUN_0c1878f0();
-            t6 = FUN_0c187d88(((int)stk + 0));
+            _builtin_strcpy((char *)stk, (const char *)0xC1A8980);
+            t6 = strlen(((int)stk + 0));
             t16 = FUN_0c18353e((*(int *)0xC305430), ((int)stk + 0), t6);
             (((struct o20_uchar *)0xC309830)->v) = 0x0;
             (((struct o0_uint *)0xC309830)->v) = 0x0;
@@ -239,8 +241,8 @@ int FUN_0c0205a0(void)
             (((struct oA_uchar *)0xC309858)->v) = 0x0;
             return t5;
         }
-        FUN_0c1878f0();
-        t16 = FUN_0c187d88((((int)stk + 0) + 0x4));
+        _builtin_strcpy((char *)stk + 0x4, (const char *)0xC1A89A8);
+        t16 = strlen((((int)stk + 0) + 0x4));
         t19 = FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0x4), t16);
         (((struct oA_uchar *)0xC309858)->v) = 0x0;
     }
@@ -329,174 +331,79 @@ int FUN_0c020950(void)
     return 0x22;
 }
 
+/* manual: network handshake by state byte 0C309862 (0 send "\nREDY\n" or wait; 1/3 read lines for REDY/START; 2 read for OK; 4 count down);
+   78 cases, 233 of 233 instructions */
 int FUN_0c0209c6(int a4, int a5, int a6, int a7)
 {
-    int stk[7];
-    int t9;
-    register int t11;
-    register int t18;
-    register int t20;
-    int t23;
-    register int t25;
-    register int t28;
-    register int t30;
-    register int t31;
-    register int t46;
-    register int t51;
-    register int t54;
-    register int t55;
-    register int t56;
-    register int t60;
-    register int t63;
-    register int t64;
-    register int t65;
-    register int t69;
-    register int t71;
-    register int t74;
-    register int t75;
-    register int t76;
-    register int t80;
-    register int t89;
-    register int t90;
-    register int t7;
-    int t44;
+    char msg[16];
+    char ch;
+    char first = a4;
+    char *text;
+    int state, next;
 
-    *(unsigned char *)(((int)stk + 8)) = a4;
-    if ((int)(*(short *)0xC30AC2A) > (int)0x4B0) {
-        FUN_0c01fce0(0xC30AC2A, a5, a6, a7);
-    } else {
-        *(unsigned short *)0xC30AC2A = ((*(short *)0xC30AC2A) + 0x1);
-        t7 = 0xC30AC2A;
-    }
-    t9 = *(signed char *)0xC309862;
-    if (t9 != 0) {
-        if ((t9 != 1) && (t9 != 3)) {
-            if (t9 != 2) {
-                if (t9 == 4) {
-                    t11 = (((struct o0_int *)0xC309840)->v);
-                    (((struct o0_uint *)0xC309840)->v) = (t11 - 1);
-                    if ((int)(t11 - 1) <= 0) {
-                        (((struct o22_uchar *)0xC309840)->v) = 0x5;
-                    }
-                }
-            } else {
-                *(volatile int *)0xC305430;
-                t18 = FUN_0c183280();
-                if (t18 != 0) {
-                    for (;;) {
-                        t20 = FUN_0c183480((*(int *)0xC305430), ((int)stk + 0), 0x1);
-                        if (t20 != 0) {
-                            t23 = *(signed char *)(((int)stk + 0));
-                            if ((((unsigned char)(*(signed char *)((0xC206298 + (unsigned char)t23))) & 7) == 0) && ((t23 != 10) && (t23 != 13))) continue;
-                            if ((t23 != 10) && (t23 != 13)) {
-                                t25 = *(int *)0xC3054C0;
-                                *(unsigned int *)0xC3054C0 = (t25 + 0x1);
-                                *(unsigned char *)((0xC305440 + ((t25 + 0x1) - 1))) = (*(signed char *)(((int)stk + 0)));
-                                continue;
-                            }
-                            *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
-                            *(unsigned int *)0xC3054C0 = 0x0;
-                            t28 = FUN_0c187d98(0xC305440, 0xC1A89D0, 0x2);
-                            if (t28 == 0) {
-                                break;
-                            }
-                            continue;
-                        }
-                        return (*(signed char *)0xC309862);
-                    }
-                    t30 = ((int (*)(void))(FUN_0c1878f0))();
-                    t31 = FUN_0c187d88((((int)stk + 0) + 0xC));
-                    FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0xC), t31);
-                    (((struct o22_uchar *)0xC309840)->v) = 0x4;
-                }
+    if (*(short *)0x0C30AC2A > 1200)
+        FUN_0c01fce0(0x0C30AC2A, a5, a6, a7);
+    else
+        ++*(unsigned short *)0x0C30AC2A;
+    state = *(signed char *)0x0C309862;
+    switch (state) {
+    case 0:
+        if (first != 0) {
+            *(unsigned char *)0x0C309862 = 1;
+            *(int *)0x0C3054C0 = 0;
+            break;
+        }
+        text = (char *)0x0C1A89B8;
+        next = 2;
+        goto send;
+    case 2:
+        if (((int (*)(int))FUN_0c183280)(*(int *)0x0C305430) == 0)
+            break;
+    case 1:
+    case 3:
+        for (;;) {
+            if (FUN_0c183480(*(int *)0x0C305430, (int)&ch, 1) == 0)
+                break;
+            if (!(((unsigned char *)0x0C206298)[(unsigned char)ch] & 7) && ch != 10 && ch != 13)
+                continue;
+            if (ch != 10 && ch != 13) {
+                ((char *)0x0C305440)[(*(int *)0x0C3054C0)++] = ch;
+                continue;
             }
-        } else {
-            for (;;) {
-                t46 = FUN_0c183480((*(int *)0xC305430), (((int)stk + 0) + 0x4), 0x1);
-                if (t46 == 0) {
-                    break;
+            ((char *)0x0C305440)[*(int *)0x0C3054C0] = 0;
+            *(int *)0x0C3054C0 = 0;
+            if (state == 2) {
+                if (FUN_0c187d98(0x0C305440, 0x0C1A89D0, 2) == 0) {
+                    text = (char *)0x0C1A8998;
+                    next = 4;
+                    goto send;
                 }
-                t44 = (*(signed char *)(((int)stk + 4)));
-                if (((unsigned char)(*(signed char *)((0xC206298 + (unsigned char)t44))) & 7) == 0) {
-                    if (t44 != 10) {
-                        if (t44 == 13) {
-                            if ((t44 != 10) && (t44 != 13)) {
-                                t51 = *(int *)0xC3054C0;
-                                *(unsigned int *)0xC3054C0 = (t51 + 0x1);
-                                *(unsigned char *)(((((t51 + 0x1) - 1) + 0xC305440) + 0x0)) = (*(signed char *)(((int)stk + 4)));
-                                continue;
-                            }
-                            *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
-                            *(unsigned int *)0xC3054C0 = 0x0;
-                            t54 = FUN_0c187d98(0xC305440, 0xC1A89C0, 0x4);
-                            if (t54 == 0) {
-                                t55 = ((int (*)(void))(FUN_0c1878f0))();
-                                t56 = FUN_0c187d88((((int)stk + 0) + 0xC));
-                                FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0xC), t56);
-                                (((struct o22_uchar *)0xC309840)->v) = 0x3;
-                                return (*(signed char *)0xC309862);
-                            }
-                            t60 = FUN_0c187d98(0xC305440, 0xC1A89B0, 0x5);
-                            if (t60 == 0) {
-                                (((struct o22_uchar *)0xC309840)->v) = 0x5;
-                                return (*(signed char *)0xC309862);
-                            }
-                            continue;
-                        }
-                        continue;
-                    }
-                    *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
-                    *(unsigned int *)0xC3054C0 = 0x0;
-                    t63 = FUN_0c187d98(0xC305440, 0xC1A89C0, 0x4);
-                    if (t63 == 0) {
-                        t64 = ((int (*)(void))(FUN_0c1878f0))();
-                        t65 = FUN_0c187d88((((int)stk + 0) + 0xC));
-                        FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0xC), t65);
-                        (((struct o22_uchar *)0xC309840)->v) = 0x3;
-                        return (*(signed char *)0xC309862);
-                    }
-                    t69 = FUN_0c187d98(0xC305440, 0xC1A89B0, 0x5);
-                    if (t69 == 0) {
-                        (((struct o22_uchar *)0xC309840)->v) = 0x5;
-                        return (*(signed char *)0xC309862);
-                    }
-                    continue;
-                }
-                if ((t44 != 10) && (t44 != 13)) {
-                    t71 = *(int *)0xC3054C0;
-                    *(unsigned int *)0xC3054C0 = (t71 + 0x1);
-                    *(unsigned char *)(((((t71 + 0x1) - 1) + 0xC305440) + 0x0)) = (*(signed char *)(((int)stk + 4)));
-                    continue;
-                }
-                *(unsigned char *)((0xC305440 + (*(int *)0xC3054C0))) = 0x0;
-                *(unsigned int *)0xC3054C0 = 0x0;
-                t74 = FUN_0c187d98(0xC305440, 0xC1A89C0, 0x4);
-                if (t74 == 0) {
-                    t75 = ((int (*)(void))(FUN_0c1878f0))();
-                    t76 = FUN_0c187d88((((int)stk + 0) + 0xC));
-                    FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0xC), t76);
-                    (((struct o22_uchar *)0xC309840)->v) = 0x3;
-                    return (*(signed char *)0xC309862);
-                }
-                t80 = FUN_0c187d98(0xC305440, 0xC1A89B0, 0x5);
-                if (t80 == 0) {
-                    (((struct o22_uchar *)0xC309840)->v) = 0x5;
-                    return (*(signed char *)0xC309862);
-                }
+                continue;
+            }
+            if (FUN_0c187d98(0x0C305440, 0x0C1A89C0, 4) == 0) {
+                text = (char *)0x0C1A89C8;
+                next = 3;
+                goto send;
+            }
+            if (FUN_0c187d98(0x0C305440, 0x0C1A89B0, 5) == 0) {
+                *(unsigned char *)0x0C309862 = 5;
+                break;
             }
         }
-    } else {
-        if ((*(signed char *)(((int)stk + 8))) == 0) {
-            t89 = ((int (*)(int))(FUN_0c1878f0))(t7);
-            t90 = FUN_0c187d88((((int)stk + 0) + 0xC));
-            FUN_0c18353e((*(int *)0xC305430), (((int)stk + 0) + 0xC), t90);
-            (((struct o22_uchar *)0xC309840)->v) = 0x2;
-        } else {
-            (((struct o22_uchar *)0xC309840)->v) = 0x1;
-        }
-        *(unsigned int *)0xC3054C0 = 0x0;
+        break;
+    case 4:
+        if (--*(int *)0x0C309840 <= 0)
+            *(unsigned char *)0x0C309862 = 5;
+        break;
     }
-    return (*(signed char *)0xC309862);
+    return *(signed char *)0x0C309862;
+send:
+    _builtin_strcpy(msg, text);
+    FUN_0c18353e(*(int *)0x0C305430, (int)msg, strlen((int)msg));
+    *(unsigned char *)0x0C309862 = next;
+    if (next == 2)
+        *(int *)0x0C3054C0 = 0;
+    return *(signed char *)0x0C309862;
 }
 
 void FUN_0c020e8a(void)
@@ -520,7 +427,7 @@ int FUN_0c020eac(void)
 
     dbg_set_cell_size(0x10, 0x10);
     FUN_0c17a550(0xFFC00000);
-    FUN_0c17a4c0(0xD, 0xF);
+    nlLocate(0xD, 0xF);
     t3 = dbg_printf(0xC1A89D4);
     *(unsigned char *)0xC309858 = 0x0;
     return t3;

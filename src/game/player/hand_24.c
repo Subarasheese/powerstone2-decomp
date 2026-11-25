@@ -36,10 +36,12 @@ int FUN_0c059e60(int, int);
 #define MOVE()      (math_vec3_accumulate(a4 + 40, a4 + 76), math_vec3_accumulate(a4 + 76, a4 + 88))
 #define STOP()      (F32(96) = F32(88) = F32(84) = F32(76) = 0.0f)
 
+/* manual: thrown / knocked-down state machine, the landing block written once; 231 cases, 888 of 888 instructions */
 void FUN_0c06dcfc(int a4)
 {
     char *e = (char *)a4;
     float s;
+    int how;
 
     *(unsigned char *)(e + 14154) = 10;
     S16(14382) = 0;
@@ -91,20 +93,11 @@ void FUN_0c06dcfc(int a4)
         case 1:
             switch (C8(0x17)) {
             case 0:
-                if (ON_FLOOR() == 0)
-                    goto anim_move;
-                STOP();
-                FUN_0c07db58(a4, 2, 20);
-                FUN_0c08e382(e);
-                if (C8(309) != 2)
-                    FUN_0c150be8(a4 + 40, I32(56));
-                FUN_0c07e79c(a4, -1, 4, 42, -1, 4, 42);
-                FUN_0c073eb8(a4, C8(1), *(int *)0x0C25AD1C + 420);
-                FUN_0c0733d2(a4);
-                goto landed;
+                how = 0;
+                goto touch;
             case 1:
                 if ((unsigned char)ANIM())
-                    SETSTATE(14, 0);
+                    goto state14;
                 return;
             }
             return;
@@ -198,17 +191,22 @@ up:
             C8(0x17)++;
             return;
         case 1:
+            how = 1;
+touch:
             if (ON_FLOOR() == 0)
                 goto anim_move;
+land:
             STOP();
             FUN_0c07db58(a4, 2, 20);
             FUN_0c08e382(e);
             if (C8(309) != 2)
                 FUN_0c150be8(a4 + 40, I32(56));
+            if (how == 2)
+                goto state14;
             FUN_0c07e79c(a4, -1, 4, 42, -1, 4, 42);
             FUN_0c073eb8(a4, C8(1), *(int *)0x0C25AD1C + 420);
             FUN_0c0733d2(a4);
-            if (FUN_0c042fe0())
+            if (how && FUN_0c042fe0())
                 FUN_0c07c5dc(a4, C8(14157), 1, 0.0f);
 landed:
             if (F32(352) > 0.0f)
@@ -217,7 +215,7 @@ landed:
             goto anim_move;
         case 2:
             if ((unsigned char)ANIM())
-                SETSTATE(14, 0);
+                goto state14;
             return;
         }
         return;
@@ -246,13 +244,8 @@ landed:
                 NEXT();
                 return;
             }
-            STOP();
-            FUN_0c07db58(a4, 2, 20);
-            FUN_0c08e382(e);
-            if (C8(309) != 2)
-                FUN_0c150be8(a4 + 40, I32(56));
-            SETSTATE(14, 0);
-            return;
+            how = 2;
+            goto land;
         }
         return;
     case 13:
@@ -327,4 +320,7 @@ squash:
 anim_move:
     ANIM();
     MOVE();
+    return;
+state14:
+    SETSTATE(14, 0);
 }

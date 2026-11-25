@@ -4,10 +4,10 @@
 
 struct o0_uchar { unsigned char v; };
 struct o1_uchar { char p[0x1]; unsigned char v; };
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0bb534(void);
 int FUN_0c0bb5a6(int a4);
-int FUN_0c0bb662(void);
+int vmsfs_c_fiber4(void);
 int FUN_0c0bb67c(int a4);
 int FUN_0c0bb68c(int a4);
 int FUN_0c0bb69c(int a4);
@@ -71,7 +71,7 @@ int FUN_0c0bb5a6(int a4)
     return (((t1 >> 1) >> 1) >> 1);
 }
 
-int FUN_0c0bb662(void)
+int vmsfs_c_fiber4(void)
 {
     return FUN_0c0bb5a6(0x4);
 }
@@ -134,7 +134,7 @@ int FUN_0c0bb6e0(void)
     register int t0;
     register int t1;
 
-    t0 = FUN_0c179ac0();
+    t0 = nlRand();
     t1 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
     if ((int)t0 >= 0) {
         t1 = (t0 & 0xF);

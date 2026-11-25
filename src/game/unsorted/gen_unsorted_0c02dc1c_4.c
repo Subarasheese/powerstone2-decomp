@@ -6,7 +6,7 @@ int FUN_0c02e078(int, int, int);
 int FUN_0c02f874(int, int);
 int FUN_0c03ee04(int);
 int nlSelectMatrixStack(int);
-int FUN_0c17e740(float, float, float);
+int nlObjPutSetFadeColor(float, float, float);
 int FUN_0c02e346(void);
 
 int FUN_0c02e346(void)
@@ -48,7 +48,7 @@ int FUN_0c02e346(void)
                 t2 = 0x10;
                 u15 = *(float *)((t7 + t2));
                 t2 = 0xC;
-                t2 = (FUN_0c17e740((*(float *)((t7 + t2))), u15, u14));
+                t2 = (nlObjPutSetFadeColor((*(float *)((t7 + t2))), u15, u14));
             }
             t6 = t7;
             t6 = (t6 + 0x1C);

@@ -727,26 +727,26 @@ void FUN_0c2b12fa(void)
 int ADX_DecodeMonoFloat(int a4, int a5, int a6, int a7, int a8, int a9, float f4, float f5, float f6, float f7, float f8, float f9, float f10)
 {
     int stk[2];
-    register int t0;
+    register float u8;
+    register float u6;
     register int t2;
     register int t3;
-    register int t4;
     register int t5;
-    register float u8;
     register float u9;
-    register float u10;
+    register int t4;
     register float u11;
+    register int t15;
     register float u12;
     register float u13;
-    register int t15;
-    register int t16;
     register float u17;
     register float u19;
     register float u20;
     register float u22;
-    register int t23;
-    register float u6;
     register float u7;
+    register float u10;
+    register int t16;
+    register int t23;
+    register int t0;
 
     t0 = *(short *)((a7 + 0x0));
     *(unsigned int *)(((int)stk + 4)) = (a7 + 0x2);

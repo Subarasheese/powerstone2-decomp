@@ -205,7 +205,7 @@ int game_update_max_combo(void);
 int FUN_0c06f4f0(int a4);
 int pl_kraken_attack_kind6_phase2(int a4);
 int pl_state11_update(int a4, int a5, int a6, int a7);
-int FUN_0c0ddc30(void);
+int nlCommonTextureGarbageCollection(void);
 void kmiDefaultFatalErrorCallback(int a4);
 int ADXT_StartSj(int a4, int a5, int a6, int a7);
 int ADXF_OpenAfs(int a4, int a5);

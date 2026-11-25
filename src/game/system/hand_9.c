@@ -16,7 +16,7 @@ int FUN_0c06148a(void);                 /* 0C02D176: the reset combination is he
 int FUN_0c05b2b0(void);
 int FUN_0c02d88a(void);
 int FUN_0c05ac14(void);
-int FUN_0c2b5938(int);                  /* the ADXF handle's state: 3 done, 4 error */
+int ADXF_GetStat(int);                  /* the ADXF handle's state: 3 done, 4 error */
 
 #define LOAD_RESULT (*(int *)0x0C304400)
 #define SPIN_TOTAL  (*(int *)0x0C304408)
@@ -63,7 +63,7 @@ int sys_load_file_adx(int name, int buf, int *size)
                 ;
         }
         FUN_0c05ac14();
-        st = FUN_0c2b5938(h);
+        st = ADXF_GetStat(h);
         if (st == 4) {
             ADXF_Stop(h);
             ADXF_Close(h);

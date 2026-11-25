@@ -55,525 +55,131 @@ int FUN_0c0bc15c(void);
 int FUN_0c0bc25a(void);
 int ai_clear_op_state(void);
 int FUN_0c0bc2c0(int, int, int);
-int FUN_0c179ac0(void);
-int FUN_0c0bc420(int a4);
+int nlRand(void);
+void FUN_0c0bc420(int a4);
 
-int FUN_0c0bc420(int a4)
+#define H(o) (*(unsigned short *)(p + (o)))
+#define B(o) (*(unsigned char *)(p + (o)))
+#define I(o) (*(int *)(p + (o)))
+#define F(o) (*(float *)(p + (o)))
+#define G(o) (*(signed char *)(0xC5421F8 + (o)))
+#define A(o) (*(signed char *)(a4 + (o)))
+#define AF(o) (*(float *)(a4 + (o)))
+#define TAB(t) ((int)(unsigned short)*(short *)((t) + ((unsigned char)G(0x4A) << 1)))
+#define RESET() (H(0x10) = 0x258, H(0x34) = 0, H(0x80) = 1)
+#define IN0(t) ((t) == 0 || (t) == 3 || (t) == 1 || (t) == 5 || (t) == 13)
+
+/* manual: the AI state machine of one slot (struct of 0x264 bytes at 0C471ACC + slot * 0x264): resets its timer when an input changed, counts, then starts the first of nine
+   events whose bit is set in the slot's mask word and not yet reached (one shared tail: stop, store, clear, FUN_0c0bc2c0 (k, flag)), else the default one; returns nothing
+   (the lift returned leftovers of r0, its one caller drops them); 99 hand cases (every branch of every event, the slot index), 1988 of 1988 instructions */
+void FUN_0c0bc420(int a4)
 {
-    int stk[4];
+    char *p = (char *)0xC471ACC + (unsigned short)(unsigned char)*(signed char *)0xC472462 * (unsigned short)0x264;
+    int g = G(0x3D);
+    int r = 0, k, fl = 0, x;
+    unsigned short m, s;
+    unsigned char code;
+    float f;
 
-    register float F2;
-    register int FPUL_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_10;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
-    register int v0_6;
-    register int v0_7;
-    register int v0_8;
-    register int v0_9;
-    register float w0_0;
-    register float w0_1;
-    register float w0_2;
-    register float w0_3;
-    v0_7 = a4;
-    v0_10 = *(signed char *)0xC542235;
-    v0_9 = (0x46);
-    v0_1 = (0x0);
-    v0_4 = (0x1);
-    v0_0 = (v0_7);
-    v0_2 = (0xC472462);
-    v0_3 = (0xC471ACC);
-    v0_8 = (0x264);
-    v0_7 = (v0_10);
-    v0_5 = (0x258);
-    v0_6 = (0xC5421F8);
-    if (((unsigned short)((((struct o46_short *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v)) == (signed char)v0_10)) goto L_C0BC498;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + v0_9)) = (signed char)v0_7;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    v0_7 = ((signed char)v0_7);
-    L_C0BC498:;
-    v0_8 = (0x264);
-    if (((*(signed char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x5))) == (*(signed char *)(((0x44 + v0_6) + 0x0))))) goto L_C0BC4EC;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x5)) = (*(signed char *)((v0_6 + 0x44)));
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    L_C0BC4EC:;
-    v0_9 = (0x371A);
-    v0_8 = (0x264);
-    if (((unsigned short)((((struct o40_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) == (*(signed char *)((v0_0 + 0x371A))))) goto L_C0BC542;
-    (((struct o40_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = (*(signed char *)((v0_0 + v0_9)));
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    L_C0BC542:;
-    v0_7 = (((struct o42_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v);
-    *(int *)((int)stk + 0) = (unsigned short)v0_7;
-    v0_7 = (unsigned short)v0_7 == (FUN_0c0bbe96(v0_0));
-    if (v0_7) goto L_C0BC5BE;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    *(int *)((int)stk + 0) = (0x42 + (((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3));
-    (((struct o42_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (FUN_0c0bbe96(v0_0));
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    v0_9 = (0x80);
-    v0_7 = ((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3));
-    *(unsigned short *)((v0_7 + v0_9)) = v0_4;
-    L_C0BC5BE:;
-    v0_9 = (0x3715);
-    v0_8 = (0x264);
-    if (((unsigned short)((((struct o44_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) == (*(signed char *)((v0_0 + 0x3715))))) goto L_C0BC61C;
-    (((struct o44_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = (*(signed char *)((v0_0 + v0_9)));
-    if (((*(signed char *)((v0_0 + 0x3715))) != 32)) goto L_C0BC61C;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    L_C0BC61C:;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    v0_9 = *(short *)(((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3) + 0x10));
-    *(unsigned short *)(((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3) + 0x10)) = (v0_9 - 1);
-    v0_8 = (0x264);
-    v0_7 = (v0_0);
-    if (((unsigned short)(v0_9 - 1) != 0)) goto L_C0BC662;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    L_C0BC662:;
-    v0_7 = FUN_0c0bbc72(v0_7);
-    FPUL_ = ((unsigned short)v0_7);
-    if ((!(5.0f > (float)(unsigned short)v0_7))) goto L_C0BC6B8;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 3)) goto L_C0BC696;
-    if ((v0_7 == 1)) goto L_C0BC696;
-    if ((v0_7 == 5)) goto L_C0BC696;
-    if ((v0_7 != 13)) goto L_C0BC6B8;
-    L_C0BC696:;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    (((struct o64_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o64_short *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v)) + 0x1);
-    L_C0BC6C8:;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    w0_0 = (((struct o4C_float *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v);
-    (((struct o58_float *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = w0_0;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    w0_0 = (((struct o54_float *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v);
-    (((struct o60_float *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = w0_0;
-    (((struct o4C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)(v0_0))->v));
-    (((struct o54_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)(v0_0))->v));
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if ((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 0x1000) == 0)) goto L_C0BC7A4;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) >= (int)0x1000)) goto L_C0BC7A4;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 35)) goto L_C0BC74E;
-    if ((v0_7 == 38)) goto L_C0BC74E;
-    if (!((v0_7 != 40))) goto L_C0BC74E;
-    (((struct o3A_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    goto L_C0BC7A4;
-    L_C0BC74E:;
+    if (H(0x46) != (signed char)g) { H(0x46) = g; RESET(); }
+    if (*(signed char *)(p + 5) != G(0x44)) { B(5) = G(0x44); RESET(); }
+    if (H(0x40) != A(0x371A)) { H(0x40) = A(0x371A); RESET(); }
+    if (H(0x42) != FUN_0c0bbe96(a4)) { H(0x42) = FUN_0c0bbe96(a4); RESET(); }
+    if (H(0x44) != A(0x3715)) { H(0x44) = A(0x3715); if (A(0x3715) == 32) RESET(); }
+    s = H(0x10) - 1;
+    H(0x10) = s;
+    if (s == 0) RESET();
+    if (5.0f > (float)(unsigned short)FUN_0c0bbc72(a4) && (A(0x3715) == 3 || A(0x3715) == 1 || A(0x3715) == 5 || A(0x3715) == 13)) H(0x64) = H(0x64) + 1;
+    else H(0x64) = 0;
+    F(0x58) = F(0x4C);
+    F(0x60) = F(0x54);
+    F(0x4C) = AF(0x28);
+    F(0x54) = AF(0x30);
+
+    if ((H(0x80) & 0x1000) && H(0x7E) < 0x1000) {
+        if (A(0x3715) == 35 || A(0x3715) == 38 || A(0x3715) == 40) { m = 0x1000; code = 0x30; k = 0xD; goto trig; }
+        H(0x3A) = 0;
+    }
+    if ((H(0x80) & 0x800) && H(0x7E) < 0x800) {
+        if ((signed char)FUN_0c07341c(a4) == 0) H(0x36) = 0;
+        else if (H(0x36) != 0) H(0x36) = 1;
+        else if (nlRand() % 100 < TAB(0xC25E094)) goto t800;
+        else H(0x36) = 1;
+        if (A(0x3715) != 34) H(0x38) = 0;
+        else if (H(0x38) != 0) H(0x38) = 1;
+        else if (nlRand() % 100 >= TAB(0xC25E0D4)) H(0x38) = 1;
+        else {
+t800:       m = 0x800; code = 0x10; k = 0xB; goto trig;
+        }
+    }
+    if ((H(0x80) & 0x400) && H(0x7E) < 0x400) {
+        if (IN0(A(0x3715))) {
+            f = AF(0x2C);
+            if (FUN_0c0bbcf6(a4, (int)&f, 0x10) != 0 && f > AF(0x2C) && AF(0x2C) + 500.0f > f) goto t400;
+        }
+        if (IN0(A(0x3715)) && A(0x375E) != 0) goto t400;
+        if (IN0(A(0x3715)) && G(0x3F) == 2 && G(0x44) == 1 && AF(0x2C) > AF(0x168) + 500.0f) {
+t400:       m = 0x400; code = 0; k = 0xA; goto trig;
+        }
+    }
+    if ((H(0x80) & 0x200) && H(0x7E) < 0x200) {
+        if (A(0x3715) == 14 || A(0x3715) == 15) { m = 0x200; code = 0x90; k = 0xC; goto trig; }
+        if (A(0x3715) == 17) { m = 0x200; code = 0x91; k = 0xC; fl = 1; goto trig; }
+    }
+    if ((H(0x80) & 0x40) && H(0x7E) < 0x40 && H(0x64) > 0x3C && IN0(A(0x3715))) { m = 0x40; code = 0x60; k = 6; goto trig; }
+    if ((H(0x80) & 0x20) && H(0x7E) < 0x20) {
+        r = FUN_0c0bbee6(a4);
+        if (r != 0) { m = 0x20; code = 0x40; k = 0xE; goto trig; }
+    }
+    if ((H(0x80) & 0x10) && H(0x7E) < 0x10) {
+        r = FUN_0c0bbad0(a4);
+        if (r != 0 && H(0x3E) != *(signed char *)(r + 0x125)) {
+            H(0x3E) = *(signed char *)(r + 0x125);
+            if (nlRand() % 100 < TAB(0xC25E054)) { m = 0x10; code = 0x50; k = 5; goto trig; }
+        }
+    }
+    if ((H(0x80) & 8) && H(0x7E) < 8) {
+        if ((unsigned short)FUN_0c0bbbd8(a4) < 0xC8) {
+            if (nlRand() % 100 < TAB(0xC25E014)) {
+                r = FUN_0c0bbb16(a4);
+                if (I(0x68) != r) {
+                    I(0x68) = r;
+                    if (r != 0 && (I(0x78) == r || *(signed char *)(r + 0x3720) == 0)) { m = 8; code = 0x40; k = 4; goto trig; }
+                }
+            }
+        } else I(0x68) = 0;
+    }
+    if ((H(0x80) & 2) && H(0x7E) < 2) {
+        fl = FUN_0c0bbcbe(a4) != 0;
+        r = FUN_0c0bbcc4(a4);
+        if (I(0x2C) != r) {
+            I(0x2C) = r;
+            if (r != 0) { m = 2; code = 0x31; k = 3; goto trig; }
+        }
+    }
+    if (H(0x34) == 0) {
+        for (x = 2; x >= -1; x--) {
+            if (x < 0 ? H(0x34) == 0 : (G(0x3F) == x && G(0x44) == 1)) {
+                if (x >= 0) FUN_0c0bc15c();
+                H(0x34) = 1; H(0x7E) = 1; H(0x80) = 0xFFFE; B(4) = x >= 0 ? 0x20 : 0x10; H(0x10) = 0x258; H(0x7C) = 0;
+                ai_clear_op_state();
+                if (x >= 0) FUN_0c0bc2c0(a4, 2, 2 - x); else FUN_0c0bc2c0(a4, 1, 0);
+                if (A(0x3721) == 0) H(0x80) = H(0x80) | 2; else H(0x80) = H(0x80) & 0xFFFD;
+                H(0x14) = 0;
+            }
+        }
+    }
+    return;
+trig:
     FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x1000;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x30;
-    FUN_0c0bc25a();
+    if (m == 0x40) H(0x64) = 0;
+    H(0x34) = 1; H(0x7E) = m; B(4) = code;
+    if (r != 0) {
+        I(0x78) = r; F(0x6C) = *(float *)(r + 0x28); F(0x70) = *(float *)(r + 0x2C); F(0x74) = *(float *)(r + 0x30);
+    }
+    if (m == 2) H(0x22) = *(unsigned char *)(r + 0x41C);
+    if (m & 0x1C00) FUN_0c0bc25a();
     ai_clear_op_state();
-    v0_1 = (0xD);
-    v0_2 = (0x0);
-    L_C0BD118:;
-    v0_9 = ((FUN_0c0bc2c0(v0_0, v0_1, v0_2)));
-    L_C0BD498:;
-    return v0_9;
-    L_C0BC7A4:;
-    v0_9 = *(signed char *)((v0_2 + 0x0));
-    v0_8 = (0x800);
-    v0_7 = ((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3));
-    if (!((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3)))->v)) & 0x800) != 0))) goto L_C0BC8FA;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) < (int)v0_8)) goto L_C0BC7CE;
-    goto L_C0BC8FA;
-    L_C0BC8FA:;
-    v0_9 = *(signed char *)((v0_2 + 0x0));
-    v0_8 = (0x400);
-    v0_7 = ((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3));
-    if (!((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3)))->v)) & 0x400) != 0))) goto L_C0BCA4A;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) < (int)v0_8)) goto L_C0BC924;
-    goto L_C0BCA4A;
-    L_C0BCA4A:;
-    v0_9 = *(signed char *)((v0_2 + 0x0));
-    v0_8 = (0x200);
-    v0_7 = ((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3));
-    if ((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_9 * (unsigned short)0x264) + v0_3)))->v)) & 0x200) == 0)) goto L_C0BCB10;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) >= (int)v0_8)) goto L_C0BCB10;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 14)) goto L_C0BCA7E;
-    if (!((v0_7 != 15))) goto L_C0BCA7E;
-    if (((*(signed char *)((v0_0 + 0x3715))) != 17)) goto L_C0BCB10;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x200;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x91;
-    ai_clear_op_state();
-    v0_1 = (0xC);
-    v0_2 = (0x1);
-    goto L_C0BCC74;
-    L_C0BCA7E:;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x200;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x90;
-    ai_clear_op_state();
-    v0_1 = (0xC);
-    v0_2 = (0x0);
-    goto L_C0BD118;
-    L_C0BCC74:;
-    v0_9 = ((FUN_0c0bc2c0(v0_0, v0_1, v0_2)));
-    goto L_C0BD498;
-    L_C0BCB10:;
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if ((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 64) == 0)) goto L_C0BCBC2;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) >= (int)0x40)) goto L_C0BCBC2;
-    if (((int)(unsigned short)((((struct o64_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) <= (int)0x3C)) goto L_C0BCBC2;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 0)) goto L_C0BCB72;
-    if ((v0_7 == 3)) goto L_C0BCB72;
-    if ((v0_7 == 1)) goto L_C0BCB72;
-    if ((v0_7 == 5)) goto L_C0BCB72;
-    if ((v0_7 != 13)) goto L_C0BCBC2;
-    L_C0BCB72:;
-    FUN_0c0bc15c();
-    (((struct o64_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x40;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x60;
-    ai_clear_op_state();
-    v0_1 = (0x6);
-    v0_2 = (0x0);
-    goto L_C0BCC74;
-    L_C0BCBC2:;
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if ((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 32) == 0)) goto L_C0BCC80;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) >= (int)0x20)) goto L_C0BCC80;
-    v0_7 = FUN_0c0bbee6(v0_0);
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
-    if ((v0_7 == 0)) goto L_C0BCC80;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x20;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x40;
-    (((struct o78_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    (((struct o6C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o2C_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o74_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)((*(int *)(((int)stk + 4)))))->v));
-    ai_clear_op_state();
-    v0_1 = (0xE);
-    v0_2 = (0x0);
-    goto L_C0BCC74;
-    L_C0BCC80:;
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if (!((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 16) != 0))) goto L_C0BCDC8;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) < (int)0x10)) goto L_C0BCCAA;
-    goto L_C0BCDC8;
-    L_C0BCDC8:;
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if (!((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 8) != 0))) goto L_C0BCF34;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) < (int)0x8)) goto L_C0BCDF2;
-    goto L_C0BCF34;
-    L_C0BCF34:;
-    v0_8 = *(signed char *)((v0_2 + 0x0));
-    v0_7 = ((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3));
-    if (!((((unsigned short)((((struct o80_short *)((((unsigned short)(unsigned char)v0_8 * (unsigned short)0x264) + v0_3)))->v)) & 2) != 0))) goto L_C0BD128;
-    if (((int)(unsigned short)((((struct o7E_short *)(v0_7))->v)) < (int)0x2)) goto L_C0BCF5E;
-    goto L_C0BD128;
-    L_C0BD128:;
-    if (!((((((struct o34_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) == 0))) goto L_C0BD3D4;
-    if (((*(signed char *)((v0_6 + 0x3F))) != 2)) goto L_C0BD210;
-    if (((*(signed char *)((v0_6 + 0x44))) != 1)) goto L_C0BD210;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0xFFFE;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x20;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x10)) = v0_5;
-    (((struct o7C_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    ai_clear_op_state();
-    FUN_0c0bc2c0(v0_0, 0x2, 0x0);
-    if (((*(signed char *)((v0_0 + 0x3721))) != 0)) goto L_C0BD1E8;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v)) | 0x2);
-    goto L_C0BD1FE;
-    L_C0BD3D4:;
-    v0_9 = (0x34);
-    v0_8 = (0x264);
-    if ((((((struct o34_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) != 0)) goto L_C0BD498;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + v0_9)) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_4;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = 0xFFFE;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x4)) = 0x10;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x10)) = v0_5;
-    (((struct o7C_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = v0_1;
-    ai_clear_op_state();
-    FUN_0c0bc2c0(v0_0, 0x1, 0x0);
-    if (((*(signed char *)((v0_0 + 0x3721))) != 0)) goto L_C0BD470;
-    v0_0 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_0 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_0 * (unsigned short)0x264) + v0_3)))->v)) | 0x2);
-    L_C0BD486:;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x14)) = v0_1;
-    v0_9 = (v0_1);
-    goto L_C0BD498;
-    L_C0BD470:;
-    v0_0 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_0 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_0 * (unsigned short)0x264) + v0_3)))->v)) & 0xFFFD);
-    goto L_C0BD486;
-    L_C0BD1FE:;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x14)) = v0_1;
-    L_C0BD210:;
-    if (((*(signed char *)((v0_6 + 0x3F))) != 1)) goto L_C0BD2F0;
-    if (((*(signed char *)((v0_6 + 0x44))) != 1)) goto L_C0BD2F0;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0xFFFE;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x20;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x10)) = v0_5;
-    (((struct o7C_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    ai_clear_op_state();
-    FUN_0c0bc2c0(v0_0, 0x2, 0x1);
-    if (((*(signed char *)((v0_0 + 0x3721))) != 0)) goto L_C0BD2C8;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v)) | 0x2);
-    L_C0BD2DE:;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x14)) = v0_1;
-    L_C0BD2F0:;
-    if (((*(signed char *)((v0_6 + 0x3F))) != 0)) goto L_C0BD3D4;
-    if (((*(signed char *)((v0_6 + 0x44))) != 1)) goto L_C0BD3D4;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0xFFFE;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x20;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x10)) = v0_5;
-    (((struct o7C_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    ai_clear_op_state();
-    FUN_0c0bc2c0(v0_0, 0x2, 0x2);
-    if (((*(signed char *)((v0_0 + 0x3721))) != 0)) goto L_C0BD3AC;
-    v0_6 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_6 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_6 * (unsigned short)0x264) + v0_3)))->v)) | 0x2);
-    L_C0BD3C2:;
-    *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x14)) = v0_1;
-    goto L_C0BD3D4;
-    L_C0BD3AC:;
-    v0_6 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_6 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_6 * (unsigned short)0x264) + v0_3)))->v)) & 0xFFFD);
-    goto L_C0BD3C2;
-    L_C0BD2C8:;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v)) & 0xFFFD);
-    goto L_C0BD2DE;
-    L_C0BD1E8:;
-    v0_7 = *(signed char *)((v0_2 + 0x0));
-    (((struct o80_ushort *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v) = (((((struct o80_short *)((((unsigned short)(unsigned char)v0_7 * (unsigned short)0x264) + v0_3)))->v)) & 0xFFFD);
-    goto L_C0BD1FE;
-    L_C0BCF5E:;
-    v0_7 = (FUN_0c0bbcbe(v0_0)) != 0;
-    if (v0_7) goto L_C0BD04C;
-    v0_7 = FUN_0c0bbcc4(v0_0);
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
-    v0_8 = (0x264);
-    if (((*(int *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x2C))) != v0_7)) goto L_C0BCF88;
-    goto L_C0BD128;
-    L_C0BCF88:;
-    *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x2C)) = (*(int *)(((int)stk + 4)));
-    if (((*(int *)(((int)stk + 4))) != 0)) goto L_C0BCFA0;
-    goto L_C0BD128;
-    L_C0BCFA0:;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x2;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x31;
-    (((struct o78_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    (((struct o6C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o2C_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o74_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o22_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (unsigned char)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x41C)));
-    ai_clear_op_state();
-    v0_1 = (0x3);
-    v0_2 = (0x0);
-    goto L_C0BD118;
-    L_C0BD04C:;
-    v0_7 = FUN_0c0bbcc4(v0_0);
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
-    v0_8 = (0x264);
-    if (((*(int *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x2C))) == v0_7)) goto L_C0BD128;
-    *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3) + 0x2C)) = (*(int *)(((int)stk + 4)));
-    if (((*(int *)(((int)stk + 4))) == 0)) goto L_C0BD128;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x2;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x31;
-    (((struct o78_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    (((struct o6C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o2C_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o74_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o22_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (unsigned char)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x41C)));
-    ai_clear_op_state();
-    v0_1 = (0x3);
-    v0_2 = (0x1);
-    goto L_C0BD118;
-    L_C0BCDF2:;
-    v0_7 = (int)(unsigned short)(FUN_0c0bbbd8(v0_0)) < (int)0xC8;
-    if (v0_7) goto L_C0BCE04;
-    (((struct o68_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    goto L_C0BCF34;
-    L_C0BCE04:;
-    v0_7 = (int)((int)((int)(FUN_0c179ac0()) % (int)0x64)) < (int)(unsigned short)(*(short *)((((unsigned char)(*(signed char *)(((v0_6 + 0x4A) + 0x0))) << 1) + 0xC25E014)));
-    if (v0_7) goto L_C0BCE2C;
-    goto L_C0BCF34;
-    L_C0BCE2C:;
-    v0_7 = FUN_0c0bbb16(v0_0);
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
-    v0_8 = (0x264);
-    if ((((((struct o68_int *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) == v0_7)) goto L_C0BCF34;
-    (((struct o68_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    if (((*(int *)(((int)stk + 4))) == 0)) goto L_C0BCF34;
-    if ((((((struct o78_int *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_8) + v0_3)))->v)) == (*(int *)(((int)stk + 4))))) goto L_C0BCE7E;
-    if (((*(signed char *)(((*(int *)(((int)stk + 4))) + 0x3720))) != 0)) goto L_C0BCF34;
-    L_C0BCE7E:;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x8;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x40;
-    (((struct o78_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    (((struct o6C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o2C_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o74_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)((*(int *)(((int)stk + 4)))))->v));
-    ai_clear_op_state();
-    v0_1 = (0x4);
-    v0_2 = (0x0);
-    goto L_C0BD118;
-    L_C0BCCAA:;
-    v0_7 = FUN_0c0bbad0(v0_0);
-    *(unsigned int *)(((int)stk + 4)) = v0_7;
-    if ((v0_7 != 0)) goto L_C0BCCBA;
-    goto L_C0BCDC8;
-    L_C0BCCBA:;
-    v0_7 = (0x264);
-    if (((unsigned short)((((struct o3E_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) == (*(signed char *)(((*(int *)(((int)stk + 4))) + 0x125))))) goto L_C0BCDC8;
-    (((struct o3E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)v0_7) + v0_3)))->v) = (*(signed char *)(((*(int *)(((int)stk + 4))) + 0x125)));
-    v0_7 = (int)((int)((int)(FUN_0c179ac0()) % (int)0x64)) >= (int)(unsigned short)(*(short *)((((unsigned char)(*(signed char *)(((v0_6 + 0x4A) + 0x0))) << 1) + 0xC25E054)));
-    if (v0_7) goto L_C0BCDC8;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x10;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x50;
-    (((struct o78_uint *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = (*(int *)(((int)stk + 4)));
-    (((struct o6C_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o28_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o2C_float *)((*(int *)(((int)stk + 4)))))->v));
-    (((struct o74_float *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = ((((struct o30_float *)((*(int *)(((int)stk + 4)))))->v));
-    ai_clear_op_state();
-    v0_2 = *(int *)((0xC25DB7C + ((*(signed char *)(((*(int *)(((int)stk + 4))) + 0x2))) << 2)));
-    *(unsigned int *)(((int)stk + 12)) = v0_2;
-    v0_1 = (0x5);
-    v0_2 = ((*(signed char *)(((unsigned char)(*(signed char *)(((*(int *)(((int)stk + 4))) + 0x125))) + v0_2))));
-    goto L_C0BD118;
-    L_C0BC924:;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 0)) goto L_C0BC94C;
-    if ((v0_7 == 3)) goto L_C0BC94C;
-    if ((v0_7 == 1)) goto L_C0BC94C;
-    if ((v0_7 == 5)) goto L_C0BC94C;
-    if ((v0_7 != 13)) goto L_C0BC97A;
-    L_C0BC94C:;
-    *(float *)(((int)stk + 8)) = ((((struct o2C_float *)(v0_0))->v));
-    v0_7 = (FUN_0c0bbcf6(v0_0, (((int)stk + 4) + 0x4), 0x10)) == 0;
-    if (v0_7) goto L_C0BC97A;
-    w0_2 = (((struct o2C_float *)(v0_0))->v);
-    w0_3 = *(float *)(((int)stk + 8));
-    w0_0 = (w0_3);
-    w0_1 = (w0_2);
-    if ((!(w0_3 > w0_2))) goto L_C0BC97A;
-    w0_2 = ((w0_1 + 500.0f));
-    if (((w0_1 + 500.0f) > w0_0)) goto L_C0BCA08;
-    L_C0BC97A:;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 0)) goto L_C0BC9A2;
-    if ((v0_7 == 3)) goto L_C0BC9A2;
-    if ((v0_7 == 1)) goto L_C0BC9A2;
-    if ((v0_7 == 5)) goto L_C0BC9A2;
-    if ((v0_7 != 13)) goto L_C0BC9AA;
-    L_C0BC9A2:;
-    if (((*(signed char *)((v0_0 + 0x375E))) != 0)) goto L_C0BCA08;
-    L_C0BC9AA:;
-    v0_8 = *(signed char *)((v0_0 + 0x3715));
-    v0_7 = (v0_8);
-    if ((v0_8 == 0)) goto L_C0BC9D2;
-    if ((v0_7 == 3)) goto L_C0BC9D2;
-    if ((v0_7 == 1)) goto L_C0BC9D2;
-    if ((v0_7 == 5)) goto L_C0BC9D2;
-    if ((v0_7 != 13)) goto L_C0BCA4A;
-    L_C0BC9D2:;
-    if (((*(signed char *)((v0_6 + 0x3F))) != 2)) goto L_C0BCA4A;
-    v0_7 = ((((*(signed char *)((v0_6 + 0x44))) == 1)));
-    if ((!v0_7)) goto L_C0BCA4A;
-    w0_0 = (((struct o2C_float *)(v0_0))->v);
-    w0_2 = (w0_0);
-    if ((!(w0_0 > (((((struct o168_float *)(v0_0))->v)) + 500.0f)))) goto L_C0BCA4A;
-    L_C0BCA08:;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x400;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = v0_1;
-    FUN_0c0bc25a();
-    ai_clear_op_state();
-    v0_1 = (0xA);
-    v0_2 = (0x0);
-    goto L_C0BD118;
-    L_C0BC7CE:;
-    v0_7 = (signed char)(FUN_0c07341c(v0_0)) == 0;
-    if (v0_7) goto L_C0BC826;
-    if ((((((struct o36_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) != 0)) goto L_C0BC812;
-    v0_7 = (int)((int)((int)(FUN_0c179ac0()) % (int)0x64)) < (int)(unsigned short)(*(short *)((((unsigned char)(*(signed char *)(((v0_6 + 0x4A) + 0x0))) << 1) + 0xC25E094)));
-    if (v0_7) goto L_C0BC876;
-    L_C0BC812:;
-    (((struct o36_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    L_C0BC836:;
-    if (((*(signed char *)((v0_0 + 0x3715))) != 34)) goto L_C0BC8EA;
-    if ((((((struct o38_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v)) != 0)) goto L_C0BC8D4;
-    v0_7 = (int)((int)((int)(FUN_0c179ac0()) % (int)0x64)) >= (int)(unsigned short)(*(short *)((((unsigned char)(*(signed char *)(((v0_6 + 0x4A) + 0x0))) << 1) + 0xC25E0D4)));
-    if (v0_7) goto L_C0BC8D4;
-    L_C0BC876:;
-    FUN_0c0bc15c();
-    (((struct o34_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    (((struct o7E_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = 0x800;
-    *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3) + 0x4)) = 0x10;
-    FUN_0c0bc25a();
-    ai_clear_op_state();
-    v0_1 = (0xB);
-    v0_2 = (0x0);
-    goto L_C0BD118;
-    L_C0BC8D4:;
-    (((struct o38_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_4;
-    goto L_C0BC8FA;
-    L_C0BC8EA:;
-    (((struct o38_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    goto L_C0BC8FA;
-    L_C0BC826:;
-    (((struct o36_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    goto L_C0BC836;
-    L_C0BC6B8:;
-    (((struct o64_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_3)))->v) = v0_1;
-    goto L_C0BC6C8;
+    if (m == 0x10) fl = *(signed char *)((unsigned char)*(signed char *)(r + 0x125) + *(int *)(0xC25DB7C + (*(signed char *)(r + 2) << 2)));
+    FUN_0c0bc2c0(a4, k, fl);
 }

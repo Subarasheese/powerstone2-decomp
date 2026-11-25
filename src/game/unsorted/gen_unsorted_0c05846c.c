@@ -3,8 +3,8 @@
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
 int math_mat_get_translate(int, int);
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c05846c(int a4, float f4, float f5);
 int thunk_FUN_0c058310(int a4, int a5);
 
@@ -21,8 +21,8 @@ int FUN_0c05846c(int a4, float f4, float f5)
     if ((int)(int)f4 < 0) {
         t5 = ((int)f4 + 0x7);
     }
-    FUN_0c17a4c0((((t5 >> 1) >> 1) >> 1), (((t0 >> 1) >> 1) >> 1));
-    return FUN_0c17a360(a4);
+    nlLocate((((t5 >> 1) >> 1) >> 1), (((t0 >> 1) >> 1) >> 1));
+    return nlPuts(a4);
 }
 
 int thunk_FUN_0c058310(int a4, int a5)

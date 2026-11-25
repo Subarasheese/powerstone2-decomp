@@ -81,9 +81,9 @@ int FUN_0c099034(int a4);
 
 int FUN_0c098558(int a4, int a5, float f4, float f5, float f6)
 {
-    register int t0;
-    register int t2;
-    register float u0;
+    float u0;
+    int t0;
+    int t2;
 
     u0 = *(float *)0xC0986B8;
     if (!((f5 + u0) > ((((struct o8C_float *)(((((struct o118_int *)(a4))->v))))->v)))) {

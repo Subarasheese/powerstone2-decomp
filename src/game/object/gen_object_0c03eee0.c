@@ -232,42 +232,6 @@ int FUN_0c03f136(void)
     return t3;
 }
 
-int FUN_0c03f258(int a4, int a5)
-{
-    register int t0;
-    register int t1;
-
-    t0 = FUN_0c03f004();
-    if (t0 == 0) {
-        return 0x0;
-    }
-    *(unsigned char *)((t0 + 0x0)) = a4;
-    if (a5 != 0) {
-        if (a5 != 1) {
-        } else {
-            t1 = *(int *)((((a4 << 2) + 0xC53245C) + 0x0));
-            *(unsigned int *)((t0 + 0x8)) = t1;
-            *(unsigned int *)((((a4 << 2) + 0xC53245C) + 0x0)) = t0;
-            *(unsigned int *)((t0 + 0xC)) = 0x0;
-            if (t1 == 0) {
-                *(unsigned int *)((0xC532434 + (a4 << 2))) = t0;
-            } else {
-                *(unsigned int *)((t1 + 0xC)) = t0;
-            }
-        }
-    } else {
-        t1 = *(int *)((((a4 << 2) + 0xC532434) + 0x0));
-        *(unsigned int *)((t0 + 0xC)) = t1;
-        *(unsigned int *)((((a4 << 2) + 0xC532434) + 0x0)) = t0;
-        *(unsigned int *)((t0 + 0x8)) = 0x0;
-        if (t1 == 0) {
-            *(unsigned int *)((0xC53245C + (a4 << 2))) = t0;
-        } else {
-            *(unsigned int *)((t1 + 0x8)) = t0;
-        }
-    }
-    return t0;
-}
 
 int FUN_0c03f2dc(int a4, int a5, int a6)
 {

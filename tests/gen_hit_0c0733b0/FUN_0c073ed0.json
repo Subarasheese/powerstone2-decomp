@@ -3,12 +3,99 @@
   {
    "about": "rescue: empty case",
    "regs": {}
+  },
+  {
+   "regs": {
+    "r4": "00000000"
+   },
+   "poke": {
+    "0C535BD4": "00000000",
+    "0C53249A": "0c2ba65c70962957e9becce7f134fa2a"
+   },
+   "calls": [
+    {},
+    {
+     "r0": "00000020"
+    }
+   ],
+   "about": "fuzz: 3 new instructions"
+  },
+  {
+   "about": "hand: partner 1, bytes +0x3719 differ: call with the partner base in r7",
+   "regs": {
+    "r4": "0C600000",
+    "r5": "00000000",
+    "r6": "0C600100"
+   },
+   "poke": {
+    "0C600000": "00010000",
+    "0C600104": "07",
+    "0C535BB1": "01",
+    "0C5394E9": "02"
+   }
+  },
+  {
+   "about": "hand: partner 1, bytes +0x3719 equal: no FUN_0c07434c",
+   "regs": {
+    "r4": "0C600000",
+    "r5": "00000000",
+    "r6": "0C600100"
+   },
+   "poke": {
+    "0C600000": "00010000",
+    "0C600104": "07",
+    "0C535BB1": "03",
+    "0C5394E9": "03"
+   }
+  },
+  {
+   "about": "hand: state 12 returns at once",
+   "regs": {
+    "r5": "00000000"
+   },
+   "poke": {
+    "0C53249A": "0c"
+   }
+  },
+  {
+   "about": "hand: state 13 returns at once",
+   "regs": {
+    "r5": "00000000"
+   },
+   "poke": {
+    "0C53249A": "0d"
+   }
   }
  ],
  "holdout": [
   {
    "about": "rescue: empty case",
    "regs": {}
+  },
+  {
+   "about": "hand: player 2, partner 0, bytes differ",
+   "regs": {
+    "r4": "0C600000",
+    "r5": "00000002",
+    "r6": "0C600100"
+   },
+   "poke": {
+    "0C600000": "00000000",
+    "0C600104": "09",
+    "0C535BB1": "05",
+    "0C53CE21": "06"
+   }
+  },
+  {
+   "about": "hand: no source object, partner -1",
+   "regs": {
+    "r4": "00000000",
+    "r5": "00000001",
+    "r6": "0C600100"
+   },
+   "poke": {
+    "0C600104": "0b"
+   }
   }
  ]
 }

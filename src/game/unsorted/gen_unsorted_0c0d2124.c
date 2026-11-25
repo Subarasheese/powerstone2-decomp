@@ -34,8 +34,8 @@ struct oD0_int { char p[0xD0]; int v; };
 struct oD4_int { char p[0xD4]; int v; };
 int FUN_0c0c2d56(int, int, int);
 int math_atan2_angle16(float, float);
-int FUN_0c179ac0(void);
-int FUN_0c17c130(int, int, int);
+int nlRand(void);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c0d2124(float f4);
 int FUN_0c0d21ac(int a4, int a5, int a6);
@@ -56,7 +56,7 @@ int FUN_0c0d2124(float f4)
     register float u3;
     register float u4;
 
-    t2 = FUN_0c179ac0();
+    t2 = nlRand();
     t3 = ((~(((~t2) + 0x1) & 0x3FF)) + 0x1);
     if ((int)t2 >= 0) {
         t3 = (t2 & 0x3FF);

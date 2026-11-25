@@ -8,7 +8,7 @@ struct o42C_ushort { char p[0x42C]; unsigned short v; };
 int FUN_0c0bb70c(int);
 int FUN_0c0bb73e(int, float);
 int ai_clear_op_state(void);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0c1c34(int a4, float f4);
 
 int FUN_0c0c1c34(int a4, float f4)
@@ -72,7 +72,7 @@ int FUN_0c0c1c34(int a4, float f4)
     L_C0C1C8E:;
     *(unsigned short *)((v0_5 + 0x0)) = v0_2;
     v0_8 = *(signed char *)((v0_4 + 0x0));
-    v0_7 = FUN_0c179ac0();
+    v0_7 = nlRand();
     v0_1 = (v0_7);
     v0_6 = (((((unsigned short)(unsigned char)v0_8 * (unsigned short)v0_6) + v0_0) + 0x26));
     if (((int)v0_7 < 0)) goto L_C0C1CAA;

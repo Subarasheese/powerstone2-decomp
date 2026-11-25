@@ -23,11 +23,11 @@ int FUN_0c03f444(int, int, int);
 int FUN_0c056e80(void);
 int FUN_0c057384(void);
 int FUN_0c05b490(void);
-int FUN_0c176b30(void);
+int nlFreeCommonTextureAll(void);
 int FUN_0c176b90(int);
 int FUN_0c178ac0(int, int);
-int FUN_0c17a020(void);
-int FUN_0c0e0580(void);
+int nlInitPrint(void);
+int nlPrnIndentOn(void);
 int FUN_0c0dd310(void);
 int nlObjPutInit(void);
 int FUN_0c05fa74(int a4, int a5, int a6, int a7);
@@ -37,73 +37,6 @@ int FUN_0c05fe7c(int a4, int a5);
 int FUN_0c05fecc(int a4, int a5, int a6, int a7);
 int FUN_0c05ff24(void);
 
-int FUN_0c05fa74(int a4, int a5, int a6, int a7)
-{
-    int stk[3];
-    register int t0;
-    register int t60;
-    register int t8;
-
-    t0 = *(signed char *)0xC541F44;
-    if ((unsigned char)t0 != 0) {
-        if (((unsigned char)t0 != 1) && ((unsigned char)t0 != 2)) {
-            if ((unsigned char)t0 != 3) {
-                if (((unsigned char)t0 != 4) && ((unsigned char)t0 != 5)) {
-                    if ((unsigned char)t0 != 6) {
-                        t8 = 0xC541F44;
-                    } else {
-                        sys_vsync_handler_install(a4, 0xC541F44, a6, a7);
-                    }
-                    FUN_0c036de8(0x22, t8, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
-                    *(unsigned char *)0xC541F44 = 0x0;
-                    t60 = 0x1;
-                } else {
-                    *(unsigned int *)0xC54245C = 0x0;
-                    *(unsigned char *)0xC541F44 = ((*(signed char *)0xC541F44) + 0x1);
-                    t60 = 0x0;
-                }
-            } else {
-                if ((*(int *)0xC5421D0) != a4) {
-                    *(unsigned int *)0xC54245C = 0x1;
-                    *(unsigned int *)0xC5421D0 = a4;
-                    FUN_0c178ac0(a4, 0x80);
-                    FUN_0c02d4dc();
-                    FUN_0c176b30();
-                    FUN_0c176b90(0x0);
-                    FUN_0c176b90(0x0);
-                    FUN_0c17a020();
-                    FUN_0c0e0580();
-                    FUN_0c0dd310();
-                    nlObjPutInit();
-                    FUN_0c057384();
-                    FUN_0c056e80();
-                    FUN_0c05b490();
-                    *(unsigned char *)0xC541F44 = ((*(signed char *)0xC541F44) + 0x1);
-                } else {
-                    *(unsigned char *)0xC541F44 = 0x63;
-                }
-                t60 = 0x0;
-            }
-        } else {
-            if ((*(signed char *)0xC541F44) != 0) {
-                *(unsigned int *)0xC54245C = 0x1;
-            }
-            *(unsigned char *)0xC541F44 = ((*(signed char *)0xC541F44) + 0x1);
-            t60 = 0x0;
-        }
-    } else {
-        FUN_0c03eff6();
-        FUN_0c036de8(0x23, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
-        FUN_0c176b30();
-        FUN_0c02d294();
-        if ((*(signed char *)0xC541F44) != 0) {
-            *(unsigned int *)0xC54245C = 0x1;
-        }
-        *(unsigned char *)0xC541F44 = ((*(signed char *)0xC541F44) + 0x1);
-        t60 = 0x0;
-    }
-    return t60;
-}
 
 int FUN_0c05fe02(void)
 {

@@ -132,7 +132,7 @@ int FUN_0c0ed9d4(int, int, int);
 int FUN_0c0ed9e8(int, int, int);
 int FUN_0c0eee64(int);
 int gdFsReopenHn(int, int, int, int);
-int FUN_0c0f1c44(int);
+int gdFsGetStat(int);
 int FUN_0c0f4968(int);
 int ADXT_Stop(void);
 int FUN_0c0ff8aa(void);
@@ -225,7 +225,7 @@ int gdFsWaitCompleteReq(int a4, int a5, int a6, int a7)
     for (;;) {
         t4 = ((int (*)(int, int, int, int))(((((struct o48_int *)((*(int *)(((*(int *)((a4 + 0x0))) + 0x3C)))))->v))))(t1, a5, a6, a7);
         t1 = a4;
-        t3 = FUN_0c0f1c44(t1);
+        t3 = gdFsGetStat(t1);
         t1 = t3;
         if (t3 != 0) {
             if (t3 != 1) {

@@ -96,7 +96,7 @@ int FUN_0c0eb604(int, int);
 int FUN_0c0eb618(int, int);
 int FUN_0c0f0b42(int, int);
 int FUN_0c0f1766(int);
-int FUN_0c0f1c44(int);
+int gdFsGetStat(int);
 int ADXT_ExecServer(void);
 int FUN_0c0fae0e(int, int, int, int);
 int FUN_0c0fb042(int, int, int, int);
@@ -184,8 +184,8 @@ int FUN_0c108358(int a4, int a5, int a6, int a7);
 int FUN_0c02a6ac(int a4, int a5, int a6, int a7);
 int FUN_0c0614fc(int a4, int a5);
 int FUN_0c0df2b0(float f4);
-int FUN_0c0ddb00(void);
-int FUN_0c0ddb20(void);
+int nlCommonTextureGetFreeMem(void);
+int nlCommonTextureGetFreeBlock(void);
 int FUN_0c1068e4(int a4);
 int mpdrv_get_version(int a4, int a5);
 int FUN_0c1145cc(int a4, int a5, int a6, int a7);
@@ -214,7 +214,7 @@ int pl_rouge_special_move_dispatch(int a4, int a5, int a6, int a7);
 int pl_kraken_special_move_dispatch(int a4, int a5, int a6, int a7);
 int pl_valgas_special_move_dispatch(int a4, int a5, int a6, int a7);
 int pl_enter_state_08(int a4);
-int FUN_0c0dccb0(int a4, int a5, int a6, int a7);
+int nlObjPutSetLightDirectionV(int a4, int a5, int a6, int a7);
 float math_ceil_float(float f4);
 int FUN_0c0f410c(int a4, int a5, int a6, int a7);
 int FUN_0c107fbc(int a4, int a5, int a6, int a7);
@@ -445,7 +445,7 @@ int FUN_0c1068fc(int a4, int a5)
 {
     register int t1;
 
-    t1 = FUN_0c0f1c44((*(int *)((a4 + 0x8))));
+    t1 = gdFsGetStat((*(int *)((a4 + 0x8))));
     *(unsigned int *)((a5 + 0x0)) = t1;
     return t1;
 }

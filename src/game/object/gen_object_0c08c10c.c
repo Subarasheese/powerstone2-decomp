@@ -64,44 +64,6 @@ int FUN_0c08c162(int a4)
     return t13;
 }
 
-int FUN_0c08c70a(int a4, int a5, int a6, int a7)
-{
-    int t0;
-
-    t0 = *(signed char *)((a4 + 0x16));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return t0;
-        }
-        t0 = *(signed char *)((a4 + 0x17));
-        if (t0 != 0) {
-            if (t0 != 1) {
-                return t0;
-            }
-            return ((int (*)(int, int, int, int))(0xC08C68C))(a4, a5, a6, a7);
-        }
-        return ((int (*)(int, int, int, int))(0xC08C52C))(a4, a5, a6, a7);
-    }
-    t0 = FUN_0c07ecc6(a4, 0x0, 0x0);
-    if ((t0 != 0) && (t0 != 1)) {
-        (((struct o3717_uchar *)(a4))->v) = 0x6;
-        (((struct o3718_uchar *)(a4))->v) = 0x0;
-        return FUN_0c085cac(a4, 0x6, 0x0);
-    }
-    FUN_0c07da48(a4);
-    FUN_0c070320(a4);
-    t0 = *(signed char *)((a4 + 0x17));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 2) {
-                return t0;
-            }
-            return ((int (*)(int, int, int, int))(0xC08C482))(a4, a5, a6, a7);
-        }
-        return ((int (*)(int, int, int, int))(0xC08C33E))(a4, a5, a6, a7);
-    }
-    return ((int (*)(int, int, int, int))(0xC08C1FE))(a4, a5, a6, a7);
-}
 
 int FUN_0c08c7de(int a4)
 {

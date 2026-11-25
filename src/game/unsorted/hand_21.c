@@ -13,7 +13,7 @@ typedef struct { float x, y, z; } V3;
 int FUN_0c03f346(int, int, int, int);
 void FUN_0c03744a(int, int, int, int);
 int FUN_0c0588bc(int, int, int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c059e60(int, int);
 int FUN_0c15aed8(int);
 int FUN_0c05ab12(int, int);
@@ -24,7 +24,7 @@ int math_atan_angle16(float);
 float math_signed_sqrt(float);
 float math_sin_angle16(int);
 float math_cos_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c150010(int, int, int, float, float, float, float);
 
 #define C8(o)   (*(signed char *)(e + (o)))
@@ -36,11 +36,12 @@ int FUN_0c150010(int, int, int, float, float, float, float);
 #define CURVE   0x0C2A19FC
 #define BANKS   ((int *)0x0C4B40FC)
 
+/* manual: flies the bird in along its path, then homes and dives on a target; 377 cases, 756 of 756 instructions */
 void FUN_0c13831c(int a4, int a5, int a6, int a7)
 {
     char *e = (char *)a4;
-    V3 t;
-    int a, d, r;
+    V3 t, *v;
+    int a, d, r, k;
     float h;
 
     switch (C8(0x14)) {
@@ -69,12 +70,10 @@ void FUN_0c13831c(int a4, int a5, int a6, int a7)
         if (++S16(0x1C) >= S16(0x1E)) {
             C8(0x14)++;
             S16(0x1C) = 0;
-            S16(0x20) = FUN_0c179ac0() % 2;
-            r = FUN_0c179ac0() % 2;
-            if (r == 0)
-                FUN_0c059e60(0x0C532498 + C8(1) * 14648, 38);
-            else if (r == 1)
-                FUN_0c059e60(0x0C532498 + C8(1) * 14648, 39);
+            S16(0x20) = nlRand() % 2;
+            r = nlRand() % 2;
+            if ((unsigned)r < 2)
+                FUN_0c059e60(0x0C532498 + C8(1) * 14648, 38 + r);
         }
         return;
     case 2:
@@ -88,82 +87,45 @@ void FUN_0c13831c(int a4, int a5, int a6, int a7)
         C8(0x14) = 3;
         t = *(V3 *)(e + 40);
         t.y -= 200.0f;
-        FUN_0c15aed8((int)&t);
-        FUN_0c05ab12(208, (int)(e + 40));
-        return;
+        v = &t;
+        goto leave;
     }
     if (!(S16(0x1C) > TL[3]))
         FUN_0c0588bc((int)(e + 64), CURVE + 36, CURVE + 24, S16(0x1C), TL[3], 0);
-    if (C8(2) == 0) {
-        if (S16(0x1C) > 20 && S16(0x1C) < 70) {
-            FUN_0c137f74(C8(1), (int)&t, S16(0x20) & 1);
-            FUN_0c0e2390((int)&t, (int)&t, (int)(e + 40));
-            if (t.x == 0.0f)
-                t.x = 9.99999997e-07f;
-            a = math_atan_angle16(-t.z / t.x) & 0xFFFF;
-            if (0.0f > t.x)
-                a += 0x8000;
-            d = (unsigned short)(a + 0x4000) - I32(0x38);
-            if (d & 0x8000) {
-                d = -546;
-                S16(0x22)--;
-            } else {
-                d = 546;
-                S16(0x22)++;
-            }
-            I32(0x38) = (unsigned short)(I32(0x38) + d);
-            if (t.y == 0.0f)
-                t.y = 9.99999997e-07f;
-            h = math_signed_sqrt(t.z * t.z + t.x * t.x);
-            a = math_atan_angle16(-h / t.y);
-            if (0.0f > t.y)
-                a += 0x8000;
-            d = -(unsigned short)(0x4000 + a) - I32(0x34);
-            if (d & 0x8000)
-                d = -546;
-            else
-                d = 546;
-            I32(0x34) = (unsigned short)(I32(0x34) + d);
-        }
-    } else {
-        if (S16(0x1C) > 5 && S16(0x1C) < *(int *)0x0C2A1A78) {
-            FUN_0c137f74(C8(1), (int)&t, S16(0x20) & 1);
+    k = C8(2);
+    if (k == 0 ? S16(0x1C) > 20 && S16(0x1C) < 70 : S16(0x1C) > 5 && S16(0x1C) < *(int *)0x0C2A1A78) {
+        FUN_0c137f74(C8(1), (int)&t, S16(0x20) & 1);
+        if (k)
             t.y += 100.0f;
-            FUN_0c0e2390((int)&t, (int)&t, (int)(e + 40));
-            if (t.x == 0.0f)
-                t.x = 9.99999997e-07f;
-            a = math_atan_angle16(-t.z / t.x) & 0xFFFF;
-            if (0.0f > t.x)
-                a += 0x8000;
-            d = (unsigned short)(a + 0x4000) - I32(0x38);
-            if (d & 0x8000) {
-                d = -(int)(*(float *)0x0C2A1A74 * 65536.0f / 360.0f);
-                S16(0x22)--;
-            } else {
-                S16(0x22)++;
-                d = (int)(*(float *)0x0C2A1A74 * 65536.0f / 360.0f);
-            }
-            I32(0x38) = (unsigned short)(I32(0x38) + d);
-            if (t.y == 0.0f)
-                t.y = 9.99999997e-07f;
-            h = math_signed_sqrt(t.z * t.z + t.x * t.x);
-            a = math_atan_angle16(-h / t.y);
-            if (0.0f > t.y)
-                a += 0x8000;
-            d = -(unsigned short)(0x4000 + a) - I32(0x34);
-            if (d & 0x8000)
-                d = -1092;
-            else
-                d = 1092;
-            I32(0x34) = (unsigned short)(I32(0x34) + d);
-        }
+        FUN_0c0e2390((int)&t, (int)&t, (int)(e + 40));
+        if (t.x == 0.0f)
+            t.x = 9.99999997e-07f;
+        a = math_atan_angle16(-t.z / t.x) & 0xFFFF;
+        if (0.0f > t.x)
+            a += 0x8000;
+        d = (unsigned short)(a + 0x4000) - I32(0x38);
+        r = k ? (int)(*(float *)0x0C2A1A74 * 65536.0f / 360.0f) : 546;
+        if (d & 0x8000) {
+            r = -r;
+            S16(0x22)--;
+        } else
+            S16(0x22)++;
+        I32(0x38) = (unsigned short)(I32(0x38) + r);
+        if (t.y == 0.0f)
+            t.y = 9.99999997e-07f;
+        h = math_signed_sqrt(t.z * t.z + t.x * t.x);
+        a = math_atan_angle16(-h / t.y);
+        if (0.0f > t.y)
+            a += 0x8000;
+        d = -(unsigned short)(0x4000 + a) - I32(0x34);
+        r = k ? 1092 : 546;
+        if (d & 0x8000)
+            r = -r;
+        I32(0x34) = (unsigned short)(I32(0x34) + r);
     }
     if (S16(0x20) & 2) {
         *P(0xC8) = 1;
-        if (S16(0x1C) & 1)
-            *(V12 *)(P(0xC8) + 132) = *(V12 *)(CURVE + 48);
-        else
-            *(V12 *)(P(0xC8) + 132) = *(V12 *)(CURVE + 60);
+        *(V12 *)(P(0xC8) + 132) = *(V12 *)(S16(0x1C) & 1 ? CURVE + 48 : CURVE + 60);
     }
     *(int *)(P(0xD0) + 128) += 10920;
     FUN_0c137f74(C8(1), (int)&t, S16(0x20) & 1);
@@ -188,10 +150,12 @@ void FUN_0c13831c(int a4, int a5, int a6, int a7)
     F32(0x4C) = math_sin_angle16(I32(0x38)) * 17.0f;
     F32(0x50) = -(math_sin_angle16(I32(0x34)) * 17.0f);
     F32(0x54) = math_cos_angle16(I32(0x38)) * 17.0f;
-    FUN_0c17c130((int)(e + 40), (int)(e + 40), (int)(e + 76));
+    nlAddVector3op((int)(e + 40), (int)(e + 40), (int)(e + 76));
     if (++S16(0x1C) == 300) {
         C8(0x14) = 3;
-        FUN_0c15aed8((int)(e + 40));
+        v = (V3 *)(e + 40);
+    leave:
+        FUN_0c15aed8((int)v);
         FUN_0c05ab12(208, (int)(e + 40));
     }
 }

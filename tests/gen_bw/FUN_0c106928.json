@@ -3,6 +3,19 @@
   {
    "about": "rescue: empty case",
    "regs": {}
+  },
+  {
+   "regs": {},
+   "calls": [
+    {
+     "r0": "0CF00000",
+     "fr0": "0CF0D000"
+    },
+    {
+     "r0": "00000000"
+    }
+   ],
+   "about": "fuzz: 11 new instructions"
   }
  ],
  "holdout": [

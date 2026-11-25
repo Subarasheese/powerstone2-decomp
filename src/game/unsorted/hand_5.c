@@ -175,7 +175,7 @@ void FUN_0c0f0d7a(int a4)
     }
 }
 
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c150010(int a4, int a5, int a6, float f4, float f5, float f6, float f7);
 
 void FUN_0c0c4482(int a4, int a5, int a6)
@@ -184,9 +184,9 @@ void FUN_0c0c4482(int a4, int a5, int a6)
     int half = a6 / 2;
     int i;
     for (i = 0; i < a5; i++) {
-        v[0] = *(float *)(a4 + 40) + (float)(FUN_0c179ac0() % a6 - half);
-        v[2] = *(float *)(a4 + 48) + (float)(FUN_0c179ac0() % a6 - half);
-        v[1] = *(float *)(a4 + 44) + (float)(FUN_0c179ac0() % a6 - half);
+        v[0] = *(float *)(a4 + 40) + (float)(nlRand() % a6 - half);
+        v[2] = *(float *)(a4 + 48) + (float)(nlRand() % a6 - half);
+        v[1] = *(float *)(a4 + 44) + (float)(nlRand() % a6 - half);
         FUN_0c150010((int)v, a5, a6, 1.0f, 1.0f, 1.0f, 1.0f);
     }
 }
@@ -312,19 +312,19 @@ void FUN_0c123f20(int a4)
     float s;
     *(short *)(e + 6) = 543;
     *(int *)(e + 104) = a4 + 100;
-    *(float *)(o + 76) = 20.0f + 10.0f * (float)(FUN_0c179ac0() % 10);
-    *(float *)(o + 84) = *(float *)(o + 76) + 10.0f * (float)(FUN_0c179ac0() % 10) + 1.0f;
-    *(float *)(o + 80) = (float)(FUN_0c179ac0() % 8) + 3.5f;
-    ang = (int)((float)(FUN_0c179ac0() % 20 + 15) * 65536.0f / 360.0f);
+    *(float *)(o + 76) = 20.0f + 10.0f * (float)(nlRand() % 10);
+    *(float *)(o + 84) = *(float *)(o + 76) + 10.0f * (float)(nlRand() % 10) + 1.0f;
+    *(float *)(o + 80) = (float)(nlRand() % 8) + 3.5f;
+    ang = (int)((float)(nlRand() % 20 + 15) * 65536.0f / 360.0f);
     *(int *)(o + 56) = ang;
     *(float *)(e + 108) = math_sin_angle16(ang) * *(float *)(o + 76);
     *(float *)(e + 116) = math_cos_angle16(*(int *)(o + 56)) * *(float *)(o + 76);
-    *(float *)(e + 112) = 10.0f + 10.0f * (float)(FUN_0c179ac0() % 10);
+    *(float *)(e + 112) = 10.0f + 10.0f * (float)(nlRand() % 10);
     s = *(float *)(o + 76) / 100.0f + 1.0f;
     *(float *)(e + 140) = s;
     *(float *)(e + 136) = s;
     *(float *)(e + 132) = s;
-    *(int *)(e + 124) = (int)((float)(360 / (FUN_0c179ac0() % 36 + 1)) * 65536.0f / 360.0f);
+    *(int *)(e + 124) = (int)((float)(360 / (nlRand() % 36 + 1)) * 65536.0f / 360.0f);
     *(float *)(e + 24) = 0.01f;
     *(float *)(e + 32) = 0.01f;
     *(float *)(e + 28) = 0.01f;
@@ -630,7 +630,7 @@ void FUN_0c1377fe(int a4, int a5, int a6)
 }
 
 int FUN_0c0588bc(int a4, int a5, int a6, int a7, int a8, int a9);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 
 /* the sine-wave wobble of one effect's two particles; a5/a6 are only carried into the call of FUN_0c150010 */
 void FUN_0c168c20(int a4, int a5, int a6)
@@ -649,7 +649,7 @@ void FUN_0c168c20(int a4, int a5, int a6)
         *(float *)(p + 76) = math_sin_angle16(*(int *)(p + 56)) * 10.0f;
         *(float *)(p + 80) = 0.0f;
         *(float *)(p + 84) = math_cos_angle16(*(int *)(p + 56)) * 10.0f;
-        FUN_0c03744a(*(int *)(p + 196), FUN_0c179ac0() % 3 + 1, 65, *(int *)0xC4B40D8);
+        FUN_0c03744a(*(int *)(p + 196), nlRand() % 3 + 1, 65, *(int *)0xC4B40D8);
         FUN_0c03744a(*(int *)(p + 200), 0, 43, *(int *)0xC4B40CC);
         a5 = 63;
         a6 = 43;
@@ -666,11 +666,11 @@ void FUN_0c168c20(int a4, int a5, int a6)
         p[20] = 2;
         return;
     }
-    if ((*(int *)0xC542260 & 15) == FUN_0c179ac0() % 16) {
+    if ((*(int *)0xC542260 & 15) == nlRand() % 16) {
         p[21] = 1 - p[21];
         *(short *)(p + 32) = 0;
     }
-    if ((*(int *)0xC542260 & 15) == FUN_0c179ac0() % 16) {
+    if ((*(int *)0xC542260 & 15) == nlRand() % 16) {
         p[22] = 1 - p[22];
         *(short *)(p + 34) = 0;
     }
@@ -717,7 +717,7 @@ void FUN_0c168c20(int a4, int a5, int a6)
         FUN_0c0588bc(*(int *)(p + 196) + 132, 0xC2A37E8 + 12, 0xC2A37E8, *(short *)(p + 28), *(int *)0xC2A3804, 0);
         FUN_0c0588bc(*(int *)(p + 200) + 132, 0xC2A37E8 + 12, 0xC2A37E8, *(short *)(p + 28), *(int *)0xC2A3804, 0);
     }
-    FUN_0c17c130(a4 + 40, a4 + 40, a4 + 76);
+    nlAddVector3op(a4 + 40, a4 + 40, a4 + 76);
     *(short *)(p + 28) = *(short *)(p + 28) + 1;
     if (*(short *)(p + 28) > *(int *)0xC2A3800)
         p[20] = 2;

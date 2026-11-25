@@ -7,7 +7,7 @@ struct o3874_uchar { char p[0x3874]; unsigned char v; };
 struct o387C_uchar { char p[0x387C]; unsigned char v; };
 struct o3884_uchar { char p[0x3884]; unsigned char v; };
 int FUN_0c0c418c(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0c42c4(int a4);
 
 int FUN_0c0c42c4(int a4)
@@ -20,20 +20,20 @@ int FUN_0c0c42c4(int a4)
         if (t0 != 1) {
             if ((t0 != 2) && ((t0 != 3) && (t0 != 4))) {
             } else {
-                (((struct o386C_uchar *)(a4))->v) = (*(signed char *)((0xC27337C + ((int)((int)(FUN_0c179ac0()) % (int)0x6)))));
-                t0 = FUN_0c179ac0();
+                (((struct o386C_uchar *)(a4))->v) = (*(signed char *)((0xC27337C + ((int)((int)(nlRand()) % (int)0x6)))));
+                t0 = nlRand();
                 t1 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
                 if ((int)t0 >= 0) {
                     t1 = (t0 & 0x3);
                 }
                 (((struct o3874_uchar *)(a4))->v) = (*(signed char *)(((t1 + 0xC27337C) + 0x6)));
-                t0 = FUN_0c179ac0();
+                t0 = nlRand();
                 t1 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
                 if ((int)t0 >= 0) {
                     t1 = (t0 & 0x3);
                 }
                 (((struct o387C_uchar *)(a4))->v) = (*(signed char *)(((t1 + 0xC27337C) + 0xC)));
-                t0 = FUN_0c179ac0();
+                t0 = nlRand();
                 t1 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
                 if ((int)t0 >= 0) {
                     t1 = (t0 & 0x3);

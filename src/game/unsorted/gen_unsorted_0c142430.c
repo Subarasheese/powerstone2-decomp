@@ -24,7 +24,7 @@ int FUN_0c03f346(int);
 int FUN_0c03f444(int, int, int);
 int thunk_FUN_0c058310(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c142430(int a4, int a5);
@@ -57,7 +57,7 @@ int FUN_0c142430(int a4, int a5)
         if ((*(signed char *)((t1 + 0x2))) != 0) {
             t3 = 0x4000;
         }
-        t4 = (int)((int)(FUN_0c179ac0()) % (int)0x5);
+        t4 = (int)((int)(nlRand()) % (int)0x5);
         u0 = (((struct o0_float *)0xC142568)->v);
         u1 = math_cos_angle16(((t2 + t3) + ((t4 - 2) * 0x71C)));
         (((struct o54_float *)(t1))->v) = (u1 * u0);

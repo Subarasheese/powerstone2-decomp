@@ -39,41 +39,6 @@ int FUN_0c02bdbc(int a4);
 int FUN_0c02be9c(int a4, float f4);
 int FUN_0c02bff0(int a4);
 
-int FUN_0c02bd48(void)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(signed char *)0xC30EF15;
-    if ((unsigned char)t0 != 0) {
-        if ((unsigned char)t0 != 1) {
-            return (unsigned char)t0;
-        }
-        t1 = (((struct o4_short *)0xC30EF14)->v);
-        (((struct o4_ushort *)0xC30EF14)->v) = (t1 - 1);
-        if ((int)(short)(t1 - 1) <= 0) {
-            (((struct o3_uchar *)0xC30EF14)->v) = 0x0;
-            (((struct o2_uchar *)0xC30EF14)->v) = 0x0;
-            (((struct o1_uchar *)0xC30EF14)->v) = 0x0;
-            (((struct o0_uchar *)0xC30EF14)->v) = 0x0;
-            return FUN_0c01e9e4();
-        }
-        return (unsigned char)t0;
-    }
-    (((struct o1_uchar *)0xC30EF14)->v) = ((*(signed char *)0xC30EF15) + 0x1);
-    t0 = FUN_0c0573cc(0xFF000000, 0x0, 0x14);
-    (((struct o4_ushort *)0xC30EF14)->v) = 0x14;
-    t1 = (((struct o4_short *)0xC30EF14)->v);
-    (((struct o4_ushort *)0xC30EF14)->v) = (t1 - 1);
-    if ((int)(short)(t1 - 1) <= 0) {
-        (((struct o3_uchar *)0xC30EF14)->v) = 0x0;
-        (((struct o2_uchar *)0xC30EF14)->v) = 0x0;
-        (((struct o1_uchar *)0xC30EF14)->v) = 0x0;
-        (((struct o0_uchar *)0xC30EF14)->v) = 0x0;
-        return FUN_0c01e9e4();
-    }
-    return t0;
-}
 
 void FUN_0c02bda4(void)
 {

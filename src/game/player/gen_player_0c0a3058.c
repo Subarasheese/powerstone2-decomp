@@ -380,44 +380,5 @@ int FUN_0c0a39ba(int a4)
     return FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x1, 0x8);
 }
 
-int FUN_0c0a3b08(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = (((struct o3768_int *)(a4))->v);
-    if (t0 != 0) {
-        t1 = FUN_0c0c30a8(t0, 0x2, a4);
-        if (t1 != 0) {
-            FUN_0c07d774(a4);
-            math_angle_between_points_xz((a4 + 0x28), (t0 + 0x28));
-            *(unsigned int *)((a4 + 0x38)) = (FUN_0c07d774(a4));
-            t0 = 0xC;
-            if ((*(signed char *)((a4 + 0x371C))) != 0) {
-                t0 = 0xA;
-            }
-            FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x1, t0);
-            t0 = 0x8;
-        } else {
-            t1 = 0xC;
-            if ((*(signed char *)((a4 + 0x371C))) != 0) {
-                t1 = 0xA;
-            }
-            FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x1, t1);
-            t0 = 0xD;
-        }
-        t1 = t0;
-    } else {
-        t0 = 0xC;
-        if ((*(signed char *)((a4 + 0x371C))) != 0) {
-            t0 = 0xA;
-        }
-        FUN_0c0a3058(a4, (*(signed char *)((a4 + 0x1))), 0x1, t0);
-        t1 = 0xD;
-    }
-    *(unsigned short *)((a4 + 0x1C)) = t1;
-    (((struct o15_uchar *)(a4))->v) = 0x0;
-    return 0x15;
-}
 
 

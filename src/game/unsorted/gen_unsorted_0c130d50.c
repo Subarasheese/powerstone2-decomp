@@ -10,7 +10,7 @@ struct o88_float { char p[0x88]; float v; };
 struct o8C_float { char p[0x8C]; float v; };
 struct oC8_int { char p[0xC8]; int v; };
 int FUN_0c03f346(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c130d50(int a4);
 
 int FUN_0c130d50(int a4)
@@ -20,7 +20,7 @@ int FUN_0c130d50(int a4)
     register float u0;
 
     t0 = *(int *)((a4 + 0x38));
-    u0 = (float)(int)(((float)((int)((int)(FUN_0c179ac0()) % (int)0x1E)) * 65536.0f) / 360.0f);
+    u0 = (float)(int)(((float)((int)((int)(nlRand()) % (int)0x1E)) * 65536.0f) / 360.0f);
     *(unsigned int *)((a4 + 0x38)) = (t0 + (int)((u0 * 65536.0f) / 360.0f));
     t0 = (((struct oC8_int *)(a4))->v);
     (((struct o7C_uint *)(t0))->v) = (((((struct o7C_int *)(t0))->v)) + 0xE38);

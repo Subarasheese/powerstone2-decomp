@@ -329,47 +329,6 @@ int FUN_0c05c662(int a4, int a5, int a6)
     return t0;
 }
 
-int FUN_0c149c00(int a4)
-{
-    int stk[3];
-    register int t0;
-    register int t4;
-    register int t23;
-    register int t30;
-
-    t0 = *(signed char *)((a4 + 0x16));
-    if (t0 != 0) {
-        t30 = t0;
-        if (t0 != 1) {
-        } else {
-            (((struct oA8_uchar *)(a4))->v) = ((((*(short *)((a4 + 0x1C))) & 0x4) >> 1) >> 1);
-            t4 = *(short *)((a4 + 0x1C));
-            *(unsigned short *)((a4 + 0x1C)) = (t4 - 1);
-            t30 = (short)(t4 - 1);
-            if ((int)(short)(t4 - 1) <= 0) {
-                FUN_0c0b21ac(a4, 0x7);
-                (((struct o130_uchar *)(a4))->v) = 0x0;
-                t30 = (FUN_0c1495c0(a4, 0x1, 0x12C));
-            }
-        }
-    } else {
-        *(unsigned short *)((a4 + 0x1C)) = 0x3C;
-        FUN_0c149560(a4, 0x1);
-        math_mat_get_translate((a4 + 0x64), ((int)stk + 0));
-        FUN_0c059e9a((((short)(*(signed char *)((a4 + 0x1))) * (short)0x3938) + 0xC532498), 0x3, ((int)stk + 0));
-        (((struct o16_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x16))) + 0x1);
-        (((struct oA8_uchar *)(a4))->v) = ((((*(short *)((a4 + 0x1C))) & 0x4) >> 1) >> 1);
-        t23 = *(short *)((a4 + 0x1C));
-        *(unsigned short *)((a4 + 0x1C)) = (t23 - 1);
-        t30 = (short)(t23 - 1);
-        if ((int)(short)(t23 - 1) <= 0) {
-            FUN_0c0b21ac(a4, 0x7);
-            (((struct o130_uchar *)(a4))->v) = 0x0;
-            t30 = (FUN_0c1495c0(a4, 0x1, 0x12C));
-        }
-    }
-    return t30;
-}
 
 int FUN_0c079ea8(int a4)
 {

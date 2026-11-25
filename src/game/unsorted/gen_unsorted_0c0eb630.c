@@ -9,7 +9,7 @@ struct o17_uchar { char p[0x17]; unsigned char v; };
 struct o41D_uchar { char p[0x41D]; unsigned char v; };
 struct o4_int { char p[0x4]; int v; };
 struct o8_int { char p[0x8]; int v; };
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0eb630(int a4, int a5, int a6, int a7);
 
 int FUN_0c0eb630(int a4, int a5, int a6, int a7)
@@ -52,7 +52,7 @@ int FUN_0c0eb630(int a4, int a5, int a6, int a7)
         (((struct o16_uchar *)(a5))->v) = 0x0;
         (((struct o15_uchar *)(a5))->v) = 0x0;
         (((struct o17_uchar *)(a5))->v) = 0x1;
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t6 = ((~(((~t0) + 0x1) & 0x1)) + 0x1);
         if ((int)t0 >= 0) {
             t6 = (t0 & 0x1);

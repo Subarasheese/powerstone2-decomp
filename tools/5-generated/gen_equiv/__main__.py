@@ -45,6 +45,13 @@ if os.path.isdir('build') and not any(a in sys.argv for a in ('--draw','--retest
 import stamp; sys.stdout=stamp.Stamp(sys.stdout)       # each line ends with the wall-clock time: the last line says how long ago it was
 def note(msg): print('[%4ds] %s'%(time.time()-T0,msg),flush=True)
 import gen_pipe,gen_drv,gen_core,rewrites
+import scratch,atexit
+lock()
+try:
+    for _f in scratch.sweep(): print('removed the scratch of a run that is gone: %s'%_f,flush=True)
+finally:
+    unlock()
+if not os.environ.get('GEN_KEEP'): atexit.register(scratch.remove_own)      # a run that is stopped leaves nothing in src/ and tests/ (SIGTERM raises SystemExit)
 class Timeout(BaseException): pass      # not an Exception: the tools' own `except Exception` (gen_drv, directed) swallowed the alarm, which fires once, and drawing ran on unbounded (cpuSglAimTable: 106 min against 38)
 def _alarm(sig,frm): raise Timeout()
 signal.signal(signal.SIGALRM,_alarm)
@@ -84,6 +91,10 @@ if '--lift' in sys.argv:
     import gen_retest; gen_retest.lift([x for x in sys.argv[1:] if x!='--lift']); sys.exit(0)
 abc='abcdefghijklmnopqrstuvwxyz'
 k=0
+def _taken():
+    """the file names in use: every C file of the repo, wherever it lives (tools/layout.py), and every cases folder. A new
+    file is written through the name lookup, so a name taken in another folder would replace that file"""
+    return {srcfiles.stem(f) for f in srcfiles.files()} | (set(os.listdir('tests')) if os.path.isdir('tests') else set())
 def write_batch(keep):
     global k
     if not keep: return
@@ -94,7 +105,7 @@ def write_batch(keep):
     protos={}
     for it in keep:
         for a,b in it[3].items(): protos[a]=b
-    fn=next('gen_'+x for x in list(abc)+[a+b for a in abc for b in abc]+[a+b+c_ for a in abc for b in abc for c_ in abc] if not os.path.exists(srcfiles.path('gen_%s'%x)))
+    fn=next('gen_'+x for x in list(abc)+[a+b for a in abc for b in abc]+[a+b+c_ for a in abc for b in abc for c_ in abc] if 'gen_'+x not in _taken())
     head='/* Straight-line functions with calls and guards (batch %s): generated from the code and checked by tests. Calls are\n   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */\n\n'%fn+gen_drv.head_protos(keep)+'\n\n'
     open(srcfiles.path(fn),'w').write(rewrites.narrow_unit(head+'\n'.join(i[1] for i in keep)))
     shutil.rmtree('tests/%s'%fn,ignore_errors=True); os.makedirs('tests/%s'%fn)
@@ -167,7 +178,9 @@ def _cap_memory():
     import resource
     lim=int(float(os.environ.get('GEN_MEM_GB','4'))*(1<<30))
     soft,hard=resource.getrlimit(resource.RLIMIT_AS)
-    if soft==resource.RLIM_INFINITY or soft>lim: resource.setrlimit(resource.RLIMIT_AS,(lim,hard))
+    if soft==resource.RLIM_INFINITY or soft>lim:
+        try: resource.setrlimit(resource.RLIMIT_AS,(lim,hard))
+        except (ValueError,OSError): pass          # macOS takes no address-space cap: the worker runs uncapped
 def _read(n):
     if JOBS>1: _cap_memory()
     signal.alarm(int(max(READ_LIMIT,gen_core.SPANS[n][1]//4)*TIMEF))      # a larger function gets more time: size/4 seconds, at least 300, times GEN_TIME_FACTOR
@@ -189,7 +202,10 @@ def stream(fn,names):
     pool=multiprocessing.get_context("fork").Pool(JOBS)
     try:
         for r in pool.imap_unordered(fn,names): yield r
-    finally:
+    except BaseException:
+        pool.terminate(); pool.join()       # stopped (SIGTERM) or failed: close()+join() waited for the busy workers, the pool replaced killed ones, and the run lived on
+        raise
+    else:
         pool.close(); pool.join()
 def each(fn,names,what):
     """fn over the names, all results, with a progress line"""
@@ -216,7 +232,7 @@ ROUND=[0,False]
 def _draw(n):
     vi,pt=ROUND
     t0=time.time()
-    signal.alarm(int(max(BUILD_LIMIT,gen_core.SPANS[n][1]//8)*TIMEF))      # a larger function gets more time: size/8 seconds, at least 60, times GEN_TIME_FACTOR
+    signal.alarm(int(max(BUILD_LIMIT,gen_core.SPANS[n][1]//2)*TIMEF))      # a larger function gets more time: size/2 seconds (a 384-byte one needed 156 s on a busy machine and kept its old C at size/8), at least 60, times GEN_TIME_FACTOR
     try:
         try: vs=gen_pipe.variants(n,pt)
         except gen_core.Skip as e:
@@ -265,6 +281,7 @@ def flush(items,notdrawn,ri,vi,pt,order,bn):
                     try:
                         vs_=gen_pipe.variants(it[0],pt)
                         if kind_==(vs_[vi] if vi<len(vs_) else None): continue
+                        if kind_ not in gen_pipe.retry_kinds(it[0]): continue
                         s_,c_=gen_drv.build(it[0],kind_,pt); c_.protos.pop(it[0],None)
                         again.append((it[0],s_,it[2],c_.protos)+tuple(it[4:]))
                     except Exception: pass
@@ -278,6 +295,22 @@ def flush(items,notdrawn,ri,vi,pt,order,bn):
                 out_only=[it for it in out_only if it[0] not in p2]
                 note('round %d batch %d: %d differed only in the return value, %d pass returning %s'%(ri,bn,len(again),len(p2),{'r0':'int','fr0':'float','void':'nothing'}[kind_]))
                 if not out_only: break
+            # still differing: once more with a temporary per value (gen_pipe.retry_uncoalesced: SHC merged two tails of FUN_0c02ad98)
+            def _rebuild(n_):
+                it=next(i for i in items if i[0]==n_)
+                vs_=gen_pipe.variants(n_,pt)
+                s_,c_=gen_drv.build(n_,vs_[vi] if vi<len(vs_) else vs_[-1],pt); c_.protos.pop(n_,None)
+                return (n_,s_,it[2],c_.protos)+tuple(it[4:]) if s_!=it[1] else None
+            def _check(again):
+                first_out=gen_pipe.LAST.get('out','')
+                p2,f2,d2,dr2,_=gen_pipe.run_file_robust(stem+'c',again)
+                gen_pipe.LAST['out']=first_out
+                return p2
+            still=[it[0] for it in items if it[0] in failed]
+            fixed=gen_pipe.retry_uncoalesced(still,_rebuild,_check)
+            for n_,it in fixed.items():
+                failed.remove(n_); passed.append(n_); items[[i[0] for i in items].index(n_)]=it
+            if still: note('round %d batch %d: %d still differed, %d pass with a temporary per value'%(ri,bn,len(still),len(fixed)))
         finally:
             restore_evidence()
         print(ri,vi,pt,'batch',bn,'items',len(items),'passed',len(passed),'failed',len(failed),'dropped',len(dropped),err,flush=True)
@@ -304,8 +337,7 @@ def flush(items,notdrawn,ri,vi,pt,order,bn):
         done.update(passed)
         final.append((stem,keep,vi,pt))
         if not known: write_batch(keep)
-        for f in ([] if os.environ.get('GEN_KEEP') else srcfiles.files('gen_tmp*p%d'%os.getpid())): os.remove(f)      # GEN_KEEP=1 leaves the scratch C to look at
-        for d in glob.glob('tests/gen_tmp*p%d'%os.getpid()): shutil.rmtree(d)
+        if not os.environ.get('GEN_KEEP'): scratch.remove_own()      # GEN_KEEP=1 leaves the scratch C to look at
     finally:
         unlock()
 for ri,(vi,pt) in enumerate(rounds):

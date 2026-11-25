@@ -49,65 +49,6 @@ int FUN_0c01e988(int a4, int a5, int a6, int a7)
     return FUN_0c187a88(0xC30AB2E, 0xC83C61C, 0x44, a7);
 }
 
-int FUN_0c2c3148(void)
-{
-    return 0x7FFFFFFF;
-}
-
-int FUN_0c2b260a(void)
-{
-    return (*(int *)0xC3036FC);
-}
-
-int thunk_FUN_0c2c5202(int a4, int a5, int a6, int a7)
-{
-    return mwRnaSetTransSw(a4, a5, a6, a7);
-}
-
-int thunk_FUN_0c2c5b3a(int a4, int a5, int a6, int a7)
-{
-    return mwRnaSetSfreq(a4, a5, a6, a7);
-}
-
-int thunk_FUN_0c2c52e0(int a4, int a5, int a6, int a7)
-{
-    return mwRnaSetPlaySw(a4, a5, a6, a7);
-}
-
-int FUN_0c2fbc3e(int a4, int a5, int a6)
-{
-    return FUN_0c2eb978(0x8, a5, a6);
-}
-
-int thunk_FUN_0c2c5bd0(int a4, int a5, int a6, int a7)
-{
-    return mwRnaSetOutPan(a4, a5, a6, a7);
-}
-
-int thunk_FUN_0c2c5a3c(int a4, int a5, int a6, int a7)
-{
-    return mwRnaSetNumChan(a4, a5, a6, a7);
-}
-
-int FUN_0c2fbc44(int a4, int a5, int a6)
-{
-    return FUN_0c2eb978(0xB, a5, a6);
-}
-
-int thunk_FUN_0c2c4cb8(int a4, int a5, int a6, int a7)
-{
-    return mwRnaCreate_8c1f1d9c(a4, a5, a6, a7);
-}
-
-int thunk_FUN_0c2c067e(int a4, int a5, int a6, int a7)
-{
-    return vmsfs_isformat(a4, a5, a6, a7);
-}
-
-int FUN_0c2fbc38(int a4, int a5, int a6)
-{
-    return FUN_0c2eb978(0x7, a5, a6);
-}
 
 int FUN_0c06c4d6(int a4, int a5, int a6)
 {

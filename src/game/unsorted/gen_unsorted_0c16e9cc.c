@@ -40,7 +40,7 @@ int FUN_0c064f80(int);
 int FUN_0c07e3ae(int, int);
 int FUN_0c0c2ab6(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c187798(void);

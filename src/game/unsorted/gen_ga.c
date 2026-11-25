@@ -321,52 +321,6 @@ int FUN_0c1670c4(int a4, int a5, int a6, int a7)
     return t2;
 }
 
-int FUN_0c16bd38(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register float u0;
-
-    t0 = (~((int)0x1 << (int)a4));
-    if ((int)a4 < 0) {
-        t0 = 0xF;
-    }
-    if (a7 != 0) {
-        t1 = FUN_0c03f444(0x1, 0x0, 0x1, a7);
-        t2 = 0x0;
-        if (t1 != 0) {
-            FUN_0c07e3ae(t1, 0x10);
-            FUN_0c064d24(t1, 0x3, 0x4F, 0x0, 0x100, (t0), 0x0, 0xFFFFFEF0);
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x28)) = *(struct mv3 *)(a5); }
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x34)) = *(struct mv3 *)(a6); }
-            u0 = *(float *)0xC16BE3C;
-            (((struct o4C_float *)(t1))->v) = (u0 * (math_sin_angle16((*(int *)((a6 + 0x4))))));
-            (((struct o54_float *)(t1))->v) = (u0 * (math_cos_angle16((*(int *)((a6 + 0x4))))));
-            (((struct o50_float *)(t1))->v) = 0.0f;
-            (((struct o5C_float *)(t1))->v) = 0.0f;
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x40)) = *(struct mv3 *)(0xC2A393C); }
-            t2 = t1;
-        }
-        t0 = t2;
-    } else {
-        t1 = FUN_0c03f444(0x5, 0x0, 0x2, a7);
-        t2 = 0x0;
-        if (t1 != 0) {
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x28)) = *(struct mv3 *)(a5); }
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x34)) = *(struct mv3 *)(a6); }
-            u0 = *(float *)0xC16BE3C;
-            (((struct o4C_float *)(t1))->v) = (u0 * (math_sin_angle16((*(int *)((a6 + 0x4))))));
-            (((struct o54_float *)(t1))->v) = (u0 * (math_cos_angle16((*(int *)((a6 + 0x4))))));
-            (((struct o50_float *)(t1))->v) = 0.0f;
-            (((struct o5C_float *)(t1))->v) = 0.0f;
-            { struct mv3 { int w[3]; }; *(struct mv3 *)((t1 + 0x40)) = *(struct mv3 *)(0xC2A393C); }
-            t2 = t1;
-        }
-        t0 = t2;
-    }
-    return t0;
-}
 
 int FUN_0c1332b4(int a4, int a5, int a6, int a7)
 {

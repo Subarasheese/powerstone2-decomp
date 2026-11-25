@@ -33,54 +33,63 @@ float math_signed_sqrt(float);
 int nlAddVector3op(int, int, int);
 int thunk_FUN_0c05abb2(int, int);
 float FUN_0c0f2bac(int a4);
+struct o10_int { char p[0x10]; int v; };
+struct o1C_short { char p[0x1C]; short v; };
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+struct o34_int { char p[0x34]; int v; };
+struct o34_uint { char p[0x34]; unsigned int v; };
+struct o38_int { char p[0x38]; int v; };
+struct o38_uint { char p[0x38]; unsigned int v; };
+struct oC_int { char p[0xC]; int v; };
+
 
 float FUN_0c0f2bac(int a4)
 {
     int stk[4];
 
-    register int R1;
-    register int R2;
-    register int R3;
-    register int R5;
-    register int R6;
-    register float F0;
-    register float F1;
-    register float F2;
-    register float F3;
-    register float F4;
-    register float F5;
-    register float F13;
-    register float F15;
-    register int T_;
-    register int FPUL_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
-    register float w0_0;
-    register float w0_1;
-    register float w0_2;
+    int v0_0;
+    int v0_1;
+    int v0_2;
+    int v0_3;
+    float w0_1;
+    int v0_4;
+    float w0_2;
+    int v0_5;
+    int R5;
+    float w0_0;
+    float F0;
+    int T_;
+    float F15;
+    float F13;
+    float F5;
+    float F4;
+    float F3;
+    float F2;
+    float F1;
+    int R6;
+    int R3;
+    int R2;
+    int R1;
+    int FPUL_;
     v0_1 = a4;
-    v0_0 = *(signed char *)((v0_1 + 0x1));
+    v0_0 = *(signed char *)(v0_1 + 0x1);
     *(unsigned int *)(((int)stk + 0)) = (0x38F8 + (((short)v0_0 * (short)0x3938) + 0xC532498));
     v0_3 = ((((short)v0_0 * (short)0x3938) + 0xC532498));
     v0_0 = (v0_1);
-    if (((*(signed char *)((v0_1 + 0x14))) != 0)) goto L_C0F2BEE;
-    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    if (((*(signed char *)(v0_1 + 0x14)) != 0)) goto L_C0F2BEE;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)(v0_0 + 0x14)) + 0x1);
     (((struct oA8_uchar *)(v0_0))->v) = 0x1;
     FUN_0c0f2ad4(v0_0, 0x0);
     L_C0F2BEE:;
     FUN_0c0f2ae0(v0_0);
-    v0_5 = *(signed char *)((v0_0 + 0x15));
+    v0_5 = *(signed char *)(v0_0 + 0x15);
     v0_2 = (v0_5);
     v0_4 = (0x0);
     v0_1 = (0xC1CE240);
     if ((v0_5 == 0)) goto L_C0F2C16;
     if ((v0_2 == 1)) goto L_C0F2C84;
     if ((v0_2 != 2)) goto L_C0F2C0A;
-    v0_3 = *(signed char *)((v0_0 + 0x16));
+    v0_3 = *(signed char *)(v0_0 + 0x16);
     v0_2 = (v0_3);
     w0_0 = (1.5f);
     if ((v0_3 == 0)) goto L_C0F2D54;
@@ -89,10 +98,10 @@ float FUN_0c0f2bac(int a4)
     L_C0F2E36:;
     nlAddVector3op((v0_0 + 0x28), (v0_0 + 0x28), (v0_0 + 0x4C));
     (((struct o50_float *)(v0_0))->v) = (((((struct o50_float *)(v0_0))->v)) - w0_0);
-    *(unsigned int *)((v0_0 + 0x38)) = ((*(int *)((v0_0 + 0x38))) + ((((struct o20_short *)(v0_0))->v)));
-    *(unsigned int *)((v0_0 + 0x34)) = ((*(int *)((v0_0 + 0x34))) + ((((struct o22_short *)(v0_0))->v)));
-    v0_1 = *(short *)((v0_0 + 0x1C));
-    *(unsigned short *)((v0_0 + 0x1C)) = (v0_1 - 1);
+    (((struct o38_uint *)(v0_0))->v) = (((((struct o38_int *)(v0_0))->v)) + ((((struct o20_short *)(v0_0))->v)));
+    (((struct o34_uint *)(v0_0))->v) = (((((struct o34_int *)(v0_0))->v)) + ((((struct o22_short *)(v0_0))->v)));
+    v0_1 = (((struct o1C_short *)(v0_0))->v);
+    (((struct o1C_ushort *)(v0_0))->v) = (v0_1 - 1);
     v0_2 = ((short)(v0_1 - 1));
     if (((int)(short)(v0_1 - 1) > 0)) goto L_C0F2E98;
     R5 = (0x0);
@@ -101,27 +110,27 @@ float FUN_0c0f2bac(int a4)
     L_C0F2E98:;
     return F0;
     L_C0F2D54:;
-    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x16))) + 0x1);
+    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)(v0_0 + 0x16)) + 0x1);
     (((struct oA4_uint *)(v0_0))->v) = v0_4;
     math_mat_get_translate((v0_0 + 0x64), (v0_0 + 0x28));
     *(float *)(((int)stk + 8)) = 0.0f;
     *(float *)(((int)stk + 4)) = 0.0f;
     *(float *)(((int)stk + 12)) = 1.0f;
     FUN_0c0582de((((int)stk + 0) + 0x4), (v0_0 + 0x64));
-    *(unsigned int *)((v0_0 + 0x38)) = (math_atan2_angle16((*(float *)(((int)stk + 4))), (*(float *)(((int)stk + 12)))));
+    (((struct o38_uint *)(v0_0))->v) = (math_atan2_angle16((*(float *)(((int)stk + 4))), (*(float *)(((int)stk + 12)))));
     w0_1 = *(float *)(((int)stk + 4));
     w0_2 = *(float *)(((int)stk + 12));
     w0_2 = (w0_2 * w0_2);
     w0_2 = w0_2 + w0_1 * w0_1;
     w0_1 = math_signed_sqrt(w0_2);
-    *(unsigned int *)((v0_0 + 0x34)) = (math_atan2_angle16((-(*(float *)(((int)stk + 8)))), w0_1));
+    (((struct o34_uint *)(v0_0))->v) = (math_atan2_angle16((-(*(float *)(((int)stk + 8)))), w0_1));
     w0_1 = math_signed_sqrt(((((((((struct o2C_float *)(v0_0))->v)) - ((((struct o4_float *)(v0_1))->v))) + 675.0f) * (1.0f + 1.0f)) / w0_0));
-    *(unsigned short *)((v0_0 + 0x1C)) = (int)(30.0f + w0_1);
-    (((struct o20_ushort *)(v0_0))->v) = (int)((float)((*(int *)((v0_1 + 0x10))) - (*(int *)((v0_0 + 0x38)))) / (30.0f + w0_1));
-    v0_2 = *(int *)((v0_1 + 0xC));
-    v0_3 = *(int *)((v0_0 + 0x34));
+    (((struct o1C_ushort *)(v0_0))->v) = (int)(30.0f + w0_1);
+    (((struct o20_ushort *)(v0_0))->v) = (int)((float)(((((struct o10_int *)(v0_1))->v)) - ((((struct o38_int *)(v0_0))->v))) / (30.0f + w0_1));
+    v0_2 = (((struct oC_int *)(v0_1))->v);
+    v0_3 = (((struct o34_int *)(v0_0))->v);
     (((struct o22_ushort *)(v0_0))->v) = (int)((float)(v0_2 - v0_3) / (30.0f + w0_1));
-    (((struct o4C_float *)(v0_0))->v) = (((*(float *)((v0_1 + 0x0))) - ((((struct o28_float *)(v0_0))->v))) / (30.0f + w0_1));
+    (((struct o4C_float *)(v0_0))->v) = (((*(float *)(v0_1)) - ((((struct o28_float *)(v0_0))->v))) / (30.0f + w0_1));
     (((struct o54_float *)(v0_0))->v) = ((((((struct o8_float *)(v0_1))->v)) - ((((struct o30_float *)(v0_0))->v))) / (30.0f + w0_1));
     (((struct o50_float *)(v0_0))->v) = 45.0f;
     FPUL_ = ((int)((float)(v0_2 - v0_3) / (30.0f + w0_1)));
@@ -129,14 +138,14 @@ float FUN_0c0f2bac(int a4)
     L_C0F2C0A:;
     if ((v0_2 != 3)) goto L_C0F2C12;
     thunk_FUN_0c05abb2(0x34, (v0_0 + 0x28));
-    FUN_0c0f4b68((*(signed char *)((v0_0 + 0x1))), (v0_0 + 0x28));
+    FUN_0c0f4b68((*(signed char *)(v0_0 + 0x1)), (v0_0 + 0x28));
     *(unsigned int *)(((*(int *)(((int)stk + 0))) + 0x2C)) = v0_4;
     v0_2 = ((FUN_0c03f346(v0_0)));
     goto L_C0F2E98;
     L_C0F2C12:;
     goto L_C0F2E98;
     L_C0F2C84:;
-    v0_4 = *(signed char *)((v0_0 + 0x16));
+    v0_4 = *(signed char *)(v0_0 + 0x16);
     v0_2 = (v0_4);
     if ((v0_4 == 0)) goto L_C0F2CB4;
     if ((v0_2 == 1)) goto L_C0F2CF2;
@@ -156,15 +165,15 @@ float FUN_0c0f2bac(int a4)
     R5 = (0x2);
     goto L_C0F2E70;
     L_C0F2CB4:;
-    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x16))) + 0x1);
-    FUN_0c059e0e((*(signed char *)((v0_0 + 0x1))), 0x1D, (v0_0 + 0x28));
+    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)(v0_0 + 0x16)) + 0x1);
+    FUN_0c059e0e((*(signed char *)(v0_0 + 0x1)), 0x1D, (v0_0 + 0x28));
     (((struct oA4_uint *)(v0_0))->v) = (((((struct oF4_int *)(v0_3))->v)) + 0x28);
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)((v0_1 + 0x18)); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x34)) = *(struct mv3 *)(((v0_1 + 0x18) + 0xC)); }
-    v0_1 = ((v0_1 + 0x18));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(v0_0 + 0x28) = *(struct mv3 *)(v0_1 + 0x18); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(v0_0 + 0x34) = *(struct mv3 *)(v0_1 + 0x24); }
+    v0_1 = (v0_1 + 0x18);
     goto L_C0F2CF2;
     L_C0F2C16:;
-    v0_5 = *(signed char *)((v0_0 + 0x16));
+    v0_5 = *(signed char *)(v0_0 + 0x16);
     v0_2 = (v0_5);
     if ((v0_5 == 0)) goto L_C0F2C26;
     if ((v0_2 == 1)) goto L_C0F2C4E;
@@ -187,10 +196,10 @@ float FUN_0c0f2bac(int a4)
     R5 = (0x1);
     goto L_C0F2E70;
     L_C0F2C26:;
-    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x16))) + 0x1);
+    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)(v0_0 + 0x16)) + 0x1);
     (((struct oA4_uint *)(v0_0))->v) = v0_4;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)(v0_1); }
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x34)) = *(struct mv3 *)((v0_1 + 0xC)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(v0_0 + 0x28) = *(struct mv3 *)(v0_1); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(v0_0 + 0x34) = *(struct mv3 *)(v0_1 + 0xC); }
     v0_1 = (v0_1);
     goto L_C0F2C4E;
 }

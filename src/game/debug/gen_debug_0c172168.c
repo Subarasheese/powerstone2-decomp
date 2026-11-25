@@ -18,7 +18,7 @@ int thunk_FUN_0c0385e0(int);
 int FUN_0c17a550(int);
 int nlUnitMatrix(void);
 int FUN_0c181bb0(void);
-int FUN_0c181c30(float);
+int nlLineSetThickness(float);
 int FUN_0c172168(void);
 int FUN_0c172204(int a4);
 int FUN_0c1723b4(int a4, int a5, int a6);

@@ -12,7 +12,7 @@ extern char *_builtin_strcpy(char *, const char *);
 
 int FUN_0c1837cc(int, int);
 int FUN_0c187d98(int, int, int);      /* strncmp */
-int FUN_0c187d88(int);                /* strlen */
+int strlen(int);                /* strlen */
 int FUN_0c187d24(int, int);           /* strcat */
 int FUN_0c18353e(int, int, int);      /* write: bytes written */
 int FUN_0c183480(int, int, int);      /* read: bytes read */
@@ -36,7 +36,7 @@ int FUN_0c01fbd2(void)
 
 static void send_all(char *p)
 {
-    int len = FUN_0c187d88((int)p);
+    int len = strlen((int)p);
     int n;
 
     do {
@@ -114,12 +114,12 @@ void FUN_0c01fe38(void)
         if (LINE_LEN != 0)
             _builtin_strcpy(LAST_LINE, LINE);
         LINE_LEN = 0;
-        n = FUN_0c187d88((int)AWAIT);
+        n = strlen((int)AWAIT);
         if (FUN_0c187d98((int)LINE, (int)AWAIT, n) == 0) {
             RECEIVING = 0;
             return;
         }
-        n = FUN_0c187d88((int)LINE);
+        n = strlen((int)LINE);
         if (FUN_0c187d98((int)LINE, (int)SENT, n) == 0)
             return;
         break;

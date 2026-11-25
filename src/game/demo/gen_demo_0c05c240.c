@@ -12,8 +12,8 @@ struct oC_ushort { char p[0xC]; unsigned short v; };
 int FUN_0c036de8(int, int, int);
 int FUN_0c05c2b4(void);
 int dbg_set_cell_size(int, int);
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c05c240(int a4, int a5, int a6, Stk2 s);
 int FUN_0c05c372(void);
 int FUN_0c05c37c(int a4, int a5, int a6);
@@ -22,8 +22,8 @@ int FUN_0c05c3e4(void);
 int FUN_0c05c240(int a4, int a5, int a6, Stk2 s)
 {
     dbg_set_cell_size(s.w[0], s.w[1]);
-    FUN_0c17a4c0(a5, a6);
-    FUN_0c17a360(a4);
+    nlLocate(a5, a6);
+    nlPuts(a4);
     return dbg_set_cell_size(0x8, 0x8);
 }
 

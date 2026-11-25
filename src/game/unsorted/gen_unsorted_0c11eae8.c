@@ -6,16 +6,16 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7);
 
 int FUN_0c11eae8(int a4, int a5, int a6, int a7)
 {
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-    register int t8;
-    register int t9;
+    int t4;
+    int t5;
+    int t0;
+    int t3;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
+    int t1;
+    int t2;
 
     t0 = 0x0;
     if (a4 != 0xAD) {
@@ -61,11 +61,10 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7)
             t3 = 0xC2738EC;
             t4 = 0xC473D04;
             for (;;) {
-                t5 = *(signed char *)((t3 + 0x3));
+                t5 = *(signed char *)(t3 + 0x3);
                 if (t5 == (t0 + 0x1)) {
-                    t2 = (*(int *)((t4 + 0x0)));
-                    t2 = (t2 | 0x4000);
-                    *(unsigned int *)((t4 + 0x0)) = t2;
+                    t2 = ((*(int *)(t4)) | 0x4000);
+                    *(unsigned int *)(t4) = t2;
                 }
                 t3 = (t3 + 0x34);
                 t4 = (t4 + 0x4);
@@ -82,16 +81,14 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7)
                 t6 = 0x0;
                 for (;;) {
                     if ((*(signed char *)(((((t6 + 0x1) * 0x34) + 0xC2738B8) + 0x3))) == 6) {
-                        t8 = (*(int *)((t3 + 0x0)));
-                        t8 = (t8 | 0x4000);
-                        *(unsigned int *)((t3 + 0x0)) = t8;
+                        t8 = ((*(int *)(t3)) | 0x4000);
+                        *(unsigned int *)(t3) = t8;
                     }
-                    t7 = *(signed char *)((t5 + 0x3));
+                    t7 = *(signed char *)(t5 + 0x3);
                     t6 = (t6 + 0x1);
                     if (t7 == 7) {
-                        t8 = (*(int *)((t4 + 0x0)));
-                        t8 = (t8 | 0x4000);
-                        *(unsigned int *)((t4 + 0x0)) = t8;
+                        t8 = ((*(int *)(t4)) | 0x4000);
+                        *(unsigned int *)(t4) = t8;
                     }
                     t5 = (t5 + 0x34);
                     t4 = (t4 + 0x4);
@@ -108,8 +105,7 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7)
                         t5 = *(int *)((0xC2A090C + (t4 << 2)));
                         if (t5 != -1) {
                             if ((*(int *)((0xC2A090C + (t4 << 2)))) == 4) {
-                                t6 = (*(int *)((0xC473D04 + (t4 << 2))));
-                                t6 = (t6 | 0x4000);
+                                t6 = ((*(int *)((0xC473D04 + (t4 << 2)))) | 0x4000);
                                 *(unsigned int *)((0xC473D04 + (t4 << 2))) = t6;
                             }
                             t4 = (t4 + 0x1);
@@ -125,8 +121,7 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7)
                             t6 = *(int *)((0xC2A090C + (t5 << 2)));
                             if (t6 != -1) {
                                 if ((*(int *)((0xC2A090C + (t5 << 2)))) == 2) {
-                                    t7 = (*(int *)((0xC473D04 + (t5 << 2))));
-                                    t7 = (t7 | 0x4000);
+                                    t7 = ((*(int *)((0xC473D04 + (t5 << 2)))) | 0x4000);
                                     *(unsigned int *)((0xC473D04 + (t5 << 2))) = t7;
                                 }
                                 t5 = (t5 + 0x1);
@@ -146,8 +141,7 @@ int FUN_0c11eae8(int a4, int a5, int a6, int a7)
                                     t9 = (t0 << 2);
                                     t0 = (t0 + 0x1);
                                     if (t8 == 16) {
-                                        t8 = (*(int *)((0xC473D04 + t9)));
-                                        t8 = (t8 | 0x4000);
+                                        t8 = ((*(int *)((0xC473D04 + t9))) | 0x4000);
                                         *(unsigned int *)((0xC473D04 + t9)) = t8;
                                     }
                                     continue;

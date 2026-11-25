@@ -139,9 +139,9 @@ void FUN_0c0cff2e(int a, int dst)
     }
 }
 
-int FUN_0c187990(int, int, int);
+int _slow_strcpy(int, int, int);
 
-/* FUN_0c187990 is the compiler's strcpy-style helper (r0 = dest, r1 = src); the equivalence tool compares
+/* _slow_strcpy is the compiler's strcpy-style helper (r0 = dest, r1 = src); the equivalence tool compares
    it by r4-r6, which here are still the caller's own arguments. */
 int FUN_0c01fbe0(int a4, int a5, int a6)
 {
@@ -169,7 +169,7 @@ int FUN_0c0613c4(unsigned short *);
 /* Expand a list of records into dst: a leading zero word means a plain copy of n-1 words. */
 
 int FUN_0c18778c(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 struct blk40 { int w[10]; };
 
@@ -205,8 +205,8 @@ void FUN_0c0f60c8(void)
     for (i = 0; i < 4; i++)
         a[i] = i;
     for (k = 0; k < 10; k++) {
-        m1 = FUN_0c179ac0() % 4;
-        m2 = FUN_0c179ac0() % 4;
+        m1 = nlRand() % 4;
+        m2 = nlRand() % 4;
         t = a[m2];
         a[m2] = a[m1];
         a[m1] = t;

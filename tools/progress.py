@@ -15,18 +15,35 @@ Everything on the disc that is code is part of the game, the bundled library inc
 the compiler runtime, the boot block): one total, fixed from the start, and a function is in the same bucket
 whether it is done or not. sdk.txt only marks which functions are library, to show their share of the total.
 
-The project's main metric ("done: equivalent C") is the FIRST row of the first section, and its label
+MODE: status.txt may have a line "MODE: equivalent" (the default, also when there is no MODE line) or "MODE: matching" (any other
+word is an error). "matching" is a matching project: a function is done only when its C
+rebuilds byte for byte (an @unit file in src/, or the SDK's own source reproducing it). tests/equivalent.txt is not read, and there is no
+test coverage, no "no C form" class and no equivalent-pipeline state rows. The main row reads "done: matching C" and the badge
+says MATCHED. "equivalent": the project described above, unchanged.
+
+The project's main metric ("done: equivalent C", "done: matching C" in a matching project) is the FIRST row of the first section, and its label
 stays as is: Pluto's Homebrew tab finds it by that label (pluto/src/components/homebrew/decompMetric.ts,
 MAIN_METRICS) and prints and formats this report. Renaming or reordering it means updating Pluto too.
 
 It also writes badges/progress.svg (the main metric as a bar and a number) for the top of the README; the pre-commit
-hook stages it with the Progress block. The badge also lists the statuses in status.txt, ticked, crossed or unknown, from the first
-day: a game that does not build from C yet shows BUILDS FROM C crossed.
+hook stages it with the Progress block. The badge also lists the statuses of status.txt that have a Flycast, a Dreamcast and a Native mark, ticked, crossed or unknown
+(BUILDS FROM C, BOOTS TO MENU, PLAYABLE, STABLE), in the columns whose BUILDS FROM C is ticked.
 """
 import os as _tp_os, sys as _tp_sys  # noqa: E401  every tools folder on the import path (tools/toolpath.py)
 _tp_sys.path.insert(0, _tp_os.path.normpath(_tp_os.path.join(_tp_os.path.dirname(_tp_os.path.abspath(__file__)), '.')))
 import toolpath  # noqa: E402,F401
+import layout  # noqa: E402
 import os, re, subprocess, sys
+
+MODE = 'equivalent'                    # status.txt may say "MODE: matching" on a line of its own; none: equivalent
+if os.path.exists('status.txt'):
+    for _l in open('status.txt'):
+        _m = re.match(r'^MODE:\s*(\S+)\s*(#.*)?$', _l)
+        if _m:
+            MODE = _m.group(1)
+if MODE not in ('equivalent', 'matching'):
+    sys.exit('[ERROR] status.txt: "MODE: %s" must be "MODE: equivalent" or "MODE: matching" (no MODE line means equivalent)' % MODE)
+MATCHING = MODE == 'matching'
 
 here = os.path.dirname(os.path.abspath(__file__))
 units = [l.split() for l in subprocess.run([sys.executable, os.path.join(here, '1-2-baseline', 'units.py'), '--units'],
@@ -44,7 +61,7 @@ if os.path.exists('sdk.txt'):
 def in_c(a):
     return any(int(s, 16) <= a < int(e, 16) for _, s, e, *o in units)
 
-equivalent = set(open('tests/equivalent.txt').read().split()) if os.path.exists('tests/equivalent.txt') else set()
+equivalent = set(open('tests/equivalent.txt').read().split()) if os.path.exists('tests/equivalent.txt') and not MATCHING else set()
 # functions whose bytes the SDK's own source reproduces (tools/5-generated/sdk_source.py, from the source the user supplied)
 verified = set(l.strip() for l in open('sdk-verified.txt') if l.strip() and not l.startswith('#')) if os.path.exists('sdk-verified.txt') else set()
 # functions whose bytes are verbatim in the SDK's compiled library code (tools/1-2-baseline/sdk_identical.py): the library's own code, not C
@@ -52,9 +69,15 @@ identical = set(l.split()[0] for l in open('sdk-identical.txt') if l.strip() and
 verified_src = set(verified)
 verified |= identical
 name_at = {a: n for a, sz, n in funcs}
-
 def is_lib(a):
     return a in sdk_funcs or any(s <= a < e for s, e in ranges)
+# not built from C: the SDK's own source or object code stands for them (the library stays original in the build). They are neither done
+# nor left: out of the 100%, like the no C form functions. Only proven ones (sdk-verified.txt, sdk-identical.txt): a function merely listed
+# in sdk.txt is still to do (ZR, 2026-11-11: two listed by hand, with no proof, hid behind 100%)
+# A matching project delivers the SDK: its source (or the library's own code) is built into the game, so there they are done work and nothing is left out.
+unbuilt = set() if MATCHING else set(n for a, sz, n in funcs if n in verified and not (in_c(a) or n in equivalent))
+lib_done = verified if MATCHING else set()
+
 
 def nameless(n):
     """FUN_<address> or thunk_FUN_<address>: no name yet."""
@@ -69,7 +92,7 @@ def stats(sel):
     nm = [x for x in fs if not nameless(x[2])]
     nb = sum(sz for a, sz, n in nm)
     dc = sum(1 for a, sz, n in nm if n in words)
-    eq = [x for x in fs if in_c(x[0]) or x[2] in equivalent or x[2] in verified]
+    eq = [x for x in fs if in_c(x[0]) or x[2] in equivalent or x[2] in lib_done]
     vs = [x for x in fs if x[2] in verified_src and not (in_c(x[0]) or x[2] in equivalent)]
     vi = [x for x in fs if x[2] in identical and x[2] not in verified_src and not (in_c(x[0]) or x[2] in equivalent)]
     return len(fs), code, cb, cf, len(nm), nb, dc, len(eq), sum(sz for a, sz, n in eq), len(vs), sum(sz for a, sz, n in vs), len(vi), sum(sz for a, sz, n in vi)
@@ -84,9 +107,10 @@ def pct(a, b):
 
 g = stats(lambda a: True)
 k = stats(is_lib)
-is_done = lambda x: in_c(x[0]) or x[2] in equivalent or x[2] in verified
-named_only = sum(1 for x in funcs if not is_done(x) and not nameless(x[2]))
-unnamed = sum(1 for x in funcs if not is_done(x) and nameless(x[2]))
+# library code that drives hardware a host does not have (sdk.txt's `hardware` lines, tools/layout.py): a port replaces that
+# library from above and never runs it. A row of its own beside the C states, not one of them: a hardware function may have C
+hw = [x for x in funcs if is_lib(x[0]) and layout.is_hardware(x[0])]
+is_done = lambda x: in_c(x[0]) or x[2] in equivalent or x[2] in lib_done
 # partial C: functions with C written in partial/*.c that is not proven equivalent yet. Its own row (the total with them),
 # done stays apart; the row exists only when partial/ holds some C
 partial = set()
@@ -96,16 +120,25 @@ for pf in glob.glob('partial/*.c'):
 partial = set(x[2] for x in funcs if x[2] in partial and not is_done(x))
 # no C form: functions with an instruction this compiler has no C for (tools/5-generated/classify.py); done by the proof that the instruction
 # exists, not by C. Its own row; the main number stays equivalent C
-sys.path.insert(0, here)
-import classify
-_exe = open('1ST_READ.BIN', 'rb').read()
-_base = int(open('BASE').read().strip(), 16)
-nocform = set(x[2] for x in funcs if not (in_c(x[0]) or x[2] in equivalent or x[2] in verified)
-              and classify.no_c_form(_exe, _base, x[0], x[1]))
-named_only = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and not nameless(x[2]))   # each function in one bucket
-unnamed = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and nameless(x[2]))
-doable = g[0] - len(nocform)                       # what can be C: the functions with no C form are not part of the equivalent C measure
-doable_bytes = g[1] - sum(x[1] for x in funcs if x[2] in nocform)
+if MATCHING:
+    nocform = set()   # a matching project has no function exempt from matching
+else:
+    sys.path.insert(0, here)
+    import classify
+    _exe = open('1ST_READ.BIN', 'rb').read()
+    _base = int(open('BASE').read().strip(), 16)
+    nocform = set(x[2] for x in funcs if not (in_c(x[0]) or x[2] in equivalent or x[2] in lib_done) and x[2] not in unbuilt
+                  and classify.no_c_form(_exe, _base, x[0], x[1]))
+# the count the report shows is the game's own: a library function with no C form is the SDK's, in the SDK rows
+nocform_game = set(x[2] for x in funcs if x[2] in nocform and not is_lib(x[0]))
+# the SDK's functions with no C form, as the game's: a row of their own, and the rows above it are of what can be C
+sdk_nf = [x for x in funcs if x[2] in nocform and is_lib(x[0])]
+sdk_nf_obj = sum(1 for x in sdk_nf if x[2] in identical and x[2] not in verified_src)
+sdk_can = k[0] - len(sdk_nf)
+named_only = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and x[2] not in unbuilt and not nameless(x[2]))   # each function in one bucket
+unnamed = sum(1 for x in funcs if not is_done(x) and x[2] not in nocform and x[2] not in unbuilt and nameless(x[2]))
+doable = g[0] - len(nocform) - len(unbuilt)                       # what can be C: the functions with no C form are not part of the equivalent C measure
+doable_bytes = g[1] - sum(x[1] for x in funcs if x[2] in nocform or x[2] in unbuilt)
 def med(v):
     v = sorted(v)
     return v[len(v) // 2] if v else 0
@@ -120,58 +153,79 @@ def coverage_all(proven, unproven_sizes):
     return 100.0 * run / total if total else 0.0
 
 
-# the quality figure: the instructions the cases ran, of all the instructions, over every function that can be C (what has no cases counts as 0)
-_run = _all = _nfn = 0
-_proven = []
-if os.path.exists('docs/equivalent.md'):
-    for _b in open('docs/equivalent.md').read().split('\n### ')[1:]:
-        _fn = _b.split(' ', 1)[0]
-        _m = re.search(r'the cases run (\d+) of (\d+) instructions', _b)
-        if _fn in equivalent and _m and int(_m.group(2)):
-            _run += int(_m.group(1)); _all += int(_m.group(2)); _nfn += 1; _proven.append((int(_m.group(1)), int(_m.group(2))))
-_unproven = [x[1] for x in funcs if not is_done(x) and x[2] not in nocform]
-wavg = coverage_all(_proven, _unproven)
-state_rows = []                                   # where the functions that are not done stand, from tools/5-generated/remaining.py --table (it reads nothing)
-try:
-    _t = subprocess.run([sys.executable, os.path.join(here, '5-generated', 'remaining.py'), '--table'], capture_output=True, text=True, timeout=600).stdout.splitlines()
-    for _l in _t:
-        _m = re.match(r'^(\S.*?)\s+(\d+)\s+(\d+)$', _l)
-        if _m and _m.group(1) != 'State':
-            state_rows.append(('  ' + _m.group(1), _m.group(2), '%s bytes' % _m.group(3)))
-except Exception:
+if MATCHING:
+    wavg = 0.0   # no test coverage in a matching project: a function is matched or it is not
     state_rows = []
+else:
+    # the quality figure: the instructions the cases ran, of all the instructions, over every function that can be C (what has no cases counts as 0)
+    _run = _all = _nfn = 0
+    _proven = []
+    if os.path.exists('docs/equivalent.md'):
+        for _b in open('docs/equivalent.md').read().split('\n### ')[1:]:
+            _fn = _b.split(' ', 1)[0]
+            _m = re.search(r'the cases run (\d+) of (\d+) instructions', _b)
+            if _fn in equivalent and _m and int(_m.group(2)):
+                _run += int(_m.group(1)); _all += int(_m.group(2)); _nfn += 1; _proven.append((int(_m.group(1)), int(_m.group(2))))
+    _unproven = [x[1] for x in funcs if not is_done(x) and x[2] not in nocform and x[2] not in unbuilt]
+    wavg = coverage_all(_proven, _unproven)
+    state_rows = []                                   # where the functions that are not done stand, from tools/5-generated/remaining.py --table (it reads nothing)
+    try:
+        _t = subprocess.run([sys.executable, os.path.join(here, '5-generated', 'remaining.py'), '--table'], capture_output=True, text=True, timeout=600).stdout.splitlines()
+        for _l in _t:
+            _m = re.match(r'^(\S.*?)\s+(\d+)\s+(\d+)$', _l)
+            if _m and _m.group(1) != 'State':
+                state_rows.append(('  ' + _m.group(1), _m.group(2), '%s bytes' % _m.group(3)))
+    except Exception:
+        state_rows = []
 unnamed_all = sum(1 for x in funcs if nameless(x[2]))              # every function still called FUN_..., done or not
-rows = [
+if MATCHING:
+    _done_rows = [
+        ('  done: matching C', pct(g[7], doable), '%d of %d functions, %d bytes (%s): C that rebuilds byte for byte'
+         % (g[7], doable, g[8], pct(g[8], doable_bytes).strip())),
+        ('    of which source files', pct(g[3], doable), '%d functions, %d bytes, %d units (src/*.c with an @unit header)'
+         % (g[3], g[2], len(units))),
+    ]
+else:
+    _done_rows = [
+        ('  done: equivalent C', pct(g[7], doable), '%d of %d functions, %d bytes (%s): C that behaves like the original%s'
+         % (g[7], doable, g[8], pct(g[8], doable_bytes).strip(), (' (the %d with no C form are counted apart)' % len(nocform_game)) if nocform_game else '')),
+        ('    of which matching C', pct(g[3], doable), '%d functions, %d bytes, %d units: rebuilt byte for byte'
+         % (g[3], g[2], len(units))),
+    ]
+rows = ([] if MATCHING else [
     ('TOTAL TEST COVERAGE', '%.1f%%' % wavg, 'the instructions the cases ran, of all instructions, over the %d functions that can be C; the %d functions that reached the check are measured, the others count 0' % (doable, _nfn)),
+    ]) + [
     ('COUNTDOWN', '', 'what is left, counting down to zero; the percentages below say the same the other way round'),
-    ('  functions left', '%d' % (doable - g[7]), 'of the %d functions that can be C (%d with no C form are counted apart)' % (doable, len(nocform))),
-    ('  bytes left', '%d' % (doable_bytes - g[8]), 'of %d bytes of code that can be C' % doable_bytes),
+    ('  functions left', '%d' % (doable - g[7]), ('of the %d functions' % doable) if MATCHING else 'of the %d functions that can be C (%d with no C form are counted apart)' % (doable, len(nocform_game))),
+    ('  bytes left', '%d' % (doable_bytes - g[8]), ('of %d bytes of code' % doable_bytes) if MATCHING else 'of %d bytes of code that can be C' % doable_bytes),
     ('  unnamed', '%d' % unnamed_all, 'functions still called FUN_... (%d of %d)' % (unnamed_all, g[0])),
     ] + state_rows + [
     ('THE GAME', '', '%d functions, %d bytes of code; each function in one bucket' % (g[0], g[1])),
-    ('  done: equivalent C', pct(g[7], doable), '%d of %d functions, %d bytes (%s): C that behaves like the original%s'
-     % (g[7], doable, g[8], pct(g[8], doable_bytes).strip(), (' (the %d with no C form are counted apart)' % len(nocform)) if nocform else '')),
-    ('    of which matching C', pct(g[3], doable), '%d functions, %d bytes, %d units: rebuilt byte for byte'
-     % (g[3], g[2], len(units))),
-    ('    of which SDK source', pct(g[9], doable), '%d functions, %d bytes: the SDK\'s own source reproduces them (sdk-source/, local)'
+    ] + _done_rows + [
+    ('    of which SDK source' if MATCHING else '  not built: SDK source', pct(g[9], doable if MATCHING else g[0]), '%d functions, %d bytes: reproduced by the SDK\'s own source; excluded from the 100%%'
      % (g[9], g[10])),
-    ('    of which SDK object code', pct(g[11], doable), '%d functions, %d bytes: byte-identical to the SDK library\'s own compiled code (sdk-identical.txt)'
+    ('    of which SDK object code' if MATCHING else '  not built: SDK object code', pct(g[11], doable if MATCHING else g[0]), '%d functions, %d bytes: byte-identical to the library\'s compiled code; excluded from the 100%%'
      % (g[11], g[12])),
-    ] + ([('  done: no C form', pct(len(nocform), g[0]), '%d functions of the %d: an instruction or a register convention with no C form (tools/5-generated/classify.py names it); the rows above are of the %d that can be C' % (len(nocform), g[0], doable))] if nocform else []) + [
+    ] + ([('  done: no C form', pct(len(nocform_game), g[0]), '%d functions of the %d: an instruction or a register convention with no C form; the rows above are of the %d that can be C' % (len(nocform_game), g[0], doable))] if nocform_game else []) + [
     ('  size of what is done', '', 'median %d bytes; what is left: median %d bytes, %d functions of 1000 bytes or more holding %d bytes (%s of all code)'
      % (med([x[1] for x in funcs if is_done(x)]), med([x[1] for x in funcs if not is_done(x)]),
         sum(1 for x in funcs if not is_done(x) and x[1] >= 1000), sum(x[1] for x in funcs if not is_done(x) and x[1] >= 1000),
         pct(sum(x[1] for x in funcs if not is_done(x) and x[1] >= 1000), g[1]).strip())),
     ('  named only', pct(named_only, doable), '%d functions: a name, no C yet (not done work)' % named_only),
     ('  unnamed', pct(unnamed, doable), '%d functions (FUN_...), no C yet' % unnamed),
-    ] + ([('  with partial C', pct(g[7] + len(partial), doable), '%d functions: %d done + %d partial (C written in partial/, not yet proven equivalent)'
+    ] + ([('  with partial C', pct(g[7] + len(partial), doable), ('%d functions: %d done + %d partial (C written in partial/, not matching yet)' if MATCHING else '%d functions: %d done + %d partial (C written in partial/, not yet proven equivalent)')
            % (g[7] + len(partial), g[7], len(partial)))] if partial else []) + [
     ('  documented', pct(g[6], g[0]), '%d named functions in docs/*.md' % g[6]),
     ('  named globals', '', '%d' % globals_named),
     ('  of which library', '', '%d functions, %d bytes of code: the Sega SDK, the NAOMI library and the C runtime bundled in the game' % (k[0], k[1])),
     ('    done', pct(k[7], k[0]), '%d of %d library functions, %d bytes (%s)' % (k[7], k[0], k[8], pct(k[8], k[1]).strip())),
     ('    named', pct(k[4], k[0]), '%d of %d (the library\'s own names, from SDK tables)' % (k[4], k[0])),
-]
+] + ([] if MATCHING else [
+    ('SDK', '', ''),
+    ('  with C', pct(k[7] + k[9], sdk_can), '%d of %d' % (k[7] + k[9], sdk_can)),
+    ('  object code only', pct(k[11] - sdk_nf_obj, sdk_can), '%d of %d' % (k[11] - sdk_nf_obj, sdk_can)),
+    ('  not done', pct(sdk_can - k[7] - k[9] - (k[11] - sdk_nf_obj), sdk_can), '%d of %d' % (sdk_can - k[7] - k[9] - (k[11] - sdk_nf_obj), sdk_can)),
+] + ([('  no C form', pct(len(sdk_nf), k[0]), 'an instruction or a register convention with no C form')] if sdk_nf else []) + ([('  hardware (from total)', pct(len(hw), k[0]), '%d of %d' % (len(hw), k[0]))] if layout.hardware() else []))
 
 def map_sections(path):
     """{section: [row dicts]} of a game.dcgs file."""
@@ -209,82 +263,87 @@ if os.path.exists('model-map/game.dcgs'):
     if re_rows:
         rows += [('GAME ASSETS (EXTRA)', '', 'reverse engineering: what the model map identifies; it does not affect the measures above and is not done work')]
         rows += [row for n, row in re_rows]
+# the badge below is the skill's (v3): its names for what this older progress.py counts as done. Verified library code is done work here,
+# none of it is left out of the count, and there is only the equivalent mode
+unbuilt = set()
+lib_done = verified
+MATCHING = False
+
+
 def write_badge(rows, label, path='badges/progress.svg', extra=()):
-    """badge.svg beside the README, two rows in Pluto's colours: functions (a bar filled to the main metric, "done: ...", and its
-    percentage) and bytes (the game's code laid out by bytes, data left out, one column per slice, dark where most of the slice is
-    done, light where it is not, and the share of code bytes done). The same two colours mean done and not yet in both rows, and
-    the numbers are always printed."""
+    """badge.svg beside the README, in Pluto's colours. The main metrics, large: covered functions (a bar filled to the main metric
+    and its percentage) and covered bytes (the game's code laid out by bytes, data left out, one column per slice, dark where most of
+    the slice is done, light where it is not, and the share of code bytes done). The same two colours mean done and not yet in both
+    rows, and the numbers are always printed. The secondary metrics, small: test coverage and the matching percentage. Below them,
+    the statuses that have a Flycast, a Dreamcast and a Native column, as grid_columns() gives them (extra: (the shown columns'
+    headings, [(name, [their marks])])), one check per status in each shown column."""
     done = float(pct(g[7], doable).strip().rstrip('%')) if doable else 0.0      # the same number the 'done: equivalent C' row used to carry, straight from the counts
     bar = 100
     wd = int(round(bar * min(done, 100.0) / 100.0))
     if done > 0 and wd < 2:
         wd = 2
-    code_total = sum(sz for _, sz, n in funcs if n not in nocform) or 1
+    code_total = sum(sz for _, sz, n in funcs if n not in nocform and n not in unbuilt) or 1
     dark = [0] * bar
-    mruns = []                                     # the same layout, byte-matched code only (inside a C unit the build rebuilds): exact runs,
-                                                   # since matched units are small and scattered, a slice is rarely mostly matched
-    pos = done_bytes = matched_bytes = 0
-    for fa, fsz, fn in sorted(x for x in funcs if x[2] not in nocform):
-        matched = in_c(fa)
-        if matched or fn in equivalent or fn in verified:
+    pos = done_bytes = 0
+    for fa, fsz, fn in sorted(x for x in funcs if x[2] not in nocform and x[2] not in unbuilt):
+        if in_c(fa) or fn in equivalent or fn in lib_done:
             done_bytes += fsz
             for b in range(pos, pos + fsz):
                 dark[min(bar - 1, b * bar // code_total)] += 1
-        if matched:
-            matched_bytes += fsz
-            if mruns and mruns[-1][1] == pos:
-                mruns[-1][1] = pos + fsz
-            else:
-                mruns.append([pos, pos + fsz])
         pos += fsz
-    X = 150                                        # the bars start here; the label column is wide enough for "Min. accuracy"
+    # the card: four equal margins (M), the labels on the left edge, the figures on the right edge, the bars between them
+    W, M = 320, 12
+    Y1 = M + 10                                    # the first row's baseline: its bar (10 high) starts at the top margin
+    Y2 = Y1 + 32                                   # the second row's baseline
+    X = 156                                        # the bars start here: after the widest label, and 9 before the figure at the right edge
     per = float(code_total) / bar
-
-    def slices(cols, y):
-        """a strip: light, with a dark run wherever most of a slice of the code counts"""
-        runs, c = [], 0
-        while c < bar:
-            on = cols[c] * 2 > per
-            e = c
-            while e < bar and (cols[e] * 2 > per) == on:
-                e += 1
-            if on:
-                runs.append('<rect x="%d" y="%d" width="%d" height="8" fill="#c87053"/>' % (X + c, y, e - c))
-            c = e
-        return '<rect x="%d" y="%d" width="%d" height="8" fill="#ecc9b9"/>%s' % (X, y, bar, ''.join(runs))
-    strip = slices(dark, 46) + '<rect x="%d" y="66" width="%d" height="8" fill="#ecc9b9"/>%s' % (X, bar, ''.join(
-        '<rect x="%.2f" y="66" width="%.2f" height="8" fill="#c87053"/>' % (X + s * float(bar) / code_total,
-                                                                          (e - s) * float(bar) / code_total)
-        for s, e in mruns))
+    runs, c = [], 0
+    while c < bar:
+        on = dark[c] * 2 > per
+        e = c
+        while e < bar and (dark[e] * 2 > per) == on:
+            e += 1
+        if on:
+            runs.append('<rect x="%d" y="%d" width="%d" height="10" fill="#c87053"/>' % (X + c, Y2 - 10, e - c))
+        c = e
+    strip = '<rect x="%d" y="%d" width="%d" height="10" fill="#ecc9b9"/>%s' % (X, Y2 - 10, bar, ''.join(runs))
     ftext = '%.1f%%' % done
     btext = '%.1f%%' % (100.0 * done_bytes / code_total)
-    mtext = '%.1f%%' % (100.0 * matched_bytes / code_total)
     gtext = '%.1f%%' % wavg
-    title = ('%s: %s of functions, %s of code bytes done (%s byte-matched); the total test coverage over all of them is %s'
-             % (label, ftext, btext, mtext, gtext))
-    # extra: (the shown columns' headings, [(status, [its mark in each shown column])]), from grid_columns(): under the metrics, a grid
-    # with one check per status in each column that builds from C
+    mtext = pct(g[3], doable).strip()
+    if MATCHING:
+        _w = 'MATCHED'
+        title = '%s: %s of functions, %s of code bytes matched' % (label, ftext, btext)
+    else:
+        _w = 'COVERED'
+        title = '%s: %s of functions, %s of code bytes covered; test coverage %s, matching %s' % (label, ftext, btext, gtext, mtext)
+    Y3 = Y2 + 26                                   # the secondary metrics' baseline
+    last = Y2 if MATCHING else Y3                  # the baseline of the last line so far; the bottom edge is 15 below it (3 of descender, then M)
+    sec = '' if MATCHING else ('<g font-size="10" fill="#b8c4d9"><text x="%d" y="%d" text-anchor="start">TEST COVERAGE %%s</text>'
+                               '<text x="%d" y="%d" text-anchor="end">MATCHING %%s</text></g>' % (M, Y3, W - M, Y3) % (gtext, mtext))
+    cols = ''
     heads, grid = extra if extra else ((), [])
-    H = 80
-    lines = ''
     if heads and grid:
-        xs = (150, 208, 268)[3 - len(heads):]           # the shown columns, kept to the right
-        lines = ('<g font-size="10" fill="#b8c4d9">%s</g>' % ''.join('<text x="%d" y="%d">%s</text>' % (x, H + 14, h) for x, h in zip(xs, heads))
-                 ) + ''.join('<text x="14" y="%d" text-anchor="start">%s</text>' % (H + 34 + 18 * k, n) +
-                             ''.join('<text x="%d" y="%d">%s</text>' % (x, H + 34 + 18 * k, mk) for x, mk in zip(xs, marks))
-                             for k, (n, marks) in enumerate(grid))
-        H += 22 + 18 * len(grid)
-    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="304" height="%d" role="img" aria-label="%%s">' % H +
-           '<title>%%s</title><clipPath id="r"><rect width="304" height="%d" rx="3"/></clipPath>' % H +
-           '<g clip-path="url(#r)"><rect width="304" height="%d" fill="#1a2233"/>' % H +
-           '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#ecc9b9"/>'
-           '<rect x="%d" y="26" width="%d" height="8" rx="2" fill="#c87053"/>%s'
+        # the shown columns' centres, kept to the right: the last one leaves half of its own heading and M
+        last_centre = W - M - {'FLYCAST': 26, 'DREAMCAST': 31, 'NATIVE': 19}.get(str(heads[-1]).upper(), 31)
+        xs = [last_centre - 60 * (len(heads) - 1 - i) for i in range(len(heads))]
+        yh = last + 28                                  # the columns' headings
+        cols = ('<g font-size="10" fill="#b8c4d9">%s</g>' % ''.join('<text x="%d" y="%d">%s</text>' % (x, yh, h) for x, h in zip(xs, heads))
+                ) + ''.join('<text x="%d" y="%d" text-anchor="start">%s</text>' % (M, yh + 20 + 18 * k, n) +
+                            ''.join('<text x="%d" y="%d">%s</text>' % (x, yh + 20 + 18 * k, mk) for x, mk in zip(xs, marks))
+                            for k, (n, marks) in enumerate(grid))
+        last = yh + 20 + 18 * (len(grid) - 1)
+    H = last + M + 3
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" role="img" aria-label="%%s">' % (W, H) +
+           '<title>%%s</title><clipPath id="r"><rect width="%d" height="%d" rx="3"/></clipPath>' % (W, H) +
+           '<g clip-path="url(#r)"><rect width="%d" height="%d" fill="#1a2233"/>' % (W, H) +
+           '<rect x="%d" y="%d" width="%d" height="10" rx="2" fill="#ecc9b9"/>'
+           '<rect x="%d" y="%d" width="%d" height="10" rx="2" fill="#c87053"/>%s'
            '</g>'
            '<g fill="#fff" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11" text-anchor="middle">'
-           '<text x="71" y="34">COVERED FUNCTIONS</text><text x="71" y="54">COVERED BYTES</text><text x="71" y="74">MATCHED BYTES</text>'
-           '<text x="278" y="34">%s</text><text x="278" y="54">%s</text><text x="278" y="74">%s</text>'
-           '<text x="152" y="14">TOTAL TEST COVERAGE: %s</text>' + lines + '</g></svg>\n'
-           ) % (title, title, X, bar, X, wd, strip, ftext, btext, mtext, gtext)
+           '<g font-size="12"><text x="%d" y="%d" text-anchor="start">%s FUNCTIONS</text><text x="%d" y="%d" text-anchor="start">%s BYTES</text></g><g font-size="11">'
+           '<text x="%d" y="%d" text-anchor="end">%s</text><text x="%d" y="%d" text-anchor="end">%s</text></g>%s%s</g></svg>\n'
+           ) % (title, title, X, Y1 - 10, bar, X, Y1 - 10, wd, strip, M, Y1, _w, M, Y2, _w, W - M, Y1, ftext, W - M, Y2, btext, sec, cols)
     import os as _os
     _os.makedirs(_os.path.dirname(path) or '.', exist_ok=True)
     try:
@@ -297,14 +356,12 @@ def write_badge(rows, label, path='badges/progress.svg', extra=()):
         readme = open('README.md').read()
         # the README's badge (an older name too: badge.svg, badges/regular, buildable or playable) becomes this one, with its numbers
         fresh = re.sub(r'\((badges/(?:regular|buildable|playable|progress)|badge)\.svg(\?[^)\s]*)?\)',
-                       lambda m: '(badges/progress.svg?p=%.1f&b=%s&m=%s&a=%d&s=%d)' % (done, btext.rstrip('%'), mtext.rstrip('%'),
-                                                                                  int(round(wavg)), len(reached)),
+                       lambda m: '(badges/progress.svg?p=%.1f&b=%s&a=%d&s=%d)' % (done, btext.rstrip('%'), int(round(wavg)), len(reached)),
                        readme, count=1)
         if fresh != readme:
             open('README.md', 'w').write(fresh)
     except (IOError, OSError):
         pass
-
 
 def statuses(path='status.txt'):
     """[(status, state)] or [(status, Flycast, Dreamcast, Native)] from status.txt, in its order: one status a line, "[x] NAME"
@@ -318,7 +375,7 @@ def statuses(path='status.txt'):
     out = []
     for i, l in enumerate(open(path), 1):
         l = l.split('#')[0].strip()
-        if not l:
+        if not l or re.match(r'^MODE:', l):      # the mode line is not a status (it is read at the top of this file)
             continue
         m = re.match(r'^((?:\[[ xX?]\]\s+){1,3})(\S.*)$', l)
         if not m:
@@ -355,7 +412,7 @@ reached = [e[0] for e in status for on in e[1:] if on]
 # the statuses show whenever status.txt has any: BUILDS FROM C crossed while the build fails
 write_badge(rows, 'decomp', extra=grid_columns(status, mark))      # the grid: Flycast, Dreamcast, Native, the columns that build from C
 # what the status shows (the badge above was written from every row): the layout the README uses, one group per kind of measure
-_drop = ('THE GAME', 'done: equivalent C', 'of which matching C', 'of which SDK source', 'of which SDK object code', 'size of what is done',
+_drop = ('THE GAME', 'done: equivalent C', 'of which matching C', 'done: matching C', 'of which source files', 'not built: SDK source', 'not built: SDK object code', 'of which SDK source', 'of which SDK object code', 'size of what is done',
          'named only', 'with partial C', 'named globals', 'of which library', 'done', 'named')
 _shown = []
 _top = []
@@ -384,3 +441,7 @@ for row in rows:
         print('%s%s  %s' % (name, cell.rjust(w + 2 + 7 - len(name)), detail))
     else:
         print('%-*s  %7s  %s' % (w, name, p, detail))
+
+if os.path.exists('overlays.tsv'):      # a game with code overlays (docs: docs/overlays.md): their own total, after this report
+    sys.stdout.flush()
+    subprocess.run([sys.executable, os.path.join(here, 'overlay', 'progress.py')])

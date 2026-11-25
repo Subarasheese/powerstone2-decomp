@@ -2,8 +2,8 @@
    a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c17a550(int);
 int dbg_printf(int, ...);
 int FUN_0c057a48(void);
@@ -73,16 +73,16 @@ int FUN_0c057a48(void)
     *(unsigned char *)(((((v0_0 + 0x4) + (((v0_4 << 1) + v0_4) << 2)) + v0_5) + 0x0)) = (v0_3 - v0_6);
     v0_3 = ((v0_3 - v0_6));
     L_C057B20:;
-    FUN_0c17a4c0(0x1B, 0x7);
+    nlLocate(0x1B, 0x7);
     FUN_0c17a550(0xFF7FFF7F);
-    FUN_0c17a360(0xC1BFC08);
+    nlPuts(0xC1BFC08);
     FUN_0c17a550(0xFFFF7FFF);
     v0_4 = (0xC17A550);
     v0_3 = (0xC17A4C0);
     v0_3 = (v0_1);
     v0_4 = (0xC17A560);
     L_C057B42:;
-    FUN_0c17a4c0((((v0_3 << 2) << 2) + 0x4), 0x9);
+    nlLocate((((v0_3 << 2) << 2) + 0x4), 0x9);
     *(int *)((int)stk + 4) = (v0_3);
     *(int *)((int)stk + 0) = 0xC1BFC1C;
     dbg_printf(0xC1BFC1C);
@@ -96,9 +96,9 @@ int FUN_0c057a48(void)
     v0_3 = ((v0_4 & R6));
     L_C057BAC:;
     FUN_0c17a550((((v0_3 << 16) << 2) | 0xFFC07F00));
-    FUN_0c17a4c0(((((*(signed char *)((v0_0 + 0x2))) << 2) << 2) + 0x4), ((*(signed char *)((v0_0 + 0x3))) + 0xB));
-    FUN_0c17a360((*(int *)(((((*(signed char *)((v0_0 + 0x3))) << 2) + (*(int *)((0xC241F50 + ((*(signed char *)((v0_0 + 0x2))) << 2))))) + 0x0))));
-    FUN_0c17a4c0(((((*(signed char *)((v0_0 + 0x2))) << 2) << 2) + 0x11), ((*(signed char *)((v0_0 + 0x3))) + 0xB));
+    nlLocate(((((*(signed char *)((v0_0 + 0x2))) << 2) << 2) + 0x4), ((*(signed char *)((v0_0 + 0x3))) + 0xB));
+    nlPuts((*(int *)(((((*(signed char *)((v0_0 + 0x3))) << 2) + (*(int *)((0xC241F50 + ((*(signed char *)((v0_0 + 0x2))) << 2))))) + 0x0))));
+    nlLocate(((((*(signed char *)((v0_0 + 0x2))) << 2) << 2) + 0x11), ((*(signed char *)((v0_0 + 0x3))) + 0xB));
     v0_3 = *(signed char *)((v0_0 + 0x2));
     *(int *)((int)stk + 4) = ((*(signed char *)((((((v0_3 << 1) + v0_3) << 2) + (v0_0 + 0x4)) + (*(signed char *)((v0_0 + 0x3)))))));
     *(int *)((int)stk + 0) = 0xC1BFC28;
@@ -124,9 +124,9 @@ int FUN_0c057a48(void)
     if ((v0_3 == v0_5)) goto L_C057C80;
     L_C057C46:;
     *(unsigned int *)(((int)stk + 20)) = (v0_3 + 0xB);
-    FUN_0c17a4c0(((*(int *)(((int)stk + 8))) + 0x4), (v0_3 + 0xB));
-    FUN_0c17a360((*(int *)(((*(int *)(((*(int *)(((int)stk + 16))) + 0x0))) + (v0_3 << 2)))));
-    FUN_0c17a4c0(((*(int *)(((int)stk + 8))) + 0x11), (*(int *)(((int)stk + 20))));
+    nlLocate(((*(int *)(((int)stk + 8))) + 0x4), (v0_3 + 0xB));
+    nlPuts((*(int *)(((*(int *)(((*(int *)(((int)stk + 16))) + 0x0))) + (v0_3 << 2)))));
+    nlLocate(((*(int *)(((int)stk + 8))) + 0x11), (*(int *)(((int)stk + 20))));
     *(int *)((int)stk + 4) = ((*(signed char *)((v0_3 + ((v0_0 + 0x4) + (*(int *)(((int)stk + 12))))))));
     *(int *)((int)stk + 0) = 0xC1BFC28;
     R0 = ((dbg_printf(0xC1BFC28)));

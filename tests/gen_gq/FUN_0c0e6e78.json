@@ -3,6 +3,13 @@
   {
    "about": "rescue: empty case",
    "regs": {}
+  },
+  {
+   "regs": {},
+   "poke": {
+    "0C540D94": "00ff0201000200000000ff01ff0001ffff01020101ff0200ff0001020002ff01"
+   },
+   "about": "fuzz: 17 new instructions"
   }
  ],
  "holdout": [

@@ -31,15 +31,18 @@ int FUN_0c0c3f22(int a4, int a5, int a6);
 int FUN_0c0c3f22(int a4, int a5, int a6)
 {
     int t0;
-    register int t1;
-    register int t2;
+    int t2;
+    int qe0;
+    int t1;
+    int qe1;
 
-    t0 = *(signed char *)(((((a6 << 2) << 1) + 0xC27B520) + 0x0));
+    qe1 = (((a6 << 2) << 1) + 0xC27B520);
+    t0 = *(signed char *)((qe1 + 0x0));
     if ((t0 != 0) && (t0 != 1)) {
         t1 = t0;
         if ((t0 == 2) || (t0 == 3)) {
             t0 = *(signed char *)((((a5 * 0x3938) + 0xC532498) + 0x2));
-            t2 = *(int *)(((((a6 << 2) << 1) + 0xC27B520) + 0x4));
+            t2 = *(int *)((qe1 + 0x4));
             (((struct o6C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o4_float *)((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1))))->v));
             (((struct o70_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o8_float *)((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1))))->v));
             (((struct o74_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct oC_float *)((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1))))->v));
@@ -51,7 +54,7 @@ int FUN_0c0c3f22(int a4, int a5, int a6)
             (((struct o8C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o18_float *)((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1))))->v));
             (((struct o68_uint *)(((((struct oC4_int *)(a4))->v))))->v) = ((*(int *)(((((*(signed char *)(((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1)) + 0x0))) << 2) + (0xC4 + ((a5 * 0x3938) + 0xC532498))) + 0x0))) + 0x28);
             t0 = *(signed char *)((((a5 * 0x3938) + 0xC532498) + 0x2));
-            t2 = *(int *)(((((a6 << 2) << 1) + 0xC27B520) + 0x4));
+            t2 = *(int *)((qe1 + 0x4));
             (((struct o6C_float *)(((((struct oC8_int *)(a4))->v))))->v) = ((((struct o4_float *)(((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1)) + 0x28)))->v));
             (((struct o70_float *)(((((struct oC8_int *)(a4))->v))))->v) = ((((struct o8_float *)(((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1)) + 0x28)))->v));
             (((struct o74_float *)(((((struct oC8_int *)(a4))->v))))->v) = ((((struct oC_float *)(((t2 + (((((t0 << 1) << 2) + (t0 << 1)) << 2) << 1)) + 0x28)))->v));
@@ -67,17 +70,18 @@ int FUN_0c0c3f22(int a4, int a5, int a6)
         t0 = t1;
     } else {
         t1 = *(signed char *)((((a5 * 0x3938) + 0xC532498) + 0x2));
-        t2 = *(int *)(((((a6 << 2) << 1) + 0xC27B520) + 0x4));
-        (((struct o6C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o4_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o70_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o8_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o74_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct oC_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o78_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)(((t2 + ((((t1 << 2) + t1) << 2) << 1)) + 0x1C)));
-        (((struct o7C_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)(((t2 + ((((t1 << 2) + t1) << 2) << 1)) + 0x20)));
-        (((struct o80_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)(((t2 + ((((t1 << 2) + t1) << 2) << 1)) + 0x24)));
-        (((struct o84_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o10_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o88_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o14_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o8C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o18_float *)((t2 + ((((t1 << 2) + t1) << 2) << 1))))->v));
-        (((struct o68_uint *)(((((struct oC4_int *)(a4))->v))))->v) = ((*(int *)(((((*(signed char *)(((t2 + ((((t1 << 2) + t1) << 2) << 1)) + 0x0))) << 2) + (0xC4 + ((a5 * 0x3938) + 0xC532498))) + 0x0))) + 0x28);
+        t2 = *(int *)((qe1 + 0x4));
+        qe0 = (t2 + ((((t1 << 2) + t1) << 2) << 1));
+        (((struct o6C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o4_float *)(qe0))->v));
+        (((struct o70_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o8_float *)(qe0))->v));
+        (((struct o74_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct oC_float *)(qe0))->v));
+        (((struct o78_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)((qe0 + 0x1C)));
+        (((struct o7C_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)((qe0 + 0x20)));
+        (((struct o80_uint *)(((((struct oC4_int *)(a4))->v))))->v) = (*(int *)((qe0 + 0x24)));
+        (((struct o84_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o10_float *)(qe0))->v));
+        (((struct o88_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o14_float *)(qe0))->v));
+        (((struct o8C_float *)(((((struct oC4_int *)(a4))->v))))->v) = ((((struct o18_float *)(qe0))->v));
+        (((struct o68_uint *)(((((struct oC4_int *)(a4))->v))))->v) = ((*(int *)(((((*(signed char *)((qe0 + 0x0))) << 2) + (0xC4 + ((a5 * 0x3938) + 0xC532498))) + 0x0))) + 0x28);
         t0 = 0x68;
     }
     return t0;

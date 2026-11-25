@@ -16,7 +16,7 @@ int FUN_0c03f346(int, int, int, int);
 int FUN_0c05aae4(int, int);
 int FUN_0c064ee4(int, int);
 int FUN_0c064f80(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int math_vec3_accumulate(int, int);
 int FUN_0c14ce60(int a4, int a5, int a6, int a7);
 
@@ -93,7 +93,7 @@ int FUN_0c14ce60(int a4, int a5, int a6, int a7)
             FUN_0c05aae4(0x2E, (a4 + 0x28));
         }
         (((struct o12A_ushort *)(a4))->v) = 0x0;
-        *(unsigned short *)((a4 + 0x1C)) = ((*(short *)((a4 + 0x1C))) + ((int)((int)(FUN_0c179ac0()) % (int)0x14)));
+        *(unsigned short *)((a4 + 0x1C)) = ((*(short *)((a4 + 0x1C))) + ((int)((int)(nlRand()) % (int)0x14)));
         *(unsigned short *)((a4 + 0x1E)) = 0x0;
         (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
         t0 = 0x14;

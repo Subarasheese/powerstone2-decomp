@@ -39,7 +39,7 @@ int FUN_0c081dfc(int, int, int, int);
 int FUN_0c085cac(int, int, int, int);
 int FUN_0c0f2034(void);
 int FUN_0c1603c2(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int, int, int);
 int FUN_0c083a40(int a4, int a5, int a6, int a7);
 int FUN_0c083cf0(int a4, int a5, int a6, int a7, float f4);

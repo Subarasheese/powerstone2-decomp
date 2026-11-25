@@ -7,7 +7,7 @@ struct oAC_ushort { char p[0xAC]; unsigned short v; };
 int FUN_0c037320(int, int);
 int FUN_0c03733c(int, int, int);
 int FUN_0c03f444(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0e8718(void);
 
 int FUN_0c0e8718(void)
@@ -17,7 +17,7 @@ int FUN_0c0e8718(void)
     register int t2;
 
     t0 = *(int *)0xC4B410C;
-    t1 = *(int *)((((0x3 & (FUN_0c179ac0())) << 2) + 0xC1CC13C));
+    t1 = *(int *)((((0x3 & (nlRand())) << 2) + 0xC1CC13C));
     t2 = FUN_0c037320(t1, t0);
     t0 = FUN_0c03f444(0x5, 0x0, t2);
     t2 = t0;

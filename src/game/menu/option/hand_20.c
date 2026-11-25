@@ -7,7 +7,7 @@
 
 int strcpy(int, int);
 int strncpy(int, int, int);
-int FUN_0c187d88(int);          /* strlen */
+int strlen(int);          /* strlen */
 
 #define CFG     (*(char **)0x0C3BABB4)
 #define REC     ((int *)0x0C305198)
@@ -81,7 +81,7 @@ void FUN_0c01ea5e(void)
         *(int *)0x0C3050F0 = *(int *)(CFG + 532);
     }
     strncpy(0x0C30AC2C, (int)(CFG + 180), 48);
-    n = FUN_0c187d88((int)USER) - 1;
+    n = strlen((int)USER) - 1;
     while (n > 0) {
         if (USER[n] == ',' || USER[n] == ' ') {
             n++;

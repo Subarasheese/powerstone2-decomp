@@ -41,7 +41,7 @@ int FUN_0c085d0c(int);
 int FUN_0c12380c(int, int);
 int FUN_0c14f824(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c0ba410(int a4);
@@ -62,7 +62,7 @@ int FUN_0c0ba410(int a4)
     t1 = (int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0xA);
     t18 = t1;
     if (t1 == 0) {
-        t3 = (int)((int)(FUN_0c179ac0()) % (int)0xC8);
+        t3 = (int)((int)(nlRand()) % (int)0xC8);
         u4 = *(float *)0xC0BA54C;
         u9 = ((((struct o28_float *)(a4))->v));
         u9 = u9 + (((float)t3 + u4)) * (math_sin_angle16((*(int *)((a4 + 0x38)))));

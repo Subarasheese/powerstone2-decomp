@@ -18,7 +18,7 @@ int FUN_0c01cd2c(int);
 int FUN_0c01e9e4(void);
 int FUN_0c036de8(int, int, int, int, int, int, int, int, int, int, int, int);
 int FUN_0c05a292(int, int, int, int, int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int strcpy(int, int);
 int FUN_0c01c2e0(int a4);
 int FUN_0c01c38a(void);
@@ -77,7 +77,7 @@ int FUN_0c01c392(void)
     register int t7;
     register int t25;
 
-    FUN_0c17a4c0(0x3, 0x3);
+    nlLocate(0x3, 0x3);
     t1 = *(signed char *)0xC30EF6B;
     if ((unsigned char)t1 != 0) {
         if ((unsigned char)t1 != 1) {

@@ -4,7 +4,7 @@
 
 int FUN_0c052c00(int, int, int);
 int FUN_0c0cfecc(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int, int, int);
 int FUN_0c0d0d00(int a4, int a5, int a6);
 int FUN_0c0d0d26(void);
@@ -37,12 +37,12 @@ int FUN_0c0d0d26(void)
     }
     t2 = 0xA;
     for (;;) {
-        t3 = FUN_0c179ac0();
+        t3 = nlRand();
         t4 = ((~(((~t3) + 0x1) & 0x3)) + 0x1);
         if ((int)t3 >= 0) {
             t4 = (t3 & 0x3);
         }
-        t6 = FUN_0c179ac0();
+        t6 = nlRand();
         t7 = ((~(((~t6) + 0x1) & 0x3)) + 0x1);
         if ((int)t6 >= 0) {
             t7 = (t6 & 0x3);

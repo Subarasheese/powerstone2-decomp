@@ -56,54 +56,6 @@ int FUN_0c0e524e(int a4);
 int FUN_0c0e5522(int a4);
 int FUN_0c0e563e(int a4, int a5, int a6);
 
-int FUN_0c0e524e(int a4)
-{
-    int t0;
-    register int t1;
-    register float u0;
-
-    t1 = *(signed char *)((a4 + 0x1));
-    if (((*(signed char *)(((((short)t1 * (short)0x3938) + 0xC532498) + 0x3721))) == (*(signed char *)((a4 + 0x41C)))) && (t0 = *(signed char *)(((((short)t1 * (short)0x3938) + 0xC532498) + 0x3715)), t0 == 42)) {
-        t0 = *(signed char *)((a4 + 0x15));
-        if (t0 != 0) {
-            if (t0 != 1) {
-            } else {
-                FUN_0c0e4ffc(a4);
-                t0 = *(int *)(((((short)t1 * (short)0x3938) + 0xC532498) + 0x38));
-                *(unsigned int *)((a4 + 0x38)) = t0;
-                u0 = ((((struct o28_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v));
-                u0 = u0 + 79.0f * (math_sin_angle16(t0));
-                (((struct o28_float *)(a4))->v) = u0;
-                u0 = ((((struct o30_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v));
-                u0 = u0 + 79.0f * (math_cos_angle16((*(int *)((a4 + 0x38)))));
-                (((struct o30_float *)(a4))->v) = u0;
-                (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v)) + -10.0f);
-            }
-        } else {
-            FUN_0c0e4f8c(a4, 0x5, (*(signed char *)((a4 + 0x1))));
-            (((struct o128_ushort *)(a4))->v) = ((int)0x1 << (int)(*(signed char *)((a4 + 0x1))));
-            (((struct o12E_ushort *)(a4))->v) = (((((struct o12E_short *)(a4))->v)) & (~(((int)0x1 << (int)(*(signed char *)((a4 + 0x1)))) | 0xF0)));
-            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-            FUN_0c0e4ffc(a4);
-            t0 = *(int *)(((((short)t1 * (short)0x3938) + 0xC532498) + 0x38));
-            *(unsigned int *)((a4 + 0x38)) = t0;
-            u0 = ((((struct o28_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v));
-            u0 = u0 + 79.0f * (math_sin_angle16(t0));
-            (((struct o28_float *)(a4))->v) = u0;
-            u0 = ((((struct o30_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v));
-            u0 = u0 + 79.0f * (math_cos_angle16((*(int *)((a4 + 0x38)))));
-            (((struct o30_float *)(a4))->v) = u0;
-            (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)((((short)t1 * (short)0x3938) + 0xC532498)))->v)) + -10.0f);
-        }
-        t0 = FUN_0c0c216e(a4);
-        if (t0 != 0) {
-            return FUN_0c0e4f8c(a4, 0xA, (*(signed char *)((a4 + 0x1))));
-        }
-        (((struct o376C_uint *)((((short)t1 * (short)0x3938) + 0xC532498)))->v) = a4;
-        return 0x376C;
-    }
-    return FUN_0c0e4f8c(a4, 0x2, (*(signed char *)((a4 + 0x1))));
-}
 
 int FUN_0c0e5522(int a4)
 {
@@ -178,4 +130,5 @@ int FUN_0c0e5522(int a4)
     }
     return t0;
 }
+
 

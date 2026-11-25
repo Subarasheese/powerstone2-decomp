@@ -182,7 +182,7 @@ int FUN_0c0c480c(char *p, struct blk12 *src, int val)
 }
 
 int FUN_0c0c2ab6(char *, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 /* 0c0d41dc */
 void FUN_0c0d41dc(char *p, struct blk12 *src, int val, int timer)
@@ -222,8 +222,8 @@ void FUN_0c0f1a9e(void)
     for (i = 0; i < 4; i++)
         order[i] = i;
     for (k = 10; k != 0; k--) {
-        x = FUN_0c179ac0() % 4;
-        y = FUN_0c179ac0() % 4;
+        x = nlRand() % 4;
+        y = nlRand() % 4;
         t = order[y];
         order[y] = order[x];
         order[x] = t;
@@ -412,16 +412,17 @@ float math_sin_angle16(int);
 float math_cos_angle16(int);
 int FUN_0c150010(int, float, float, float, float);
 int FUN_0c0585a8(char *, struct blk12 *, int, float);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c163f66(char *, int);
 
 /* 0c1642fc */
+/* manual: four sub-objects as loops (init, then tween); 28 cases, 354 of 354 instructions */
 void FUN_0c1642fc(char *p, int a5, int a6, int a7)
 {
     float k = 10.0f;
     struct blk12 tmp;
-    char *o196, *o200, *o204, *o208;
-    int lim;
+    int *obj = (int *)(p + 196);
+    int i;
     int *tab = (int *)0x0C2A31E8;
     int state = *(signed char *)(p + 20);
 
@@ -430,22 +431,18 @@ void FUN_0c1642fc(char *p, int a5, int a6, int a7)
         *(char *)(p + 168) = 1;
         *(short *)(p + 172) = 15;
         *(struct blk12 *)(p + 64) = *(struct blk12 *)0x0C2A303C;
-        FUN_0c03744a(*(int *)(p + 196), 0, 54, *(int *)0x0C4B40CC);
-        FUN_0c03744a(*(int *)(p + 200), 0, 54, *(int *)0x0C4B40CC);
-        FUN_0c03744a(*(int *)(p + 204), 2, 54, *(int *)0x0C4B40CC);
-        FUN_0c03744a(*(int *)(p + 208), 4, 54, *(int *)0x0C4B40CC);
-        *(short *)(*(int *)(p + 196) + 6) = 575;
-        *(struct blk12 *)(*(int *)(p + 196) + 132) = *(struct blk12 *)0x0C2A31AC;
-        *(struct blk16 *)(*(int *)(p + 196) + 20) = *(struct blk16 *)0x0C2A318C;
-        *(short *)(*(int *)(p + 200) + 6) = 575;
-        *(struct blk12 *)(*(int *)(p + 200) + 132) = *(struct blk12 *)0x0C2A31AC;
-        *(struct blk16 *)(*(int *)(p + 200) + 20) = *(struct blk16 *)0x0C2A318C;
-        *(short *)(*(int *)(p + 204) + 6) = 575;
-        *(struct blk12 *)(*(int *)(p + 204) + 132) = *(struct blk12 *)0x0C2A31AC;
-        *(struct blk16 *)(*(int *)(p + 204) + 20) = *(struct blk16 *)0x0C2A3058;
-        *(short *)(*(int *)(p + 208) + 6) = 575;
-        *(struct blk12 *)(*(int *)(p + 208) + 132) = *(struct blk12 *)0x0C2A31AC;
-        *(struct blk16 *)(*(int *)(p + 208) + 20) = *(struct blk16 *)(0x0C2A318C + 16);
+        for (i = 0; i < 4; i++)
+            FUN_0c03744a(obj[i], i > 1 ? i * 2 - 2 : 0, 54, *(int *)0x0C4B40CC);
+        for (i = 0; i < 4; i++) {
+            int src = 0x0C2A318C;
+            if (i == 2)
+                src = 0x0C2A3058;
+            if (i == 3)
+                src += 16;
+            *(short *)(obj[i] + 6) = 575;
+            *(struct blk12 *)(obj[i] + 132) = *(struct blk12 *)0x0C2A31AC;
+            *(struct blk16 *)(obj[i] + 20) = *(struct blk16 *)src;
+        }
         *(float *)(p + 76) = math_sin_angle16(*(int *)(p + 56)) * k;
         *(float *)(p + 80) = 0.0f;
         *(float *)(p + 84) = math_cos_angle16(*(int *)(p + 56)) * k;
@@ -459,12 +456,9 @@ void FUN_0c1642fc(char *p, int a5, int a6, int a7)
         if (*(int *)(p + 0x404) != 0) {
             FUN_0c150010((int)p + 40, 1.0f, 1.0f, 1.0f, 1.0f);
         } else {
-            lim = tab[1];
-            if (*(short *)(p + 28) <= lim) {
-                FUN_0c0588bc(*(int *)(p + 196) + 132, 0x0C2A31AC + 12, 0x0C2A31AC, *(short *)(p + 28), lim, 0);
-                FUN_0c0588bc(*(int *)(p + 200) + 132, 0x0C2A31AC + 24, 0x0C2A31AC, *(short *)(p + 28), lim, 0);
-                FUN_0c0588bc(*(int *)(p + 204) + 132, 0x0C2A31AC + 36, 0x0C2A31AC, *(short *)(p + 28), lim, 0);
-                FUN_0c0588bc(*(int *)(p + 208) + 132, 0x0C2A31AC + 48, 0x0C2A31AC, *(short *)(p + 28), lim, 0);
+            if (*(short *)(p + 28) <= tab[1]) {
+                for (i = 0; i < 4; i++)
+                    FUN_0c0588bc(obj[i] + 132, 0x0C2A31AC + 12 + 12 * i, 0x0C2A31AC, *(short *)(p + 28), tab[1], 0);
             }
             if (*(short *)(p + 28) % tab[2] == 0)
                 FUN_0c163f66(p + 40, *(signed char *)(p + 2));
@@ -475,7 +469,7 @@ void FUN_0c1642fc(char *p, int a5, int a6, int a7)
             *(int *)(*(int *)(p + 200) + 128) -= 1024;
             *(int *)(*(int *)(p + 204) + 128) += 2048;
             *(int *)(*(int *)(p + 208) + 128) += 2048;
-            FUN_0c17c130((int)p + 40, (int)p + 40, (int)p + 76);
+            nlAddVector3op((int)p + 40, (int)p + 40, (int)p + 76);
             *(short *)(p + 28) += 1;
             if (*(short *)(p + 28) <= tab[0])
                 return;

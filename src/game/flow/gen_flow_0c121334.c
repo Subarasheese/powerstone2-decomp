@@ -2,7 +2,7 @@
    a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int dbg_printf(int, ...);
 int FUN_0c121334(void);
 
@@ -18,7 +18,7 @@ int FUN_0c121334(void)
         t2 = (((t0 << 2) + t0) << 1);
         t3 = 0x5;
         for (;;) {
-            FUN_0c17a4c0(t3, (t0 + 0xA));
+            nlLocate(t3, (t0 + 0xA));
             *(volatile signed char *)((t2 + 0xC542A14));
             t6 = dbg_printf(0xC201A30);
             t3 = (t3 + 0x3);

@@ -572,17 +572,17 @@ int printf_format_core(int a4, int a5, int a6, int a7, int a8)
 
     int R7;
     int R13;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
     register int v0_6;
     register int v0_7;
+    register int v0_3;
+    register int v0_2;
     register int v0_8;
     register int v0_9;
+    register int v0_0;
+    register int v0_5;
+    register int v0_1;
+    register int v0_4;
+    register int T_;
     stk[53] = a8;
     v0_6 = a4;
     v0_7 = a5;

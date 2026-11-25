@@ -258,7 +258,7 @@ void nlCalcPoint44(int a4, int a5);
 void nlCalcPoint(int a4, int a5);
 void nlCalcVector(int a4, int a5);
 float FUN_0c0e2220(int a4, int a5);
-int FUN_0c0f1c44(int a4);
+int gdFsGetStat(int a4);
 int FUN_0c0f1fa4(void);
 int gdFsGetDrvStat(void);
 int gdFsReqDrvStat(void);
@@ -312,8 +312,8 @@ int gdFsReinit(void);
 int gdFsCreateHn(void);
 int gdFsLoadDir(void);
 int gdFsLoadDirFast(void);
-int FUN_0c0f1fd2(void);
-void FUN_0c0f1ffe(void);
+int gdFsGetSysHn(void);
+void gdFsEntryErrFuncAll(void);
 void gdFsExecServer(void);
 int ADXSJD_Start(int a4);
 void FUN_0c1070b8(int a4);
@@ -521,7 +521,7 @@ int FUN_0c0a2f5c(void);
 int bgm_stop_all(void);
 int attract_take_step3_flag(void);
 void nlObjPutSetGlobalAmbience(float f4);
-int FUN_0c0e0580(void);
+int nlPrnIndentOn(void);
 void dbg_set_cell_size(int a4, int a5);
 int FUN_0c0e16c0(void);
 int FUN_0c0eb6cc(int a4, int a5, int a6);
@@ -865,7 +865,7 @@ float FUN_0c0e2220(int a4, int a5)
 }
 
 
-int FUN_0c0f1c44(int a4)
+int gdFsGetStat(int a4)
 {
     if (a4 != 0) {
         if (((((struct o4C_short *)(a4))->v)) == 0) {

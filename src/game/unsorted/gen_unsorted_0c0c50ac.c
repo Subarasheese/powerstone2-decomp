@@ -24,7 +24,7 @@ int FUN_0c0c2ab6(int, int, int, int);
 int FUN_0c0c2ce4(int);
 int FUN_0c0c2d56(int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c0c50ac(int a4, int a5, int a6, int a7);
@@ -44,7 +44,7 @@ int FUN_0c0c50ac(int a4, int a5, int a6, int a7)
     FUN_0c0c2ab6(a4, (*(signed char *)((((unsigned short)(unsigned char)(*(signed char *)((a4 + 0x41C))) * (unsigned short)0x34) + 0xC2738CA))), a6, a7);
     (((struct o12E_ushort *)(a4))->v) = 0xFFFFFFF0;
     FUN_0c0c25c4(a4);
-    FUN_0c179ac0();
+    nlRand();
     u0 = math_sin_angle16((*(int *)(((((short)t0 * (short)0x3938) + 0xC532498) + 0x38))));
     (((struct o4C_float *)(a4))->v) = (-(u0 * 5.0f));
     (((struct o50_float *)(a4))->v) = 10.0f;
@@ -78,60 +78,6 @@ int FUN_0c0c50ac(int a4, int a5, int a6, int a7)
     return (unsigned char)t1;
 }
 
-int FUN_0c0c51d4(int a4)
-{
-    register int t0;
-    register int t1;
-    register float u0;
-
-    if (0.0f > ((((struct o50_float *)(a4))->v))) {
-        t0 = FUN_0c0c2ce4(a4);
-        if (t0 != 0) {
-            if (((((struct o420_short *)(a4))->v)) != 0) {
-                t0 = *(short *)((a4 + 0x1C));
-                *(unsigned short *)((a4 + 0x1C)) = (t0 + 0x1);
-                if ((short)(t0 + 0x1) == 2) {
-                    if ((int)(*(signed char *)((a4 + 0x425))) > (int)0x3) {
-                        (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-                        *(unsigned short *)((a4 + 0x1C)) = 0x0;
-                        return 0x0;
-                    }
-                    return FUN_0c0c2d56(a4, 0x2, (*(signed char *)((a4 + 0x1))));
-                }
-                u0 = ((((struct o50_float *)(a4))->v));
-                u0 *= -0.5f;
-                (((struct o50_float *)(a4))->v) = u0;
-                math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-                math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-                t0 = *(signed char *)((a4 + 0x41C));
-                t1 = (unsigned char)t0;
-                if ((unsigned char)t0 != 69) {
-                    *(unsigned int *)((a4 + 0x34)) = ((*(int *)((a4 + 0x34))) + 0xB6);
-                    *(unsigned int *)((a4 + 0x38)) = ((*(int *)((a4 + 0x38))) + 0x16C);
-                    t0 = *(int *)((a4 + 0x3C));
-                    *(unsigned int *)((a4 + 0x3C)) = (t0 + 0x222);
-                    t1 = (t0 + 0x222);
-                }
-                return t1;
-            }
-            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-            *(unsigned short *)((a4 + 0x1C)) = 0x0;
-            return 0x0;
-        }
-    }
-    math_vec3_accumulate((a4 + 0x28), (a4 + 0x4C));
-    math_vec3_accumulate((a4 + 0x4C), (a4 + 0x58));
-    t0 = *(signed char *)((a4 + 0x41C));
-    t1 = (unsigned char)t0;
-    if ((unsigned char)t0 != 69) {
-        *(unsigned int *)((a4 + 0x34)) = ((*(int *)((a4 + 0x34))) + 0xB6);
-        *(unsigned int *)((a4 + 0x38)) = ((*(int *)((a4 + 0x38))) + 0x16C);
-        t0 = *(int *)((a4 + 0x3C));
-        *(unsigned int *)((a4 + 0x3C)) = (t0 + 0x222);
-        t1 = (t0 + 0x222);
-    }
-    return t1;
-}
 
 int FUN_0c0c5286(int a4)
 {
