@@ -865,16 +865,6 @@ float FUN_0c0e2220(int a4, int a5)
 }
 
 
-int gdFsGetStat(int a4)
-{
-    if (a4 != 0) {
-        if (((((struct o4C_short *)(a4))->v)) == 0) {
-            return 0xFFFFFFF6;
-        }
-        return ((((struct o50_short *)(a4))->v));
-    }
-    return 0xFFFFFFF6;
-}
 
 
 void gdFsMemcpy(int a4, int a5, int a6)

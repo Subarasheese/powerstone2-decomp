@@ -79,62 +79,6 @@ int FUN_0c05d530(int a4, int a5, int a6, int a7)
     return t0;
 }
 
-int FUN_0c05d800(int a4)
-{
-    register int t0;
-    register int t1;
-
-    if ((*(signed char *)0xC542254) != 0) {
-        return 0x5C;
-    }
-    if ((*(signed char *)0xC542255) == 0) {
-        t0 = *(int *)0xC542260;
-        if ((t0 & 16) != 0) {
-            if ((*(signed char *)0xC541F65) != 0) {
-                return FUN_0c05d608(a4, 0x0);
-            }
-            t1 = *(int *)((0xC5423D0 + (((unsigned char)a4 << 2) << 2)));
-            if (t1 != 0) {
-                if (t1 != 1) {
-                    if (t1 != 2) {
-                        return t1;
-                    }
-                    return FUN_0c05d608(a4, 0x3);
-                }
-                t1 = FUN_0c05cf04();
-                if ((unsigned int)t1 > (unsigned int)0x1) {
-                    if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) >= (unsigned int)0x55) {
-                        if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) < (unsigned int)0xAA) {
-                            return FUN_0c05d648(a4);
-                        }
-                        return FUN_0c05d6a6(a4);
-                    }
-                    return FUN_0c05d608(a4, 0x2);
-                }
-                if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) < (unsigned int)0x7F) {
-                    return FUN_0c05d608(a4, 0x2);
-                }
-                return FUN_0c05d6a6(a4);
-            }
-            t1 = FUN_0c05cf04();
-            if ((unsigned int)t1 > (unsigned int)0x1) {
-                if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) >= (unsigned int)0x55) {
-                    if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) < (unsigned int)0xAA) {
-                        return FUN_0c05d648(a4);
-                    }
-                    return FUN_0c05d6a6(a4);
-                }
-                return FUN_0c05d608(a4, 0x1);
-            }
-            if ((unsigned int)(unsigned char)(*(signed char *)0xC542260) < (unsigned int)0x7F) {
-                return FUN_0c05d608(a4, 0x1);
-            }
-            return FUN_0c05d6a6(a4);
-        }
-        return t0;
-    }
-    return 0x5D;
-}
 
 int FUN_0c05d90c(int a4)
 {

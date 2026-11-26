@@ -19,22 +19,10 @@ int FUN_0c0fcb8a(void);
 int FUN_0c0dd9f0(int a4, int a5);
 
 
-int nlCommonTextureGetFreeMem(void)
-{
-    int stk[2];
-
-    FUN_0c0fca52(((int)stk + 0), (((int)stk + 0) + 0x4));
-    return (*(int *)(((int)stk + 0)));
-}
+int nlCommonTextureGetFreeMem(void);
 
 
-int nlCommonTextureGetFreeBlock(void)
-{
-    int stk[2];
-
-    FUN_0c0fca52((((int)stk + 0) + 0x4), ((int)stk + 0));
-    return (*(int *)(((int)stk + 0)));
-}
+int nlCommonTextureGetFreeBlock(void);
 
 
 
