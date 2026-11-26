@@ -23,7 +23,7 @@ int FUN_0c07e3ae(int, int);
 int FUN_0c16868c(int, int, int);
 float math_cos_angle16(int);
 float math_sin_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c18778c(void);
 extern int FUN_0c187798();
 int FUN_0c1684c0(int a4, int a5, int a6, int a7);

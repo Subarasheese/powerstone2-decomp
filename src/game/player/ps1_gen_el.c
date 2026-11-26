@@ -108,7 +108,7 @@ int _divls(void);
 int _modls(void);
 int _quick_odd_mvn(void);
 int vib_port_has_vibration(int);
-int FUN_0c0f414e(int, int, int, int);
+int pdVibSetStopTime(int, int, int, int);
 int FUN_0c0fbfa2(int, int, int, int);
 int vmsfs_mediainfo_retry(int, int);
 int FUN_0c114598(int, int, int, int);

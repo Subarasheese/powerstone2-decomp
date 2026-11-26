@@ -33,7 +33,7 @@ int FUN_0c059e60(int, int);
 int FUN_0c064d24(int, int, int, int);
 int FUN_0c07e2f4(int, int);
 int FUN_0c13eece(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c187798(int, int, int);

@@ -19,7 +19,7 @@ struct oB0_float { char p[0xB0]; float v; };
 int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 extern int FUN_0c187798();
 int FUN_0c1313d4(int a4, int a5, int a6, int a7);
 int FUN_0c131556(int a4, int a5);
@@ -69,10 +69,10 @@ int FUN_0c1313d4(int a4, int a5, int a6, int a7)
     *(unsigned short *)((a4 + 0x1C)) = 0x0;
     t0 = 0x0;
     for (;;) {
-        (((struct o6C_float *)((*(int *)((((0xC4 + a4) + t0) + 0x0)))))->v) = ((float)((int)((int)(FUN_0c179ac0()) % (int)0x32)) + -25.0f);
-        (((struct o70_float *)((*(int *)((((0xC4 + a4) + t0) + 0x0)))))->v) = ((float)((int)((int)(FUN_0c179ac0()) % (int)0x32)) + -25.0f);
+        (((struct o6C_float *)((*(int *)((((0xC4 + a4) + t0) + 0x0)))))->v) = ((float)((int)((int)(nlRand()) % (int)0x32)) + -25.0f);
+        (((struct o70_float *)((*(int *)((((0xC4 + a4) + t0) + 0x0)))))->v) = ((float)((int)((int)(nlRand()) % (int)0x32)) + -25.0f);
         t2 = *(int *)((((0xC4 + a4) + t0) + 0x0));
-        t1 = (int)((int)(FUN_0c179ac0()) % (int)0x32);
+        t1 = (int)((int)(nlRand()) % (int)0x32);
         t0 = (t0 + 0x4);
         (((struct o74_float *)(t2))->v) = ((float)t1 + -25.0f);
         if ((unsigned int)t0 >= (unsigned int)0x28) {

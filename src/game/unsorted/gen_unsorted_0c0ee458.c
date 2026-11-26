@@ -28,7 +28,7 @@ int FUN_0c05258e(int, int, int, int, int);
 int thunk_FUN_0c05abb2(int, int);
 int FUN_0c064f80(int);
 int FUN_0c15009e(int, float, float, float, float, float);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int math_vec3_accumulate(int, int);
 int FUN_0c0ee458(int a4);
 int FUN_0c0ee476(int a4, float f4);
@@ -147,13 +147,13 @@ int FUN_0c0ee580(int a4, int a5, int a6, int a7)
         (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
         (((struct oA8_uchar *)(a4))->v) = 0x1;
         (((struct oAC_ushort *)(a4))->v) = 0x1;
-        *(unsigned short *)((a4 + 0x1C)) = ((int)((int)(FUN_0c179ac0()) % (int)0x78));
+        *(unsigned short *)((a4 + 0x1C)) = ((int)((int)(nlRand()) % (int)0x78));
         u0 = (((struct o28_float *)((*(int *)((a4 + 0x10)))))->v);
-        t0 = (int)((int)(FUN_0c179ac0()) % (int)0x50);
+        t0 = (int)((int)(nlRand()) % (int)0x50);
         (((struct o28_float *)(a4))->v) = ((u0 + (float)(((t0 << 2) + t0) << 1)) + -400.0f);
         (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)((*(int *)((a4 + 0x10)))))->v)) + 1000.0f);
         u0 = (((struct o30_float *)((*(int *)((a4 + 0x10)))))->v);
-        t0 = (int)((int)(FUN_0c179ac0()) % (int)0x50);
+        t0 = (int)((int)(nlRand()) % (int)0x50);
         (((struct o30_float *)(a4))->v) = ((u0 + (float)(((t0 << 2) + t0) << 1)) + -400.0f);
         if ((*(signed char *)((a4 + 0x2))) == 0) {
             *(unsigned char *)((((((struct oC4_int *)(a4))->v)) + 0x0)) = 0x0;

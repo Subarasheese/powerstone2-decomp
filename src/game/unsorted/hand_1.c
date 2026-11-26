@@ -48,8 +48,8 @@ int FUN_0c090e12(int a)
 /* 0c0581c4 */
 
 int gdFsReqDrvStat(int);
-int FUN_0c0f1fd2(int);
-int FUN_0c0f1c44(int);
+int gdFsGetSysHn(int);
+int gdFsGetStat(int);
 int gdFsGetDrvStat(int);
 int FUN_0c187798(int, int, int);
 int FUN_0c18778c(int, int, int);
@@ -71,8 +71,8 @@ int FUN_0c06148a(void)
             *state = 1;
         return 0;
     }
-    *(int *)0x0C33A840 = FUN_0c0f1fd2((int)cnt);
-    r = FUN_0c0f1c44(*(int *)0x0C33A840);
+    *(int *)0x0C33A840 = gdFsGetSysHn((int)cnt);
+    r = gdFsGetStat(*(int *)0x0C33A840);
     if (r != 4)
         *state = 0;
     r = gdFsGetDrvStat(r);
@@ -274,7 +274,7 @@ void ADXF_Close(int);
 void FUN_0c05b2b0(void);
 void FUN_0c02d88a(void);
 void FUN_0c05ac14(void);
-int FUN_0c2b5938(int);
+int ADXF_GetStat(int);
 
 /* 0c0100a2: file loader with wait for the frame counter. Only the early exits (open fails, too large) can be
    exercised in the simulator: the wait loop needs the frame counter to change by interrupt. */
@@ -347,7 +347,7 @@ void FUN_0c0da9dc(char *o, V12 *src, int a6)
     *(short *)(o + 28) = 60;
 }
 
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 /* 0c0f5dfc: shuffle 0..3 with 10 random swaps, then copy 12-byte blocks into each slot's record */
 void FUN_0c0f5dfc(void)
@@ -358,8 +358,8 @@ void FUN_0c0f5dfc(void)
     for (i = 0; i < 4; i++)
         a[i] = i;
     for (i = 0; i < 10; i++) {
-        x = FUN_0c179ac0() % 4;
-        y = FUN_0c179ac0() % 4;
+        x = nlRand() % 4;
+        y = nlRand() % 4;
         t = a[y];
         a[y] = a[x];
         a[x] = t;

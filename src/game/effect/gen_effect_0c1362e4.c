@@ -41,13 +41,16 @@ int FUN_0c1363a4(int a4)
     register int t1;
     register int t9;
     register float u14;
+    int R1000;
 
-    *(unsigned int *)(((int)stk + 0)) = ((((struct oC4_int *)(a4))->v));
+    R1000 = *(int *)((int)stk + 0);
+
+    R1000 = ((((struct oC4_int *)(a4))->v));
     t1 = *(int *)(((0x41C + a4) + 0x8));
     *(unsigned int *)(((0x41C + a4) + 0x8)) = (t1 + 0xE38);
     *(unsigned int *)(((0x41C + a4) + 0xC)) = (t1 + 0xE38);
     *(unsigned int *)(((0x41C + a4) + 0x4)) = 0x0;
-    mdl_vtx_iter_begin((*(int *)((((((struct o10C_int *)((*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC)))))->v)) + 0x0))), (*(int *)(((*(int *)(((int)stk + 0))) + 0x8))));
+    mdl_vtx_iter_begin((*(int *)((((((struct o10C_int *)((*(int *)((((*(signed char *)((a4 + 0x1))) << 2) + 0xC4B40FC)))))->v)) + 0x0))), (*(int *)(((R1000) + 0x8))));
     for (;;) {
         t9 = mdl_vtx_iter_next();
         if (t9 != 0) {

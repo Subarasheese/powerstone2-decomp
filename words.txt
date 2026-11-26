@@ -304,7 +304,7 @@ N 0C2AC258   # 8C072100 FUN_0c0720f8+8, mid-function
 N 0C2AC394   # 8C072100 FUN_0c0720f8+8, mid-function
 N 0C2AC4CC   # 0C070900 FUN_0c0708a6+90, mid-function
 N 0C2AC5E8   # 0C072000 FUN_0c071fd8+40, mid-function
-N 0C2FE510   # 0C010080 syStart+-3072608, no code reaches it
+N 0C2FE510   # 0C010080 FUN_0c2fe2e0+-3072608, no code reaches it
 N 0C2FECF0   # 0C0C0C0C FUN_0c0c0bf0+28, mid-function
 N 0C2FEE28   # 0C0C0C0C FUN_0c0c0bf0+28, mid-function
 N 0C302CA0   # 0C020200 FUN_0c020168+152, mid-function

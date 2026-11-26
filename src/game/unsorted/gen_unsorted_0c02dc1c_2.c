@@ -35,7 +35,7 @@ int FUN_0c058090(void);
 int math_mat_get_translate(int, int);
 int FUN_0c07bb70(int);
 int gfx_set_background_color(int, int, int, float);
-int FUN_0c177b10(int, int, int, int, int);
+int nlSetUserTileClip(int, int, int, int, int);
 int FUN_0c177bc0(int, int);
 int FUN_0c17a6d0(int);
 int nlCalcPoint(int, int);
@@ -48,7 +48,7 @@ int nlTranslateV(int);
 int nlUnitMatrix(void);
 int FUN_0c17d6d0(float);
 int FUN_0c17e390(int);
-int FUN_0c17e740(float, float, float);
+int nlObjPutSetFadeColor(float, float, float);
 int FUN_0c187798(int, int, int);
 int FUN_0c02de40(int a4, int a5, int a6);
 int FUN_0c02e2a8(void);
@@ -96,7 +96,7 @@ int FUN_0c02e2a8(void)
                 t2 = 0x10;
                 u15 = *(float *)((t7 + t2));
                 t2 = 0xC;
-                t2 = (FUN_0c17e740((*(float *)((t7 + t2))), u15, u14));
+                t2 = (nlObjPutSetFadeColor((*(float *)((t7 + t2))), u15, u14));
             }
             t6 = t7;
             t6 = (t6 + 0x1C);
@@ -152,7 +152,7 @@ int FUN_0c02e7c4(void)
         t4 = (((struct o0_short *)0xC540A24)->v);
         t9 = (unsigned short)t4;
         if (((unsigned short)t4 & 0x200) != 0) {
-            t9 = (FUN_0c17e740(((((struct o8_float *)0xC540A24)->v)), ((((struct oC_float *)0xC540A24)->v)), ((((struct o10_float *)0xC540A24)->v))));
+            t9 = (nlObjPutSetFadeColor(((((struct o8_float *)0xC540A24)->v)), ((((struct oC_float *)0xC540A24)->v)), ((((struct o10_float *)0xC540A24)->v))));
         }
         t12 = (((struct o14_int *)0xC540A24)->v);
         if ((int)t12 > 0) {
@@ -214,7 +214,7 @@ int FUN_0c02e9d4(float f4)
                 if ((*(signed char *)0xC5429A8) != 2) {
                     t0 = *(signed char *)0xC54232C;
                     if (t0 == 0) {
-                        FUN_0c177b10(0x0, 0x0, (*(int *)((((((((signed char)t0 << 1) + (signed char)t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)((((((((signed char)t0 << 1) + (signed char)t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
+                        nlSetUserTileClip(0x0, 0x0, (*(int *)((((((((signed char)t0 << 1) + (signed char)t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)((((((((signed char)t0 << 1) + (signed char)t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
                         (((struct o4_uint *)0xC20EA8C)->v) = (*(signed char *)0xC5421DC);
                         (((struct o0_uint *)0xC20EA8C)->v) = 0x0;
                         nlSelectMatrixStack(0x2);
@@ -225,21 +225,21 @@ int FUN_0c02e9d4(float f4)
                         (((struct o0_uint *)0xC20EA8C)->v) = 0x0;
                         FUN_0c177bc0(0xF, 0x0);
                         t0 = *(signed char *)0xC54232C;
-                        FUN_0c177b10(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
+                        nlSetUserTileClip(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
                         (((struct o0_uint *)0xC20EA8C)->v) = 0x2;
                         (((struct o4_uint *)0xC20EA8C)->v) = (*(signed char *)0xC5421DC);
                         FUN_0c02e978(((((struct o8_float *)((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064)))->v)), ((((struct oC_float *)((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064)))->v)));
                         FUN_0c17a6d0(((((struct o0_int *)0xC20EA8C)->v)));
                         FUN_0c02e90c();
                         FUN_0c177bc0(0xF, ((((struct o0_int *)0xC20EA8C)->v)));
-                        FUN_0c177b10(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
+                        nlSetUserTileClip(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
                         (((struct o0_uint *)0xC20EA8C)->v) = 0x3;
                         (((struct o4_uint *)0xC20EA8C)->v) = ((((((struct o4_int *)0xC20EA8C)->v)) + 0x1) & 0x3);
                         FUN_0c02e978(((((struct o10_float *)((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064)))->v)), ((((struct o14_float *)((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064)))->v)));
                         FUN_0c17a6d0(((((struct o0_int *)0xC20EA8C)->v)));
                         FUN_0c02e90c();
                         FUN_0c177bc0(0xF, ((((struct o0_int *)0xC20EA8C)->v)));
-                        FUN_0c177b10(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
+                        nlSetUserTileClip(0x0, 0x0, (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x0))), (*(int *)(((((((t0 << 1) + t0) << 2) << 1) + 0xC1A9064) + 0x4))), 0xF);
                         (((struct o0_uint *)0xC20EA8C)->v) = 0x0;
                         (((struct o4_uint *)0xC20EA8C)->v) = (*(signed char *)0xC5421DC);
                         FUN_0c17a6d0(0x0);
@@ -252,7 +252,7 @@ int FUN_0c02e9d4(float f4)
                 FUN_0c02e346();
                 FUN_0c058090();
             }
-            FUN_0c17e740(1.0f, 1.0f, 1.0f);
+            nlObjPutSetFadeColor(1.0f, 1.0f, 1.0f);
             FUN_0c057402();
             t0 = *(signed char *)0xC5429A8;
             t1 = t0;

@@ -10,7 +10,7 @@ int FUN_0c064f80(int);
 int FUN_0c058716(int, int);
 int FUN_0c058542(int, float);
 int FUN_0c150010(int, float, float, float, float);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c03f346(int);
 int FUN_0c163f66(int, int);
 
@@ -83,7 +83,7 @@ void FUN_0c163f9e(int a4)
             *(int *)(*(int *)(e + 200) + 128) -= 1024;
             *(int *)(*(int *)(e + 204) + 128) += 2048;
             *(int *)(*(int *)(e + 208) + 128) += 2048;
-            FUN_0c17c130(e + 40, e + 40, e + 76);
+            nlAddVector3op(e + 40, e + 40, e + 76);
             *(short *)(e + 28) = *(short *)(e + 28) + 1;
             if (*(short *)(e + 28) > g[0])
                 *(char *)(e + 20) = 2;

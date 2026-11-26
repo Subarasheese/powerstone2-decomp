@@ -9,6 +9,14 @@ import gen_core as G
 import unpoke_code
 Skip=G.Skip
 def build(name,ret,passthru=False):
+    """The generator's C for one function: gen_drv._build, behind the size gate on `frame` (GEN_FRAME=gate builds it with and without
+    frame.scalarize, compiles both and keeps the smaller; 0 or 1 build once, see framegate.py)."""
+    import framegate
+    def size(n,text,c):
+        import sizes
+        return sizes.c_size(n,text,c.protos)
+    return framegate.build_gated(_build,size,name,ret,passthru)
+def _build(name,ret,passthru=False):
     c=G.run(name,passthru)
     ip=sorted(c.iuse); fp=sorted(c.fuse)
     params=[]
@@ -66,7 +74,7 @@ def build(name,ret,passthru=False):
                 ip=sorted(c.iuse); params=['int a%d'%n for n in range(4,max(ip)+1)]
                 if up>16: params=['int a%d'%n for n in range(4,9)]      # more than the compiler takes as parameters (a structure by value): the first one's address reaches the rest
             if fp: params+=['float f%d'%n for n in range(4,max(fp)+1)]
-        ps0=getattr(c,'psaves',0) if os.environ.get('GEN_SAVES','0')!='1' else 0      # the registers the prologue saves are not in the array: the compiler pushes its own below it, and the C's locals then sit where the original's did
+        ps0=getattr(c,'psaves',0) if os.environ.get('GEN_SAVES','0')!='1' and not up else 0      # (a function with stack arguments keeps the saved registers' slots in the array: without them it read its stack argument from the wrong slot. Zombie Revenge FUN_0c0f2b70, the number formatting of the memory-card messages, proven on the console 2026-11-14; GEN_SAVES=1 asks for that form anywhere)      # the registers the prologue saves are not in the array: the compiler pushes its own below it, and the C's locals then sit where the original's did
         raw=text
         for ps in ((ps0,0) if ps0 else (0,)):
             W=(c.maxD-ps+3)//4+1
@@ -106,6 +114,8 @@ def build(name,ret,passthru=False):
             return 'return %s;'%f
         return 'return 0;' if e=='None' else 'return %s;'%e
     text=re.sub(r'@@RET:(.*?)@\|@(.*?)@@',retfix,text)
+    if c.frame and '@@F:' in text:      # the return line is added after the frame offsets were settled: a function returning r15 kept '@@F:0@@' in its C
+        text=re.sub(r'@@F:(-?\d+)@@',lambda m:str(4*W+int(m.group(1))+(ps if int(m.group(1))<0 else 0)),text)
     # the caller's stack words by the names the parameters give them, once the body is whole (the return line included): a8.. become
     # s.w[] where the words came in as one structure, s.w[] go back to a8.. where they are plain parameters (Virtua Tennis FUN_8c07fd10
     # declared a4..a10 and read s.w[0]; a function returning *(float *)&a8 declared Stk3 s): either way it did not compile
@@ -195,14 +205,14 @@ def build(name,ret,passthru=False):
     src=splitflat.split(src.rstrip('\n'),int(os.environ.get('GEN_MAX_LABELS','500')))+'\n'
     if os.environ.get('GEN_REGISTER','1')!='0': src=register_locals(src.rstrip('\n'))+'\n'
     import rewrites
-    if os.environ.get('GEN_SELFCOPY','1')!='0': src=rewrites.drop_self_copies(src)      # frame slots stored back unchanged
-    if os.environ.get('GEN_STRUCT','1')!='0': src=rewrites.struct_access(src)      # far field accesses as members (head_protos declares the structures)
-    if os.environ.get('GEN_GLOBASE','1')!='0': src=rewrites.global_base(src)      # nearby fixed addresses off one base
-    if os.environ.get('GEN_SWITCH','1')!='0': src=rewrites.chains_to_switch(src)      # a state chain of ifs as a switch
-    if os.environ.get('GEN_COPIES','1')!='0': src=rewrites.merge_copies(src)      # a result threaded through nesting levels by copies
-    if os.environ.get('GEN_DEADFRAME','1')!='0': src=rewrites.drop_dead_frame(src)      # a stack array nothing reads goes (after the self-copies are gone)
-    if os.environ.get('GEN_HOIST','1')!='0': src=rewrites.hoist_builtins(src)      # a pure builtin called more than once with the same variable: once
-    if os.environ.get('GEN_REBASE','1')!='0': src=rewrites.frame_rebase(src)      # the stack array based at its first used word (last: other passes read the old offsets)
+    src=rewrites.last_passes(src)      # the size rewrites of rewrites.LAST_PASSES (each behind its GEN_<NAME> switch; head_protos declares the structures struct_access needs)
+    # the structure of stack words covers every word the body reads: a word read on one path only (Zombie Revenge FUN_0c0a6928 reads
+    # s.w[4] under an if) was left out of the count, the function was declared Stk4, and its callers, generated against that, never
+    # passed the fifth word the original's caller stores (consistency.py: args outside)
+    m_=re.search(r'\bStk(\d+) s\b',src.split('{',1)[0])
+    if m_:
+        top_=max([int(x) for x in re.findall(r'(?<![\w.])s\.w\[(\d+)\]',src)]+[-1])
+        if top_>=int(m_.group(1)): src=src.replace('Stk%s s'%m_.group(1),'Stk%d s'%(top_+1),1)
     return src,c
 _LOCAL=re.compile(r'^(\s+)((?:unsigned )?(?:int|short|char)|float) (\w+);$',re.M)
 def register_locals(text):
@@ -464,7 +474,7 @@ def stack_top():
         return sh4sim.STACK_TOP-0x100
     except Exception: raise Skip('no simulator for stack arguments')
 LAST_READS=[]
-RUNTIME={a for a,n in G.FUNCS.items() if n.startswith('_')}       # the compiler's runtime helpers run for real, as equiv.py runs them
+RUNTIME={a for a,n in G.FUNCS.items() if n.startswith('_') or n in G.HELPER_OF}       # the compiler's runtime helpers run for real, as equiv.py runs them
 ERRS={}             # why the original did not finish on the cases drawn, counted (for the failure report)
 HW=[True]           # whether the function names a hardware address: only then are its device accesses part of a case
 HWNAMED=[set()]     # the addresses outside RAM the function's code names (masked to 29 bits): its hardware
@@ -785,7 +795,11 @@ def tests(name,c,src):
     addr_params=set()
     for kind,e in c.mem_addrs:
         if kind=='e':
-            for m in re.findall(r'\ba(\d)\b',e): addr_params.add(int(m))
+            for m in re.findall(r'\ba(\d)\b',e):
+                # a parameter that is only ever scaled in the address (a4 << 3, a4 * 12) is an index into a table, not the address: drawn
+                # as a pointer (0x0C800000), the table entry lay far past any filled memory and a list walked from it never ended
+                if all(re.match(r'\s*(?:<<|\*)',e[o.end():]) or re.search(r'\*\s*\(*$',e[:o.start()]) for o in re.finditer(r'\ba%s\b'%m,e)): continue
+                addr_params.add(int(m))
             for v_ in re.findall(r'\b([tu]\d+|R\d+)\b',e):         # a loop's pointer variable started from a parameter (t0 = a4): the
                 for m in re.findall(r'\b%s = \(*a(\d)\b'%v_,src): addr_params.add(int(m))      # parameter is an address too (vmsfs_memcpyl)
     basemap={}
@@ -964,4 +978,6 @@ def head_protos(items):
     tds=''.join('typedef struct { int w[%d]; } Stk%d;\n'%(w,w) for w in words)
     from rewrites import struct_decls
     tds+=''.join(d+'\n' for d in struct_decls(' '.join(it[1] for it in items)))      # the one-field structures of struct_access
+    for b in sorted(set(re.findall(r'\bfbits_([0-9A-F]+)\b',' '.join(it[1] for it in items)))):      # a NaN or infinity float constant (ffmt): its bits as a constant
+        tds+='static const unsigned int fbits_%s = 0x%s;\n'%(b,b)
     return tds+(out+'\n' if out else '')+'\n'.join(l+';' for l in mine if l.endswith(')'))

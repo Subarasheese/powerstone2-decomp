@@ -57,7 +57,7 @@ int FUN_0c11c8be(int);
 int FUN_0c11cb1c(int);
 int FUN_0c11cc74(int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c187798(void);
 int FUN_0c11cd98(int a4);
@@ -272,7 +272,7 @@ int FUN_0c11dcb0(int a4, int a5, int a6, int a7)
                 FUN_0c05a080(0x10, 0x0);
             }
             if (((int)((int)((*(short *)((a4 + 0x1E))) - ((((struct o0_int *)0xC2922E4)->v))) % (int)((((struct o20_short *)(a4))->v)))) == 0) {
-                t0 = FUN_0c179ac0();
+                t0 = nlRand();
                 t1 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
                 if ((int)t0 >= 0) {
                     t1 = (t0 & 0xF);

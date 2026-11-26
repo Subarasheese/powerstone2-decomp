@@ -17,7 +17,7 @@ int FUN_0c03f444(int, int, int);
 int thunk_FUN_0c058310(int, int);
 int FUN_0c064d24(int, int, int, int, int, int, int, int);
 int FUN_0c07e2f4(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(void);
 int FUN_0c132ba4(int a4, int a5);
 int FUN_0c132cbc(int a4);

@@ -47,7 +47,7 @@ int FUN_0c05490a(int, int, int, int);
 int FUN_0c054a62(int, int);
 extern int FUN_0c056b68();
 int math_atan2_angle16(int, int, int, int, float, float);
-float FUN_0c0e2240(int, int);
+float nlLength(int, int);
 int FUN_0c187798(void);
 int FUN_0c052830(int a4);
 int FUN_0c05283e(int a4, int a5, int a6, int a7, float f4);
@@ -208,96 +208,6 @@ float FUN_0c052c86(int a4, int a5, int a6, int a7, int a8)
     return (u4 / (u5 - u1));
 }
 
-int FUN_0c053128(int a4, int a5, int a6, int a7)
-{
-    int stk[9];
-    register int t0;
-    register int t3;
-    register int t52;
-    register int t5;
-    register int t6;
-    register int t7;
-    register int t19;
-    register float u22;
-    register float u23;
-    int t28;
-    register int t29;
-    register int t30;
-    register int t35;
-    register int t38;
-    register int t40;
-    register int t4;
-    register float u8;
-    register float u9;
-    int t39;
-
-    t0 = *(signed char *)0xC542237;
-    t3 = *(int *)((((*(signed char *)0xC54223C) << 2) + ((((t0 << 1) + t0) << 2) + 0xC1BF61C)));
-    *(unsigned int *)(((int)stk + 0)) = t3;
-    t52 = t3;
-    if (t3 != -1) {
-        (((struct o18_float *)(((int)stk + 0)))->v) = 0.0f;
-        (((struct o8_float *)((((int)stk + 0) + 0x18)))->v) = 0.0f;
-        *(unsigned int *)(((int)stk + 8)) = 0xC532498;
-        t5 = 0xC532498;
-        t6 = 0xC532498;
-        t7 = 0x0;
-        for (;;) {
-            if ((*(signed char *)((t5 + 0x3714))) != 0) {
-                u8 = ((((struct o18_float *)(((int)stk + 0)))->v));
-                u9 = ((((struct o28_float *)(t6))->v));
-                t4 = 0x30;
-                t4 = (t4 + t6);
-                u8 = (u8 + u9);
-                t7 = (t7 + 0x1);
-                (((struct o18_float *)(((int)stk + 0)))->v) = u8;
-                u8 = ((((struct o8_float *)((((int)stk + 0) + 0x18)))->v));
-                u9 = (*(float *)((t4 + 0x0)));
-                u8 = (u8 + u9);
-                (((struct o8_float *)((((int)stk + 0) + 0x18)))->v) = u8;
-            }
-            t5 = (t5 + 0x3938);
-            t6 = (t6 + 0x3938);
-            if ((unsigned int)t5 >= (unsigned int)0xC540978) {
-                break;
-            }
-        }
-        (((struct o18_float *)(((int)stk + 0)))->v) = (((((struct o18_float *)(((int)stk + 0)))->v)) / (float)t7);
-        (((struct o8_float *)((((int)stk + 0) + 0x18)))->v) = (((((struct o8_float *)((((int)stk + 0) + 0x18)))->v)) / (float)t7);
-        t19 = *(int *)(((int)stk + 0));
-        (((struct oC_float *)(((int)stk + 0)))->v) = (((((struct o18_float *)(((int)stk + 0)))->v)) - (*(float *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x0))));
-        u22 = (((struct o8_float *)((((int)stk + 0) + 0x18)))->v);
-        u23 = (((struct o8_float *)(((((t19 << 2) + t19) << 2) + 0xC1BF52C)))->v);
-        (((struct o8_float *)((((int)stk + 0) + 0xC)))->v) = (u22 - u23);
-        if ((u22 - u23) == 0.0f) {
-            (((struct o8_float *)((((int)stk + 0) + 0xC)))->v) = 9.99999997e-07f;
-        }
-        t28 = math_atan2_angle16((((int)stk + 0) + 0x18), ((((t19 << 2) + t19) << 2) + 0xC1BF52C), t6, 0x3938, ((((struct oC_float *)(((int)stk + 0)))->v)), ((((struct o8_float *)((((int)stk + 0) + 0xC)))->v)));
-        *(unsigned int *)(((int)stk + 0)) = ((((t19 << 2) + t19) << 2) + 0xC1BF52C);
-        t29 = *(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0xC));
-        t30 = *(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x10));
-        if (((int)(unsigned short)((0xFFFF & t28) - t29) >= (int)t30) && ((int)(unsigned short)((0xFFFF & t28) - t29) <= (int)(unsigned short)((-t30) + 0x8000))) {
-            (((struct o1A0_uint *)(a4))->v) = (unsigned short)((*(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0xC))) + (*(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x10))));
-        } else {
-            t35 = *(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x10));
-            if (((int)(unsigned short)((0xFFFF & t28) - t29) <= (int)(unsigned short)(-t35)) && ((int)(unsigned short)((0xFFFF & t28) - t29) >= (int)(unsigned short)(0x8000 + t35))) {
-                (((struct o1A0_uint *)(a4))->v) = (unsigned short)((*(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0xC))) - (*(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x10))));
-            } else {
-                t38 = *(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0x10));
-                *(unsigned short *)(((int)stk + 0)) = t38;
-                if (((int)(unsigned short)((0xFFFF & t28) - t29) > (int)(unsigned short)((-t38) + 0x8000)) && (t39 = *(short *)(((int)stk + 0)), (int)(unsigned short)((0xFFFF & t28) - t29) < (int)(unsigned short)(t39 + 0x8000))) {
-                    *(unsigned int *)(((int)stk + 4)) = ((((t19 << 2) + t19) << 2) + 0xC1BF52C);
-                    t40 = *(int *)((((((t19 << 2) + t19) << 2) + 0xC1BF52C) + 0xC));
-                    (((struct o1A0_uint *)(a4))->v) = (((t40 - (0xFFFF & t28)) + t40) + 0x8000);
-                } else {
-                    (((struct o1A0_uint *)(a4))->v) = (0xFFFF & t28);
-                }
-            }
-        }
-        t52 = 0x1A0;
-    }
-    return t52;
-}
 
 int FUN_0c0532be(int a4)
 {
@@ -343,7 +253,7 @@ float FUN_0c05331e(int a4)
     for (;;) {
         t2 = FUN_0c0532be(t0);
         if (t2 != 0) {
-            t3 = FUN_0c0e2240((((t0 * 0x3938) + 0xC532498) + 0x28), ((a4 + 0xBC) + 0xC));
+            t3 = nlLength((((t0 * 0x3938) + 0xC532498) + 0x28), ((a4 + 0xBC) + 0xC));
             if (t3 > u1) {
                 u1 = t3;
             }

@@ -32,7 +32,7 @@ int FUN_0c104d70(void);
 int FUN_0c104db8(void);
 int FUN_0c104ed4(int, int);
 int FUN_0c1171f0(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(int);
 int FUN_0c112d0c(int a4);
 int FUN_0c112d40(int a4, int a5, int a6, int a7);

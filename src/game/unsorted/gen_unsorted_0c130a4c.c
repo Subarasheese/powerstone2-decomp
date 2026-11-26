@@ -13,7 +13,7 @@ struct o48_float { char p[0x48]; float v; };
 struct o4_float { char p[0x4]; float v; };
 struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03f346(int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c130a4c(int a4, int a5, int a6, int a7);
 int FUN_0c130acc(int a4, int a5, int a6, int a7);
@@ -85,7 +85,7 @@ int FUN_0c130acc(int a4, int a5, int a6, int a7)
         if (((*(int *)0xC542260) & 1) == 0) {
             u0 = 1.10000002f;
         }
-        *(unsigned int *)((a4 + 0x3C)) = ((*(int *)((a4 + 0x3C))) + (int)(((float)((int)((int)(FUN_0c179ac0()) % (int)0x1E)) * ((((struct o0_float *)0xC130C64)->v))) / ((((struct o4_float *)0xC130C64)->v))));
+        *(unsigned int *)((a4 + 0x3C)) = ((*(int *)((a4 + 0x3C))) + (int)(((float)((int)((int)(nlRand()) % (int)0x1E)) * ((((struct o0_float *)0xC130C64)->v))) / ((((struct o4_float *)0xC130C64)->v))));
         (((struct o40_float *)(a4))->v) = u0;
         (((struct o48_float *)(a4))->v) = u0;
         (((struct o44_float *)(a4))->v) = u0;

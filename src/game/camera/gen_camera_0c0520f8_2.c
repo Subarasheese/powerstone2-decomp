@@ -187,3 +187,4 @@ float FUN_0c052640(int a4, int a5, int a6)
     (((struct o4_float *)(a6))->v) = (((((struct o4_float *)(a6))->v)) + ((((struct o204_float *)(a4))->v)));
     return u0;
 }
+

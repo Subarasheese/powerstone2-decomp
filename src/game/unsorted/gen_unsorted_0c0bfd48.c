@@ -10,7 +10,7 @@ struct o6C_float { char p[0x6C]; float v; };
 struct o70_float { char p[0x70]; float v; };
 struct o74_float { char p[0x74]; float v; };
 int ai_clear_op_state(void);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0bfd48(void);
 int FUN_0c0bfdfe(void);
 
@@ -25,12 +25,12 @@ int FUN_0c0bfd48(void)
     u0 = (((struct o0_float *)0xC0BFE54)->v);
     u1 = (((struct o4_float *)0xC0BFE54)->v);
     u2 = u1;
-    u2 = u2 + u0 * (float)((int)((int)(FUN_0c179ac0()) % (int)0x64));
+    u2 = u2 + u0 * (float)((int)((int)(nlRand()) % (int)0x64));
     (((struct o6C_float *)((((unsigned short)(unsigned char)t0 * (unsigned short)0x264) + 0xC471ACC)))->v) = (float)(short)(int)u2;
     (((struct o70_float *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v) = 0.0f;
     t0 = *(signed char *)0xC472462;
     u2 = u1;
-    u2 = u2 + u0 * (float)((int)((int)(FUN_0c179ac0()) % (int)0x64));
+    u2 = u2 + u0 * (float)((int)((int)(nlRand()) % (int)0x64));
     (((struct o74_float *)((((unsigned short)(unsigned char)t0 * (unsigned short)0x264) + 0xC471ACC)))->v) = (float)(short)(int)u2;
     *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC) + 0x8)) = ((((struct o0_int *)0xC47245C)->v));
     t0 = ai_clear_op_state();

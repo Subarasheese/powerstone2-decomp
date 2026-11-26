@@ -24,7 +24,7 @@ int FUN_0c064f80(int);
 int FUN_0c067734(int);
 int FUN_0c07e79c(int, int, int, int, int, int, int);
 int FUN_0c07ec9a(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c082958(int a4, int a5);
 
 int FUN_0c082958(int a4, int a5)
@@ -35,7 +35,7 @@ int FUN_0c082958(int a4, int a5)
 
     *(unsigned char *)(((int)stk + 12)) = a5;
     (((struct o3715_uchar *)(a4))->v) = 0xE;
-    *(unsigned short *)((a4 + 0x1C)) = (((int)((int)(FUN_0c179ac0()) % (int)0x7)) + 0x8);
+    *(unsigned short *)((a4 + 0x1C)) = (((int)((int)(nlRand()) % (int)0x7)) + 0x8);
     *(unsigned short *)((a4 + 0x1E)) = 0x0;
     (((struct o20_ushort *)(a4))->v) = 0x0;
     FUN_0c067734(a4);

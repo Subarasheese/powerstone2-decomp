@@ -11,10 +11,10 @@ struct oAC_short { char p[0xAC]; short v; };
 struct oB0_float { char p[0xB0]; float v; };
 int FUN_0c17b1a0(int, int, int);
 int FUN_0c17d6d0(float);
-int FUN_0c17e290(int, int);
+int nlObjPutSetPaletteOffset(int, int);
 int nlObjPut(int);
 int nlObjPutTrnsl(int, float);
-int FUN_0c17e740(int, float, float, float);
+int nlObjPutSetFadeColor(int, float, float, float);
 int nlObjPutCheapEnvMap(int);
 int FUN_0c02e078(int a4, int a5, int a6);
 
@@ -36,7 +36,7 @@ int FUN_0c02e078(int a4, int a5, int a6)
         FUN_0c17b1a0((a5 + 0x28), a5, a6);
         t7 = *(short *)(((int)stk + 0));
         if ((0x4000 & (unsigned short)t7) != 0) {
-            FUN_0c17e290((*(int *)((a5 + 0x8))), (((*(signed char *)((a4 + 0x1))) << 2) << 2));
+            nlObjPutSetPaletteOffset((*(int *)((a5 + 0x8))), (((*(signed char *)((a4 + 0x1))) << 2) << 2));
         }
         t14 = *(short *)(((int)stk + 4));
         if ((0x1000 & (unsigned short)t14) != 0) {
@@ -48,7 +48,7 @@ int FUN_0c02e078(int a4, int a5, int a6)
             nlObjPutCheapEnvMap((*(int *)((a5 + 0x8))));
         }
         if ((0x200 & (unsigned short)t14) != 0) {
-            FUN_0c17e740(t26, ((((struct o18_float *)(a5))->v)), ((((struct o1C_float *)(a5))->v)), ((((struct o20_float *)(a5))->v)));
+            nlObjPutSetFadeColor(t26, ((((struct o18_float *)(a5))->v)), ((((struct o1C_float *)(a5))->v)), ((((struct o20_float *)(a5))->v)));
         }
         if (((unsigned short)t14 & 0x400) != 0) {
             return nlObjPutTrnsl((*(int *)((a5 + 0x8))), ((((struct o14_float *)(a5))->v)));

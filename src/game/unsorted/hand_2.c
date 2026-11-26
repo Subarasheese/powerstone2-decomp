@@ -137,7 +137,7 @@ void FUN_0c1103e0(char *o, int d)
 
 /* ---- batch 3 ---- */
 int FUN_0c03f346(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 void FUN_0c0cafc0(char *o)
 {
@@ -180,8 +180,8 @@ void FUN_0c0f12a0(void)
     for (i = 0; i < 4; i++)
         order[i] = i;
     for (n = 0; n < 10; n++) {
-        a = FUN_0c179ac0() % 4;
-        b = FUN_0c179ac0() % 4;
+        a = nlRand() % 4;
+        b = nlRand() % 4;
         t = order[a];
         order[a] = order[b];
         order[b] = t;
@@ -577,7 +577,7 @@ void FUN_0c137414(char *o, int a5)
         o[0xA8] = 1;
         *(short *)(o + 0xAC) = 31;
         *(B12 *)(o + 64) = *(B12 *)0x0C2A1894;
-        r = FUN_0c179ac0() % 128;
+        r = nlRand() % 128;
         *(int *)(o + 56) = *(int *)(o + 56) + ((int)((float)r * 360.0f / 128.0f * 65536.0f / 360.0f + 0.5f) & 0xFFFF);
         **(char **)(o + 0xC8) = 0;
         *(short *)(*(char **)(o + 0xC8) + 6) = 543;
@@ -631,7 +631,7 @@ float math_cos_angle16(int);
 int FUN_0c150010(int, float, float, float, float);
 int FUN_0c0585a8(int, int, int, float);
 int FUN_0c163f66(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 
 void FUN_0c164644(char *o)
 {
@@ -701,7 +701,7 @@ void FUN_0c164644(char *o)
     *(int *)(*(char **)(o + 0xC8) + 128) = *(int *)(*(char **)(o + 0xC8) + 128) - 1024;
     *(int *)(*(char **)(o + 0xCC) + 128) = *(int *)(*(char **)(o + 0xCC) + 128) + 2048;
     *(int *)(*(char **)(o + 0xD0) + 128) = *(int *)(*(char **)(o + 0xD0) + 128) + 2048;
-    FUN_0c17c130((int)(o + 40), (int)(o + 40), (int)(o + 76));
+    nlAddVector3op((int)(o + 40), (int)(o + 40), (int)(o + 76));
     *(short *)(o + 28) = *(short *)(o + 28) + 1;
     if (*(short *)(o + 28) > *(int *)u)
         o[20] = 2;

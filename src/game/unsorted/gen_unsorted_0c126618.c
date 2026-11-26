@@ -20,7 +20,7 @@ struct oC8_int { char p[0xC8]; int v; };
 int FUN_0c03744a(int, int, int, int);
 extern int FUN_0c03f346();
 int FUN_0c03f444(int, int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(void);
 int FUN_0c126618(int a4);
 int FUN_0c126708(int a4, int a5, int a6, int a7);
@@ -43,7 +43,7 @@ int FUN_0c126708(int a4, int a5, int a6, int a7)
         (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
     }
     t0 = (((struct oC8_int *)(a4))->v);
-    FUN_0c17c130((t0 + 0x6C), (t0 + 0x6C), (0x90 + t0));
+    nlAddVector3op((t0 + 0x6C), (t0 + 0x6C), (0x90 + t0));
     (((struct o78_uint *)(t0))->v) = (((((struct o78_int *)(t0))->v)) + 0x2000);
     (((struct o94_float *)(t0))->v) = (((((struct o94_float *)(t0))->v)) - 1.0f);
     t0 = *(signed char *)((a4 + 0x1));

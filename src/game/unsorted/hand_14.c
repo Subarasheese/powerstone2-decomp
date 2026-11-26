@@ -10,7 +10,7 @@ typedef struct { float x, y; int pad[6]; } Vtx;
 
 int nlSelectMatrixStack(int);
 void nlUnitMatrix(void);
-int FUN_0c17e740(float, float, float);
+int nlObjPutSetFadeColor(float, float, float);
 int nlObjPut(int);
 
 #define OBJ     0x0C1BF888
@@ -41,7 +41,7 @@ void FUN_0c056fc8(void)
         return;
     nlSelectMatrixStack(1);
     nlUnitMatrix();
-    FUN_0c17e740(1.0f, 1.0f, 1.0f);
+    nlObjPutSetFadeColor(1.0f, 1.0f, 1.0f);
     VTX[2].x = VTX[0].x = -0.5f;
     VTX[3].x = VTX[1].x = -0.490624994f;
     t = (Task *)0x0C40F8B0;

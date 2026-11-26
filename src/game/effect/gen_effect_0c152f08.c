@@ -22,7 +22,7 @@ int FUN_0c037498(int, int, int, int);
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 int thunk_FUN_0c058310(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c152f08(int a4);
 int FUN_0c152fa4(int a4);
 
@@ -52,7 +52,7 @@ int FUN_0c152f08(int a4)
         *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x1;
         *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0xF;
         t2 = (((struct oC4_int *)(t0))->v);
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t3 = ((~(((~t0) + 0x1) & 0xF)) + 0x1);
         if ((int)t0 >= 0) {
             t3 = (t0 & 0xF);
@@ -136,7 +136,7 @@ int FUN_0c152fa4(int a4)
     *(unsigned char *)((v0_7 + 0x1)) = v0_2;
     FUN_0c037498(v0_5, (*(signed char *)((v0_7 + 0x1))), 0x1D, (*(int *)0xC4B40CC));
     *(unsigned int *)(((int)stk + 0)) = ((((struct o80_int *)(v0_5))->v));
-    v0_1 = FUN_0c179ac0();
+    v0_1 = nlRand();
     v0_4 = (v0_1);
     if (((int)v0_1 < 0)) goto L_C1530E4;
     v0_4 = ((v0_4 & 0xF));

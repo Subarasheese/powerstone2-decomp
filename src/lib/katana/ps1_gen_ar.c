@@ -325,7 +325,7 @@ int FUN_0c0d479e(void);
 int FUN_0c0d7a7c(void);
 int FUN_0c0d7a9c(void);
 float math_vec3_accumulate(int a4, int a5);
-float FUN_0c0e2240(int a4, int a5);
+float nlLength(int a4, int a5);
 float FUN_0c0e2390(int a4, int a5, int a6);
 int nlRotateAxe(int a4, int a5);
 int nlSynchFunction(int a4);
@@ -582,7 +582,7 @@ float math_vec3_accumulate(int a4, int a5)
 }
 
 
-float FUN_0c0e2240(int a4, int a5)
+float nlLength(int a4, int a5)
 {
     register float u0;
     register float u1;

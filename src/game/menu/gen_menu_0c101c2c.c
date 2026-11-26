@@ -14,8 +14,8 @@ int FUN_0c0573c0(int, int, int);
 int FUN_0c05f222(void);
 int FUN_0c05f22c(int);
 int dbg_set_cell_size(int, int);
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c17a550(int);
 int FUN_0c101c2c(void);
 
@@ -36,12 +36,12 @@ int FUN_0c101c2c(void)
     }
     dbg_set_cell_size(0x20, 0x20);
     FUN_0c17a550(0xFFFFFF3F);
-    FUN_0c17a4c0(0x2, 0x2);
-    FUN_0c17a360(0xC1FC4D0);
+    nlLocate(0x2, 0x2);
+    nlPuts(0xC1FC4D0);
     dbg_set_cell_size(0x10, 0x10);
     FUN_0c17a550(0xFF1FFF3F);
-    FUN_0c17a4c0(0x5, 0x7);
-    FUN_0c17a360(0xC1FC4DC);
+    nlLocate(0x5, 0x7);
+    nlPuts(0xC1FC4DC);
     dbg_set_cell_size(0x8, 0x8);
     t17 = FUN_0c05f22c(0x40);
     if (t17 == 0) {

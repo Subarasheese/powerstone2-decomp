@@ -156,7 +156,7 @@ int pl_wangtang_update_action_22(int a4);
 void FUN_0c0f43f4(int a4, int a5, int a6, int a7);
 int kmSetPaletteData(int a4);
 int pl_wangtang_mode10_phase3(int a4);
-int FUN_0c0e3350(int a4, int a5);
+int nlFastScreenPoint(int a4, int a5);
 int syRtcCompareDate(int a4, int a5);
 int FUN_0c0fefee(int a4, int a5);
 int pl_mode15_cls15_f1_phase0(int a4);
@@ -231,7 +231,7 @@ int pl_hitreact_17_update(int a4, int a5, int a6, int a7);
 int FUN_0c098b02(int a4);
 int pl_timer_arm_motion_end(int a4, int a5);
 int nlGetPushedMatrix(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7);
-int FUN_0c0e3470(void);
+int nlMakeFastModelProjectMatrixVM(void);
 int FUN_0c0e2720(void);
 int FUN_0c0234ca(int a4, int a5);
 int pl_ryoma_mode10_phase2(int a4);
@@ -354,7 +354,7 @@ void FUN_0c0f43f4(int a4, int a5, int a6, int a7)
 }
 
 
-int FUN_0c0e3350(int a4, int a5)
+int nlFastScreenPoint(int a4, int a5)
 {
     int stk[4];
     register float u1;

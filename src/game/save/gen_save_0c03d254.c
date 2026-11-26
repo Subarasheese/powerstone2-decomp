@@ -7,7 +7,7 @@ int memset(int, int, int);
 int strcpy(int, int);
 int syRtcGetDate(int);
 int buSaveFile(int, int, int, int, int, int);
-int FUN_0c2b2fc4(int, int);
+int buMakeBackupFileImage(int, int);
 int FUN_0c03d254(void);
 int FUN_0c03d2bc(int a4);
 
@@ -27,7 +27,7 @@ int FUN_0c03d254(void)
     *(unsigned short *)(((int)stk + 84)) = 0x0;
     *(unsigned int *)(((int)stk + 88)) = 0xC3CB888;
     *(unsigned int *)(((int)stk + 92)) = 0x198;
-    return (FUN_0c2b2fc4(0xC3DBC40, ((int)stk + 0)));
+    return (buMakeBackupFileImage(0xC3DBC40, ((int)stk + 0)));
 }
 
 int FUN_0c03d2bc(int a4)

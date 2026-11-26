@@ -157,22 +157,22 @@ void FUN_0c0c2380(int a4, int a5)
 
 int FUN_0c0c241a(int a4, int a5, int a6, float f4)
 {
-    int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
+    int t4;
+    int t2;
     int t5;
-    register int t6;
-    register int t7;
-    register int t8;
-    register float u0;
+    int t6;
+    int t8;
+    int t3;
+    int t0;
+    float u0;
+    int t1;
+    int t7;
 
-    if (((unsigned char)(*(signed char *)((a4 + 0x41C))) == 0xC2) && (t0 = *(signed char *)((a4 + 0x2)), t0 != 0)) {
+    if (((unsigned char)(*(signed char *)(a4 + 0x41C)) == 0xC2) && (t0 = *(signed char *)(a4 + 0x2), t0 != 0)) {
         t1 = t0;
     } else {
         t0 = 0x41C;
-        if ((unsigned char)(*(signed char *)((a4 + 0x41C))) == 0xC6) {
+        if ((unsigned char)(*(signed char *)(a4 + 0x41C)) == 0xC6) {
         } else {
             t2 = 0xC6;
             t3 = 0x0;
@@ -180,104 +180,88 @@ int FUN_0c0c241a(int a4, int a5, int a6, float f4)
             u0 = f4;
             for (;;) {
                 if ((int)t3 < (int)((((struct oC0_int *)(a4))->v))) {
-                    t5 = 0xC4;
-                    t4 = t3;
-                    t4 = (t4 << 2);
-                    t5 = (t5 + a4);
+                    t4 = (t3 << 2);
                     u0 = 1.0f;
-                    t5 = (t5 + t4);
                     t6 = 0xC3;
-                    t5 = (*(int *)((t5 + 0x0)));
+                    t5 = (*(int *)((((0xC4 + a4) + t4) + 0x0)));
                     (((struct o8C_float *)(t5))->v) = u0;
                     (((struct o88_float *)(t5))->v) = u0;
                     (((struct o84_float *)(t5))->v) = u0;
                     t5 = 0xC2738B8;
-                    t7 = *(signed char *)((a4 + 0x41C));
-                    t8 = t5;
+                    t7 = *(signed char *)(a4 + 0x41C);
+                    t8 = 0xC2738B8;
                     if ((unsigned char)t7 != t6) {
                         if ((unsigned char)t7 != 76) {
                             if ((unsigned char)t7 != 102) {
-                                t2 = (*(signed char *)((a4 + 0x41C)));
-                                t2 = (unsigned char)t2;
-                                t2 = ((unsigned short)t2 * (unsigned short)0x34);
-                                t8 = (t8 + t2);
-                                t2 = (*(signed char *)((t8 + 0x19)));
+                                t8 = (t8 + ((unsigned short)((unsigned char)(*(signed char *)(a4 + 0x41C))) * (unsigned short)0x34));
+                                t2 = (*(signed char *)(t8 + 0x19));
                                 if ((int)t3 < (int)t2) {
                                     t4 = (t4 + (0xC4 + a4));
-                                    t2 = (*(int *)((t4 + 0x0)));
-                                    *(unsigned char *)((t2 + 0x0)) = 0x1;
+                                    t2 = (*(int *)(t4));
+                                    *(unsigned char *)(t2) = 0x1;
                                 } else {
-                                    t2 = 0xC4;
-                                    t2 = (t2 + a4);
+                                    t2 = (0xC4 + a4);
                                     t4 = (t4 + t2);
-                                    *(unsigned char *)(((*(int *)((t4 + 0x0))) + 0x0)) = 0x0;
+                                    *(unsigned char *)(((*(int *)(t4)) + 0x0)) = 0x0;
                                 }
                             } else {
                                 t2 = 0x34;
-                                t8 = (t8 + ((unsigned short)(unsigned char)(*(signed char *)((a4 + 0x41C))) * (unsigned short)t2));
-                                if ((int)t3 < (int)(*(signed char *)((t8 + 0x19)))) {
-                                    t6 = 0xC4;
-                                    t6 = (t6 + a4);
-                                    t6 = (t6 + t4);
-                                    *(unsigned char *)(((*(int *)((t6 + 0x0))) + 0x0)) = 0x1;
+                                t8 = (t8 + ((unsigned short)(unsigned char)(*(signed char *)(a4 + 0x41C)) * (unsigned short)0x34));
+                                if ((int)t3 < (int)(*(signed char *)(t8 + 0x19))) {
+                                    t6 = ((0xC4 + a4) + t4);
+                                    *(unsigned char *)(((*(int *)(t6)) + 0x0)) = 0x1;
                                 } else {
                                     t6 = (*(int *)((((0xC4 + a4) + t4) + 0x0)));
-                                    *(unsigned char *)((t6 + 0x0)) = 0x0;
+                                    *(unsigned char *)(t6) = 0x0;
                                 }
-                                t6 = *(signed char *)((a4 + 0x41D));
+                                t6 = *(signed char *)(a4 + 0x41D);
                                 t5 = t6;
                                 if ((t6 != 4) && (t5 != 5)) {
                                     if (t5 == 7) {
                                         t4 = (t4 + (0xC4 + a4));
-                                        t2 = (*(int *)((t4 + 0x0)));
-                                        *(unsigned char *)((t2 + 0x0)) = 0x1;
+                                        t2 = (*(int *)(t4));
+                                        *(unsigned char *)(t2) = 0x1;
                                     }
                                 } else {
                                     t4 = (t4 + (0xC4 + a4));
-                                    t2 = (*(int *)((t4 + 0x0)));
-                                    *(unsigned char *)((t2 + 0x0)) = 0x1;
+                                    t2 = (*(int *)(t4));
+                                    *(unsigned char *)(t2) = 0x1;
                                 }
                             }
                         } else {
                             if (t3 == 0) {
-                                t2 = 0xC4;
                                 t8 = 0xF;
-                                t2 = (t2 + a4);
-                                t2 = (t2 + t4);
-                                *(unsigned short *)(((*(int *)((t2 + 0x0))) + 0x6)) = t8;
+                                t2 = ((0xC4 + a4) + t4);
+                                *(unsigned short *)(((*(int *)(t2)) + 0x6)) = 0xF;
                             } else {
-                                t2 = 0xC4;
                                 t8 = 0x2F;
-                                t2 = (t2 + a4);
-                                t2 = (t2 + t4);
-                                *(unsigned short *)(((*(int *)((t2 + 0x0))) + 0x6)) = t8;
+                                t2 = ((0xC4 + a4) + t4);
+                                *(unsigned short *)(((*(int *)(t2)) + 0x6)) = 0x2F;
                             }
                             t2 = 0x34;
-                            t5 = (t5 + ((unsigned short)(unsigned char)(*(signed char *)((a4 + 0x41C))) * (unsigned short)t2));
-                            if ((int)t3 < (int)(*(signed char *)((t5 + 0x19)))) {
+                            t5 = (t5 + ((unsigned short)(unsigned char)(*(signed char *)(a4 + 0x41C)) * (unsigned short)0x34));
+                            if ((int)t3 < (int)(*(signed char *)(t5 + 0x19))) {
                                 t4 = (t4 + (0xC4 + a4));
-                                t2 = (*(int *)((t4 + 0x0)));
-                                *(unsigned char *)((t2 + 0x0)) = 0x1;
+                                t2 = (*(int *)(t4));
+                                *(unsigned char *)(t2) = 0x1;
                             } else {
-                                t2 = 0xC4;
-                                t2 = (t2 + a4);
+                                t2 = (0xC4 + a4);
                                 t4 = (t4 + t2);
-                                *(unsigned char *)(((*(int *)((t4 + 0x0))) + 0x0)) = 0x0;
+                                *(unsigned char *)(((*(int *)(t4)) + 0x0)) = 0x0;
                             }
                         }
                     } else {
                         t5 = 0xC27883C;
-                        t6 = *(signed char *)((a4 + 0x424));
+                        t6 = *(signed char *)(a4 + 0x424);
                         t2 = t6;
                         if ((int)t3 >= (int)(*(signed char *)((((((t6 << 2) + t2) << 1) + t5) + 0x9)))) {
-                            t2 = 0xC4;
-                            t2 = (t2 + a4);
+                            t2 = (0xC4 + a4);
                             t4 = (t4 + t2);
-                            *(unsigned char *)(((*(int *)((t4 + 0x0))) + 0x0)) = 0x0;
+                            *(unsigned char *)(((*(int *)(t4)) + 0x0)) = 0x0;
                         } else {
                             t4 = (t4 + (0xC4 + a4));
-                            t2 = (*(int *)((t4 + 0x0)));
-                            *(unsigned char *)((t2 + 0x0)) = 0x1;
+                            t2 = (*(int *)(t4));
+                            *(unsigned char *)(t2) = 0x1;
                         }
                     }
                     t3 = (t3 + 0x1);
@@ -285,7 +269,7 @@ int FUN_0c0c241a(int a4, int a5, int a6, float f4)
                 }
                 break;
             }
-            if ((unsigned char)(*(signed char *)((a4 + 0x41C))) == 71) {
+            if ((unsigned char)(*(signed char *)(a4 + 0x41C)) == 71) {
                 (((struct o68_uint *)(((((struct oC4_int *)(a4))->v))))->v) = 0x0;
                 (((struct o68_uint *)(((((struct oC8_int *)(a4))->v))))->v) = 0x0;
             }
@@ -300,30 +284,30 @@ int FUN_0c0c241a(int a4, int a5, int a6, float f4)
 int FUN_0c0c25c4(int a4)
 {
 
-    register int R1;
-    register int R2;
-    register int R3;
-    register int R9;
-    register int R10;
-    register int R11;
-    register int R12;
-    register int R13;
-    register int R14;
-    register float F12;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register float w0_0;
-    register float w0_1;
-    register float w0_2;
+    int v0_0;
+    int v0_3;
+    int v0_1;
+    float w0_0;
+    int v0_2;
+    float w0_1;
+    int v0_4;
+    float w0_2;
+    int R1;
+    int R2;
+    float F12;
+    int T_;
+    int R14;
+    int R13;
+    int R12;
+    int R11;
+    int R10;
+    int R9;
+    int R3;
     v0_0 = a4;
     (((struct o48_float *)(v0_0))->v) = 1.0f;
     (((struct o44_float *)(v0_0))->v) = 1.0f;
     (((struct o40_float *)(v0_0))->v) = 1.0f;
-    v0_4 = *(signed char *)((v0_0 + 0x41C));
+    v0_4 = *(signed char *)(v0_0 + 0x41C);
     v0_3 = ((unsigned char)v0_4);
     v0_1 = (0xF);
     v0_2 = (0x1F);
@@ -340,7 +324,7 @@ int FUN_0c0c25c4(int a4)
     if ((v0_3 == 0xC9)) goto L_C0C26CC;
     if ((v0_3 == 76)) goto L_C0C26F8;
     if ((v0_3 != 75)) goto L_C0C2612;
-    v0_2 = *(signed char *)((v0_0 + 0x41D));
+    v0_2 = *(signed char *)(v0_0 + 0x41D);
     v0_1 = (v0_2);
     if ((v0_2 == 4)) goto L_C0C272E;
     if ((v0_1 != 5)) goto L_C0C2734;
@@ -358,7 +342,7 @@ int FUN_0c0c25c4(int a4)
     goto L_C0C2738;
     L_C0C2612:;
     if ((v0_3 != 102)) goto L_C0C261A;
-    v0_3 = *(signed char *)((v0_0 + 0x41D));
+    v0_3 = *(signed char *)(v0_0 + 0x41D);
     v0_4 = (v0_3);
     if ((v0_3 == 4)) goto L_C0C2768;
     if ((v0_4 == 5)) goto L_C0C2768;
@@ -393,7 +377,7 @@ int FUN_0c0c25c4(int a4)
     if ((v0_3 != 115)) goto L_C0C2632;
     goto L_C0C27E2;
     L_C0C27E2:;
-    v0_2 = *(signed char *)((v0_0 + 0x41D));
+    v0_2 = *(signed char *)(v0_0 + 0x41D);
     v0_1 = (v0_2);
     if ((v0_2 == 4)) goto L_C0C27F4;
     v0_3 = (v0_1);
@@ -410,7 +394,7 @@ int FUN_0c0c25c4(int a4)
     if ((v0_3 != 45)) goto L_C0C2642;
     goto L_C0C2806;
     L_C0C2806:;
-    if (((*(signed char *)((v0_0 + 0x41D))) != 7)) goto L_C0C2824;
+    if (((*(signed char *)(v0_0 + 0x41D)) != 7)) goto L_C0C2824;
     *(unsigned short *)((((((struct oC4_int *)(v0_0))->v)) + 0x6)) = v0_2;
     (((struct o88_float *)(((((struct oC4_int *)(v0_0))->v))))->v) = w0_1;
     v0_3 = (0x88);
@@ -423,7 +407,7 @@ int FUN_0c0c25c4(int a4)
     L_C0C2642:;
     goto L_C0C2836;
     L_C0C26F8:;
-    v0_2 = *(signed char *)((v0_0 + 0x41D));
+    v0_2 = *(signed char *)(v0_0 + 0x41D);
     v0_1 = (v0_2);
     if ((v0_2 == 4)) goto L_C0C270E;
     v0_3 = (v0_1);
@@ -436,7 +420,7 @@ int FUN_0c0c25c4(int a4)
     v0_3 = (0x40);
     goto L_C0C2836;
     L_C0C26CC:;
-    v0_2 = *(signed char *)((v0_0 + 0x41D));
+    v0_2 = *(signed char *)(v0_0 + 0x41D);
     v0_1 = (v0_2);
     if ((v0_2 == 4)) goto L_C0C26EA;
     if ((v0_1 == 5)) goto L_C0C26EA;
@@ -470,7 +454,7 @@ int FUN_0c0c25c4(int a4)
     w0_0 = (0.550000012f);
     goto L_C0C26BA;
     L_C0C2654:;
-    v0_2 = *(signed char *)((v0_0 + 0x41D));
+    v0_2 = *(signed char *)(v0_0 + 0x41D);
     v0_1 = (v0_2);
     if ((v0_2 == 4)) goto L_C0C266A;
     v0_3 = (v0_1);
@@ -559,7 +543,8 @@ int FUN_0c0c2928(int a4, int a5, int a6, int a7, int a8, int a9, int a10)
 
 int FUN_0c0c2944(int a4, int a5, int a6, int a7, int a8, float f4)
 {
-    register int t0;
+    int t0;
+    int qe0;
 
     if ((*(signed char *)((((a4 * 0x34) + 0xC2738B8) + 0x1))) == -1) {
         return 0x0;
@@ -577,20 +562,21 @@ int FUN_0c0c2944(int a4, int a5, int a6, int a7, int a8, float f4)
         return (FUN_0c0c2928(0xC6, 0x1E, 0x7, 0x0, a7, 0xFFFFFFFF, 0x0));
     }
     if ((a4 != 8) && ((a4 != 9) && (a4 != 10))) {
-        t0 = *(signed char *)((((a4 * 0x34) + 0xC2738B8) + 0x0));
+        qe0 = ((((a4 * 0x34) + 0xC2738B8) + 0x0));
+        t0 = *(signed char *)qe0;
         if (t0 == 2) {
             return FUN_0c0ca33c(a4, 0x0, a6, ((a4 * 0x34) + 0xC2738B8), f4);
         }
         if (t0 == 3) {
             t0 = (FUN_0c0ca682(a4, a5, a6, a7, a8));
         } else {
-            if ((*(signed char *)((((a4 * 0x34) + 0xC2738B8) + 0x0))) == 4) {
+            if ((*(signed char *)qe0) == 4) {
                 t0 = (FUN_0c0cbdbc(a4, a5, a6, a7, a8));
             } else {
-                t0 = *(signed char *)((((a4 * 0x34) + 0xC2738B8) + 0x0));
+                t0 = *(signed char *)qe0;
                 if ((t0 != 0) && (t0 != 1)) {
                     t0 = 0x0;
-                    if ((*(signed char *)((((a4 * 0x34) + 0xC2738B8) + 0x0))) == 9) {
+                    if ((*(signed char *)qe0) == 9) {
                         t0 = (FUN_0c0cf2f4(a4, a5, 0x2, a7, 0xFFFFFFFF, 0x0));
                     }
                 } else {
@@ -625,46 +611,46 @@ int FUN_0c0c2aa2(int a4, int a5)
 
 int FUN_0c0c2ab6(int a4, int a5)
 {
-    register int t0;
+    int t0;
     int t1;
 
-    if ((*(signed char *)((a4 + 0x0))) != 9) {
+    if ((*(signed char *)(a4)) != 9) {
         FUN_0c064d5a(a4, (((((signed char)a5 << 1) + (signed char)a5) << 2) + 0xC27894C));
-        (((struct o12A_ushort *)(a4))->v) = (((((struct o12A_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)((a4 + 0x1))))));
+        (((struct o12A_ushort *)(a4))->v) = (((((struct o12A_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)(a4 + 0x1)))));
     } else {
-        t0 = *(signed char *)((a4 + 0x41C));
+        t0 = *(signed char *)(a4 + 0x41C);
         if ((unsigned char)t0 != 0xC3) {
             t1 = a5;
             if ((unsigned char)t0 != 0xC8) {
             } else {
                 if ((signed char)a5 == 0) {
-                    t0 = (*(signed char *)((((((*(signed char *)((a4 + 0x424))) << 2) << 1) + 0xC278904) + 0x2)));
+                    t0 = (*(signed char *)((((((*(signed char *)(a4 + 0x424)) << 2) << 1) + 0xC278904) + 0x2)));
                 } else {
-                    t0 = (*(signed char *)((((((*(signed char *)((a4 + 0x424))) << 2) << 1) + 0xC278904) + 0x3)));
+                    t0 = (*(signed char *)((((((*(signed char *)(a4 + 0x424)) << 2) << 1) + 0xC278904) + 0x3)));
                 }
                 t1 = t0;
             }
             t0 = t1;
         } else {
             if ((signed char)a5 == 0) {
-                t1 = *(signed char *)((a4 + 0x424));
+                t1 = *(signed char *)(a4 + 0x424);
                 t0 = (*(signed char *)((((((t1 << 2) + t1) << 1) + 0xC27883C) + 0x2)));
             } else {
-                t1 = *(signed char *)((a4 + 0x41F));
+                t1 = *(signed char *)(a4 + 0x41F);
                 if ((t1 != 2) && (t1 != 3)) {
-                    t1 = *(signed char *)((a4 + 0x424));
+                    t1 = *(signed char *)(a4 + 0x424);
                     t0 = (*(signed char *)((((((t1 << 2) + t1) << 1) + 0xC27883C) + 0x3)));
                 } else {
-                    t1 = *(signed char *)((a4 + 0x424));
+                    t1 = *(signed char *)(a4 + 0x424);
                     t0 = (*(signed char *)((((((t1 << 2) + t1) << 1) + 0xC27883C) + 0x4)));
                 }
             }
         }
         FUN_0c064d5a(a4, (((((signed char)t0 << 1) + (signed char)t0) << 2) + 0xC27894C));
-        (((struct o12A_ushort *)(a4))->v) = (((((struct o12A_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)((a4 + 0x1))))));
-        t0 = *(signed char *)((a4 + 0x41D));
+        (((struct o12A_ushort *)(a4))->v) = (((((struct o12A_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)(a4 + 0x1)))));
+        t0 = *(signed char *)(a4 + 0x41D);
         if ((t0 == 4) || ((t0 == 5) || ((t0 == 7) || (t0 == 8)))) {
-            (((struct o12E_ushort *)(a4))->v) = (((((struct o12E_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)((a4 + 0x1))))));
+            (((struct o12E_ushort *)(a4))->v) = (((((struct o12E_short *)(a4))->v)) & (~((int)0x1 << (int)(*(signed char *)(a4 + 0x1)))));
         }
     }
     (((struct o132_uchar *)(a4))->v) = 0x0;
@@ -857,51 +843,4 @@ int FUN_0c0c30a8(int a4, int a5, int a6)
     goto L_C0C323C;
 }
 
-int FUN_0c0c3258(int a4, int a5)
-{
-    int stk[1];
-    register int t3;
-    register int t4;
-    register int t12;
-    register int t20;
-    int t2;
-    int t11;
-    int t19;
-
-    if (((*(signed char *)(((((unsigned short)(unsigned char)(*(signed char *)((a5 + 0x41C))) * (unsigned short)0x34) + 0xC2738B8) + 0x0))) == 0) && (t2 = *(signed char *)((a5 + 0x41D)), t2 == 8)) {
-        t3 = *(signed char *)((a5 + 0x41C));
-        *(unsigned int *)(((int)stk + 0)) = (unsigned char)t3;
-        if ((unsigned char)t3 == 0xC3) {
-            t4 = *(signed char *)((a5 + 0x424));
-            if (((*(short *)((((*(signed char *)(((((t4 << 2) + t4) << 1) + 0xC278844))) << 1) + 0xC278D18))) & ((int)0x1 << (int)(*(signed char *)((a4 + 0x2))))) == 0) {
-                if (((*(int *)(((int)stk + 0))) == 0xC3) && (t11 = *(signed char *)((a4 + 0x371C)), t11 != 0)) {
-                    return 0x1;
-                }
-                t12 = *(signed char *)((a5 + 0x41C));
-                *(unsigned char *)(((int)stk + 0)) = t12;
-                if ((unsigned char)t12 != 0xC3) {
-                    if (((*(short *)((((*(signed char *)(((0xC2738B8 + ((unsigned short)(unsigned char)(*(signed char *)(((int)stk + 0))) * (unsigned short)0x34)) + 0x14))) << 1) + 0xC278D18))) & ((int)0x1 << (int)(*(signed char *)((a4 + 0x2))))) != 0) {
-                        return 0x1;
-                    }
-                    return 0x0;
-                }
-                return 0x0;
-            }
-            return 0x1;
-        }
-        if (((*(int *)(((int)stk + 0))) == 0xC3) && (t19 = *(signed char *)((a4 + 0x371C)), t19 != 0)) {
-            return 0x1;
-        }
-        t20 = *(signed char *)((a5 + 0x41C));
-        *(unsigned char *)(((int)stk + 0)) = t20;
-        if ((unsigned char)t20 != 0xC3) {
-            if (((*(short *)((((*(signed char *)(((0xC2738B8 + ((unsigned short)(unsigned char)(*(signed char *)(((int)stk + 0))) * (unsigned short)0x34)) + 0x14))) << 1) + 0xC278D18))) & ((int)0x1 << (int)(*(signed char *)((a4 + 0x2))))) != 0) {
-                return 0x1;
-            }
-            return 0x0;
-        }
-        return 0x0;
-    }
-    return 0x0;
-}
 

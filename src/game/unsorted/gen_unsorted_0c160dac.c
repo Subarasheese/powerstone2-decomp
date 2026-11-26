@@ -26,7 +26,7 @@ int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f346(int);
 int FUN_0c03f444(int, int, int);
 int FUN_0c152d18(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int, int, int);
 int FUN_0c160f66(int a4, int a5);
 

@@ -31,7 +31,7 @@ float math_cos_angle16(int);
 float math_sin_angle16(int);
 extern int FUN_0c187798();
 int FUN_0c0c5e8c(int a4, int a5, int a6, int a7, float f4);
-float FUN_0c0c5f44(int a4);
+void FUN_0c0c5f44(int a4);
 
 int FUN_0c0c5e8c(int a4, int a5, int a6, int a7, float f4)
 {

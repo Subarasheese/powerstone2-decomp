@@ -4,7 +4,7 @@
 
 struct o0_uchar { unsigned char v; };
 struct o1_uchar { char p[0x1]; unsigned char v; };
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0bb244(void);
 int FUN_0c0bb2a4(void);
 float FUN_0c0bb2e0(int a4, int a5, float f4);
@@ -17,7 +17,7 @@ int FUN_0c0bb244(void)
     register int t3;
     register int t11;
 
-    t1 = (int)((int)(FUN_0c179ac0()) % (int)0x64);
+    t1 = (int)((int)(nlRand()) % (int)0x64);
     t2 = *(signed char *)0xC5429AD;
     t3 = *(signed char *)0xC542236;
     t11 = 0x1;
@@ -35,7 +35,7 @@ int FUN_0c0bb2a4(void)
 {
     register int t1;
 
-    t1 = (int)((int)(FUN_0c179ac0()) % (int)0x65);
+    t1 = (int)((int)(nlRand()) % (int)0x65);
     return ((((int)(unsigned char)(*(signed char *)((0x15 + ((((short)(*(signed char *)0xC5429AD) * (short)0x6E) + 0xC1C6E70) + ((short)(*(signed char *)0xC542236) * (short)0x16))))) > (int)t1)) ? 1 : 0);
 }
 

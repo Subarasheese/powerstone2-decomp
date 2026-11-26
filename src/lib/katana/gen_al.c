@@ -84,7 +84,7 @@ int FUN_0c180d72(int);
 int FUN_0c184442(void);
 int FUN_0c1857ec(int);
 int FUN_0c185878(int);
-int FUN_0c187990(void);
+int _slow_strcpy(void);
 int FUN_0c18c9fc(void);
 int FUN_0c18d1fa(int, int, int);
 int FUN_0c18d3d0(int, int, int, int);

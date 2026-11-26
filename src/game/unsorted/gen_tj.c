@@ -1,0 +1,167 @@
+/* Straight-line functions with calls and guards (batch gen_tj): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o4_float { char p[0x4]; float v; };
+struct o8_float { char p[0x8]; float v; };
+int FUN_0c02fa8a(int, int, int, int);
+int FUN_0c17b1a0(int);
+int nlCalcPoint(int, int);
+int nlCalcVector(int, int);
+int nlInvertMatrix(int);
+int FUN_0c02fb24(int a4, int a5);
+struct o10_int { char p[0x10]; int v; };
+struct o4_int { char p[0x4]; int v; };
+struct o8_int { char p[0x8]; int v; };
+struct oC_int { char p[0xC]; int v; };
+
+
+int FUN_0c02fb24(int a4, int a5)
+{
+    int v0_3;
+    int v0_7;
+    int stk[18];
+
+    float w0_2;
+    int v0_6;
+    float w0_1;
+    int v0_5;
+    int v0_8;
+    int v0_1;
+    int v0_0;
+    float w0_0;
+    float w0_3;
+    int T_;
+    float F2;
+    float F0;
+    int R7;
+    int R6;
+    int R3;
+    int R2;
+    int R1;
+    int v0_11;
+    int qe0;
+    int qe1;
+    int v0_9;
+    int v0_12;
+    int v0_10;
+    int v0_4;
+    int v0_2;
+    v0_9 = *(int *)((int)stk + 0);
+    v0_7 = *(int *)((int)stk + 4);
+    v0_10 = *(int *)((int)stk + 8);
+    v0_8 = *(int *)((int)stk + 12);
+    v0_11 = *(int *)((int)stk + 16);
+    v0_1 = a4;
+    v0_0 = a5;
+    v0_7 = v0_1;
+    v0_8 = (*(signed char *)(v0_1 + 0x371A));
+    v0_6 = (0xA8);
+    v0_0 = (v0_0);
+    v0_1 = (0xC3BB3E0);
+    v0_2 = (0xC3BB9E0);
+    if (((*(signed char *)(((v0_7) + 0xA8))) != 0)) goto L_C02FB54;
+    L_C02FD24:;
+    return v0_6;
+    L_C02FB54:;
+    v0_3 = (((struct oC_int *)(v0_0))->v);
+    v0_9 = v0_2;
+    v0_11 = (*(int *)(v0_3));
+    v0_10 = 0x0;
+    v0_3 = (v0_3 + 0x4);
+    v0_4 = (v0_1);
+    L_C02FBA8:;
+    if (((int)(v0_10) < (int)(v0_11))) goto L_C02FB64;
+    FUN_0c17b1a0(v0_0 + 0x28);
+    v0_3 = (((struct o10_int *)(v0_0))->v);
+    v0_7 = *(int *)(v0_3);
+    v0_6 = ((nlInvertMatrix(0x0)));
+    v0_5 = (0x0);
+    v0_3 = (v0_3 + 0x4);
+    v0_4 = (v0_7);
+    if (((int)v0_7 > 0)) goto L_C02FBCC;
+    goto L_C02FD24;
+    L_C02FBCC:;
+    w0_2 = (((struct o4_float *)(v0_3))->v);
+    v0_6 = (*(int *)(v0_3));
+    w0_1 = ((((struct o4_float *)(v0_3 + 0x4))->v));
+    v0_3 = (v0_3 + 0xC);
+    v0_6 = v0_6;
+    w0_3 = (0.0f);
+    w0_0 = (w0_2);
+    w0_1 = w0_1;
+    if ((w0_2 != 0.0f)) goto L_C02FC0A;
+    v0_7 = (((struct o4_int *)(v0_3))->v);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 0) + 0x3C)) = *(struct mv3 *)(((((v0_7 << 1) + v0_7) << 2) + v0_1)); }
+    v0_7 = (((struct o4_int *)(v0_3))->v);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 0) + 0x30)) = *(struct mv3 *)(((((v0_7 << 1) + v0_7) << 2) + v0_2)); }
+    v0_3 = (v0_3 + 0x4);
+    L_C02FC3A:;
+    v0_3 = (v0_3 + 0x4);
+    L_C02FCD6:;
+    nlCalcPoint((((int)stk + 0) + 0x3C), (((int)stk + 0) + 0x24));
+    nlCalcVector((((int)stk + 0) + 0x30), (((int)stk + 0) + 0x18));
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((((struct o8_int *)(v0_0))->v)) + (v0_6 << 2))) = *(struct mv3 *)((((int)stk + 0) + 0x24)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(((((((struct o8_int *)(v0_0))->v)) + (v0_6 << 2)) + 0xC)) = *(struct mv3 *)((((int)stk + 0) + 0x18)); }
+    v0_8 = (((struct o8_int *)(v0_0))->v);
+    v0_7 = (int)(v0_5 + 0x1) >= (int)v0_4;
+    *(unsigned int *)(((v0_6 << 2) + v0_8)) = ((*(int *)(((v0_6 << 2) + v0_8))) | 0x1);
+    v0_6 = (v0_8);
+    v0_5 = (v0_5 + 0x1);
+    if (v0_7) goto L_C02FD24;
+    goto L_C02FBCC;
+    L_C02FC0A:;
+    if ((w0_1 != w0_3)) goto L_C02FC60;
+    v0_7 = *(int *)(v0_3);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 0) + 0x3C)) = *(struct mv3 *)(((((v0_7 << 1) + v0_7) << 2) + v0_1)); }
+    v0_7 = *(int *)(v0_3);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 0) + 0x30)) = *(struct mv3 *)(((((v0_7 << 1) + v0_7) << 2) + v0_2)); }
+    v0_3 = (v0_3 + 0x4);
+    goto L_C02FC3A;
+    L_C02FC60:;
+    v0_7 = *(int *)(v0_3);
+    v0_8 = (((struct o4_int *)(v0_3))->v);
+    qe0 = ((((v0_8 << 1) + v0_8) << 2) + v0_1);
+    w0_2 = ((*(float *)((qe0 + 0x0))) * w0_1);
+    w0_2 = w0_2 + w0_0 * (*(float *)((((((v0_7 << 1) + v0_7) << 2) + v0_1) + 0x0)));
+    *(float *)(((int)stk + 60)) = w0_2;
+    w0_2 = (((((struct o4_float *)(qe0))->v)) * w0_1);
+    w0_2 = w0_2 + w0_0 * ((((struct o4_float *)(((((v0_7 << 1) + v0_7) << 2) + v0_1)))->v));
+    *(float *)(((int)stk + 64)) = w0_2;
+    w0_2 = (((((struct o8_float *)(qe0))->v)) * w0_1);
+    w0_2 = w0_2 + w0_0 * ((((struct o8_float *)(((((v0_7 << 1) + v0_7) << 2) + v0_1)))->v));
+    *(float *)(((int)stk + 68)) = w0_2;
+    qe1 = ((((v0_8 << 1) + v0_8) << 2) + v0_2);
+    w0_2 = ((*(float *)((qe1 + 0x0))) * w0_1);
+    w0_2 = w0_2 + w0_0 * (*(float *)((((((v0_7 << 1) + v0_7) << 2) + v0_2) + 0x0)));
+    *(float *)(((int)stk + 48)) = w0_2;
+    w0_2 = (((((struct o4_float *)(qe1))->v)) * w0_1);
+    w0_2 = w0_2 + w0_0 * ((((struct o4_float *)(((((v0_7 << 1) + v0_7) << 2) + v0_2)))->v));
+    *(float *)(((int)stk + 52)) = w0_2;
+    w0_1 = (((((struct o8_float *)(qe1))->v)) * w0_1);
+    w0_1 = w0_1 + w0_0 * ((((struct o8_float *)(((((v0_7 << 1) + v0_7) << 2) + v0_2)))->v));
+    *(float *)(((int)stk + 56)) = w0_1;
+    v0_3 = (v0_3 + 0x8);
+    goto L_C02FCD6;
+    L_C02FB64:;
+    v0_12 = *(int *)(v0_3);
+    v0_5 = (((struct o4_int *)(v0_3))->v);
+    v0_6 = (((struct o8_int *)(v0_3))->v);
+    v0_5 = FUN_0c02fa8a((v0_7), (v0_8), v0_5, v0_6);
+    FUN_0c17b1a0(v0_5);
+    v0_5 = (0x0);
+    v0_3 = (v0_3 + 0xC);
+    v0_6 = (v0_12);
+    if (((int)v0_12 <= 0)) goto L_C02FBA2;
+    L_C02FB80:;
+    nlCalcPoint(v0_3, v0_4);
+    nlCalcVector((v0_3 + 0xC), (v0_9));
+    v0_12 = (int)(v0_5 + 0x1) < (int)v0_6;
+    v0_9 = ((v0_9) + 0xC);
+    v0_5 = (v0_5 + 0x1);
+    v0_3 = (v0_3 + 0x18);
+    v0_4 = (v0_4 + 0xC);
+    if (v0_12) goto L_C02FB80;
+    L_C02FBA2:;
+    v0_10 = ((v0_10) + 0x1);
+    goto L_C02FBA8;
+}

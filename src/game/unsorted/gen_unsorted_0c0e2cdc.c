@@ -12,7 +12,7 @@ int FUN_0c052c00(int, int, int);
 int FUN_0c0cfecc(int, int, int);
 int FUN_0c0cff96(int, int);
 int FUN_0c0d04b4(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c0e2cdc(void);
 int FUN_0c0e2dae(int a4);

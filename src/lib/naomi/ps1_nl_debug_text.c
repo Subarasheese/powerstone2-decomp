@@ -36,7 +36,7 @@ int FUN_0c0dff60(void);
 int FUN_0c0dffb0(void);
 
 
-int FUN_0c0e0580(void)
+int nlPrnIndentOn(void)
 {
     register int t0;
 

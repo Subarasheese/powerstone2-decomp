@@ -61,7 +61,7 @@ struct oFDC_int { char p[0xFDC]; int v; };
 struct oFDC_uint { char p[0xFDC]; unsigned int v; };
 int copy_device(void);
 int FUN_0c185600(void);
-int FUN_0c187990(int);
+int _slow_strcpy(int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18da58(void);
 int FUN_0c18dae8(int, int, int);

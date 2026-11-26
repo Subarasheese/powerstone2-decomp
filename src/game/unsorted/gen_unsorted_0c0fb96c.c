@@ -46,7 +46,7 @@ int FUN_0c0fe4ec(int);
 int FUN_0c0fe530(void);
 int FUN_0c1171f0(int);
 int FUN_0c16f7ba(void);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c18778c(void);
 int FUN_0c0fb96c(int a4);
 int FUN_0c0fb9a6(void);

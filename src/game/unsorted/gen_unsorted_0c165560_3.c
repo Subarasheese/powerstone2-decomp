@@ -18,7 +18,7 @@ int FUN_0c03744a(int, int, int, int);
 extern int FUN_0c03f346();
 int thunk_FUN_0c058310(int, int);
 int FUN_0c059df2(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c165b50(int a4);
 
 int FUN_0c165b50(int a4)
@@ -87,9 +87,9 @@ int FUN_0c165b50(int a4)
         }
         (((struct o6C_float *)(t0))->v) = u0;
         (((struct o70_float *)(t0))->v) = (((((struct o70_float *)(t0))->v)) - 1.0f);
-        t0 = (int)((int)(FUN_0c179ac0()) % (int)0x14);
+        t0 = (int)((int)(nlRand()) % (int)0x14);
         if (t0 == 0) {
-            t0 = FUN_0c179ac0();
+            t0 = nlRand();
             t1 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
             if ((int)t0 >= 0) {
                 t1 = (t0 & 0x3);

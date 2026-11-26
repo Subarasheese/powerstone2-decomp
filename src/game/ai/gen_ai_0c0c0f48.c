@@ -13,7 +13,7 @@ int FUN_0c0bb70c(int);
 int FUN_0c0bb73e(int);
 int ai_calc_gap_to_target(int);
 int ai_clear_op_state(void);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0c0f48(int a4, float f4);
 int FUN_0c0c10c4(int a4, float f4);
 int FUN_0c0c1250(int a4, float f4);
@@ -99,7 +99,7 @@ int FUN_0c0c0f48(int a4, float f4)
     L_C0C0F98:;
     *(unsigned short *)((v0_4 + 0x0)) = 0x0;
     v0_7 = *(signed char *)((v0_1 + 0x0));
-    v0_6 = FUN_0c179ac0();
+    v0_6 = nlRand();
     v0_3 = (v0_6);
     v0_5 = (((((unsigned short)(unsigned char)v0_7 * (unsigned short)v0_5) + v0_0) + 0x26));
     if (((int)v0_6 < 0)) goto L_C0C0FB6;
@@ -116,21 +116,22 @@ int FUN_0c0c0f48(int a4, float f4)
 
 int FUN_0c0c10c4(int a4, float f4)
 {
+    int v0_1;
     int stk[2];
 
-    register int R1;
-    register int R2;
-    register int R10;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
-    register int v0_6;
-    register int v0_7;
-    register int v0_8;
+    int v0_3;
+    int v0_7;
+    int v0_5;
+    int v0_0;
+    int v0_6;
+    int v0_2;
+    int T_;
+    int R2;
+    int R1;
+    int qe0;
+    int R10;
+    int v0_8;
+    int v0_4;
     v0_1 = a4;
     v0_0 = *(int *)0xC47245C;
     *(unsigned int *)0xC47245C = (v0_0 + 0x2);
@@ -148,19 +149,19 @@ int FUN_0c0c10c4(int a4, float f4)
     if (((unsigned char)v0_8 == 0)) goto L_C0C1116;
     if ((v0_3 == 1)) goto L_C0C1128;
     if ((v0_3 != 2)) goto L_C0C1112;
-    *(unsigned short *)((v0_1 + 0x0)) = 0x1;
+    *(unsigned short *)(v0_1) = 0x1;
     v0_1 = ai_clear_op_state();
-    *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_0) + 0x8)) = (*(int *)((v0_5 + 0x0)));
+    *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)(v0_2)) * (unsigned short)0x264) + v0_0) + 0x8)) = (*(int *)(v0_5));
     v0_3 = (v0_1);
     L_C0C123E:;
     return v0_3;
     L_C0C1112:;
     goto L_C0C123E;
     L_C0C1128:;
-    *(unsigned short *)((v0_1 + 0x0)) = v0_6;
+    *(unsigned short *)(v0_1) = v0_6;
     v0_7 = FUN_0c0bb73e(v0_4);
-    (((struct o26_ushort *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_0)))->v) = ((int)((int)(short)((int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0x50)) / (int)0x14));
-    v0_6 = (((struct o26_short *)((((unsigned short)(unsigned char)(*(signed char *)((v0_2 + 0x0))) * (unsigned short)0x264) + v0_0)))->v);
+    (((struct o26_ushort *)((((unsigned short)(unsigned char)(*(signed char *)(v0_2)) * (unsigned short)0x264) + v0_0)))->v) = ((int)((int)(short)((int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0x50)) / (int)0x14));
+    v0_6 = (((struct o26_short *)((((unsigned short)(unsigned char)(*(signed char *)(v0_2)) * (unsigned short)0x264) + v0_0)))->v);
     v0_3 = (v0_6);
     v0_5 = (v0_7);
     v0_7 = ((0x4000 + v0_7));
@@ -189,7 +190,7 @@ int FUN_0c0c10c4(int a4, float f4)
     v0_7 = ((((((struct o42C_short *)(v0_4))->v)) | v0_1));
     goto L_C0C120C;
     L_C0C1210:;
-    v0_1 = *(signed char *)((v0_2 + 0x0));
+    v0_1 = *(signed char *)(v0_2);
     *(unsigned char *)(((((unsigned short)(unsigned char)v0_1 * (unsigned short)0x264) + v0_0) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)v0_1 * (unsigned short)0x264) + v0_0) + 0x0))) + 0x1);
     goto L_C0C123E;
     L_C0C11E2:;
@@ -211,9 +212,10 @@ int FUN_0c0c10c4(int a4, float f4)
     v0_3 = ((FUN_0c0bb70c(v0_5)));
     goto L_C0C11CE;
     L_C0C1116:;
-    *(unsigned short *)((v0_1 + 0x0)) = v0_6;
-    v0_3 = *(signed char *)((v0_2 + 0x0));
-    *(unsigned char *)(((((unsigned short)(unsigned char)v0_3 * (unsigned short)v0_7) + v0_0) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)v0_3 * (unsigned short)v0_7) + v0_0) + 0x0))) + 0x1);
+    *(unsigned short *)(v0_1) = v0_6;
+    v0_3 = *(signed char *)(v0_2);
+    qe0 = (((((unsigned short)(unsigned char)v0_3 * (unsigned short)v0_7) + v0_0) + 0x0));
+    *(unsigned char *)qe0 = ((*(signed char *)qe0) + 0x1);
     goto L_C0C1128;
 }
 
@@ -338,7 +340,7 @@ int FUN_0c0c1250(int a4, float f4)
     *(unsigned short *)((v0_8 + 0x0)) = v0_10;
     v0_2 = *(signed char *)((v0_1 + 0x0));
     *(int *)((int)stk + 0) = (0x26 + (((unsigned short)(unsigned char)v0_2 * (unsigned short)v0_7) + v0_0));
-    v0_4 = FUN_0c179ac0();
+    v0_4 = nlRand();
     *(unsigned int *)(((int)stk + 0)) = (0x26 + (((unsigned short)(unsigned char)v0_2 * (unsigned short)v0_7) + v0_0));
     v0_2 = (v0_4);
     if (((int)v0_4 < 0)) goto L_C0C1308;
@@ -359,178 +361,3 @@ int FUN_0c0c1250(int a4, float f4)
     goto L_C0C1312;
 }
 
-int FUN_0c0c14a6(int a4, float f4)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register int t6;
-    register int t7;
-    register int t8;
-
-    t0 = (((struct o0_int *)0xC47245C)->v);
-    (((struct o0_uint *)0xC47245C)->v) = (t0 + 0x2);
-    t1 = *(short *)((((t0 + 0x2) - 2) + 0x0));
-    t0 = ai_calc_gap_to_target(a4);
-    t2 = *(signed char *)((0xC471ACC + ((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264)));
-    if ((unsigned char)t2 != 0) {
-        if ((unsigned char)t2 != 1) {
-            if ((unsigned char)t2 != 2) {
-                if ((unsigned char)t2 == 3) {
-                    (((struct o4_ushort *)0xC47245C)->v) = 0x0;
-                    t3 = *(signed char *)0xC472462;
-                    *(unsigned char *)(((((unsigned short)(unsigned char)t3 * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)t3 * (unsigned short)0x264) + 0xC471ACC) + 0x0))) + 0x1);
-                    t3 = (unsigned char)t2;
-                } else {
-                    if ((unsigned char)t2 == 4) {
-                        (((struct o4_ushort *)0xC47245C)->v) = 0x0;
-                        t4 = FUN_0c0bb73e(a4);
-                        (((struct o26_ushort *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v) = ((int)((int)(short)((int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0x50)) / (int)0x14));
-                        t5 = (((struct o26_short *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v);
-                        if (t5 != 0) {
-                            if (t5 != 1) {
-                                if (t5 != 2) {
-                                    if (t5 != 3) {
-                                    } else {
-                                        t5 = FUN_0c0bb70c((0xFFFFE000 + t4));
-                                        t6 = (FUN_0c0bb70c((0x6000 + t4)));
-                                        t7 = t5;
-                                    }
-                                    t5 = t6;
-                                    t6 = t7;
-                                } else {
-                                    t7 = FUN_0c0bb70c(t4);
-                                    t5 = (FUN_0c0bb70c((0x8000 + t4)));
-                                    t6 = t7;
-                                }
-                                t7 = t5;
-                                t5 = t6;
-                            } else {
-                                t6 = FUN_0c0bb70c((0x2000 + t4));
-                                t7 = (FUN_0c0bb70c((0xA000 + t4)));
-                                t5 = t6;
-                            }
-                            t6 = t7;
-                            t7 = t5;
-                        } else {
-                            t5 = FUN_0c0bb70c(t4);
-                            t6 = (FUN_0c0bb70c((0x8000 + t4)));
-                            t7 = t5;
-                        }
-                        if ((int)(short)t1 < (int)((short)t0 - 10)) {
-                            (((struct o42C_ushort *)(a4))->v) = (((((struct o42C_short *)(a4))->v)) | t7);
-                        } else {
-                            if ((int)(short)t1 > (int)((short)t0 + 0xA)) {
-                                (((struct o42C_ushort *)(a4))->v) = (((((struct o42C_short *)(a4))->v)) | t6);
-                            } else {
-                                (((struct o42C_ushort *)(a4))->v) = (((((struct o42C_short *)(a4))->v)) | (FUN_0c0bb70c(t4)));
-                                t4 = *(signed char *)0xC472462;
-                                *(unsigned char *)(((((unsigned short)(unsigned char)t4 * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)t4 * (unsigned short)0x264) + 0xC471ACC) + 0x0))) + 0x1);
-                            }
-                        }
-                        t4 = 0x42C;
-                    } else {
-                        t5 = (unsigned char)t2;
-                        if ((unsigned char)t2 == 5) {
-                            (((struct o4_ushort *)0xC47245C)->v) = 0x1;
-                            t2 = ai_clear_op_state();
-                            *(unsigned int *)(((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC) + 0x8)) = ((((struct o0_int *)0xC47245C)->v));
-                            t5 = t2;
-                        }
-                        t4 = t5;
-                    }
-                    t3 = t4;
-                }
-                t2 = t3;
-            } else {
-                (((struct o4_ushort *)0xC47245C)->v) = 0x0;
-                t3 = FUN_0c0bb73e(a4);
-                (((struct o26_ushort *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v) = ((int)((int)(short)((int)((unsigned int)(*(int *)0xC542260) % (unsigned int)0x50)) / (int)0x14));
-                t4 = (((struct o26_short *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v);
-                if (t4 != 0) {
-                    if (t4 != 1) {
-                        if (t4 != 2) {
-                            t5 = t4;
-                            if (t4 != 3) {
-                            } else {
-                                t4 = FUN_0c0bb70c((0xFFFFE000 + t3));
-                                t6 = FUN_0c0bb70c((0x6000 + t3));
-                                t5 = t6;
-                                t7 = t6;
-                                t6 = t4;
-                            }
-                            t4 = t5;
-                            t5 = t7;
-                            t7 = t6;
-                        } else {
-                            t6 = FUN_0c0bb70c(t3);
-                            t8 = FUN_0c0bb70c((0x8000 + t3));
-                            t4 = t8;
-                            t5 = t8;
-                            t7 = t6;
-                        }
-                        t6 = t4;
-                        t4 = t5;
-                        t5 = t7;
-                    } else {
-                        t7 = FUN_0c0bb70c((0x2000 + t3));
-                        t8 = FUN_0c0bb70c((0xA000 + t3));
-                        t6 = t8;
-                        t4 = t8;
-                        t5 = t7;
-                    }
-                    t7 = t6;
-                    t6 = t4;
-                    t4 = t5;
-                } else {
-                    t5 = FUN_0c0bb70c(t3);
-                    t8 = FUN_0c0bb70c((0x8000 + t3));
-                    t7 = t8;
-                    t6 = t8;
-                    t4 = t5;
-                }
-                t3 = t7;
-                if ((int)(short)t1 < (int)((short)t0 - 10)) {
-                    (((struct o42C_ushort *)(a4))->v) = (((((struct o42C_short *)(a4))->v)) | t4);
-                    t3 = 0x42C;
-                }
-                t4 = t3;
-                if ((int)(short)t1 > (int)((short)t0 + 0xA)) {
-                    (((struct o42C_ushort *)(a4))->v) = (((((struct o42C_short *)(a4))->v)) | t6);
-                    t4 = 0x42C;
-                }
-                t0 = *(signed char *)0xC472462;
-                *(unsigned char *)(((((unsigned short)(unsigned char)t0 * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)t0 * (unsigned short)0x264) + 0xC471ACC) + 0x0))) + 0x1);
-                t2 = t4;
-            }
-            t0 = t2;
-        } else {
-            (((struct o4_ushort *)0xC47245C)->v) = 0x0;
-            t1 = *(signed char *)0xC472462;
-            t2 = *(short *)(((((unsigned short)(unsigned char)t1 * (unsigned short)0x264) + 0xC471ACC) + 0x18));
-            *(unsigned short *)(((((unsigned short)(unsigned char)t1 * (unsigned short)0x264) + 0xC471ACC) + 0x18)) = (t2 - 1);
-            if ((unsigned short)(t2 - 1) != 0) {
-            } else {
-                t1 = *(signed char *)0xC472462;
-                *(unsigned char *)(((((unsigned short)(unsigned char)t1 * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)t1 * (unsigned short)0x264) + 0xC471ACC) + 0x0))) + 0x1);
-            }
-            t0 = (unsigned short)(t2 - 1);
-        }
-        t1 = t0;
-    } else {
-        (((struct o4_ushort *)0xC47245C)->v) = 0x0;
-        *(unsigned short *)(((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC) + 0x18)) = 0x1;
-        t0 = *(signed char *)((a4 + 0x3715));
-        if (t0 != 21) {
-            t2 = *(signed char *)0xC472462;
-            *(unsigned char *)(((((unsigned short)(unsigned char)t2 * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = ((*(signed char *)(((((unsigned short)(unsigned char)t2 * (unsigned short)0x264) + 0xC471ACC) + 0x0))) + 0x1);
-        } else {
-            *(unsigned char *)(((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC) + 0x0)) = 0x4;
-        }
-        t1 = t0;
-    }
-    return t1;
-}

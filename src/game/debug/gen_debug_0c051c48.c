@@ -5,142 +5,53 @@
 struct o0_int { int v; };
 struct o4_int { char p[0x4]; int v; };
 int dbg_set_cell_size(int, int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int dbg_printf(int, ...);
 int FUN_0c051c48(void);
 
+/* manual: debug screen of the camera values: 15 labels, then the values beside them through dbg_printf (the values go on
+   the stack as the format's arguments); 51 cases, 474 of 474 instructions */
 int FUN_0c051c48(void)
 {
-    register int t0;
+    int i, j, r;
+    signed char *b;
+    float *f;
 
-    if ((*(signed char *)0xC478C03) == 0) {
-    } else {
-        dbg_set_cell_size(0x8, 0x8);
-        FUN_0c17a4c0(0x5, 0xF);
-        dbg_printf(0xC1B8D94);
-        FUN_0c17a4c0(0x5, 0x10);
-        dbg_printf(0xC1B8DA0);
-        FUN_0c17a4c0(0x5, 0x12);
-        dbg_printf(0xC1B8DAC);
-        FUN_0c17a4c0(0x5, 0x13);
-        dbg_printf(0xC1B8DB8);
-        FUN_0c17a4c0(0x5, 0x15);
-        dbg_printf(0xC1B8DC4);
-        FUN_0c17a4c0(0x5, 0x16);
-        dbg_printf(0xC1B8DD0);
-        FUN_0c17a4c0(0x5, 0x18);
-        dbg_printf(0xC1B8DDC);
-        FUN_0c17a4c0(0x5, 0x19);
-        dbg_printf(0xC1B8DE8);
-        FUN_0c17a4c0(0x5, 0x1B);
-        dbg_printf(0xC1B8DF4);
-        FUN_0c17a4c0(0x5, 0x1C);
-        dbg_printf(0xC1B8E00);
-        FUN_0c17a4c0(0x5, 0x1E);
-        dbg_printf(0xC1B8E0C);
-        FUN_0c17a4c0(0x5, 0x1F);
-        dbg_printf(0xC1B8E18);
-        FUN_0c17a4c0(0x5, 0x21);
-        dbg_printf(0xC1B8E24);
-        FUN_0c17a4c0(0x5, 0x22);
-        dbg_printf(0xC1B8E30);
-        FUN_0c17a4c0(0x5, 0x26);
-        dbg_printf(0xC1B8E3C);
-        FUN_0c17a4c0(0xF, 0xD);
-        *(volatile signed char *)0xC541105;
-        *(volatile signed char *)0xC541104;
-        *(volatile signed char *)0xC541103;
-        *(volatile signed char *)0xC541102;
-        *(volatile signed char *)0xC541101;
-        *(volatile signed char *)0xC541100;
-        dbg_printf(0xC1B8E48);
-        FUN_0c17a4c0(0xF, 0xE);
-        *(volatile signed char *)0xC541109;
-        *(volatile signed char *)0xC541108;
-        *(volatile signed char *)0xC541107;
-        *(volatile signed char *)0xC541106;
-        dbg_printf(0xC1B8E5C);
-        FUN_0c17a4c0(0xF, 0xF);
-        *(volatile float *)0xC5411C0;
-        *(volatile float *)0xC5411BC;
-        *(volatile float *)0xC5411B8;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x10);
-        *(volatile float *)0xC5411CC;
-        *(volatile float *)0xC5411C8;
-        *(volatile float *)0xC5411C4;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x11);
-        *(volatile float *)0xC5411D8;
-        *(volatile float *)0xC5411D4;
-        *(volatile float *)0xC5411D0;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x12);
-        *(volatile float *)0xC5411F0;
-        *(volatile float *)0xC5411EC;
-        *(volatile float *)0xC5411E8;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x13);
-        *(volatile float *)0xC5411FC;
-        *(volatile float *)0xC5411F8;
-        *(volatile float *)0xC5411F4;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x14);
-        *(volatile float *)0xC541208;
-        *(volatile float *)0xC541204;
-        *(volatile float *)0xC541200;
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x15);
-        *(volatile int *)0xC541298;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x16);
-        *(volatile int *)0xC5412B0;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x17);
-        *(volatile int *)0xC5412E0;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x18);
-        *(volatile int *)0xC54129C;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x19);
-        *(volatile int *)0xC5412B4;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x1A);
-        *(volatile int *)0xC5412E4;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x1B);
-        *(volatile int *)0xC5412A0;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x1C);
-        *(volatile int *)0xC5412B8;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x1D);
-        *(volatile int *)0xC5412E8;
-        dbg_printf(0xC1B8E74);
-        FUN_0c17a4c0(0xF, 0x1E);
-        *(volatile float *)0xC541288;
-        dbg_printf(0xC1B8E78);
-        FUN_0c17a4c0(0xF, 0x1F);
-        *(volatile float *)0xC54128C;
-        dbg_printf(0xC1B8E78);
-        FUN_0c17a4c0(0xF, 0x21);
-        t0 = (((struct o0_int *)0xC54133C)->v);
-        *(volatile float *)((t0 + 0x8));
-        *(volatile float *)((t0 + 0x4));
-        *(volatile float *)((t0 + 0x0));
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x22);
-        t0 = (((struct o4_int *)0xC54133C)->v);
-        *(volatile float *)((t0 + 0x8));
-        *(volatile float *)((t0 + 0x4));
-        *(volatile float *)((t0 + 0x0));
-        dbg_printf(0xC1B8E68);
-        FUN_0c17a4c0(0xF, 0x24);
-        *(volatile int *)0xC541110;
-        dbg_printf(0xC1B8E7C);
-        FUN_0c17a4c0(0xF, 0x26);
-        *(volatile int *)0xC5413E8;
-        t0 = (dbg_printf(0xC1B8E74));
+    if (*(signed char *)0xC478C03) {
+        dbg_set_cell_size(8, 8);
+        for (i = 0; i < 15; i++) {
+            nlLocate(5, i == 14 ? 38 : 15 + (i >> 1) * 3 + (i & 1));
+            dbg_printf(0xC1B8D94 + i * 12);
+        }
+        b = (signed char *)0xC541100;
+        nlLocate(15, 13);
+        dbg_printf(0xC1B8E48, b[0], b[1], b[2], b[3], b[4], b[5]);
+        nlLocate(15, 14);
+        dbg_printf(0xC1B8E5C, b[6], b[7], b[8], b[9]);
+        for (i = 0; i < 6; i++) {
+            f = (float *)(0xC5411B8 + (i + i / 3) * 12);
+            nlLocate(15, 15 + i);
+            dbg_printf(0xC1B8E68, (short)f[0], (short)f[1], (short)f[2]);
+        }
+        for (i = 0; i < 3; i++) {
+            for (j = 0; j < 3; j++) {
+                nlLocate(15, 21 + i * 3 + j);
+                dbg_printf(0xC1B8E74, *(int *)(0xC541298 + i * 4 + j * 24 + (j & 2) * 12));
+            }
+        }
+        for (i = 0; i < 2; i++) {
+            nlLocate(15, 30 + i);
+            dbg_printf(0xC1B8E78, (short)((float *)0xC541288)[i]);
+        }
+        for (i = 0; i < 2; i++) {
+            f = ((float **)0xC54133C)[i];
+            nlLocate(15, 33 + i);
+            dbg_printf(0xC1B8E68, (short)f[0], (short)f[1], (short)f[2]);
+        }
+        nlLocate(15, 36);
+        dbg_printf(0xC1B8E7C, *(int *)0xC541110);
+        nlLocate(15, 38);
+        r = dbg_printf(0xC1B8E74, *(int *)0xC5413E8);
     }
-    return t0;
+    return r;
 }

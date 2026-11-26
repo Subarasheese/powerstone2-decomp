@@ -585,25 +585,6 @@ int FUN_0c0bdc7c(int a4, int a5)
     return t10;
 }
 
-int FUN_0c2bc09c(int a4)
-{
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-
-    t1 = a4;
-    if (((unsigned short)a4 != 0) && (((unsigned short)a4 != 1) && (((unsigned short)a4 != 2) && (((unsigned short)a4 != 3) && ((unsigned short)a4 != 4))))) {
-        t1 = 0x2;
-    }
-    t2 = *(volatile signed char *)0xFFD80004;
-    t3 = *(volatile signed char *)0xFFD80004;
-    *(volatile unsigned char *)0xFFD80004 = (t3 & 0xFB);
-    t4 = *(volatile short *)0xFFD80028;
-    *(volatile unsigned short *)0xFFD80028 = ((t4 & 0xFFFFFFF8) | t1);
-    *(volatile unsigned char *)0xFFD80004 = t2;
-    return (t3 & 0xFB);
-}
 
 int FUN_0c09e944(int a4, int a5, int a6, int a7)
 {
@@ -632,19 +613,6 @@ int FUN_0c0be1c0(int a4)
     return 0xC471AEE;
 }
 
-int FUN_0c2bc0d6(int a4)
-{
-    register int t0;
-    register int t1;
-
-    t0 = *(volatile signed char *)0xFFD80004;
-    t1 = *(volatile signed char *)0xFFD80004;
-    *(volatile unsigned char *)0xFFD80004 = (t1 & 0xFB);
-    *(volatile unsigned int *)0xFFD80020 = 0xFFFFFFFF;
-    *(volatile unsigned int *)0xFFD80024 = (-a4);
-    *(volatile unsigned char *)0xFFD80004 = t0;
-    return (t1 & 0xFB);
-}
 
 int FUN_0c0bdf18(void)
 {
@@ -659,10 +627,3 @@ int FUN_0c0f2fe8(int a4)
     return 0x16;
 }
 
-int FUN_0c2bc0f0(void)
-{
-    register int t0;
-
-    t0 = *(volatile int *)0xFFD80024;
-    return (0xFFFFFFFF - t0);
-}

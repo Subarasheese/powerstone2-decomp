@@ -8,7 +8,7 @@ struct o4_int { char p[0x4]; int v; };
 struct o618_int { char p[0x618]; int v; };
 struct o61C_int { char p[0x61C]; int v; };
 struct o61C_uint { char p[0x61C]; unsigned int v; };
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0d02f0(int a4, int a5, int a6, int a7);
 int FUN_0c0d039e(int a4, int a5);
 
@@ -41,7 +41,7 @@ int FUN_0c0d02f0(int a4, int a5, int a6, int a7)
         t3 = (t3 + 0xC540978);
         t3 = (*(int *)((t3 + 0x0)));
         t2 = (t2 + 0xC540978);
-        t3 = (t3 + ((int)((int)(FUN_0c179ac0()) % (int)t1)));
+        t3 = (t3 + ((int)((int)(nlRand()) % (int)t1)));
         t4 = t3;
         t4 = (t4 << 2);
         t1 = 0x5A0;

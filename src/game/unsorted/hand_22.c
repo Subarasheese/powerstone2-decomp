@@ -18,7 +18,7 @@ void FUN_0c0678a4(int);
 void FUN_0c0bc154(void);
 int FUN_0c068230(int, int, int, int);
 int FUN_0c06bb0c(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 #define PL(i)    ((char *)0x0C532498 + (i) * 14648)
 #define B8(p, o) (*(signed char *)((p) + (o)))
@@ -34,6 +34,7 @@ int FUN_0c179ac0(void);
     } while (0)
 #define MASK4(p, m) (U16(p, 1068) &= (m), U16(p, 1070) &= (m), U16(p, 1072) &= (m), U16(p, 1074) &= (m))
 
+/* manual: fighters' per-frame input and update, input modes 1 and 2 share one body; 8 cases (4 dev, 4 holdout), 726 of 814 instructions */
 void FUN_0c067a58(void)
 {
     int i, k, n, pi, mask;
@@ -56,6 +57,13 @@ void FUN_0c067a58(void)
             U16(p, 1066) = 0;
             break;
         case 1:
+        case 2:
+            if (*(signed char *)0x0C542235 == 2 && *(float *)(p + 352) == 0.0f) {
+                CLEAR4(p);
+                *(char *)(p + 14156) = 0;
+                U16(p, 1066) = 0;
+                break;
+            }
             if (B8(p, 14112)) {
                 if (B8(p, 2) == 12 || B8(p, 2) == 13 || FUN_0c043064()) {
                     CLEAR4(p);
@@ -71,28 +79,9 @@ void FUN_0c067a58(void)
                 DASH(p, 1074);
                 FUN_0c0678a4(i);
             }
-            MASK4(p, 0x3D00);
-            *(char *)(p + 14156) = 0;
-            break;
-        case 2:
-            if (*(float *)(p + 352) == 0.0f) {
-                CLEAR4(p);
+            if (*(signed char *)0x0C542235 == 1) {
+                MASK4(p, 0x3D00);
                 *(char *)(p + 14156) = 0;
-                U16(p, 1066) = 0;
-            } else if (B8(p, 14112)) {
-                if (B8(p, 2) == 12 || B8(p, 2) == 13 || FUN_0c043064()) {
-                    CLEAR4(p);
-                    *(char *)(p + 14156) = 0;
-                } else if (B8(p, 14100)) {
-                    FUN_0c0bc104((int)p);
-                }
-            } else {
-                *(Pad *)(p + 1052) = *(Pad *)(0x0C542854 + i * 40);
-                DASH(p, 1068);
-                DASH(p, 1070);
-                DASH(p, 1072);
-                DASH(p, 1074);
-                FUN_0c0678a4(i);
             }
             break;
         }
@@ -114,7 +103,7 @@ void FUN_0c067a58(void)
     FUN_0c0bc154();
 
     order = ORDER + FRAME % 6 * 4;
-    k = FUN_0c179ac0() % 4;
+    k = nlRand() % 4;
     n = 4;
     do {
         if (B8(PL(order[k]), 14100))
@@ -123,7 +112,7 @@ void FUN_0c067a58(void)
     } while (--n);
 
     order = ORDER + FRAME % 6 * 4;
-    k = FUN_0c179ac0() % 4;
+    k = nlRand() % 4;
     DRAWN[3] = DRAWN[2] = DRAWN[1] = DRAWN[0] = 0;
     n = 4;
     do {

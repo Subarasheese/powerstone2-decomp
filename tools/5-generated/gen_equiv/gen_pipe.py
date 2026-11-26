@@ -35,10 +35,35 @@ def variants(name,passthru):
             out.insert(0, reg)
         elif reg in out and out[0] != reg:
             out.remove(reg); out.insert(0, reg)
+        # the C returns in the register the original does and in no other: equiv.py compares only the register the C declares, so a
+        # float function tried as `int` passed on a leftover in r0, and a `void` one handed its callers a leftover (retcheck refused)
+        if reg:
+            out = [reg]
     except Exception:
         pass
     return out
+def retry_kinds(name):
+    """The return kinds a function that differed only in its return value is tried again with, in order. The register the original
+    returns in is the only one when it is known: the C passed on a leftover in the others (a float function declared int, a function
+    whose callers read r0 declared void), which retcheck then refused."""
+    kinds=['r0','fr0','void']
+    try:
+        import retcheck
+        reg=retcheck.returns_in(*gen_core.SPANS[name])
+    except Exception:
+        reg=None
+    return [reg] if reg in kinds else kinds
 LAST={}                          # the text of the last check, for the report of what failed
+def _equiv(args):
+    """tools/equiv.py <args>: its lines go to the run log as they come (a big batch is minutes of checking), the whole text is returned"""
+    p=subprocess.Popen(['python3','tools/equiv.py']+args,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,universal_newlines=True)
+    lines=[]
+    for l in p.stdout:
+        lines.append(l); print('    '+l.rstrip('\n'),flush=True)
+    p.wait()
+    return ''.join(lines)
+
+from uncoalesced import retry_uncoalesced  # noqa: E402  (its own module: tested without a game repo)
 
 
 def run_file(stem,items):
@@ -56,7 +81,7 @@ def run_file(stem,items):
     open(srcfiles.path(stem),'w').write(head+'\n'.join(i[1] for i in use))
     shutil.rmtree('tests/%s'%stem,ignore_errors=True); os.makedirs('tests/%s'%stem)
     for it in use: json.dump(it[2],open('tests/%s/%s.json'%(stem,it[0]),'w'),indent=1)
-    r=subprocess.run(['python3','tools/equiv.py',srcfiles.path(stem)],capture_output=True,text=True); out=r.stdout+r.stderr
+    out=_equiv([srcfiles.path(stem)])
     passed=[];failed=[]
     if 'compile failed' in out or 'ERROR' in out[:200]:
         return [],[i[0] for i in use],deferred,out[:400]
@@ -81,15 +106,23 @@ def _declares(it):
     return d
 def _agrees(protos,d):
     return all(protos.get(k,v)==v or ('()',) in (protos.get(k),v) for k,v in d.items())
+def _asm_kind(it):
+    """How a file holding the item compiles: 'asm' with an inline-assembly helper (equiv.py then goes through asmsh, which has no
+    FSCA or FSRRA mnemonic), 'intrin' with the compiler's fsca / fsrra intrinsics (only the direct object path encodes them), else None.
+    The two in one file do not assemble (Jet Set Radio gen_b: FUN_8c2259ee's ocbwb beside four fsca users, ILLEGAL MNEMONIC)"""
+    ks=set(it[3])
+    if ks&(set(gen_drv.ASMW)-set(gen_drv.INTRIN)): return 'asm'
+    if ks&set(gen_drv.INTRIN) or '_builtin_fsca' in it[1] or '_builtin_fsrra' in it[1]: return 'intrin'
+    return None
 def compatible_groups(items):
-    """The items in groups whose prototypes agree (no callee declared two ways, nor declared unlike its definition), in order:
-    what one file can hold"""
+    """The items in groups whose prototypes agree (no callee declared two ways, nor declared unlike its definition) and that compile
+    the same way (_asm_kind), in order: what one file can hold"""
     groups=[]; rest=list(items)
     while rest:
-        protos={}; g=[]; later=[]
+        protos={}; g=[]; later=[]; kind=None
         for it in rest:
-            d=_declares(it)
-            if _agrees(protos,d): protos.update(d); g.append(it)
+            d=_declares(it); k=_asm_kind(it)
+            if _agrees(protos,d) and (k is None or kind is None or k==kind): protos.update(d); g.append(it); kind=kind or k
             else: later.append(it)
         if not g: g=[later.pop(0)]
         groups.append(g); rest=later
@@ -129,10 +162,12 @@ def run_file_robust(stem,items):
             spans.append((line,line+n,it[0])); text+=it[1]+'\n'; line+=n
         import rewrites
         text=rewrites.narrow_unit(text)                 # the spans stay: narrowing changes no line count
-        open(srcfiles.path(stem),'w').write(text)
+        cpath=srcfiles.path(stem)
+        os.makedirs(os.path.dirname(cpath) or '.',exist_ok=True)     # a new repo may have no src/ yet
+        open(cpath,'w').write(text)
         shutil.rmtree('tests/%s'%stem,ignore_errors=True); os.makedirs('tests/%s'%stem)
         for it in use: json.dump(it[2],open('tests/%s/%s.json'%(stem,it[0]),'w'),indent=1)
-        r=subprocess.run(['python3','tools/equiv.py','--full',srcfiles.path(stem)],capture_output=True,text=True); out=r.stdout+r.stderr
+        out=_equiv(['--full',srcfiles.path(stem)])
         LAST['out']=out
         if 'compile failed' in out:
             lines=[int(x) for x in re.findall(r'gen_\w+\.c\((\d+)\)',out)]

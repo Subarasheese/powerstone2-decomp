@@ -18,21 +18,24 @@ int FUN_0c0573cc(int, int, int);
 int FUN_0c05aab6(int, int);
 int FUN_0c1864e0(int, int, int);
 int FUN_0c024484(int a4, int a5, int a6);
+struct o1_uchar { char p[0x1]; unsigned char v; };
+struct o8_ushort { char p[0x8]; unsigned short v; };
+
 
 int FUN_0c024484(int a4, int a5, int a6)
 {
     int stk[3];
 
-    register int R1;
-    register int R2;
-    register int R3;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
+    int v0_2;
+    int v0_3;
+    int v0_4;
+    int v0_1;
+    int v0_0;
+    int v0_5;
+    int R1;
+    int T_;
+    int R3;
+    int R2;
     v0_4 = a4;
     v0_3 = a5;
     v0_0 = a6;
@@ -59,7 +62,7 @@ int FUN_0c024484(int a4, int a5, int a6)
     v0_4 = (0xC309BEC);
     L_C0244FC:;
     if (((int)v0_2 < (int)(unsigned char)(*(signed char *)(((int)stk + 0))))) goto L_C0244F0;
-    *(unsigned char *)((v0_2 + 0xC309BEC)) = v0_1;
+    *(unsigned char *)(v0_2 + 0xC309BEC) = v0_1;
     L_C02453A:;
     v0_2 = FUN_0c021f28();
     v0_3 = (v0_2);
@@ -69,8 +72,8 @@ int FUN_0c024484(int a4, int a5, int a6)
     v0_3 = (short)(FUN_0c01cd2c(0x101)) == 0;
     v0_2 = (0xC30985A);
     if (v0_3) goto L_C0245B4;
-    *(unsigned char *)((v0_2 + 0x0)) = ((*(signed char *)((v0_2 + 0x0))) + 0x2);
-    *(unsigned short *)((v0_0 + 0x8)) = v0_1;
+    *(unsigned char *)(v0_2) = ((*(signed char *)(v0_2)) + 0x2);
+    (((struct o8_ushort *)(v0_0))->v) = v0_1;
     v0_3 = ((FUN_0c05aab6(0x0, 0x3)));
     goto L_C024648;
     L_C0245B4:;
@@ -79,7 +82,7 @@ int FUN_0c024484(int a4, int a5, int a6)
     v0_4 = (v0_5);
     v0_3 = (0xC30541D);
     if ((v0_5 == (*(signed char *)0xC305415))) goto L_C0245D0;
-    *(unsigned char *)((v0_3 + 0x1)) = v0_4;
+    (((struct o1_uchar *)(v0_3))->v) = v0_4;
     L_C0245D0:;
     if (((int)(*(signed char *)0xC309BE4) > (int)0xE)) goto L_C0245EE;
     if (((int)((((struct o6_short *)0xC309C6C)->v)) > (int)0x14)) goto L_C0245EE;
@@ -87,8 +90,8 @@ int FUN_0c024484(int a4, int a5, int a6)
     L_C0245EE:;
     if (((*(signed char *)0xC305415) != 2)) goto L_C02460A;
     v0_4 = (0xC305415);
-    if (((int)(*(signed char *)((v0_3 + 0x1))) >= (int)0x2)) goto L_C024606;
-    *(unsigned char *)((v0_4 + 0x0)) = 0x3;
+    if (((int)(*(signed char *)(v0_3 + 0x1)) >= (int)0x2)) goto L_C024606;
+    *(unsigned char *)(v0_4) = 0x3;
     L_C02460A:;
     v0_3 = (short)(FUN_0c01cd2c(0x40)) != 0;
     if (v0_3) goto L_C02461E;
@@ -99,17 +102,17 @@ int FUN_0c024484(int a4, int a5, int a6)
     if (((*(short *)0xC30A51C) == 2)) goto L_C02462E;
     FUN_0c05aab6(0x0, 0x4);
     L_C02462E:;
-    *(unsigned char *)((v0_2 + 0x0)) = ((*(signed char *)((v0_2 + 0x0))) + 0x1);
-    *(unsigned short *)((v0_0 + 0x8)) = v0_1;
+    *(unsigned char *)(v0_2) = ((*(signed char *)(v0_2)) + 0x1);
+    (((struct o8_ushort *)(v0_0))->v) = v0_1;
     *(unsigned short *)0xC30A51C = v0_1;
     v0_3 = ((FUN_0c0573cc(0xFF000000, 0x0, 0x14)));
     goto L_C024648;
     L_C024606:;
-    *(unsigned char *)((v0_4 + 0x0)) = 0x1;
+    *(unsigned char *)(v0_4) = 0x1;
     goto L_C02460A;
     L_C0244F0:;
-    FUN_0c1864e0((*(int *)((v0_3 + 0x0))), (v0_2 + v0_4), 0x1);
-    v0_2 = ((v0_2 + 0x1));
+    FUN_0c1864e0((*(int *)(v0_3)), (v0_2 + v0_4), 0x1);
+    v0_2 = (v0_2 + 0x1);
     goto L_C0244FC;
     L_C02450A:;
     if ((v0_4 != 101)) goto L_C02452C;

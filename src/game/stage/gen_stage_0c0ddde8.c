@@ -16,7 +16,7 @@ int FUN_0c0de442(int, int, int);
 int FUN_0c0de650(int, int);
 int FUN_0c0deb00(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0ddde8(int a4);
 int FUN_0c0dde20(int a4);
 
@@ -127,7 +127,7 @@ int FUN_0c0dde20(int a4)
     L_C0DE06A:;
     goto L_C0DE184;
     L_C0DE104:;
-    v0_1 = (int)((int)(FUN_0c179ac0()) % (int)(*(int *)0xC1CA244));
+    v0_1 = (int)((int)(nlRand()) % (int)(*(int *)0xC1CA244));
     v0_4 = (v0_3);
     R8 = ((((v0_1 << 2) << 2) + 0xC1CA214));
     L_C0DE170:;
@@ -146,7 +146,7 @@ int FUN_0c0dde20(int a4)
     v0_4 = ((v0_4 + 0x1));
     goto L_C0DE170;
     L_C0DE0BA:;
-    v0_1 = (int)((int)(FUN_0c179ac0()) % (int)(*(int *)0xC1CA244));
+    v0_1 = (int)((int)(nlRand()) % (int)(*(int *)0xC1CA244));
     v0_4 = (v0_3);
     R8 = ((((v0_1 << 2) << 2) + 0xC1CA214));
     L_C0DE0FC:;
@@ -161,7 +161,7 @@ int FUN_0c0dde20(int a4)
     v0_4 = ((v0_4 + 0x1));
     goto L_C0DE0FC;
     L_C0DE06E:;
-    v0_1 = (int)((int)(FUN_0c179ac0()) % (int)(*(int *)0xC1CA2A8));
+    v0_1 = (int)((int)(nlRand()) % (int)(*(int *)0xC1CA2A8));
     v0_5 = (0x2);
     v0_4 = (v0_3);
     R8 = (0xC1CA278);
@@ -220,7 +220,7 @@ int FUN_0c0dde20(int a4)
     *(unsigned int *)((v0_0 + 0x38)) = ((*(int *)((v0_0 + 0x38))) - 0x20000);
     goto L_C0DE184;
     L_C0DDF8A:;
-    (((struct o16_uchar *)(v0_0))->v) = (*(signed char *)((0xC1CA170 + ((int)((int)(FUN_0c179ac0()) % (int)(*(int *)0xC1CA180))))));
+    (((struct o16_uchar *)(v0_0))->v) = (*(signed char *)((0xC1CA170 + ((int)((int)(nlRand()) % (int)(*(int *)0xC1CA180))))));
     v0_1 = (0x16);
     goto L_C0DDFA0;
     L_C0DDF28:;

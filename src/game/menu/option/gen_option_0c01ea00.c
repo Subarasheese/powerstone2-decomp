@@ -176,213 +176,6 @@ int FUN_0c01f2a4(void)
     return ((int (*)(void))(t1))();
 }
 
-int FUN_0c01f30c(void)
-{
-    int stk[38];
-    register int t30;
-    register int t33;
-    register int t41;
-    register int t46;
-    register int t44;
-    register int t47;
-    register int t54;
-    register int t64;
-    register int t69;
-    register int t67;
-    register int t70;
-    register int t77;
-    register int t87;
-    register int t89;
-    register int t90;
-    register int t103;
-    register int t104;
-    register int t105;
-    register int t108;
-    register int t111;
-
-    FUN_0c183074(0xC01EA00);
-    FUN_0c01e9e4();
-    FUN_0c018e74(0x2);
-    FUN_0c01cb7c();
-    FUN_0c0573c0(0xFF000000, 0x0, 0x14);
-    *(unsigned int *)0xC30B6F8 = 0x0;
-    *(unsigned char *)0xC309859 = ((*(signed char *)0xC309859) + 0x1);
-    *(unsigned char *)0xC3054C5 = 0x1;
-    *(unsigned int *)(((int)stk + 8)) = (((int)stk + 8) + 0x64);
-    *(unsigned int *)(((int)stk + 12)) = (((int)stk + 8) + 0x4C);
-    *(unsigned int *)(((int)stk + 16)) = (((int)stk + 8) + 0x2C);
-    *(unsigned int *)(((int)stk + 20)) = 0xC1A8838;
-    *(unsigned int *)(((int)stk + 24)) = 0xC1A8893;
-    *(unsigned int *)(((int)stk + 28)) = 0xC305109;
-    *(unsigned int *)(((int)stk + 32)) = 0xC309963;
-    *(unsigned int *)(((int)stk + 36)) = 0xC30997F;
-    *(unsigned int *)(((int)stk + 44)) = 0x0;
-    *(unsigned int *)(((int)stk + 48)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x0)) = 0x4;
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x2)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x4)) = 0x2;
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x8)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 8))) + 0x6)) = 0x0;
-    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0xC)) = 0x0;
-    *(unsigned int *)(((*(int *)(((int)stk + 8))) + 0x10)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 12))) + 0x2)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 12))) + 0x4)) = 0x78;
-    *(unsigned short *)(((*(int *)(((int)stk + 12))) + 0x6)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 12))) + 0x8)) = 0x1E;
-    *(unsigned int *)(((*(int *)(((int)stk + 12))) + 0xC)) = 0xC1A88A0;
-    *(unsigned int *)(((*(int *)(((int)stk + 12))) + 0x10)) = 0x0;
-    *(unsigned int *)(((*(int *)(((int)stk + 12))) + 0x14)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 16))) + 0xA)) = 0x5DC;
-    *(unsigned int *)(((*(int *)(((int)stk + 16))) + 0xC)) = 0x12345678;
-    *(unsigned short *)(((*(int *)(((int)stk + 16))) + 0x10)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 16))) + 0x12)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 16))) + 0x14)) = 0x0;
-    *(unsigned short *)(((*(int *)(((int)stk + 16))) + 0x8)) = 0x4;
-    *(unsigned int *)(((*(int *)(((int)stk + 16))) + 0x18)) = 0x0;
-    *(unsigned int *)(((*(int *)(((int)stk + 16))) + 0x1C)) = 0x0;
-    t30 = *(int *)(((int)stk + 12));
-    if (((*(int *)(((*(int *)0xC3BABB4) + 0x0))) & 0x100) != 0) {
-        *(unsigned short *)((t30 + 0x0)) = 0x1;
-    } else {
-        *(unsigned short *)((t30 + 0x0)) = 0x0;
-    }
-    *(unsigned char *)0xC30A3FC = 0x0;
-    t33 = 0x0;
-    for (;;) {
-        if ((int)t33 >= (int)0x5) {
-            t33 = 0xC30A3FC;
-            if ((*(signed char *)((t33 + 0x0))) != 0) {
-                strcpy(0xC305109, t33, 0xC30A3FC);
-                t33 = 0xC1A88A8;
-                FUN_0c187d24(0xC305109, t33);
-                t33 = 0xC1A88AC;
-                FUN_0c187d24(0xC305109, t33);
-                syCfgGetIndividualID(0xC309998);
-                t41 = 0x0;
-                for (;;) {
-                    t33 = (*(signed char *)((0xC309998 + t41)));
-                    t46 = (int)(signed char)((int)((signed char)t33 & 0xF0) >> 4) < (int)0xA;
-                    t44 = ((int)((signed char)t33 & 0xF0) >> 4);
-                    t33 = (t33 & 0xF);
-                    t47 = (t44 + 0x37);
-                    if (t46) {
-                        t47 = (t44 + 0x30);
-                    }
-                    *(unsigned char *)((0xC309963 + (t41 << 1))) = t47;
-                    if ((int)(signed char)t33 < (int)0xA) {
-                        t33 = (t33 + 0x30);
-                    } else {
-                        t33 = (t33 + 0x37);
-                    }
-                    t54 = ((t41 << 1) + 0xC309963);
-                    t41 = (t41 + 0x1);
-                    *(unsigned char *)((t54 + 0x1)) = t33;
-                    if ((int)t41 >= (int)0x6) {
-                        break;
-                    }
-                }
-                t33 = 0xC1A88A4;
-                *(unsigned char *)((0xC309963 + (t41 << 1))) = 0x0;
-                strcpy(0xC30997F, t33, t47);
-            } else {
-                t33 = 0xC1A88AC;
-                strcpy(0xC305109, t33, 0xC30A3FC);
-                syCfgGetIndividualID(0xC309998);
-                t64 = 0x0;
-                for (;;) {
-                    t33 = (*(signed char *)((0xC309998 + t64)));
-                    t69 = (int)(signed char)((int)((signed char)t33 & 0xF0) >> 4) < (int)0xA;
-                    t67 = ((int)((signed char)t33 & 0xF0) >> 4);
-                    t33 = (t33 & 0xF);
-                    t70 = (t67 + 0x37);
-                    if (t69) {
-                        t70 = (t67 + 0x30);
-                    }
-                    *(unsigned char *)((0xC309963 + (t64 << 1))) = t70;
-                    if ((int)(signed char)t33 < (int)0xA) {
-                        t33 = (t33 + 0x30);
-                    } else {
-                        t33 = (t33 + 0x37);
-                    }
-                    t77 = ((t64 << 1) + 0xC309963);
-                    t64 = (t64 + 0x1);
-                    *(unsigned char *)((t77 + 0x1)) = t33;
-                    if ((int)t64 >= (int)0x6) {
-                        break;
-                    }
-                }
-                t33 = 0xC1A88A4;
-                *(unsigned char *)((0xC309963 + (t64 << 1))) = 0x0;
-                strcpy(0xC30997F, t33, t70);
-            }
-            FUN_0c184b4c();
-            FUN_0c01ea2c();
-            *(int *)((int)stk + 4) = 0x0;
-            t33 = 0x0;
-            *(int *)((int)stk + 0) = 0x0;
-            FUN_0c184a90(0x0, t33, 0x0, 0x0, 0x0, 0x0);
-            *(unsigned int *)0xC305068 = (short)(FUN_0c184c0c(((int)stk + 8)));
-            *(unsigned char *)0xC309859 = ((*(signed char *)0xC309859) + 0x1);
-            *(unsigned short *)0xC30540C = 0x64;
-            return 0xC30540C;
-        }
-        if ((unsigned char)(*(signed char *)((t33 + ((*(int *)0xC3BABB4) + 0x34)))) == 44) {
-            break;
-        }
-        t33 = (t33 + 0x1);
-    }
-    if ((int)t33 > 0) {
-        t87 = 0x0;
-        for (;;) {
-            t89 = t87;
-            t90 = (((*(int *)0xC3BABB4) + 0x34) + t87);
-            t87 = (t87 + 0x1);
-            *(unsigned char *)((0xC30A3FC + t89)) = (*(signed char *)((t90 + 0x0)));
-            if ((int)t87 >= (int)t33) {
-                break;
-            }
-        }
-    }
-    *(unsigned char *)((0xC30A3FC + t33)) = 0x0;
-    if ((*(signed char *)0xC30A3FC) != 0) {
-        strcpy(0xC305109, 0xC30A3FC, 0xC30A3FC);
-        FUN_0c187d24(0xC305109, 0xC1A88A8);
-        FUN_0c187d24(0xC305109, 0xC1A88AC);
-    } else {
-        strcpy(0xC305109, 0xC1A88AC, 0xC30A3FC);
-    }
-    syCfgGetIndividualID(0xC309998);
-    t103 = 0x0;
-    for (;;) {
-        t104 = *(signed char *)((0xC309998 + t103));
-        t105 = (((int)((signed char)t104 & 0xF0) >> 4) + 0x37);
-        if ((int)(signed char)((int)((signed char)t104 & 0xF0) >> 4) < (int)0xA) {
-            t105 = (((int)((signed char)t104 & 0xF0) >> 4) + 0x30);
-        }
-        *(unsigned char *)((0xC309963 + (t103 << 1))) = t105;
-        t108 = ((t104 & 0xF) + 0x37);
-        if ((int)(signed char)(t104 & 0xF) < (int)0xA) {
-            t108 = ((t104 & 0xF) + 0x30);
-        }
-        t111 = ((t103 << 1) + 0xC309963);
-        t103 = (t103 + 0x1);
-        *(unsigned char *)((t111 + 0x1)) = t108;
-        if ((int)t103 >= (int)0x6) {
-            break;
-        }
-    }
-    *(unsigned char *)((0xC309963 + (t103 << 1))) = 0x0;
-    strcpy(0xC30997F, 0xC1A88A4, t105);
-    FUN_0c184b4c();
-    FUN_0c01ea2c();
-    *(int *)((int)stk + 4) = 0x0;
-    *(int *)((int)stk + 0) = 0x0;
-    FUN_0c184a90(0x0, 0x0, 0x0, 0x0, 0x0, 0x0);
-    *(unsigned int *)0xC305068 = (short)(FUN_0c184c0c(((int)stk + 8)));
-    *(unsigned char *)0xC309859 = ((*(signed char *)0xC309859) + 0x1);
-    *(unsigned short *)0xC30540C = 0x64;
-    return 0xC30540C;
-}
 
 int FUN_0c01f5c4(void)
 {
@@ -661,3 +454,83 @@ int FUN_0c01f9ec(void)
     }
     return t2;
 }
+
+/* manual: opens the screen: player name up to a comma into a save comment, console ID as 12 hex digits, three records in a frame
+   block handed to FUN_0c184c0c; 12 cases, 274 of 274 instructions */
+int FUN_0c01f30c(void)
+{
+    int f[30];
+    short *s = (short *)f;
+    signed char *name = (signed char *)0xC30A3FC;
+    unsigned char *id = (unsigned char *)0xC309963;
+    int i, n, x, hi, lo, c;
+
+    FUN_0c183074(0xC01EA00);
+    FUN_0c01e9e4();
+    FUN_0c018e74(2);
+    FUN_0c01cb7c();
+    FUN_0c0573c0(0xFF000000, 0, 20);
+    *(int *)0xC30B6F8 = 0;
+    ++*(signed char *)0xC309859;
+    *(char *)0xC3054C5 = 1;
+    f[0] = (int)(f + 25);
+    f[1] = (int)(f + 19);
+    f[2] = (int)(f + 11);
+    f[3] = 0xC1A8838;
+    f[4] = 0xC1A8893;
+    f[5] = 0xC305109;
+    f[6] = 0xC309963;
+    f[7] = 0xC30997F;
+    f[9] = f[10] = 0;
+    s[50] = 4;
+    s[52] = 2;
+    s[51] = s[54] = s[53] = 0;
+    f[28] = f[29] = 0;
+    s[40] = 120;
+    s[42] = 30;
+    s[39] = s[41] = 0;
+    f[22] = 0xC1A88A0;
+    f[23] = f[24] = 0;
+    s[27] = 1500;
+    f[14] = 0x12345678;
+    s[30] = s[31] = s[32] = 0;
+    s[26] = 4;
+    f[17] = f[18] = 0;
+    s[38] = (**(int **)0xC3BABB4 & 0x100) != 0;
+
+    *name = 0;
+    for (n = 0; n < 5; n++) {
+        if (*(unsigned char *)(*(int *)0xC3BABB4 + 52 + n) == ',') {
+            for (i = 0; i < n; i++)
+                name[i] = *(signed char *)(*(int *)0xC3BABB4 + 52 + i);
+            name[n] = 0;
+            break;
+        }
+    }
+    if (*name != 0) {
+        strcpy(0xC305109, (int)name, (int)name);
+        FUN_0c187d24(0xC305109, 0xC1A88A8);
+        FUN_0c187d24(0xC305109, 0xC1A88AC);
+    } else {
+        strcpy(0xC305109, 0xC1A88AC, (int)name);
+    }
+    syCfgGetIndividualID(0xC309998);
+    for (i = 0; i < 6; i++) {
+        x = ((signed char *)0xC309998)[i];
+        hi = (x & 0xF0) >> 4;
+        lo = x & 15;
+        c = hi < 10 ? hi + '0' : hi + '7';
+        id[i * 2] = c;
+        id[i * 2 + 1] = lo < 10 ? lo + '0' : lo + '7';
+    }
+    id[i * 2] = 0;
+    strcpy(0xC30997F, 0xC1A88A4, c);
+    FUN_0c184b4c();
+    FUN_0c01ea2c();
+    FUN_0c184a90(0, 0, 0, 0, 0, 0);
+    *(int *)0xC305068 = (short)FUN_0c184c0c((int)f);
+    ++*(signed char *)0xC309859;
+    *(short *)0xC30540C = 100;
+    return 0xC30540C;
+}
+

@@ -15,6 +15,30 @@ What it looks at, for the functions of functions.txt that src/*.c defines (match
                      size was short (code past a literal pool in the middle of the body was left out), so a jump to that code was
                      written as a call; the proof stays in tests/equivalent.txt and the current checker fails it. Dropped with its
                      cases and its proof, so the generator writes it again with the right size
+  args outside       C that addresses its stack-argument structure (`StkN s`) outside it: `(int)&s + K` with K below 0 or past its
+                     4N bytes, or s.w[i] past N-1. Below are the registers the compiled function saved on entry, its return address
+                     among them; past the end is the caller's frame (Zombie Revenge FUN_0c0a6928, a hand draft that kept the
+                     original's locals at &s - 52 .. &s - 4: it overwrote its saved pr and the game ran the stack; four such
+                     functions). The proof passed: writes below the entry stack pointer are not compared. Dropped with its cases
+                     and its proof, so the generator writes it again
+  helper call        generated C that calls one of the compiler's register helpers (_quick_odd_mvn, _divls ...) by name, as if it took
+                     C arguments: they take theirs in r0-r2, so the call runs on whatever those registers hold. It was generated while
+                     the helper had a FUN_ name and was renamed later (Zombie Revenge: _quick_odd_mvn's `braf r0` with a stale r0 jumped
+                     into a texture as the player took control). The proof passed because its cases never reached the call. Dropped
+                     with its cases and its proof, so the generator writes the copy or division again
+  short call         C that calls a function without an argument the original gives it: the file's prototype of the callee names
+                     fewer integer registers than the callee takes, and the original writes the register before every such call
+                     (tools/8-build/protocheck.py --lost). The callee's arity was found out after the caller was generated; the
+                     proof passed, a call being compared on the caller's own prototype (Virtua Tennis uniformPreviewFree freed no
+                     model and Exhibition went black on the console). Generated
+                     C is dropped with its cases and its proof, so the generator writes the call again with the argument; C written
+                     by hand is listed and left for its author (the prototype and the call are theirs to correct)
+  low address        C that reads or writes memory through a variable just set to a constant below 0x1000, adding only constants
+                     and scaled indexes: `t208 = 0x12; ... *(int *)(((t212 << 2) + (t208 + 0x14)))`. No game data lives there (the
+                     boot ROM does), so the constant stands where the original had a pointer it read from its stack (Virtua Tennis
+                     FUN_8c01219e: the stack word holding 0x8C287ACC came out as 0x12, each player's CPU flag was read from 0x26 + 4i,
+                     and a CPU opponent paused the exhibition as player 2). The proof passed, its cases never running that path.
+                     Reported, never dropped: the original's code is the reference for the right value
 C that leaves src/: generated C (src/gen_*.c) is dropped with its cases, so the generator writes it again; hand-written C moves to
 partial/<file>.c, where progress.py counts it as partial work. Nothing written by hand is deleted.
 """
@@ -96,6 +120,81 @@ def lists():
     return eq
 
 
+HELPERS = ('_divls', '_divlu', '_modls', '_modlu', '_divws', '_quick_mvn', '_quick_odd_mvn', '_quick_evn_mvn', '_slow_mvn',
+           '_slow_strcpy')   # the compiler's runtime helpers that take their operands in r0-r2 (gen_core.HELPERS)
+HELPER_CALL = re.compile(r'(?:\((?:%s)\)\)\(|(?<![\w])(?:%s)\s*\()' % ('|'.join(HELPERS), '|'.join(HELPERS)))
+
+
+STK_PARAM = re.compile(r'\bStk(\d+)\s+s\b')
+S_OFF = re.compile(r'\(int\)&s\s*\+\s*(-?\s*(?:0x[0-9A-Fa-f]+|\d+))')
+S_WORD = re.compile(r'(?<![\w.])s\.w\[(\d+)\]')
+
+
+def args_outside(text, name):
+    """The offsets (bytes) at which the definition of name addresses its stack-argument structure `StkN s` outside its 4N bytes, [] when none."""
+    b = block(text, name)
+    if not b:
+        return []
+    body = text[b[0]:b[1]]
+    k = body.index('{')
+    m = STK_PARAM.search(body[:k])
+    if not m:
+        return []
+    size = 4 * int(m.group(1))
+    offs = [int(x.replace(' ', ''), 0) for x in S_OFF.findall(body[k:])] + [4 * int(x) for x in S_WORD.findall(body[k:])]
+    return sorted({o for o in offs if o < 0 or o >= size})
+
+
+def calls_helper(text, name):
+    """True when the definition of name in text calls a register helper as a C function (its declaration lines are outside the body)."""
+    b = block(text, name)
+    if not b:
+        return False
+    body = text[b[0]:b[1]]
+    return bool(HELPER_CALL.search(body[body.index('{'):]))
+
+
+LOW_SET = re.compile(r'(?:^\s*|[(,]\s*)([A-Za-z_]\w*) = \(?(0x[0-9A-Fa-f]+|\d+)\)?\s*[;,)]', re.M)   # a statement or comma term
+DEREF = re.compile(r'\*\((?:[\w ]+?) \*\)\s*(\((?:[^()]|\((?:[^()]|\((?:[^()]|\([^()]*\))*\))*\))*\))')
+SDEREF = re.compile(r'\(\(struct \w+ \*\)\s*\(?\s*(\w+)\s*\)?\)->v')
+
+
+def low_address(text, name):
+    """[(variable, constant)] where the definition of name sets a variable to a constant below 0x1000 and then, before a label or a new
+    value for it, reads or writes memory at that variable plus constants and scaled indexes only: an address no game data has."""
+    b = block(text, name)
+    if not b:
+        return []
+    body = text[b[0]:b[1]]
+    body = body[body.index('{'):]
+    out = []
+    for m in LOW_SET.finditer(body):
+        v, c = m.group(1), int(m.group(2), 0)
+        if not 0 < c < 0x1000 or (v, c) in out:
+            continue
+        seg = body[m.end():]
+        for pat in (r'^\s*L_\w+:', r'\b%s\s*=(?!=)' % re.escape(v)):
+            mm = re.search(pat, seg, re.M)
+            if mm:
+                seg = seg[:mm.start()]
+        hit = any(sm.group(1) == v for sm in SDEREF.finditer(seg))
+        for d in DEREF.finditer(seg):
+            e = d.group(1)
+            if hit or not re.search(r'\b%s\b' % re.escape(v), e):
+                continue
+            if re.search(r'\b%s\s*<<' % re.escape(v), e):                # the constant is an index, scaled onto a base
+                continue
+            if any(int(k, 0) >= 0x1000 for k in re.findall(r'0x[0-9A-Fa-f]+|\b\d+\b', e)):
+                continue                                                 # an offset onto a real address: 0xC2A888C + t5
+            rest = re.sub(r'\b%s\b' % re.escape(v), '', e)
+            rest = re.sub(r'\b[A-Za-z_]\w*\s*<<\s*\d+', '', rest)      # a scaled index: (i << 2)
+            rest = re.sub(r'0x[0-9A-Fa-f]+|\b\d+\b', '', rest)
+            hit = not re.search(r'[A-Za-z_]', rest)
+        if hit:
+            out.append((v, c))
+    return out
+
+
 CALL_ADDR = re.compile(r'\(\(\w[\w ]*\(\*\)\([^)]*\)\)\((0x[0-9A-Fa-f]+)\)\)')
 
 
@@ -118,6 +217,18 @@ def calls_itself(text, name, span):
     return any(a < int(t, 16) < a + size for t in CALL_ADDR.findall(text[b[0]:b[1]]))
 
 
+def short_calls(defs):
+    """[(function, file stem, callee)]: the functions of defs that call a callee without an integer register the original sets before
+    the same call, their file prototyping the callee with fewer than it takes (protocheck.scan_lost)."""
+    import protocheck
+    out = []
+    for caller, f, callee, regs in sorted(protocheck.scan_lost()):
+        stem = os.path.basename(f)[:-2]
+        if stem in defs.get(caller, []):
+            out.append((caller, stem, callee))
+    return out
+
+
 def survey():
     funcs = {l.split()[3] for l in open('functions.txt') if l.startswith('F ') and len(l.split()) > 3}
     defs = {n: s for n, s in definitions().items() if n in funcs}
@@ -127,11 +238,26 @@ def survey():
         if fn in funcs and not stem.startswith(('gen_tmp', 'zz_')):
             cases.setdefault(fn, []).append(stem)
     eq = lists()
-    found = {'defined twice': [], 'stray cases': [], 'no recorded pass': [], 'no cases': [], 'stale size': []}
+    found = {'defined twice': [], 'stray cases': [], 'no recorded pass': [], 'no cases': [], 'stale size': [], 'helper call': [], 'args outside': [], 'short call': [], 'low address': []}
     span = spans()
     for n, stems in sorted(defs.items()):
         if len(stems) == 1 and stems[0].startswith('gen_') and calls_itself(open(srcfiles.path(stems[0]), errors='replace').read(), n, span):
             found['stale size'].append((n, stems[0]))
+        elif len(stems) == 1 and args_outside(open(srcfiles.path(stems[0]), errors='replace').read(), n):
+            found['args outside'].append((n, stems[0]))
+        elif len(stems) == 1 and stems[0].startswith('gen_') and calls_helper(open(srcfiles.path(stems[0]), errors='replace').read(), n):
+            found['helper call'].append((n, stems[0]))
+    for n, stems in sorted(defs.items()):
+        for st in stems:
+            low = low_address(open(srcfiles.path(st), errors='replace').read(), n)
+            if low:
+                found['low address'].append((n, st, low))
+    taken = {x[0] for k in ('stale size', 'args outside', 'helper call') for x in found[k]}
+    seen = set()
+    for n, stem, callee in short_calls(defs):
+        if n not in taken and n not in seen:
+            seen.add(n)
+            found['short call'].append((n, stem, callee))
     for n, stems in sorted(defs.items()):
         if len(stems) > 1:
             found['defined twice'].append((n, stems))
@@ -216,6 +342,24 @@ def fix():
         stale = [(n, st) for n, st in found['stale size']]
         for n, st in stale:
             leave_src(n, st); say(done, '%s: calls an address inside itself in src/%s.c (the size was short when it was proven): dropped for the generator' % (n, st))
+        outside = [(n, st) for n, st in found['args outside']]
+        for n, st in outside:
+            leave_src(n, st); say(done, '%s: addresses its stack arguments outside them in src/%s.c: %s' % (n, st, 'moved to partial/' if not st.startswith('gen_') else 'dropped for the generator'))
+        stale = stale + outside
+        helper = [(n, st) for n, st in found['helper call']]
+        for n, st in helper:
+            leave_src(n, st); say(done, '%s: calls a register helper as a C function in src/%s.c: dropped for the generator' % (n, st))
+        stale = stale + helper
+        short = [(n, st) for n, st, callee in found['short call'] if st.startswith('gen_')]
+        for n, st, callee in found['short call']:
+            if st.startswith('gen_'):
+                leave_src(n, st); say(done, '%s: calls %s with fewer arguments than it takes in src/%s.c: dropped for the generator' % (n, callee, st))
+            else:
+                print('%s: calls %s with fewer arguments than it takes in src/%s.c: written by hand, left as it is' % (n, callee, st), flush=True)
+        stale = stale + short
+        for n, st, low in found['low address']:
+            print('%s: reads memory at a constant below 0x1000 in src/%s.c (%s): left as it is, compare it with the original' %
+                  (n, st, ', '.join('%s = 0x%X' % vc for vc in low)), flush=True)
         if stale and os.path.exists('tests/equivalent.txt'):
             gone = {n for n, st in stale}
             lines = open('tests/equivalent.txt').read().split('\n')

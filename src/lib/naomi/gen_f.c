@@ -78,7 +78,7 @@ struct oFC_short { char p[0xFC]; short v; };
 struct oFC_ushort { char p[0xFC]; unsigned short v; };
 struct oFE_short { char p[0xFE]; short v; };
 struct oFE_ushort { char p[0xFE]; unsigned short v; };
-int FUN_0c187990(void);
+int _slow_strcpy(void);
 int FUN_0c187a88(int, int, int);
 int FUN_0c187cac(int, int, int, int, int);
 extern int FUN_0c18c9fc();

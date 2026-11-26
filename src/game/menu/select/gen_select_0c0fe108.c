@@ -72,6 +72,9 @@ int FUN_0c0fe4ec(int a4);
 int FUN_0c0ff8b4(int a4);
 int FUN_0c0ffaa2(void);
 int FUN_0c0ffbbc(int a4, float f4, float f5, float f6, float f7, float f8, float f9, float f10, float f11);
+struct o1C_short { char p[0x1C]; short v; };
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+
 
 int FUN_0c0fe108(int a4, float f4)
 {
@@ -361,19 +364,19 @@ int FUN_0c0fe4ec(int a4)
 int FUN_0c0ff8b4(int a4)
 {
     int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register float u0;
-    register float u1;
-    register float u2;
-    register float u3;
-    register float u4;
+    int t2;
+    int t1;
+    int t3;
+    float u0;
+    float u4;
+    float u1;
+    float u2;
+    float u3;
 
-    if ((*(signed char *)((a4 + 0x14))) == 0) {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+    if ((*(signed char *)(a4 + 0x14)) == 0) {
+        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
         (((struct o15_uchar *)(a4))->v) = 0x0;
-        *(unsigned short *)((a4 + 0x1C)) = 0x0;
+        (((struct o1C_ushort *)(a4))->v) = 0x0;
     }
     t0 = (((struct o0_int *)0xC472B28)->v);
     u0 = 1.0f;
@@ -383,14 +386,14 @@ int FUN_0c0ff8b4(int a4)
     u1 = (((struct o4_float *)0xC0FFAD0)->v);
     u2 = (((struct o8_float *)0xC0FFAD0)->v);
     u3 = (((struct oC_float *)0xC0FFAD0)->v);
-    t0 = *(signed char *)((a4 + 0x2));
+    t0 = *(signed char *)(a4 + 0x2);
     if ((t0 != 0) && (t0 != 1)) {
         t1 = t0;
         if (t0 != 2) {
         } else {
-            t0 = *(signed char *)((a4 + 0x3));
+            t0 = *(signed char *)(a4 + 0x3);
             t2 = 0x0;
-            if ((*(signed char *)((a4 + 0x3))) == ((((struct o0_int *)0xC472B90)->v))) {
+            if ((*(signed char *)(a4 + 0x3)) == ((((struct o0_int *)0xC472B90)->v))) {
                 t2 = 0x1;
             }
             u4 = (u0 * 1.0f);
@@ -398,13 +401,13 @@ int FUN_0c0ff8b4(int a4)
                 u4 = (u0 * u3);
             }
             FUN_0c0fe108(a4, u4);
-            t0 = *(short *)((a4 + 0x1C));
+            t0 = (((struct o1C_short *)(a4))->v);
             t3 = t0;
             if (t0 != t2) {
-                *(unsigned short *)((a4 + 0x1C)) = t2;
-                t0 = *(signed char *)((a4 + 0x3));
-                FUN_0c03733c(a4, (*(int *)((((*(signed char *)((a4 + 0x2))) << 2) + ((((((t0 << 1) + t0) << 2) << 1) + 0xC290610) + (((t2 << 1) + t2) << 2))))), (*(int *)0xC4B4118));
-                t0 = *(signed char *)((a4 + 0x3));
+                (((struct o1C_ushort *)(a4))->v) = t2;
+                t0 = *(signed char *)(a4 + 0x3);
+                FUN_0c03733c(a4, (*(int *)((((*(signed char *)(a4 + 0x2)) << 2) + ((((((t0 << 1) + t0) << 2) << 1) + 0xC290610) + (((t2 << 1) + t2) << 2))))), (*(int *)0xC4B4118));
+                t0 = *(signed char *)(a4 + 0x3);
                 if (t0 != 0) {
                     if (t0 != 1) {
                         if (t0 != 2) {
@@ -435,24 +438,24 @@ int FUN_0c0ff8b4(int a4)
         }
         t0 = t1;
     } else {
-        t1 = *(signed char *)((a4 + 0x3));
+        t1 = *(signed char *)(a4 + 0x3);
         t2 = 0x0;
-        if ((((*(signed char *)((a4 + 0x3))) << 1) + (*(signed char *)((a4 + 0x2)))) == ((((struct o4_int *)0xC472B90)->v))) {
+        if ((((*(signed char *)(a4 + 0x3)) << 1) + (*(signed char *)(a4 + 0x2))) == ((((struct o4_int *)0xC472B90)->v))) {
             t2 = 0x1;
         }
         u4 = (u0 * 1.0f);
-        if ((((int)((((struct o38_int *)0xC472B28)->v)) << (int)(-((t1 << 1) + (*(signed char *)((a4 + 0x2)))))) & 0x1) == 0) {
+        if ((((int)((((struct o38_int *)0xC472B28)->v)) << (int)(-((t1 << 1) + (*(signed char *)(a4 + 0x2))))) & 0x1) == 0) {
             u4 = (u0 * u3);
         }
         FUN_0c0fe108(a4, u4);
-        t1 = *(short *)((a4 + 0x1C));
+        t1 = (((struct o1C_short *)(a4))->v);
         t3 = t1;
         if (t1 == t2) {
         } else {
-            *(unsigned short *)((a4 + 0x1C)) = t2;
-            t1 = *(signed char *)((a4 + 0x3));
-            FUN_0c03733c(a4, (*(int *)((((*(signed char *)((a4 + 0x2))) << 2) + ((((((t1 << 1) + t1) << 2) << 1) + 0xC290610) + (((t2 << 1) + t2) << 2))))), (*(int *)0xC4B4118));
-            t1 = *(signed char *)((a4 + 0x3));
+            (((struct o1C_ushort *)(a4))->v) = t2;
+            t1 = *(signed char *)(a4 + 0x3);
+            FUN_0c03733c(a4, (*(int *)((((*(signed char *)(a4 + 0x2)) << 2) + ((((((t1 << 1) + t1) << 2) << 1) + 0xC290610) + (((t2 << 1) + t2) << 2))))), (*(int *)0xC4B4118));
+            t1 = *(signed char *)(a4 + 0x3);
             if (t1 != 0) {
                 if (t1 != 1) {
                     if (t1 != 2) {
@@ -484,113 +487,4 @@ int FUN_0c0ff8b4(int a4)
     return t0;
 }
 
-int FUN_0c0ffaa2(void)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-    register int t3;
-    register int t4;
-    register int t5;
-    register float u0;
-    register float u1;
-    register float u2;
-
-    t0 = 0xC0FFAD4;
-    t1 = 0x0;
-    for (;;) {
-        if ((int)t1 >= (int)0x4) {
-            break;
-        }
-        t2 = t1;
-        t2 = (t2 << 1);
-        t3 = t1;
-        t2 = (t2 + t3);
-        t2 = (t2 << 2);
-        t2 = (t2 << 1);
-        t2 = (t2 + 0xC290610);
-        t4 = 0x0;
-        for (;;) {
-            t0 = t4;
-            t3 = 0xC037320;
-            t0 = (t0 << 2);
-            t0 = (FUN_0c037320((*(int *)((t2 + t0))), (*(int *)0xC4B4118)));
-            t0 = (FUN_0c03f444(0x5, 0x0, t0));
-            t5 = t0;
-            if (t0 != 0) {
-                t0 = t4;
-                t0 = (t0 << 2);
-                t3 = 0xC03733C;
-                t0 = (FUN_0c03733c(t5, (*(int *)((t2 + t0))), (*(int *)0xC4B4118)));
-                t0 = 0xA8;
-                t3 = 0x20F;
-                *(unsigned char *)((t5 + t0)) = 0x1;
-                t0 = (t0 + 0x4);
-                *(unsigned short *)((t5 + t0)) = t3;
-                t0 = (t0 - 3);
-                *(unsigned char *)((t5 + t0)) = 0x80;
-                t0 = (t0 + 0x13);
-                *(float *)((t5 + t0)) = 1.0f;
-                t0 = (t0 - 4);
-                *(float *)((t5 + t0)) = 1.0f;
-                t0 = (t0 - 4);
-                *(float *)((t5 + t0)) = 1.0f;
-                t0 = 0xFFFFFFFF;
-                *(unsigned char *)((t5 + 0x1)) = t0;
-                t0 = t4;
-                *(unsigned char *)((t5 + 0x2)) = t0;
-                t0 = t1;
-                *(unsigned char *)((t5 + 0x3)) = t0;
-                t3 = 0xC0FF8B4;
-                *(unsigned int *)((t5 + 0x4)) = 0xC0FF8B4;
-                t0 = (*(signed char *)((t5 + 0x3)));
-                if (t0 != 0) {
-                    if (t0 != 1) {
-                        if (t0 != 2) {
-                            if (t0 != 3) {
-                            } else {
-                                t0 = 0x28;
-                                u0 = (*(float *)((t5 + t0)));
-                                u0 = (u0 + 210.0f);
-                                *(float *)((t5 + t0)) = u0;
-                                u1 = u0;
-                            }
-                            u2 = u1;
-                        } else {
-                            t0 = 0x28;
-                            u0 = (*(float *)((t5 + t0)));
-                            u0 = (u0 + 70.0f);
-                            *(float *)((t5 + t0)) = u0;
-                            u2 = u0;
-                        }
-                        u1 = u2;
-                    } else {
-                        t0 = 0x28;
-                        u0 = (*(float *)((t5 + t0)));
-                        u0 = (u0 - 70.0f);
-                        *(float *)((t5 + t0)) = u0;
-                        u1 = u0;
-                    }
-                    u2 = u1;
-                } else {
-                    t0 = 0x28;
-                    u0 = (*(float *)((t5 + t0)));
-                    u0 = (u0 - 210.0f);
-                    *(float *)((t5 + t0)) = u0;
-                    u2 = u0;
-                }
-                t5 = 0xC0FF8B4;
-                u1 = u2;
-            }
-            u0 = u1;
-            t3 = t5;
-            t4 = (t4 + 0x1);
-            if ((int)t4 >= (int)0x3) {
-                break;
-            }
-        }
-        t1 = (t1 + 0x1);
-    }
-    return t0;
-}
 

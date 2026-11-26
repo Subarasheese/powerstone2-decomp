@@ -15,15 +15,15 @@ struct oC_float { char p[0xC]; float v; };
 int FUN_0c059c54(int);
 int FUN_0c059c7a(int, int);
 int FUN_0c05b026(int, int, int, int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int dbg_printf(int, ...);
 int FUN_0c180a6c(int, int, int);
 int FUN_0c180bec(int, int, int);
-int FUN_0c2b4174(int, int);
+int ADXT_StartFname(int, int);
 int ADXT_Stop(int);
 int ADXT_GetStat(int);
-int FUN_0c2b4824(int);
-int FUN_0c2b48e6(int, int);
+int ADXT_GetTimeReal(int);
+int ADXT_SetOutVol(int, int);
 int FUN_0c2b49a6(int);
 int ADXT_GetErrCode(int);
 int FUN_0c2b4a1a(int);
@@ -91,12 +91,12 @@ int FUN_0c05b250(void);
 
 int FUN_0c05a43c(void)
 {
-    FUN_0c17a4c0(0xA, 0x28);
+    nlLocate(0xA, 0x28);
     *(volatile float *)0xC05A530;
     *(volatile float *)0xC46E170;
     *(volatile float *)0xC46E16C;
     dbg_printf(0xC1C341C);
-    FUN_0c17a4c0(0xA, 0x29);
+    nlLocate(0xA, 0x29);
     *(volatile float *)0xC46E168;
     *(volatile float *)0xC46E164;
     return (dbg_printf(0xC1C3430));
@@ -337,7 +337,7 @@ int FUN_0c05a68a(float f4)
                         t5 = (t5 + 0xC46DE80);
                         if (((t3 == 0) && (t37 = *(int *)((t9 + 0xC)), t38 = (t3 == 0), t3 = t37, t3 == 0)) || !(u12 > 0.0f)) {
                             t7 = 0xFFFFFC40;
-                            t0 = (FUN_0c2b48e6((*(int *)((t5 + 0x0))), t7));
+                            t0 = (ADXT_SetOutVol((*(int *)((t5 + 0x0))), t7));
                             *(unsigned int *)((t9 + 0x10)) = 0x0;
                         } else {
                             t3 = 0x2C0;
@@ -366,7 +366,7 @@ int FUN_0c05a68a(float f4)
                             u12 = (u12 + (float)t46);
                             u49 = (float)t1;
                             u49 = u49 + u11 * (*(float *)((t3 + 0x0)));
-                            t0 = (FUN_0c2b48e6((*(int *)((t5 + 0x0))), (int)((u49 + u12) + u10)));
+                            t0 = (ADXT_SetOutVol((*(int *)((t5 + 0x0))), (int)((u49 + u12) + u10)));
                             t3 = (int)u12;
                             *(unsigned int *)((t9 + 0x10)) = t3;
                             t63 = t3;
@@ -553,7 +553,7 @@ int FUN_0c05aca8(int a4, int a5)
         u2 = u2 + 128.0f * (*(float *)((0xC46E164 + (((0x1 - a4) & 0x1) << 2))));
         t7 = (int)((u2 - (float)(0x7F - a5)) + (*(float *)0xC05AE00));
     }
-    t14 = FUN_0c2b48e6((*(int *)((((a4 << 2) + 0xC46DE80) + 0x0))), t7);
+    t14 = ADXT_SetOutVol((*(int *)((((a4 << 2) + 0xC46DE80) + 0x0))), t7);
     *(unsigned int *)(((((((a4 << 1) + a4) << 2) << 1) + 0xC46DFD4) + 0x10)) = a5;
     return t14;
 }
@@ -561,7 +561,7 @@ int FUN_0c05aca8(int a4, int a5)
 void FUN_0c05ad20(int a4, int a5, int a6, int a7)
 {
     if ((*(int *)((((a4 << 2) + 0xC46DE80) + 0x0))) != 0) {
-        FUN_0c2b4174((*(int *)((((a4 << 2) + 0xC46DE80) + 0x0))), (*(int *)(((a5 << 2) + 0xC20AFD8))));
+        ADXT_StartFname((*(int *)((((a4 << 2) + 0xC46DE80) + 0x0))), (*(int *)(((a5 << 2) + 0xC20AFD8))));
         *(unsigned int *)(((0xC46E154 + ((a4 << 2) << 1)) + 0x0)) = a5;
         *(unsigned int *)(((((a4 << 2) << 1) + 0xC46E154) + 0x4)) = a6;
         FUN_0c05aca8(a4, a6);
@@ -580,7 +580,7 @@ int FUN_0c05ad94(int a4)
 
 int FUN_0c05ada4(int a4)
 {
-    return FUN_0c2b4824((*(int *)(((a4 << 2) + 0xC46DE80))));
+    return ADXT_GetTimeReal((*(int *)(((a4 << 2) + 0xC46DE80))));
 }
 
 int FUN_0c05adb4(int a4)
@@ -819,8 +819,8 @@ int FUN_0c05b21e(void)
     (((struct o0_float *)0xC46E164)->v) = (((((struct o8_float *)0xC46E164)->v)) * 0.0f);
     (((struct o4_float *)0xC46E164)->v) = (((((struct oC_float *)0xC46E164)->v)) * 0.0f);
     FUN_0c05b15c();
-    FUN_0c2b48e6(((((struct o0_int *)0xC46DE80)->v)), 0xFFFFFC40);
-    return FUN_0c2b48e6(((((struct o4_int *)0xC46DE80)->v)), 0xFFFFFC40);
+    ADXT_SetOutVol(((((struct o0_int *)0xC46DE80)->v)), 0xFFFFFC40);
+    return ADXT_SetOutVol(((((struct o4_int *)0xC46DE80)->v)), 0xFFFFFC40);
 }
 
 int FUN_0c05b250(void)

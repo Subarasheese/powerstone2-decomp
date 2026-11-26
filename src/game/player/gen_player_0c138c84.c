@@ -19,7 +19,7 @@ int FUN_0c059e60(int, int);
 int FUN_0c064d24(int, int, int, int, int, int, int, int);
 int FUN_0c07e2f4(int, int);
 int FUN_0c15f9b4(int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int math_vec3_accumulate(int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c138fae(int a4);

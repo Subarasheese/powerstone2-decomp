@@ -138,7 +138,7 @@ int ADXSJD_Create(int, int, int);
 int ADXT_Destroy(int);
 int sys_init(void);
 int nl_system_config_init(int);
-int FUN_0c187990(void);
+int _slow_strcpy(void);
 int FUN_0c187cac(int, int, int, int, int);
 int FUN_0c187d98(int, int, int);
 extern int FUN_0c18c9fc();

@@ -2,9 +2,9 @@
 """rawcalls.py [--update] [--allow] [--list]: C that calls into code no function in functions.txt starts at.
 
 Generated C sometimes reaches original code by a raw address: `((int (*)(int))(0xC0D40CC))(a4)`. equiv.py passes such a
-function, since its simulator runs the original bytes at that address; but no C exists there, so a build from C (or the
-native port) has nothing to call. The target is code functions.txt does not list (a missed function, or the rest of a
-function whose recorded size is short) or the middle of a listed function (a shared tail).
+function, since its simulator runs the original bytes at that address; but no C exists there, so a build from C has nothing to
+call. The target is code functions.txt does not list (a missed function, or the rest of a function whose recorded size is
+short) or the middle of a listed function (a shared tail). The 0C and the 8C form of an address are the same address.
 
 The check is a ratchet: tests/rawcalls_allowed.txt lists the calls known when it was introduced (target, calling
 function, file). A raw call to an unlisted address that is not on the list fails (exit 1): new C must not add any.
@@ -12,7 +12,8 @@ function, file). A raw call to an unlisted address that is not on the list fails
   --allow    rewrite the list from what occurs now (adds too: only for a deliberate exception)
   --list     print every raw call into unlisted code, allowed or not
 
-Run in the repo. Files whose first line is `/* @unit` (byte-matching units) are not read: their calls are the original's.
+Run in the repo. Every .c file under src/ is read, flat or in a tree. Files whose first line is `/* @unit` (byte-matching units)
+are not read: their calls are the original's. Stdlib only.
 """
 import bisect
 import os
@@ -21,8 +22,13 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 ALLOWED = os.path.join(ROOT, 'tests', 'rawcalls_allowed.txt')
-CALL = re.compile(r'\)\s*\(\s*(0x[cC][0-3][0-9a-fA-F]{5})\s*\)\s*\)\s*\(')   # the whole image: game, NAOMI, Katana (0x0C010000-0x0C3FFFFF)
+CALL = re.compile(r'\)\s*\(\s*(0x[0-9a-fA-F]{7,8})\s*\)\s*\)\s*\(')
 DEF = re.compile(r'^[A-Za-z_][\w \t\*]*?\b(\w+)\s*\([^;{]*\)\s*\{', re.M)
+RAM = (0x0C000000, 0x0D000000)          # main RAM, in either mirror (0C and 8C): the cache bits are not part of the address
+
+
+def physical(a):
+    return a & 0x1FFFFFFF
 
 
 def listed():
@@ -30,7 +36,7 @@ def listed():
     for line in open(os.path.join(ROOT, 'functions.txt')):
         p = line.split()
         if len(p) >= 4 and p[0] == 'F':
-            starts.add(int(p[1], 16))
+            starts.add(physical(int(p[1], 16)))
     return starts
 
 
@@ -38,23 +44,22 @@ def scan():
     """(target, caller, file) for each raw call to an address no listed function starts at"""
     starts = listed()
     found = set()
-    for top in ('src/game', 'src/lib'):
-        for d, _, fs in os.walk(os.path.join(ROOT, top)):
-            for f in fs:
-                if not f.endswith('.c'):
+    for d, _, fs in [w for top in ('src', 'sdk') for w in os.walk(os.path.join(ROOT, top))]:      # the game's C and the SDK's (tools/layout.py)
+        for f in fs:
+            if not f.endswith('.c'):
+                continue
+            path = os.path.join(d, f)
+            text = open(path, errors='replace').read()
+            if text.startswith('/* @unit'):
+                continue
+            defs = [(m.start(), m.group(1)) for m in DEF.finditer(text)]
+            offsets = [o for o, _ in defs]
+            for m in CALL.finditer(text):
+                a = physical(int(m.group(1), 16))
+                if not RAM[0] <= a < RAM[1] or a in starts:
                     continue
-                path = os.path.join(d, f)
-                text = open(path, errors='replace').read()
-                if text.startswith('/* @unit'):
-                    continue
-                defs = [(m.start(), m.group(1)) for m in DEF.finditer(text)]
-                offsets = [o for o, _ in defs]
-                for m in CALL.finditer(text):
-                    a = int(m.group(1), 16)
-                    if a in starts:
-                        continue
-                    i = bisect.bisect_right(offsets, m.start()) - 1
-                    found.add(('%08x' % a, defs[i][1] if i >= 0 else '?', os.path.relpath(path, ROOT)))
+                i = bisect.bisect_right(offsets, m.start()) - 1
+                found.add(('%08x' % a, defs[i][1] if i >= 0 else '?', os.path.relpath(path, ROOT)))
     return found
 
 

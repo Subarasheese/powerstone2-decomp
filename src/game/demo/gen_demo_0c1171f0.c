@@ -43,7 +43,7 @@ int FUN_0c03f444(int, int, int);
 int FUN_0c0588bc(int, int, int, int, int, int);
 int FUN_0c058a6e(int, int, int, int, int, int);
 int FUN_0c0cff2e(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(void);
 int FUN_0c187a88(int, int, int);
 int vsprintf(int, int, int);
@@ -270,7 +270,7 @@ int FUN_0c1175b6(int a4)
             *(unsigned char *)((t12 + 0x0)) = 0x1;
         }
         t11 = 0xC4;
-        t11 = (FUN_0c17c130((t12 + 0x6C), (((((t15 - 2) << 1) + (t15 - 2)) << 2) + 0xC291A60), ((*(int *)((a4 + t11))) + 0x6C)));
+        t11 = (nlAddVector3op((t12 + 0x6C), (((((t15 - 2) << 1) + (t15 - 2)) << 2) + 0xC291A60), ((*(int *)((a4 + t11))) + 0x6C)));
         t15 = (t15 - 1);
     }
     return t11;

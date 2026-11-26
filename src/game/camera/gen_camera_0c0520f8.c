@@ -28,7 +28,7 @@ int nlInvertMatrix(int);
 int nlLookAt(int, int, int);
 int nlSelectMatrixStack(int);
 int nlUnitMatrix(void);
-float FUN_0c0e2240(int, int);
+float nlLength(int, int);
 int FUN_0c187798(void);
 int FUN_0c0520f8(int a4);
 int FUN_0c052114(int a4);
@@ -193,7 +193,7 @@ float FUN_0c052378(int a4)
         FUN_0c052168(a4);
         break;
     }
-    t13 = FUN_0c0e2240(((0xBC + a4) + 0xC), ((0xEC + a4) + 0xC));
+    t13 = nlLength(((0xBC + a4) + 0xC), ((0xEC + a4) + 0xC));
     (((struct o190_float *)(a4))->v) = t13;
     return t13;
 }

@@ -12,7 +12,7 @@ int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 int FUN_0c058a6e(int, int, int, int, int, int);
 int FUN_0c1171f0(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c118584(int a4);
 int FUN_0c1185b8(int a4, int a5, int a6, int a7);
 
@@ -67,7 +67,7 @@ int FUN_0c1185b8(int a4, int a5, int a6, int a7)
             t0 = 0xC291D2C;
         }
         t1 = (((struct oC4_int *)(a4))->v);
-        FUN_0c17c130((t1 + 0x6C), (t1 + 0x6C), t0);
+        nlAddVector3op((t1 + 0x6C), (t1 + 0x6C), t0);
     }
     if ((int)(*(short *)((a4 + 0x1C))) <= (int)0x2) {
         FUN_0c058a6e((0xB0 + a4), 0xC291D10, 0xC291D00, (*(short *)((a4 + 0x1C))), 0x2, 0x0);

@@ -25,235 +25,113 @@ extern int FUN_0c085cac();
 int FUN_0c0c30a8(int, int, int);
 int FUN_0c07fea4(int a4, int a5, int a6);
 
+/* manual: state chooser of a fighter (a4+0x3717/0x3718 = new state/sub, then FUN_0c085cac): every "set state" exit is one tail (s, t), the mode-2 call chain written once with a flag for the extra steps of its first copy; hand cases cover the paths */
 int FUN_0c07fea4(int a4, int a5, int a6)
 {
-    int stk[4];
-
-    register int R1;
-    register int R2;
-    register int R3;
-    register float F2;
-    register float F3;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register float w0_0;
-    register float w0_1;
-    v0_2 = a4;
-    v0_1 = a5;
-    v0_0 = a6;
-    *(unsigned int *)(((int)stk + 12)) = v0_2;
-    *(unsigned int *)(((int)stk + 8)) = v0_1;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x371C))) == 0)) goto L_C07FF50;
-    v0_2 = (FUN_0c07f0fc((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_2) goto L_C07FEF4;
-    if (((*(signed char *)((0x371D + (*(int *)(((int)stk + 12)))))) == 1)) goto L_C07FEF4;
-    if ((((((struct o3768_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C07FEE0;
-    v0_3 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x0);
-    v0_2 = (v0_3);
-    if ((v0_3 == 0)) goto L_C07FEF4;
-    L_C08030E:;
-    return 0x1;
-    L_C07FEF4:;
-    if (((*(signed char *)((0x375A + (*(int *)(((int)stk + 12)))))) == 1)) goto L_C07FF1C;
-    if (((*(signed char *)((0x375A + (*(int *)(((int)stk + 12)))))) == 2)) goto L_C07FF1C;
-    if (((*(signed char *)((0x375A + (*(int *)(((int)stk + 12)))))) == 4)) goto L_C07FF1C;
-    if (((*(signed char *)((0x375A + (*(int *)(((int)stk + 12)))))) != 5)) goto L_C07FF50;
-    L_C07FF1C:;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x1A;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x0;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x1A, 0x0)));
-    goto L_C08030E;
-    L_C07FF50:;
-    if ((((((struct o3770_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C07FF82;
-    if (((*(signed char *)((0x371D + (*(int *)(((int)stk + 12)))))) != 1)) goto L_C07FF82;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0xC;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x0;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0xC, 0x0)));
-    goto L_C08030E;
-    L_C07FF82:;
-    if (!(((*(signed char *)((0x3731 + (*(int *)(((int)stk + 12)))))) == 2))) goto L_C080230;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x3721))) != 0)) goto L_C07FF9E;
-    if ((((((struct o3768_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C0800DC;
-    v0_1 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x1);
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C0800DC;
-    goto L_C08030E;
-    L_C080230:;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x3731))) != 0)) goto L_C08029A;
-    v0_1 = *(int *)(((int)stk + 12));
-    v0_1 = (FUN_0c0c30a8(((((struct o376C_int *)(v0_1))->v)), 0x1, v0_1)) == 0;
-    if (v0_1) goto L_C080256;
-    v0_2 = ((FUN_0c07fe02((*(int *)(((int)stk + 12))), 0x0, v0_0, 0x0)));
-    goto L_C08030E;
-    L_C080256:;
-    if ((((((struct o3768_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C08029A;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x371C))) != 0)) goto L_C08029A;
-    v0_0 = *(int *)(((int)stk + 12));
-    v0_0 = (FUN_0c0c30a8(((((struct o3768_int *)(v0_0))->v)), 0x2, v0_0)) == 0;
-    if (v0_0) goto L_C08029A;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x7;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x4;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x7, 0x4)));
-    goto L_C08030E;
-    L_C08029A:;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x371C))) == 0)) goto L_C0802C2;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x1A;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x0;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x1A, 0x0)));
-    goto L_C08030E;
-    L_C0802C2:;
-    if (((*(signed char *)((0x3731 + (*(int *)(((int)stk + 12)))))) != 2)) goto L_C0802EA;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x7;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x6;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x7, 0x6)));
-    goto L_C08030E;
-    L_C0802EA:;
-    if (((*(signed char *)(((*(int *)(((int)stk + 12))) + 0x3731))) != 0)) goto L_C080316;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x7;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = (*(int *)(((int)stk + 8)));
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x7, (*(int *)(((int)stk + 8))))));
-    goto L_C08030E;
-    L_C080316:;
-    return 0x0;
-    L_C0800DC:;
-    v0_1 = ((int (*)(int))(FUN_0c07f820))((*(int *)(((int)stk + 12))));
-    *(unsigned int *)(((int)stk + 4)) = v0_1;
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C08013C;
-    if ((v0_2 != 1)) goto L_C080100;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x9;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x0;
-    v0_1 = (0x9);
-    v0_0 = (0x0);
-    L_C080114:;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), v0_1, v0_0)));
-    goto L_C08030E;
-    L_C080100:;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0xB;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x1;
-    v0_1 = (0xB);
-    v0_0 = (0x1);
-    goto L_C080114;
-    L_C08013C:;
-    v0_1 = (((int (*)(int, int, int))(FUN_0c07f9a2))((*(int *)(((int)stk + 12))), ((int)stk + 0), v0_0)) == 0;
-    if (v0_1) goto L_C08016C;
-    (((struct o372A_uchar *)((*(int *)(((int)stk + 12)))))->v) = (*(int *)(((int)stk + 0)));
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0xB;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x2;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0xB, 0x2)));
-    goto L_C08030E;
-    L_C08016C:;
-    v0_1 = (FUN_0c07fdba((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_1) goto L_C080182;
-    v0_1 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x0);
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C080182;
-    goto L_C08030E;
-    L_C080182:;
-    v0_1 = FUN_0c07fcda((*(int *)(((int)stk + 12))));
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C08018E;
-    goto L_C08030E;
-    L_C08018E:;
-    v0_1 = FUN_0c07fc00((*(int *)(((int)stk + 12))));
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C08019A;
-    goto L_C08030E;
-    L_C08019A:;
-    if ((((((struct o3768_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C0801B2;
-    v0_1 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x0);
-    v0_2 = (v0_1);
-    if ((v0_1 == 0)) goto L_C0801B2;
-    goto L_C08030E;
-    L_C0801B2:;
-    v0_1 = (FUN_0c07f67c((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_1) goto L_C0801D8;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x9;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x1;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x9, 0x1)));
-    goto L_C08030E;
-    L_C0801D8:;
-    v0_1 = (FUN_0c064f80((*(int *)(((int)stk + 12))))) != 0;
-    if (v0_1) goto L_C080230;
-    v0_0 = *(int *)(((int)stk + 12));
-    w0_1 = (((struct o2C_float *)(v0_0))->v);
-    w0_0 = (w0_1);
-    if ((w0_1 > (((((struct o168_float *)(v0_0))->v)) + 80.0f))) goto L_C0801FC;
-    goto L_C080316;
-    L_C0801FC:;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x7;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x5;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x7, 0x5)));
-    goto L_C08030E;
-    L_C07FF9E:;
-    v0_2 = (((int (*)(int, int, int))(FUN_0c07f9a2))((*(int *)(((int)stk + 12))), ((int)stk + 0), v0_0)) == 0;
-    if (v0_2) goto L_C07FFCE;
-    (((struct o372A_uchar *)((*(int *)(((int)stk + 12)))))->v) = (*(int *)(((int)stk + 0)));
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0xB;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x2;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0xB, 0x2)));
-    goto L_C08030E;
-    L_C07FFCE:;
-    v0_2 = (FUN_0c07fdba((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_2) goto L_C07FFE4;
-    v0_3 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x0);
-    v0_2 = (v0_3);
-    if ((v0_3 == 0)) goto L_C07FFE4;
-    goto L_C08030E;
-    L_C07FFE4:;
-    v0_3 = FUN_0c07fcda((*(int *)(((int)stk + 12))));
-    v0_2 = (v0_3);
-    if ((v0_3 == 0)) goto L_C07FFF0;
-    goto L_C08030E;
-    L_C07FFF0:;
-    v0_3 = FUN_0c07fc00((*(int *)(((int)stk + 12))));
-    v0_2 = (v0_3);
-    if ((v0_3 == 0)) goto L_C07FFFC;
-    goto L_C08030E;
-    L_C07FFFC:;
-    if ((((((struct o3768_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C080014;
-    v0_3 = FUN_0c07f312((*(int *)(((int)stk + 12))), 0x0);
-    v0_2 = (v0_3);
-    if ((v0_3 == 0)) goto L_C080014;
-    goto L_C08030E;
-    L_C080014:;
-    v0_2 = (FUN_0c07f67c((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_2) goto L_C080050;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x9;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x1;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x9, 0x1)));
-    goto L_C08030E;
-    L_C080050:;
-    v0_2 = (FUN_0c07f0fc((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_2) goto L_C080062;
-    v0_2 = ((FUN_0c081dfc((*(int *)(((int)stk + 12))), v0_1, v0_0)));
-    goto L_C08030E;
-    L_C080062:;
-    v0_1 = *(int *)(((int)stk + 12));
-    v0_1 = (FUN_0c0c30a8(((((struct o376C_int *)(v0_1))->v)), 0x1, v0_1)) == 0;
-    if (v0_1) goto L_C08007E;
-    v0_2 = ((FUN_0c07fe02((*(int *)(((int)stk + 12))), 0x1, v0_0, 0x0)));
-    goto L_C08030E;
-    L_C08007E:;
-    v0_1 = (FUN_0c064f80((*(int *)(((int)stk + 12))))) == 0;
-    if (v0_1) goto L_C08008C;
-    goto L_C080230;
-    L_C08008C:;
-    v0_0 = *(int *)(((int)stk + 12));
-    w0_1 = (((struct o2C_float *)(v0_0))->v);
-    w0_0 = (w0_1);
-    if ((w0_1 > (((((struct o168_float *)(v0_0))->v)) + 80.0f))) goto L_C0800A6;
-    goto L_C080316;
-    L_C0800A6:;
-    (((struct o3717_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x7;
-    (((struct o3718_uchar *)((*(int *)(((int)stk + 12)))))->v) = 0x5;
-    v0_2 = ((((int (*)(int, int, int))(FUN_0c085cac))((*(int *)(((int)stk + 12))), 0x7, 0x5)));
-    goto L_C08030E;
-    L_C07FEE0:;
-    if ((((((struct o376C_int *)((*(int *)(((int)stk + 12)))))->v)) == 0)) goto L_C07FEF4;
-    v0_2 = ((FUN_0c081dfc((*(int *)(((int)stk + 12))), v0_1, v0_0)));
-    goto L_C08030E;
+    int stk[2];
+    int s;
+    int t;
+    int first;
+    int v;
+    if (*(signed char *)(a4 + 0x371C) != 0) {
+        if (FUN_0c07f0fc(a4) != 0 && *(signed char *)(a4 + 0x371D) != 1) {
+            if (((struct o3768_int *)a4)->v != 0) {
+                if (FUN_0c07f312(a4, 0) != 0) return 1;
+            } else if (((struct o376C_int *)a4)->v != 0) {
+                FUN_0c081dfc(a4, a5, a6);
+                return 1;
+            }
+        }
+        v = *(signed char *)(a4 + 0x375A);
+        if (v == 1 || v == 2 || v == 4 || v == 5) {
+            s = 0x1A;
+            t = 0;
+            goto L_SET;
+        }
+    }
+    if (((struct o3770_int *)a4)->v != 0 && *(signed char *)(a4 + 0x371D) == 1) {
+        s = 0xC;
+        t = 0;
+        goto L_SET;
+    }
+    if (*(signed char *)(a4 + 0x3731) == 2) {
+        if (*(signed char *)(a4 + 0x3721) != 0) {
+            first = 1;
+            goto L_CHAIN;
+        }
+        if (((struct o3768_int *)a4)->v != 0 && FUN_0c07f312(a4, 1) != 0) return 1;
+        v = FUN_0c07f820(a4);
+        if (v == 0) {
+            first = 0;
+            goto L_CHAIN;
+        }
+        s = (v == 1) ? 9 : 0xB;
+        t = (v == 1) ? 0 : 1;
+        goto L_SET;
+    }
+    goto L_230;
+    L_CHAIN:;
+    if (FUN_0c07f9a2(a4, stk, a6) != 0) {
+        ((struct o372A_uchar *)a4)->v = stk[0];
+        s = 0xB;
+        t = 2;
+        goto L_SET;
+    }
+    if (FUN_0c07fdba(a4) != 0 && FUN_0c07f312(a4, 0) != 0) return 1;
+    if (FUN_0c07fcda(a4) != 0) return 1;
+    if (FUN_0c07fc00(a4) != 0) return 1;
+    if (((struct o3768_int *)a4)->v != 0 && FUN_0c07f312(a4, 0) != 0) return 1;
+    if (FUN_0c07f67c(a4) != 0) {
+        s = 9;
+        t = 1;
+        goto L_SET;
+    }
+    if (first) {
+        if (FUN_0c07f0fc(a4) != 0) {
+            FUN_0c081dfc(a4, a5, a6);
+            return 1;
+        }
+        if (FUN_0c0c30a8(((struct o376C_int *)a4)->v, 1, a4) != 0) {
+            FUN_0c07fe02(a4, 1, a6, 0);
+            return 1;
+        }
+    }
+    if (FUN_0c064f80(a4) == 0) {
+        if (((struct o2C_float *)a4)->v > ((struct o168_float *)a4)->v + 80.0f) {
+            s = 7;
+            t = 5;
+            goto L_SET;
+        }
+        return 0;
+    }
+    L_230:;
+    if (*(signed char *)(a4 + 0x3731) == 0) {
+        if (FUN_0c0c30a8(((struct o376C_int *)a4)->v, 1, a4) != 0) {
+            FUN_0c07fe02(a4, 0, a6, 0);
+            return 1;
+        }
+        if (((struct o3768_int *)a4)->v != 0 && *(signed char *)(a4 + 0x371C) == 0 && FUN_0c0c30a8(((struct o3768_int *)a4)->v, 2, a4) != 0) {
+            s = 7;
+            t = 4;
+            goto L_SET;
+        }
+    }
+    if (*(signed char *)(a4 + 0x371C) != 0) {
+        s = 0x1A;
+        t = 0;
+        goto L_SET;
+    }
+    if (*(signed char *)(a4 + 0x3731) == 2) {
+        s = 7;
+        t = 6;
+        goto L_SET;
+    }
+    if (*(signed char *)(a4 + 0x3731) != 0) return 0;
+    s = 7;
+    t = a5;
+    L_SET:;
+    ((struct o3717_uchar *)a4)->v = s;
+    ((struct o3718_uchar *)a4)->v = t;
+    FUN_0c085cac(a4, s, t);
+    return 1;
 }

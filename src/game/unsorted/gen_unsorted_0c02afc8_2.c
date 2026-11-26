@@ -20,7 +20,7 @@ int FUN_0c02b5da(void);
 int FUN_0c02b624(void);
 int FUN_0c187d60(int, int);
 extern int strcpy();
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c02b692(int a4, int a5, int a6);
 int FUN_0c02b7fc(void);
 
@@ -176,7 +176,7 @@ int FUN_0c02b7fc(void)
                 t99 = (t99 + 0x11BC);
                 t99 = (t99 + (((t102 << 2) << 2) + t102));
                 u143 = u124;
-                u143 = u143 + (*(float *)(((int)stk + 0))) * (((float)(FUN_0c187d88(t99)) / (1.0f + 1.0f)));
+                u143 = u143 + (*(float *)(((int)stk + 0))) * (((float)(strlen(t99)) / (1.0f + 1.0f)));
                 t149 = 0xC187D88;
                 u152 = u143;
             } else {

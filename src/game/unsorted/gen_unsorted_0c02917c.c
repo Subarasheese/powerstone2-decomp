@@ -141,43 +141,45 @@ int FUN_0c029220(void)
 
 int FUN_0c02932a(void)
 {
+    int qa0;
     int stk[102];
-    register int t0;
-    register int t133;
-    register int t2;
-    register int t3;
-    register int t38;
-    register int t64;
-    register int t65;
-    register int t80;
-    register int t81;
-    register int t99;
-    int t4;
-    register int t126;
-    int t48;
-    register int t120;
-    int t72;
-    register int t113;
+    int t99;
+    int t113;
+    int t2;
+    int t80;
+    int t3;
+    int t64;
     int t94;
+    int t72;
+    int t48;
+    int t4;
+    int t120;
+    int t81;
+    int t38;
+    int t133;
+    int t0;
+    int t126;
+    int t65;
 
+    qa0 = 0xC309994;
     t0 = FUN_0c022050();
     t133 = t0;
     if (t0 == 0) {
     } else {
         FUN_0c0220c4((((int)stk + 0) + 0xC), ((int)stk + 0), (((int)stk + 0) + 0x4));
         t2 = *(signed char *)(((int)stk + 12));
-        t3 = *(int *)0xC309994;
+        t3 = *(int *)qa0;
         if ((t2 == 101) && (t4 = *(signed char *)(((int)stk + 4)), t4 == 8)) {
             FUN_0c1864e0(t3, (((int)stk + 0) + 0x14), 0x1);
-            FUN_0c1864e0((*(int *)0xC309994), ((int)stk + 0), 0x1);
+            FUN_0c1864e0((*(int *)qa0), ((int)stk + 0), 0x1);
             t38 = *(signed char *)(((int)stk + 20));
             if (t38 == 1) {
-                FUN_0c1864e0((*(int *)0xC309994), 0xC309E07, 0x1);
+                FUN_0c1864e0((*(int *)qa0), 0xC309E07, 0x1);
                 (((struct o18_uchar *)(((int)stk + 0)))->v) = 0x77;
                 *(unsigned int *)(((int)stk + 16)) = ((((int)stk + 0) + 0x18) + 0x1);
                 *(unsigned char *)((((((int)stk + 0) + 0x18) + 0x1) + 0x0)) = 0x3;
                 *(unsigned char *)(((((int)stk + 0) + 0x18) + 0x2)) = 0x2;
-                t126 = (FUN_0c186740((*(int *)0xC309994), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
+                t126 = (FUN_0c186740((*(int *)qa0), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
             } else {
                 *(unsigned int *)0xC30A3F8 = 0x0;
                 t126 = t38;
@@ -190,7 +192,7 @@ int FUN_0c02932a(void)
                     if ((int)t64 >= (int)0xE) {
                         break;
                     }
-                    FUN_0c1864e0((*(int *)0xC309994), t65, 0x1);
+                    FUN_0c1864e0((*(int *)qa0), t65, 0x1);
                     t65 = (t65 + 0x1);
                     t64 = (t64 + 0x1);
                 }
@@ -198,7 +200,7 @@ int FUN_0c02932a(void)
                 *(unsigned int *)(((int)stk + 16)) = ((((int)stk + 0) + 0x18) + 0x1);
                 *(unsigned char *)((((((int)stk + 0) + 0x18) + 0x1) + 0x0)) = 0x3;
                 *(unsigned char *)(((((int)stk + 0) + 0x18) + 0x2)) = 0x6;
-                t120 = (FUN_0c186740((*(int *)0xC309994), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
+                t120 = (FUN_0c186740((*(int *)qa0), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
             } else {
                 if ((t2 == 102) && (t72 = *(signed char *)(((int)stk + 4)), t72 == 6)) {
                     FUN_0c1864e0(t3, (((int)stk + 0) + 0x8), 0x1);
@@ -208,7 +210,7 @@ int FUN_0c02932a(void)
                         if ((int)t80 >= (int)(unsigned char)t81) {
                             break;
                         }
-                        FUN_0c1864e0((*(int *)0xC309994), (t80 + 0xC30AA34), 0x1);
+                        FUN_0c1864e0((*(int *)qa0), (t80 + 0xC30AA34), 0x1);
                         t80 = (t80 + 0x1);
                     }
                     if ((*(signed char *)0xC309993) == 0) {
@@ -216,7 +218,7 @@ int FUN_0c02932a(void)
                         *(unsigned int *)(((int)stk + 16)) = ((((int)stk + 0) + 0x18) + 0x1);
                         *(unsigned char *)((((((int)stk + 0) + 0x18) + 0x1) + 0x0)) = 0x3;
                         *(unsigned char *)(((((int)stk + 0) + 0x18) + 0x2)) = 0x3;
-                        t113 = (FUN_0c186740((*(int *)0xC309994), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
+                        t113 = (FUN_0c186740((*(int *)qa0), (((int)stk + 0) + 0x18), (*(signed char *)(((*(int *)(((int)stk + 16))) + 0x0)))));
                     } else {
                         *(unsigned int *)0xC30A3F8 = 0x7;
                         t113 = (unsigned char)t81;
@@ -229,10 +231,10 @@ int FUN_0c02932a(void)
                             if ((int)t99 >= (int)(unsigned char)(*(signed char *)(((int)stk + 0)))) {
                                 break;
                             }
-                            FUN_0c1864e0((*(int *)0xC309994), (t99 + 0xC3098E3), 0x1);
+                            FUN_0c1864e0((*(int *)qa0), (t99 + 0xC3098E3), 0x1);
                             t99 = (t99 + 0x1);
                         }
-                        *(unsigned char *)((t99 + 0xC3098E3)) = 0x0;
+                        *(unsigned char *)(t99 + 0xC3098E3) = 0x0;
                         *(unsigned int *)0xC30A3F8 = 0x7;
                         t113 = 0xC3098E3;
                     } else {

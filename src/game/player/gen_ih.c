@@ -26,29 +26,32 @@ int FUN_0c14f238(int, int, int, int);
 int math_vec3_accumulate(int, int);
 int thunk_FUN_0c058310(int, int);
 int FUN_0c08f120(int a4, int a5, int a6);
+struct o1C_short { char p[0x1C]; short v; };
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+
 
 int FUN_0c08f120(int a4, int a5, int a6)
 {
     int stk[11];
 
-    register int R2;
-    register int R3;
-    register int R7;
-    register float F1;
-    register float F2;
-    register float F3;
-    register float F4;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
+    int v0_0;
+    int v0_1;
+    int v0_2;
+    int v0_4;
+    int R7;
+    int v0_3;
+    int R2;
+    float F1;
+    float F2;
+    float F3;
+    float F4;
+    int T_;
+    int R3;
     v0_1 = a4;
     v0_2 = a5;
     v0_3 = a6;
-    v0_4 = *(short *)((v0_1 + 0x1C));
-    *(unsigned short *)((v0_1 + 0x1C)) = (v0_4 - 1);
+    v0_4 = (((struct o1C_short *)(v0_1))->v);
+    (((struct o1C_ushort *)(v0_1))->v) = (v0_4 - 1);
     v0_0 = (v0_1);
     if (((int)(short)(v0_4 - 1) <= 0)) goto L_C08F13E;
     (((struct o374B_uchar *)(v0_0))->v) = 0x1;
@@ -57,7 +60,7 @@ int FUN_0c08f120(int a4, int a5, int a6)
     if ((!(0.0f > ((((struct o17C_float *)(v0_0))->v))))) goto L_C08F15A;
     (((struct o50_float *)(v0_0))->v) = (((((struct o50_float *)(v0_0))->v)) / (1.0f + 1.0f));
     L_C08F15A:;
-    if (((*(signed char *)((v0_0 + 0x131))) == 0)) goto L_C08F1CE;
+    if (((*(signed char *)(v0_0 + 0x131)) == 0)) goto L_C08F1CE;
     v0_1 = (FUN_0c07d1fc(v0_0)) == 0;
     if (v0_1) goto L_C08F1CE;
     (((struct o131_uchar *)(v0_0))->v) = 0x0;
@@ -83,12 +86,9 @@ int FUN_0c08f120(int a4, int a5, int a6)
     v0_0 = ((FUN_0c085cac(v0_0, 0x6, 0x0, R7)));
     goto L_C08F2A8;
     L_C08F22C:;
-    *(int *)((int)stk + 8) = 0xB;
-    *(int *)((int)stk + 4) = 0x2;
-    v0_1 = *(signed char *)((v0_0 + 0x1));
+    v0_1 = *(signed char *)(v0_0 + 0x1);
     *(unsigned int *)(((int)stk + 12)) = v0_1;
     v0_2 = v0_1;
-    *(int *)((int)stk + 0) = v0_2;
     FUN_0c07e79c(v0_0, v0_1, 0x2, 0xB, v0_2, 0x2, 0xB);
     v0_1 = *(int *)(((0x118 + v0_0) + 0x4));
     v0_2 = (((struct o118_int *)(v0_0))->v);
@@ -104,8 +104,8 @@ int FUN_0c08f120(int a4, int a5, int a6)
     (((struct o94_float *)(v0_2))->v) = 1.0f;
     FUN_0c07daea(v0_0, (0x118 + v0_0), v0_2);
     (((struct o446_uchar *)(v0_0))->v) = 0x1;
-    *(unsigned short *)((v0_0 + 0x1C)) = 0x23;
-    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x16))) + 0x1);
+    (((struct o1C_ushort *)(v0_0))->v) = 0x23;
+    (((struct o16_uchar *)(v0_0))->v) = ((*(signed char *)(v0_0 + 0x16)) + 0x1);
     v0_0 = (0x16);
     goto L_C08F2A8;
     L_C08F290:;

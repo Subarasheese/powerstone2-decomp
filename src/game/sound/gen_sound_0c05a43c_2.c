@@ -10,8 +10,8 @@ int FUN_0c05afec(int, int);
 int FUN_0c05b018(int, int, int, int, int);
 int nlSelectMatrixStack(int);
 int nlUnitMatrix(void);
-int FUN_0c0e3350(int, int);
-int FUN_0c0e3470(void);
+int nlFastScreenPoint(int, int);
+int nlMakeFastModelProjectMatrixVM(void);
 int FUN_0c180b3c(int, int, int, int, int);
 int FUN_0c180bec(int, int, int, int, int, int, int);
 int FUN_0c180d72(int);
@@ -99,8 +99,8 @@ int FUN_0c05a820(int a4, int a5, int a6, int a7)
                     if (a7 != 0) {
                         nlSelectMatrixStack(0x1);
                         nlUnitMatrix();
-                        FUN_0c0e3470();
-                        FUN_0c0e3350(a7, (((int)stk + 0) + 0x14));
+                        nlMakeFastModelProjectMatrixVM();
+                        nlFastScreenPoint(a7, (((int)stk + 0) + 0x14));
                         if (0.0f > (*(float *)(((int)stk + 20)))) {
                             *(float *)(((int)stk + 20)) = 0.0f;
                         }

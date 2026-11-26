@@ -1363,13 +1363,6 @@ int FUN_0c10ade4(int a4)
     return FUN_0c109c2a((*(int *)(((int)stk + 4))));
 }
 
-int buExit(void)
-{
-    *(unsigned int *)0xC303700 = 0x0;
-    kdSetHandler((*(int *)0xC2FED5C), 0x0);
-    vmsfs_c_exit();
-    return vmsfs_exit();
-}
 
 int FUN_0c10676e(int a4)
 {

@@ -43,10 +43,10 @@ int FUN_0c064cbc(int, int, int, float);
 float math_signed_sqrt(float);
 int nlSelectMatrixStack(int);
 int math_vec3_accumulate(int, int);
-float FUN_0c0e2240(int, int);
+float nlLength(int, int);
 float FUN_0c0e2340(int);
-int FUN_0c17c2d0(int, int);
-int FUN_0c17c4d0(int);
+int nlSubVector(int, int);
+int nlVoidUnitVector(int);
 int FUN_0c18778c(void);
 int FUN_0c187798(int, int, int);
 int FUN_0c05ffa4(int a4, int a5, int a6);
@@ -135,7 +135,7 @@ int FUN_0c060028(int a4, int a5, int a6)
     (((struct o8_float *)(a6))->v) = (((((struct o8_float *)(a5))->v)) - ((((struct o8_float *)(a4))->v)));
     t6 = FUN_0c0e2340(a6);
     if (t6 != 0.0f) {
-        return FUN_0c17c4d0(a6);
+        return nlVoidUnitVector(a6);
     }
     *(float *)((a6 + 0x0)) = 1.0f;
     (((struct o4_float *)(a6))->v) = 0.0f;
@@ -152,7 +152,7 @@ int FUN_0c060074(int a4, int a5, int a6)
     (((struct o8_float *)(a6))->v) = (((((struct o8_float *)(a5))->v)) - ((((struct o8_float *)(a4))->v)));
     t4 = FUN_0c0e2340(a6);
     if (t4 != 0.0f) {
-        return FUN_0c17c4d0(a6);
+        return nlVoidUnitVector(a6);
     }
     *(float *)((a6 + 0x0)) = 1.0f;
     (((struct o4_float *)(a6))->v) = 0.0f;
@@ -169,7 +169,7 @@ int FUN_0c0600c0(int a4, float f4, float f5, float f6, float f7)
     (((struct o8_float *)(a4))->v) = (f7 - f5);
     t0 = FUN_0c0e2340(a4);
     if (t0 != 0.0f) {
-        return FUN_0c17c4d0(a4);
+        return nlVoidUnitVector(a4);
     }
     *(float *)((a4 + 0x0)) = 1.0f;
     (((struct o4_float *)(a4))->v) = 0.0f;
@@ -192,137 +192,7 @@ int FUN_0c060180(int a4, int a5, int a6)
     return math_vec3_accumulate(a5, (a4 + 0x28));
 }
 
-int FUN_0c0601da(int a4, int a5, float f4)
-{
-    register int t0;
-    register int t1;
-    float u0;
-    float u1;
-    float u2;
-    float u3;
-    register float u4;
 
-    t0 = *(signed char *)((a5 + 0x1));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 2) {
-                u4 = *(float *)((a4 + 0x0));
-                if (!(((((struct o4_float *)(a4))->v)) > u4) && (u0 = (((struct o8_float *)(a4))->v), !(u0 > u4))) {
-                    (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * (*(float *)((a4 + 0x0))));
-                } else {
-                    u0 = (((struct o8_float *)(a4))->v);
-                    t0 = 0x4;
-                    if (!((*(float *)((a4 + 0x0))) > u0) && (u1 = (((struct o4_float *)(a4))->v), !(u1 > u0))) {
-                        t0 = 0x8;
-                    }
-                    (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * (*(float *)(((t0 + a4) + 0x0))));
-                }
-                t0 = 0x14;
-            } else {
-                if (!(((((struct o8_float *)(a4))->v)) > (*(float *)((a4 + 0x0))))) {
-                    u0 = (*(float *)((a4 + 0x0)));
-                } else {
-                    u0 = ((((struct o8_float *)(a4))->v));
-                }
-                (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * u0);
-                (((struct o18_float *)(a5))->v) = (((((struct o18_float *)(a5))->v)) * ((((struct o4_float *)(a4))->v)));
-                t0 = 0x18;
-            }
-            t1 = t0;
-        } else {
-            (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * (*(float *)((a4 + 0x0))));
-            (((struct o18_float *)(a5))->v) = (((((struct o18_float *)(a5))->v)) * ((((struct o4_float *)(a4))->v)));
-            (((struct o1C_float *)(a5))->v) = (((((struct o1C_float *)(a5))->v)) * ((((struct o8_float *)(a4))->v)));
-            t1 = 0x1C;
-        }
-        t0 = t1;
-    } else {
-        u0 = *(float *)((a4 + 0x0));
-        if (!(((((struct o4_float *)(a4))->v)) > u0) && (u2 = (((struct o8_float *)(a4))->v), !(u2 > u0))) {
-            (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * (*(float *)((a4 + 0x0))));
-        } else {
-            u0 = (((struct o8_float *)(a4))->v);
-            t1 = 0x4;
-            if (!((*(float *)((a4 + 0x0))) > u0) && (u3 = (((struct o4_float *)(a4))->v), !(u3 > u0))) {
-                t1 = 0x8;
-            }
-            (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * (*(float *)(((t1 + a4) + 0x0))));
-        }
-        t0 = 0x14;
-    }
-    return t0;
-}
-
-float FUN_0c060290(int a4, int a5)
-{
-    register int t0;
-    register float u0;
-    register float u1;
-    register float u2;
-    register float u3;
-    register float u4;
-
-    t0 = *(signed char *)((a5 + 0x1));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            if (t0 != 2) {
-                t0 = *(int *)(((((*(signed char *)((a5 + 0x2))) << 2) + (0xC4 + a4)) + 0x0));
-                u0 = (((struct o4_float *)((t0 + 0x28)))->v);
-                u1 = (((struct o8_float *)((t0 + 0x28)))->v);
-                u2 = (((struct o28_float *)(t0))->v);
-                u3 = (u1 * u1);
-                u3 = u3 + u0 * u0;
-                u0 = u3;
-                u0 = u0 + u2 * u2;
-                u1 = math_signed_sqrt(u0);
-                (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * u1);
-                u0 = u1;
-            } else {
-                t0 = *(int *)(((((*(signed char *)((a5 + 0x2))) << 2) + (0xC4 + a4)) + 0x0));
-                u1 = (((struct o4_float *)((t0 + 0x28)))->v);
-                u2 = (((struct o8_float *)((t0 + 0x28)))->v);
-                u3 = (((struct o28_float *)(t0))->v);
-                u4 = (u2 * u2);
-                u4 = u4 + u1 * u1;
-                u1 = u4;
-                u1 = u1 + u3 * u3;
-                u2 = math_signed_sqrt(u1);
-                (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * u2);
-                (((struct o18_float *)(a5))->v) = (((((struct o18_float *)(a5))->v)) * u2);
-                u0 = u2;
-            }
-            u1 = u0;
-        } else {
-            t0 = *(int *)(((((*(signed char *)((a5 + 0x2))) << 2) + (0xC4 + a4)) + 0x0));
-            u0 = (((struct o4_float *)((t0 + 0x28)))->v);
-            u2 = (((struct o8_float *)((t0 + 0x28)))->v);
-            u3 = (((struct o28_float *)(t0))->v);
-            u4 = (u2 * u2);
-            u4 = u4 + u0 * u0;
-            u0 = u4;
-            u0 = u0 + u3 * u3;
-            u2 = math_signed_sqrt(u0);
-            (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * u2);
-            (((struct o18_float *)(a5))->v) = (((((struct o18_float *)(a5))->v)) * u2);
-            (((struct o1C_float *)(a5))->v) = (((((struct o1C_float *)(a5))->v)) * u2);
-            u1 = u2;
-        }
-        u0 = u1;
-    } else {
-        t0 = *(int *)(((((*(signed char *)((a5 + 0x2))) << 2) + (0xC4 + a4)) + 0x0));
-        u1 = (((struct o4_float *)((t0 + 0x28)))->v);
-        u2 = (((struct o8_float *)((t0 + 0x28)))->v);
-        u3 = (((struct o28_float *)(t0))->v);
-        u4 = (u2 * u2);
-        u4 = u4 + u1 * u1;
-        u1 = u4;
-        u1 = u1 + u3 * u3;
-        u2 = math_signed_sqrt(u1);
-        (((struct o14_float *)(a5))->v) = (((((struct o14_float *)(a5))->v)) * u2);
-        u0 = u2;
-    }
-    return u0;
-}
 
 int FUN_0c060376(int a4, int a5)
 {
@@ -390,59 +260,6 @@ int FUN_0c060376(int a4, int a5)
     goto L_C06041A;
 }
 
-int FUN_0c06050c(int a4)
-{
-    int stk[1];
-    int t0;
-    register float u2;
-    register float u6;
-    register float u10;
-    register float u14;
-    register float u42;
-    register float u46;
-    register float u50;
-    register float u54;
-    register float u59;
-    register float u60;
-    register float u38;
-    register float u39;
-
-    *(unsigned int *)(((int)stk + 0)) = 0x0;
-    t0 = *(signed char *)((a4 + 0x1));
-    if ((t0 != 0) && (t0 != 2)) {
-        if (t0 != 1) {
-            u2 = (((struct oC_float *)((a4 + 0x8)))->v);
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + u2), (((((struct o8_float *)((a4 + 0x8)))->v)) + u2));
-            u6 = (((struct oC_float *)((a4 + 0x8)))->v);
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) - u6), (((((struct o8_float *)((a4 + 0x8)))->v)) + u6));
-            u10 = (((struct oC_float *)((a4 + 0x8)))->v);
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + u10), (((((struct o8_float *)((a4 + 0x8)))->v)) - u10));
-            u14 = (((struct oC_float *)((a4 + 0x8)))->v);
-            u38 = (((((struct o8_float *)(a4))->v)) - u14);
-            u39 = (((((struct o8_float *)((a4 + 0x8)))->v)) - u14);
-        } else {
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + ((((struct oC_float *)((a4 + 0x8)))->v))), (((((struct o8_float *)((a4 + 0x8)))->v)) + ((((struct o14_float *)((a4 + 0x8)))->v))));
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) - ((((struct oC_float *)((a4 + 0x8)))->v))), (((((struct o8_float *)((a4 + 0x8)))->v)) + ((((struct o14_float *)((a4 + 0x8)))->v))));
-            FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + ((((struct oC_float *)((a4 + 0x8)))->v))), (((((struct o8_float *)((a4 + 0x8)))->v)) - ((((struct o14_float *)((a4 + 0x8)))->v))));
-            u38 = (((((struct o8_float *)(a4))->v)) - ((((struct oC_float *)((a4 + 0x8)))->v)));
-            u39 = (((((struct o8_float *)((a4 + 0x8)))->v)) - ((((struct o14_float *)((a4 + 0x8)))->v)));
-        }
-        u59 = u38;
-        u60 = u39;
-    } else {
-        u42 = (((struct oC_float *)((a4 + 0x8)))->v);
-        FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + u42), (((((struct o8_float *)((a4 + 0x8)))->v)) + u42));
-        u46 = (((struct oC_float *)((a4 + 0x8)))->v);
-        FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) - u46), (((((struct o8_float *)((a4 + 0x8)))->v)) + u46));
-        u50 = (((struct oC_float *)((a4 + 0x8)))->v);
-        FUN_0c06420e(((int)stk + 0), (((((struct o8_float *)(a4))->v)) + u50), (((((struct o8_float *)((a4 + 0x8)))->v)) - u50));
-        u54 = (((struct oC_float *)((a4 + 0x8)))->v);
-        u59 = (((((struct o8_float *)(a4))->v)) - u54);
-        u60 = (((((struct o8_float *)((a4 + 0x8)))->v)) - u54);
-    }
-    FUN_0c06420e(((int)stk + 0), u59, u60);
-    return (*(int *)(((int)stk + 0)));
-}
 
 float FUN_0c0605e6(int a4)
 {
@@ -873,9 +690,9 @@ int FUN_0c060c2c(int a4, int a5, int a6, int a7, int a8)
     math_vec3_accumulate((a4 + 0x28), a8);
     math_vec3_accumulate((a6 + 0x8), a8);
     math_vec3_accumulate((a4 + 0x178), a8);
-    FUN_0c17c2d0((a5 + 0x28), a8);
-    FUN_0c17c2d0((a7 + 0x8), a8);
-    return (FUN_0c17c2d0((a5 + 0x178), a8));
+    nlSubVector((a5 + 0x28), a8);
+    nlSubVector((a7 + 0x8), a8);
+    return (nlSubVector((a5 + 0x178), a8));
 }
 
 int FUN_0c060c80(int a4, int a5, int a6)
@@ -1313,7 +1130,7 @@ int FUN_0c061604(int a4, int a5, int a6, int a7)
 
     u0 = (((struct oC_float *)((a7 + 0x8)))->v);
     u1 = (((struct oC_float *)((a6 + 0x8)))->v);
-    u2 = FUN_0c0e2240((a6 + 0x8), (a7 + 0x8));
+    u2 = nlLength((a6 + 0x8), (a7 + 0x8));
     t0 = 0x0;
     if (((u1 + u0) - u2) > 0.0f) {
         t0 = FUN_0c061284(a4, a5);

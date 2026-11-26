@@ -16,232 +16,91 @@ struct oAC_ushort { char p[0xAC]; unsigned short v; };
 struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03f346(int);
 int thunk_FUN_0c05abb2(int, int);
-int FUN_0c0ea298(int a4, int a5, int a6, int a7, float f4, float f5, float f6);
+void FUN_0c0ea298(char *p);
 
-int FUN_0c0ea298(int a4, int a5, int a6, int a7, float f4, float f5, float f6)
+#define B(o) (*(signed char *)(p + (o)))
+#define S(o) (*(short *)(p + (o)))
+#define F(o) (*(float *)(p + (o)))
+/* manual: stage object update (state byte p[0x14]): a moving part, kind 0 up/shake/down, other kinds a four-leg path; 234 cases, 329 of 329 instructions */
+void FUN_0c0ea298(char *p)
 {
-
-    register int R1;
-    register int R2;
-    register int R3;
-    int R6;
-    int R7;
-    register int R13;
-    register float F3;
-    register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register float w0_0;
-    register float w0_1;
-    register float w0_2;
-    v0_1 = a4;
-    R6 = a6;
-    R7 = a7;
-    w0_0 = f4;
-    w0_2 = f5;
-    w0_1 = f6;
-    v0_0 = R13;
-    v0_2 = *(signed char *)((v0_1 + 0x14));
-    v0_3 = (v0_2);
-    R13 = (0xC059CFC);
-    v0_0 = (v0_1);
-    if ((v0_2 == 0)) goto L_C0EA2B2;
-    if ((v0_3 == 1)) goto L_C0EA2DC;
-    v0_1 = (*(signed char *)((v0_0 + 0x2))) != 0;
-    if (v0_1) goto L_C0EA528;
-    v0_1 = (0x4E);
-    v0_2 = ((v0_0 + 0x28));
-    L_C0EA52E:;
-    thunk_FUN_0c05abb2(v0_1, v0_2);
-    return FUN_0c03f346(v0_0);
-    L_C0EA528:;
-    v0_1 = (0x4B);
-    v0_2 = ((v0_0 + 0x28));
-    goto L_C0EA52E;
-    L_C0EA2DC:;
-    v0_2 = (*(signed char *)((v0_0 + 0x2))) == 0;
-    v0_1 = (0x0);
-    w0_2 = (3.0f);
-    if (v0_2) goto L_C0EA2EC;
-    v0_2 = *(signed char *)((v0_0 + 0x15));
-    v0_3 = (v0_2);
-    if ((v0_2 == 0)) goto L_C0EA480;
-    if ((v0_3 == 1)) goto L_C0EA4A4;
-    if ((v0_3 == 2)) goto L_C0EA4BE;
-    (((struct o30_float *)(v0_0))->v) = (((((struct o30_float *)(v0_0))->v)) + w0_2);
-    v0_2 = 350.0f > ((((struct o30_float *)(v0_0))->v));
-    v0_3 = (0x30);
-    w0_0 = (350.0f);
-    if (v0_2) goto L_C0EA500;
-    *(float *)((v0_0 + v0_3)) = w0_0;
-    (((struct o15_uchar *)(v0_0))->v) = v0_1;
-    L_C0EA4F8:;
-    v0_1 = thunk_FUN_0c05abb2(0x48, (v0_0 + 0x28));
-    v0_3 = (v0_1);
-    L_C0EA500:;
-    v0_2 = *(signed char *)0xC54098D;
-    v0_1 = (v0_2);
-    if (((int)v0_2 < (int)0xD)) goto L_C0EA53E;
-    v0_3 = (0xE);
-    if (((int)v0_1 > (int)0xE)) goto L_C0EA53E;
-    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
-    v0_3 = (0x14);
-    L_C0EA53E:;
-    return v0_3;
-    L_C0EA4BE:;
-    (((struct o28_float *)(v0_0))->v) = (((((struct o28_float *)(v0_0))->v)) - w0_2);
-    v0_1 = ((((struct o28_float *)(v0_0))->v)) > -150.0f;
-    v0_3 = (0x28);
-    w0_0 = (-150.0f);
-    if (v0_1) goto L_C0EA500;
-    *(float *)((v0_0 + v0_3)) = w0_0;
-    L_C0EA4D4:;
-    (((struct o15_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x15))) + 0x1);
-    goto L_C0EA4F8;
-    L_C0EA4A4:;
-    (((struct o30_float *)(v0_0))->v) = (((((struct o30_float *)(v0_0))->v)) - w0_2);
-    v0_1 = ((((struct o30_float *)(v0_0))->v)) > 150.0f;
-    v0_3 = (0x30);
-    w0_0 = (150.0f);
-    if (v0_1) goto L_C0EA500;
-    v0_3 = (0x30);
-    L_C0EA4BA:;
-    *(float *)((v0_0 + v0_3)) = w0_0;
-    goto L_C0EA4D4;
-    L_C0EA480:;
-    (((struct o28_float *)(v0_0))->v) = (((((struct o28_float *)(v0_0))->v)) + w0_2);
-    v0_1 = 250.0f > ((((struct o28_float *)(v0_0))->v));
-    v0_3 = (0x28);
-    w0_0 = (250.0f);
-    if (v0_1) goto L_C0EA500;
-    goto L_C0EA4BA;
-    L_C0EA2EC:;
-    v0_4 = *(signed char *)((v0_0 + 0x15));
-    v0_3 = (v0_4);
-    v0_2 = (0x78);
-    R6 = (0x2);
-    R7 = (0x4);
-    w0_0 = ((1.0f + 1.0f));
-    w0_1 = (0.0f);
-    if ((v0_4 == 0)) goto L_C0EA30C;
-    if ((v0_3 == 1)) goto L_C0EA328;
-    if ((v0_3 == 2)) goto L_C0EA3B4;
-    v0_4 = ((((struct o20_short *)(v0_0))->v)) == 0;
-    v0_3 = (0x20);
-    if (v0_4) goto L_C0EA43C;
-    v0_3 = ((*(short *)((v0_0 + v0_3))) & R6) == 0;
-    if (v0_3) goto L_C0EA404;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o6C_float *)(v0_3))->v) = (((((struct o6C_float *)(v0_3))->v)) + w0_0);
-    L_C0EA410:;
-    v0_3 = (((((struct o20_short *)(v0_0))->v)) & R7) == 0;
-    if (v0_3) goto L_C0EA426;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = (((((struct o74_float *)(v0_3))->v)) + w0_0);
-    L_C0EA432:;
-    (((struct o20_ushort *)(v0_0))->v) = (((((struct o20_short *)(v0_0))->v)) - 1);
-    L_C0EA448:;
-    v0_4 = *(short *)((v0_0 + 0x1E));
-    *(unsigned short *)((v0_0 + 0x1E)) = (v0_4 + 0x1);
-    v0_3 = ((short)((v0_4 + 0x1) - 1));
-    if (((int)(short)((v0_4 + 0x1) - 1) < (int)v0_2)) goto L_C0EA500;
-    (((struct o15_uchar *)(v0_0))->v) = v0_1;
-    L_C0EA45A:;
-    *(unsigned short *)((v0_0 + 0x1E)) = v0_1;
-    v0_1 = thunk_FUN_0c05abb2(0x4D, (v0_0 + 0x28));
-    v0_3 = (v0_1);
-    goto L_C0EA500;
-    L_C0EA426:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = (((((struct o74_float *)(v0_3))->v)) - w0_0);
-    goto L_C0EA432;
-    L_C0EA404:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o6C_float *)(v0_3))->v) = (((((struct o6C_float *)(v0_3))->v)) - w0_0);
-    goto L_C0EA410;
-    L_C0EA43C:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = w0_1;
-    (((struct o6C_float *)(v0_3))->v) = w0_1;
-    R6 = (v0_3);
-    goto L_C0EA448;
-    L_C0EA3B4:;
-    (((struct o2C_float *)(v0_0))->v) = (((((struct o2C_float *)(v0_0))->v)) + w0_2);
-    v0_1 = !(4300.0f > ((((struct o2C_float *)(v0_0))->v)));
-    v0_3 = (0x2C);
-    w0_0 = (4300.0f);
-    if (v0_1) goto L_C0EA3CC;
-    goto L_C0EA500;
-    L_C0EA3CC:;
-    (((struct o15_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x15))) + 0x1);
-    (((struct o2C_float *)(v0_0))->v) = w0_0;
-    thunk_FUN_0c05abb2(0x4E, (v0_0 + 0x28));
-    (((struct o20_ushort *)(v0_0))->v) = 0x14;
-    v0_3 = (0x20);
-    goto L_C0EA500;
-    L_C0EA328:;
-    v0_4 = ((((struct o20_short *)(v0_0))->v)) == 0;
-    v0_3 = (0x20);
-    if (v0_4) goto L_C0EA38C;
-    v0_3 = ((*(short *)((v0_0 + v0_3))) & R6) == 0;
-    if (v0_3) goto L_C0EA344;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o6C_float *)(v0_3))->v) = (((((struct o6C_float *)(v0_3))->v)) + w0_0);
-    L_C0EA350:;
-    v0_3 = (((((struct o20_short *)(v0_0))->v)) & R7) == 0;
-    if (v0_3) goto L_C0EA366;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = (((((struct o74_float *)(v0_3))->v)) + w0_0);
-    L_C0EA372:;
-    (((struct o20_ushort *)(v0_0))->v) = (((((struct o20_short *)(v0_0))->v)) - 1);
-    L_C0EA398:;
-    v0_4 = *(short *)((v0_0 + 0x1E));
-    *(unsigned short *)((v0_0 + 0x1E)) = (v0_4 + 0x1);
-    v0_3 = ((short)((v0_4 + 0x1) - 1));
-    if (((int)(short)((v0_4 + 0x1) - 1) >= (int)v0_2)) goto L_C0EA3AA;
-    goto L_C0EA500;
-    L_C0EA3AA:;
-    (((struct o15_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x15))) + 0x1);
-    goto L_C0EA45A;
-    L_C0EA366:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = (((((struct o74_float *)(v0_3))->v)) - w0_0);
-    goto L_C0EA372;
-    L_C0EA344:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o6C_float *)(v0_3))->v) = (((((struct o6C_float *)(v0_3))->v)) - w0_0);
-    goto L_C0EA350;
-    L_C0EA38C:;
-    v0_3 = (((struct oC4_int *)(v0_0))->v);
-    (((struct o74_float *)(v0_3))->v) = w0_1;
-    (((struct o6C_float *)(v0_3))->v) = w0_1;
-    R6 = (v0_3);
-    goto L_C0EA398;
-    L_C0EA30C:;
-    (((struct o2C_float *)(v0_0))->v) = (((((struct o2C_float *)(v0_0))->v)) - w0_2);
-    v0_1 = !(((((struct o2C_float *)(v0_0))->v)) > 3400.0f);
-    v0_3 = (0x2C);
-    w0_0 = (3400.0f);
-    if (v0_1) goto L_C0EA324;
-    goto L_C0EA500;
-    L_C0EA324:;
-    goto L_C0EA3CC;
-    L_C0EA2B2:;
-    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
-    (((struct oA8_uchar *)(v0_0))->v) = 0x1;
-    (((struct oAC_ushort *)(v0_0))->v) = 0x1;
-    v0_1 = (*(signed char *)((v0_0 + 0x2))) != 0;
-    if (v0_1) goto L_C0EA2D2;
-    v0_1 = (0x4D);
-    v0_2 = ((v0_0 + 0x28));
-    L_C0EA2D8:;
-    thunk_FUN_0c05abb2(v0_1, v0_2);
-    goto L_C0EA2DC;
-    L_C0EA2D2:;
-    v0_1 = (0x48);
-    v0_2 = ((v0_0 + 0x28));
-    goto L_C0EA2D8;
+    int s = B(0x14);
+    int sub, sh, i;
+    float d, lim, *q;
+    char *o;
+    if (s != 0 && s != 1) {
+        thunk_FUN_0c05abb2(B(2) == 0 ? 0x4E : 0x4B, (int)(p + 0x28));
+        FUN_0c03f346((int)p);
+        return;
+    }
+    if (s == 0) {
+        B(0x14)++;
+        B(0xA8) = 1;
+        S(0xAC) = 1;
+        thunk_FUN_0c05abb2(B(2) == 0 ? 0x4D : 0x48, (int)(p + 0x28));
+    }
+    if (B(2) == 0) {
+        sub = B(0x15);
+        if (sub == 0 || sub == 2) {
+            if (sub == 0) {
+                F(0x2C) -= 3.0f;
+                if (F(0x2C) > 3400.0f)
+                    goto gate;
+                lim = 3400.0f;
+            } else {
+                F(0x2C) += 3.0f;
+                if (4300.0f > F(0x2C))
+                    goto gate;
+                lim = 4300.0f;
+            }
+            B(0x15)++;
+            F(0x2C) = lim;
+            thunk_FUN_0c05abb2(0x4E, (int)(p + 0x28));
+            S(0x20) = 20;
+            goto gate;
+        }
+        sh = S(0x20);
+        if (sh != 0) {
+            o = *(char **)(p + 0xC4);
+            *(float *)(o + 0x6C) += (S(0x20) & 2) ? 2.0f : -2.0f;
+            o = *(char **)(p + 0xC4);
+            *(float *)(o + 0x74) += (S(0x20) & 4) ? 2.0f : -2.0f;
+            S(0x20)--;
+        } else {
+            o = *(char **)(p + 0xC4);
+            *(float *)(o + 0x74) = 0.0f;
+            *(float *)(o + 0x6C) = 0.0f;
+        }
+        if ((short)((*(unsigned short *)(p + 0x1E))++) < 120)
+            goto gate;
+        if (sub == 1)
+            B(0x15)++;
+        else
+            B(0x15) = 0;
+        S(0x1E) = 0;
+        thunk_FUN_0c05abb2(0x4D, (int)(p + 0x28));
+    } else {
+        i = B(0x15);
+        q = &F(0x28);
+        d = 3.0f;
+        switch (i) {
+        case 0: lim = 250.0f; break;
+        case 1: q = &F(0x30); d = -3.0f; lim = 150.0f; break;
+        case 2: d = -3.0f; lim = -150.0f; break;
+        default: q = &F(0x30); lim = 350.0f; i = 3; break;
+        }
+        *q += d;
+        if (d > 0.0f ? lim > *q : *q > lim)
+            goto gate;
+        *q = lim;
+        if (i == 3)
+            B(0x15) = 0;
+        else
+            B(0x15)++;
+        thunk_FUN_0c05abb2(0x48, (int)(p + 0x28));
+    }
+gate:
+    s = *(signed char *)0x0C54098D;
+    if (s >= 13 && s <= 14)
+        B(0x14)++;
 }

@@ -257,22 +257,22 @@ int FUN_0c055a7c(int a4, int a5)
 int FUN_0c055af0(int a4)
 {
     int stk[32];
-    register int t0;
-    register int t1;
-    register int t3;
-    register int t4;
-    register int t7;
-    register float u54;
-    register float u48;
+    int t3;
+    float u6;
+    int t4;
+    float u5;
+    int t1;
+    int t2;
+    int t0;
+    int t19;
+    int t7;
+    float u54;
+    float u48;
+    float u42;
+    int t36;
+    int t29;
+    int t56;
     int t14;
-    register int t19;
-    register int t29;
-    register int t36;
-    register int t56;
-    register int t2;
-    register float u5;
-    register float u6;
-    register float u42;
 
     *(unsigned int *)(((int)stk + 4)) = a4;
     *(unsigned int *)(((int)stk + 0)) = 0x0;
@@ -285,32 +285,20 @@ int FUN_0c055af0(int a4)
         u54 = u5;
         if ((*(signed char *)((((t7 * 0x3938) + 0xC532498) + 0x3714))) != 0) {
             u5 = ((((struct o2C_float *)(((t7 * 0x3938) + 0xC532498)))->v));
-            u6 = (*(float *)0xC54109C);
-            u6 = (u6 + -400.0f);
+            u6 = ((*(float *)0xC54109C) + -400.0f);
             u48 = u5;
             if (u5 > u6) {
-                t2 = t3;
-                t2 = (t2 << 1);
-                t14 = *(signed char *)((t0 + 0x2));
-                t2 = (t2 + t3);
-                t2 = (t2 << 2);
-                t2 = (t2 + (((int)stk + 0) + 0x8));
+                t14 = *(signed char *)(t0 + 0x2);
+                t2 = ((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8));
                 if ((t14 != 12) && (t14 != 13)) {
-                    u6 = ((((struct o28_float *)(t4))->v));
                     t3 = (t3 + 0x1);
-                    *(float *)((t2 + 0x0)) = u6;
-                    u6 = ((((struct o2C_float *)(t4))->v));
-                    u6 = (u6 + -50.0f);
+                    *(float *)(t2) = ((((struct o28_float *)(t4))->v));
                     t19 = ((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8));
                     t3 = (t3 + 0x1);
-                    (((struct o4_float *)(t2))->v) = u6;
-                    u6 = ((((struct o30_float *)(t4))->v));
-                    (((struct o8_float *)(t2))->v) = u6;
-                    u6 = ((((struct o28_float *)(t4))->v));
-                    *(float *)((t19 + 0x0)) = u6;
-                    u6 = ((((struct o2C_float *)(t4))->v));
-                    u6 = (u6 + 250.0f);
-                    (((struct o4_float *)(t19))->v) = u6;
+                    (((struct o4_float *)(t2))->v) = (((((struct o2C_float *)(t4))->v)) + -50.0f);
+                    (((struct o8_float *)(t2))->v) = ((((struct o30_float *)(t4))->v));
+                    *(float *)(t19) = ((((struct o28_float *)(t4))->v));
+                    (((struct o4_float *)(t19))->v) = (((((struct o2C_float *)(t4))->v)) + 250.0f);
                     u6 = ((((struct o30_float *)(t4))->v));
                     (((struct o8_float *)(t19))->v) = u6;
                     u42 = u5;
@@ -319,8 +307,7 @@ int FUN_0c055af0(int a4)
                     u6 = ((((struct o4_float *)(((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8))))->v));
                     t29 = ((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8));
                     t3 = (t3 + 0x1);
-                    u6 = (u6 - 100.0f);
-                    (((struct o4_float *)(t29))->v) = u6;
+                    (((struct o4_float *)(t29))->v) = (u6 - 100.0f);
                     thunk_FUN_0c058310((((((struct oC4_int *)(t1))->v)) + 0x28), ((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8)));
                     u6 = ((((struct o4_float *)(((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8))))->v));
                     t36 = ((((t3 << 1) + t3) << 2) + (((int)stk + 0) + 0x8));
