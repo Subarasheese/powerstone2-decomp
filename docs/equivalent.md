@@ -197300,8 +197300,8 @@ Functions whose C behaves like the original on every test case (`tools/equiv.py`
 - case 154
 - the cases run 64 of 70 instructions
 
-### FUN_0c1490ba (`0C1490BA`, 146 bytes, `src/game/unsorted/gen_tmp0p2027682v.c`)
-- equivalent on 1 development and 1 holdout cases, in `tests/gen_tmp0p2027682v/FUN_0c1490ba.json`
+### FUN_0c1490ba (`0C1490BA`, 146 bytes, `src/game/unsorted/gen_amv.c`)
+- equivalent on 1 development and 1 holdout cases, in `tests/gen_amv/FUN_0c1490ba.json`
 - rescue: empty case
 - rescue: empty case
 - the cases run 63 of 71 instructions

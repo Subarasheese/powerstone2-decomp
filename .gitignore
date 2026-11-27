@@ -25,3 +25,7 @@ __pycache__/
 *.json.old
 unlisted_calls.txt
 port/rl/*.so
+
+# gen_equiv scratch files (tools/5-generated/gen_equiv/scratch.py): never commit them
+src/**/gen_tmp*
+tests/gen_tmp*

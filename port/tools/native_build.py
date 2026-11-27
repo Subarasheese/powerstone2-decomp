@@ -419,6 +419,7 @@ def main():
             definers.setdefault(n, []).append(s)
     # a function with two definitions (a matching unit and an older Equivalent copy): the unit's wins, the others go weak
     weaken = {}
+    twice = sum(1 for ss in definers.values() if len(ss) > 1)
     for n, ss in definers.items():
         if len(ss) > 1:
             win = ss[0]
@@ -478,7 +479,9 @@ def main():
         if names:
             subprocess.run(['objcopy'] + ['--weaken-symbol=' + n for n in names] + [obj_of(s)], check=True)
     if weaken:
-        print('duplicates: %d names defined twice; the matching unit\'s or the first definition kept' % sum(map(len, weaken.values())))
+        print('weakened: %d definitions (library C under port/runtime\'s host code, interp_only.txt functions, '
+              'and %d names defined twice, of which the matching unit\'s or the first definition is kept)'
+              % (sum(map(len, weaken.values())), twice))
     hobjs, runtime_defined = [], set()
     for src in RUNTIME + NUMERIC:
         o = host_compile(src)
