@@ -24,7 +24,7 @@ int FUN_0c0c2ab6(int, int);
 int FUN_0c0c2ce4(int);
 int FUN_0c0c2d56(int, int, int);
 int FUN_0c152d18(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c0c488e(int a4);
 float FUN_0c0c48e8(int a4);
@@ -169,7 +169,7 @@ float FUN_0c0c48e8(int a4)
     *(float *)((v0_2 + 0x0)) = (w0_2 * 7.0f);
     v0_2 = (((struct oC4_int *)(v0_0))->v);
     (((struct o7C_uint *)(v0_2))->v) = (((((struct o7C_int *)(v0_2))->v)) + 0xB6);
-    v0_2 = ((int)((unsigned int)((((struct o68_int *)(v0_1))->v)) % (unsigned int)0x3C)) != ((int)((int)(FUN_0c179ac0()) % (int)0xA));
+    v0_2 = ((int)((unsigned int)((((struct o68_int *)(v0_1))->v)) % (unsigned int)0x3C)) != ((int)((int)(nlRand()) % (int)0xA));
     if (v0_2) goto L_C0C4A60;
     FUN_0c152d18((v0_0 + 0x28));
     goto L_C0C4A60;

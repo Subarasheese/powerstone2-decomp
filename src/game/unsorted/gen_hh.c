@@ -20,19 +20,16 @@ int FUN_0c14e8d0(int a4, int a5, int a6, int a7);
 int FUN_0c04c8d4(int a4)
 {
     int stk[9];
-    register int t8;
-    register float u17;
-    register float u23;
-    register int t24;
-    register int t27;
-    register int t32;
-    register int t35;
-    register int t37;
-    register int t26;
-    register float u28;
+    int t24;
+    int t27;
+    float u28;
+    int t37;
+    int t26;
+    int t8;
+    int t32;
 
-    if ((*(signed char *)((a4 + 0x14))) == 0) {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+    if ((*(signed char *)(a4 + 0x14)) == 0) {
+        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
     }
     { struct mv3 { int w[3]; }; *(struct mv3 *)((((int)stk + 0) + 0xC)) = *(struct mv3 *)(((((short)(*(signed char *)0xC5421DC) * (short)0x2F8) + 0xC5410FC) + 0xC8)); }
     *(float *)(((int)stk + 20)) = ((*(float *)(((int)stk + 20))) + 20.0f);
@@ -41,36 +38,27 @@ int FUN_0c04c8d4(int a4)
     if ((*(float *)(((int)stk + 32))) == 0.0f) {
         *(float *)(((int)stk + 32)) = 9.99999975e-06f;
     }
-    u17 = (*(float *)(((int)stk + 16)));
-    u17 = u17 + (((*(float *)(((int)stk + 28))) / (*(float *)(((int)stk + 32))))) * (*(float *)(((int)stk + 20)));
-    *(float *)(((int)stk + 28)) = u17;
-    u23 = (*(float *)(((int)stk + 12)));
-    u23 = u23 + (((*(float *)(((int)stk + 24))) / (*(float *)(((int)stk + 32))))) * (*(float *)(((int)stk + 20)));
-    *(float *)(((int)stk + 24)) = u23;
+    *(float *)(((int)stk + 28)) = ((*(float *)(((int)stk + 16))) + (((*(float *)(((int)stk + 28))) / (*(float *)(((int)stk + 32))))) * (*(float *)(((int)stk + 20))));
+    *(float *)(((int)stk + 24)) = ((*(float *)(((int)stk + 12))) + (((*(float *)(((int)stk + 24))) / (*(float *)(((int)stk + 32))))) * (*(float *)(((int)stk + 20))));
     *(float *)(((int)stk + 32)) = 10.0f;
-    { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x28)) = *(struct mv3 *)((((int)stk + 0) + 0x18)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)(a4 + 0x28) = *(struct mv3 *)((((int)stk + 0) + 0x18)); }
     t24 = (a4 + 0x28);
     t27 = 0x0;
     for (;;) {
         if ((int)t27 >= (int)((((struct oC0_int *)(a4))->v))) {
             break;
         }
-        t24 = 0xC4;
-        t26 = t27;
-        t26 = (t26 << 2);
-        t24 = (t24 + a4);
-        t24 = (t24 + t26);
-        t24 = (*(int *)((t24 + 0x0)));
+        t26 = (t27 << 2);
+        t24 = (*(int *)((((0xC4 + a4) + t26) + 0x0)));
         t32 = ((int (*)(int, int, int))(nlSubVector3op))((((int)stk + 0) + 0x18), 0xC1B7E58, (a4 + 0x28));
-        u28 = (*(float *)((t26 + 0xC1B7E34)));
+        u28 = (*(float *)(t26 + 0xC1B7E34));
         math_vec3_mul_xyz((((int)stk + 0) + 0x18), u28, u28, u28);
         t24 = (t24 + 0x6C);
         { struct mv3 { int w[3]; }; *(struct mv3 *)(t24) = *(struct mv3 *)((((int)stk + 0) + 0x18)); }
         t27 = (t27 + 0x1);
     }
-    t35 = *(signed char *)0xC541F44;
-    t37 = (unsigned char)t35;
-    if ((int)(unsigned char)t35 >= (int)0xC) {
+    t37 = (unsigned char)(*(signed char *)0xC541F44);
+    if ((int)(unsigned char)(*(signed char *)0xC541F44) >= (int)0xC) {
         t37 = (FUN_0c03f346(a4));
     }
     return t37;

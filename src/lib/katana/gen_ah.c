@@ -174,7 +174,7 @@ void FUN_0c2f5ac0(void);
 int nlObjPutCheckSideCulling(int a4);
 int FUN_0c195acc(int a4, int a5, int a6, int a7);
 int kmiFLWCTRLCheckFinishPacket(int a4, int a5, int a6, int a7);
-void FUN_0c2eb55c(int a4, int a5, int a6, int a7);
+int FUN_0c2eb55c(int a4, int a5, int a6, int a7);
 int FUN_0c17e390(int a4);
 int FUN_0c18cde8(int a4, int a5, int a6, int a7);
 int FUN_0c19b006(int a4, int a5, int a6, int a7);
@@ -1184,7 +1184,7 @@ int kmiFLWCTRLCheckFinishPacket(int a4, int a5, int a6, int a7)
     return 0x1;
 }
 
-void FUN_0c2eb55c(int a4, int a5, int a6, int a7)
+int FUN_0c2eb55c(int a4, int a5, int a6, int a7)
 {
     int t0;
     register int t1;
@@ -1196,7 +1196,9 @@ void FUN_0c2eb55c(int a4, int a5, int a6, int a7)
         t0 = FUN_0c2eb626(0xC8D25F9, a5, a6, a7);
         if ((signed char)t0 != 0) {
             FUN_0c2d487c(0x604, (unsigned char)(*(signed char *)0xC8D2605), 0x1);
+            return 1;
         }
+        return 2;
     } else {
         if ((((*(signed char *)0xC8D25F9) & 8) != 0) && (t2 = (((struct o0_int *)0xC8D25F0)->v), t3 = *(signed char *)((0x50 + t2)), (unsigned char)t3 == 67)) {
             (((struct o9_uchar *)0xC8D25F0)->v) = ((*(signed char *)0xC8D25F9) & 0xF7);
@@ -1204,20 +1206,24 @@ void FUN_0c2eb55c(int a4, int a5, int a6, int a7)
             *(unsigned int *)0xC8D6770 = t0;
             if (t0 == 0) {
                 FUN_0c2d65ae(0x4F24);
+                return 2;
             } else {
                 t0 = FUN_0c2eb6fe(0x1, 0x43, 0x1, 0x0);
                 if ((signed char)t0 == 0) {
                     FUN_0c2d6962();
                     *(unsigned int *)0xC8D6770 = 0x0;
+                    return 2;
                 } else {
                     FUN_0c2d6962();
                     *(unsigned int *)0xC8D6770 = 0x0;
                     FUN_0c2d487c(0x604, (unsigned char)(*(signed char *)0xC8D2603), 0x1);
                     FUN_0c2d487c(0x605, (unsigned char)(*(signed char *)0xC8D2601), 0x1);
+                    return 1;
                 }
             }
         }
     }
+    return 0;
 }
 
 int FUN_0c17e390(int a4)

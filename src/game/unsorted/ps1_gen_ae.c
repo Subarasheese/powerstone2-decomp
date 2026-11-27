@@ -178,7 +178,7 @@ int _slow_mvn(int);
 int FUN_0c0ed9e8(int, int, int);
 int FUN_0c0efdee(int);
 int FUN_0c0f0072(int);
-int FUN_0c0f3d20(int, int);
+int buAnalyzeBackupFileImage(int, int);
 int copy_device(void);
 int FUN_0c0ffdfc(void);
 int kdGetDeviceInfo(int);

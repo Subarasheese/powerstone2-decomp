@@ -36,14 +36,7 @@ int FUN_0c0dff60(void);
 int FUN_0c0dffb0(void);
 
 
-int FUN_0c0e0580(void)
-{
-    register int t0;
-
-    t0 = *(int *)g_dbg_text_flags;
-    *(unsigned int *)g_dbg_text_flags = (t0 | 0x1);
-    return (t0 | 0x1);
-}
+int nlPrnIndentOn(void);
 
 
 void dbg_set_cell_size(int a4, int a5)

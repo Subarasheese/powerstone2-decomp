@@ -22,7 +22,7 @@ int FUN_0c03f346(int, int, int, int);
 int math_vec3_mul_xyz(int, float, float, float);
 int FUN_0c05ab7e(int, int);
 int FUN_0c064d5a(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0e2390(int, int, int);
 extern int FUN_0c187798();
 int FUN_0c14aacc(int a4, int a5);

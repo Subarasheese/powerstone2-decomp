@@ -18,19 +18,24 @@ struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03f346(int, int, int, int);
 int math_mat_get_translate(int, int);
 int FUN_0c0d04c4(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0d3c80(int a4, int a5, int a6, int a7);
+struct o1C_short { char p[0x1C]; short v; };
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+struct o34_int { char p[0x34]; int v; };
+struct o34_uint { char p[0x34]; unsigned int v; };
+
 
 int FUN_0c0d3c80(int a4, int a5, int a6, int a7)
 {
-    register int t0;
-    register int t1;
-    register int t2;
+    int t0;
+    int t1;
+    int t2;
 
     if ((*(signed char *)0xC54223C) != 0) {
         return FUN_0c03f346(a4, a5, a6, a7);
     }
-    t0 = *(signed char *)((a4 + 0x14));
+    t0 = *(signed char *)(a4 + 0x14);
     if (t0 != 0) {
         if (t0 != 1) {
             if (t0 == 2) {
@@ -40,16 +45,16 @@ int FUN_0c0d3c80(int a4, int a5, int a6, int a7)
                 if (!(-10.0f > ((((struct o54_float *)(a4))->v)))) {
                     (((struct o54_float *)(a4))->v) = (((((struct o54_float *)(a4))->v)) - 0.150000006f);
                 }
-                FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+                nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
                 if (-1500.0f > ((((struct o2C_float *)(a4))->v))) {
                     (((struct oB0_float *)(a4))->v) = ((((((struct o2C_float *)(a4))->v)) + 2300.0f) / 800.0f);
                     if (0.0f > ((((struct oB0_float *)(a4))->v))) {
                         (((struct oB0_float *)(a4))->v) = 0.0f;
                     }
                 }
-                *(unsigned int *)((a4 + 0x34)) = ((*(int *)((a4 + 0x34))) + 0xB6);
-                t1 = *(short *)((a4 + 0x1C));
-                *(unsigned short *)((a4 + 0x1C)) = (t1 - 1);
+                (((struct o34_uint *)(a4))->v) = (((((struct o34_int *)(a4))->v)) + 0xB6);
+                t1 = (((struct o1C_short *)(a4))->v);
+                (((struct o1C_ushort *)(a4))->v) = (t1 - 1);
                 t2 = (short)(t1 - 1);
                 if ((int)(short)(t1 - 1) <= 0) {
                     (((struct o14_uchar *)(a4))->v) = 0x3;
@@ -85,7 +90,7 @@ int FUN_0c0d3c80(int a4, int a5, int a6, int a7)
                 }
             }
         }
-        t0 = *(signed char *)((0x14 + (*(int *)((0xC540D94 + ((*(signed char *)((a4 + 0x1B))) << 2))))));
+        t0 = *(signed char *)((0x14 + (*(int *)((0xC540D94 + ((*(signed char *)(a4 + 0x1B)) << 2))))));
         t1 = t0;
         if (t0 == 2) {
             (((struct o14_uchar *)(a4))->v) = 0x2;
@@ -95,33 +100,27 @@ int FUN_0c0d3c80(int a4, int a5, int a6, int a7)
             (((struct oA4_uint *)(a4))->v) = 0x0;
             (((struct o50_float *)(a4))->v) = 5.0f;
             (((struct o54_float *)(a4))->v) = -1.0f;
-            *(unsigned short *)((a4 + 0x1C)) = 0x258;
+            (((struct o1C_ushort *)(a4))->v) = 0x258;
             t1 = 0x258;
         }
         return t1;
     }
-    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
     (((struct oA8_uchar *)(a4))->v) = 0x1;
-    (((struct oA4_uint *)(a4))->v) = ((*(int *)(((((*(signed char *)((a4 + 0x1B))) << 2) + 0xC540D94) + 0x0))) + 0x64);
+    (((struct oA4_uint *)(a4))->v) = ((*(int *)(((((*(signed char *)(a4 + 0x1B)) << 2) + 0xC540D94) + 0x0))) + 0x64);
     FUN_0c0d04c4((0xAC + a4), (a4 + 0x34));
     t0 = 0x0;
     for (;;) {
         if ((int)t0 >= (int)((((struct oC0_int *)(a4))->v))) {
             break;
         }
-        t1 = t0;
-        t1 = (t1 << 2);
+        t1 = (t0 << 2);
         if (t0 != 0) {
-            t2 = 0xC4;
-            t2 = (t2 + a4);
-            t2 = (t2 + t1);
-            t2 = (*(int *)((t2 + 0x0)));
+            t2 = (*(int *)((((0xC4 + a4) + t1) + 0x0)));
             FUN_0c0d04c4((t2 + 0x6), (t2 + 0x78));
         } else {
-            t2 = 0xC4;
-            t2 = (t2 + a4);
-            t1 = (t1 + t2);
-            *(unsigned short *)(((*(int *)((t1 + 0x0))) + 0x6)) = 0x5;
+            t2 = (0xC4 + a4);
+            *(unsigned short *)(((*(int *)(((t1 + t2) + 0x0))) + 0x6)) = 0x5;
             t1 = t2;
         }
         t0 = (t0 + 0x1);

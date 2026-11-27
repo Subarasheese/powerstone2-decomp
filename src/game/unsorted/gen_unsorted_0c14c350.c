@@ -21,7 +21,7 @@ int math_vec3_mul_xyz(int, float, float, float);
 int FUN_0c14ada0(int, int, int, int, int);
 int FUN_0c14b20c(int, int, int, int, int, int, int, int, int, int, int, int);
 int FUN_0c14c5c8(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 float FUN_0c0e2340(int);
 int FUN_0c0e2390(int, int, int);
 int FUN_0c17c450(int);
@@ -134,7 +134,7 @@ float FUN_0c14c374(int a4, int a5, int a6, int a7)
     FUN_0c0e2390(((int)stk + 4), v0_4, (v0_0 + 0x58));
     FUN_0c17c450(((int)stk + 4));
     math_vec3_mul_xyz(((int)stk + 4), 80.0f, 80.0f, 80.0f);
-    FUN_0c17c130((v0_0 + 0x28), (v0_0 + 0x28), ((int)stk + 4));
+    nlAddVector3op((v0_0 + 0x28), (v0_0 + 0x28), ((int)stk + 4));
     FUN_0c0e2390(((int)stk + 4), (v0_0 + 0x28), (v0_0 + 0x58));
     w0_1 = FUN_0c0e2340(((int)stk + 4));
     v0_1 = (0xC);
@@ -143,7 +143,7 @@ float FUN_0c14c374(int a4, int a5, int a6, int a7)
     if ((((((struct oC_float *)(v0_4))->v)) > w0_1)) goto L_C14C4FC;
     w0_1 = *(float *)((v0_4 + v0_1));
     math_vec3_mul_xyz(((int)stk + 4), (w0_1 / w0_0), (w0_1 / w0_0), (w0_1 / w0_0));
-    FUN_0c17c130((v0_0 + 0x28), (v0_0 + 0x58), ((int)stk + 4));
+    nlAddVector3op((v0_0 + 0x28), (v0_0 + 0x58), ((int)stk + 4));
     w0_0 = (((struct oC_float *)(v0_4))->v);
     *(unsigned short *)((v0_0 + 0x1C)) = 0xA;
     v0_5 = *(signed char *)((v0_0 + 0x2));

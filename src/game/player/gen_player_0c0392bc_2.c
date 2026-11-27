@@ -22,7 +22,7 @@ int math_mat_get_translate(int, int);
 int nlCalcPoint(int, int);
 int nlInvertMatrix(int);
 int FUN_0c17b1a0(int, int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 float FUN_0c0e2340(int);
 int FUN_0c0e2390(int, int, int);
 extern int FUN_0c187798();

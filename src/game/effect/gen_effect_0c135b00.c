@@ -39,6 +39,10 @@ int FUN_0c135bc8(int a4);
 int FUN_0c135c10(int a4, int a5, int a6);
 int FUN_0c135d1a(int a4);
 int FUN_0c135d78(int a4, int a5, int a6, int a7);
+struct o1C_short { char p[0x1C]; short v; };
+struct o1C_ushort { char p[0x1C]; unsigned short v; };
+struct o38_int { char p[0x38]; int v; };
+
 
 
 int FUN_0c135bc8(int a4)
@@ -149,17 +153,17 @@ int FUN_0c135d1a(int a4)
 
 int FUN_0c135d78(int a4, int a5, int a6, int a7)
 {
-    register int t0;
-    register float u0;
+    int t0;
+    float u0;
 
-    t0 = *(signed char *)((a4 + 0x14));
+    t0 = *(signed char *)(a4 + 0x14);
     if (t0 != 0) {
         if (t0 != 1) {
             if (t0 == 2) {
-                t0 = *(short *)((a4 + 0x1C));
-                *(unsigned short *)((a4 + 0x1C)) = (t0 - 1);
+                t0 = (((struct o1C_short *)(a4))->v);
+                (((struct o1C_ushort *)(a4))->v) = (t0 - 1);
                 if ((short)(t0 - 1) == 0) {
-                    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+                    (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
                 }
                 t0 = (((struct oC4_int *)(a4))->v);
                 (((struct o18_float *)(t0))->v) = (((((struct o18_float *)(t0))->v)) - 0.100000001f);
@@ -184,17 +188,16 @@ int FUN_0c135d78(int a4, int a5, int a6, int a7)
             return FUN_0c03f346(a4, a5, a6, a7);
         }
     } else {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
+        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
         (((struct o15_uchar *)(a4))->v) = 0x0;
-        *(unsigned short *)((a4 + 0x1C)) = 0x0;
-        (((struct o4C_float *)(a4))->v) = ((math_sin_angle16((*(int *)((a4 + 0x38))))) * (float)((*(signed char *)((a4 + 0x2))) << 1));
-        (((struct o54_float *)(a4))->v) = ((math_cos_angle16((*(int *)((a4 + 0x38))))) * (float)((*(signed char *)((a4 + 0x2))) << 1));
+        (((struct o1C_ushort *)(a4))->v) = 0x0;
+        (((struct o4C_float *)(a4))->v) = ((math_sin_angle16(((((struct o38_int *)(a4))->v)))) * (float)((*(signed char *)(a4 + 0x2)) << 1));
+        (((struct o54_float *)(a4))->v) = ((math_cos_angle16(((((struct o38_int *)(a4))->v)))) * (float)((*(signed char *)(a4 + 0x2)) << 1));
         (((struct o50_float *)(a4))->v) = 0.0f;
         (((struct o48_float *)(a4))->v) = 0.00999999978f;
     }
-    *(unsigned short *)((a4 + 0x1C)) = ((*(short *)((a4 + 0x1C))) + 0x1);
-    u0 = 0.0500000007f;
-    u0 = u0 + 0.0299999993f * (float)(*(signed char *)((a4 + 0x2)));
+    (((struct o1C_ushort *)(a4))->v) = (((((struct o1C_short *)(a4))->v)) + 0x1);
+    u0 = (0.0500000007f) + 0.0299999993f * (float)(*(signed char *)(a4 + 0x2));
     if (u0 > ((((struct o48_float *)(a4))->v))) {
         (((struct o48_float *)(a4))->v) = (((((struct o48_float *)(a4))->v)) + 0.00999999978f);
     }
@@ -207,11 +210,11 @@ int FUN_0c135d78(int a4, int a5, int a6, int a7)
     (((struct o28_float *)(a4))->v) = (((((struct o28_float *)(a4))->v)) + ((((struct o4C_float *)(a4))->v)));
     (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)(a4))->v)) + ((((struct o50_float *)(a4))->v)));
     (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) + ((((struct o54_float *)(a4))->v)));
-    if ((int)(*(short *)((a4 + 0x1C))) >= (int)0x14) {
-        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x14))) + 0x1);
-        *(unsigned short *)((a4 + 0x1C)) = 0xA;
-        (((struct o4C_float *)(a4))->v) = ((math_sin_angle16((*(int *)((a4 + 0x38))))) * (1.0f + 1.0f));
-        (((struct o54_float *)(a4))->v) = ((math_cos_angle16((*(int *)((a4 + 0x38))))) * (1.0f + 1.0f));
+    if ((int)((((struct o1C_short *)(a4))->v)) >= (int)0x14) {
+        (((struct o14_uchar *)(a4))->v) = ((*(signed char *)(a4 + 0x14)) + 0x1);
+        (((struct o1C_ushort *)(a4))->v) = 0xA;
+        (((struct o4C_float *)(a4))->v) = ((math_sin_angle16(((((struct o38_int *)(a4))->v)))) * (1.0f + 1.0f));
+        (((struct o54_float *)(a4))->v) = ((math_cos_angle16(((((struct o38_int *)(a4))->v)))) * (1.0f + 1.0f));
         (((struct o50_float *)(a4))->v) = (1.0f + 1.0f);
     }
     return FUN_0c135d1a(a4);

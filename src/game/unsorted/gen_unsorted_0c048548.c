@@ -60,7 +60,7 @@ int game_reset_objects(void);
 int FUN_0c0cff96(int, int);
 int FUN_0c18778c(float, float);
 int FUN_0c187798(void);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c048548(int a4, int a5, int a6, int a7);
 int FUN_0c0485f2(int a4, int a5, int a6);
 int FUN_0c04875e(int a4, int a5, int a6, int a7);
@@ -121,73 +121,6 @@ int FUN_0c048548(int a4, int a5, int a6, int a7)
 }
 
 
-int FUN_0c04875e(int a4, int a5, int a6, int a7)
-{
-    register int t0;
-    register int t1;
-    register int t8;
-    register int t15;
-    int t17;
-    register int t18;
-    register int t19;
-    register int t24;
-    register int t31;
-
-    t0 = *(signed char *)((a4 + 0x14));
-    if (t0 != 0) {
-        if (t0 != 1) {
-            return FUN_0c03f346(a4, a5, a6, a7);
-        }
-        t1 = *(signed char *)((a4 + 0x15));
-        t8 = t1;
-        if (t1 == 0) {
-            (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) - 0.100000001f);
-            t8 = 0x30;
-            if (!(((((struct o30_float *)(a4))->v)) > -5.01000023f)) {
-                (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-                t8 = 0x15;
-            }
-        }
-        return t8;
-    }
-    t15 = *(signed char *)((a4 + 0x14));
-    (((struct o14_uchar *)(a4))->v) = (t15 + 0x1);
-    (((struct oA8_uchar *)(a4))->v) = 0x1;
-    (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) + 5.0f);
-    t17 = (t15 + 0x1);
-    t18 = 0x0;
-    t19 = a7;
-    for (;;) {
-        if ((int)t18 >= (int)((((struct oC0_int *)(a4))->v))) {
-            break;
-        }
-        t17 = 0xC4;
-        t19 = t18;
-        t19 = (t19 << 2);
-        t17 = (t17 + a4);
-        t19 = (t19 + t17);
-        t17 = 0x1;
-        t17 = ((int)t17 << (int)t18);
-        t19 = (*(int *)((t19 + 0x0)));
-        if (((*(signed char *)((a4 + 0x1B))) & t17) == 0) {
-            *(unsigned char *)((t19 + 0x0)) = 0x1;
-        } else {
-            *(unsigned char *)((t19 + 0x0)) = 0x0;
-        }
-        t18 = (t18 + 0x1);
-    }
-    t24 = *(signed char *)((a4 + 0x15));
-    t31 = t24;
-    if (t24 == 0) {
-        (((struct o30_float *)(a4))->v) = (((((struct o30_float *)(a4))->v)) - 0.100000001f);
-        t31 = 0x30;
-        if (!(((((struct o30_float *)(a4))->v)) > -5.01000023f)) {
-            (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-            t31 = 0x15;
-        }
-    }
-    return t31;
-}
 
 
 int FUN_0c048b0a(int a4, int a5, int a6, int a7)

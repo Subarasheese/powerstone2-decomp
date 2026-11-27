@@ -169,19 +169,19 @@ int FUN_0c2d5918(int a4, int a5, int a6)
 {
     int stk[11];
 
+    register int v0_4;
+    register int v0_0;
+    register int v0_5;
+    register int v0_3;
+    register int v0_6;
+    register int v0_7;
+    register int v0_1;
+    register int v0_2;
     register int R7;
+    register int v0_8;
     register int R8;
     register int R9;
     register int T_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
-    register int v0_6;
-    register int v0_7;
-    register int v0_8;
     v0_7 = a4;
     v0_1 = a5;
     v0_2 = a6;
@@ -514,18 +514,18 @@ int FUN_0c19b0e8(int a4, int a5, int a6, int a7)
 {
     int stk[20];
 
-    register int R2;
-    register int R3;
-    register int T_;
     register int v0_0;
-    register int v0_1;
-    register int v0_2;
     register int v0_3;
-    register int v0_4;
+    register int v0_2;
     register int v0_5;
+    register int v0_1;
+    register int v0_4;
     register int v0_6;
     register int v0_7;
     register int v0_8;
+    register int R2;
+    register int R3;
+    register int T_;
     v0_5 = a4;
     v0_7 = a5;
     v0_6 = a6;

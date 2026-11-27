@@ -13,10 +13,11 @@ int FUN_0c01cc56(int, int);
 int FUN_0c02b3ba(int, float, float, float);
 int FUN_0c02b502(int);
 int FUN_0c0433f0(void);
-int FUN_0c187cac(int, int, int, int, int);
-int FUN_0c187d88(int);
+int FUN_0c187cac(int, int, int, int, int, int, int);
+int strlen(int);
 int FUN_0c01b4d4(int a4, float f4, float f5, float f6);
 
+/* manual: the call to FUN_0c187cac passes all pushed words (0xC1A75EC, then the two u16 words after it) as its stack arguments */
 int FUN_0c01b4d4(int a4, float f4, float f5, float f6)
 {
     int stk[23];
@@ -115,7 +116,7 @@ int FUN_0c01b4d4(int a4, float f4, float f5, float f6)
     goto L_C01B7F4;
     L_C01B7F4:;
     if (((*(signed char *)(((((*(signed char *)((v0_0 + 0x2))) - 4) + (((int)stk + 16) + 0x8)) + 0x0))) == 0)) goto L_C01B88E;
-    *(unsigned short *)(((int)stk + 20)) = (FUN_0c187d88((*(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 4) << 2))))));
+    *(unsigned short *)(((int)stk + 20)) = (strlen((*(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 4) << 2))))));
     FUN_0c02b502(0xC);
     v0_2 = *(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 4) << 2)));
     v0_3 = *(signed char *)((v0_0 + 0x3));
@@ -178,7 +179,7 @@ int FUN_0c01b4d4(int a4, float f4, float f5, float f6)
     v0_4 = (0xC1A7658);
     goto L_C01B960;
     L_C01B76A:;
-    *(unsigned short *)(((int)stk + 20)) = (FUN_0c187d88((*(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 2) << 2))))));
+    *(unsigned short *)(((int)stk + 20)) = (strlen((*(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 2) << 2))))));
     FUN_0c02b502(0xC);
     v0_2 = *(int *)((v0_5 + (((*(signed char *)((v0_0 + 0x2))) - 2) << 2)));
     v0_3 = *(signed char *)((v0_0 + 0x3));
@@ -197,7 +198,7 @@ int FUN_0c01b4d4(int a4, float f4, float f5, float f6)
     w0_0 = (w0_0);
     goto L_C01B920;
     L_C01B6D2:;
-    *(unsigned short *)(((int)stk + 20)) = (FUN_0c187d88((*(int *)((v0_5 + ((*(signed char *)((v0_0 + 0x2))) << 2))))));
+    *(unsigned short *)(((int)stk + 20)) = (strlen((*(int *)((v0_5 + ((*(signed char *)((v0_0 + 0x2))) << 2))))));
     FUN_0c02b502(0xC);
     v0_1 = *(int *)((v0_5 + ((*(signed char *)((v0_0 + 0x2))) << 2)));
     v0_4 = *(signed char *)((v0_0 + 0x3));
@@ -209,7 +210,7 @@ int FUN_0c01b4d4(int a4, float f4, float f5, float f6)
     *(int *)((int)stk + 8) = (unsigned short)(*(short *)((v0_2 + (v0_1 << 1))));
     *(int *)((int)stk + 4) = (unsigned short)(*(short *)(((((int)stk + 8) + 0x40) + (v0_1 << 1))));
     *(int *)((int)stk + 0) = 0xC1A75EC;
-    FUN_0c187cac((((int)stk + 0) + 0x1C), 0x0, 0x0, 0x0, 0xC1A75EC);
+    FUN_0c187cac((((int)stk + 0) + 0x1C), 0x0, 0x0, 0x0, 0xC1A75EC, *(int *)((int)stk + 4), *(int *)((int)stk + 8));
     v0_1 = *(signed char *)((v0_0 + 0x3));
     *(unsigned int *)(((int)stk + 16)) = (0xC20E188 + ((v0_1 << 2) << 1));
     v0_0 = ((0xC20E188 + ((v0_1 << 2) << 1)));

@@ -11,7 +11,7 @@ struct oBC_float { char p[0xBC]; float v; };
 int FUN_0c03f346(int);
 int FUN_0c064f80(int);
 int FUN_0c15d61c(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c15d83a(int a4);
 
 int FUN_0c15d83a(int a4)
@@ -49,7 +49,7 @@ int FUN_0c15d83a(int a4)
     }
     t1 = FUN_0c064f80((*(int *)((a4 + 0x10))));
     if ((t1 == 0) && (t0 = *(int *)0xC542260, (t0 & 20) == 0)) {
-        t0 = *(int *)((0xC2A2B9C + (((int)((unsigned int)(FUN_0c179ac0()) % (unsigned int)0x9)) << 2)));
+        t0 = *(int *)((0xC2A2B9C + (((int)((unsigned int)(nlRand()) % (unsigned int)0x9)) << 2)));
         FUN_0c15d61c(a4, t0, 0x1);
     }
     t0 = 0x3743;

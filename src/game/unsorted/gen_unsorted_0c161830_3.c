@@ -26,7 +26,7 @@ int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f346(int);
 int FUN_0c03f444(int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c187798(int);
 int FUN_0c162348(int a4);
@@ -49,7 +49,7 @@ int FUN_0c162348(int a4)
     (((struct o44_float *)(a4))->v) = u1;
     (((struct o48_float *)(a4))->v) = u1;
     u0 = math_sin_angle16((*(short *)((a4 + 0x1E))));
-    *(unsigned short *)((a4 + 0x1E)) = ((*(short *)((a4 + 0x1E))) + (int)(((float)(((int)((int)(FUN_0c179ac0()) % (int)0x5)) + 0x4) * 65536.0f) / 360.0f));
+    *(unsigned short *)((a4 + 0x1E)) = ((*(short *)((a4 + 0x1E))) + (int)(((float)(((int)((int)(nlRand()) % (int)0x5)) + 0x4) * 65536.0f) / 360.0f));
     u1 = math_sin_angle16(((*(int *)((((short)(*(signed char *)((a4 + 0x1))) * (short)0x2F8) + 0xC5413E8))) + 0x4000));
     u2 = (u0 * 4.5f);
     u3 = ((((struct o28_float *)(a4))->v));

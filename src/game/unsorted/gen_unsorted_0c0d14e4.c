@@ -19,7 +19,7 @@ struct oAC_ushort { char p[0xAC]; unsigned short v; };
 struct oB0_float { char p[0xB0]; float v; };
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c07e420(int, int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0d14e4(int a4, int a5, int a6, int a7, float f4);
 
 int FUN_0c0d14e4(int a4, int a5, int a6, int a7, float f4)
@@ -37,7 +37,7 @@ int FUN_0c0d14e4(int a4, int a5, int a6, int a7, float f4)
             if (t0 == 2) {
                 (((struct o50_float *)(a4))->v) = (((((struct o50_float *)(a4))->v)) - 0.300000012f);
                 (((struct o54_float *)(a4))->v) = (((((struct o54_float *)(a4))->v)) - 0.699999988f);
-                FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+                nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
                 if ((*(signed char *)((a4 + 0x2))) == 1) {
                     *(unsigned int *)((a4 + 0x34)) = ((*(int *)((a4 + 0x34))) + 0xB6);
                 }

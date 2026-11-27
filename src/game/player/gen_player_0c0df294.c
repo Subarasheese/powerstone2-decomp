@@ -20,7 +20,7 @@ int math_mat_get_translate(int, int);
 int FUN_0c150160(int, int, float, float, float, float);
 int FUN_0c15d386(int, int, int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c187798(void);
 int FUN_0c0df294(int a4);

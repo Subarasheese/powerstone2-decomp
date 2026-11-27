@@ -7,7 +7,7 @@
 
 typedef struct { float x, y, z; } V3;
 
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c03733c(int, int, int);
 int FUN_0c037320(int, int);
 void FUN_0c03744a(int, int, int, int);
@@ -27,7 +27,7 @@ void FUN_0c118810(int a4, int id)
     int bank = BANK;
 
     pos = *(V3 *)(e + 40);
-    FUN_0c17c130((int)&pos, (int)&pos, 0x0C29FA2C + id * 12);
+    nlAddVector3op((int)&pos, (int)&pos, 0x0C29FA2C + id * 12);
     rot = *(V3 *)(e + 52);
     size = *(V3 *)(e + 76);
     if (id == 7 || id == 8) {

@@ -15,7 +15,7 @@ struct oC0_int { char p[0xC0]; int v; };
 int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c187798(void);
 int FUN_0c125cd0(int a4);
@@ -50,9 +50,9 @@ int FUN_0c125cd0(int a4)
         { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x34)) = *(struct mv3 *)((a4 + 0x34)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 52, r2 r12 (a4) + 52 */
         { struct mv3 { int w[3]; }; *(struct mv3 *)((t0 + 0x28)) = *(struct mv3 *)((a4 + 0x28)); }  /* manual: _quick_odd_mvn r0 12, r1 r14 + 40, r2 r12 + 40 */
         u0 = 50.0f;
-        u0 = u0 + 20.0f * (float)((int)((int)(FUN_0c179ac0()) % (int)0x14));
+        u0 = u0 + 20.0f * (float)((int)((int)(nlRand()) % (int)0x14));
         (((struct o2C_float *)(t0))->v) = (((((struct o2C_float *)(t0))->v)) + u0);
-        t2 = FUN_0c179ac0();
+        t2 = nlRand();
         t3 = ((~(((~t2) + 0x1) & 0xF)) + 0x1);
         if ((int)t2 >= 0) {
             t3 = (t2 & 0xF);
@@ -66,7 +66,7 @@ int FUN_0c125cd0(int a4)
         u0 = u0 + 150.0f * u1;
         (((struct o30_float *)(t0))->v) = u0;
         (((struct o50_float *)(t0))->v) = -2.0f;
-        t2 = FUN_0c179ac0();
+        t2 = nlRand();
         t3 = ((~(((~t2) + 0x1) & 0xF)) + 0x1);
         if ((int)t2 >= 0) {
             t3 = (t2 & 0xF);

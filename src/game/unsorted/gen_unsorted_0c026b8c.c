@@ -15,7 +15,7 @@ int FUN_0c0573cc(int, int, int);
 int FUN_0c1864e0(int, int, int);
 int FUN_0c186740(int, int, int);
 int FUN_0c187a88(int, int, int);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c026b8c(int a4, int a5, int a6);
 
 int FUN_0c026b8c(int a4, int a5, int a6)
@@ -51,10 +51,10 @@ int FUN_0c026b8c(int a4, int a5, int a6)
     if ((((unsigned short)v0_3 & 128) == 0)) goto L_C026DA4;
     *(unsigned char *)((v0_0 + 0x0)) = 0x7B;
     *(unsigned char *)((v0_0 + 0x2)) = 0x1;
-    *(unsigned char *)(((v0_0 + 0x3) + 0x0)) = (FUN_0c187d88(0xC3099A6));
+    *(unsigned char *)(((v0_0 + 0x3) + 0x0)) = (strlen(0xC3099A6));
     FUN_0c187a88((v0_0 + 0x4), 0xC3099A6, (*(signed char *)(((v0_0 + 0x3) + 0x0))));
     v0_2 = *(signed char *)(((v0_0 + 0x3) + 0x0));
-    *(unsigned char *)((((v0_2 + 0x4) + v0_0) + 0x0)) = (FUN_0c187d88(0xC309D06));
+    *(unsigned char *)((((v0_2 + 0x4) + v0_0) + 0x0)) = (strlen(0xC309D06));
     FUN_0c187a88((((v0_2 + 0x4) + v0_0) + 0x1), 0xC309D06, (*(signed char *)((((v0_2 + 0x4) + v0_0) + 0x0))));
     *(unsigned int *)(((int)stk + 16)) = (v0_0 + 0x1);
     *(unsigned char *)(((v0_0 + 0x1) + 0x0)) = (((v0_2 + 0x4) + (*(signed char *)((((v0_2 + 0x4) + v0_0) + 0x0)))) + 0x1);

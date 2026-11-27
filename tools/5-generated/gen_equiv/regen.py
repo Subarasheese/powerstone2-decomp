@@ -4,6 +4,8 @@ Step 5 only looks at functions no C covers, so the named functions' generated C 
 tests/equivalent.txt line, kept in state/regen/ until the run ends), and the run picks them like any function with no C. A function
 the run proves gets the new C in a new src/gen_<letter>.c; any other gets its old C, cases and line back, also when the run is stopped.
 Hand-written C, and C marked manual, is never taken out."""
+import layout  # noqa: E402  (tools/toolpath.py has put tools/ on the path)
+import srcfiles  # noqa: E402  src/ is a tree: files by stem (tools/srcfiles.py)
 import json
 import os
 import re
@@ -37,7 +39,7 @@ def take_out(names):
         if stem is None:
             skipped[fn] = 'no C'; continue
         if not stem.startswith('gen_') or stem.startswith('gen_tmp'):
-            skipped[fn] = 'hand-written C (src/%s.c)' % stem; continue
+            skipped[fn] = 'hand-written C (%s)' % srcfiles.path(stem); continue
         if fn in manual:
             skipped[fn] = 'manual: %s' % manual[fn]; continue
         code = consistency.remove_def(stem, fn)

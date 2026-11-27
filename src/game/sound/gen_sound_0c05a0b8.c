@@ -14,7 +14,7 @@ int FUN_0c18020e(int, int);
 int FUN_0c1803fc(int, int);
 int FUN_0c18098e(int);
 int FUN_0c18106a(int, int, int);
-int FUN_0c2b431c(int, int, int);
+int ADXT_Create(int, int, int);
 int FUN_0c05a0b8(void);
 
 int FUN_0c05a0b8(void)
@@ -37,8 +37,8 @@ int FUN_0c05a0b8(void)
     FUN_0c1803fc(0xCB00000, 0x2);
     FUN_0c05a40c(0x1);
     FUN_0c18106a(0x1, 0x1, 0x0);
-    (((struct o0_uint *)0xC46DE80)->v) = (FUN_0c2b431c(0x1, 0xC413CF8, 0x2D0C4));
-    (((struct o4_uint *)0xC46DE80)->v) = (FUN_0c2b431c(0x2, 0xC440DBC, 0x2D0C4));
+    (((struct o0_uint *)0xC46DE80)->v) = (ADXT_Create(0x1, 0xC413CF8, 0x2D0C4));
+    (((struct o4_uint *)0xC46DE80)->v) = (ADXT_Create(0x2, 0xC440DBC, 0x2D0C4));
     FUN_0c05a418(0x7F, 0x7F);
     FUN_0c05a4a6(0x0, 0x7F);
     FUN_0c05a4a6(0x1, 0x7F);

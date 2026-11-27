@@ -9,8 +9,8 @@ struct o8_float { char p[0x8]; float v; };
 struct oC_float { char p[0xC]; float v; };
 int math_mat_get_translate(int, int);
 int FUN_0c15aed8(int);
-int FUN_0c179ac0(void);
-int FUN_0c17c130(int, int, int);
+int nlRand(void);
+int nlAddVector3op(int, int, int);
 int FUN_0c0d36fc(int a4, int a5);
 int FUN_0c0d37c2(int a4, int a5);
 
@@ -26,13 +26,13 @@ int FUN_0c0d36fc(int a4, int a5)
     register int t14;
 
     *(unsigned int *)(((int)stk + 0)) = a4;
-    t0 = FUN_0c179ac0();
+    t0 = nlRand();
     math_mat_get_translate(((*(int *)(((int)stk + 0))) + 0x64), (((int)stk + 0) + 0x4));
-    FUN_0c17c130((((int)stk + 0) + 0x4), (((int)stk + 0) + 0x4), (((((0x1 & t0) << 2) + (0x1 & t0)) << 2) + 0xC1C7F3C));
+    nlAddVector3op((((int)stk + 0) + 0x4), (((int)stk + 0) + 0x4), (((((0x1 & t0) << 2) + (0x1 & t0)) << 2) + 0xC1C7F3C));
     u4 = (((struct oC_float *)((((((0x1 & t0) << 2) + (0x1 & t0)) << 2) + 0xC1C7F3C)))->v);
     u6 = (((struct o8_float *)((((((0x1 & t0) << 2) + (0x1 & t0)) << 2) + 0xC1C7F3C)))->v);
     u7 = (((((struct o10_float *)((((((0x1 & t0) << 2) + (0x1 & t0)) << 2) + 0xC1C7F3C)))->v)) * (float)a5);
-    t8 = FUN_0c179ac0();
+    t8 = nlRand();
     t9 = ((~(((~t8) + 0x1) & 0xF)) + 0x1);
     if ((int)t8 >= 0) {
         t9 = (t8 & 0xF);
@@ -59,7 +59,7 @@ int FUN_0c0d37c2(int a4, int a5)
 
     (((struct o15_uchar *)(a4))->v) = a5;
     (((struct o16_uchar *)(a4))->v) = 0x0;
-    t0 = FUN_0c179ac0();
+    t0 = nlRand();
     t1 = ((~(((~t0) + 0x1) & 0x3)) + 0x1);
     if ((int)t0 >= 0) {
         t1 = (t0 & 0x3);

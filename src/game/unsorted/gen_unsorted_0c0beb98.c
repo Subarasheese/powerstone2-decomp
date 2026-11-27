@@ -16,7 +16,7 @@ struct o78_int { char p[0x78]; int v; };
 struct o78_uint { char p[0x78]; unsigned int v; };
 int ai_clear_op_state(void);
 float math_signed_sqrt(float);
-int FUN_0c179ac0(void);
+int nlRand(void);
 extern int FUN_0c187798();
 int FUN_0c0beb98(int a4, int a5, int a6, int a7, float f4, float f5);
 int FUN_0c0bedb2(int a4, int a5, int a6);
@@ -171,9 +171,9 @@ int FUN_0c0beb98(int a4, int a5, int a6, int a7, float f4, float f5)
         t48 = (t48 + 0x1);
     }
     if ((unsigned short)t6 != 0) {
-        t69 = ((int)((int)(FUN_0c179ac0()) % (int)(unsigned short)t6));
+        t69 = ((int)((int)(nlRand()) % (int)(unsigned short)t6));
         *(int *)((int)stk + 0) = t69;
-        t79 = (*(int *)(((((int)stk + 4) + 0xC) + (((int)((int)(t69 * ((int)((int)(FUN_0c179ac0()) % (int)(unsigned short)t6))) / (int)(unsigned short)t6)) << 2))));
+        t79 = (*(int *)(((((int)stk + 4) + 0xC) + (((int)((int)(t69 * ((int)((int)(nlRand()) % (int)(unsigned short)t6))) / (int)(unsigned short)t6)) << 2))));
         t80 = 0x1;
     } else {
         t79 = ((((struct o78_int *)((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)0x264) + 0xC471ACC)))->v));

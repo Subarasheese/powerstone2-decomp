@@ -54,14 +54,13 @@ Needs Docker and the dc-tools image, as build.sh does (SDK_PATH from .env).
 import os as _tp_os, sys as _tp_sys  # noqa: E401  every tools folder on the import path (tools/toolpath.py)
 _tp_sys.path.insert(0, _tp_os.path.normpath(_tp_os.path.join(_tp_os.path.dirname(_tp_os.path.abspath(__file__)), '.')))
 import toolpath  # noqa: E402,F401
-import srcfiles  # noqa: E402  src/ is a tree: files by stem (tools/srcfiles.py)
+import layout  # noqa: E402
 import glob
 import hashlib
 import json
 import os
 import random
 import re
-import shutil
 import struct
 import subprocess
 import sys
@@ -115,6 +114,12 @@ def sdk_env():
     sys.exit('[ERROR] no shc.exe under %s' % sdk)
 
 
+def compiler_path(cfile):
+    """the file as the compiler is handed it: its path inside the repo, with the compiler's separators. A file may live in
+    src/ or under sdk/ (tools/layout.py)"""
+    return os.path.relpath(cfile).replace(os.sep, '\\')
+
+
 def compile_link(cfile, defines):
     """shc + lnk + elf2bin in the dc-tools container: (bytes, {symbol: address})."""
     sdk, rel = sdk_env()
@@ -127,20 +132,15 @@ def compile_link(cfile, defines):
     sub += ['define %s(%08X)' % (n, a) for n, a in sorted(defines.items())] + ['exit']
     open('build/equiv/%s.sub' % stem, 'w').write('\n'.join(sub) + '\n')
     inline = '#pragma inline_asm' in open(cfile, errors='replace').read()      # C with assembly text: shc to assembly source, then asmsh
-    # the compiler reads a short copy: shc's command line has a fixed buffer ("3320 (F) Command parameter buffer overflow"), and a
-    # long stem deep in the src/ tree overflows it; headers still come through -include=src
-    os.makedirs('build/ec', exist_ok=True)
-    shutil.copyfile(cfile, 'build/ec/%d.c' % os.getpid())
-    cwin = 'build\\ec\\%d.c' % os.getpid()
     first = ('SHC_LIB="$TW" SHC_INC="$TW" SHC_TMP="Z:\\app\\build\\tmp\\%s" wibo "/sdk/%s/shc.exe" "%s" '
              '-object="build\\equiv\\%s.obj" %s > build/equiv/%s.shc.log 2>&1 || { cat build/equiv/%s.shc.log; exit 1; }; '
-             % (me, rel, cwin, stem, FLAGS, me, me))
+             % (me, rel, compiler_path(cfile), stem, FLAGS, me, me))
     if inline:
         first = ('SHC_LIB="$TW" SHC_INC="$TW" SHC_TMP="Z:\\app\\build\\tmp\\%s" wibo "/sdk/%s/shc.exe" "%s" -code=asm '
                  '-object="build\\equiv\\%s.s" %s > build/equiv/%s.shc.log 2>&1 || { cat build/equiv/%s.shc.log; exit 1; }; '
                  'wibo "/sdk/%s/asmsh.exe" "build\\equiv\\%s.s" -object="build\\equiv\\%s.obj" -cpu=sh4 -endian=little '
                  '> build/equiv/%s.asm.log 2>&1 || { cat build/equiv/%s.asm.log; exit 1; }; '
-                 % (me, rel, cwin, stem, FLAGS, me, me, rel, stem, stem, me, me))
+                 % (me, rel, compiler_path(cfile), stem, FLAGS, me, me, rel, stem, stem, me, me))
     steps = ('set -e; mkdir -p build/tmp/%s; ' % me + first +
              'wibo "/sdk/%s/lnk.exe" -subcommand="build\\equiv\\%s.sub" > build/equiv/%s.lnk.log 2>&1 || true; '
              'wibo "/sdk/%s/elf2bin.exe" -s %08X "build\\equiv\\%s.elf" "build\\equiv\\%s.bin" > build/equiv/%s.elf2bin.log 2>&1 || true; '
@@ -168,32 +168,10 @@ def compile_link(cfile, defines):
     return open('build/equiv/%s.bin' % stem, 'rb').read(), syms
 
 
-_INCLUDE = re.compile(r'^[ \t]*#[ \t]*include[ \t]*"([^"]+)"', re.M)
-
-
-def source_text(cfile):
-    """The C file's text with its own headers (#include "x.h", found next to the file or under src/) put in place, once each: what
-    the compiler reads, so the names, prototypes and declarations a header gives count as the file's."""
-    seen = set()
-
-    def expand(text, here):
-        def put(m):
-            for d in (here, 'src'):
-                p = os.path.normpath(os.path.join(d, m.group(1)))
-                if os.path.exists(p):
-                    if p in seen:
-                        return ''
-                    seen.add(p)
-                    return expand(open(p, errors='replace').read(), os.path.dirname(p))
-            return m.group(0)
-        return _INCLUDE.sub(put, text)
-    return expand(open(cfile, errors='replace').read(), os.path.dirname(cfile))
-
-
 def outside_names(cfile, table):
     """Every identifier the file uses that the game names: the linker gets it at the game's address,
     unless the file defines it (a function body or a global with a definition here)."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     defined = set(re.findall(r'^[A-Za-z_][\w \t\*]*?\b(\w+)\s*\([^;{]*\)\s*\{', text, flags=re.M))
     defined |= set(re.findall(r'^(?!extern)[A-Za-z_][\w \t\*]*?\b(\w+)\s*(?:\[[^\]]*\])?\s*=', text, flags=re.M))
     used = set(re.findall(r'\b[A-Za-z_]\w*\b', text))
@@ -209,8 +187,8 @@ def returns(cfile):
     for m in re.finditer(r'^((?:static\s+)?[A-Za-z_][\w \t\*]*?)\b(\w+)\s*\([^;{]*\)\s*\{', text, flags=re.M):
         t = m.group(1).replace('static', '').strip()
         out[m.group(2)] = [] if t == 'void' else ['fr0'] if t in ('float', 'double') else ['r0']
-    # `/* @out <fn> r9 fr0 ... */`: a register-convention routine (inline assembly whose results stay in registers, e.g. the
-    # renderer's clip bits in r9 and transformed vertices in fr0-fr7) is compared on the registers it names as well
+    # `/* @out <fn> r9 fr0 ... */`: a register-convention routine (inline assembly whose results stay in registers other than r0 / fr0)
+    # is compared on the registers it names as well
     for m in re.finditer(r'/\*\s*@out\s+(\w+)\s+((?:[rf]r?\d+\s*)+)\*/', raw):
         if m.group(1) in out:
             out[m.group(1)] = list(dict.fromkeys(out[m.group(1)] + m.group(2).split()))
@@ -272,7 +250,7 @@ def param_kinds(params, structs):
 def prototypes(cfile):
     """The argument registers each function this file declares or defines takes, from its prototype:
     {name: (ints and pointers, floats)}; a name starting with an underscore is a runtime helper: (0, 0)."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     structs = struct_words(text)
     out = {}
     for m in re.finditer(r'^(?:extern\s+|static\s+)?[A-Za-z_][\w \t\*]*?\b(\w+)\s*\(([^;{)]*)\)\s*[;{]', text, flags=re.M):
@@ -333,7 +311,7 @@ STACKN = {}      # {address: integer arguments passed on the stack (past the fou
 def stack_args(cfile):
     """{name: words passed on the stack (integer arguments past the fourth, structures by value), at most 4} for the functions this
     file declares."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     structs = struct_words(text)
     out = {}
     for m in re.finditer(r'^(?:extern\s+|static\s+)?[A-Za-z_][\w \t\*]*?\b(\w+)\s*\(([^;{)]*)\)\s*[;{]', text, flags=re.M):
@@ -347,7 +325,7 @@ def definitions():
     """{name: (integer and pointer parameters, float parameters, words on the stack)} of every function defined in src/: what the
     callee as built reads. The integer count is not capped (compared_arity caps it)."""
     out = {}
-    for path in sorted(srcfiles.files()):
+    for path in sorted(layout.c_files()):
         try:
             raw = open(path, errors='replace').read()
         except OSError:
@@ -374,7 +352,7 @@ def used_definitions():
     register the generator saw; a variadic callee (printf-style) reads its arguments from the stack and none of r4-r7."""
     if _USED:
         return _USED
-    for path in sorted(srcfiles.files()):
+    for path in sorted(layout.c_files()):
         try:
             raw = open(path, errors='replace').read()
         except OSError:
@@ -413,6 +391,19 @@ def used_definitions():
     return _USED
 
 
+def _orig_stack_words(name):
+    """The stack words the original code of a function reads (gen_core.callee_stack_words), or 0 when they cannot be told: its code takes the
+    address of the stack (mov r15,rN: a structure copy or a pointer into the arguments reads words a direct load does not show)."""
+    try:
+        import gen_core
+        out = subprocess.run(['python3', 'tools/shdis.py', '--func', name], capture_output=True, text=True).stdout
+        if re.search(r'\bmov\s+r15,r\d+', out):
+            return 0
+        return gen_core.callee_stack_words(name)
+    except Exception:
+        return 0
+
+
 def compared_arity(cfile, table):
     """What each call out is compared on: ({address: (integer, float) register arguments}, {address: arguments on the stack}).
     A callee defined in src/ is compared on the registers its definition takes (the build links every caller against that one
@@ -427,6 +418,10 @@ def compared_arity(cfile, table):
             continue
         if sw:                                # the stack words the callee reads are compared whatever the caller's file declares
             stackn[key] = max(stackn.get(key, 0), min(sw, STACK_CAP))
+            if ni == 0:      # a callee that takes one structure (the generator pads it to four words so it goes on the stack): the words
+                k = _orig_stack_words(n)                      # its original code never reads are the caller's frame leftovers, not arguments
+                if 0 < k < stackn[key]:
+                    stackn[key] = k
         a = arity.get(key)
         if a is None or len(a) <= 2:          # the definition says which registers the callee reads: the others are leftovers, whatever the
             arity[key] = (min(ni, 4), min(nf, 8))      # caller's file declares (more, or no prototype: Virtua Tennis effFootDust -> vecSub(Stk5),
@@ -488,13 +483,28 @@ def stack_fills(table, reads=None):
     return ok
 
 
+_TRAP = re.compile(r'^(trapa #\d+) at [0-9A-F]{8}$')
+
+
+def same_trap(case, orig, mine):
+    """mine, with its stop taken as the original's when the case is marked same_trap and both sides stopped on the same trap number
+    (an error trap, `trapa #48`: the original's is in the game's code, the C's in the compiled copy, so the addresses differ and
+    the stop messages never match as written). What each side did before the trap is still compared; the trap's address is not."""
+    a, b = _TRAP.match(str(orig['error'])), _TRAP.match(str(mine['error']))
+    if case.get('same_trap') and a and b and a.group(1) == b.group(1):
+        return dict(mine, error=orig['error'])
+    return mine
+
+
 def cut_endless(orig, mine):
     """The two runs of an endless case, both cut at the step limit, reduced to what both got through: the same number of calls and of
     device accesses, the first ones in order (writes are left out). Compiled code takes more instructions per pass of a loop, so in the
-    same steps it makes fewer calls and device accesses (Virtua Tennis vmsfs_c_dispatch: "access 1053/1333: original [...] / C none")."""
+    same steps it makes fewer calls and device accesses (Virtua Tennis vmsfs_c_dispatch: "access 1053/1333: original [...] / C none").
+    The result registers are not compared: the function never returned, so r0 and fr0 are what the last instruction before the cut left
+    there, and the two sides are cut in different places of the loop (out_set, as for a result the original never assigned)."""
     k = min(len(orig['calls']), len(mine['calls']))
     kd = min(len(orig.get('devices', [])), len(mine.get('devices', [])))
-    return (dict(orig, calls=orig['calls'][:k], devices=orig.get('devices', [])[:kd], writes={}, error=None),
+    return (dict(orig, calls=orig['calls'][:k], devices=orig.get('devices', [])[:kd], writes={}, error=None, out_set={'r0': False, 'fr0': False}),
             dict(mine, calls=mine['calls'][:k], devices=mine.get('devices', [])[:kd], writes={}, error=None))
 
 
@@ -521,7 +531,28 @@ def orig_reads(addr):
     return _READS[addr]
 
 
-PRINTF_NAMES = ('nlPrintf', 'dbg_printf')      # callees whose first stack word is a format string: only the words it consumes are arguments
+_READS_SURE = {}
+
+
+def orig_reads_sure(addr):
+    """orig_reads counting only what the callee's code reads for certain (gen_core.entry_reads_sure): a call through a pointer inside it
+    proves nothing. The registers a call is compared on beyond its declaration: Zombie Revenge's task runner FUN_0c0e16c0 only calls
+    through a pointer, and its callers were failed for the leftovers they had in r5-r7."""
+    if addr not in _READS_SURE:
+        n, res = READS_NAME.get(addr), None
+        if n and not n.startswith('_'):
+            try:
+                import gen_core
+                rs = gen_core.entry_reads_sure(n)
+                if rs is not None:
+                    res = frozenset(int(x[1:]) for x in rs if x.startswith('r'))
+            except Exception:
+                res = None
+        _READS_SURE[addr] = res
+    return _READS_SURE[addr]
+
+
+PRINTF_NAMES = ('nlPrintf',)      # callees whose first stack word is a format string: only the words it consumes are arguments
 FMT_EXE = [None, 0]               # [the executable's bytes, its base], set by main: where the format strings are read
 
 
@@ -547,7 +578,17 @@ def fmt_words(ptr):
     return n
 
 
-def callview(to, r, f, arity, stack=None, chg=None, ind=None, fchg=None, indmap=None, stackw=None, stackchg=None):
+def pushed_words(call):
+    """How many words from SP the original pushed (after its prologue) for one call: the run of pushed words at the top of the stack."""
+    n = 0
+    for v in call.get('stackpush') or []:
+        if not v:
+            break
+        n += 1
+    return n
+
+
+def callview(to, r, f, arity, stack=None, chg=None, ind=None, fchg=None, indmap=None, stackw=None, stackchg=None, pushed=0):
     """What a call must agree on: its target and the registers its callee takes (arity: {address: (ints,
     floats)}; none known: all of them), a stack address as "STACK"."""
     to = '%08X' % (0x0C000000 | (int(to, 16) & 0x1FFFFFFF)) if 0x0C000000 <= (int(to, 16) & 0x1FFFFFFF) < 0x0D000000 else to   # the cached, uncached and plain addresses of the same RAM word
@@ -564,14 +605,20 @@ def callview(to, r, f, arity, stack=None, chg=None, ind=None, fchg=None, indmap=
         if fchg:
             f = [v if ch else '*' for v, ch in zip(f, fchg)]
     if a is not None:
-        r, f = r[:a[0]], f[:a[1]]
+        ni = a[0]
+        rd0 = orig_reads_sure(int(to, 16))
+        if rd0 is not None and chg and len(a) <= 2:      # a register the original set for this call and the callee's code reads is an
+            for k in range(len(r)):                      # argument whatever this file's declaration says: a caller generated against
+                if k >= ni and k < len(chg) and chg[k] and 4 + k in rd0:      # `f(void)` passed nothing and was compared on nothing
+                    ni = k + 1                           # (Zombie Revenge FUN_0c0161aa, syRtcDateToCount: froze on the console)
+        r, f = r[:ni], f[:a[1]]
         if len(a) > 2:                       # variadic: the registers are leftovers, its first argument is on top of the stack
             return (to, [stackish(stack)], [])
     rd = orig_reads(int(to, 16))
     if rd is not None:                       # registers the callee's original code never reads are leftovers, not arguments
         r = [v if 4 + k in rd[0] else '*' for k, v in enumerate(r)]
         f = [v if 4 + k in rd[1] else '*' for k, v in enumerate(f)]
-    nstack = STACKN.get(int(to, 16), 0)
+    nstack = max(STACKN.get(int(to, 16), 0), pushed)      # the words the original pushed for this call are compared past the caller's prototype
     if stackw and READS_NAME.get(int(to, 16)) in PRINTF_NAMES:        # a printf: the format string and the words its conversions consume
         nf = fmt_words(stackw[0])
         if nf is not None:
@@ -586,7 +633,7 @@ def indirect_targets(cfile, fn, table=None):
     """{address: integer arguments} for the calls the C of one function makes through a cast on a literal address
     ((int (*)(int))(0xAC01193A)(x) is {0x0C01193A: 1}), or on a function's name (one declared with () because its call sites
     pass different arguments); the most when one address is called with different counts."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     m = re.search(r'\b%s\s*\([^;{)]*\)\s*\{' % re.escape(fn), text)
     if not m:
         return {}
@@ -613,7 +660,7 @@ def indirect_targets(cfile, fn, table=None):
 def indirect_arity(cfile, fn):
     """How many integer arguments the C of one function passes in calls through a pointer, from the function-pointer casts in its body
     ((int (*)(int, int))(p)(a, b) is 2): the most of them, None when it has no such call."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     m = re.search(r'\b%s\s*\([^;{)]*\)\s*\{' % re.escape(fn), text)
     if not m:
         return None
@@ -631,7 +678,7 @@ def indirect_arity(cfile, fn):
 def calls_printf(cfile, fn):
     """Does the C of one function call a printf-style function (the stack words of such a call are compared up to its format's
     conversions, a change that acts only on those calls)."""
-    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', source_text(cfile), flags=re.S)
+    text = re.sub(r'/\*.*?\*/|//[^\n]*', ' ', open(cfile, errors='replace').read(), flags=re.S)
     m = re.search(r'\b%s\s*\([^;{)]*\)\s*\{' % re.escape(fn), text)
     if not m:
         return False
@@ -664,10 +711,11 @@ def same(a, b, outs, back, arity=None, ind=None, indmap=None):
             x, y = [stackish(x[r]) for r in outs], [stackish(y[r]) for r in outs]      # a returned address in the stack is the frame layout's, as an argument's is
         if k == 'calls':
             xs = x
-            x = [callview(c['to'], c['r4-r7'], c['fr4-fr11'], arity, c.get('stack'), c.get('chg'), ind, c.get('fchg'), indmap, c.get('stackw'), c.get('stackchg')) for c in xs]
+            x = [callview(c['to'], c['r4-r7'], c['fr4-fr11'], arity, c.get('stack'), c.get('chg'), ind, c.get('fchg'), indmap, c.get('stackw'), c.get('stackchg'), pushed_words(c)) for c in xs]
             y = [callview(fix(c['to']), [fix(v) for v in c['r4-r7']], c['fr4-fr11'], arity, fix(c['stack']) if c.get('stack') else None,
                           xs[i].get('chg') if i < len(xs) else None, ind, xs[i].get('fchg') if i < len(xs) else None, indmap,
-                          [fix(v) for v in c.get('stackw', [])], xs[i].get('stackchg') if i < len(xs) else None) for i, c in enumerate(y)]
+                          [fix(v) for v in c.get('stackw', [])], xs[i].get('stackchg') if i < len(xs) else None,
+                          pushed_words(xs[i]) if i < len(xs) else 0) for i, c in enumerate(y)]
         if k == 'writes':                 # the final value at each address: the order of plain stores
             x = final(x)                 # is the compiler's business (devices keep their order)
             y = final([[fix(w[0])] + w[1:] for w in y])
@@ -853,13 +901,6 @@ def main(argv):
     if fuzz:
         fresh = True
     table, funcs = names(), functions()
-    # `/* @runtime _quick_odd_mvn=0C187798 */` in the first lines of a C file names a compiler runtime helper for THIS file's run only.
-    # Naming it in symbols.txt would make every file that calls that address as an ordinary function run it for real (Power Stone 2:
-    # 374 generated files, about 3% of their functions stopped agreeing); a file whose C copies a structure (the compiler then calls the
-    # helper itself, with r0 = length, r1 = destination, r2 = source) declares it here and is checked with the helper run for real.
-    for _l in open(cfile, errors='replace').read().split('\n', 12)[:12]:
-        for _n, _a in re.findall(r'@runtime\s+(\w+)=([0-9A-Fa-f]+)', _l):
-            table.setdefault(_n, int(_a, 16))
     defines, defined = outside_names(cfile, table)
     # the compiler's runtime helpers (_divls, _modls, _quick_evn_mvn...) are called by code it generates, not by name in
     # the source: every one the game names goes to the linker too
@@ -892,13 +933,21 @@ def main(argv):
     results, evidence = {}, {}
     cache = load_cache()
     compared_all = (sorted(arity.items()), sorted(STACKN.items()), sorted(back.items()))
+
+    def report(fn):
+        """a function's line, printed as soon as its result is final (a long check shows its progress)"""
+        ok, why = results[fn]
+        if not quiet or ok is not True:
+            print('%-28s %-11s %s' % (fn, {True: 'EQUIVALENT', False: 'DIFFERS', None: '-'}[ok], why), flush=True)
     for fn in want:
         case_path = os.path.join('tests', stem, fn + '.json')
         if fn not in funcs or '_' + fn not in syms:
             results[fn] = (None, 'not in functions.txt or not compiled')
+            report(fn)
             continue
         if not os.path.exists(case_path):
             results[fn] = (None, 'no cases (%s)' % case_path)
+            report(fn)
             continue
         start, size = funcs[fn]
         c_at = syms['_' + fn]
@@ -922,6 +971,7 @@ def main(argv):
             results[fn] = (True, hit['why'])
             evidence[fn] = (start, size, cfile, counts,
                             [c.get('about', '') for k in ('dev', 'holdout') for c in sets.get(k, [])] + ['the cases run %s' % hit['covtext']])
+            report(fn)
             continue
         queue = [c for k in ('dev', 'holdout') for c in sets.get(k, [])]
         for case in queue:
@@ -945,11 +995,9 @@ def main(argv):
             endless = case.get('endless') and str(orig['error']).startswith('more than') and str(mine['error']).startswith('more than')
             if endless:      # a function that never returns, cut at the step limit: the calls both sides made, in order, up to the shorter run
                 orig, mine = cut_endless(orig, mine)
-            trap_re = re.compile(r'^(trapa #\d+) at [0-9A-F]{8}$')
-            trapped = (case.get('same_trap') and trap_re.match(str(orig['error'])) and trap_re.match(str(mine['error']))
-                       and trap_re.match(str(orig['error'])).group(1) == trap_re.match(str(mine['error'])).group(1))
-            if trapped:      # both sides raise the same trap number (an error trap, e.g. trapa #48): what they did before it is compared, the trap's address is not
-                mine = dict(mine, error=orig['error'])
+            stopped = same_trap(case, orig, mine)
+            trapped = stopped is not mine      # both sides stopped on the same trap number: what they did before it is compared, the trap's address is not
+            mine = stopped
             good, diff = same(orig, mine, rets.get(fn, ['r0', 'fr0']), back, arity, indirect_arity(cfile, fn), indirect_targets(cfile, fn, table))
             faults = case.get('same_fault') and orig['error'] and orig['error'] == mine['error'] and not str(orig['error']).startswith('more than')
             if faults:       # code that cannot run as written (an unaligned constant address): both sides stop with the same fault, nothing else to compare
@@ -962,6 +1010,10 @@ def main(argv):
             if not fuzz and not orig['error']:
                 queue.extend(alias_variants(case, orig))
         total = code_addresses(exe_bytes, base, start, size)
+        b0 = sh4sim.body_before('.').get((start & 0x1FFFFFFF) | 0x0C000000)
+        if b0 is not None:      # a body laid out before the entry (functions.txt `B`): its instructions count too
+            b0 = (start & 0xE0000000) | (b0 & 0x1FFFFFFF)
+            total = code_addresses(exe_bytes, base, b0, start - b0) + total
         total = [a for a in total if a in seen or struct.unpack_from('<H', exe_bytes, a - base)[0] != 0x0009]       # padding nops no case runs are not code
         cov = len([a for a in total if a in seen])
         covtext = '%d of %d instructions' % (cov, len(total)) if total else ''
@@ -975,13 +1027,11 @@ def main(argv):
             evidence[fn] = (start, size, cfile, counts,
                             [c.get('about', '') for k in ('dev', 'holdout') for c in sets.get(k, [])] + ['the cases run %s' % covtext])
             cache[key] = {'fn': fn, 'why': results[fn][1], 'covtext': covtext}
+        report(fn)
     if any(ok for ok, _ in results.values()) and not (stem.startswith('zz_') or fuzz):
         fresh_cache = load_cache()          # another run may have added keys meanwhile
         fresh_cache.update(cache)
         save_cache(fresh_cache)
-    for fn, (ok, why) in results.items():
-        if not quiet or ok is not True:
-            print('%-28s %-11s %s' % (fn, {True: 'EQUIVALENT', False: 'DIFFERS', None: '-'}[ok], why))
     if quiet:
         print('%d EQUIVALENT, %d DIFFERS, %d without cases or not compiled' % (
             sum(1 for ok, _ in results.values() if ok is True), sum(1 for ok, _ in results.values() if ok is False),
@@ -1019,7 +1069,7 @@ def write_evidence(new, failed):
     head = ('# Equivalent functions\n\nFunctions whose C behaves like the original on every test case '
             '(`tools/equiv.py`: same calls, same final memory, same result). Written by `tools/equiv.py`; '
             'the cases are the evidence. Cases that start from a RAM dump (`"dump": "build/ram/<name>.bin"`) need '
-            'your own dump there: all of RAM (16 MB from `0C000000`) at that moment, e.g. read with `tools/4-boosts/live.py`.\n')
+            'your own dump there: all of RAM (16 MB from `0C000000`) at that moment, e.g. read with `tools/6-agentic/live.py`.\n')
     open(path, 'w').write(head + ''.join('\n' + entries[k] for k in sorted(entries)))
 
 

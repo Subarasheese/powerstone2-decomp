@@ -22,7 +22,7 @@ struct oBC_float { char p[0xBC]; float v; };
 struct oC4_int { char p[0xC4]; int v; };
 int FUN_0c03f346(int, int, int, int);
 float math_sin_angle16(int);
-int FUN_0c17c4d0(int);
+int nlVoidUnitVector(int);
 int FUN_0c187798(int, int, int);
 int FUN_0c124f0c(int a4, int a5, int a6, int a7);
 int FUN_0c1250a8(int a4, int a5, int a6, int a7);

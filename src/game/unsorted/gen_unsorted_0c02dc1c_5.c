@@ -6,7 +6,7 @@ struct o10_float { char p[0x10]; float v; };
 struct o14_float { char p[0x14]; float v; };
 struct oC_float { char p[0xC]; float v; };
 int FUN_0c03ee04(int, float);
-int FUN_0c17e740(int, int, int, float, float, float);
+int nlObjPutSetFadeColor(int, int, int, float, float, float);
 int FUN_0c02e406(int a4, int a5, int a6, float f4);
 
 int FUN_0c02e406(int a4, int a5, int a6, float f4)
@@ -16,7 +16,7 @@ int FUN_0c02e406(int a4, int a5, int a6, float f4)
     t0 = *(short *)((a5 + 0x6));
     if (((unsigned short)t0 & 0x200) != 0) {
         if (((unsigned short)(*(short *)((a4 + 0x4))) & 0x200) != 0) {
-            return FUN_0c17e740(0x200, a5, a6, ((((struct oC_float *)(a4))->v)), ((((struct o10_float *)(a4))->v)), ((((struct o14_float *)(a4))->v)));
+            return nlObjPutSetFadeColor(0x200, a5, a6, ((((struct oC_float *)(a4))->v)), ((((struct o10_float *)(a4))->v)), ((((struct o14_float *)(a4))->v)));
         }
         return FUN_0c03ee04((*(signed char *)((a4 + 0x1))), f4);
     }

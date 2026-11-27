@@ -20,7 +20,7 @@ int FUN_0c0c241a(int);
 int FUN_0c0c25c4(int);
 int FUN_0c0c2aa2(int, int);
 int FUN_0c0c2ab6(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(void);
 int FUN_0c0cf2f4(int a4, int a5, int a6, int a7, int a8, int a9);
 int FUN_0c0cf440(int a4, int a5, int a6);
@@ -32,7 +32,7 @@ int FUN_0c0cf440(int a4, int a5, int a6)
     register int t3;
 
     if ((*(signed char *)0xC5429B4) == 2) {
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)0xF);
+        t2 = (int)((int)(nlRand()) % (int)0xF);
         if (a5 != 1) {
             t3 = FUN_0c0bb2a4();
             if (t3 != 0) {

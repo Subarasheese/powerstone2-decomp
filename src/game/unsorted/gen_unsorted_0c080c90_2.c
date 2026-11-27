@@ -21,36 +21,36 @@ int FUN_0c081378(int a4);
 int FUN_0c081378(int a4)
 {
     int t0;
-    register int t1;
-    register int t2;
-    register int t3;
+    int t1;
+    int t3;
+    int t2;
 
     (((struct o3730_uchar *)(a4))->v) = 0x4;
-    t0 = *(signed char *)((a4 + 0x2));
+    t0 = *(signed char *)(a4 + 0x2);
     t1 = *(signed char *)(((0x371C + a4) + 0x0));
     (((struct o50_float *)(a4))->v) = ((((struct o54_float *)((((((((t0 << 1) + t0) << 2) << 2) << 2) + 0xC259E54) + (((((t1 << 1) + t1) << 2) << 2) << 1))))->v));
-    t0 = *(signed char *)((a4 + 0x2));
+    t0 = *(signed char *)(a4 + 0x2);
     t1 = *(signed char *)(((0x371C + a4) + 0x0));
     (((struct o5C_float *)(a4))->v) = (((((struct o58_float *)((((((((t0 << 1) + t0) << 2) << 2) << 2) + 0xC259E54) + (((((t1 << 1) + t1) << 2) << 2) << 1))))->v)) * ((((struct o37A8_float *)(a4))->v)));
     t0 = FUN_0c07ebd0(a4);
     if (t0 != 0) {
-        t0 = *(signed char *)((a4 + 0x1));
+        t0 = *(signed char *)(a4 + 0x1);
         t1 = FUN_0c07eaf4(a4);
         t2 = *(short *)(((0xC5413E8 + ((short)t0 * (short)0x2F8)) + 0x0));
-        t0 = *(signed char *)((a4 + 0x2));
+        t0 = *(signed char *)(a4 + 0x2);
         t3 = *(signed char *)(((0x371C + a4) + 0x0));
         (((struct o4C_float *)(a4))->v) = ((math_sin_angle16((unsigned short)(t2 + t1))) * ((((struct o5C_float *)((((((((t0 << 1) + t0) << 2) << 2) << 2) + 0xC259E54) + (((((t3 << 1) + t3) << 2) << 2) << 1))))->v)));
-        t0 = *(signed char *)((a4 + 0x2));
-        t3 = *(signed char *)((a4 + 0x371C));
+        t0 = *(signed char *)(a4 + 0x2);
+        t3 = *(signed char *)(a4 + 0x371C);
         (((struct o54_float *)(a4))->v) = ((math_cos_angle16((unsigned short)(t2 + t1))) * ((((struct o5C_float *)(((0xC259E54 + (((((t0 << 1) + t0) << 2) << 2) << 2)) + (((((t3 << 1) + t3) << 2) << 2) << 1))))->v)));
     }
     (((struct o2C_float *)(a4))->v) = (((((struct o2C_float *)(a4))->v)) + 20.0f);
-    t0 = *(signed char *)((a4 + 0x2));
+    t0 = *(signed char *)(a4 + 0x2);
     if ((t0 != 0) && (t0 != 6)) {
         return FUN_0c07e868(a4, 0x6);
     }
-    if ((*(signed char *)((a4 + 0x3721))) == 0) {
-        t0 = *(signed char *)((a4 + 0x1));
+    if ((*(signed char *)(a4 + 0x3721)) == 0) {
+        t0 = *(signed char *)(a4 + 0x1);
         return (FUN_0c07e79c(a4, t0, 0x0, 0x15, (t0), 0x0, 0x15));
     }
     return FUN_0c07e868(a4, 0x6);

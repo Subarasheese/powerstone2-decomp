@@ -9,8 +9,8 @@ struct o28_short { char p[0x28]; short v; };
 struct oC_short { char p[0xC]; short v; };
 struct oC_ushort { char p[0xC]; unsigned short v; };
 int dbg_set_cell_size(int, int);
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c17a550(int);
 int FUN_0c05c432(void);
 
@@ -52,9 +52,9 @@ int FUN_0c05c432(void)
         t2 = (t2 + t0);
         t2 = (t2 << 2);
         t1 = (t1 + t2);
-        FUN_0c17a4c0((*(int *)((t1 + 0x0))), (*(int *)((t1 + 0x4))));
+        nlLocate((*(int *)((t1 + 0x0))), (*(int *)((t1 + 0x4))));
         t1 = *(signed char *)0xC5429A8;
-        FUN_0c17a360((*(int *)((((*(int *)((((((t1 << 1) + t1) << 2) + 0xC2577C0) + 0x4))) + t2) + 0x8))));
+        nlPuts((*(int *)((((*(int *)((((((t1 << 1) + t1) << 2) + 0xC2577C0) + 0x4))) + t2) + 0x8))));
         dbg_set_cell_size(0x8, 0x8);
         t0 = (t0 + 0x1);
     }

@@ -18,7 +18,7 @@ int thunk_FUN_0c03f346(int, int);
 int FUN_0c01cd2c(int);
 int FUN_0c036de8(int, int, int, int, int, int, int, int, int, int, int, int);
 int FUN_0c05aab6(int, int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int dbg_printf(int, ...);
 int FUN_0c01a024(void);
 
@@ -33,7 +33,7 @@ int FUN_0c01a024(void)
     register int t24;
     register int t11;
 
-    FUN_0c17a4c0(0x3, 0xF);
+    nlLocate(0x3, 0xF);
     *(int *)((int)stk + 12) = (((((struct o2_short *)0xC20DF7C)->v)));
     *(int *)((int)stk + 8) = 0xC1A75C0;
     dbg_printf(0xC1A75C0);

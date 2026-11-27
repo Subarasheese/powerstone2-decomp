@@ -2,7 +2,7 @@
    a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c10873c(int a4, int a5);
 int FUN_0c108838(int a4, int a5);
 int FUN_0c1088f2(int a4, int a5);
@@ -55,7 +55,7 @@ int FUN_0c10873c(int a4, int a5)
     }
     t1 = 0xFFFFFFFF;
     if ((int)t0 > 0) {
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)t0);
+        t2 = (int)((int)(nlRand()) % (int)t0);
         t3 = *(int *)((0xC473058 + (t2 << 2)));
         t4 = t3;
         if (t3 == a4) {
@@ -110,7 +110,7 @@ int FUN_0c108838(int a4, int a5)
     }
     t1 = 0xFFFFFFFF;
     if ((int)t0 > 0) {
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)t0);
+        t2 = (int)((int)(nlRand()) % (int)t0);
         t3 = *(int *)((0xC473058 + (t2 << 2)));
         t1 = t3;
         if (t3 == a5) {
@@ -164,7 +164,7 @@ int FUN_0c1088f2(int a4, int a5)
     }
     t1 = 0xFFFFFFFF;
     if ((int)t0 > 0) {
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)t0);
+        t2 = (int)((int)(nlRand()) % (int)t0);
         t3 = *(int *)((0xC473058 + (t2 << 2)));
         t1 = t3;
         if (t3 == a5) {
@@ -233,7 +233,7 @@ int FUN_0c1089c0(int a4, int a5, int a6, int a7)
         }
         t49 = 0xFFFFFFFF;
         if ((int)t23 > 0) {
-            t31 = (int)((int)(FUN_0c179ac0()) % (int)t23);
+            t31 = (int)((int)(nlRand()) % (int)t23);
             t32 = *(int *)((((int)stk + 0) + (t31 << 2)));
             t49 = t32;
             if (t32 == a4) {
@@ -337,7 +337,7 @@ int FUN_0c108acc(int a4, int a5, int a6, int a7)
     }
     t65 = 0xFFFFFFFF;
     if ((int)t45 > 0) {
-        t51 = (int)((int)(FUN_0c179ac0()) % (int)t45);
+        t51 = (int)((int)(nlRand()) % (int)t45);
         t53 = *(int *)((0xC473058 + (t51 << 2)));
         t65 = t53;
         if (t53 == (*(int *)(((int)stk + 0)))) {
@@ -351,88 +351,6 @@ int FUN_0c108acc(int a4, int a5, int a6, int a7)
     return t65;
 }
 
-int FUN_0c108bf8(int a4, int a5, int a6)
-{
-    int stk[32];
-    register int t1;
-    register int t43;
-    register int t4;
-    register int t7;
-    register int t10;
-    register int t13;
-    register int t16;
-    register int t19;
-    register int t22;
-    register int t25;
-    register int t28;
-    register int t34;
-
-    t1 = *(short *)(((((((a4 << 2) << 1) - a4) + a5) * 0xE) + 0xC296216));
-    t43 = 0x0;
-    if (t1 == 0) {
-    } else {
-        if (a6 == 1) {
-            t34 = 0x0;
-            if ((t1 & 0x20) != 0) {
-                *(unsigned int *)((((int)stk + 0) + 0x0)) = 0x20;
-                t34 = 0x1;
-            }
-        } else {
-            t4 = 0x0;
-            if ((t1 & 0x1) != 0) {
-                *(unsigned int *)((((int)stk + 0) + 0x0)) = 0x1;
-                t4 = 0x1;
-            }
-            t7 = t4;
-            if ((t1 & 0x2) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t4 << 2))) = 0x2;
-                t7 = (t4 + 0x1);
-            }
-            t10 = t7;
-            if ((t1 & 0x4) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t7 << 2))) = 0x4;
-                t10 = (t7 + 0x1);
-            }
-            t13 = t10;
-            if ((t1 & 0x8) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t10 << 2))) = 0x8;
-                t13 = (t10 + 0x1);
-            }
-            t16 = t13;
-            if ((t1 & 0x10) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t13 << 2))) = 0x10;
-                t16 = (t13 + 0x1);
-            }
-            t19 = t16;
-            if ((t1 & 0x80) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t16 << 2))) = 0x80;
-                t19 = (t16 + 0x1);
-            }
-            t22 = t19;
-            if ((t1 & 0x100) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t19 << 2))) = 0x100;
-                t22 = (t19 + 0x1);
-            }
-            t25 = t22;
-            if ((t1 & 0x200) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t22 << 2))) = 0x200;
-                t25 = (t22 + 0x1);
-            }
-            t28 = t25;
-            if ((t1 & 0x400) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t25 << 2))) = 0x400;
-                t28 = (t25 + 0x1);
-            }
-            t34 = t28;
-            if ((t1 & 0x800) != 0) {
-                *(unsigned int *)((((int)stk + 0) + (t28 << 2))) = 0x800;
-                t34 = (t28 + 0x1);
-            }
-        }
-        t43 = (*(int *)((((int)stk + 0) + (((int)((int)(FUN_0c179ac0()) % (int)t34)) << 2))));
-    }
-    return t43;
-}
 
 int FUN_0c10992a(int a4, int a5, int a6, int a7)
 {

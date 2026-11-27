@@ -1,0 +1,125 @@
+/* Straight-line functions with calls and guards (batch gen_qe): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o2C_float { char p[0x2C]; float v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o7C_int { char p[0x7C]; int v; };
+struct o7C_uint { char p[0x7C]; unsigned int v; };
+struct oC4_int { char p[0xC4]; int v; };
+int FUN_0c03f346(int, int, int, int);
+int FUN_0c12bcbe(int a4, int a5, int a6, int a7);
+
+int FUN_0c12bcbe(int a4, int a5, int a6, int a7)
+{
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R12;
+    register int R13;
+    register float F2;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    v0_0 = a4;
+    v0_4 = a7;
+    v0_5 = *(signed char *)((v0_0 + 0x14));
+    v0_1 = (v0_5);
+    v0_3 = (0x222);
+    v0_2 = (0xA);
+    w0_1 = (100.0f);
+    w0_2 = (150.0f);
+    w0_0 = (0.100000001f);
+    if ((v0_5 == 0)) goto L_C12BD1C;
+    if ((v0_1 == 1)) goto L_C12BD2A;
+    if ((v0_1 == 2)) goto L_C12BD7C;
+    if ((v0_1 == 3)) goto L_C12BDC6;
+    return FUN_0c03f346(v0_0, v0_3, v0_2, v0_4);
+    L_C12BDC6:;
+    v0_1 = (((struct oC4_int *)(v0_0))->v);
+    (((struct o7C_uint *)(v0_1))->v) = (((((struct o7C_int *)(v0_1))->v)) + v0_3);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)(((*(int *)((v0_0 + 0x10))) + 0x28)); }
+    if (((*(signed char *)((v0_0 + 0x2))) != 0)) goto L_C12BDEE;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_1));
+    L_C12BDF4:;
+    *(float *)((v0_0 + v0_1)) = w0_1;
+    w0_1 = (((struct o48_float *)(v0_0))->v);
+    (((struct o48_float *)(v0_0))->v) = (w0_1 - w0_0);
+    (((struct o44_float *)(v0_0))->v) = (w0_1 - w0_0);
+    (((struct o40_float *)(v0_0))->v) = (w0_1 - w0_0);
+    v0_2 = *(short *)((v0_0 + 0x1C));
+    *(unsigned short *)((v0_0 + 0x1C)) = (v0_2 - 1);
+    v0_1 = ((short)(v0_2 - 1));
+    if (((short)(v0_2 - 1) != 0)) goto L_C12BE22;
+    L_C12BE12:;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    v0_1 = (0x14);
+    L_C12BE22:;
+    return v0_1;
+    L_C12BDEE:;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_2));
+    goto L_C12BDF4;
+    L_C12BD7C:;
+    v0_1 = (((struct oC4_int *)(v0_0))->v);
+    (((struct o7C_uint *)(v0_1))->v) = (((((struct o7C_int *)(v0_1))->v)) + v0_3);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)(((*(int *)((v0_0 + 0x10))) + 0x28)); }
+    if (((*(signed char *)((v0_0 + 0x2))) != 0)) goto L_C12BDA4;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_1));
+    L_C12BDAA:;
+    *(float *)((v0_0 + v0_1)) = w0_1;
+    v0_1 = *(short *)((v0_0 + 0x1C));
+    *(unsigned short *)((v0_0 + 0x1C)) = (v0_1 - 1);
+    if (((short)(v0_1 - 1) == 0)) goto L_C12BDC2;
+    v0_3 = *(signed char *)((0x3715 + (*(int *)((v0_0 + 0x10)))));
+    v0_1 = (v0_3);
+    if ((v0_3 == 26)) goto L_C12BE22;
+    L_C12BDC2:;
+    v0_1 = (v0_2);
+    L_C12BD78:;
+    *(unsigned short *)((v0_0 + 0x1C)) = v0_1;
+    goto L_C12BE12;
+    L_C12BDA4:;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_2));
+    goto L_C12BDAA;
+    L_C12BD2A:;
+    v0_1 = (((struct oC4_int *)(v0_0))->v);
+    (((struct o7C_uint *)(v0_1))->v) = (((((struct o7C_int *)(v0_1))->v)) + v0_3);
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_0 + 0x28)) = *(struct mv3 *)(((*(int *)((v0_0 + 0x10))) + 0x28)); }
+    if (((*(signed char *)((v0_0 + 0x2))) != 0)) goto L_C12BD52;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_1));
+    L_C12BD58:;
+    *(float *)((v0_0 + v0_1)) = w0_1;
+    w0_1 = (((struct o48_float *)(v0_0))->v);
+    (((struct o48_float *)(v0_0))->v) = (w0_1 + w0_0);
+    (((struct o44_float *)(v0_0))->v) = (w0_1 + w0_0);
+    (((struct o40_float *)(v0_0))->v) = (w0_1 + w0_0);
+    v0_2 = *(short *)((v0_0 + 0x1C));
+    *(unsigned short *)((v0_0 + 0x1C)) = (v0_2 - 1);
+    v0_1 = ((short)(v0_2 - 1));
+    if (((short)(v0_2 - 1) != 0)) goto L_C12BE22;
+    v0_1 = (0x64);
+    goto L_C12BD78;
+    L_C12BD52:;
+    v0_1 = (0x2C);
+    w0_1 = ((((((struct o2C_float *)(v0_0))->v)) + w0_2));
+    goto L_C12BD58;
+    L_C12BD1C:;
+    *(unsigned short *)((v0_0 + 0x1C)) = v0_2;
+    (((struct o14_uchar *)(v0_0))->v) = ((*(signed char *)((v0_0 + 0x14))) + 0x1);
+    goto L_C12BD2A;
+}

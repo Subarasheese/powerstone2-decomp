@@ -42,9 +42,9 @@ int FUN_0c0e5aa8(int);
 int FUN_0c0e6aa2(int);
 int FUN_0c0e6dd8(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0e2390(int, int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c0e33cc(int a4, int a5, int a6);
@@ -76,7 +76,7 @@ int FUN_0c0e340c(int a4)
     register int t2;
     register int t4;
 
-    FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+    nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
     *(unsigned short *)((a4 + 0x1C)) = ((*(short *)((a4 + 0x1C))) - 1);
     t2 = *(short *)((a4 + 0x1C));
     t4 = t2;
@@ -117,7 +117,7 @@ int FUN_0c0e3440(int a4)
             if ((int)((((struct o22_short *)(a4))->v)) >= (int)0x168) {
                 (((struct o22_ushort *)(a4))->v) = 0x0;
                 (((struct o17_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x17))) + 0x1);
-                t3 = FUN_0c179ac0();
+                t3 = nlRand();
                 t4 = ((~(((~t3) + 0x1) & 0xF)) + 0x1);
                 if ((int)t3 >= 0) {
                     t4 = (t3 & 0xF);

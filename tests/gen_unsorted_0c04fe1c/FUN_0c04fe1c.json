@@ -1,14 +1,390 @@
 {
  "dev": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "alloc fails",
+   "regs": {},
+   "poke": {
+    "0C700028": "60d1b6c385b7ad43",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "27e3034454eef4c3c41312c12609cac2cd979743975c1044f9114bc486d36bc4efe12744437706c3da2303446df278c48373dac2408add43709e07c4a6a25e44b7b648447bb46ac4ee466dc45fa6a54218935b446e976dc347b30dc450c41bc3",
+    "0C241404": "00000000dbfd0000000000004d010000c0ffffff000000003a420100e53d0000667101001ed8000046010000baffffff",
+    "0C4B410C": "df64a0d8",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "00000000"
+    },
+    {
+     "r0": "a5b4dff0"
+    },
+    {
+     "r0": "c5475a81"
+    },
+    {
+     "r0": "bcd2b264"
+    },
+    {
+     "r0": "19dac896"
+    },
+    {
+     "r0": "481471da"
+    },
+    {
+     "r0": "57afd608"
+    },
+    {
+     "r0": "bc27f07a"
+    },
+    {
+     "r0": "e334243e"
+    },
+    {
+     "r0": "cc2165be"
+    },
+    {
+     "r0": "58af22cc"
+    },
+    {
+     "r0": "bd6c7f67"
+    },
+    {
+     "r0": "757b106a"
+    }
+   ]
+  },
+  {
+   "about": "alloc ok 1",
+   "regs": {},
+   "poke": {
+    "0C700028": "567b3ec2ec166f42",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "f41a5444546689c2b5eb7a4108c52e437aab1dc4c989be41fae181430a7d124433f04ac44799c4c32caa4cc480d21a444070c143510f65c4c2187144ff6068442bec99431b206743c1402bc4e87f72c4d50c634275395cc458e51ac44b0701c4",
+    "0C241404": "b6feffff00000000a0770000000000003e01000036010000992a00000000000000000000000000003200000000000000",
+    "0C4B410C": "154be9d8",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "0000700c"
+    },
+    {
+     "r0": "ee7055af"
+    },
+    {
+     "r0": "82b62300"
+    },
+    {
+     "r0": "df0ba836"
+    },
+    {
+     "r0": "540ab035"
+    },
+    {
+     "r0": "41a252ed"
+    },
+    {
+     "r0": "df9407e9"
+    },
+    {
+     "r0": "7203650d"
+    },
+    {
+     "r0": "08165178"
+    },
+    {
+     "r0": "455b1e60"
+    },
+    {
+     "r0": "a9cdf8fa"
+    },
+    {
+     "r0": "1d6a7ab5"
+    },
+    {
+     "r0": "cb9abd65"
+    }
+   ]
+  },
+  {
+   "about": "alloc ok 3",
+   "regs": {},
+   "poke": {
+    "0C700028": "d3fd70c30c423943",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "f914b84307ab2e444e231dc480b806c4886b30c4256b09c40b06ea43bce438c49d847a42d60b0fc4df57cdc3dfd608c309d42844e6cd5843a7c872c4c429e0c314a530c472a43944acde1a44ff051944c32e23440ac0f44366a96044a1e21244",
+    "0C241404": "000000008f820100f1db000011dc00000000000079300100a5ffffffed38010079e100000000000000000000af000000",
+    "0C4B410C": "823c015f",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "0000700c"
+    },
+    {
+     "r0": "431b9f75"
+    },
+    {
+     "r0": "54da0243"
+    },
+    {
+     "r0": "ccf7019b"
+    },
+    {
+     "r0": "7b09b747"
+    },
+    {
+     "r0": "c45a5065"
+    },
+    {
+     "r0": "d607a7e3"
+    },
+    {
+     "r0": "6bdc7a21"
+    },
+    {
+     "r0": "338bc393"
+    },
+    {
+     "r0": "2ed0a87d"
+    },
+    {
+     "r0": "1489ce8c"
+    },
+    {
+     "r0": "1041463c"
+    },
+    {
+     "r0": "8034bb90"
+    }
+   ]
   }
  ],
  "holdout": [
   {
-   "about": "rescue: empty case",
-   "regs": {}
+   "about": "alloc ok 0",
+   "regs": {},
+   "poke": {
+    "0C700028": "21ce8e42ce388ec2",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "bf2e1c436df312c41fa91c4460cb2144f87899439ee229c4d95a2542293aacc3da00fac3906862444c477844c8b863c49d14344498614e43bcc96cc3bc61d8c300f7ae43e7acacc28adcb943a8d8a143cc8237c43deb0544e5347144afb16a44",
+    "0C241404": "000000000000000021ffffff000000005855010065000000534e01000000000000000000bdfeffff9e36010000000000",
+    "0C4B410C": "37f65126",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "0000700c"
+    },
+    {
+     "r0": "46466962"
+    },
+    {
+     "r0": "0b583691"
+    },
+    {
+     "r0": "618d10f2"
+    },
+    {
+     "r0": "a4ebc95f"
+    },
+    {
+     "r0": "61eab7e9"
+    },
+    {
+     "r0": "5718ef99"
+    },
+    {
+     "r0": "f6395026"
+    },
+    {
+     "r0": "120be81c"
+    },
+    {
+     "r0": "a15ebbf6"
+    },
+    {
+     "r0": "070088c6"
+    },
+    {
+     "r0": "4861ecc5"
+    },
+    {
+     "r0": "e928bb18"
+    }
+   ]
+  },
+  {
+   "about": "alloc ok 2",
+   "regs": {},
+   "poke": {
+    "0C700028": "406fcbc1f6781d43",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "1569a64328b332c4dd9174c4b37d7ac3adf3e1c38d2c1b44b897be4301ea4a439cc2e8423352a1433e5931c4e5c7efc2c8dd28c48bfc4a447c965cc4fa681f44f8b154c40df2ba431b00a3c37dc53ec3a2332b44a6b270c48f9b5bc44e844f44",
+    "0C241404": "00000000000000000000000005a00000b9530000000000009f00000072d60000fa000000e7c400000d4801003c620000",
+    "0C4B410C": "5ed7f542",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "0000700c"
+    },
+    {
+     "r0": "3770395b"
+    },
+    {
+     "r0": "aa21ebf0"
+    },
+    {
+     "r0": "24fef55c"
+    },
+    {
+     "r0": "b1d0badd"
+    },
+    {
+     "r0": "7a57abb0"
+    },
+    {
+     "r0": "fe4cb662"
+    },
+    {
+     "r0": "3b607cac"
+    },
+    {
+     "r0": "3dc7554f"
+    },
+    {
+     "r0": "d61e241d"
+    },
+    {
+     "r0": "05d39b40"
+    },
+    {
+     "r0": "2827273c"
+    },
+    {
+     "r0": "91ced155"
+    }
+   ]
+  },
+  {
+   "about": "alloc ok 4",
+   "regs": {},
+   "poke": {
+    "0C700028": "f295c4c3e5954a43",
+    "0C7000C4": "0000710c0010710c0020710c0030710c0040710c0050710c0060710c0070710c0080710c0090710c00a0710c00b0710c",
+    "0C241398": "c20a98431b2d5c4481e2e4c37839f4c3320fea4334739e431403c5c3ae3bb84318a74ec320c20a44dbcc3ec4f05d0ac446bb4844a2f78dc30199efc301241844f7a98343f2252fc4a854cd42c2ffa343a08627c4c3b29743a17c3cc40cefa2c3",
+    "0C241404": "00000000aece000000000000000000009c2d010000000000f8feffff00000000bbe7000077ffffff0000000014ffffff",
+    "0C4B410C": "75e8d947",
+    "0C71006C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71106C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71206C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71306C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71406C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71506C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71606C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71706C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71806C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71906C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71A06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "0C71B06C": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+   },
+   "calls": [
+    {
+     "r0": "0000700c"
+    },
+    {
+     "r0": "1f92471e"
+    },
+    {
+     "r0": "8bd62a07"
+    },
+    {
+     "r0": "57316629"
+    },
+    {
+     "r0": "eb0087bd"
+    },
+    {
+     "r0": "ee3f7069"
+    },
+    {
+     "r0": "13e3261d"
+    },
+    {
+     "r0": "13a7aaaf"
+    },
+    {
+     "r0": "90819886"
+    },
+    {
+     "r0": "c3660096"
+    },
+    {
+     "r0": "9ac7cd17"
+    },
+    {
+     "r0": "402ad96c"
+    },
+    {
+     "r0": "60f2fd7a"
+    }
+   ]
   }
  ]
 }

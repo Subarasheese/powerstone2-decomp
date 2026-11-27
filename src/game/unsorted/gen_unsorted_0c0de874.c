@@ -30,7 +30,7 @@ int thunk_FUN_0c05abb2(int, int);
 int FUN_0c064d24(int, int, int, int, int, int, int, int);
 int FUN_0c07e420(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c187798(void);
 int FUN_0c0de874(int a4, int a5, int a6, int a7);

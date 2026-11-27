@@ -21,7 +21,7 @@ struct o8C_float { char p[0x8C]; float v; };
 struct oC4_int { char p[0xC4]; int v; };
 struct oC_float { char p[0xC]; float v; };
 int FUN_0c03f346(int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c15bebc(int a4, int a5, int a6, int a7);
 int FUN_0c15bf56(int a4, int a5, int a6, int a7);
 
@@ -43,7 +43,7 @@ int FUN_0c15bebc(int a4, int a5, int a6, int a7)
         t0 = 0x14;
     } else {
         t1 = (((struct oC4_int *)(a4))->v);
-        (((struct o7C_uint *)(t1))->v) = (((((struct o7C_int *)(t1))->v)) + (int)(((float)((int)((int)(FUN_0c179ac0()) % (int)0x1E)) * ((((struct o0_float *)0xC15BFE4)->v))) / ((((struct o4_float *)0xC15BFE4)->v))));
+        (((struct o7C_uint *)(t1))->v) = (((((struct o7C_int *)(t1))->v)) + (int)(((float)((int)((int)(nlRand()) % (int)0x1E)) * ((((struct o0_float *)0xC15BFE4)->v))) / ((((struct o4_float *)0xC15BFE4)->v))));
         (((struct o84_float *)(t1))->v) = (((((struct o84_float *)(t1))->v)) + 0.25f);
         if (!(1.0f > ((((struct o84_float *)(t1))->v)))) {
             (((struct o84_float *)(t1))->v) = ((((struct oC_float *)0xC15BFE4)->v));

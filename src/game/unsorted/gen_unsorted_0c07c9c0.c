@@ -19,7 +19,7 @@ struct oC_float { char p[0xC]; float v; };
 int FUN_0c064f80(int);
 float math_signed_sqrt(float);
 int FUN_0c07c9c0(int a4);
-void FUN_0c07ca6a(int a4);
+int FUN_0c07ca6a(int a4);
 
 int FUN_0c07c9c0(int a4)
 {
@@ -62,18 +62,19 @@ int FUN_0c07c9c0(int a4)
     return t1;
 }
 
-void FUN_0c07ca6a(int a4)
+int FUN_0c07ca6a(int a4)
 {
     register int t1;
     float u2;
 
-    if ((((((struct o376C_int *)(a4))->v)) == 0) && ((t1 = *(signed char *)((a4 + 0x3715)), t1 == 5) && (u2 = (((struct o17C_float *)(a4))->v), -2.0f > u2))) {
+    if ((((((struct o376C_int *)(a4))->v)) == 0) && ((t1 = *(signed char *)((a4 + 0x3715)), t1 == 5) && (u2 = (((struct o17C_float *)(a4))->v), (((struct o0_float *)0xC07CACC)->v) > u2))) {
         if (((((struct o178_float *)(a4))->v)) == 0.0f) {
             if (((((struct o180_float *)(a4))->v)) == 0.0f) {
-                return;
+                return 1;
             }
-            return;
+            return 0;
         }
-        return;
+        return 0;
     }
+    return 0;
 }

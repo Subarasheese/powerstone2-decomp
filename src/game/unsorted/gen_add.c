@@ -1,0 +1,93 @@
+/* Straight-line functions with calls and guards (batch gen_add): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o12C_ushort { char p[0x12C]; unsigned short v; };
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o22_short { char p[0x22]; short v; };
+struct o41C_uchar { char p[0x41C]; unsigned char v; };
+struct o420_ushort { char p[0x420]; unsigned short v; };
+struct oA4_uint { char p[0xA4]; unsigned int v; };
+extern int FUN_0c03f346();
+int FUN_0c0c212c(int);
+int FUN_0c0c2ab6(int, int);
+int FUN_0c148494(int, int, int);
+int FUN_0c148542(int);
+int FUN_0c148550(int);
+int FUN_0c1485a0(int);
+int FUN_0c14861e(int);
+int FUN_0c148690(int);
+int FUN_0c14873c(int);
+int FUN_0c148862(int a4, int a5, int a6, int a7);
+
+int FUN_0c148862(int a4, int a5, int a6, int a7)
+{
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R9;
+    register int R12;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register int v0_6;
+    v0_5 = a4;
+    v0_0 = a5;
+    v0_1 = a6;
+    v0_2 = a7;
+    v0_6 = *(signed char *)((v0_5 + 0x14));
+    v0_3 = (v0_6);
+    v0_4 = (v0_5);
+    v0_5 = ((((short)((((struct o22_short *)(v0_5))->v)) * (short)0x3938) + 0xC532498));
+    if ((v0_6 == 0)) goto L_C1488B8;
+    if ((v0_3 == 1)) goto L_C148900;
+    L_C14896E:;
+    return v0_3;
+    L_C148900:;
+    v0_5 = *(signed char *)((v0_4 + 0x41D));
+    v0_3 = (v0_5);
+    if ((v0_5 == 0)) goto L_C148934;
+    if ((v0_3 == 1)) goto L_C14893C;
+    if ((v0_3 == 2)) goto L_C148944;
+    if ((v0_3 == 4)) goto L_C14894C;
+    if ((v0_3 == 3)) goto L_C148954;
+    if ((v0_3 == 5)) goto L_C148954;
+    if ((v0_3 == 7)) goto L_C14895C;
+    if ((v0_3 == 6)) goto L_C148964;
+    if ((v0_3 == 9)) goto L_C148964;
+    if ((v0_3 == 10)) goto L_C148964;
+    if ((v0_3 == 11)) goto L_C148964;
+    goto L_C14896E;
+    L_C148964:;
+    return ((int (*)(int, int, int, int))(FUN_0c03f346))(v0_4, v0_0, v0_1, v0_2);
+    L_C14895C:;
+    return FUN_0c14873c(v0_4);
+    L_C148954:;
+    return FUN_0c148690(v0_4);
+    L_C14894C:;
+    return FUN_0c14861e(v0_4);
+    L_C148944:;
+    return FUN_0c1485a0(v0_4);
+    L_C14893C:;
+    return FUN_0c148550(v0_4);
+    L_C148934:;
+    return FUN_0c148542(v0_4);
+    L_C1488B8:;
+    v0_3 = (0x3714);
+    if (((*(signed char *)((v0_5 + 0x3714))) == 0)) goto L_C14896E;
+    (((struct o14_uchar *)(v0_4))->v) = ((*(signed char *)((v0_4 + 0x14))) + 0x1);
+    (((struct oA4_uint *)(v0_4))->v) = (0x9A0 + v0_5);
+    (((struct o41C_uchar *)(v0_4))->v) = 0xC4;
+    *(unsigned char *)((v0_4 + 0x2)) = 0x4;
+    *(unsigned char *)((v0_4 + 0x3)) = 0x4;
+    FUN_0c148494(v0_4, 0x0, (*(signed char *)((v0_4 + 0x1))));
+    (((struct o420_ushort *)(v0_4))->v) = 0x1E;
+    FUN_0c0c2ab6(v0_4, 0x15);
+    (((struct o12C_ushort *)(v0_4))->v) = 0x0;
+    FUN_0c0c212c(v0_4);
+    goto L_C148900;
+}

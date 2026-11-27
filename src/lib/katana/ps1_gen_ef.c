@@ -225,7 +225,7 @@ int pl_enter_state_36(int a4, int a5);
 int menu_ui_task_34_bind_models(int a4, int a5);
 int FUN_0c0d665c(int a4);
 int FUN_0c0d7bf0(void);
-void gdFsReqRd32(int a4, int a5, int a6);
+int gdFsReqRd32(int a4, int a5, int a6);
 int vmsfs_frename(int a4, int a5, int a6);
 int FUN_0c10cf60(int a4, int a5, int a6, int a7);
 int ADXB_ExecOneWav16(int a4, int a5, int a6, int a7);
@@ -237,7 +237,7 @@ int pl_vib_update(int a4);
 
 
 
-void gdFsReqRd32(int a4, int a5, int a6)
+int gdFsReqRd32(int a4, int a5, int a6)
 {
     int t0;
     register int t1;
@@ -248,6 +248,7 @@ void gdFsReqRd32(int a4, int a5, int a6)
     if ((a4 != 0) && (t0 = (((struct o4C_short *)(a4))->v), t0 != 0)) {
         if ((*(int *)(((*(int *)((a4 + 0x0))) + 0x1C))) == 0) {
             if ((0x1F & a6) != 0) {
+                return -14;
             } else {
                 t0 = *(int *)((a4 + 0x14));
                 t1 = *(int *)((a4 + 0x8));
@@ -255,6 +256,7 @@ void gdFsReqRd32(int a4, int a5, int a6)
                 if ((int)(t0 + t1) >= (int)(t1 + t2)) {
                     *(unsigned int *)((a4 + 0x18)) = 0x0;
                     (((struct o50_ushort *)(a4))->v) = 0x1;
+                    return 0;
                 } else {
                     t3 = a5;
                     if ((int)(a5 + (t0 + t1)) > (int)(t1 + t2)) {
@@ -263,6 +265,7 @@ void gdFsReqRd32(int a4, int a5, int a6)
                     if (t3 == 0) {
                         *(unsigned int *)((a4 + 0x18)) = 0x0;
                         (((struct o50_ushort *)(a4))->v) = 0x1;
+                        return 0;
                     } else {
                         t2 = _builtin_get_imask();
                         _builtin_set_imask(0xF);
@@ -280,12 +283,18 @@ void gdFsReqRd32(int a4, int a5, int a6)
                             (((struct o50_ushort *)(a4))->v) = 0x1;
                         }
                         _builtin_set_imask(((unsigned int)(((t2 & 0xF) << 2) << 2) >> 4));
-                        
+                        if (t4 != 0) {
+                            return t3;
+                        }
+                        return 0;
                     }
                 }
             }
+        } else {
+            return 0;
         }
     }
+    return -10;
 }
 
 

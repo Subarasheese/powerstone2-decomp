@@ -105,11 +105,11 @@ int FUN_0c0247a0(void)
 int FUN_0c02491e(void)
 {
     int stk[37];
-    register int t0;
-    register int t56;
-    register int t2;
-    register int t3;
-    register int t11;
+    int t56;
+    int t0;
+    int t2;
+    int t3;
+    int t11;
     int t25;
 
     t0 = FUN_0c022050();

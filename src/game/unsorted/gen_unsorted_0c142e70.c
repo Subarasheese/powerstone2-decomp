@@ -45,9 +45,9 @@ float math_signed_sqrt(float);
 int math_atan_angle16(float);
 int math_atan2_angle16(float, float);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 float FUN_0c0e2220(int, int);
 int FUN_0c0e2390(int, int, int);
 float FUN_0c17c450(int);
@@ -102,7 +102,7 @@ int FUN_0c143932(int a4)
         *(unsigned short *)((a4 + 0x1C)) = 0x14;
     }
     (((struct o50_float *)(a4))->v) = (((((struct o50_float *)(a4))->v)) + -1.0f);
-    FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+    nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
     t0 = *(signed char *)((a4 + 0x15));
     if (t0 != 0) {
         if (t0 != 1) {

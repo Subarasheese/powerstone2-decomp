@@ -28,13 +28,13 @@ struct oC_float { char p[0xC]; float v; };
 int FUN_0c03e642(int, int, int, int, float);
 int FUN_0c03e792(int);
 float math_signed_sqrt(float);
-int FUN_0c17a5e0(void);
+int nlFogTableOff(void);
 int gfx_set_fog_color(int);
 int gfx_set_fog_density(int);
 int thunk_FUN_0c2b5b00(int);
-int FUN_0c17a670(float);
+int nlFogDensityF(float);
 int FUN_0c17c450(int);
-int FUN_0c0dccb0(int);
+int nlObjPutSetLightDirectionV(int);
 int FUN_0c187798(void);
 int memset(int, int, int);
 int FUN_0c03e5f4(int a4, float f4);
@@ -117,7 +117,7 @@ int FUN_0c03e8f0(void)
     thunk_FUN_0c2b5b00(0xC4789F8);
     gfx_set_fog_color(0x101010);
     gfx_set_fog_density(0xFF09);
-    return FUN_0c17a5e0();
+    return nlFogTableOff();
 }
 
 int FUN_0c03e958(int a4, float f4, float f5)
@@ -152,18 +152,20 @@ int FUN_0c03e958(int a4, float f4, float f5)
     }
     thunk_FUN_0c2b5b00(0xC4789F8);
     gfx_set_fog_color(a4);
-    return FUN_0c17a670(f4);
+    return nlFogDensityF(f4);
 }
 
 int FUN_0c03ea04(int a4, int a5)
 {
+    int t2;
+    int qa0;
     int stk[2];
-    register int t2;
-    register int t3;
-    register int t48;
-    register int t66;
-    register int t67;
+    int qe0;
+    int t3;
+    int t66;
+    int t67;
 
+    qa0 = 0xC1B740C;
     *(unsigned char *)(((int)stk + 4)) = a4;
     *(unsigned char *)(((int)stk + 0)) = a5;
     FUN_0c03e600();
@@ -178,13 +180,13 @@ int FUN_0c03ea04(int a4, int a5)
                         if (t2 != 6) {
                             if (t2 != 13) {
                                 if (t2 == 7) {
-                                    FUN_0c03e874((t3 + 0x3));
+                                    FUN_0c03e874(t3 + 0x3);
                                     return FUN_0c03e958(((((struct o2C_int *)0xC1B7960)->v)), ((((struct o24_float *)0xC1B7960)->v)), ((((struct o28_float *)0xC1B7960)->v)));
                                 }
                                 if (t2 == 8) {
                                     *(unsigned int *)(((int)stk + 0)) = 0xC1B73F4;
                                     FUN_0c03e642(0x0, 0x1, 0xC1B73F4, 0xC1B73D8, 1.0f);
-                                    FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+                                    FUN_0c03e5f4(0x0, (*(float *)qa0));
                                     FUN_0c03e642(0x7, 0x1, (*(int *)(((int)stk + 0))), 0xC1B73D8, 1.0f);
                                     return FUN_0c03e958(((((struct o10_int *)0xC1B79A0)->v)), ((((struct o8_float *)0xC1B79A0)->v)), ((((struct oC_float *)0xC1B79A0)->v)));
                                 }
@@ -200,34 +202,33 @@ int FUN_0c03ea04(int a4, int a5)
                                     FUN_0c03e874(0x6);
                                 } else {
                                     FUN_0c03e642(0x0, 0x1, 0xC1B73E8, 0xC1B73D8, 1.0f);
-                                    FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+                                    FUN_0c03e5f4(0x0, (*(float *)qa0));
                                 }
                                 FUN_0c03e792(0x1);
                                 return FUN_0c03e8f0();
                             }
                             *(unsigned int *)(((int)stk + 0)) = 0xC1B73F4;
                             FUN_0c03e642(0x0, 0x1, 0xC1B73F4, 0xC1B73D8, 1.0f);
-                            FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+                            FUN_0c03e5f4(0x0, (*(float *)qa0));
                             FUN_0c03e642(0x7, 0x1, (*(int *)(((int)stk + 0))), 0xC1B73D8, 1.0f);
                             return FUN_0c03e958(((((struct o1C_int *)0xC1B79A0)->v)), ((((struct o14_float *)0xC1B79A0)->v)), ((((struct o18_float *)0xC1B79A0)->v)));
                         }
                         *(unsigned int *)(((int)stk + 0)) = 0xC1B73F4;
                         FUN_0c03e642(0x0, 0x1, 0xC1B73F4, 0xC1B73D8, 1.0f);
-                        FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+                        FUN_0c03e5f4(0x0, (*(float *)qa0));
                         FUN_0c03e642(0x7, 0x1, (*(int *)(((int)stk + 0))), 0xC1B73D8, 1.0f);
                         return FUN_0c03e958(((((struct o20_int *)0xC1B7960)->v)), ((((struct o18_float *)0xC1B7960)->v)), ((((struct o1C_float *)0xC1B7960)->v)));
                     }
                     FUN_0c03e874(t3);
-                    t48 = *(signed char *)(((int)stk + 0));
-                    return FUN_0c03e958((*(int *)((((((t48 << 1) + t48) << 2) + 0xC1B793C) + 0x8))), (*(float *)((((((t48 << 1) + t48) << 2) + 0xC1B793C) + 0x0))), ((((struct o4_float *)(((((t48 << 1) + t48) << 2) + 0xC1B793C)))->v)));
+                    return FUN_0c03e958((*(int *)(((((((*(signed char *)(((int)stk + 0))) << 1) + (*(signed char *)(((int)stk + 0)))) << 2) + 0xC1B793C) + 0x8))), (*(float *)(((((((*(signed char *)(((int)stk + 0))) << 1) + (*(signed char *)(((int)stk + 0)))) << 2) + 0xC1B793C) + 0x0))), ((((struct o4_float *)((((((*(signed char *)(((int)stk + 0))) << 1) + (*(signed char *)(((int)stk + 0)))) << 2) + 0xC1B793C)))->v)));
                 }
                 FUN_0c03e642(0x0, 0x1, 0xC1B73F4, 0xC1B73D8, 1.0f);
-                FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+                FUN_0c03e5f4(0x0, (*(float *)qa0));
                 FUN_0c03e792(0x1);
                 return FUN_0c03e958(((((struct o14_int *)0xC1B7960)->v)), ((((struct oC_float *)0xC1B7960)->v)), ((((struct o10_float *)0xC1B7960)->v)));
             }
             FUN_0c03e642(0x0, 0x1, 0xC1B73F4, 0xC1B73D8, 1.0f);
-            FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+            FUN_0c03e5f4(0x0, (*(float *)qa0));
             FUN_0c03e792(0x1);
             return FUN_0c03e8f0();
         }
@@ -235,13 +236,14 @@ int FUN_0c03ea04(int a4, int a5)
         FUN_0c03e792(0x0);
         t66 = *(signed char *)0xC542237;
         t67 = *(signed char *)0xC54223C;
-        if (0.0f > (*(float *)((((((((t66 << 2) << 1) + t66) << 2) + 0xC1B7720) + (((t67 << 1) + t67) << 2)) + 0x0)))) {
+        qe0 = ((((((t66 << 2) << 1) + t66) << 2) + 0xC1B7720) + (((t67 << 1) + t67) << 2));
+        if (0.0f > (*(float *)((qe0 + 0x0)))) {
             return FUN_0c03e8f0();
         }
-        return FUN_0c03e958((*(int *)((((((((t66 << 2) << 1) + t66) << 2) + 0xC1B7720) + (((t67 << 1) + t67) << 2)) + 0x8))), (*(float *)((((((((t66 << 2) << 1) + t66) << 2) + 0xC1B7720) + (((t67 << 1) + t67) << 2)) + 0x0))), ((((struct o4_float *)(((((((t66 << 2) << 1) + t66) << 2) + 0xC1B7720) + (((t67 << 1) + t67) << 2))))->v)));
+        return FUN_0c03e958((*(int *)((qe0 + 0x8))), (*(float *)((qe0 + 0x0))), ((((struct o4_float *)(qe0))->v)));
     }
     FUN_0c03e642(0x0, 0x1, 0xC1B73E8, 0xC1B73D8, 1.0f);
-    FUN_0c03e5f4(0x0, (*(float *)0xC1B740C));
+    FUN_0c03e5f4(0x0, (*(float *)qa0));
     FUN_0c03e792(0x1);
     return FUN_0c03e958(((((struct o8_int *)0xC1B7960)->v)), ((((struct o0_float *)0xC1B7960)->v)), ((((struct o4_float *)0xC1B7960)->v)));
 }

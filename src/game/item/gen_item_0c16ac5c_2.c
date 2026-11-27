@@ -20,7 +20,7 @@ int FUN_0c16af78(int, int, int);
 int FUN_0c16b01e(int, int, int);
 int FUN_0c16b38e(int, float);
 int FUN_0c16b5a6(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int);
 int FUN_0c16b2cc(int a4, int a5);
 int FUN_0c16b9d2(int a4, int a5, int a6, float f4);

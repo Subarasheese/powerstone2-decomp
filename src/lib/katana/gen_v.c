@@ -1,6 +1,8 @@
 /* Straight-line functions with calls and guards (batch gen_v): generated from the code and checked by tests. Calls are
    to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
+/* @runtime _slow_strcpy=0C187990 */
+/* @runtime _quick_strcpy=0C1878F0 */
 struct o0_int { int v; };
 struct o0_short { short v; };
 struct o0_uchar { unsigned char v; };
@@ -76,9 +78,9 @@ struct oF_uchar { char p[0xF]; unsigned char v; };
 int FUN_0c178c70(int, int, int, int, int, int);
 int FUN_0c17feb6(int, int, int);
 int FUN_0c17ff1e(void);
-int FUN_0c1878f0(int);
+extern char *_builtin_strcpy(char *, const char *);
 int FUN_0c187a88(int, int, int);
-int FUN_0c187cac(int, int, int, int, int);
+int FUN_0c187cac(int, int, ...);
 int FUN_0c187d24(int, int);
 int FUN_0c187d98(int, int, int);
 int FUN_0c18dad6(int);
@@ -180,6 +182,7 @@ int FUN_0c2f76c4(void);
 int FUN_0c198c42(int a4, int a5, int a6);
 int vmsfs_findnext_ex(int a4, int a5, int a6);
 
+/* manual: the callee 0C2E76C8 takes four arguments (value, 10, 2, the local buffer); 2 cases, 181 of 181 instructions */
 int FUN_0c2d0a30(void)
 {
     int stk[6];
@@ -192,7 +195,7 @@ int FUN_0c2d0a30(void)
     for (;;) {
         *(unsigned char *)0xC8D25C2 = t0;
         FUN_0c2e732c();
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC3003A0);
         *(unsigned int *)(((int)stk + 0)) = (short)((short)(signed char)t0 * (short)0x32);
@@ -212,34 +215,34 @@ int FUN_0c2d0a30(void)
         FUN_0c2e7200(0xC3003A4);
         t17 = *(int *)(((int)stk + 0));
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x29)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC3003A4);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x2B)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC30039C);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x2C)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC30039C);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x2D)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC3003A0);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x2F)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC30039C);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x30)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC30039C);
         *(unsigned char *)0xC8D25C2 = (*(signed char *)(((t17 + 0xC8D1DD8) + 0x31)));
-        FUN_0c2e76c8((*(signed char *)0xC8D25C2), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25C2), 0xA, 0x2, (((int)stk + 0) + 0x8));
         FUN_0c2e7200((((int)stk + 0) + 0x8));
         FUN_0c2e7200(0xC3003A0);
-        FUN_0c2e76c8((*(signed char *)0xC8D25BC), 0xA);
+        ((int (*)(int, int, int, int))FUN_0c2e76c8)((*(signed char *)0xC8D25BC), 0xA, 0x2, (((int)stk + 0) + 0x8));
         t55 = FUN_0c2e7200((((int)stk + 0) + 0x8));
         t0 = (t0 + 0x1);
         if ((int)(signed char)t0 < (int)0x14) continue;
@@ -316,9 +319,10 @@ int FUN_0c2d562a(int a4, int a5)
     return (FUN_0c2d65ae(0x5BE));
 }
 
+/* manual: 0C187CAC is a sprintf (destination in r4, format and values on the stack); 6 cases, 164 of 178 instructions */
 int FUN_0c2f2a44(void)
 {
-    int stk[26];
+    int stk[12];
     register int t8;
     register int t53;
     register int t9;
@@ -333,14 +337,14 @@ int FUN_0c2f2a44(void)
     register int t18;
     register int t19;
 
-    memset((((int)stk + 40) + 0xC), 0x0, 0x3);
-    memset((((int)stk + 40) + 0x4), 0x0, 0x5);
-    strncpy((((int)stk + 40) + 0xC), 0xC302CD4, 0x2);
-    strncpy((((int)stk + 40) + 0x4), 0xC302CD7, 0x4);
-    if ((unsigned char)(*(signed char *)(((((int)stk + 40) + 0xC) + 0x0))) == 32) {
-        *(unsigned char *)(((((int)stk + 40) + 0xC) + 0x0)) = 0x30;
+    memset(((int)stk + 0xC), 0x0, 0x3);
+    memset(((int)stk + 0x4), 0x0, 0x5);
+    strncpy(((int)stk + 0xC), 0xC302CD4, 0x2);
+    strncpy(((int)stk + 0x4), 0xC302CD7, 0x4);
+    if ((unsigned char)(*(signed char *)((((int)stk + 0xC) + 0x0))) == 32) {
+        *(unsigned char *)((((int)stk + 0xC) + 0x0)) = 0x30;
     }
-    *(unsigned char *)(((((int)stk + 40) + 0x4) + 0x0)) = ((*(signed char *)(((((int)stk + 40) + 0x4) + 0x0))) + 0x1);
+    *(unsigned char *)((((int)stk + 0x4) + 0x0)) = ((*(signed char *)((((int)stk + 0x4) + 0x0))) + 0x1);
     t8 = FUN_0c187d98(0xC302CD0, 0xC302CDC, 0x3);
     t53 = 0x1;
     if (t8 == 0) {
@@ -401,23 +405,16 @@ int FUN_0c2f2a44(void)
             }
         }
     }
-    *(int *)((int)stk + 36) = ((*(signed char *)0xC302D33));
-    *(int *)((int)stk + 32) = ((*(signed char *)0xC302D32));
-    *(int *)((int)stk + 28) = ((*(signed char *)0xC302D30));
-    *(int *)((int)stk + 24) = ((*(signed char *)0xC302D2F));
-    *(int *)((int)stk + 20) = ((*(signed char *)0xC302D2D));
-    *(int *)((int)stk + 16) = ((*(signed char *)0xC302D2C));
-    *(int *)((int)stk + 12) = (((int)stk + 40) + 0xC);
-    *(int *)((int)stk + 8) = (unsigned char)t53;
-    *(int *)((int)stk + 4) = (((int)stk + 40) + 0x4);
-    *(int *)((int)stk + 0) = 0xC302D0C;
-    *(unsigned int *)(((int)stk + 40)) = (((int)stk + 0) + 0x38);
-    FUN_0c187cac((((int)stk + 0) + 0x38), 0x0, 0x0, 0x0, 0xC302D0C);
+    *(unsigned int *)(((int)stk + 0)) = ((int)stk + 0x10);
+    FUN_0c187cac(((int)stk + 0x10), 0xC302D0C, ((int)stk + 0x4), (unsigned char)t53, ((int)stk + 0xC),
+                 (*(signed char *)0xC302D2C), (*(signed char *)0xC302D2D), (*(signed char *)0xC302D2F),
+                 (*(signed char *)0xC302D30), (*(signed char *)0xC302D32), (*(signed char *)0xC302D33));
     FUN_0c2e732c();
-    FUN_0c2e7200((*(int *)(((int)stk + 40))));
+    FUN_0c2e7200((*(int *)(((int)stk + 0))));
     return (FUN_0c2e732c());
 }
 
+/* manual: the string copy is the inline strcpy with the pointer chosen by the first halfword; 13 cases, 142 of 142 instructions */
 int FUN_0c193478(int a4)
 {
     int stk[10];
@@ -437,9 +434,7 @@ int FUN_0c193478(int a4)
 
     *(unsigned int *)(((int)stk + 4)) = a4;
     *(unsigned char *)(((((int)stk + 0) + 0x8) + 0x0)) = 0x0;
-    *(volatile short *)(((*(int *)(((int)stk + 4))) + 0x0));
-    
-    FUN_0c1878f0(a4);
+    _builtin_strcpy((char *)stk + 0x8, (char *)((*(short *)(*(int *)((int)stk + 4)) == 0) ? 0xC20A73C : 0xC20A744));
     if ((*(short *)(((*(int *)(((int)stk + 4))) + 0x2))) != 0) {
         FUN_0c187d24((((int)stk + 0) + 0x8), (*(int *)(((*(int *)(((int)stk + 4))) + 0xC))));
     }
@@ -722,87 +717,6 @@ int FUN_0c193228(int a4, int a5, int a6)
     return t3;
 }
 
-int FUN_0c2e60ba(void)
-{
-    int stk[4];
-    register int t4;
-    register int t9;
-    register int t19;
-    register int t20;
-    register int t25;
-    register int t26;
-    register int t27;
-    register int t45;
-    register int t71;
-    register int t62;
-
-    FUN_0c2e638e();
-    *(unsigned char *)(((int)stk + 0)) = (*(signed char *)(((*(int *)0xC304178) + 0x0)));
-    FUN_0c2e638e();
-    t4 = FUN_0c2e6310();
-    if ((unsigned char)(*(signed char *)(((int)stk + 0))) != 67) {
-        (((struct o20_uchar *)0xC8D6478)->v) = 0x2;
-        t71 = 0x2;
-    } else {
-        t9 = *(int *)0xC304178;
-        if ((unsigned char)(*(signed char *)((t9 + 0x0))) == 63) {
-            FUN_0c2e638e();
-            FUN_0c2e732c();
-            FUN_0c2e76c8((unsigned char)(*(signed char *)0xC8D6478), 0xA);
-            FUN_0c2e7200((((int)stk + 0) + 0x4));
-            t62 = (FUN_0c2e732c());
-        } else {
-            if ((unsigned char)(*(signed char *)((t9 + 0x0))) == 61) {
-                t19 = *(int *)0xC304178;
-                *(unsigned int *)0xC304178 = (t19 + 0x1);
-                t20 = *(signed char *)(((t19 + 0x1) + 0x0));
-                if ((unsigned char)t20 == 63) {
-                    FUN_0c2e638e();
-                    FUN_0c2e83ae();
-                    FUN_0c2e732c();
-                    t25 = (FUN_0c2e7200(0xC301508));
-                    t26 = 0x1;
-                    t27 = 0x0;
-                    for (;;) {
-                        if ((int)(unsigned short)t27 >= (int)0xFF) {
-                            break;
-                        }
-                        t25 = (FUN_0c2e8a12(t27));
-                        t25 = (signed char)t25;
-                        if (t25 != 0) {
-                            if ((signed char)t26 != 0) {
-                                t26 = 0x0;
-                            } else {
-                                t25 = (FUN_0c2e7200(0xC30150C));
-                            }
-                            t25 = (FUN_0c2e76c8((unsigned short)t27, 0xA));
-                            t25 = (FUN_0c2e7200((((int)stk + 0) + 0x4)));
-                        }
-                        t27 = (t27 + 0x1);
-                    }
-                    FUN_0c2e7200(0xC301510);
-                    t62 = (FUN_0c2e732c());
-                } else {
-                    (((struct o20_uchar *)0xC8D6478)->v) = 0x2;
-                    t62 = (unsigned char)t20;
-                }
-            } else {
-                t45 = FUN_0c2e8a12(t4);
-                if ((signed char)t45 != 0) {
-                    FUN_0c2f294e(t4);
-                    FUN_0c2e89f4(t4);
-                    t62 = FUN_0c2e8afc(0xC8D6440);
-                    (((struct o0_uchar *)0xC8D6478)->v) = t4;
-                } else {
-                    (((struct o20_uchar *)0xC8D6478)->v) = 0x2;
-                    t62 = (signed char)t45;
-                }
-            }
-        }
-        t71 = t62;
-    }
-    return t71;
-}
 
 int FUN_0c18083c(int a4)
 {

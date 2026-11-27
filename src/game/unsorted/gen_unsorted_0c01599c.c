@@ -15,7 +15,7 @@ int FUN_0c01cc56(int, int);
 int FUN_0c01cd2c(int);
 int memset(int, int, int);
 int strcpy(int, int);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c01599c(void);
 int FUN_0c0159c4(int a4, int a5, int a6, int a7, int a8);
 
@@ -101,7 +101,7 @@ int FUN_0c0159c4(int a4, int a5, int a6, int a7, int a8)
     memset(0xC304BA4, 0x0, 0x80);
     memset(0xC304C24, 0x0, 0x80);
     strcpy(0xC304BA4, (*(int *)(((*(int *)0xC304BA0) + 0x14))));
-    (((struct o50_uchar *)((*(int *)0xC304BA0)))->v) = (FUN_0c187d88(0xC304BA4));
+    (((struct o50_uchar *)((*(int *)0xC304BA0)))->v) = (strlen(0xC304BA4));
     t0 = FUN_0c017e38();
     *(unsigned char *)0xC30EFA3 = 0x1;
     return t0;

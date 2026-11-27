@@ -16,7 +16,7 @@ int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 int FUN_0c15f9b4(int, int, int, int);
 int FUN_0c15fa0c(int, int, int, int, float);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(void);
 int FUN_0c14f04c(int a4, int a5, int a6, int a7);
 int FUN_0c14f0c2(int a4, int a5);
@@ -174,5 +174,4 @@ void FUN_0c14f238(int a4, int a5, int a6, int a7)
         return;
     }
 }
-
 

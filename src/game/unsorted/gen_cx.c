@@ -2122,13 +2122,6 @@ int FUN_0c1055e8(int a4)
     return 0x15;
 }
 
-int FUN_0c2d8a9c(int a4)
-{
-    (((struct o404_uint *)(a4))->v) = a4;
-    (((struct o400_uint *)(a4))->v) = a4;
-    (((struct o408_uint *)(a4))->v) = 0x0;
-    return a4;
-}
 
 int FUN_0c0dbfbe(int a4)
 {
@@ -2303,13 +2296,6 @@ int FUN_0c10de12(int a4)
     return 0x16;
 }
 
-int FUN_0c2c2118(int a4, int a5, int a6, int a7)
-{
-    if ((*(signed char *)((a4 + 0x0))) != (*(signed char *)((a5 + 0x0)))) {
-        return 0x0;
-    }
-    return bufferEquals((a4 + 0x1), (a5 + 0x1), a6, a7);
-}
 
 void FUN_0c010458(void)
 {
@@ -2387,7 +2373,3 @@ void FUN_0c148aec(void)
     
 }
 
-void FUN_0c2d87a6(void)
-{
-    
-}

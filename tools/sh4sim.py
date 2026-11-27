@@ -15,8 +15,8 @@ address. What it does is the result:
   - devices: reads and writes outside RAM (hardware registers, store queues);
   - out: r0, r1, fr0, fr1 at the return.
 Compiled C runs with FPSCR.PR = 0 (single precision); double precision is not implemented and
-stops the run. fipr and ftrv are exact here, approximate on the hardware: only the comparison
-between two runs of this interpreter is meaningful, never a value against the console's.
+stops the run. fipr, ftrv, fsrra and fsca give the hardware's own bits (sh4fpu.py, a bit-exact model of
+the SH-4's approximating datapath); with FPSCR.DN = 1 a denormal operand is a zero, as on the hardware.
 
 The case (JSON): {"exe": path, "base": hex, "dump": path, "entry": hex, "end": hex,
 "regs": {"r4": hex, "fr4": float, ...}, "sr": hex (optional, the starting SR), "poke": {hex addr: hex bytes}, "calls": [{"r0": hex,
@@ -27,11 +27,13 @@ A call's "poke_arg" writes those bytes at the address the named register holds w
 import os as _tp_os, sys as _tp_sys  # noqa: E401  every tools folder on the import path (tools/toolpath.py)
 _tp_sys.path.insert(0, _tp_os.path.normpath(_tp_os.path.join(_tp_os.path.dirname(_tp_os.path.abspath(__file__)), '.')))
 import toolpath  # noqa: E402,F401
+import sh4fpu  # noqa: E402  the hardware's fipr / ftrv / fsrra / fsca
 import json
 import math
 import os
 import re
 import struct
+from fractions import Fraction
 import sys
 
 M32 = 0xFFFFFFFF
@@ -61,6 +63,56 @@ def bits_f(b):
     return struct.unpack('<f', struct.pack('<I', b & M32))[0]
 
 
+def _isqrt(n):
+    """floor(sqrt(n)) for an integer n >= 0 (math.isqrt is Python 3.8+)."""
+    if n < 2:
+        return n
+    x = 1 << ((n.bit_length() + 1) // 2)
+    while True:
+        y = (x + n // x) // 2
+        if y >= x:
+            return x
+        x = y
+
+
+def round_single(q, rz, root=False):
+    """The float32 bits of the exact value q (a non-zero Fraction; root: of its square root), rounded as FPSCR.RM says:
+    to nearest-even, or toward zero (RM = 1, the mode games run in). Below the normal range: a signed zero (DN = 1);
+    above it: infinity, or the largest finite value when rounding toward zero."""
+    sign = 1 if q < 0 else 0
+    mag = -q if sign else q
+    e = mag.numerator.bit_length() - mag.denominator.bit_length()      # 2^e <= mag < 2^(e+2)
+    if root:
+        e //= 2
+    while True:                                                         # find e with 2^23 <= the scaled value < 2^24
+        if root:
+            scaled = mag * Fraction(2) ** (2 * (23 - e))
+            whole = _isqrt(scaled.numerator // scaled.denominator)
+        else:
+            scaled = mag * Fraction(2) ** (23 - e)
+            whole = scaled.numerator // scaled.denominator
+        if whole >= 1 << 24:
+            e += 1
+        elif whole < 1 << 23:
+            e -= 1
+        else:
+            break
+    if not rz:
+        half_up = (scaled > (Fraction(whole) + Fraction(1, 2)) ** 2) if root else (scaled - whole > Fraction(1, 2))
+        tie = (not root) and scaled - whole == Fraction(1, 2)
+        if half_up or (tie and whole & 1):
+            whole += 1
+            if whole >> 24:
+                whole >>= 1
+                e += 1
+    biased = e + 127
+    if biased >= 255:
+        return (sign << 31) | (0x7F7FFFFF if rz else 0x7F800000)
+    if biased < 1:
+        return sign << 31
+    return (sign << 31) | (biased << 23) | (whole & 0x7FFFFF)
+
+
 def f_bits(f):
     """float -> float32 bits, round to nearest, denormals flushed to zero (FPSCR.DN = 1)."""
     if f != f:
@@ -81,6 +133,7 @@ class Stop(Exception):
 class Memory:
     def __init__(self):
         self.stack_written = set()
+        self.arg_pushed = set()     # the words PUSHED (@-r15) since the last call, after the prologue: the call's pushed arguments, whatever the callee's prototype
         self.body_written = set()   # the stack words the function's body stored since the last call (pushes left out): what a frame buffer passed to a call holds
         self.pages = {}
         self.writes = []          # (addr, size, value), stack excluded
@@ -180,12 +233,15 @@ class Memory:
             self.writes.append((a, size, value))
         else:
             self.stack_written.add(a & ~3)      # the words of the stack written since the last call: what a call passes there
+            self.arg_pushed.discard(a & ~3)     # a plain store over a word is not a push (pushed() adds it back)
             self.body_written.add(a & ~3)
             self.ever_written.add(a & ~3)
 
-    def pushed(self, addr, size):
+    def pushed(self, addr, size, save=False):
         """A push (@-r15): the prologue's saved registers and a call's pushed arguments, not the contents of a frame buffer."""
         for k in range(0, size, 4):
+            if not save:
+                self.arg_pushed.add(self.phys(addr + k) & ~3)
             self.body_written.discard(self.phys(addr + k) & ~3)
             self.ever_written.discard(self.phys(addr + k) & ~3)
 
@@ -278,7 +334,7 @@ class CPU:
         self.fr = [0] * 16        # float32 bits, current bank
         self.xf = [0] * 16        # the other bank
         self.sz = self.prec = self.frbit = 0
-        self.fpscr_rest = 0x00040001   # DN = 1, RM = nearest
+        self.fpscr_rest = 0x00040001   # DN = 1, RM = 01: round to zero (what games run with)
         self.steps = 0
         self.covered = set()                  # the address of every instruction that ran
         self.trace = None                     # with case['trace']: (pc, opcode, r0-r15, fr0-fr15) of every instruction, before it runs
@@ -301,10 +357,27 @@ class CPU:
             raise Stop('double precision (FPSCR.PR = 1) is not implemented')
 
     def f(self, n):
-        return bits_f(self.fr[n])
+        b = self.fr[n]
+        if not b & 0x7F800000 and self.fpscr_rest & (1 << 18):
+            b &= 0x80000000                  # FPSCR.DN = 1: a denormal operand is a zero (0 * inf is NaN, not inf)
+        return bits_f(b)
+
+    def rz(self):
+        return (self.fpscr_rest & 3) == 1   # FPSCR.RM = 1: round to zero
+
+    def dn(self):
+        return bool(self.fpscr_rest & (1 << 18))
 
     def setf(self, n, x):
         self.fr[n] = f_bits(x)
+
+    def setq(self, n, f, exact, root=False):
+        """FRn = an arithmetic result: f is it in double precision (it gives the specials: NaN, infinity, the sign of a
+        zero); exact() its exact value, rounded once as FPSCR.RM says (round_single)."""
+        if f != f or f in (float('inf'), float('-inf')) or f == 0:
+            self.fr[n] = f_bits(f)
+        else:
+            self.fr[n] = round_single(exact(), self.rz(), root)
 
     def sr(self):
         return self.srx | (self.mq << 9) | (self.q << 8) | (self.s << 1) | self.t
@@ -406,7 +479,7 @@ class CPU:
                 v = r[m_]
                 r[n] = (r[n] - size) & M32
                 wr(r[n], size, v)
-                if n == 15: self.m.pushed(r[n], size)
+                if n == 15: self.m.pushed(r[n], size, save=size == 4 and 8 <= m_ <= 14 and not (r.ever >> m_) & 1)      # a callee-saved register not assigned yet is the prologue's save, not an argument
                 return
             if lo4 == 7:
                 self.q, self.mq = r[n] >> 31, r[m_] >> 31; self.t = self.q ^ self.mq; return
@@ -499,7 +572,7 @@ class CPU:
                 v = {0x02: self.mach, 0x12: self.macl, 0x22: self.pr, 0x52: self.fpul,
                      0x62: self.get_fpscr(), 0x13: self.gbr, 0x23: self.vbr}[lo8]
                 r[n] = (x - 4) & M32; wr(r[n], 4, v)
-                if n == 15: self.m.pushed(r[n], 4)
+                if n == 15: self.m.pushed(r[n], 4, save=True)
                 if lo8 == 0x22 and n == 15:                                 # the prologue's save of the return address: never a call's
                     self.m.stack_written.discard(Memory.phys(r[n]) & ~3)    # argument, though it sits where a fifth one would (cpuDblThink)
                 return
@@ -653,7 +726,7 @@ class CPU:
             k = m_
             if k == 0: self.fr[n] = self.fpul; return                    # fsts
             if k == 1: self.fpul = self.fr[n]; return                    # flds
-            if k == 2: self.setf(n, float(s32(self.fpul))); return       # float
+            if k == 2: self.setq(n, float(s32(self.fpul)), lambda: Fraction(s32(self.fpul))); return   # float
             if k == 3:                                                    # ftrc
                 x = self.f(n)
                 if x != x: v = 0x80000000
@@ -665,42 +738,38 @@ class CPU:
             if k == 5: self.fr[n] &= 0x7FFFFFFF; return                  # fabs
             if k == 6:                                                    # fsqrt
                 x = self.f(n)
-                self.setf(n, math.sqrt(x) if x >= 0 else float('nan')); return
+                self.setq(n, math.sqrt(x) if x >= 0 else float('nan'), lambda: Fraction(x), root=True); return
             if k == 8: self.fr[n] = 0; return                            # fldi0
             if k == 9: self.fr[n] = 0x3F800000; return                   # fldi1
-            if k == 7:                                                    # fsrra frn
-                x = self.f(n)
-                self.setf(n, 1.0 / math.sqrt(x) if x > 0 else float('inf')); return
+            if k == 7:                                                    # fsrra frn: the hardware's 1/sqrt (sh4fpu)
+                self.fr[n] = sh4fpu.fsrra(self.fr[n], self.rz()); return
             if k == 0xf and (n & 1) == 0:                                 # fsca fpul,drn: sine and cosine of an angle in 1/65536 turns
-                a = 2.0 * math.pi * (self.fpul & 0xFFFF) / 65536.0
-                self.setf(n, math.sin(a)); self.setf(n + 1, math.cos(a)); return
+                self.fr[n], self.fr[n + 1] = sh4fpu.fsca(self.fpul, self.rz()); return
             if k == 0xe:                                                  # fipr fvm,fvn
                 vn, vm = (n >> 2) * 4, (n & 3) * 4
-                s = sum(self.f(vm + i) * self.f(vn + i) for i in range(4))
-                self.setf(vn + 3, s); return
+                self.fr[vn + 3] = sh4fpu.fipr(self.fr[vm:vm + 4], self.fr[vn:vn + 4], self.rz(), self.dn()); return
             if k == 0xf and (n & 3) == 1:                                 # ftrv xmtrx,fvn
                 vn = (n >> 2) * 4
-                v = [self.f(vn + i) for i in range(4)]
-                xm = [bits_f(b) for b in self.xf]
-                for i in range(4):
-                    self.setf(vn + i, sum(xm[i + 4 * j] * v[j] for j in range(4)))
+                self.fr[vn:vn + 4] = sh4fpu.ftrv(self.xf, self.fr[vn:vn + 4], self.rz(), self.dn())
                 return
             raise Stop('FPU instruction %04X not implemented (k=%d)' % (op, k))
         if lo4 in (6, 7, 8, 9, 0xa, 0xb, 0xc):
             return self.fmov(op, n, m_, lo4)
         a, b = self.f(n), self.f(m_)
-        if lo4 == 0: self.setf(n, a + b); return
-        if lo4 == 1: self.setf(n, a - b); return
-        if lo4 == 2: self.setf(n, a * b); return
+        if lo4 == 0: self.setq(n, a + b, lambda: Fraction(a) + Fraction(b)); return
+        if lo4 == 1: self.setq(n, a - b, lambda: Fraction(a) - Fraction(b)); return
+        if lo4 == 2: self.setq(n, a * b, lambda: Fraction(a) * Fraction(b)); return
         if lo4 == 3:
             if b == 0:
                 self.setf(n, float('nan') if a == 0 or a != a else math.copysign(float('inf'), a) * math.copysign(1, b))
             else:
-                self.setf(n, a / b)
+                self.setq(n, a / b, lambda: Fraction(a) / Fraction(b))
             return
         if lo4 == 4: self.t = int(a == b); return
         if lo4 == 5: self.t = int(a > b); return
-        if lo4 == 0xe: self.setf(n, self.f(0) * b + a); return            # fmac fr0,frm,frn
+        if lo4 == 0xe:                                                     # fmac fr0,frm,frn
+            c = self.f(0)
+            self.setq(n, c * b + a, lambda: Fraction(c) * Fraction(b) + Fraction(a)); return
         raise Stop('FPU instruction %04X not implemented' % op)
 
     def fmov(self, op, n, m_, lo4):
@@ -716,7 +785,7 @@ class CPU:
             if lo4 == 7: wr(r[n] + r[0], 4, self.fr[m_]); return
             if lo4 == 0xb:
                 r[n] = (r[n] - 4) & M32; wr(r[n], 4, self.fr[m_])
-                if n == 15: self.m.pushed(r[n], 4)
+                if n == 15: self.m.pushed(r[n], 4, save=m_ >= 12)      # fr12-fr15 are callee-saved: the prologue's
                 return
 
         def get(k):                      # pair k: (high word, low word)
@@ -748,6 +817,45 @@ class CPU:
             return
 
 
+_ALSO = None
+
+
+def also():
+    """Code that is in memory on every run, from the JSON file SH4SIM_ALSO names ({hex address: hex bytes}); nothing when the variable is
+    not set. An overlay's calls into the compiler's runtime helpers, which live in the main executable (tools/overlay/in.sh sets it)."""
+    global _ALSO
+    if _ALSO is None:
+        p = os.environ.get('SH4SIM_ALSO')
+        _ALSO = [(int(a, 16), bytes.fromhex(b)) for a, b in json.load(open(p)).items()] if p else []
+    return _ALSO
+
+
+_BODY = {}
+
+
+def body_before(case_dir='.'):
+    """{entry: start} for the functions whose code begins before their entry: `B <start> <size> <name>` lines in functions.txt, the
+    `F` line of the same name giving the entry. SHC can lay a loop's body out above the function's address and enter at the loop test
+    (Zombie Revenge FUN_0c016d20: the body at 0C016CE0, the entry at 0C016D20, `bt` back up): a branch there is the function's own code,
+    not a jump out of it."""
+    p = os.path.join(case_dir, 'functions.txt')
+    try:
+        key = (p, os.path.getmtime(p))
+    except OSError:
+        return {}
+    if key not in _BODY:
+        ents, body = {}, {}
+        for line in open(p):
+            f = line.split()
+            if len(f) >= 4 and f[0] == 'F':
+                ents[f[3]] = int(f[1], 16)
+            elif len(f) >= 4 and f[0] == 'B':
+                body[f[3]] = int(f[1], 16)
+        _BODY.clear()
+        _BODY[key] = {(ents[n] & 0x1FFFFFFF) | 0x0C000000: s for n, s in body.items() if n in ents}      # by the 0C mirror (an 8c list too)
+    return _BODY[key]
+
+
 def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=None, stackfill=None):
     """Run one case. code = (address, bytes) puts other code (a compiled C unit) at its address;
     entry/end then name the function inside it (default: all of it). deep: True runs every call;
@@ -759,6 +867,8 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=No
     path = lambda p: p if os.path.isabs(p) else os.path.join(case_dir, p)
     if case.get('dump'):
         mem.load(RAM_LO, open(path(case['dump']), 'rb').read())
+    for a, data in also():
+        mem.load(a, data)
     if case.get('exe'):
         mem.load(int(case['base'], 16), open(path(case['exe']), 'rb').read())
     if code:
@@ -774,7 +884,10 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=No
         mem.device_reads[Memory.phys(int(a, 16))] = [int(v, 16) for v in vals]
     mem.writes.clear()
     cpu = CPU(mem)
-    cpu.lo, cpu.hi = entry, end
+    bb = {} if code or case.get('lo') else body_before(case_dir)       # the original's own code below its entry (functions.txt `B`)
+    k = (entry & 0x1FFFFFFF) | 0x0C000000
+    lo = int(case['lo'], 16) if case.get('lo') else ((entry & 0xE0000000) | (bb[k] & 0x1FFFFFFF) if k in bb else entry)
+    cpu.lo, cpu.hi = lo, end
     cpu.r[15] = STACK_TOP - 0x100
     if 'sr' in case:                                     # the starting SR (interrupt mask and the rest)
         cpu.set_sr(int(case['sr'], 16))
@@ -877,8 +990,10 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=No
                       'stackw': ['%08X' % mem.read((c.r[15] + 4 * k) & M32, 4, True) for k in range(16)],
                       # which of those words this function stored since its last call: the others are leftovers, not arguments
                       'stackchg': [Memory.phys((c.r[15] + 4 * k) & M32) & ~3 in mem.stack_written for k in range(16)],
+                      'stackpush': [Memory.phys((c.r[15] + 4 * k) & M32) & ~3 in mem.arg_pushed for k in range(16)],
                       'bufs': frame_bufs(c), 'reach': frame_reach(c, target)})
         mem.body_written.clear()
+        mem.arg_pushed.clear()
         mem.stack_written.clear()   # words passed on the stack (a 5th argument on)   # the word on top of the stack: the first argument of a variadic call
         if not returns:
             c.r[0] = 0                           # a call the case gives no answer for returns 0 (r0 and fr0): a leftover register is not a result, on the original or on the compiled C
@@ -889,7 +1004,7 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=No
         if 'fr0' not in ret:
             c.fr[0] = 0
         if 't' in ret:
-            c.t = int(ret['t']) & 1              # a hand-written callee that answers in the T flag (the renderer's bump/strip drawers)
+            c.t = int(ret['t']) & 1              # a hand-written callee that answers in the T flag
         n_args = argc(target & M32) if argc else None             # the callee's integer argument count, or the set of registers it reads
         set_for = [bool(wrote >> i & 1) or (i in given_args and not after_call) for i in range(4, 8)]      # which of r4-r7 were set for this call: the others are leftovers
         for k, v in ret.get('poke_arg', {}).items():             # the callee filled an output slot
@@ -940,11 +1055,11 @@ def run(case, case_dir='.', code=None, deep=False, entry=None, end=None, argc=No
             'writes': [['%08X' % a, s, '%0*X' % (s * 2, v)] for a, s, v in mem.writes],
             'devices': [[k, '%08X' % a, s, '%0*X' % (s * 2, v)] for k, a, s, v in mem.devices],
             'out': dict({'r%d' % i: '%08X' % cpu.r[i] for i in range(16)},
-                        **{'fr%d' % i: '%08X' % cpu.fr[i] for i in range(16)}),     # every register: a register-convention routine (@out in its C) is compared on the ones it names
+                        **{'fr%d' % i: '%08X' % cpu.fr[i] for i in range(16)}),     # every register: a routine with @out in its C is compared on the ones it names
             'out_set': {'r0': bool(cpu.r.ever & 1)},               # False: the function never assigned r0 (a call's result counts), it returns what it was given
             'r15_balanced': cpu.r[15] == entry_r15,
             'xf': ['%08X' % v for v in cpu.xf], 'xf_changed': cpu.xf != xf_entry,
-            'covered': sorted(a for a in cpu.covered if entry <= a < end),
+            'covered': sorted(a for a in cpu.covered if cpu.lo <= a < end),      # from a body laid out before the entry too (functions.txt `B`)
             'reads': mem.reads, 'seq_used': dict(mem.seq_used), 'trace': cpu.trace}
 
 

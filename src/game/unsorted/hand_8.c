@@ -3,7 +3,7 @@
 typedef struct { int w[3]; } S12;
 typedef struct { int w[4]; } S16;
 
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c03744a(int a4, int a5, int a6, int a7);
 float math_sin_angle16(int a4);
 float math_cos_angle16(int a4);
@@ -31,14 +31,14 @@ void FUN_0c1460cc(int a4)
         *(short *)(p + 0xAC) = 31;
         *(S12 *)(p + 64) = *(S12 *)0x0C2A2444;
         p[0xA9] = 33;
-        FUN_0c03744a(*(int *)(p + 196), FUN_0c179ac0() % 2 + 1, 12,
+        FUN_0c03744a(*(int *)(p + 196), nlRand() % 2 + 1, 12,
                      *(int *)(0x0C4B40E0 + p[2] * 8));
         o = (char *)*(int *)(p + 196);
         *(short *)(o + 6) = 0x20F;
         *(S12 *)(o + 132) = *(S12 *)0x0C2A2394;
         *(S16 *)(*(int *)(p + 196) + 20) = *(S16 *)0x0C2A23BC;
-        ang = (int)((float)(FUN_0c179ac0() % cfg[6]) * 360.0f / (float)cfg[6] * 65536.0f / 360.0f + 0.5f) & 0xFFFF;
-        rad = *(float *)0x0C2A2478 + *(float *)0x0C2A247C * (float)(FUN_0c179ac0() % cfg[5]);
+        ang = (int)((float)(nlRand() % cfg[6]) * 360.0f / (float)cfg[6] * 65536.0f / 360.0f + 0.5f) & 0xFFFF;
+        rad = *(float *)0x0C2A2478 + *(float *)0x0C2A247C * (float)(nlRand() % cfg[5]);
         *(float *)(*(int *)(p + 196) + 108) = math_sin_angle16(ang) * rad;
         *(float *)(*(int *)(p + 196) + 112) = math_cos_angle16(ang) * rad;
         *(float *)(*(int *)(p + 196) + 116) = *(float *)0x0C2A2480;

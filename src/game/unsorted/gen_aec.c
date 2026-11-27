@@ -1,0 +1,110 @@
+/* Straight-line functions with calls and guards (batch gen_aec): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o14_uchar { char p[0x14]; unsigned char v; };
+struct o15_uchar { char p[0x15]; unsigned char v; };
+struct o18_float { char p[0x18]; float v; };
+struct o1C_float { char p[0x1C]; float v; };
+struct o20_float { char p[0x20]; float v; };
+struct o2C_float { char p[0x2C]; float v; };
+struct o40_float { char p[0x40]; float v; };
+struct o44_float { char p[0x44]; float v; };
+struct o48_float { char p[0x48]; float v; };
+struct o4C_float { char p[0x4C]; float v; };
+struct o50_float { char p[0x50]; float v; };
+struct o54_float { char p[0x54]; float v; };
+struct oA8_uchar { char p[0xA8]; unsigned char v; };
+struct oA9_uchar { char p[0xA9]; unsigned char v; };
+struct oAC_ushort { char p[0xAC]; unsigned short v; };
+struct oC4_int { char p[0xC4]; int v; };
+int FUN_0c037320(int, int);
+int FUN_0c037498(int, int, int, int);
+int FUN_0c03f444(int, int, int);
+int FUN_0c12d268(int a4, int a5);
+
+int FUN_0c12d268(int a4, int a5)
+{
+    int stk[1];
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register int R6;
+    register int R7;
+    register float F2;
+    register float F3;
+    register int T_;
+    register int FPUL_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register float w0_0;
+    register float w0_1;
+    v0_1 = a4;
+    v0_0 = a5;
+    *(unsigned char *)(((int)stk + 0)) = v0_0;
+    v0_0 = FUN_0c037320(0x3, (*(int *)((((*(signed char *)((v0_1 + 0x1))) << 2) + 0xC4B40FC))));
+    v0_3 = FUN_0c03f444(0x5, 0x0, v0_0);
+    v0_0 = (v0_3);
+    v0_1 = (v0_1);
+    v0_2 = (v0_3);
+    if ((v0_3 != 0)) goto L_C12D2A0;
+    L_C12D3AC:;
+    return v0_0;
+    L_C12D2A0:;
+    *(unsigned char *)((v0_2 + 0x1)) = (*(signed char *)((v0_1 + 0x1)));
+    *(unsigned int *)((v0_2 + 0x4)) = 0xC12D3E4;
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_2 + 0x28)) = *(struct mv3 *)((v0_1 + 0x28)); }
+    { struct mv3 { int w[3]; }; *(struct mv3 *)((v0_2 + 0x34)) = *(struct mv3 *)((v0_1 + 0x34)); }
+    (((struct o54_float *)(v0_2))->v) = 0.0f;
+    (((struct o50_float *)(v0_2))->v) = 0.0f;
+    (((struct o4C_float *)(v0_2))->v) = 0.0f;
+    (((struct o48_float *)(v0_2))->v) = 1.0f;
+    (((struct o44_float *)(v0_2))->v) = 1.0f;
+    (((struct o40_float *)(v0_2))->v) = 1.0f;
+    (((struct oA8_uchar *)(v0_2))->v) = 0x1;
+    (((struct oAC_ushort *)(v0_2))->v) = 0x1F;
+    (((struct oA9_uchar *)(v0_2))->v) = 0x21;
+    (((struct o14_uchar *)(v0_2))->v) = (*(signed char *)(((int)stk + 0)));
+    (((struct o15_uchar *)(v0_2))->v) = 0x0;
+    v0_3 = *(signed char *)(((int)stk + 0));
+    v0_0 = (v0_3);
+    v0_4 = (0xC4B40FC);
+    v0_5 = (0x1);
+    w0_0 = (0.300000012f);
+    w0_1 = (1.0f);
+    if ((v0_3 == 0)) goto L_C12D312;
+    if ((v0_0 == 1)) goto L_C12D364;
+    goto L_C12D3AC;
+    L_C12D364:;
+    FUN_0c037498(((((struct oC4_int *)(v0_2))->v)), 0x0, 0x4, (*(int *)((v0_4 + ((*(signed char *)((v0_2 + 0x1))) << 2)))));
+    *(unsigned char *)((((((struct oC4_int *)(v0_2))->v)) + 0x0)) = v0_5;
+    *(unsigned short *)((((((struct oC4_int *)(v0_2))->v)) + 0x6)) = 0x21F;
+    (((struct o18_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o1C_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o20_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o40_float *)(v0_2))->v) = w0_0;
+    (((struct o44_float *)(v0_2))->v) = w0_0;
+    (((struct o48_float *)(v0_2))->v) = w0_0;
+    L_C12D3A6:;
+    *(unsigned int *)((v0_2 + 0x10)) = v0_1;
+    *(unsigned short *)((v0_2 + 0x1C)) = 0x3C;
+    v0_0 = (0x3C);
+    goto L_C12D3AC;
+    L_C12D312:;
+    FUN_0c037498(((((struct oC4_int *)(v0_2))->v)), 0x0, 0x3, (*(int *)((v0_4 + ((*(signed char *)((v0_2 + 0x1))) << 2)))));
+    *(unsigned char *)((((((struct oC4_int *)(v0_2))->v)) + 0x0)) = v0_5;
+    *(unsigned short *)((((((struct oC4_int *)(v0_2))->v)) + 0x6)) = 0x21F;
+    (((struct o18_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o1C_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o20_float *)(((((struct oC4_int *)(v0_2))->v))))->v) = w0_1;
+    (((struct o40_float *)(v0_2))->v) = w0_0;
+    (((struct o44_float *)(v0_2))->v) = w0_0;
+    (((struct o48_float *)(v0_2))->v) = w0_0;
+    (((struct o2C_float *)(v0_2))->v) = (((((struct o2C_float *)(v0_2))->v)) + 50.0f);
+    FPUL_ = (0x42480000);
+    goto L_C12D3A6;
+}

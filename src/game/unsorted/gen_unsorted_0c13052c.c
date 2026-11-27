@@ -38,7 +38,7 @@ int FUN_0c130e70(int, int, int);
 int FUN_0c131556(int, int);
 int math_atan2_angle16(float, float);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 extern int FUN_0c187798();

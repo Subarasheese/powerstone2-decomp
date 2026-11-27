@@ -18,7 +18,7 @@ int FUN_0c037320(int, int);
 int FUN_0c03733c(int, int, int);
 int FUN_0c03f346(int);
 int FUN_0c03f444(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0ec1e4(int a4, float f4);
 int FUN_0c0ec326(int a4);
 
@@ -84,7 +84,7 @@ int FUN_0c0ec1e4(int a4, float f4)
         (((struct o48_float *)(a4))->v) = 1.0f;
         (((struct o44_float *)(a4))->v) = 1.0f;
         (((struct o40_float *)(a4))->v) = 1.0f;
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t1 = ((~(((~t0) + 0x1) & 0xFF)) + 0x1);
         if ((int)t0 >= 0) {
             t1 = (t0 & 0xFF);

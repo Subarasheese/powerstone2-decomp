@@ -28,7 +28,7 @@ int FUN_0c0c2ce4(int);
 int FUN_0c0c2d56(int, int, int);
 int FUN_0c0c3e3a(int, int, int);
 int FUN_0c152d18(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c0cef24(int a4);
@@ -134,7 +134,7 @@ int FUN_0c0cf03a(int a4)
     w0_0 = math_sin_angle16((int)((w0_0 * ((((struct oC_float *)0xC0CF1B0)->v))) / ((((struct o10_float *)0xC0CF1B0)->v))));
     *(float *)((v0_3 + 0x0)) = (w0_0 * ((((struct o18_float *)0xC0CF1B0)->v)));
     *(unsigned int *)((v0_0 + 0x38)) = ((*(int *)((v0_0 + 0x38))) + 0x222);
-    v0_2 = ((int)((unsigned int)((((struct o68_int *)(v0_1))->v)) % (unsigned int)0x3C)) != ((int)((int)(FUN_0c179ac0()) % (int)0xA));
+    v0_2 = ((int)((unsigned int)((((struct o68_int *)(v0_1))->v)) % (unsigned int)0x3C)) != ((int)((int)(nlRand()) % (int)0xA));
     if (v0_2) goto L_C0CF11E;
     FUN_0c152d18((v0_0 + 0x28));
     L_C0CF11E:;

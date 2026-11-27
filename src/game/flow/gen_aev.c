@@ -1,0 +1,93 @@
+/* Straight-line functions with calls and guards (batch gen_aev): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o15_uchar { char p[0x15]; unsigned char v; };
+struct o720_float { char p[0x720]; float v; };
+struct o724_float { char p[0x724]; float v; };
+int FUN_0c03f0aa(void);
+int FUN_0c041e4c(void);
+
+int FUN_0c041e4c(void)
+{
+
+    register int R1;
+    register int R2;
+    register int R3;
+    register float F2;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register int v0_5;
+    register float w0_0;
+    FUN_0c03f0aa();
+    v0_2 = *(signed char *)0xC542237;
+    v0_1 = (v0_2);
+    v0_0 = (0xC540978);
+    v0_3 = (0xC5421F8);
+    v0_4 = (0x4);
+    v0_5 = (0xE);
+    if ((v0_2 == 0)) goto L_C041E8C;
+    if ((v0_1 == 1)) goto L_C041E94;
+    if ((v0_1 == 2)) goto L_C041EAC;
+    if ((v0_1 == 3)) goto L_C041EB2;
+    if ((v0_1 == 4)) goto L_C041EBC;
+    if ((v0_1 == 5)) goto L_C041EFE;
+    if ((v0_1 == 6)) goto L_C041EF6;
+    if ((v0_1 == 7)) goto L_C041EFE;
+    if ((v0_1 == 8)) goto L_C041EFE;
+    if ((v0_1 == 9)) goto L_C041EFE;
+    L_C041F02:;
+    return v0_1;
+    L_C041EFE:;
+    (((struct o15_uchar *)(v0_0))->v) = v0_4;
+    v0_1 = (0x15);
+    goto L_C041F02;
+    L_C041EF6:;
+    (((struct o15_uchar *)(v0_0))->v) = 0x7;
+    v0_1 = (0x15);
+    goto L_C041F02;
+    L_C041EBC:;
+    (((struct o15_uchar *)(v0_0))->v) = v0_5;
+    v0_2 = *(signed char *)((v0_3 + 0x44));
+    v0_1 = (v0_2);
+    if ((v0_2 == 0)) goto L_C041ED4;
+    if ((v0_1 == 1)) goto L_C041ED8;
+    if (!((v0_1 == 2))) goto L_C041EE6;
+    w0_0 = (8000.0f);
+    goto L_C041EE2;
+    L_C041EE6:;
+    (((struct o720_float *)(v0_0))->v) = (((((struct o724_float *)(v0_0))->v)) + -1000.0f);
+    v0_1 = (0x720);
+    goto L_C041F02;
+    L_C041EE2:;
+    (((struct o724_float *)(v0_0))->v) = w0_0;
+    goto L_C041EE6;
+    L_C041ED8:;
+    w0_0 = (3500.0f);
+    goto L_C041EE2;
+    L_C041ED4:;
+    w0_0 = (0.0f);
+    goto L_C041EE2;
+    L_C041EB2:;
+    (((struct o15_uchar *)(v0_0))->v) = 0x15;
+    v0_1 = (0x15);
+    goto L_C041F02;
+    L_C041EAC:;
+    (((struct o15_uchar *)(v0_0))->v) = v0_5;
+    v0_1 = (0x15);
+    goto L_C041F02;
+    L_C041E94:;
+    (((struct o15_uchar *)(v0_0))->v) = 0xB;
+    v0_2 = *(signed char *)((v0_3 + 0x44));
+    v0_1 = (v0_2);
+    if ((v0_2 != 1)) goto L_C041F02;
+    (((struct o724_float *)(v0_0))->v) = 2500.0f;
+    goto L_C041EE6;
+    L_C041E8C:;
+    (((struct o15_uchar *)(v0_0))->v) = 0xD;
+    v0_1 = (0x15);
+    goto L_C041F02;
+}

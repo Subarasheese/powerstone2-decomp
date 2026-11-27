@@ -14,8 +14,8 @@ int FUN_0c1006a2(void);
 int FUN_0c100712(void);
 int FUN_0c101000(void);
 int FUN_0c107310(int, int, int);
-int FUN_0c179ac0(void);
-int FUN_0c17a4c0(int, int);
+int nlRand(void);
+int nlLocate(int, int);
 int FUN_0c100526(void);
 int FUN_0c100604(int a4, int a5, int a6, float f4);
 
@@ -34,9 +34,9 @@ int FUN_0c100526(void)
             return FUN_0c038e88(0x8);
         }
     }
-    FUN_0c179ac0();
+    nlRand();
     FUN_0c1002f4(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24));
-    return FUN_0c17a4c0(0x4, 0x0);
+    return nlLocate(0x4, 0x0);
 }
 
 int FUN_0c100604(int a4, int a5, int a6, float f4)

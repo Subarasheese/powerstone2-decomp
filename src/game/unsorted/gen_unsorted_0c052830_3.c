@@ -19,7 +19,7 @@ int nlPushMatrix(int);
 int nlRotateAX(int);
 int nlRotateAY(int);
 int nlUnitMatrix(void);
-int FUN_0c17c4d0(int);
+int nlVoidUnitVector(int);
 extern int FUN_0c187798();
 int FUN_0c052bd8(int a4, int a5, int a6, int a7);
 int FUN_0c052cf8(int a4, int a5, int a6);

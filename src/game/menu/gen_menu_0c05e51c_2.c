@@ -16,11 +16,11 @@ int FUN_0c03f40c(int);
 int FUN_0c05e59a(int, int);
 int FUN_0c05e604(int, int, int);
 int FUN_0c05e6b2(void);
-int FUN_0c05e87c(int, int, int, int, int, int, int, int, int, int, int, int);
+int FUN_0c05e87c(void);
 int FUN_0c05e9fc(void);
 int FUN_0c05ea34(void);
-int FUN_0c05ea98(int, int, int);
-int FUN_0c05ec96(int, int, int);
+int FUN_0c05ea98(void);
+int FUN_0c05ec96(int, int);
 int FUN_0c17106e(void);
 int FUN_0c1758d4(int, int, int);
 int FUN_0c176996(void);
@@ -28,7 +28,6 @@ int FUN_0c05e6e0(int a4, int a5, int a6);
 
 int FUN_0c05e6e0(int a4, int a5, int a6)
 {
-    int stk[3];
     register int t0;
     register int t3;
     register int t27;
@@ -54,10 +53,10 @@ int FUN_0c05e6e0(int a4, int a5, int a6)
                                             (((struct o2_uchar *)0xC541F40)->v) = 0x0;
                                         }
                                     } else {
-                                        FUN_0c05ec96(0xC541F42, a5, a6);
+                                        FUN_0c05ec96(0xC541F42, a5);
                                     }
                                 } else {
-                                    FUN_0c05ea98(0xC541F42, a5, a6);
+                                    FUN_0c05ea98();
                                 }
                             } else {
                                 FUN_0c176996();
@@ -89,7 +88,7 @@ int FUN_0c05e6e0(int a4, int a5, int a6)
             (((struct o4_uchar *)0xC541F40)->v) = 0x0;
             (((struct o5_uchar *)0xC541F40)->v) = 0x0;
             if ((unsigned char)(*(signed char *)0xC541F43) == 2) {
-                FUN_0c05e87c(0x0, 0x0, 0x0, 0x0, *(int *)((int)stk + 0), *(int *)((int)stk + 0 + 4), *(int *)((int)stk + 0 + 8), *(int *)((int)stk + 0 + 12), *(int *)((int)stk + 0 + 16), *(int *)((int)stk + 0 + 20), *(int *)((int)stk + 0 + 24), *(int *)((int)stk + 0 + 28));
+                FUN_0c05e87c();
             }
         }
     }

@@ -29,10 +29,10 @@ struct o7E_short { char p[0x7E]; short v; };
 struct o80_short { char p[0x80]; short v; };
 struct o8_float { char p[0x8]; float v; };
 float FUN_0c064d9c(int);
-int FUN_0c0bc420(int);
+void FUN_0c0bc420(int);
 int FUN_0c0bd4ac(int);
 float math_signed_sqrt(float);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(int, int, int);
 int memset(int, int, int);
 int FUN_0c0bbbd8(int a4);
@@ -132,96 +132,6 @@ int FUN_0c0bbcc4(int a4)
     return 0x0;
 }
 
-int FUN_0c0bbcf6(int a4, int a5, int a6, int a7, float f4)
-{
-    int stk[9];
-    int t1;
-    register int t4;
-    int t5;
-    register int t6;
-    int t7;
-    register int t9;
-    register int t10;
-    register float u13;
-    register int t43;
-    register int t2;
-    register int t3;
-    register int t8;
-    register float u12;
-    register int t29;
-    register int t32;
-    register int t36;
-    register int t37;
-    register int t38;
-    register int t39;
-    register int t40;
-    register int t41;
-    register int t42;
-
-    *(unsigned short *)(((int)stk + 0)) = a6;
-    t1 = 0x404;
-    t4 = a4;
-    t5 = a5;
-    t6 = a6;
-    t7 = a7;
-    t9 = 0x0;
-    t10 = ((((struct o404_int *)(a4))->v));
-    u13 = f4;
-    for (;;) {
-        if (t10 == 0) {
-            break;
-        }
-        t5 = (*(short *)(((int)stk + 0)));
-        t7 = 0x10;
-        t4 = (*(int *)((t10 + 0x8)));
-        t3 = t5;
-        t6 = 0x0;
-        if ((t3 & t7) != 0) {
-            t7 = (*(int *)((t10 + 0x4)));
-            if ((t7 != 0) && (t1 = 0x128, t29 = *(short *)((t7 + t1)), t2 = t29, (t2 & t5) != 0)) {
-                t6 = 0x1;
-            } else {
-                if (t7 == 0) {
-                    t6 = 0x1;
-                }
-            }
-        } else {
-            t7 = (*(int *)((t10 + 0x4)));
-            if ((t7 != 0) && (t1 = 0x128, t32 = *(short *)((t7 + t1)), t2 = t32, (t2 & t5) != 0)) {
-                t6 = 0x1;
-            }
-        }
-        t43 = t8;
-        if (t6 != 0) {
-            t8 = 0xC064D9C;
-            u12 = (*(float *)((a5 + 0x0)));
-            u13 = ((FUN_0c064d9c(t4)));
-            if (u13 > u12) {
-                *(float *)((a5 + 0x0)) = u13;
-                t9 = 0x1;
-            }
-            t43 = 0xC064D9C;
-        } else {
-            t36 = t1;
-            t37 = t2;
-            t38 = t3;
-            t39 = t4;
-            t40 = t5;
-            t41 = t6;
-            t42 = t7;
-        }
-        t1 = t36;
-        t10 = (*(int *)((t10 + 0x0)));
-        t2 = t37;
-        t3 = t38;
-        t4 = t39;
-        t5 = t40;
-        t6 = t41;
-        t7 = t42;
-        t8 = t43;
-    }
-    return t9;
-}
 
 int FUN_0c0bbe96(int a4)
 {
@@ -279,125 +189,6 @@ int FUN_0c0bbee6(int a4)
 }
 
 
-int FUN_0c0bbf8e(void)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-
-    *(unsigned char *)0xC472462 = 0x0;
-    for (;;) {
-        if ((int)(unsigned char)(*(signed char *)0xC472462) < (int)0x4) {
-            t2 = 0x264;
-            t0 = (memset((((unsigned short)(unsigned char)(*(signed char *)0xC472462) * (unsigned short)t2) + 0xC471ACC), 0x0, 0x264));
-            t2 = (*(signed char *)0xC472462);
-            t1 = 0x0;
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned int *)((t2 + 0x8)) = t1;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            t0 = 0x0;
-            *(unsigned short *)((t2 + 0xC)) = t0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            t0 = 0x258;
-            *(unsigned short *)((t2 + 0x10)) = t0;
-            t0 = 0x7C;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned short *)((t2 + t0)) = 0x0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            t0 = 0x0;
-            *(unsigned short *)((t2 + 0x12)) = t0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned char *)((t2 + 0x0)) = t0;
-            t1 = (*(signed char *)0xC472462);
-            t1 = (unsigned char)t1;
-            t1 = ((unsigned short)t1 * (unsigned short)0x264);
-            t1 = (t1 + 0xC471ACC);
-            *(unsigned char *)((t1 + 0x1)) = t0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned char *)((t2 + 0x2)) = t0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned char *)((t2 + 0x3)) = t0;
-            t0 = 0x20;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned char *)((t2 + t0)) = 0x0;
-            t2 = (*(signed char *)0xC472462);
-            t0 = 0x21;
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned char *)((t2 + t0)) = 0x0;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            t0 = 0x0;
-            *(unsigned char *)((t2 + 0x4)) = t0;
-            t0 = 0x34;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned short *)((t2 + t0)) = 0x0;
-            t0 = 0x7E;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned short *)((t2 + t0)) = 0x1;
-            t0 = (t0 + 0x2);
-            t2 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            *(unsigned short *)((t2 + t0)) = 0x1;
-            t2 = (*(signed char *)0xC472462);
-            t1 = (*(signed char *)0xC472462);
-            t2 = (unsigned char)t2;
-            t0 = 0x3938;
-            t1 = (unsigned char)t1;
-            t2 = ((unsigned short)t2 * (unsigned short)0x264);
-            t2 = (t2 + 0xC471ACC);
-            t1 = ((unsigned short)t1 * (unsigned short)t0);
-            t0 = 0xC532498;
-            t1 = (t1 + t0);
-            t0 = 0x78;
-            *(unsigned int *)((t2 + t0)) = t1;
-            t2 = (*(signed char *)0xC472462);
-            t2 = (t2 + 0x1);
-            *(unsigned char *)0xC472462 = t2;
-            continue;
-        }
-        break;
-    }
-    *(unsigned int *)0xC472664 = 0x0;
-    return t0;
-}
 
 int FUN_0c0bc104(int a4)
 {
@@ -518,7 +309,7 @@ int FUN_0c0bc2c0(int a4, int a5, int a6)
     L_C0BC35A:;
     *(unsigned char *)(((int)stk + 0)) = (*(signed char *)((v0_2 + 0x0)));
     v0_3 = *(signed char *)0xC472462;
-    v0_2 = *(signed char *)(((v0_2 + 0x1) + (short)((int)((int)(FUN_0c179ac0()) % (int)(unsigned char)(*(signed char *)(((int)stk + 0)))))));
+    v0_2 = *(signed char *)(((v0_2 + 0x1) + (short)((int)((int)(nlRand()) % (int)(unsigned char)(*(signed char *)(((int)stk + 0)))))));
     *(unsigned short *)(((0xC471AF4 + ((unsigned short)(unsigned char)v0_3 * (unsigned short)0x264)) + 0x0)) = (unsigned char)v0_2;
     v0_2 = (v0_2);
     if (((*(signed char *)((v0_1 + 0x371A))) != 0)) goto L_C0BC3E0;

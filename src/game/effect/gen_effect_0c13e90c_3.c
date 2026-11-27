@@ -49,7 +49,7 @@ int FUN_0c064d24(int, int, int, int, int, int, int, int);
 int FUN_0c07e2f4(int, int);
 float math_cos_angle16(int);
 float math_sin_angle16(int);
-int FUN_0c17c4d0(int);
+int nlVoidUnitVector(int);
 int FUN_0c187798(void);
 int FUN_0c13eece(int a4, int a5);
 int FUN_0c13ef5a(int a4, int a5, int a6, int a7);
@@ -119,7 +119,7 @@ int FUN_0c13ef5a(int a4, int a5, int a6, int a7)
     *(float *)(((int)stk + 0)) = (((((struct oC8_float *)((((short)(*(signed char *)((v0_0 + 0x1))) * (short)0x2F8) + 0xC5410FC)))->v)) - ((((struct o28_float *)((*(int *)((v0_0 + 0x10)))))->v)));
     *(float *)(((int)stk + 4)) = (((((struct oCC_float *)((((short)(*(signed char *)((v0_0 + 0x1))) * (short)0x2F8) + 0xC5410FC)))->v)) - ((((struct o2C_float *)((*(int *)((v0_0 + 0x10)))))->v)));
     *(float *)(((int)stk + 8)) = (((((struct oD0_float *)((0xC5410FC + ((short)(*(signed char *)((v0_0 + 0x1))) * (short)0x2F8))))->v)) - ((((struct o30_float *)((*(int *)((v0_0 + 0x10)))))->v)));
-    FUN_0c17c4d0(((int)stk + 0));
+    nlVoidUnitVector(((int)stk + 0));
     w0_0 = ((((struct o28_float *)((*(int *)((v0_0 + 0x10)))))->v));
     w0_0 = w0_0 + 100.0f * (*(float *)(((int)stk + 0)));
     (((struct o28_float *)(v0_0))->v) = w0_0;

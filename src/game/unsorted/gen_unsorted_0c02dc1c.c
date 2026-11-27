@@ -30,8 +30,8 @@ int nlUnitMatrix(void);
 int FUN_0c17c6f0(int, float, float, float);
 int FUN_0c17e390(int);
 int nlObjPutWorldMatrixMode(void);
-int FUN_0c0dcc80(float, float, float);
-int FUN_0c17e740(int, int, int, float, float, float);
+int nlObjPutSetSpecularEyeDirectionF(float, float, float);
+int nlObjPutSetFadeColor(int, int, int, float, float, float);
 extern int FUN_0c187798();
 int FUN_0c02dc1c(int a4, int a5);
 int FUN_0c02dca4(int a4, int a5, int a6);
@@ -113,7 +113,7 @@ void FUN_0c02e14a(int a4)
     FUN_0c03ee04((*(signed char *)((v0_5 + 0x1))));
     v0_6 = (0x200);
     if ((((unsigned short)(*(short *)((v0_5 + 0x4))) & 0x200) == 0)) goto L_C02E1DC;
-    FUN_0c17e740(v0_6, R5, R6, ((((struct oC_float *)(v0_5))->v)), ((((struct o10_float *)(v0_5))->v)), ((((struct o14_float *)(v0_5))->v)));
+    nlObjPutSetFadeColor(v0_6, R5, R6, ((((struct oC_float *)(v0_5))->v)), ((((struct o10_float *)(v0_5))->v)), ((((struct o14_float *)(v0_5))->v)));
     L_C02E1DC:;
     *(unsigned int *)(((int)stk + 4)) = (v0_5 + 0x1C);
     *(unsigned int *)(((int)stk + 0)) = v0_1;
@@ -173,7 +173,7 @@ int FUN_0c02e842(void)
     u7 = (((struct o4_float *)(((0xBC + ((t3 * 0x2F8) + 0xC5410FC)) + 0xC)))->v);
     u8 = (((struct oC_float *)((0xEC + ((t3 * 0x2F8) + 0xC5410FC))))->v);
     u9 = (((struct oC_float *)((0xBC + ((t3 * 0x2F8) + 0xC5410FC))))->v);
-    return FUN_0c0dcc80((u8 - u9), (u6 - u7), (u5 - ((((struct o8_float *)(((0xBC + ((t3 * 0x2F8) + 0xC5410FC)) + 0xC)))->v))));
+    return nlObjPutSetSpecularEyeDirectionF((u8 - u9), (u6 - u7), (u5 - ((((struct o8_float *)(((0xBC + ((t3 * 0x2F8) + 0xC5410FC)) + 0xC)))->v))));
 }
 
 int FUN_0c02e898(void)

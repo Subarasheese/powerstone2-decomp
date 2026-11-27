@@ -1,6 +1,13 @@
 # raw calls into code no function in functions.txt starts at, known when tools/8-build/rawcalls.py was
 # introduced: target, calling function, file. Each one is C still to write; the list only shrinks.
+0c008300 syBtExit src/lib/katana/gen_dr_katana.c
 0c0167c2 FUN_0c01678e src/game/unsorted/gen_dk.c
+0c02d130 FUN_0c02d104 src/game/system/gen_system_0c02cbcc.c
 0c03e086 FUN_0c03e08c src/game/effect/gen_effect_0c03dfe4.c
 0c2ba374 stringEquals src/lib/naomi/gen_bi.c
+0c2ba95c syCacheOCBI src/lib/katana/gen_k.c
+0c2babb0 syCacheOCBP src/lib/katana/gen_l.c
+0c2bae04 FUN_0c2bad7a src/lib/katana/gen_l.c
 0c2c2150 copyBytes src/lib/katana/gen_bj.c
+0c2c479c FUN_0c2c4770 src/lib/katana/gen_bf.c
+0c2c48e0 ADXF_Ocbi src/lib/katana/gen_m.c

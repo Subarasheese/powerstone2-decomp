@@ -9,3 +9,14 @@
 | [poolconst.py](poolconst.py) | Turn the C's reads of the original code's literal pools into constants. |
 | [poollist.py](poollist.py) | What a function's literal pool holds, and which of it still has no name. |
 | [unpoke_code.py](unpoke_code.py) | Take the code out of what a test case may change. |
+
+## Prompts
+
+Work to hand to another agent, with its placeholders filled in; each carries the rules it needs.
+
+A prompt may use another prompt one level deep, by naming it; a prompt that another one uses is a leaf (it names none) and has a
+fixed effort limit, so no chain of prompts can recurse or run without end.
+
+| prompt | what it hands over |
+|---|---|
+| [PROMPT_prove.md](PROMPT_prove.md) | Prove one function: read the original, check the C, raise its coverage with the tools above, explain a DIFFERS. |

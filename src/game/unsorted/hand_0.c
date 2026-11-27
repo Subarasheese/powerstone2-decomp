@@ -5,7 +5,7 @@ int FUN_0c03f06a(int);
 int FUN_0c037bf6(int);
 int FUN_0c038362(int);
 int FUN_0c17a550(int);
-int FUN_0c17a4c0(int, int);
+int nlLocate(int, int);
 int dbg_set_cell_size(int, int);
 int dbg_printf(int, ...);
 
@@ -101,7 +101,7 @@ void FUN_0c0f5dc4(void)
 int FUN_0c05fa10(void);
 int nlWaitVSync(void);
 int sys_shutdown_all(void);
-int FUN_0c2b3a98(void);
+int syBtExit(void);
 
 int FUN_0c02d88a(void)
 {
@@ -109,7 +109,7 @@ int FUN_0c02d88a(void)
     while (FUN_0c05fa10() == 0)
         nlWaitVSync();
     sys_shutdown_all();
-    return FUN_0c2b3a98();
+    return syBtExit();
 }
 
 int FUN_0c0c2d56(int, int, int);
@@ -213,7 +213,7 @@ void FUN_0c134036(int obj)
     *(float *)(obj + 48) = *(float *)(obj + 48) + (frame[3] - *(float *)(obj + 48)) / 20.0f;
 }
 
-int FUN_0c179ac0(void);
+int nlRand(void);
 
 static int mod4(int x)   /* signed x % 4 without the compiler's helper call */
 {
@@ -227,8 +227,8 @@ void FUN_0c0f5704(void)
     for (i = 0; i < 4; i++)
         perm[i] = i;
     for (i = 10; i != 0; i--) {
-        int a = mod4(FUN_0c179ac0());
-        int b = mod4(FUN_0c179ac0());
+        int a = mod4(nlRand());
+        int b = mod4(nlRand());
         int t = perm[b];
         perm[b] = perm[a];
         perm[a] = t;
@@ -309,14 +309,14 @@ void FUN_0c13e124(int obj)
     *(char *)(e + 169) = 33;
     for (i = 0; i < n; i++) {
         int q;
-        *(char *)(e + 0x41C + i) = FUN_0c179ac0() % 3;
+        *(char *)(e + 0x41C + i) = nlRand() % 3;
         FUN_0c037498(*(int *)(e + 0xC4 + 4 * i), *(char *)(e + 0x41C + i), 19, *(int *)0x0C4B40CC);
         q = *(int *)(e + 0xC4 + 4 * i);
         *(char *)q = 1;
         *(short *)(q + 6) = 15;
         math_vec3_accumulate(*(int *)(e + 0xC4 + 4 * i) + 108, (int)&offs.f[3 * i]);
         q = *(int *)(e + 0xC4 + 4 * i);
-        *(float *)(q + 112) = *(float *)(q + 112) + (float)(FUN_0c179ac0() % 51 - 25);
+        *(float *)(q + 112) = *(float *)(q + 112) + (float)(nlRand() % 51 - 25);
     }
 }
 
@@ -398,8 +398,8 @@ void FUN_0c0dc7e8(int mode)
     for (i = 0; i < 4; i++)
         perm[i] = i;
     for (i = 10; i != 0; i--) {
-        int a = mod4(FUN_0c179ac0());
-        int b = mod4(FUN_0c179ac0());
+        int a = mod4(nlRand());
+        int b = mod4(nlRand());
         int t = perm[b];
         perm[b] = perm[a];
         perm[a] = t;

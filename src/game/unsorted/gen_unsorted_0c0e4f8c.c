@@ -38,7 +38,7 @@ int FUN_0c0e524e(int);
 int FUN_0c0e8e4c(int);
 int FUN_0c15aed8(int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 extern int FUN_0c187798();
 int FUN_0c0e4f8c(int a4, int a5, int a6);

@@ -1,0 +1,91 @@
+/* Straight-line functions with calls and guards (batch gen_ui): generated from the code and checked by tests. Calls are
+   to the game or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
+
+struct o14_float { char p[0x14]; float v; };
+struct o18_float { char p[0x18]; float v; };
+struct o28_float { char p[0x28]; float v; };
+struct o4_float { char p[0x4]; float v; };
+struct o8_float { char p[0x8]; float v; };
+float math_signed_sqrt(float);
+float FUN_0c060290(int a4, int a5);
+
+float FUN_0c060290(int a4, int a5)
+{
+
+    register int R3;
+    register int R12;
+    register int R13;
+    register float F2;
+    register float F3;
+    register float F13;
+    register float F14;
+    register float F15;
+    register int T_;
+    register int v0_0;
+    register int v0_1;
+    register int v0_2;
+    register int v0_3;
+    register int v0_4;
+    register float w0_0;
+    register float w0_1;
+    register float w0_2;
+    v0_2 = a4;
+    v0_0 = a5;
+    v0_1 = R13;
+    v0_4 = R12;
+    v0_3 = *(signed char *)((v0_0 + 0x1));
+    v0_1 = (v0_3);
+    R12 = (0xC1794E0);
+    v0_0 = (v0_0);
+    if ((v0_3 == 0)) goto L_C0602B4;
+    if ((v0_1 == 1)) goto L_C0602E4;
+    if ((v0_1 == 2)) goto L_C06032A;
+    L_C0602B4:;
+    v0_1 = *(int *)(((((*(signed char *)((v0_0 + 0x2))) << 2) + (0xC4 + v0_2)) + 0x0));
+    w0_0 = (((struct o4_float *)((v0_1 + 0x28)))->v);
+    w0_2 = (((struct o8_float *)((v0_1 + 0x28)))->v);
+    w0_1 = (((struct o28_float *)(v0_1))->v);
+    w0_2 = (w0_2 * w0_2);
+    w0_2 = w0_2 + w0_0 * w0_0;
+    w0_0 = w0_2;
+    w0_0 = w0_0 + w0_1 * w0_1;
+    w0_1 = math_signed_sqrt(w0_0);
+    v0_1 = (0x14);
+    w0_0 = (w0_1);
+    w0_1 = (w0_1);
+    L_C060322:;
+    *(float *)((v0_0 + v0_1)) = ((*(float *)((v0_0 + v0_1))) * w0_1);
+    L_C060366:;
+    return w0_0;
+    L_C06032A:;
+    v0_1 = *(int *)(((((*(signed char *)((v0_0 + 0x2))) << 2) + (0xC4 + v0_2)) + 0x0));
+    w0_0 = (((struct o4_float *)((v0_1 + 0x28)))->v);
+    w0_2 = (((struct o8_float *)((v0_1 + 0x28)))->v);
+    w0_1 = (((struct o28_float *)(v0_1))->v);
+    w0_2 = (w0_2 * w0_2);
+    w0_2 = w0_2 + w0_0 * w0_0;
+    w0_0 = w0_2;
+    w0_0 = w0_0 + w0_1 * w0_1;
+    w0_0 = math_signed_sqrt(w0_0);
+    (((struct o14_float *)(v0_0))->v) = (((((struct o14_float *)(v0_0))->v)) * w0_0);
+    (((struct o18_float *)(v0_0))->v) = (((((struct o18_float *)(v0_0))->v)) * w0_0);
+    v0_1 = (0x18);
+    w0_0 = (w0_0);
+    goto L_C060366;
+    L_C0602E4:;
+    v0_1 = *(int *)(((((*(signed char *)((v0_0 + 0x2))) << 2) + (0xC4 + v0_2)) + 0x0));
+    w0_0 = (((struct o4_float *)((v0_1 + 0x28)))->v);
+    w0_2 = (((struct o8_float *)((v0_1 + 0x28)))->v);
+    w0_1 = (((struct o28_float *)(v0_1))->v);
+    w0_2 = (w0_2 * w0_2);
+    w0_2 = w0_2 + w0_0 * w0_0;
+    w0_0 = w0_2;
+    w0_0 = w0_0 + w0_1 * w0_1;
+    w0_1 = math_signed_sqrt(w0_0);
+    (((struct o14_float *)(v0_0))->v) = (((((struct o14_float *)(v0_0))->v)) * w0_1);
+    (((struct o18_float *)(v0_0))->v) = (((((struct o18_float *)(v0_0))->v)) * w0_1);
+    v0_1 = (0x1C);
+    w0_0 = (w0_1);
+    w0_1 = (w0_1);
+    goto L_C060322;
+}

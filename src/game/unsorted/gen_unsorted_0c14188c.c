@@ -19,7 +19,7 @@ int FUN_0c03f444(int, int, int);
 int math_vec3_mul_xyz(int, float, float, float);
 int thunk_FUN_0c058310(int, int);
 int math_atan2_angle16(float, float);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c0e2390(int, int, int);
 int FUN_0c17c450(int);
 int FUN_0c187798(void);
@@ -42,7 +42,7 @@ int FUN_0c14199c(int a4)
         (((struct oA8_uchar *)(a4))->v) = 0x1;
     }
     *(unsigned int *)((a4 + 0x38)) = ((*(int *)((a4 + 0x38))) - 0x276);
-    FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+    nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
     t0 = *(signed char *)((a4 + 0x15));
     if (t0 != 0) {
         if (t0 != 1) {

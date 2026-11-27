@@ -85,68 +85,6 @@ int FUN_0c085204(int a4, float f4)
     return t11;
 }
 
-int FUN_0c085256(int a4, int a5)
-{
-    register int t0;
-    register int t1;
-    register int t3;
-
-    t0 = 0x3768;
-    if (((((struct o3768_int *)(a4))->v)) == 0) {
-    } else {
-        t1 = FUN_0c0c30a8(((((struct o3768_int *)(a4))->v)), 0x3, a4);
-        t0 = t1;
-        if (t1 == 0) {
-        } else {
-            if ((*(signed char *)(((((*(signed char *)((((((struct o3768_int *)(a4))->v)) + 0x424))) << 2) << 1) + 0xC27890B))) == 0) {
-                if (a5 != 0) {
-                    if (a5 != 1) {
-                        if (a5 != 2) {
-                            if (a5 != 3) {
-                                t1 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x8, 0xFFFFFFFF, 0x2, 0x8));
-                            } else {
-                                t1 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0xB, 0xFFFFFFFF, 0x2, 0xB));
-                            }
-                            t3 = t1;
-                        } else {
-                            t3 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0xA, 0xFFFFFFFF, 0x2, 0xA));
-                        }
-                        t1 = t3;
-                    } else {
-                        t1 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x9, 0xFFFFFFFF, 0x2, 0x9));
-                    }
-                    t3 = t1;
-                } else {
-                    t3 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x8, 0xFFFFFFFF, 0x2, 0x8));
-                }
-                t1 = t3;
-            } else {
-                if (a5 != 0) {
-                    if (a5 != 1) {
-                        if (a5 != 2) {
-                            if (a5 != 3) {
-                                t3 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x2D, 0xFFFFFFFF, 0x2, 0x2D));
-                            } else {
-                                t3 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x30, 0xFFFFFFFF, 0x2, 0x30));
-                            }
-                            t1 = t3;
-                        } else {
-                            t1 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x2F, 0xFFFFFFFF, 0x2, 0x2F));
-                        }
-                        t3 = t1;
-                    } else {
-                        t3 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x2E, 0xFFFFFFFF, 0x2, 0x2E));
-                    }
-                    t1 = t3;
-                } else {
-                    t1 = (FUN_0c07e79c(a4, 0xFFFFFFFF, 0x2, 0x2D, 0xFFFFFFFF, 0x2, 0x2D));
-                }
-            }
-            t0 = t1;
-        }
-    }
-    return t0;
-}
 
 int FUN_0c085398(int a4, int a5, int a6, int a7)
 {

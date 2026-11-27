@@ -19,7 +19,7 @@ int FUN_0c0b223c(void);
 extern int FUN_0c0b2888();
 int FUN_0c0df210(float);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c0e2390(int, int, int);
 float FUN_0c17c450(int);
@@ -28,39 +28,40 @@ int FUN_0c0b1edc(int a4, float f4);
 int FUN_0c0b2064(int a4, float f4);
 int FUN_0c0b23b4(int a4);
 float FUN_0c0b2ac2(int a4, float f4);
+struct o38_int { char p[0x38]; int v; };
+
 
 int FUN_0c0b1edc(int a4, float f4)
 {
     int stk[19];
-    register int t7;
-    register int t9;
-    register int t10;
-    register int t11;
-    register int t12;
-    register float u15;
-    register float u16;
+    int t7;
+    int t9;
+    int t12;
+    float u15;
+    float u13;
+    float u14;
+    int t11;
     float u17;
-    register int t24;
-    register float u27;
-    register float u28;
-    register float u29;
-    register float u39;
-    register int t8;
-    register float u13;
-    register float u14;
-    register int t47;
-    register float u48;
-    register float u49;
-    register float u50;
-    register float u44;
-    register float u45;
+    int t10;
+    int t8;
+    int t47;
+    float u45;
+    float u44;
+    float u50;
+    float u49;
+    float u48;
+    float u29;
+    float u28;
+    float u27;
+    float u39;
+    float u16;
 
     *(unsigned int *)(((int)stk + 0)) = a4;
     (((struct o34_uchar *)((0x38F8 + a4)))->v) = 0xFFFFFFFF;
     FUN_0c0b1c7e((((int)stk + 0) + 0x3C));
     math_mat_get_translate(((*(int *)(((0x38F8 + a4) + 0x10))) + 0x64), (((int)stk + 0) + 0x30));
-    *(float *)(((int)stk + 44)) = (math_cos_angle16((*(int *)((a4 + 0x38)))));
-    *(float *)(((int)stk + 36)) = (math_sin_angle16((*(int *)((a4 + 0x38)))));
+    *(float *)(((int)stk + 44)) = (math_cos_angle16(((((struct o38_int *)(a4))->v))));
+    *(float *)(((int)stk + 36)) = (math_sin_angle16(((((struct o38_int *)(a4))->v))));
     *(float *)(((int)stk + 40)) = 0.0f;
     *(unsigned int *)(((int)stk + 4)) = (((int)stk + 0) + 0x3C);
     *(unsigned int *)(((int)stk + 8)) = ((((int)stk + 0) + 0x3C) + 0x10);
@@ -76,66 +77,48 @@ int FUN_0c0b1edc(int a4, float f4)
         if ((unsigned int)t11 >= (unsigned int)(*(int *)(((int)stk + 8)))) {
             break;
         }
-        t7 = (*(signed char *)(((*(int *)(((int)stk + 0))) + 0x1)));
-        t9 = (*(int *)((t11 + 0x0)));
-        t7 = (FUN_0c0b1d20(t9, t7));
+        t9 = (*(int *)(t11));
+        t7 = (FUN_0c0b1d20(t9, (*(signed char *)(((*(int *)(((int)stk + 0))) + 0x1)))));
         if (t7 == 0) {
-            t8 = (*(int *)((t10 + 0x0)));
-            t9 = ((int)stk + 0);
-            t24 = (t8 * 0x3938);
             t8 = 0xC17C2F0;
-            t9 = (t9 + 0x18);
-            t7 = (FUN_0c0e2390(t9, (t24 + 0xC5324C0), (((int)stk + 0) + 0x30)));
-            t9 = ((int)stk + 0);
-            t9 = (t9 + 0x18);
-            t7 = 0x20;
-            u27 = *(float *)((((int)stk + 0) + t7));
-            t7 = 0x18;
-            u28 = *(float *)((((int)stk + 0) + t7));
-            t7 = 0x2C;
-            u29 = *(float *)((((int)stk + 0) + t7));
-            t7 = 0x24;
+            t7 = (FUN_0c0e2390((((int)stk + 0) + 0x18), (((*(int *)(t10)) * 0x3938) + 0xC5324C0), (((int)stk + 0) + 0x30)));
+            t9 = (((int)stk + 0) + 0x18);
+            u27 = *(float *)((((int)stk + 0) + 0x20));
+            u28 = *(float *)((((int)stk + 0) + 0x18));
+            u29 = *(float *)((((int)stk + 0) + 0x2C));
             u17 = (FUN_0c17c450(t9));
-            u15 = (*(float *)((((int)stk + 0) + t7)));
             t7 = 0xC0B2004;
-            u15 = (math_vec2_cos_between(u15, u29, u28, u27));
-            u14 = (*(float *)((t7 + 0x0)));
+            u15 = (math_vec2_cos_between((*(float *)((((int)stk + 0) + 0x24))), u29, u28, u27));
+            u14 = (*(float *)(0xC0B2004));
             if (!(u15 > u14) && (!(1000.0f > u17) && (u17 > u16))) {
-                t8 = (*(int *)(((int)stk + 4)));
-                t7 = 0x34;
-                *(unsigned char *)(((0x38F8 + a4) + t7)) = (*(int *)((t8 + 0x0)));
+                *(unsigned char *)(((0x38F8 + a4) + 0x34)) = (*(int *)(((*(int *)(((int)stk + 4))) + 0x0)));
                 u16 = u17;
                 t7 = (FUN_0c0df210(u15));
                 t8 = 0xC058270;
-                t9 = ((int)stk + 0);
                 t12 = t7;
-                t9 = (t9 + 0xC);
+                t9 = (((int)stk + 0) + 0xC);
                 t7 = (FUN_0c058270(t9, (((int)stk + 0) + 0x24), (((int)stk + 0) + 0x18)));
                 t7 = 0x10;
                 u14 = 0.0f;
-                u13 = (*(float *)((((int)stk + 0) + t7)));
+                u13 = (*(float *)((((int)stk + 0) + 0x10)));
                 if (!(u14 > u13)) {
                     t12 = (t12 - 0x1555);
                     if ((int)t12 < (int)0xE38) {
                         t12 = 0xE38;
                     }
                 } else {
-                    u13 = (float)t12;
-                    u39 = u13;
+                    u39 = ((float)t12);
                     u39 *= -1.0f;
                     u13 = u39;
-                    t12 = (int)u13;
-                    t12 = (t12 + 0x1555);
+                    t12 = (((int)u13) + 0x1555);
                     if ((int)t12 > (int)0xFFFFF1C8) {
                         t12 = 0xFFFFF1C8;
                     }
                 }
-                t9 = (-t12);
-                t9 = ((int)t9 >> 8);
-                t7 = 0x35;
-                *(unsigned char *)(((0x38F8 + a4) + t7)) = t9;
+                t9 = ((int)(-t12) >> 8);
+                *(unsigned char *)(((0x38F8 + a4) + 0x35)) = t9;
                 t7 = 0x36;
-                *(unsigned short *)(((0x38F8 + a4) + t7)) = (int)u16;
+                *(unsigned short *)(((0x38F8 + a4) + 0x36)) = (int)u16;
                 t47 = t9;
                 u44 = u13;
             } else {
@@ -148,11 +131,10 @@ int FUN_0c0b1edc(int a4, float f4)
         u13 = u48;
         u14 = u49;
         u15 = u50;
-        t8 = (*(int *)(((int)stk + 4)));
         t9 = t47;
         t11 = (t11 + 0x4);
         t10 = (t10 + 0x4);
-        t8 = (t8 + 0x4);
+        t8 = ((*(int *)(((int)stk + 4))) + 0x4);
         *(unsigned int *)(((int)stk + 4)) = t8;
     }
     return (*(signed char *)(((0x38F8 + a4) + 0x34)));
@@ -213,7 +195,7 @@ int FUN_0c0b23b4(int a4)
                         if ((0xA & t7) == 10) {
                             t15 = ((int (*)(int, int, int, int))(FUN_0c0b2888))(a4, 0x20, 0x2, 0x4);
                         } else {
-                            t16 = FUN_0c179ac0();
+                            t16 = nlRand();
                             t17 = ((~(((~t16) + 0x1) & 0x1)) + 0x1);
                             if ((int)t16 >= 0) {
                                 t17 = (t16 & 0x1);

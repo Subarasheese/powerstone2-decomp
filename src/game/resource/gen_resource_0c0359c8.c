@@ -22,13 +22,13 @@ int FUN_0c036a9c(int, int, int, int, int);
 int FUN_0c039ee6(int);
 int FUN_0c0612f4(int, int, int, int);
 int FUN_0c176b90(int);
-int FUN_0c0ddc30(void);
-int FUN_0c17a170(void);
-int FUN_0c17df90(int, int);
+int nlCommonTextureGarbageCollection(void);
+int nlPrintSetGarbagedTexture(void);
+int nlObjPutLoadTexture(int, int);
 int FUN_0c17e0f0(void);
 int FUN_0c17e260(void);
 int FUN_0c17f060(int, int);
-int FUN_0c17f180(int);
+int nlSpriteSetGarbagedTexture(int);
 int FUN_0c17f3a0(int, int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c0359c8(void);
@@ -254,7 +254,7 @@ int FUN_0c035d74(int a4, int a5, int a6)
             t15 = (t17 * t15);
             t13 = (*(int *)((((*(int *)((t16 + 0x1C))) + t15) + 0x0)));
             if (t13 != 0) {
-                t12 = (FUN_0c17df90((*(int *)((((*(int *)((t16 + 0x1C))) + t15) + 0x0))), 0xC3BD660));
+                t12 = (nlObjPutLoadTexture((*(int *)((((*(int *)((t16 + 0x1C))) + t15) + 0x0))), 0xC3BD660));
                 t13 = (*(int *)(((int)stk + 0)));
                 t13 = (t13 + t12);
                 *(unsigned int *)(((int)stk + 0)) = t13;
@@ -270,7 +270,7 @@ int FUN_0c035e24(int a4)
 {
     if ((*(signed char *)((a4 + 0x0))) != 0) {
         FUN_0c176b90((*(short *)((a4 + 0x2))));
-        FUN_0c17f180((*(int *)((a4 + 0x4))));
+        nlSpriteSetGarbagedTexture((*(int *)((a4 + 0x4))));
     }
     return 0x0;
 }
@@ -490,8 +490,8 @@ int FUN_0c036c38(void)
 
 int FUN_0c036c70(void)
 {
-    FUN_0c0ddc30();
-    FUN_0c17a170();
+    nlCommonTextureGarbageCollection();
+    nlPrintSetGarbagedTexture();
     FUN_0c035e46(((((struct o8_int *)0xC4B40CC)->v)), 0x1E);
     FUN_0c035e46((*(int *)0xC4B4110), 0x2BC);
     FUN_0c035e46(((((struct o0_int *)0xC4B40CC)->v)), 0x64);

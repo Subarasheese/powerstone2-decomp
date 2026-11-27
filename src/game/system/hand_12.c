@@ -4,10 +4,10 @@
 
 extern void _builtin_set_imask(int);
 
-int FUN_0c177d90(int);
+int nlSysSetTextureSize(int);
 int FUN_0c178450(void);
 int nlSysUseLatency2V(void);
-int FUN_0c1784d0(void);
+int nlSysMetricsInit(void);
 int gfx_set_display_mode(int);
 int FUN_0c02d54c(void);
 int nlSelectMatrixStack(int);
@@ -22,15 +22,15 @@ int thunk_FUN_0c2b0ad0(int, int, int, int);    /* gdFsInit: max open files, work
 int pdExitPeripheral(void);
 int FUN_0c2ae9e4(void);
 int FUN_0c2b1622(void);
-int FUN_0c1789b0(void);
-int FUN_0c2b3a98(void);
+int nlExitSystem(void);
+int syBtExit(void);
 int gdFsCreateDirhn(int, int);
 int syRtcInit(void);
 int FUN_0c2b1b16(int);
 int syCfgInit(int);
 int syCfgGetSoundMode(int);
-int FUN_0c2b402e(void);
-int FUN_0c0f1ffe(int, int);
+int ADXT_Init(void);
+int gdFsEntryErrFuncAll(int, int);
 int FUN_0c02d944(void);
 int FUN_0c056e80(void);
 int FUN_0c02d9f2(void);
@@ -43,10 +43,10 @@ void FUN_0c02d630(void)
 {
     int tries, work, dirbuf, sound;
 
-    FUN_0c177d90(0x100000);
+    nlSysSetTextureSize(0x100000);
     FUN_0c178450();
     nlSysUseLatency2V();
-    FUN_0c1784d0();
+    nlSysMetricsInit();
     gfx_set_display_mode(0);
     FUN_0c02d54c();
     nlSelectMatrixStack(3);
@@ -73,8 +73,8 @@ void FUN_0c02d630(void)
             pdExitPeripheral();
             FUN_0c2ae9e4();
             FUN_0c2b1622();
-            FUN_0c1789b0();
-            FUN_0c2b3a98();
+            nlExitSystem();
+            syBtExit();
             for (;;)
                 ;
         }
@@ -93,8 +93,8 @@ void FUN_0c02d630(void)
     else
         GAME_WORK[44] = 0;
     _builtin_set_imask(0);
-    FUN_0c2b402e();
-    FUN_0c0f1ffe(0x0C02D1E8, 0);
+    ADXT_Init();
+    gdFsEntryErrFuncAll(0x0C02D1E8, 0);
     FUN_0c02d944();
     FUN_0c056e80();
     FUN_0c02d9f2();

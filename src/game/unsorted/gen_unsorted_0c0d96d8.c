@@ -18,7 +18,7 @@ struct oAC_ushort { char p[0xAC]; unsigned short v; };
 int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c187798(void);
 int FUN_0c0d96d8(int a4);
 int FUN_0c0d97ca(int a4, int a5, int a6, int a7);
@@ -56,7 +56,7 @@ int FUN_0c0d97ca(int a4, int a5, int a6, int a7)
             t3 = (t3 + a4);
             t3 = (t3 + t1);
             t3 = (*(int *)((t3 + 0x0)));
-            t0 = (FUN_0c179ac0());
+            t0 = (nlRand());
             t2 = 0xC18760C;
             t4 = t0;
             t0 = 0x32;
@@ -72,7 +72,7 @@ int FUN_0c0d97ca(int a4, int a5, int a6, int a7)
             u0 = (float)t2;
             u0 = (u0 / 10000.0f);
             u1 = u0;
-            t0 = (FUN_0c179ac0());
+            t0 = (nlRand());
             t4 = t0;
             t0 = 0x14;
             t0 = ((int)((int)t4 % (int)t0));

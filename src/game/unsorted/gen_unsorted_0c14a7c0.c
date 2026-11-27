@@ -22,7 +22,7 @@ int FUN_0c03f346(int);
 int FUN_0c03f444(int, int, int);
 int math_atan2_angle16(float, float);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int math_vec3_accumulate(int, int);
 int FUN_0c187798(void);
@@ -43,19 +43,19 @@ int FUN_0c14a878(int a4)
         }
     } else {
         (((struct oA8_uchar *)(a4))->v) = 0x1;
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t1 = ((~(((~t0) + 0x1) & 0x3F)) + 0x1);
         if ((int)t0 >= 0) {
             t1 = (t0 & 0x3F);
         }
         *(unsigned int *)((a4 + 0x38)) = ((t1 << 8) << 2);
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t1 = ((~(((~t0) + 0x1) & 0x1F)) + 0x1);
         if ((int)t0 >= 0) {
             t1 = (t0 & 0x1F);
         }
         (((struct o58_float *)(a4))->v) = ((((float)t1 / 32.0f) + 0.5f) * 10.0f);
-        t0 = FUN_0c179ac0();
+        t0 = nlRand();
         t1 = ((~(((~t0) + 0x1) & 0x1F)) + 0x1);
         if ((int)t0 >= 0) {
             t1 = (t0 & 0x1F);

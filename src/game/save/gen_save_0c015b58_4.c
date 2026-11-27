@@ -24,7 +24,7 @@ int FUN_0c017eb8(void);
 int FUN_0c017ed8(void);
 int memset(int, int, int);
 int FUN_0c187d24(int, int);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c016898(void);
 void FUN_0c016a88(int a4, int a5, int a6, int a7);
 int FUN_0c016c42(int a4, int a5, int a6, int a7);
@@ -144,27 +144,27 @@ int FUN_0c01746e(void)
     if ((*(signed char *)((t0 + 0x4C))) == 0) {
         if ((*(signed char *)0xC304C24) != 0) {
             t1 = *(signed char *)((t0 + 0x4D));
-            t2 = FUN_0c187d88(0xC304C24);
+            t2 = strlen(0xC304C24);
             if ((int)(unsigned char)t1 < (int)t2) {
                 t1 = FUN_0c01623a();
                 if (t1 == 0) {
                     t1 = *(int *)0xC304BA0;
                     (((struct o4D_uchar *)(t1))->v) = ((*(signed char *)((t1 + 0x4D))) + 0x2);
                 } else {
-                    (((struct o4D_uchar *)((*(int *)0xC304BA0)))->v) = (FUN_0c187d88(0xC304C24));
+                    (((struct o4D_uchar *)((*(int *)0xC304BA0)))->v) = (strlen(0xC304C24));
                 }
                 (((struct o4E_uchar *)((*(int *)0xC304BA0)))->v) = 0x0;
             }
         } else {
             t1 = *(signed char *)((t0 + 0x50));
-            t0 = FUN_0c187d88(0xC304BA4);
+            t0 = strlen(0xC304BA4);
             if ((int)(unsigned char)t1 < (int)t0) {
                 t0 = FUN_0c01623a();
                 if (t0 == 0) {
                     t0 = *(int *)0xC304BA0;
                     (((struct o50_uchar *)(t0))->v) = ((*(signed char *)(((0x50 + t0) + 0x0))) + (FUN_0c016334(0xC304BA4, (unsigned char)(*(signed char *)((t0 + 0x50))))));
                 } else {
-                    (((struct o50_uchar *)((*(int *)0xC304BA0)))->v) = (FUN_0c187d88(0xC304BA4));
+                    (((struct o50_uchar *)((*(int *)0xC304BA0)))->v) = (strlen(0xC304BA4));
                 }
                 (((struct o4E_uchar *)((*(int *)0xC304BA0)))->v) = 0x0;
             }

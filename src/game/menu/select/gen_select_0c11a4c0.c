@@ -47,9 +47,9 @@ int FUN_0c0588bc(int, int, int, int, int, int);
 int FUN_0c058a6e(int, int, int, int, int, int);
 int FUN_0c05a080(int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(int, int, int);
 int FUN_0c11a4c0(int a4, int a5);
 int FUN_0c11a518(int a4, int a5, int a6, int a7);
@@ -65,8 +65,11 @@ int FUN_0c11a4c0(int a4, int a5)
     int stk[2];
     register int t0;
     register int t3;
+    int R1000;
 
-    *(unsigned int *)(((int)stk + 0)) = a4;
+    R1000 = *(int *)((int)stk + 0);
+
+    R1000 = a4;
     *(unsigned int *)(((int)stk + 4)) = a5;
     t0 = FUN_0c03f444(0x5, 0x0, 0x1);
     t3 = t0;
@@ -75,7 +78,7 @@ int FUN_0c11a4c0(int a4, int a5)
         *(unsigned int *)((t0 + 0x4)) = 0xC11A2A8;
         t3 = *(signed char *)(((int)stk + 4));
         *(unsigned char *)((t0 + 0x2)) = t3;
-        *(unsigned int *)((t0 + 0x10)) = (*(int *)(((int)stk + 0)));
+        *(unsigned int *)((t0 + 0x10)) = (R1000);
     }
     return t3;
 }

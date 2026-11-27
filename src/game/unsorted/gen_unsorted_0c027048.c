@@ -21,7 +21,7 @@ int FUN_0c0573cc(int, int, int);
 int FUN_0c1864e0(int, int, int);
 int FUN_0c186740(int, int, int);
 int FUN_0c187a88(int, int, int);
-int FUN_0c187d88(int);
+int strlen(int);
 int FUN_0c027048(void);
 int FUN_0c0270d6(void);
 int FUN_0c0270f8(void);
@@ -37,7 +37,7 @@ int FUN_0c027048(void)
     *(unsigned char *)(((((int)stk + 0) + 0x4) + 0x0)) = 0x75;
     *(unsigned char *)(((((int)stk + 0) + 0x4) + 0x2)) = 0x5;
     FUN_0c187a88(((((int)stk + 0) + 0x4) + 0x3), 0xC30A34C, 0x6);
-    *(unsigned char *)((((((int)stk + 0) + 0x4) + 0x9) + 0x0)) = ((FUN_0c187d88(0xC309D86)) + 0x2);
+    *(unsigned char *)((((((int)stk + 0) + 0x4) + 0x9) + 0x0)) = ((strlen(0xC309D86)) + 0x2);
     *(unsigned char *)(((((int)stk + 0) + 0x4) + 0xA)) = ((*(signed char *)0xC30541F) - 128);
     *(unsigned char *)(((((int)stk + 0) + 0x4) + 0xB)) = ((*(signed char *)0xC305420) - 128);
     FUN_0c187a88(((((int)stk + 0) + 0x4) + 0xC), 0xC309D86, (*(signed char *)((((((int)stk + 0) + 0x4) + 0x9) + 0x0))));

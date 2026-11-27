@@ -19,9 +19,9 @@ int FUN_0c03733c(int, int, int);
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
-int FUN_0c17c130(int, int, int);
+int nlAddVector3op(int, int, int);
 int FUN_0c187798(void);
 int FUN_0c0e2a8c(int a4, int a5, int a6, int a7);
 int FUN_0c0e2b30(int a4);
@@ -54,7 +54,7 @@ int FUN_0c0e2a8c(int a4, int a5, int a6, int a7)
             }
             return t0;
         }
-        FUN_0c17c130((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
+        nlAddVector3op((a4 + 0x28), (a4 + 0x28), (a4 + 0x4C));
         u0 = (((struct o40_float *)(a4))->v);
         (((struct o40_float *)(a4))->v) = (u0 - 0.0857142881f);
         (((struct o48_float *)(a4))->v) = (u0 - 0.0857142881f);

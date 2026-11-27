@@ -220,7 +220,7 @@ int FUN_0c2f7c34(int a4);
 int FUN_0c2fa3c4(void);
 int FUN_0c18cc94(int a4);
 int FUN_0c18004c(int a4, int a5, int a6, int a7);
-void gdFsReqRdPio(int a4, int a5, int a6);
+int gdFsReqRdPio(int a4, int a5, int a6);
 int FUN_0c2d0e80(void);
 int FUN_0c2eb626(int a4, int a5, int a6, int a7);
 int FUN_0c2f7808(void);
@@ -1034,7 +1034,7 @@ int FUN_0c18004c(int a4, int a5, int a6, int a7)
     goto L_C1800C6;
 }
 
-void gdFsReqRdPio(int a4, int a5, int a6)
+int gdFsReqRdPio(int a4, int a5, int a6)
 {
     int t0;
     register int t1;
@@ -1055,6 +1055,7 @@ void gdFsReqRdPio(int a4, int a5, int a6)
                 if (t3 == 0) {
                     *(unsigned int *)((a4 + 0x18)) = 0x0;
                     (((struct o50_ushort *)(a4))->v) = 0x1;
+                    return 0;
                 } else {
                     t2 = _builtin_get_imask();
                     _builtin_set_imask(0xF);
@@ -1072,14 +1073,21 @@ void gdFsReqRdPio(int a4, int a5, int a6)
                         (((struct o50_ushort *)(a4))->v) = 0x1;
                     }
                     _builtin_set_imask(((unsigned int)(((t2 & 0xF) << 2) << 2) >> 4));
-                    
+                    if (t4 != 0) {
+                        return t3;
+                    }
+                    return 0;
                 }
             } else {
                 *(unsigned int *)((a4 + 0x18)) = 0x0;
                 (((struct o50_ushort *)(a4))->v) = 0x1;
+                return 0;
             }
+        } else {
+            return 0;
         }
     }
+    return -10;
 }
 
 int FUN_0c2d0e80(void)

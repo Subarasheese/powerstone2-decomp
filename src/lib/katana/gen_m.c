@@ -103,7 +103,7 @@ struct oF4_int { char p[0xF4]; int v; };
 struct oF4_short { char p[0xF4]; short v; };
 struct oF8_int { char p[0xF8]; int v; };
 struct oFC_int { char p[0xFC]; int v; };
-extern int FUN_0c187990();
+extern int _slow_strcpy();
 int FUN_0c187a88(int, int, int);
 int FUN_0c18da58(void);
 int FUN_0c18da86(int);

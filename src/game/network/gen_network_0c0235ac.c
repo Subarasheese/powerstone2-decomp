@@ -184,22 +184,24 @@ int FUN_0c0235ac(int a4, int a5, int a6, int a7)
 
 int FUN_0c0237d6(void)
 {
-    register int t0;
-    register int t1;
-    register int t2;
+    int t0;
+    int t1;
+    int qa0;
+    int t2;
 
+    qa0 = 0xC30EF6C;
     t0 = *(signed char *)0xC30985B;
     if (t0 != 0) {
         if (t0 != 1) {
             t1 = t0;
             if (t0 != 2) {
             } else {
-                t0 = *(short *)0xC30EF6C;
-                *(unsigned short *)0xC30EF6C = (t0 - 1);
+                t0 = *(short *)qa0;
+                *(unsigned short *)qa0 = (t0 - 1);
                 if ((int)(short)(t0 - 1) < (int)0x3C) {
                     t2 = FUN_0c01cd2c(0x100);
                     if ((short)t2 == 0) {
-                        if ((int)(*(short *)0xC30EF6C) < 0) {
+                        if ((int)(*(short *)qa0) < 0) {
                             (((struct o0_uchar *)0xC30985A)->v) = 0x3;
                             (((struct o1_uchar *)0xC30985A)->v) = 0x0;
                         }
@@ -209,7 +211,7 @@ int FUN_0c0237d6(void)
                     }
                     t1 = (short)t2;
                 } else {
-                    if ((int)(*(short *)0xC30EF6C) < 0) {
+                    if ((int)(*(short *)qa0) < 0) {
                         (((struct o0_uchar *)0xC30985A)->v) = 0x3;
                         (((struct o1_uchar *)0xC30985A)->v) = 0x0;
                     }
@@ -218,13 +220,13 @@ int FUN_0c0237d6(void)
             }
             t0 = t1;
         } else {
-            t1 = *(short *)0xC30EF6C;
-            *(unsigned short *)0xC30EF6C = (t1 - 1);
+            t1 = *(short *)qa0;
+            *(unsigned short *)qa0 = (t1 - 1);
             t2 = (short)(t1 - 1);
             if ((int)(short)(t1 - 1) <= 0) {
                 (((struct o1_uchar *)0xC30985A)->v) = ((*(signed char *)0xC30985B) + 0x1);
                 FUN_0c018e74(0x17);
-                *(unsigned short *)0xC30EF6C = 0x98;
+                *(unsigned short *)qa0 = 0x98;
                 t2 = 0x98;
             }
             t0 = t2;
@@ -233,7 +235,7 @@ int FUN_0c0237d6(void)
     } else {
         (((struct o1_uchar *)0xC30985A)->v) = ((*(signed char *)0xC30985B) + 0x1);
         FUN_0c018fd2(0x18);
-        *(unsigned short *)0xC30EF6C = 0xC;
+        *(unsigned short *)qa0 = 0xC;
         t1 = 0xC;
     }
     return t1;

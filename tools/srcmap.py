@@ -18,17 +18,14 @@ import re
 import subprocess
 import sys
 
+SHDIS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'shdis.py')
+PAT = re.compile(r'^([0-9a-f]{8}) [0-9a-f]{4}\s+(mov\.[lw]\s+@\(0x([0-9a-f]+),pc\)|mova\s+@\(0x([0-9a-f]+),pc\)|'
+                 r'(?:bsr|bra|bt|bf|bt/s|bf/s)\s+0x([0-9a-f]+))', re.M)
 
-def main(argv):
-    out = argv[argv.index('--out') + 1] if '--out' in argv else os.path.join('state', 'srcmap.tsv')
-    funcs = []
-    for line in open('functions.txt'):
-        p = line.split()
-        if len(p) >= 4 and p[0] == 'F' and int(p[2]) > 0:
-            funcs.append((int(p[1], 16), int(p[2]), p[3]))
-    funcs.sort()
+
+def build_cells(funcs, dis):
+    """The cells of funcs, [(address, size, name)] sorted, from the disassembly text dis of their span: ([(first, last)] as indexes, links used)."""
     starts = [f[0] for f in funcs]
-    lo, hi = funcs[0][0], funcs[-1][0] + funcs[-1][1]
 
     def owner(a):
         i = bisect.bisect_right(starts, a) - 1
@@ -36,14 +33,9 @@ def main(argv):
             return i
         return None
 
-    parent = list(range(len(funcs)))
     reach = list(range(len(funcs)))     # reach[i]: the highest index tied to i by evidence; ties are runs, so a sweep suffices
-
-    dis = subprocess.run(['python3', 'tools/shdis.py', '%08x' % lo, '%08x' % hi], capture_output=True, text=True).stdout
-    pat = re.compile(r'^([0-9a-f]{8}) [0-9a-f]{4}\s+(mov\.[lw]\s+@\(0x([0-9a-f]+),pc\)|mova\s+@\(0x([0-9a-f]+),pc\)|'
-                     r'(?:bsr|bra|bt|bf|bt/s|bf/s)\s+0x([0-9a-f]+))', re.M)
     links = 0
-    for m in pat.finditer(dis):
+    for m in PAT.finditer(dis):
         pc = int(m.group(1), 16)
         tgt = int(m.group(3) or m.group(4) or m.group(5), 16)
         a, b = owner(pc), owner(tgt)
@@ -69,12 +61,30 @@ def main(argv):
             merged[-1][1] = c[1]
         else:
             merged.append(c)
+    return [tuple(c) for c in merged], links
+
+
+def write_cells(funcs, merged, out):
     os.makedirs(os.path.dirname(out) or '.', exist_ok=True)
     with open(out, 'w') as fh:
         fh.write('# start\tend\tfunctions\tfirst\tlast\n')
         for i, j in merged:
             fh.write('%08x\t%08x\t%d\t%s\t%s\n' % (funcs[i][0], funcs[j][0] + funcs[j][1], j - i + 1, funcs[i][2], funcs[j][2]))
-    print('%d functions, %d crossing links, %d cells -> %s' % (n, links, len(merged), out))
+
+
+def main(argv):
+    out = argv[argv.index('--out') + 1] if '--out' in argv else os.path.join('state', 'srcmap.tsv')
+    funcs = []
+    for line in open('functions.txt'):
+        p = line.split()
+        if len(p) >= 4 and p[0] == 'F' and int(p[2]) > 0:
+            funcs.append((int(p[1], 16), int(p[2]), p[3]))
+    funcs.sort()
+    lo, hi = funcs[0][0], funcs[-1][0] + funcs[-1][1]
+    dis = subprocess.run([sys.executable, SHDIS, '%08x' % lo, '%08x' % hi], capture_output=True, text=True).stdout
+    merged, links = build_cells(funcs, dis)
+    write_cells(funcs, merged, out)
+    print('%d functions, %d crossing links, %d cells -> %s' % (len(funcs), links, len(merged), out))
 
 
 if __name__ == '__main__':

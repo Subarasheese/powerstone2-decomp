@@ -21,7 +21,7 @@ struct oC_int { char p[0xC]; int v; };
 int FUN_0c037320(int, int);
 int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f444(int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c16c730(void);
 
 int FUN_0c16c730(void)
@@ -56,11 +56,11 @@ int FUN_0c16c730(void)
             (((struct o40_float *)(t4))->v) = (1.0f + 1.0f);
             (((struct o2C_float *)(t4))->v) = ((*(float *)0xC54109C) + 4000.0f);
             u1 = ((*(float *)(((((*(signed char *)0xC542237) << 2) << 1) + 0xC203CC8))) + (*(float *)(((((t0 << 2) << 1) + 0xC203BC8) + 0x0))));
-            u1 = (u1 + (float)((int)((int)(FUN_0c179ac0()) % (int)0xC9)));
+            u1 = (u1 + (float)((int)((int)(nlRand()) % (int)0xC9)));
             u1 = (u1 + -100.0f);
             (((struct o28_float *)(t4))->v) = u1;
             u1 = ((*(float *)(((((*(signed char *)0xC542237) << 2) << 1) + 0xC203CCC))) + ((((struct o4_float *)((((t0 << 2) << 1) + 0xC203BC8)))->v)));
-            u1 = (u1 + (float)((int)((int)(FUN_0c179ac0()) % (int)0xC9)));
+            u1 = (u1 + (float)((int)((int)(nlRand()) % (int)0xC9)));
             u1 = (u1 + -100.0f);
             (((struct o30_float *)(t4))->v) = u1;
             t35 = 0x30;

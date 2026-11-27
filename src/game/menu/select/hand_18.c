@@ -9,7 +9,7 @@ typedef struct { int w[4]; } C16;
 typedef struct { int w[3]; } V12;
 
 int FUN_0c03f346(int, int, int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c037498(int, int, int, int);
 float math_sin_angle16(int);
 float math_cos_angle16(int);
@@ -40,12 +40,12 @@ void FUN_0c11bb5e(int a4, int a5, int a6, int a7)
         *(short *)(M + 6) = 575;
         *(V12 *)(M + 132) = *(V12 *)CURVE;
         *(C16 *)(M + 20) = *(C16 *)0x0C2A0CA0;
-        *(int *)(M + 124) = (int)((float)(FUN_0c179ac0() % 8) * 360.0f / 8.0f * 65536.0f / 360.0f + 0.5f) & 0xFFFF;
-        r = FUN_0c179ac0() % 32;
+        *(int *)(M + 124) = (int)((float)(nlRand() % 8) * 360.0f / 8.0f * 65536.0f / 360.0f + 0.5f) & 0xFFFF;
+        r = nlRand() % 32;
         ang = (int)((float)(r * 360 / 32) * 65536.0f / 360.0f + 0.5f) & 0xFFFF;
         *(float *)(M + 108) = math_sin_angle16(ang) * 50.0f;
         *(float *)(M + 116) = math_cos_angle16(ang) * 50.0f;
-        S16(0x1E) = (FUN_0c179ac0() % 32 << 11) + *(int *)0x0C2921EC;
+        S16(0x1E) = (nlRand() % 32 << 11) + *(int *)0x0C2921EC;
     case 1:
         break;
     default:
@@ -54,7 +54,7 @@ void FUN_0c11bb5e(int a4, int a5, int a6, int a7)
     }
     F32(76) = (((float *)0x0C2921C0)[1] - ((float *)0x0C2921C0)[0]) / 360.0f * (float)S16(0x1C) / (float)AT(0);
     *(int *)(e + 56) = (int)((1.0f - math_sin_angle16(S16(0x1E)) * 32768.0f) * F32(76));
-    if (FUN_0c179ac0() % 20 == 0)
+    if (nlRand() % 20 == 0)
         S16(0x20) = 1 - S16(0x20);
     if (S16(0x20))
         S16(0x1E) += *(int *)0x0C2921F0;

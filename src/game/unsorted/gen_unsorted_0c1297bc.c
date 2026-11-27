@@ -2,9 +2,6 @@
    a bsr or a branch; a cell is at most one original source file). Generated C, checked by tests. Calls are to the game
    or library function at the address, with the arguments in r4-r7 and fr4-fr11 as set. */
 
-struct o14_uchar { char p[0x14]; unsigned char v; };
-struct o20_short { char p[0x20]; short v; };
-struct o20_ushort { char p[0x20]; unsigned short v; };
 struct o22_ushort { char p[0x22]; unsigned short v; };
 struct o28_float { char p[0x28]; float v; };
 struct o2C_float { char p[0x2C]; float v; };
@@ -15,25 +12,15 @@ struct o48_float { char p[0x48]; float v; };
 struct o4C_float { char p[0x4C]; float v; };
 struct o50_float { char p[0x50]; float v; };
 struct o54_float { char p[0x54]; float v; };
-struct o6C_float { char p[0x6C]; float v; };
-struct o70_float { char p[0x70]; float v; };
-struct o74_float { char p[0x74]; float v; };
-struct o78_int { char p[0x78]; int v; };
-struct o78_uint { char p[0x78]; unsigned int v; };
-struct o7C_int { char p[0x7C]; int v; };
-struct o7C_uint { char p[0x7C]; unsigned int v; };
-struct o80_uint { char p[0x80]; unsigned int v; };
-struct o84_float { char p[0x84]; float v; };
-struct o88_float { char p[0x88]; float v; };
-struct o8C_float { char p[0x8C]; float v; };
 struct oA8_uchar { char p[0xA8]; unsigned char v; };
 struct oA9_uchar { char p[0xA9]; unsigned char v; };
 struct oAC_ushort { char p[0xAC]; unsigned short v; };
+struct o129872_part { char p[0x6C]; float x6C, y70, z74; int ang78, ang7C, n80; float s84, s88, s8C; };
 int FUN_0c03744a(int, int, int, int);
 int FUN_0c03f346(int, int, int, int);
 int FUN_0c03f444(int, int, int);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c1297bc(int a4, int a5);
 int FUN_0c129872(int a4, int a5, int a6, int a7, float f4);
@@ -84,151 +71,68 @@ int FUN_0c1297bc(int a4, int a5)
 
 int FUN_0c129872(int a4, int a5, int a6, int a7, float f4)
 {
-    int stk[5];
+    char *obj = (char *)a4;
+    signed char *count = (signed char *)(obj + 0x41C);
+    struct o129872_part *part;
+    int i;
+    float scale;
 
-    register int R1;
-    register int R2;
-    register int R3;
-    register float F2;
-    register float F3;
-    register int T_;
-    register int FPUL_;
-    register int v0_0;
-    register int v0_1;
-    register int v0_2;
-    register int v0_3;
-    register int v0_4;
-    register int v0_5;
-    register int v0_6;
-    register int v0_7;
-    register float w0_0;
-    register float w0_1;
-    register float w0_2;
-    register float w0_3;
-    register float w0_4;
-    register float w0_5;
-    register float w0_6;
-    v0_4 = a4;
-    w0_0 = f4;
-    v0_6 = *(signed char *)((v0_4 + 0x14));
-    v0_5 = (v0_6);
-    v0_0 = (0x0);
-    v0_1 = (0x168);
-    v0_2 = (v0_4);
-    v0_3 = ((0x41C + v0_4));
-    v0_4 = (0xC179AC0);
-    w0_0 = (655360.0f);
-    w0_1 = (360.0f);
-    if ((v0_6 == 0)) goto L_C1298E4;
-    if ((v0_5 == 1)) goto L_C12997A;
-    if ((v0_5 != 2)) goto L_C1298B4;
-    L_C129B36:;
-    return FUN_0c03f346(v0_2, a5, a6, a7);
-    L_C1298B4:;
-    if ((v0_5 != 3)) goto L_C1298BC;
-    goto L_C129B36;
-    L_C1298BC:;
-    L_C129B78:;
-    return v0_5;
-    L_C12997A:;
-    (((struct o28_float *)(v0_2))->v) = ((((struct o28_float *)((*(int *)((v0_2 + 0x10)))))->v));
-    (((struct o2C_float *)(v0_2))->v) = ((((struct o2C_float *)((*(int *)((v0_2 + 0x10)))))->v));
-    (((struct o30_float *)(v0_2))->v) = ((((struct o30_float *)((*(int *)((v0_2 + 0x10)))))->v));
-    v0_4 = (0x1);
-    if (((*(signed char *)((0x3715 + (*(int *)(((*(int *)((v0_2 + 0x10))) + 0x10)))))) == 26)) goto L_C1299A4;
-    (((struct o20_ushort *)(v0_2))->v) = v0_4;
-    L_C1299A4:;
-    if (((int)(*(signed char *)(((*(int *)(((*(int *)((v0_2 + 0x10))) + 0x10))) + 0x17))) <= (int)0x2)) goto L_C1299B6;
-    (((struct o20_ushort *)(v0_2))->v) = v0_4;
-    L_C1299B6:;
-    v0_4 = *(short *)((v0_2 + 0x1C));
-    *(unsigned short *)((v0_2 + 0x1C)) = (v0_4 - 1);
-    if (((short)(v0_4 - 1) != 0)) goto L_C1299E0;
-    if ((((((struct o20_short *)(v0_2))->v)) == 0)) goto L_C1299E0;
-    (((struct o14_uchar *)(v0_2))->v) = ((*(signed char *)((v0_2 + 0x14))) + 0x1);
-    v0_5 = (0x14);
-    goto L_C129B78;
-    L_C1299E0:;
-    v0_4 = (v0_3);
-    if (((*(short *)((v0_2 + 0x1C))) != 0)) goto L_C1299EC;
-    *(unsigned short *)((v0_2 + 0x1C)) = 0x1E;
-    L_C1299EC:;
-    *(unsigned int *)(((int)stk + 12)) = v0_4;
-    *(unsigned int *)(((int)stk + 4)) = v0_4;
-    *(unsigned int *)(((int)stk + 8)) = v0_4;
-    *(float *)(((int)stk + 16)) = 1000.0f;
-    v0_4 = (0x14000);
-    w0_3 = (1000.0f);
-    w0_2 = (60.0f);
-    L_C129A00:;
-    v0_6 = *(signed char *)(((v0_3 + v0_0) + 0x0));
-    v0_5 = *(int *)((((v0_0 << 2) + (0xC4 + v0_2)) + 0x0));
-    *(unsigned char *)(((v0_3 + v0_0) + 0x0)) = (v0_6 - 1);
-    v0_5 = (v0_5);
-    if (((signed char)(v0_6 - 1) != 0)) goto L_C129A5A;
-    (((struct o78_uint *)(v0_5))->v) = (int)(((float)((int)((int)(FUN_0c179ac0()) % (int)v0_1)) * w0_0) / w0_1);
-    v0_6 = (int)((int)(FUN_0c179ac0()) % (int)v0_1);
-    (((struct o7C_uint *)(v0_5))->v) = (int)(((float)v0_6 * w0_0) / w0_1);
-    *(unsigned char *)(((v0_3 + v0_0) + 0x0)) = 0x1E;
-    FPUL_ = ((int)(((float)v0_6 * w0_0) / w0_1));
-    L_C129A5A:;
-    (((struct o8C_float *)(v0_5))->v) = ((float)(*(signed char *)(((v0_3 + v0_0) + 0x0))) / w0_2);
-    v0_6 = *(signed char *)(((*(int *)(((int)stk + 8))) + 0x0));
-    w0_4 = (((struct o40_float *)((*(int *)((v0_2 + 0x10)))))->v);
-    *(float *)(((int)stk + 0)) = (((float)v0_6 / w0_2) + w0_4);
-    w0_5 = math_sin_angle16(((-((((struct o78_int *)(v0_5))->v))) + v0_4));
-    *(float *)(((int)stk + 0)) = ((((float)v0_6 / w0_2) + w0_4) * w0_5);
-    w0_4 = ((((float)v0_6 / w0_2) + w0_4) * w0_5);
-    w0_4 = (w0_4 * (math_cos_angle16(((-((((struct o7C_int *)(v0_5))->v))) + v0_4))));
-    (((struct o6C_float *)(v0_5))->v) = (-(w0_4 * w0_3));
-    v0_6 = *(signed char *)(((*(int *)(((int)stk + 4))) + 0x0));
-    w0_4 = (((struct o44_float *)((*(int *)((v0_2 + 0x10)))))->v);
-    w0_5 = *(float *)(((int)stk + 16));
-    *(float *)(((int)stk + 0)) = (w0_5 * (((float)v0_6 / w0_2) + w0_4));
-    w0_4 = (w0_5 * (((float)v0_6 / w0_2) + w0_4));
-    (((struct o70_float *)(v0_5))->v) = (w0_4 * (math_cos_angle16(((-((((struct o78_int *)(v0_5))->v))) + v0_4))));
-    v0_6 = *(signed char *)(((*(int *)(((int)stk + 12))) + 0x0));
-    w0_5 = (((struct o48_float *)((*(int *)((v0_2 + 0x10)))))->v);
-    *(float *)(((int)stk + 0)) = (((float)v0_6 / w0_2) + w0_5);
-    w0_6 = math_sin_angle16(((-((((struct o78_int *)(v0_5))->v))) + v0_4));
-    *(float *)(((int)stk + 0)) = ((((float)v0_6 / w0_2) + w0_5) * w0_6);
-    w0_4 = math_sin_angle16(((-((((struct o7C_int *)(v0_5))->v))) + v0_4));
-    w0_5 = ((((float)v0_6 / w0_2) + w0_5) * w0_6);
-    w0_5 = (w0_5 * w0_4);
-    (((struct o74_float *)(v0_5))->v) = (-(w0_5 * w0_3));
-    *(unsigned int *)(((int)stk + 12)) = ((*(int *)(((int)stk + 12))) + 0x1);
-    *(unsigned int *)(((int)stk + 4)) = ((*(int *)(((int)stk + 4))) + 0x1);
-    v0_6 = (int)(v0_0 + 0x1) >= (int)0xA;
-    *(unsigned int *)(((int)stk + 8)) = ((*(int *)(((int)stk + 8))) + 0x1);
-    v0_5 = (0x74);
-    v0_0 = ((v0_0 + 0x1));
-    w0_4 = (w0_4);
-    if (v0_6) goto L_C129B32;
-    goto L_C129A00;
-    L_C129B32:;
-    goto L_C129B78;
-    L_C1298E4:;
-    v0_4 = (v0_0);
-    w0_2 = (0.300000012f);
-    L_C1298EA:;
-    v0_5 = *(int *)((((v0_4 << 2) + (0xC4 + v0_2)) + 0x0));
-    (((struct o78_uint *)(v0_5))->v) = (int)(((float)((int)((int)(FUN_0c179ac0()) % (int)v0_1)) * w0_0) / w0_1);
-    v0_6 = (int)((int)(FUN_0c179ac0()) % (int)v0_1);
-    (((struct o7C_uint *)(v0_5))->v) = (int)(((float)v0_6 * w0_0) / w0_1);
-    (((struct o80_uint *)(v0_5))->v) = v0_0;
-    (((struct o84_float *)(v0_5))->v) = w0_2;
-    (((struct o88_float *)(v0_5))->v) = w0_2;
-    (((struct o8C_float *)(v0_5))->v) = w0_2;
-    v0_5 = *(signed char *)((v0_2 + 0x22));
-    *(unsigned char *)(((v0_3 + v0_4) + 0x0)) = (((((v0_5 << 2) + v0_5) << 1) + v0_4) + 0x14);
-    v0_7 = (int)(v0_4 + 0x1) < (int)0xA;
-    v0_5 = (0x22);
-    v0_4 = ((v0_4 + 0x1));
-    FPUL_ = ((int)(((float)v0_6 * w0_0) / w0_1));
-    if (v0_7) goto L_C1298EA;
-    v0_4 = *(short *)((v0_2 + v0_5));
-    *(unsigned short *)((v0_2 + 0x1C)) = ((((v0_4 << 2) + v0_4) << 1) + 0x32);
-    (((struct o20_ushort *)(v0_2))->v) = v0_0;
-    (((struct o14_uchar *)(v0_2))->v) = ((*(signed char *)((v0_2 + 0x14))) + 0x1);
-    goto L_C12997A;
+    switch (*(signed char *)(obj + 0x14)) {
+    case 0:
+        for (i = 0; i < 10; i++) {
+            part = *(struct o129872_part **)(obj + 0xC4 + i * 4);
+            part->ang78 = (int)((float)(nlRand() % 360) * 655360.0f / 360.0f);
+            part->ang7C = (int)((float)(nlRand() % 360) * 655360.0f / 360.0f);
+            part->n80 = 0;
+            part->s84 = 0.3f;
+            part->s88 = 0.3f;
+            part->s8C = 0.3f;
+            count[i] = *(signed char *)(obj + 0x22) * 10 + i + 20;
+        }
+        *(short *)(obj + 0x1C) = *(short *)(obj + 0x22) * 10 + 50;
+        *(short *)(obj + 0x20) = 0;
+        (*(signed char *)(obj + 0x14))++;
+    case 1:
+        (((struct o28_float *)(obj))->v) = (((struct o28_float *)(*(int *)(obj + 0x10)))->v);
+        (((struct o2C_float *)(obj))->v) = (((struct o2C_float *)(*(int *)(obj + 0x10)))->v);
+        (((struct o30_float *)(obj))->v) = (((struct o30_float *)(*(int *)(obj + 0x10)))->v);
+        if (*(signed char *)(*(int *)(*(int *)(obj + 0x10) + 0x10) + 0x3715) != 26) {
+            *(short *)(obj + 0x20) = 1;
+        }
+        if (*(signed char *)(*(int *)(*(int *)(obj + 0x10) + 0x10) + 0x17) > 2) {
+            *(short *)(obj + 0x20) = 1;
+        }
+        if (--*(short *)(obj + 0x1C) == 0 && *(short *)(obj + 0x20) != 0) {
+            (*(signed char *)(obj + 0x14))++;
+            return 0x14;
+        }
+        if (*(short *)(obj + 0x1C) == 0) {
+            *(short *)(obj + 0x1C) = 30;
+        }
+        for (i = 0; i < 10; i++) {
+            part = *(struct o129872_part **)(obj + 0xC4 + i * 4);
+            if (--count[i] == 0) {
+                part->ang78 = (int)((float)(nlRand() % 360) * 655360.0f / 360.0f);
+                part->ang7C = (int)((float)(nlRand() % 360) * 655360.0f / 360.0f);
+                count[i] = 30;
+            }
+            part->s8C = (float)count[i] / 60.0f;
+            part->x6C = -(((float)count[i] / 60.0f + (((struct o40_float *)(*(int *)(obj + 0x10)))->v))
+                          * math_sin_angle16(-part->ang78 + 0x14000)
+                          * math_cos_angle16(-part->ang7C + 0x14000)
+                          * 1000.0f);
+            scale = 1000.0f;
+            part->y70 = scale * ((float)count[i] / 60.0f + (((struct o44_float *)(*(int *)(obj + 0x10)))->v))
+                        * math_cos_angle16(-part->ang78 + 0x14000);
+            part->z74 = -(((float)count[i] / 60.0f + (((struct o48_float *)(*(int *)(obj + 0x10)))->v))
+                          * math_sin_angle16(-part->ang78 + 0x14000)
+                          * math_sin_angle16(-part->ang7C + 0x14000)
+                          * 1000.0f);
+        }
+        return 0x74;
+    case 2:
+    case 3:
+        return FUN_0c03f346(a4, a5, a6, a7);
+    }
+    return *(signed char *)(obj + 0x14);
 }

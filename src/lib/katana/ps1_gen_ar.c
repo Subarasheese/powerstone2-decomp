@@ -325,7 +325,7 @@ int FUN_0c0d479e(void);
 int FUN_0c0d7a7c(void);
 int FUN_0c0d7a9c(void);
 float math_vec3_accumulate(int a4, int a5);
-float FUN_0c0e2240(int a4, int a5);
+float nlLength(int a4, int a5);
 float FUN_0c0e2390(int a4, int a5, int a6);
 int nlRotateAxe(int a4, int a5);
 int nlSynchFunction(int a4);
@@ -582,33 +582,6 @@ float math_vec3_accumulate(int a4, int a5)
 }
 
 
-float FUN_0c0e2240(int a4, int a5)
-{
-    register float u0;
-    register float u1;
-    register float u2;
-    register float u3;
-    register float u4;
-    register float u5;
-    float u6[4];
-    float u7[4];
-
-    u0 = *(float *)((a4 + 0x0));
-    u1 = *(float *)((a5 + 0x0));
-    u2 = (((struct o4_float *)(a4))->v);
-    u3 = (((struct o4_float *)(a5))->v);
-    u4 = (((struct o4_float *)((a4 + 0x4)))->v);
-    u5 = (((struct o4_float *)((a5 + 0x4)))->v);
-    u6[0] = (u0 - u1);
-    u6[1] = (u2 - u3);
-    u6[2] = (u4 - u5);
-    u6[3] = 0.0f;
-    u7[0] = (u0 - u1);
-    u7[1] = (u2 - u3);
-    u7[2] = (u4 - u5);
-    u7[3] = 0.0f;
-    return _builtin_sqrtf((_builtin_fipr(u6, u7)));
-}
 
 
 float FUN_0c0e2390(int a4, int a5, int a6)

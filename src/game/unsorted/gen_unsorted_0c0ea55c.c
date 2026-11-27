@@ -24,7 +24,7 @@ int thunk_FUN_0c05abb2(int, int);
 int FUN_0c05af9a(int, int, int);
 int FUN_0c06599a(int, int);
 int FUN_0c0cff96(int, int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 int FUN_0c0ea55c(int a4);
 int FUN_0c0ea6a4(int a4);
 int FUN_0c0ea72c(void);
@@ -68,7 +68,7 @@ int FUN_0c0ea55c(int a4)
     t0 = *(short *)((a4 + 0x1E));
     *(unsigned short *)((a4 + 0x1E)) = (t0 - 1);
     if ((int)(short)(t0 - 1) <= 0) {
-        *(unsigned short *)((a4 + 0x1E)) = (((int)((int)(FUN_0c179ac0()) % (int)0xA)) + 0xA);
+        *(unsigned short *)((a4 + 0x1E)) = (((int)((int)(nlRand()) % (int)0xA)) + 0xA);
         FUN_0c0ea72c();
     }
     t0 = *(signed char *)0xC54098D;
@@ -117,14 +117,14 @@ int FUN_0c0ea72c(void)
         *(unsigned int *)((t0 + 0x3C)) = 0x0;
         *(unsigned int *)((t0 + 0x38)) = 0x0;
         *(unsigned int *)((t0 + 0x34)) = 0x0;
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)0x5);
+        t2 = (int)((int)(nlRand()) % (int)0x5);
         (((struct o48_float *)(t0))->v) = ((float)(t2 + 0x1) * 1.0f);
         (((struct o44_float *)(t0))->v) = ((float)(t2 + 0x1) * 1.0f);
         (((struct o40_float *)(t0))->v) = ((float)(t2 + 0x1) * 1.0f);
         FUN_0c037498(((((struct oC4_int *)(t0))->v)), 0x0, 0x1D, (*(int *)0xC4B40CC));
         *(unsigned char *)((((((struct oC4_int *)(t0))->v)) + 0x0)) = 0x1;
         *(unsigned short *)((((((struct oC4_int *)(t0))->v)) + 0x6)) = 0xF;
-        t2 = (int)((int)(FUN_0c179ac0()) % (int)0x28);
+        t2 = (int)((int)(nlRand()) % (int)0x28);
         u0 = (float)(((t2 << 2) + t2) << 1);
         u0 = -u0;
         (((struct o28_float *)(t0))->v) = (u0 + -850.0f);

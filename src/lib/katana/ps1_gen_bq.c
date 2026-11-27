@@ -150,13 +150,13 @@ int nlCalcPoint44(int, int);
 int nlMultiMatrix(int);
 int nlPopMatrix(int);
 int syCfgGetIDAddress(int, int, int);
-int syRtcDateToCount(void);
+int syRtcDateToCount(int a4, int a5);
 int thunk_FUN_0c0fbcf0(int);
 int pl_wangtang_update_action_22(int a4);
 void FUN_0c0f43f4(int a4, int a5, int a6, int a7);
 int kmSetPaletteData(int a4);
 int pl_wangtang_mode10_phase3(int a4);
-int FUN_0c0e3350(int a4, int a5);
+int nlFastScreenPoint(int a4, int a5);
 int syRtcCompareDate(int a4, int a5);
 int FUN_0c0fefee(int a4, int a5);
 int pl_mode15_cls15_f1_phase0(int a4);
@@ -231,7 +231,7 @@ int pl_hitreact_17_update(int a4, int a5, int a6, int a7);
 int FUN_0c098b02(int a4);
 int pl_timer_arm_motion_end(int a4, int a5);
 int nlGetPushedMatrix(int a4, int a5, int a6, int a7, float f4, float f5, float f6, float f7);
-int FUN_0c0e3470(void);
+int nlMakeFastModelProjectMatrixVM(void);
 int FUN_0c0e2720(void);
 int FUN_0c0234ca(int a4, int a5);
 int pl_ryoma_mode10_phase2(int a4);
@@ -354,18 +354,6 @@ void FUN_0c0f43f4(int a4, int a5, int a6, int a7)
 }
 
 
-int FUN_0c0e3350(int a4, int a5)
-{
-    int stk[4];
-    register float u1;
-
-    nlCalcPoint44(a4, ((int)stk + 0));
-    u1 = *(float *)(((int)stk + 12));
-    *(float *)((a5 + 0x0)) = ((*(float *)(((int)stk + 0))) * (1.0f / u1));
-    (((struct o4_float *)(a5))->v) = ((*(float *)(((int)stk + 4))) * (1.0f / u1));
-    (((struct o8_float *)(a5))->v) = (1.0f / u1);
-    return 0x8;
-}
 
 
 int syRtcCompareDate(int a4, int a5)
@@ -375,9 +363,9 @@ int syRtcCompareDate(int a4, int a5)
     register int t10;
 
     *(unsigned int *)(((int)stk + 8)) = a5;
-    syRtcDateToCount();
-    *(volatile int *)(((int)stk + 8));
-    syRtcDateToCount();
+    /* manual: each date's count goes to its own stack slot (r5); the second date is read back from the frame (r4) */
+    syRtcDateToCount(a4, ((int)stk + 4));
+    syRtcDateToCount((*(volatile int *)(((int)stk + 8))), ((int)stk + 0));
     t4 = *(int *)(((int)stk + 0));
     t10 = 0x0;
     if ((*(int *)(((int)stk + 4))) == t4) {

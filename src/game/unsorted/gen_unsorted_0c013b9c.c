@@ -21,11 +21,12 @@ int FUN_0c02b502(int);
 int FUN_0c0573c0(int, int, int);
 int FUN_0c0573cc(int, int, int);
 int FUN_0c05aab6(int, int);
-int FUN_0c187cac(int, int, int, int, int);
-int FUN_0c187ce8(int, int, int, int, int);
+int FUN_0c187cac(int, int, int, int, int, int, int);
+int FUN_0c187ce8(int, int, int, int, int, int, int);
 int syRtcGetDate(int);
 int FUN_0c013b9c(int a4);
 
+/* manual: every call to FUN_0c187cac and FUN_0c187ce8 passes all the pushed words as its stack arguments (format, then the values) */
 int FUN_0c013b9c(int a4)
 {
     int stk[13];
@@ -55,7 +56,7 @@ int FUN_0c013b9c(int a4)
     *(int *)((int)stk + 8) = (unsigned char)(*(signed char *)0xC304608);
     *(int *)((int)stk + 4) = (unsigned short)(*(short *)0xC304606);
     *(int *)((int)stk + 0) = 0xC1A5D40;
-    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D40);
+    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D40, *(int *)((int)stk + 4), *(int *)((int)stk + 8));
     FUN_0c02b3ba((((int)stk + 16) + 0x4), 220.0f, 96.0f, 638.0f);
     FUN_0c02b502(0x0);
     t16 = 0x5F5E0FF;
@@ -65,7 +66,7 @@ int FUN_0c013b9c(int a4)
     }
     *(int *)((int)stk + 12) = (t16);
     *(int *)((int)stk + 8) = 0xC1A5D54;
-    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D54);
+    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D54, *(int *)((int)stk + 12), 0x0);
     FUN_0c02b3ba((((int)stk + 16) + 0x4), 270.0f, 183.0f, 638.0f);
     t23 = 0x0;
     if ((int)((((struct o0_int *)0xC309BD4)->v)) > (int)((((struct o8_int *)0xC309BD4)->v))) {
@@ -79,7 +80,7 @@ int FUN_0c013b9c(int a4)
     }
     *(int *)((int)stk + 12) = (t28);
     *(int *)((int)stk + 8) = 0xC1A5D54;
-    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D54);
+    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D54, *(int *)((int)stk + 12), 0x0);
     FUN_0c02b3ba((((int)stk + 16) + 0x4), 270.0f, 268.0f, 638.0f);
     FUN_0c02b502(0x0);
     t36 = 0x5F5E0FF;
@@ -89,7 +90,7 @@ int FUN_0c013b9c(int a4)
     }
     *(int *)((int)stk + 12) = (t36);
     *(int *)((int)stk + 8) = 0xC1A5D5C;
-    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D5C);
+    FUN_0c187cac((((int)stk + 16) + 0x4), 0x0, 0x0, 0x0, 0xC1A5D5C, *(int *)((int)stk + 12), 0x0);
     FUN_0c02b3ba((((int)stk + 16) + 0x4), 220.0f, 353.0f, 638.0f);
     t41 = *(int *)0xC304B24;
     t42 = *(signed char *)((t41 + 0x0));
@@ -116,7 +117,7 @@ int FUN_0c013b9c(int a4)
                             *(unsigned char *)(((*(int *)0xC304B24) + 0x0)) = 0x2;
                             *(int *)((int)stk + 12) = 0xC309BDC;
                             *(int *)((int)stk + 8) = 0xC1A5D6C;
-                            FUN_0c187ce8(0xC3045FD, 0x0, 0x0, 0x0, 0xC1A5D6C);
+                            FUN_0c187ce8(0xC3045FD, 0x0, 0x0, 0x0, 0xC1A5D6C, *(int *)((int)stk + 12), 0x0);
                             if ((int)((((struct o8_int *)0xC309BD4)->v)) > (int)0x5F5E0FF) {
                                 (((struct o8_uint *)0xC309BD4)->v) = 0x5F5E0FF;
                             }
@@ -145,7 +146,7 @@ int FUN_0c013b9c(int a4)
                         } else {
                             *(int *)((int)stk + 12) = (((((struct o8_int *)0xC309BD4)->v)));
                             *(int *)((int)stk + 8) = 0xC1A5D6C;
-                            FUN_0c187cac(0xC3045FD, 0x0, 0x0, 0x0, 0xC1A5D6C);
+                            FUN_0c187cac(0xC3045FD, 0x0, 0x0, 0x0, 0xC1A5D6C, *(int *)((int)stk + 12), 0x0);
                             *(int *)((int)stk + 4) = 0x4;
                             FUN_0c0159c4(0x0, 0x0, 0xC3045FD, 0x8, 0x4);
                             *(unsigned char *)(((*(int *)0xC304B24) + 0x0)) = 0x5;

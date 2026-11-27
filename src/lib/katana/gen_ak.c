@@ -87,7 +87,7 @@ int FUN_0c17ffea(int, int);
 int FUN_0c180a6c(int, int, int);
 int FUN_0c1828fe(int);
 extern int FUN_0c182a34();
-int FUN_0c187990(int);
+int _slow_strcpy(int);
 int FUN_0c187a88(int, int, int);
 int FUN_0c18d914(int, int, int, int, int, int, int);
 int FUN_0c18dab4(int);
@@ -215,7 +215,7 @@ int FUN_0c2d7498(void);
 int kmyStartRenderTexture(int a4, int a5, int a6);
 int syIntAdrChk_putchar(int a4, int a5);
 int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9);
-void FUN_0c18d320(int a4, int a5);
+int FUN_0c18d320(int a4, int a5);
 int FUN_0c19c774(int a4, int a5, int a6);
 int vmsfs_mediainfo_retry(int a4, int a5);
 int FUN_0c2d8824(int a4);
@@ -1264,7 +1264,7 @@ int nlFrustum_L(float f4, float f5, float f6, float f7, float f8, float f9)
     return (nl_set_cnv_proj_pers());
 }
 
-void FUN_0c18d320(int a4, int a5)
+int FUN_0c18d320(int a4, int a5)
 {
     int stk[3];
     register int t3;
@@ -1277,8 +1277,10 @@ void FUN_0c18d320(int a4, int a5)
     *(unsigned int *)((((((short)t3 << 2) << 2) + 0xC8A7030) + 0xC)) = (short)t3;
     t7 = FUN_0c19adb4((*(short *)((a4 + 0x0))), (((int)stk + 0) + 0x4), (*(short *)((a4 + 0x2))), (*(int *)((a4 + 0x8))));
     if ((int)t7 < 0) {
+        return t7;
     } else {
         if ((*(int *)((a4 + 0x8))) != 0) {
+            return -1;
         } else {
             FUN_0c18dfe6();
             for (;;) {
@@ -1290,11 +1292,13 @@ void FUN_0c18d320(int a4, int a5)
             FUN_0c18dfd6();
             *(unsigned short *)(((*(int *)(((int)stk + 0))) + 0x0)) = (*(int *)((((((*(short *)((a4 + 0x0))) << 2) << 2) + 0xC8A7030) + 0x8)));
             if ((*(int *)((((((*(short *)((a4 + 0x0))) << 2) << 2) + 0xC8A7030) + 0x4))) == 0) {
+                return -8;
             } else {
-                *(volatile int *)((((((*(short *)((a4 + 0x0))) << 2) << 2) + 0xC8A7030) + 0x4));
+                return *(volatile int *)((((((*(short *)((a4 + 0x0))) << 2) << 2) + 0xC8A7030) + 0x4));
             }
         }
     }
+    return t7;
 }
 
 int FUN_0c19c774(int a4, int a5, int a6)

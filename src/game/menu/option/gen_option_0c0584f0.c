@@ -9,8 +9,8 @@ struct o4_float { char p[0x4]; float v; };
 struct o8_float { char p[0x8]; float v; };
 float math_signed_sqrt(float);
 int math_atan2_angle16(float, float);
-int FUN_0c17a360(int);
-int FUN_0c17a4c0(int, int);
+int nlPuts(int);
+int nlLocate(int, int);
 int FUN_0c17a550(int);
 int nlCalcPoint(int, int);
 int nlRotateAX(int);
@@ -25,9 +25,9 @@ void FUN_0c05883a(int a4, int a5, int a6, float f4, float f5, float f6);
 
 int FUN_0c0584f0(int a4, int a5, int a6, int a7)
 {
-    FUN_0c17a4c0(a5, a6);
+    nlLocate(a5, a6);
     FUN_0c17a550(a7);
-    return FUN_0c17a360(a4);
+    return nlPuts(a4);
 }
 
 int FUN_0c058514(int a4, int a5)

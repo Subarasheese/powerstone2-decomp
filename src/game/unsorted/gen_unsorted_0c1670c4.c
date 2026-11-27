@@ -28,7 +28,7 @@ int FUN_0c064d24(int, int, int, int, int, int, int, int);
 int FUN_0c07e3ae(int, int);
 int FUN_0c1673e0(int a4, int a5, int a6);
 float math_cos_angle16(int);
-int FUN_0c179ac0(void);
+int nlRand(void);
 float math_sin_angle16(int);
 int FUN_0c18778c(int);
 int FUN_0c187798(void);

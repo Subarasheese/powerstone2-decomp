@@ -401,61 +401,6 @@ int FUN_0c14d5de(int a4, int a5, int a6, int a7)
     return t9;
 }
 
-int FUN_0c0d704c(int a4, int a5, int a6, int a7, float f4)
-{
-    register int t0;
-    register int t1;
-    register int t2;
-
-    t0 = *(signed char *)((a4 + 0x15));
-    if (t0 != 0) {
-        t1 = t0;
-        if (t0 != 1) {
-        } else {
-            t0 = *(short *)((a4 + 0x1C));
-            *(unsigned short *)((a4 + 0x1C)) = (t0 - 1);
-            t2 = (short)(t0 - 1);
-            if ((int)(short)(t0 - 1) <= 0) {
-                t0 = ((int (*)(int, int, int, int, float))(FUN_0c0c2d56))(a4, 0x0, (*(signed char *)((a4 + 0x1))), a7, f4);
-                (((struct oA8_uchar *)(a4))->v) = 0x0;
-                *(unsigned short *)(((0x12A + a4) + 0x2)) = 0x0;
-                *(unsigned short *)(((0x12A + a4) + 0x4)) = 0x0;
-                (((struct o12A_ushort *)(a4))->v) = 0x0;
-                *(unsigned short *)((a4 + 0x1C)) = 0x3C;
-                t2 = 0x3C;
-            }
-            t1 = t2;
-        }
-        t0 = t1;
-    } else {
-        *(unsigned short *)((a4 + 0x1C)) = 0x12C;
-        (((struct oA8_uchar *)(a4))->v) = 0x0;
-        { struct mv3 { int w[3]; }; *(struct mv3 *)((a4 + 0x28)) = *(struct mv3 *)(a5); }
-        *(unsigned int *)((a4 + 0x38)) = a6;
-        (((struct o15_uchar *)(a4))->v) = ((*(signed char *)((a4 + 0x15))) + 0x1);
-        *(unsigned int *)((a4 + 0x3C)) = 0x0;
-        *(unsigned int *)((a4 + 0x34)) = 0x0;
-        (((struct oA4_uint *)(a4))->v) = 0x0;
-        FUN_0c0c2ab6(a4, (*(signed char *)((((unsigned short)(unsigned char)(*(signed char *)((a4 + 0x41C))) * (unsigned short)0x34) + 0xC2738CA))));
-        *(unsigned short *)(((0x12A + a4) + 0x2)) = 0x0;
-        *(unsigned short *)(((0x12A + a4) + 0x4)) = 0x0;
-        (((struct o12A_ushort *)(a4))->v) = 0x0;
-        t1 = *(short *)((a4 + 0x1C));
-        *(unsigned short *)((a4 + 0x1C)) = (t1 - 1);
-        t2 = (short)(t1 - 1);
-        if ((int)(short)(t1 - 1) <= 0) {
-            t1 = ((int (*)(int, int, int))(FUN_0c0c2d56))(a4, 0x0, (*(signed char *)((a4 + 0x1))));
-            (((struct oA8_uchar *)(a4))->v) = 0x0;
-            *(unsigned short *)(((0x12A + a4) + 0x2)) = 0x0;
-            *(unsigned short *)(((0x12A + a4) + 0x4)) = 0x0;
-            (((struct o12A_ushort *)(a4))->v) = 0x0;
-            *(unsigned short *)((a4 + 0x1C)) = 0x3C;
-            t2 = 0x3C;
-        }
-        t0 = t2;
-    }
-    return t0;
-}
 
 int FUN_0c0b5b8e(int a4, int a5)
 {
