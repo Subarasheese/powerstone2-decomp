@@ -1,4 +1,4 @@
-/* scratch */
+/* FUN_0c1490ba (batch gen_amv): generated from the code and checked by tests. */
 struct o16_uchar { char p[0x16]; unsigned char v; };
 struct o40_float { char p[0x40]; float v; };
 struct o44_float { char p[0x44]; float v; };
